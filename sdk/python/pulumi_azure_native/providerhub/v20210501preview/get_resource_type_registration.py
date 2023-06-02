@@ -17,6 +17,8 @@ __all__ = [
     'get_resource_type_registration_output',
 ]
 
+warnings.warn("""azure-native:providerhub/v20210501preview:ResourceTypeRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:ResourceTypeRegistration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetResourceTypeRegistrationResult:
     def __init__(__self__, id=None, name=None, properties=None, type=None):
@@ -85,6 +87,7 @@ def get_resource_type_registration(provider_namespace: Optional[str] = None,
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str resource_type: The resource type.
     """
+    pulumi.log.warn("""get_resource_type_registration is deprecated: azure-native:providerhub/v20210501preview:ResourceTypeRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:ResourceTypeRegistration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['providerNamespace'] = provider_namespace
     __args__['resourceType'] = resource_type
@@ -109,4 +112,5 @@ def get_resource_type_registration_output(provider_namespace: Optional[pulumi.In
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str resource_type: The resource type.
     """
+    pulumi.log.warn("""get_resource_type_registration is deprecated: azure-native:providerhub/v20210501preview:ResourceTypeRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:ResourceTypeRegistration to guarantee forwards compatibility.""")
     ...

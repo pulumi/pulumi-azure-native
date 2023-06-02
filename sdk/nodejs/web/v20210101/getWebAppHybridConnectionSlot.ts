@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves a specific Service Bus Hybrid Connection used by this Web App.
  */
+/** @deprecated azure-native:web/v20210101:WebAppHybridConnectionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppHybridConnectionSlot to guarantee forwards compatibility. */
 export function getWebAppHybridConnectionSlot(args: GetWebAppHybridConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHybridConnectionSlotResult> {
+    pulumi.log.warn("getWebAppHybridConnectionSlot is deprecated: azure-native:web/v20210101:WebAppHybridConnectionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppHybridConnectionSlot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210101:getWebAppHybridConnectionSlot", {
@@ -99,6 +101,7 @@ export interface GetWebAppHybridConnectionSlotResult {
 /**
  * Retrieves a specific Service Bus Hybrid Connection used by this Web App.
  */
+/** @deprecated azure-native:web/v20210101:WebAppHybridConnectionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppHybridConnectionSlot to guarantee forwards compatibility. */
 export function getWebAppHybridConnectionSlotOutput(args: GetWebAppHybridConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHybridConnectionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppHybridConnectionSlot(a, opts))
 }

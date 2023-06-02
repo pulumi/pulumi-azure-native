@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified container service in the specified subscription and resource group. The operation returns the properties including state, orchestrator, number of masters and agents, and FQDNs of masters and agents.
  */
-/** @deprecated Version 2016-09-30 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-09-30 will be removed in v2 of the provider.
+azure-native:containerservice/v20160930:ContainerService is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility. */
 export function getContainerService(args: GetContainerServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerServiceResult> {
-    pulumi.log.warn("getContainerService is deprecated: Version 2016-09-30 will be removed in v2 of the provider.")
+    pulumi.log.warn("getContainerService is deprecated: Version 2016-09-30 will be removed in v2 of the provider.\nazure-native:containerservice/v20160930:ContainerService is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20160930:getContainerService", {
@@ -96,7 +97,8 @@ export interface GetContainerServiceResult {
 /**
  * Gets the properties of the specified container service in the specified subscription and resource group. The operation returns the properties including state, orchestrator, number of masters and agents, and FQDNs of masters and agents.
  */
-/** @deprecated Version 2016-09-30 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-09-30 will be removed in v2 of the provider.
+azure-native:containerservice/v20160930:ContainerService is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility. */
 export function getContainerServiceOutput(args: GetContainerServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerServiceResult> {
     return pulumi.output(args).apply((a: any) => getContainerService(a, opts))
 }

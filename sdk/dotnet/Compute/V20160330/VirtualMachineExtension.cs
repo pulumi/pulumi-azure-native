@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Compute.V20160330
     /// <summary>
     /// Describes a Virtual Machine Extension.
     /// </summary>
-    [Obsolete(@"Version 2016-03-30 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2016-03-30 will be removed in v2 of the provider.
+azure-native:compute/v20160330:VirtualMachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineExtension to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20160330:VirtualMachineExtension")]
     public partial class VirtualMachineExtension : global::Pulumi.CustomResource
     {

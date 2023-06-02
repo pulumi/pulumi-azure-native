@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     /// <summary>
     /// Represents an environment type.
     /// </summary>
+    [Obsolete(@"azure-native:devcenter/v20220801preview:EnvironmentType is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devcenter/v20220801preview:EnvironmentType")]
     public partial class EnvironmentType : global::Pulumi.CustomResource
     {
@@ -74,7 +75,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:EnvironmentType"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:EnvironmentType"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:EnvironmentType"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:EnvironmentType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

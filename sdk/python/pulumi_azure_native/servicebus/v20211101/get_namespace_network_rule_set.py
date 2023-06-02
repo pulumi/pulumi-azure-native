@@ -17,6 +17,8 @@ __all__ = [
     'get_namespace_network_rule_set_output',
 ]
 
+warnings.warn("""azure-native:servicebus/v20211101:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNamespaceNetworkRuleSetResult:
     """
@@ -163,6 +165,7 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_namespace_network_rule_set is deprecated: azure-native:servicebus/v20211101:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
@@ -193,4 +196,5 @@ def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_namespace_network_rule_set is deprecated: azure-native:servicebus/v20211101:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility.""")
     ...

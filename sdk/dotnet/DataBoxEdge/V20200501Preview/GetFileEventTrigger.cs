@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
 {
+    [Obsolete(@"azure-native:databoxedge/v20200501preview:FileEventTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility.")]
     public static class GetFileEventTrigger
     {
         /// <summary>

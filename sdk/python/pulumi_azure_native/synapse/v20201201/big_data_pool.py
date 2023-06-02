@@ -388,11 +388,13 @@ class BigDataPoolArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2020-12-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-12-01 will be removed in v2 of the provider.
+azure-native:synapse/v20201201:BigDataPool is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210501:BigDataPool to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class BigDataPool(pulumi.CustomResource):
-    warnings.warn("""Version 2020-12-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2020-12-01 will be removed in v2 of the provider.
+azure-native:synapse/v20201201:BigDataPool is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210501:BigDataPool to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -499,7 +501,8 @@ class BigDataPool(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""BigDataPool is deprecated: Version 2020-12-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""BigDataPool is deprecated: Version 2020-12-01 will be removed in v2 of the provider.
+azure-native:synapse/v20201201:BigDataPool is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210501:BigDataPool to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.MixedReality.V20191202Preview
     /// <summary>
     /// SpatialAnchorsAccount Response.
     /// </summary>
-    [Obsolete(@"Version 2019-12-02-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-12-02-preview will be removed in v2 of the provider.
+azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount")]
     public partial class SpatialAnchorsAccount : global::Pulumi.CustomResource
     {

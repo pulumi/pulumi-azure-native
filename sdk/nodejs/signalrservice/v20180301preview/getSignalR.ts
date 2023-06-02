@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get the SignalR service and its properties.
  */
-/** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider.
+azure-native:signalrservice/v20180301preview:SignalR is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20181001:SignalR to guarantee forwards compatibility. */
 export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRResult> {
-    pulumi.log.warn("getSignalR is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getSignalR is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.\nazure-native:signalrservice/v20180301preview:SignalR is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20181001:SignalR to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:signalrservice/v20180301preview:getSignalR", {
@@ -93,7 +94,8 @@ export interface GetSignalRResult {
 /**
  * Get the SignalR service and its properties.
  */
-/** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider.
+azure-native:signalrservice/v20180301preview:SignalR is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20181001:SignalR to guarantee forwards compatibility. */
 export function getSignalROutput(args: GetSignalROutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRResult> {
     return pulumi.output(args).apply((a: any) => getSignalR(a, opts))
 }

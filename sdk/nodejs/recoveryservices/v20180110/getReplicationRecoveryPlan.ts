@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the recovery plan.
  */
-/** @deprecated Version 2018-01-10 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationRecoveryPlan to guarantee forwards compatibility. */
 export function getReplicationRecoveryPlan(args: GetReplicationRecoveryPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryPlanResult> {
-    pulumi.log.warn("getReplicationRecoveryPlan is deprecated: Version 2018-01-10 will be removed in v2 of the provider.")
+    pulumi.log.warn("getReplicationRecoveryPlan is deprecated: Version 2018-01-10 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20180110:ReplicationRecoveryPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationRecoveryPlan to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20180110:getReplicationRecoveryPlan", {
@@ -65,7 +66,8 @@ export interface GetReplicationRecoveryPlanResult {
 /**
  * Gets the details of the recovery plan.
  */
-/** @deprecated Version 2018-01-10 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationRecoveryPlan to guarantee forwards compatibility. */
 export function getReplicationRecoveryPlanOutput(args: GetReplicationRecoveryPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryPlanResult> {
     return pulumi.output(args).apply((a: any) => getReplicationRecoveryPlan(a, opts))
 }

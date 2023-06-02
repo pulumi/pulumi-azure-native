@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the specified registration assignment.
  */
+/** @deprecated azure-native:managedservices/v20200201preview:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility. */
 export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationAssignmentResult> {
+    pulumi.log.warn("getRegistrationAssignment is deprecated: azure-native:managedservices/v20200201preview:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedservices/v20200201preview:getRegistrationAssignment", {
@@ -59,6 +61,7 @@ export interface GetRegistrationAssignmentResult {
 /**
  * Gets the details of the specified registration assignment.
  */
+/** @deprecated azure-native:managedservices/v20200201preview:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility. */
 export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getRegistrationAssignment(a, opts))
 }

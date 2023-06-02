@@ -17,6 +17,8 @@ __all__ = [
     'get_watchlist_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20220601preview:Watchlist is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:Watchlist to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWatchlistResult:
     """
@@ -357,6 +359,7 @@ def get_watchlist(resource_group_name: Optional[str] = None,
     :param str watchlist_alias: Watchlist Alias
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_watchlist is deprecated: azure-native:securityinsights/v20220601preview:Watchlist is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:Watchlist to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['watchlistAlias'] = watchlist_alias
@@ -406,4 +409,5 @@ def get_watchlist_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str watchlist_alias: Watchlist Alias
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_watchlist is deprecated: azure-native:securityinsights/v20220601preview:Watchlist is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:Watchlist to guarantee forwards compatibility.""")
     ...

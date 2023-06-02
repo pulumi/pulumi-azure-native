@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Maps Creator resource.
  */
+/** @deprecated azure-native:maps/v20210201:Creator is being removed in the next major version of this provider. Upgrade to at least azure-native:maps/v20211201preview:Creator to guarantee forwards compatibility. */
 export function getCreator(args: GetCreatorArgs, opts?: pulumi.InvokeOptions): Promise<GetCreatorResult> {
+    pulumi.log.warn("getCreator is deprecated: azure-native:maps/v20210201:Creator is being removed in the next major version of this provider. Upgrade to at least azure-native:maps/v20211201preview:Creator to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maps/v20210201:getCreator", {
@@ -67,6 +69,7 @@ export interface GetCreatorResult {
 /**
  * Get a Maps Creator resource.
  */
+/** @deprecated azure-native:maps/v20210201:Creator is being removed in the next major version of this provider. Upgrade to at least azure-native:maps/v20211201preview:Creator to guarantee forwards compatibility. */
 export function getCreatorOutput(args: GetCreatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCreatorResult> {
     return pulumi.output(args).apply((a: any) => getCreator(a, opts))
 }

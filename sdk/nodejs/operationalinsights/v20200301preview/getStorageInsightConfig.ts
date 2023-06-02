@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a storage insight instance.
  */
+/** @deprecated azure-native:operationalinsights/v20200301preview:StorageInsightConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:StorageInsightConfig to guarantee forwards compatibility. */
 export function getStorageInsightConfig(args: GetStorageInsightConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageInsightConfigResult> {
+    pulumi.log.warn("getStorageInsightConfig is deprecated: azure-native:operationalinsights/v20200301preview:StorageInsightConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:StorageInsightConfig to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20200301preview:getStorageInsightConfig", {
@@ -79,6 +81,7 @@ export interface GetStorageInsightConfigResult {
 /**
  * Gets a storage insight instance.
  */
+/** @deprecated azure-native:operationalinsights/v20200301preview:StorageInsightConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:StorageInsightConfig to guarantee forwards compatibility. */
 export function getStorageInsightConfigOutput(args: GetStorageInsightConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageInsightConfigResult> {
     return pulumi.output(args).apply((a: any) => getStorageInsightConfig(a, opts))
 }

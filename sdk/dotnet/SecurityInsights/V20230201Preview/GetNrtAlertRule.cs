@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20230201Preview
 {
+    [Obsolete(@"azure-native:securityinsights/v20230201preview:NrtAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:NrtAlertRule to guarantee forwards compatibility.")]
     public static class GetNrtAlertRule
     {
         /// <summary>

@@ -117,7 +117,12 @@ class IoTDataConnectorArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+warnings.warn("""azure-native:securityinsights/v20220601preview:IoTDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IoTDataConnector to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class IoTDataConnector(pulumi.CustomResource):
+    warnings.warn("""azure-native:securityinsights/v20220601preview:IoTDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IoTDataConnector to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -173,6 +178,7 @@ class IoTDataConnector(pulumi.CustomResource):
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""IoTDataConnector is deprecated: azure-native:securityinsights/v20220601preview:IoTDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IoTDataConnector to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -197,7 +203,7 @@ class IoTDataConnector(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:IoTDataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:IoTDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:IoTDataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IoTDataConnector, __self__).__init__(
             'azure-native:securityinsights/v20220601preview:IoTDataConnector',

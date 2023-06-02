@@ -16,7 +16,8 @@ __all__ = [
     'get_project_output',
 ]
 
-warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.
+azure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Project to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetProjectResult:
@@ -212,7 +213,8 @@ def get_project(project_name: Optional[str] = None,
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
-    pulumi.log.warn("""get_project is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_project is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.
+azure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Project to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
@@ -247,5 +249,6 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
-    pulumi.log.warn("""get_project is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_project is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.
+azure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Project to guarantee forwards compatibility.""")
     ...

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001Preview
     /// <summary>
     /// An object that represents a machine learning workspace.
     /// </summary>
+    [Obsolete(@"azure-native:machinelearningservices/v20221001preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Workspace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20221001preview:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {

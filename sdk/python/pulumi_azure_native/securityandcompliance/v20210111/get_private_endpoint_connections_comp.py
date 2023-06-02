@@ -17,6 +17,8 @@ __all__ = [
     'get_private_endpoint_connections_comp_output',
 ]
 
+warnings.warn("""azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionsCompResult:
     """
@@ -129,6 +131,7 @@ def get_private_endpoint_connections_comp(private_endpoint_connection_name: Opti
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str resource_name: The name of the service instance.
     """
+    pulumi.log.warn("""get_private_endpoint_connections_comp is deprecated: azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -159,4 +162,5 @@ def get_private_endpoint_connections_comp_output(private_endpoint_connection_nam
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str resource_name: The name of the service instance.
     """
+    pulumi.log.warn("""get_private_endpoint_connections_comp is deprecated: azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility.""")
     ...

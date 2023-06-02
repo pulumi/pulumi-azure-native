@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Implements vCenter GET method.
  */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VCenter to guarantee forwards compatibility. */
 export function getVCenter(args: GetVCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetVCenterResult> {
+    pulumi.log.warn("getVCenter is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VCenter to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220110preview:getVCenter", {
@@ -110,6 +112,7 @@ export interface GetVCenterResult {
 /**
  * Implements vCenter GET method.
  */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VCenter to guarantee forwards compatibility. */
 export function getVCenterOutput(args: GetVCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVCenterResult> {
     return pulumi.output(args).apply((a: any) => getVCenter(a, opts))
 }

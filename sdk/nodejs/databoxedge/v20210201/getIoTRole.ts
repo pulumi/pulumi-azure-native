@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a specific role by name.
  */
+/** @deprecated azure-native:databoxedge/v20210201:IoTRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:IoTRole to guarantee forwards compatibility. */
 export function getIoTRole(args: GetIoTRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTRoleResult> {
+    pulumi.log.warn("getIoTRole is deprecated: azure-native:databoxedge/v20210201:IoTRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:IoTRole to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210201:getIoTRole", {
@@ -96,6 +98,7 @@ export interface GetIoTRoleResult {
 /**
  * Gets a specific role by name.
  */
+/** @deprecated azure-native:databoxedge/v20210201:IoTRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:IoTRole to guarantee forwards compatibility. */
 export function getIoTRoleOutput(args: GetIoTRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTRoleResult> {
     return pulumi.output(args).apply((a: any) => getIoTRole(a, opts))
 }

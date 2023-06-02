@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
     /// <summary>
     /// Value object for saved search results.
     /// </summary>
+    [Obsolete(@"azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:operationalinsights/v20200301preview:SavedSearch")]
     public partial class SavedSearch : global::Pulumi.CustomResource
     {

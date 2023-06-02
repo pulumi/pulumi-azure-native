@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get a specific Smart Detector alert rule.
  */
-/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-03-01 will be removed in v2 of the provider.
+azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility. */
 export function getSmartDetectorAlertRule(args: GetSmartDetectorAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSmartDetectorAlertRuleResult> {
-    pulumi.log.warn("getSmartDetectorAlertRule is deprecated: Version 2019-03-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getSmartDetectorAlertRule is deprecated: Version 2019-03-01 will be removed in v2 of the provider.\nazure-native:alertsmanagement/v20190301:SmartDetectorAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:alertsmanagement/v20190301:getSmartDetectorAlertRule", {
@@ -89,7 +90,8 @@ export interface GetSmartDetectorAlertRuleResult {
 /**
  * Get a specific Smart Detector alert rule.
  */
-/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-03-01 will be removed in v2 of the provider.
+azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility. */
 export function getSmartDetectorAlertRuleOutput(args: GetSmartDetectorAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSmartDetectorAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getSmartDetectorAlertRule(a, opts))
 }

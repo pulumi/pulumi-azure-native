@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified static member.
  */
+/** @deprecated azure-native:network/v20220101:StaticMember is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:StaticMember to guarantee forwards compatibility. */
 export function getStaticMember(args: GetStaticMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticMemberResult> {
+    pulumi.log.warn("getStaticMember is deprecated: azure-native:network/v20220101:StaticMember is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:StaticMember to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220101:getStaticMember", {
@@ -80,6 +82,7 @@ export interface GetStaticMemberResult {
 /**
  * Gets the specified static member.
  */
+/** @deprecated azure-native:network/v20220101:StaticMember is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:StaticMember to guarantee forwards compatibility. */
 export function getStaticMemberOutput(args: GetStaticMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticMemberResult> {
     return pulumi.output(args).apply((a: any) => getStaticMember(a, opts))
 }

@@ -134,7 +134,12 @@ class NamespaceNetworkRuleSetArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
+warnings.warn("""azure-native:servicebus/v20220101preview:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class NamespaceNetworkRuleSet(pulumi.CustomResource):
+    warnings.warn("""azure-native:servicebus/v20220101preview:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -192,6 +197,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  trusted_service_access_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NWRuleSetVirtualNetworkRulesArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""NamespaceNetworkRuleSet is deprecated: azure-native:servicebus/v20220101preview:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

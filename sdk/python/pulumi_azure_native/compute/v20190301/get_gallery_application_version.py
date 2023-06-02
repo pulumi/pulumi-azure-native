@@ -17,7 +17,8 @@ __all__ = [
     'get_gallery_application_version_output',
 ]
 
-warnings.warn("""Version 2019-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-03-01 will be removed in v2 of the provider.
+azure-native:compute/v20190301:GalleryApplicationVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryApplicationVersion to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetGalleryApplicationVersionResult:
@@ -147,7 +148,8 @@ def get_gallery_application_version(expand: Optional[str] = None,
     :param str gallery_name: The name of the Shared Application Gallery in which the Application Definition resides.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_gallery_application_version is deprecated: Version 2019-03-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_gallery_application_version is deprecated: Version 2019-03-01 will be removed in v2 of the provider.
+azure-native:compute/v20190301:GalleryApplicationVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryApplicationVersion to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['galleryApplicationName'] = gallery_application_name
@@ -185,5 +187,6 @@ def get_gallery_application_version_output(expand: Optional[pulumi.Input[Optiona
     :param str gallery_name: The name of the Shared Application Gallery in which the Application Definition resides.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_gallery_application_version is deprecated: Version 2019-03-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_gallery_application_version is deprecated: Version 2019-03-01 will be removed in v2 of the provider.
+azure-native:compute/v20190301:GalleryApplicationVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryApplicationVersion to guarantee forwards compatibility.""")
     ...

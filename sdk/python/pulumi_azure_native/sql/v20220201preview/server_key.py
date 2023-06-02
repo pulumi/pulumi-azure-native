@@ -97,7 +97,12 @@ class ServerKeyArgs:
         pulumi.set(self, "uri", value)
 
 
+warnings.warn("""azure-native:sql/v20220201preview:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerKey to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ServerKey(pulumi.CustomResource):
+    warnings.warn("""azure-native:sql/v20220201preview:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerKey to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -149,6 +154,7 @@ class ServerKey(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ServerKey is deprecated: azure-native:sql/v20220201preview:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerKey to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

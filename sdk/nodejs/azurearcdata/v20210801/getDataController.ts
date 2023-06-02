@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves a dataController resource
  */
+/** @deprecated azure-native:azurearcdata/v20210801:DataController is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:DataController to guarantee forwards compatibility. */
 export function getDataController(args: GetDataControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataControllerResult> {
+    pulumi.log.warn("getDataController is deprecated: azure-native:azurearcdata/v20210801:DataController is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:DataController to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20210801:getDataController", {
@@ -67,6 +69,7 @@ export interface GetDataControllerResult {
 /**
  * Retrieves a dataController resource
  */
+/** @deprecated azure-native:azurearcdata/v20210801:DataController is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:DataController to guarantee forwards compatibility. */
 export function getDataControllerOutput(args: GetDataControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataControllerResult> {
     return pulumi.output(args).apply((a: any) => getDataController(a, opts))
 }

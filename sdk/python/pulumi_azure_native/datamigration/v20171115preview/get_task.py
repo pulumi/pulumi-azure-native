@@ -17,7 +17,8 @@ __all__ = [
     'get_task_output',
 ]
 
-warnings.warn("""Version 2017-11-15-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-11-15-preview will be removed in v2 of the provider.
+azure-native:datamigration/v20171115preview:Task is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:Task to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetTaskResult:
@@ -111,7 +112,8 @@ def get_task(expand: Optional[str] = None,
     :param str service_name: Name of the service
     :param str task_name: Name of the Task
     """
-    pulumi.log.warn("""get_task is deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_task is deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.
+azure-native:datamigration/v20171115preview:Task is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:Task to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['groupName'] = group_name
@@ -146,5 +148,6 @@ def get_task_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str service_name: Name of the service
     :param str task_name: Name of the Task
     """
-    pulumi.log.warn("""get_task is deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_task is deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.
+azure-native:datamigration/v20171115preview:Task is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:Task to guarantee forwards compatibility.""")
     ...

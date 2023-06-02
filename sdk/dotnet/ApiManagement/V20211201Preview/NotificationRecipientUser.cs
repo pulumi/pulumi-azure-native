@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
     /// <summary>
     /// Recipient User details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20211201preview:NotificationRecipientUser is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:NotificationRecipientUser to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20211201preview:NotificationRecipientUser")]
     public partial class NotificationRecipientUser : global::Pulumi.CustomResource
     {

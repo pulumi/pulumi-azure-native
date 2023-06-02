@@ -174,7 +174,12 @@ class ConfigurationAssignmentParentArgs:
         pulumi.set(self, "resource_id", value)
 
 
+warnings.warn("""azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ConfigurationAssignmentParent(pulumi.CustomResource):
+    warnings.warn("""azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -241,6 +246,7 @@ class ConfigurationAssignmentParent(pulumi.CustomResource):
                  resource_parent_type: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ConfigurationAssignmentParent is deprecated: azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -274,7 +280,7 @@ class ConfigurationAssignmentParent(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maintenance:ConfigurationAssignmentParent"), pulumi.Alias(type_="azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent"), pulumi.Alias(type_="azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent"), pulumi.Alias(type_="azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent"), pulumi.Alias(type_="azure-native:maintenance/v20230401:ConfigurationAssignmentParent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maintenance:ConfigurationAssignmentParent"), pulumi.Alias(type_="azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent"), pulumi.Alias(type_="azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent"), pulumi.Alias(type_="azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationAssignmentParent, __self__).__init__(
             'azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent',

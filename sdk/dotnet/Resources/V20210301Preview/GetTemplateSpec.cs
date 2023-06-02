@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Resources.V20210301Preview
 {
+    [Obsolete(@"azure-native:resources/v20210301preview:TemplateSpec is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility.")]
     public static class GetTemplateSpec
     {
         /// <summary>

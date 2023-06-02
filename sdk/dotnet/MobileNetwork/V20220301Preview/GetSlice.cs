@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
 {
+    [Obsolete(@"azure-native:mobilenetwork/v20220301preview:Slice is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Slice to guarantee forwards compatibility.")]
     public static class GetSlice
     {
         /// <summary>

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the Application Live  and its properties.
  */
+/** @deprecated azure-native:appplatform/v20221101preview:DevToolPortal is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:DevToolPortal to guarantee forwards compatibility. */
 export function getDevToolPortal(args: GetDevToolPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetDevToolPortalResult> {
+    pulumi.log.warn("getDevToolPortal is deprecated: azure-native:appplatform/v20221101preview:DevToolPortal is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:DevToolPortal to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20221101preview:getDevToolPortal", {
@@ -63,6 +65,7 @@ export interface GetDevToolPortalResult {
 /**
  * Get the Application Live  and its properties.
  */
+/** @deprecated azure-native:appplatform/v20221101preview:DevToolPortal is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:DevToolPortal to guarantee forwards compatibility. */
 export function getDevToolPortalOutput(args: GetDevToolPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevToolPortalResult> {
     return pulumi.output(args).apply((a: any) => getDevToolPortal(a, opts))
 }

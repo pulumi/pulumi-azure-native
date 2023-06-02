@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
     /// <summary>
     /// Definition of the configuration profile.
     /// </summary>
+    [Obsolete(@"azure-native:automanage/v20210430preview:ConfigurationProfile is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfile to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automanage/v20210430preview:ConfigurationProfile")]
     public partial class ConfigurationProfile : global::Pulumi.CustomResource
     {

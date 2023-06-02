@@ -3,11 +3,9 @@
 
 // Export sub-modules:
 import * as v20221001preview from "./v20221001preview";
-import * as v20230501preview from "./v20230501preview";
 
 export {
     v20221001preview,
-    v20230501preview,
 };
 
 export const AssociationType = {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureArcData.V20210701Preview
 {
+    [Obsolete(@"azure-native:azurearcdata/v20210701preview:SqlServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:SqlServerInstance to guarantee forwards compatibility.")]
     public static class GetSqlServerInstance
     {
         /// <summary>

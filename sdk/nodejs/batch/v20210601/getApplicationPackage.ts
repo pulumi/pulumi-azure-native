@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified application package.
  */
+/** @deprecated azure-native:batch/v20210601:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:ApplicationPackage to guarantee forwards compatibility. */
 export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationPackageResult> {
+    pulumi.log.warn("getApplicationPackage is deprecated: azure-native:batch/v20210601:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:ApplicationPackage to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:batch/v20210601:getApplicationPackage", {
@@ -81,6 +83,7 @@ export interface GetApplicationPackageResult {
 /**
  * Gets information about the specified application package.
  */
+/** @deprecated azure-native:batch/v20210601:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:ApplicationPackage to guarantee forwards compatibility. */
 export function getApplicationPackageOutput(args: GetApplicationPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationPackageResult> {
     return pulumi.output(args).apply((a: any) => getApplicationPackage(a, opts))
 }

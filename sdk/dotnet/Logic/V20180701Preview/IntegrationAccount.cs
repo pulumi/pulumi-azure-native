@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
     /// <summary>
     /// The integration account.
     /// </summary>
+    [Obsolete(@"azure-native:logic/v20180701preview:IntegrationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccount to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:logic/v20180701preview:IntegrationAccount")]
     public partial class IntegrationAccount : global::Pulumi.CustomResource
     {

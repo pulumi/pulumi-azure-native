@@ -17,6 +17,8 @@ __all__ = [
     'get_synapse_workspace_sql_pool_table_data_set_output',
 ]
 
+warnings.warn("""azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSynapseWorkspaceSqlPoolTableDataSetResult:
     """
@@ -132,6 +134,7 @@ def get_synapse_workspace_sql_pool_table_data_set(account_name: Optional[str] = 
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
     """
+    pulumi.log.warn("""get_synapse_workspace_sql_pool_table_data_set is deprecated: azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['dataSetName'] = data_set_name
@@ -165,4 +168,5 @@ def get_synapse_workspace_sql_pool_table_data_set_output(account_name: Optional[
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
     """
+    pulumi.log.warn("""get_synapse_workspace_sql_pool_table_data_set is deprecated: azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility.""")
     ...

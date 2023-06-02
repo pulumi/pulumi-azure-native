@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Web.V20190801
 {
+    [Obsolete(@"azure-native:web/v20190801:WebAppRelayServiceConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppRelayServiceConnection to guarantee forwards compatibility.")]
     public static class GetWebAppRelayServiceConnection
     {
         /// <summary>

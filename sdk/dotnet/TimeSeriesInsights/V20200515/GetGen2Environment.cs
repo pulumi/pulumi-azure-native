@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
 {
+    [Obsolete(@"azure-native:timeseriesinsights/v20200515:Gen2Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210331preview:Gen2Environment to guarantee forwards compatibility.")]
     public static class GetGen2Environment
     {
         /// <summary>

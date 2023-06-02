@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SignalRService.V20210901Preview
 {
+    [Obsolete(@"azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetSignalRPrivateEndpointConnection
     {
         /// <summary>

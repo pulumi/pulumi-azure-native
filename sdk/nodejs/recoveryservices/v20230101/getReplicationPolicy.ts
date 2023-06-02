@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of a replication policy.
  */
+/** @deprecated azure-native:recoveryservices/v20230101:ReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationPolicy to guarantee forwards compatibility. */
 export function getReplicationPolicy(args: GetReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationPolicyResult> {
+    pulumi.log.warn("getReplicationPolicy is deprecated: azure-native:recoveryservices/v20230101:ReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20230101:getReplicationPolicy", {
@@ -63,6 +65,7 @@ export interface GetReplicationPolicyResult {
 /**
  * Gets the details of a replication policy.
  */
+/** @deprecated azure-native:recoveryservices/v20230101:ReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationPolicy to guarantee forwards compatibility. */
 export function getReplicationPolicyOutput(args: GetReplicationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationPolicyResult> {
     return pulumi.output(args).apply((a: any) => getReplicationPolicy(a, opts))
 }

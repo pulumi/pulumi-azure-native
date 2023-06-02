@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the managed application.
  */
+/** @deprecated azure-native:solutions/v20200821preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:Application to guarantee forwards compatibility. */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
+    pulumi.log.warn("getApplication is deprecated: azure-native:solutions/v20200821preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:Application to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:solutions/v20200821preview:getApplication", {
@@ -138,6 +140,7 @@ export interface GetApplicationResult {
 /**
  * Gets the managed application.
  */
+/** @deprecated azure-native:solutions/v20200821preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:Application to guarantee forwards compatibility. */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }

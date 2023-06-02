@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Api details.
+ *
+ * @deprecated azure-native:apimanagement/v20191201:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20201201:Api to guarantee forwards compatibility.
  */
 export class Api extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Api extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Api {
+        pulumi.log.warn("Api is deprecated: azure-native:apimanagement/v20191201:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20201201:Api to guarantee forwards compatibility.")
         return new Api(name, undefined as any, { ...opts, id: id });
     }
 
@@ -125,7 +128,9 @@ export class Api extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:apimanagement/v20191201:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20201201:Api to guarantee forwards compatibility. */
     constructor(name: string, args: ApiArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Api is deprecated: azure-native:apimanagement/v20191201:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20201201:Api to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

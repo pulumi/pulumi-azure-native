@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
     /// <summary>
     /// Kubernetes role.
     /// </summary>
+    [Obsolete(@"azure-native:databoxedge/v20210601preview:KubernetesRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20210601preview:KubernetesRole")]
     public partial class KubernetesRole : global::Pulumi.CustomResource
     {

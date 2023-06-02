@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the specified shared private link resource
  */
+/** @deprecated azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility. */
 export function getWebPubSubSharedPrivateLinkResource(args: GetWebPubSubSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubSharedPrivateLinkResourceResult> {
+    pulumi.log.warn("getWebPubSubSharedPrivateLinkResource is deprecated: azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub/v20210601preview:getWebPubSubSharedPrivateLinkResource", {
@@ -79,6 +81,7 @@ export interface GetWebPubSubSharedPrivateLinkResourceResult {
 /**
  * Get the specified shared private link resource
  */
+/** @deprecated azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility. */
 export function getWebPubSubSharedPrivateLinkResourceOutput(args: GetWebPubSubSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubSharedPrivateLinkResourceResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSubSharedPrivateLinkResource(a, opts))
 }

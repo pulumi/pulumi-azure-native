@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * The Get ApplicationGateway operation retrieves information about the specified application gateway.
  */
-/** @deprecated Version 2016-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:network/v20160601:ApplicationGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:ApplicationGateway to guarantee forwards compatibility. */
 export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayResult> {
-    pulumi.log.warn("getApplicationGateway is deprecated: Version 2016-06-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getApplicationGateway is deprecated: Version 2016-06-01 will be removed in v2 of the provider.\nazure-native:network/v20160601:ApplicationGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:ApplicationGateway to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20160601:getApplicationGateway", {
@@ -128,7 +129,8 @@ export interface GetApplicationGatewayResult {
 /**
  * The Get ApplicationGateway operation retrieves information about the specified application gateway.
  */
-/** @deprecated Version 2016-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:network/v20160601:ApplicationGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:ApplicationGateway to guarantee forwards compatibility. */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
     return pulumi.output(args).apply((a: any) => getApplicationGateway(a, opts))
 }

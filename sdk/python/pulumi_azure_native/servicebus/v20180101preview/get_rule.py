@@ -17,6 +17,8 @@ __all__ = [
     'get_rule_output',
 ]
 
+warnings.warn("""azure-native:servicebus/v20180101preview:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:Rule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRuleResult:
     """
@@ -133,6 +135,7 @@ def get_rule(namespace_name: Optional[str] = None,
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
     """
+    pulumi.log.warn("""get_rule is deprecated: azure-native:servicebus/v20180101preview:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:Rule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
@@ -169,4 +172,5 @@ def get_rule_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
     """
+    pulumi.log.warn("""get_rule is deprecated: azure-native:servicebus/v20180101preview:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:Rule to guarantee forwards compatibility.""")
     ...

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a server.
  */
+/** @deprecated azure-native:dbforpostgresql/v20220308preview:Administrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221201:Administrator to guarantee forwards compatibility. */
 export function getAdministrator(args: GetAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAdministratorResult> {
+    pulumi.log.warn("getAdministrator is deprecated: azure-native:dbforpostgresql/v20220308preview:Administrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221201:Administrator to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20220308preview:getAdministrator", {
@@ -75,6 +77,7 @@ export interface GetAdministratorResult {
 /**
  * Gets information about a server.
  */
+/** @deprecated azure-native:dbforpostgresql/v20220308preview:Administrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221201:Administrator to guarantee forwards compatibility. */
 export function getAdministratorOutput(args: GetAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdministratorResult> {
     return pulumi.output(args).apply((a: any) => getAdministrator(a, opts))
 }

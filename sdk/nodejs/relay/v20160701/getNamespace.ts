@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Returns the description for the specified namespace.
  */
-/** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-07-01 will be removed in v2 of the provider.
+azure-native:relay/v20160701:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:Namespace to guarantee forwards compatibility. */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
-    pulumi.log.warn("getNamespace is deprecated: Version 2016-07-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getNamespace is deprecated: Version 2016-07-01 will be removed in v2 of the provider.\nazure-native:relay/v20160701:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:Namespace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay/v20160701:getNamespace", {
@@ -84,7 +85,8 @@ export interface GetNamespaceResult {
 /**
  * Returns the description for the specified namespace.
  */
-/** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-07-01 will be removed in v2 of the provider.
+azure-native:relay/v20160701:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:Namespace to guarantee forwards compatibility. */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getNamespace(a, opts))
 }

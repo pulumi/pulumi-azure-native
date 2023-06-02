@@ -211,7 +211,12 @@ class BackupPolicyArgs:
         pulumi.set(self, "yearly_backups_to_keep", value)
 
 
+warnings.warn("""azure-native:netapp/v20210201:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20210401:BackupPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class BackupPolicy(pulumi.CustomResource):
+    warnings.warn("""azure-native:netapp/v20210201:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20210401:BackupPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -284,6 +289,7 @@ class BackupPolicy(pulumi.CustomResource):
                  weekly_backups_to_keep: Optional[pulumi.Input[int]] = None,
                  yearly_backups_to_keep: Optional[pulumi.Input[int]] = None,
                  __props__=None):
+        pulumi.log.warn("""BackupPolicy is deprecated: azure-native:netapp/v20210201:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20210401:BackupPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

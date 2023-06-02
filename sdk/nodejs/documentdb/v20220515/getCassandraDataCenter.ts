@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the properties of a managed Cassandra data center.
  */
+/** @deprecated azure-native:documentdb/v20220515:CassandraDataCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:CassandraDataCenter to guarantee forwards compatibility. */
 export function getCassandraDataCenter(args: GetCassandraDataCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraDataCenterResult> {
+    pulumi.log.warn("getCassandraDataCenter is deprecated: azure-native:documentdb/v20220515:CassandraDataCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:CassandraDataCenter to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20220515:getCassandraDataCenter", {
@@ -59,6 +61,7 @@ export interface GetCassandraDataCenterResult {
 /**
  * Get the properties of a managed Cassandra data center.
  */
+/** @deprecated azure-native:documentdb/v20220515:CassandraDataCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:CassandraDataCenter to guarantee forwards compatibility. */
 export function getCassandraDataCenterOutput(args: GetCassandraDataCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraDataCenterResult> {
     return pulumi.output(args).apply((a: any) => getCassandraDataCenter(a, opts))
 }

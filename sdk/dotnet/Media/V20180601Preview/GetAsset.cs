@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Media.V20180601Preview
 {
+    [Obsolete(@"azure-native:media/v20180601preview:Asset is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:Asset to guarantee forwards compatibility.")]
     public static class GetAsset
     {
         /// <summary>

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a data connection.
  */
+/** @deprecated azure-native:synapse/v20210401preview:EventHubDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:EventHubDataConnection to guarantee forwards compatibility. */
 export function getEventHubDataConnection(args: GetEventHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubDataConnectionResult> {
+    pulumi.log.warn("getEventHubDataConnection is deprecated: azure-native:synapse/v20210401preview:EventHubDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:EventHubDataConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210401preview:getEventHubDataConnection", {
@@ -110,6 +112,7 @@ export interface GetEventHubDataConnectionResult {
 /**
  * Returns a data connection.
  */
+/** @deprecated azure-native:synapse/v20210401preview:EventHubDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:EventHubDataConnection to guarantee forwards compatibility. */
 export function getEventHubDataConnectionOutput(args: GetEventHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubDataConnectionResult> {
     return pulumi.output(args).apply((a: any) => getEventHubDataConnection(a, opts))
 }

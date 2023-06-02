@@ -16,7 +16,8 @@ __all__ = [
     'get_registered_prefix_output',
 ]
 
-warnings.warn("""Version 2020-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-04-01 will be removed in v2 of the provider.
+azure-native:peering/v20200401:RegisteredPrefix is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:RegisteredPrefix to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRegisteredPrefixResult:
@@ -142,7 +143,8 @@ def get_registered_prefix(peering_name: Optional[str] = None,
     :param str registered_prefix_name: The name of the registered prefix.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_registered_prefix is deprecated: Version 2020-04-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_registered_prefix is deprecated: Version 2020-04-01 will be removed in v2 of the provider.
+azure-native:peering/v20200401:RegisteredPrefix is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:RegisteredPrefix to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['peeringName'] = peering_name
     __args__['registeredPrefixName'] = registered_prefix_name
@@ -174,5 +176,6 @@ def get_registered_prefix_output(peering_name: Optional[pulumi.Input[str]] = Non
     :param str registered_prefix_name: The name of the registered prefix.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_registered_prefix is deprecated: Version 2020-04-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_registered_prefix is deprecated: Version 2020-04-01 will be removed in v2 of the provider.
+azure-native:peering/v20200401:RegisteredPrefix is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:RegisteredPrefix to guarantee forwards compatibility.""")
     ...

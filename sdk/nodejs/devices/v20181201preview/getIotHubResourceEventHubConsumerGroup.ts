@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
  */
-/** @deprecated Version 2018-12-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-12-01-preview will be removed in v2 of the provider.
+azure-native:devices/v20181201preview:IotHubResourceEventHubConsumerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20210303preview:IotHubResourceEventHubConsumerGroup to guarantee forwards compatibility. */
 export function getIotHubResourceEventHubConsumerGroup(args: GetIotHubResourceEventHubConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceEventHubConsumerGroupResult> {
-    pulumi.log.warn("getIotHubResourceEventHubConsumerGroup is deprecated: Version 2018-12-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getIotHubResourceEventHubConsumerGroup is deprecated: Version 2018-12-01-preview will be removed in v2 of the provider.\nazure-native:devices/v20181201preview:IotHubResourceEventHubConsumerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20210303preview:IotHubResourceEventHubConsumerGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices/v20181201preview:getIotHubResourceEventHubConsumerGroup", {
@@ -67,7 +68,8 @@ export interface GetIotHubResourceEventHubConsumerGroupResult {
 /**
  * Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
  */
-/** @deprecated Version 2018-12-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-12-01-preview will be removed in v2 of the provider.
+azure-native:devices/v20181201preview:IotHubResourceEventHubConsumerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20210303preview:IotHubResourceEventHubConsumerGroup to guarantee forwards compatibility. */
 export function getIotHubResourceEventHubConsumerGroupOutput(args: GetIotHubResourceEventHubConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceEventHubConsumerGroupResult> {
     return pulumi.output(args).apply((a: any) => getIotHubResourceEventHubConsumerGroup(a, opts))
 }

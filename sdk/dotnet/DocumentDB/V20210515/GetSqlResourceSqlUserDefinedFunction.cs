@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210515
 {
+    [Obsolete(@"azure-native:documentdb/v20210515:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility.")]
     public static class GetSqlResourceSqlUserDefinedFunction
     {
         /// <summary>

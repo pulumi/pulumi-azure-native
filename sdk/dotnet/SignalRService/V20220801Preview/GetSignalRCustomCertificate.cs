@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SignalRService.V20220801Preview
 {
+    [Obsolete(@"azure-native:signalrservice/v20220801preview:SignalRCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRCustomCertificate to guarantee forwards compatibility.")]
     public static class GetSignalRCustomCertificate
     {
         /// <summary>

@@ -116,7 +116,12 @@ class AADDataConnectorArgs:
         pulumi.set(self, "data_types", value)
 
 
+warnings.warn("""azure-native:securityinsights/v20220401preview:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:AADDataConnector to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AADDataConnector(pulumi.CustomResource):
+    warnings.warn("""azure-native:securityinsights/v20220401preview:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:AADDataConnector to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -172,6 +177,7 @@ class AADDataConnector(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""AADDataConnector is deprecated: azure-native:securityinsights/v20220401preview:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:AADDataConnector to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -198,7 +204,7 @@ class AADDataConnector(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:AADDataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:AADDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:AADDataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AADDataConnector, __self__).__init__(
             'azure-native:securityinsights/v20220401preview:AADDataConnector',

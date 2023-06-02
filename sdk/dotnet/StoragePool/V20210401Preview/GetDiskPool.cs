@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StoragePool.V20210401Preview
 {
+    [Obsolete(@"azure-native:storagepool/v20210401preview:DiskPool is being removed in the next major version of this provider. Upgrade to at least azure-native:storagepool/v20210801:DiskPool to guarantee forwards compatibility.")]
     public static class GetDiskPool
     {
         /// <summary>

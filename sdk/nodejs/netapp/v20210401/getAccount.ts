@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the NetApp account
  */
+/** @deprecated azure-native:netapp/v20210401:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220501:Account to guarantee forwards compatibility. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
+    pulumi.log.warn("getAccount is deprecated: azure-native:netapp/v20210401:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220501:Account to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20210401:getAccount", {
@@ -78,6 +80,7 @@ export interface GetAccountResult {
 /**
  * Get the NetApp account
  */
+/** @deprecated azure-native:netapp/v20210401:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220501:Account to guarantee forwards compatibility. */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get HCI cluster.
  */
+/** @deprecated azure-native:azurestackhci/v20210901:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20220101:Cluster to guarantee forwards compatibility. */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
+    pulumi.log.warn("getCluster is deprecated: azure-native:azurestackhci/v20210901:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20220101:Cluster to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901:getCluster", {
@@ -134,6 +136,7 @@ export interface GetClusterResult {
 /**
  * Get HCI cluster.
  */
+/** @deprecated azure-native:azurestackhci/v20210901:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20220101:Cluster to guarantee forwards compatibility. */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }

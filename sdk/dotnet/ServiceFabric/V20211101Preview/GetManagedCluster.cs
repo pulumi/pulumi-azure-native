@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceFabric.V20211101Preview
 {
+    [Obsolete(@"azure-native:servicefabric/v20211101preview:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20220101:ManagedCluster to guarantee forwards compatibility.")]
     public static class GetManagedCluster
     {
         /// <summary>

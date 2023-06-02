@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.EventGrid.V20201015Preview
 {
+    [Obsolete(@"azure-native:eventgrid/v20201015preview:PartnerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:PartnerRegistration to guarantee forwards compatibility.")]
     public static class GetPartnerRegistration
     {
         /// <summary>

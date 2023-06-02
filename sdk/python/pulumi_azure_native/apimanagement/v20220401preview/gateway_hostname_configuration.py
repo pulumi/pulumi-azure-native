@@ -176,7 +176,12 @@ class GatewayHostnameConfigurationArgs:
         pulumi.set(self, "tls11_enabled", value)
 
 
+warnings.warn("""azure-native:apimanagement/v20220401preview:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GatewayHostnameConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class GatewayHostnameConfiguration(pulumi.CustomResource):
+    warnings.warn("""azure-native:apimanagement/v20220401preview:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GatewayHostnameConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -243,6 +248,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
                  tls10_enabled: Optional[pulumi.Input[bool]] = None,
                  tls11_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
+        pulumi.log.warn("""GatewayHostnameConfiguration is deprecated: azure-native:apimanagement/v20220401preview:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GatewayHostnameConfiguration to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

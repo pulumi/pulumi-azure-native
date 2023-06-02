@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a job collection.
  */
-/** @deprecated Version 2014-08-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2014-08-01-preview will be removed in v2 of the provider.
+azure-native:scheduler/v20140801preview:JobCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:scheduler/v20160301:JobCollection to guarantee forwards compatibility. */
 export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCollectionResult> {
-    pulumi.log.warn("getJobCollection is deprecated: Version 2014-08-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getJobCollection is deprecated: Version 2014-08-01-preview will be removed in v2 of the provider.\nazure-native:scheduler/v20140801preview:JobCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:scheduler/v20160301:JobCollection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scheduler/v20140801preview:getJobCollection", {
@@ -61,7 +62,8 @@ export interface GetJobCollectionResult {
 /**
  * Gets a job collection.
  */
-/** @deprecated Version 2014-08-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2014-08-01-preview will be removed in v2 of the provider.
+azure-native:scheduler/v20140801preview:JobCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:scheduler/v20160301:JobCollection to guarantee forwards compatibility. */
 export function getJobCollectionOutput(args: GetJobCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobCollectionResult> {
     return pulumi.output(args).apply((a: any) => getJobCollection(a, opts))
 }

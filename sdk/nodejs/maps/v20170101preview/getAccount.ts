@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get a Maps Account.
  */
-/** @deprecated Version 2017-01-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2017-01-01-preview will be removed in v2 of the provider.
+azure-native:maps/v20170101preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:maps/v20180501:Account to guarantee forwards compatibility. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    pulumi.log.warn("getAccount is deprecated: Version 2017-01-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getAccount is deprecated: Version 2017-01-01-preview will be removed in v2 of the provider.\nazure-native:maps/v20170101preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:maps/v20180501:Account to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maps/v20170101preview:getAccount", {
@@ -68,7 +69,8 @@ export interface GetAccountResult {
 /**
  * Get a Maps Account.
  */
-/** @deprecated Version 2017-01-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2017-01-01-preview will be removed in v2 of the provider.
+azure-native:maps/v20170101preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:maps/v20180501:Account to guarantee forwards compatibility. */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }

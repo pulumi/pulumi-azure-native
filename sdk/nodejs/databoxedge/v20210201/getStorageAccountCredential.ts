@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified storage account credential.
  */
+/** @deprecated azure-native:databoxedge/v20210201:StorageAccountCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:StorageAccountCredential to guarantee forwards compatibility. */
 export function getStorageAccountCredential(args: GetStorageAccountCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountCredentialResult> {
+    pulumi.log.warn("getStorageAccountCredential is deprecated: azure-native:databoxedge/v20210201:StorageAccountCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:StorageAccountCredential to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210201:getStorageAccountCredential", {
@@ -91,6 +93,7 @@ export interface GetStorageAccountCredentialResult {
 /**
  * Gets the properties of the specified storage account credential.
  */
+/** @deprecated azure-native:databoxedge/v20210201:StorageAccountCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:StorageAccountCredential to guarantee forwards compatibility. */
 export function getStorageAccountCredentialOutput(args: GetStorageAccountCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountCredentialResult> {
     return pulumi.output(args).apply((a: any) => getStorageAccountCredential(a, opts))
 }

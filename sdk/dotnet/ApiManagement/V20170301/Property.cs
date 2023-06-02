@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
     /// <summary>
     /// Property details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20170301:Property is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20190101:Property to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20170301:Property")]
     public partial class Property : global::Pulumi.CustomResource
     {

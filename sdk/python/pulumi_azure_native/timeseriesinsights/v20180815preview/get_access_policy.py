@@ -16,7 +16,8 @@ __all__ = [
     'get_access_policy_output',
 ]
 
-warnings.warn("""Version 2018-08-15-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-08-15-preview will be removed in v2 of the provider.
+azure-native:timeseriesinsights/v20180815preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAccessPolicyResult:
@@ -118,7 +119,8 @@ def get_access_policy(access_policy_name: Optional[str] = None,
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_access_policy is deprecated: Version 2018-08-15-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_access_policy is deprecated: Version 2018-08-15-preview will be removed in v2 of the provider.
+azure-native:timeseriesinsights/v20180815preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accessPolicyName'] = access_policy_name
     __args__['environmentName'] = environment_name
@@ -148,5 +150,6 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_access_policy is deprecated: Version 2018-08-15-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_access_policy is deprecated: Version 2018-08-15-preview will be removed in v2 of the provider.
+azure-native:timeseriesinsights/v20180815preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility.""")
     ...

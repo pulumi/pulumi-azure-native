@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Logz.V20201001Preview
 {
+    [Obsolete(@"azure-native:logz/v20201001preview:SubAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:logz/v20220101preview:SubAccount to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:logz/v20201001preview:SubAccount")]
     public partial class SubAccount : global::Pulumi.CustomResource
     {

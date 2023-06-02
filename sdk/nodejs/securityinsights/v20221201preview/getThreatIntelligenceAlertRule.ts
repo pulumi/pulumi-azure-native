@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the alert rule.
  */
+/** @deprecated azure-native:securityinsights/v20221201preview:ThreatIntelligenceAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ThreatIntelligenceAlertRule to guarantee forwards compatibility. */
 export function getThreatIntelligenceAlertRule(args: GetThreatIntelligenceAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetThreatIntelligenceAlertRuleResult> {
+    pulumi.log.warn("getThreatIntelligenceAlertRule is deprecated: azure-native:securityinsights/v20221201preview:ThreatIntelligenceAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ThreatIntelligenceAlertRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20221201preview:getThreatIntelligenceAlertRule", {
@@ -100,6 +102,7 @@ export interface GetThreatIntelligenceAlertRuleResult {
 /**
  * Gets the alert rule.
  */
+/** @deprecated azure-native:securityinsights/v20221201preview:ThreatIntelligenceAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ThreatIntelligenceAlertRule to guarantee forwards compatibility. */
 export function getThreatIntelligenceAlertRuleOutput(args: GetThreatIntelligenceAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelligenceAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getThreatIntelligenceAlertRule(a, opts))
 }

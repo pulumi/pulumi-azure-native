@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20190121
     /// <summary>
     /// Class representing a Kusto database.
     /// </summary>
+    [Obsolete(@"azure-native:kusto/v20190121:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20190515:Database to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kusto/v20190121:Database")]
     public partial class Database : global::Pulumi.CustomResource
     {

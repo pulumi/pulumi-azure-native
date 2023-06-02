@@ -16,6 +16,8 @@ __all__ = [
     'get_virtual_machine_scale_set_extension_output',
 ]
 
+warnings.warn("""azure-native:compute/v20210701:VirtualMachineScaleSetExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineScaleSetExtension to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineScaleSetExtensionResult:
     """
@@ -202,6 +204,7 @@ def get_virtual_machine_scale_set_extension(expand: Optional[str] = None,
     :param str vm_scale_set_name: The name of the VM scale set containing the extension.
     :param str vmss_extension_name: The name of the VM scale set extension.
     """
+    pulumi.log.warn("""get_virtual_machine_scale_set_extension is deprecated: azure-native:compute/v20210701:VirtualMachineScaleSetExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineScaleSetExtension to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -241,4 +244,5 @@ def get_virtual_machine_scale_set_extension_output(expand: Optional[pulumi.Input
     :param str vm_scale_set_name: The name of the VM scale set containing the extension.
     :param str vmss_extension_name: The name of the VM scale set extension.
     """
+    pulumi.log.warn("""get_virtual_machine_scale_set_extension is deprecated: azure-native:compute/v20210701:VirtualMachineScaleSetExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineScaleSetExtension to guarantee forwards compatibility.""")
     ...

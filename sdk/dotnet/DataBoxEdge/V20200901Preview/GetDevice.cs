@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
 {
-    [Obsolete(@"Version 2020-09-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-09-01-preview will be removed in v2 of the provider.
+azure-native:databoxedge/v20200901preview:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20210201:Device to guarantee forwards compatibility.")]
     public static class GetDevice
     {
         /// <summary>

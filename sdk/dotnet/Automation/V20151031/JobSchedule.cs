@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Automation.V20151031
     /// <summary>
     /// Definition of the job schedule.
     /// </summary>
+    [Obsolete(@"azure-native:automation/v20151031:JobSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:JobSchedule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automation/v20151031:JobSchedule")]
     public partial class JobSchedule : global::Pulumi.CustomResource
     {

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the schema configuration at the API level.
  */
+/** @deprecated azure-native:apimanagement/v20191201preview:ApiSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiSchema to guarantee forwards compatibility. */
 export function getApiSchema(args: GetApiSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetApiSchemaResult> {
+    pulumi.log.warn("getApiSchema is deprecated: azure-native:apimanagement/v20191201preview:ApiSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiSchema to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201preview:getApiSchema", {
@@ -69,6 +71,7 @@ export interface GetApiSchemaResult {
 /**
  * Get the schema configuration at the API level.
  */
+/** @deprecated azure-native:apimanagement/v20191201preview:ApiSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiSchema to guarantee forwards compatibility. */
 export function getApiSchemaOutput(args: GetApiSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiSchemaResult> {
     return pulumi.output(args).apply((a: any) => getApiSchema(a, opts))
 }

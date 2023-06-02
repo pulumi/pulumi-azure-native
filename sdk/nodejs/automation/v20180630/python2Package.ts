@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the module type.
+ *
+ * @deprecated azure-native:automation/v20180630:Python2Package is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Python2Package to guarantee forwards compatibility.
  */
 export class Python2Package extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Python2Package extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Python2Package {
+        pulumi.log.warn("Python2Package is deprecated: azure-native:automation/v20180630:Python2Package is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Python2Package to guarantee forwards compatibility.")
         return new Python2Package(name, undefined as any, { ...opts, id: id });
     }
 
@@ -109,7 +112,9 @@ export class Python2Package extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:automation/v20180630:Python2Package is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Python2Package to guarantee forwards compatibility. */
     constructor(name: string, args: Python2PackageArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Python2Package is deprecated: azure-native:automation/v20180630:Python2Package is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Python2Package to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

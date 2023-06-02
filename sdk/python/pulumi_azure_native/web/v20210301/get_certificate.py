@@ -17,6 +17,8 @@ __all__ = [
     'get_certificate_output',
 ]
 
+warnings.warn("""azure-native:web/v20210301:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:Certificate to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCertificateResult:
     """
@@ -355,6 +357,7 @@ def get_certificate(name: Optional[str] = None,
     :param str name: Name of the certificate.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_certificate is deprecated: azure-native:web/v20210301:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:Certificate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -401,4 +404,5 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the certificate.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_certificate is deprecated: azure-native:web/v20210301:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:Certificate to guarantee forwards compatibility.""")
     ...

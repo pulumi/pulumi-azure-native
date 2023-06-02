@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the alert rule.
  */
+/** @deprecated azure-native:securityinsights/v20190101preview:MLBehaviorAnalyticsAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:MLBehaviorAnalyticsAlertRule to guarantee forwards compatibility. */
 export function getMLBehaviorAnalyticsAlertRule(args: GetMLBehaviorAnalyticsAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMLBehaviorAnalyticsAlertRuleResult> {
+    pulumi.log.warn("getMLBehaviorAnalyticsAlertRule is deprecated: azure-native:securityinsights/v20190101preview:MLBehaviorAnalyticsAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:MLBehaviorAnalyticsAlertRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getMLBehaviorAnalyticsAlertRule", {
@@ -94,6 +96,7 @@ export interface GetMLBehaviorAnalyticsAlertRuleResult {
 /**
  * Gets the alert rule.
  */
+/** @deprecated azure-native:securityinsights/v20190101preview:MLBehaviorAnalyticsAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:MLBehaviorAnalyticsAlertRule to guarantee forwards compatibility. */
 export function getMLBehaviorAnalyticsAlertRuleOutput(args: GetMLBehaviorAnalyticsAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMLBehaviorAnalyticsAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getMLBehaviorAnalyticsAlertRule(a, opts))
 }

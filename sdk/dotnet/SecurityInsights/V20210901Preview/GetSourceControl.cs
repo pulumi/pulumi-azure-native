@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
+    [Obsolete(@"azure-native:securityinsights/v20210901preview:SourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:SourceControl to guarantee forwards compatibility.")]
     public static class GetSourceControl
     {
         /// <summary>

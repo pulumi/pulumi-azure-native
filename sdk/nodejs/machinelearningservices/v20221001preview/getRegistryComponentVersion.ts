@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Azure Resource Manager resource envelope.
  */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:RegistryComponentVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryComponentVersion to guarantee forwards compatibility. */
 export function getRegistryComponentVersion(args: GetRegistryComponentVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryComponentVersionResult> {
+    pulumi.log.warn("getRegistryComponentVersion is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryComponentVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryComponentVersion to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001preview:getRegistryComponentVersion", {
@@ -68,6 +70,7 @@ export interface GetRegistryComponentVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:RegistryComponentVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryComponentVersion to guarantee forwards compatibility. */
 export function getRegistryComponentVersionOutput(args: GetRegistryComponentVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryComponentVersionResult> {
     return pulumi.output(args).apply((a: any) => getRegistryComponentVersion(a, opts))
 }

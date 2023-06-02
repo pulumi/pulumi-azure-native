@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.EventHub.V20140901
 {
-    [Obsolete(@"Version 2014-09-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:eventhub/v20140901:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20150801:NamespaceAuthorizationRule to guarantee forwards compatibility.")]
     public static class GetNamespaceAuthorizationRule
     {
         /// <summary>

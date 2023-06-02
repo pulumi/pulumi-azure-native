@@ -324,7 +324,12 @@ class VirtualHubArgs:
         pulumi.set(self, "vpn_gateway", value)
 
 
+warnings.warn("""azure-native:network/v20200801:VirtualHub is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHub to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class VirtualHub(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20200801:VirtualHub is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHub to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -418,6 +423,7 @@ class VirtualHub(pulumi.CustomResource):
                  virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""VirtualHub is deprecated: azure-native:network/v20200801:VirtualHub is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHub to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

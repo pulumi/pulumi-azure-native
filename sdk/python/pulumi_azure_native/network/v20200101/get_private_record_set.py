@@ -17,6 +17,8 @@ __all__ = [
     'get_private_record_set_output',
 ]
 
+warnings.warn("""azure-native:network/v20200101:PrivateRecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateRecordSet to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateRecordSetResult:
     """
@@ -239,6 +241,7 @@ def get_private_record_set(private_zone_name: Optional[str] = None,
     :param str relative_record_set_name: The name of the record set, relative to the name of the zone.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_private_record_set is deprecated: azure-native:network/v20200101:PrivateRecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateRecordSet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateZoneName'] = private_zone_name
     __args__['recordType'] = record_type
@@ -281,4 +284,5 @@ def get_private_record_set_output(private_zone_name: Optional[pulumi.Input[str]]
     :param str relative_record_set_name: The name of the record set, relative to the name of the zone.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_private_record_set is deprecated: azure-native:network/v20200101:PrivateRecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateRecordSet to guarantee forwards compatibility.""")
     ...

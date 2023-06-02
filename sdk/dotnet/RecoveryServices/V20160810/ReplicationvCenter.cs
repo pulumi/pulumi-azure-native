@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
     /// <summary>
     /// vCenter definition.
     /// </summary>
-    [Obsolete(@"Version 2016-08-10 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2016-08-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20160810:ReplicationvCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20160810:ReplicationvCenter")]
     public partial class ReplicationvCenter : global::Pulumi.CustomResource
     {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceFabric.V20210701Preview
 {
+    [Obsolete(@"azure-native:servicefabric/v20210701preview:ApplicationType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:ApplicationType to guarantee forwards compatibility.")]
     public static class GetApplicationType
     {
         /// <summary>

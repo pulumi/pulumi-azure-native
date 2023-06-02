@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20210501
     /// <summary>
     /// NetworkSecurityGroup resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20210501:NetworkSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkSecurityGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20210501:NetworkSecurityGroup")]
     public partial class NetworkSecurityGroup : global::Pulumi.CustomResource
     {

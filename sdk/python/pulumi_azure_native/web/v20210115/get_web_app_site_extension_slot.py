@@ -16,6 +16,8 @@ __all__ = [
     'get_web_app_site_extension_slot_output',
 ]
 
+warnings.warn("""azure-native:web/v20210115:WebAppSiteExtensionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSiteExtensionSlot to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppSiteExtensionSlotResult:
     """
@@ -331,6 +333,7 @@ def get_web_app_site_extension_slot(name: Optional[str] = None,
     :param str site_extension_id: Site extension name.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API uses the production slot.
     """
+    pulumi.log.warn("""get_web_app_site_extension_slot is deprecated: azure-native:web/v20210115:WebAppSiteExtensionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSiteExtensionSlot to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -381,4 +384,5 @@ def get_web_app_site_extension_slot_output(name: Optional[pulumi.Input[str]] = N
     :param str site_extension_id: Site extension name.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API uses the production slot.
     """
+    pulumi.log.warn("""get_web_app_site_extension_slot is deprecated: azure-native:web/v20210115:WebAppSiteExtensionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSiteExtensionSlot to guarantee forwards compatibility.""")
     ...

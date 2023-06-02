@@ -165,7 +165,12 @@ class AutomationAccountArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:automation/v20200113preview:AutomationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:AutomationAccount to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AutomationAccount(pulumi.CustomResource):
+    warnings.warn("""azure-native:automation/v20200113preview:AutomationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:AutomationAccount to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -229,6 +234,7 @@ class AutomationAccount(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""AutomationAccount is deprecated: azure-native:automation/v20200113preview:AutomationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:AutomationAccount to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

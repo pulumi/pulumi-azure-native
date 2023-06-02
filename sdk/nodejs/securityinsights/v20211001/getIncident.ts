@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a given incident.
  */
+/** @deprecated azure-native:securityinsights/v20211001:Incident is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201preview:Incident to guarantee forwards compatibility. */
 export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentResult> {
+    pulumi.log.warn("getIncident is deprecated: azure-native:securityinsights/v20211001:Incident is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201preview:Incident to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20211001:getIncident", {
@@ -131,6 +133,7 @@ export interface GetIncidentResult {
 /**
  * Gets a given incident.
  */
+/** @deprecated azure-native:securityinsights/v20211001:Incident is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201preview:Incident to guarantee forwards compatibility. */
 export function getIncidentOutput(args: GetIncidentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentResult> {
     return pulumi.output(args).apply((a: any) => getIncident(a, opts))
 }

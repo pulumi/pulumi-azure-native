@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20230201Preview
 {
+    [Obsolete(@"azure-native:securityinsights/v20230201preview:OfficeDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:OfficeDataConnector to guarantee forwards compatibility.")]
     public static class GetOfficeDataConnector
     {
         /// <summary>

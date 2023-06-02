@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
     /// <summary>
     /// The integration account certificate.
     /// </summary>
+    [Obsolete(@"azure-native:logic/v20180701preview:IntegrationAccountCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountCertificate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:logic/v20180701preview:IntegrationAccountCertificate")]
     public partial class IntegrationAccountCertificate : global::Pulumi.CustomResource
     {

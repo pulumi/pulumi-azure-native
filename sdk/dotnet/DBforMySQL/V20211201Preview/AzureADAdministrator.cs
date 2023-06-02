@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
     /// <summary>
     /// Represents a Administrator.
     /// </summary>
+    [Obsolete(@"azure-native:dbformysql/v20211201preview:AzureADAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20220101:AzureADAdministrator to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbformysql/v20211201preview:AzureADAdministrator")]
     public partial class AzureADAdministrator : global::Pulumi.CustomResource
     {

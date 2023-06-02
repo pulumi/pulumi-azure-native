@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
  */
-/** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20200901:Container is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility. */
 export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
-    pulumi.log.warn("getContainer is deprecated: Version 2020-09-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getContainer is deprecated: Version 2020-09-01 will be removed in v2 of the provider.\nazure-native:databoxedge/v20200901:Container is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20200901:getContainer", {
@@ -82,7 +83,8 @@ export interface GetContainerResult {
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
  */
-/** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20200901:Container is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility. */
 export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerResult> {
     return pulumi.output(args).apply((a: any) => getContainer(a, opts))
 }

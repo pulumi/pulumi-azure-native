@@ -17,6 +17,8 @@ __all__ = [
     'get_configuration_profile_hciassignment_output',
 ]
 
+warnings.warn("""azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConfigurationProfileHCIAssignmentResult:
     """
@@ -105,6 +107,7 @@ def get_configuration_profile_hciassignment(cluster_name: Optional[str] = None,
     :param str configuration_profile_assignment_name: The configuration profile assignment name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_configuration_profile_hciassignment is deprecated: azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['configurationProfileAssignmentName'] = configuration_profile_assignment_name
@@ -133,4 +136,5 @@ def get_configuration_profile_hciassignment_output(cluster_name: Optional[pulumi
     :param str configuration_profile_assignment_name: The configuration profile assignment name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_configuration_profile_hciassignment is deprecated: azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment to guarantee forwards compatibility.""")
     ...

@@ -244,7 +244,12 @@ class PrivateCloudArgs:
         pulumi.set(self, "vcenter_password", value)
 
 
+warnings.warn("""azure-native:avs/v20211201:PrivateCloud is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:PrivateCloud to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class PrivateCloud(pulumi.CustomResource):
+    warnings.warn("""azure-native:avs/v20211201:PrivateCloud is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:PrivateCloud to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -323,6 +328,7 @@ class PrivateCloud(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vcenter_password: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""PrivateCloud is deprecated: azure-native:avs/v20211201:PrivateCloud is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:PrivateCloud to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

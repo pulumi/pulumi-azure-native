@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Managed cluster.
  */
+/** @deprecated azure-native:containerservice/v20220602preview:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:ManagedCluster to guarantee forwards compatibility. */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
+    pulumi.log.warn("getManagedCluster is deprecated: azure-native:containerservice/v20220602preview:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:ManagedCluster to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20220602preview:getManagedCluster", {
@@ -222,6 +224,7 @@ export interface GetManagedClusterResult {
 /**
  * Managed cluster.
  */
+/** @deprecated azure-native:containerservice/v20220602preview:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:ManagedCluster to guarantee forwards compatibility. */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
     return pulumi.output(args).apply((a: any) => getManagedCluster(a, opts))
 }

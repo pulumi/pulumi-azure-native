@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20180601
 {
+    [Obsolete(@"azure-native:network/v20180601:VpnConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VpnConnection to guarantee forwards compatibility.")]
     public static class GetVpnConnection
     {
         /// <summary>

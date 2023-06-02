@@ -17,6 +17,8 @@ __all__ = [
     'get_protection_intent_output',
 ]
 
+warnings.warn("""azure-native:recoveryservices/v20220201:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProtectionIntentResult:
     """
@@ -132,6 +134,7 @@ def get_protection_intent(fabric_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("""get_protection_intent is deprecated: azure-native:recoveryservices/v20220201:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['intentObjectName'] = intent_object_name
@@ -166,4 +169,5 @@ def get_protection_intent_output(fabric_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("""get_protection_intent is deprecated: azure-native:recoveryservices/v20220201:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.""")
     ...

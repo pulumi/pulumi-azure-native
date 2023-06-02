@@ -113,11 +113,13 @@ class NamespaceAuthorizationRuleArgs:
         pulumi.set(self, "name", value)
 
 
-warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:eventhub/v20140901:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20150801:NamespaceAuthorizationRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class NamespaceAuthorizationRule(pulumi.CustomResource):
-    warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:eventhub/v20140901:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20150801:NamespaceAuthorizationRule to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -173,7 +175,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
                  __props__=None):
-        pulumi.log.warn("""NamespaceAuthorizationRule is deprecated: Version 2014-09-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""NamespaceAuthorizationRule is deprecated: Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:eventhub/v20140901:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20150801:NamespaceAuthorizationRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

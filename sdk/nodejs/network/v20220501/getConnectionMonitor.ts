@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a connection monitor by name.
  */
+/** @deprecated azure-native:network/v20220501:ConnectionMonitor is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ConnectionMonitor to guarantee forwards compatibility. */
 export function getConnectionMonitor(args: GetConnectionMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorResult> {
+    pulumi.log.warn("getConnectionMonitor is deprecated: azure-native:network/v20220501:ConnectionMonitor is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ConnectionMonitor to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220501:getConnectionMonitor", {
@@ -119,6 +121,7 @@ export interface GetConnectionMonitorResult {
 /**
  * Gets a connection monitor by name.
  */
+/** @deprecated azure-native:network/v20220501:ConnectionMonitor is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ConnectionMonitor to guarantee forwards compatibility. */
 export function getConnectionMonitorOutput(args: GetConnectionMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorResult> {
     return pulumi.output(args).apply((a: any) => getConnectionMonitor(a, opts))
 }

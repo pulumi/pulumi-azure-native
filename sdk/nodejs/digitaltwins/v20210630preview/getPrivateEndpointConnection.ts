@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get private endpoint connection properties for the given private endpoint.
  */
+/** @deprecated azure-native:digitaltwins/v20210630preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
+    pulumi.log.warn("getPrivateEndpointConnection is deprecated: azure-native:digitaltwins/v20210630preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:PrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:digitaltwins/v20210630preview:getPrivateEndpointConnection", {
@@ -63,6 +65,7 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * Get private endpoint connection properties for the given private endpoint.
  */
+/** @deprecated azure-native:digitaltwins/v20210630preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
 }

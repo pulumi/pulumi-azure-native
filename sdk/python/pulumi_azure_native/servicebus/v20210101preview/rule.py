@@ -162,7 +162,12 @@ class RuleArgs:
         pulumi.set(self, "sql_filter", value)
 
 
+warnings.warn("""azure-native:servicebus/v20210101preview:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:Rule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Rule(pulumi.CustomResource):
+    warnings.warn("""azure-native:servicebus/v20210101preview:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:Rule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -226,6 +231,7 @@ class Rule(pulumi.CustomResource):
                  subscription_name: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Rule is deprecated: azure-native:servicebus/v20210101preview:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:Rule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

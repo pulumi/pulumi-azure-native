@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Inbound NAT rule of the load balancer.
+ *
+ * @deprecated azure-native:network/v20200301:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility.
  */
 export class InboundNatRule extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class InboundNatRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): InboundNatRule {
+        pulumi.log.warn("InboundNatRule is deprecated: azure-native:network/v20200301:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility.")
         return new InboundNatRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -93,7 +96,9 @@ export class InboundNatRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:network/v20200301:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility. */
     constructor(name: string, args: InboundNatRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("InboundNatRule is deprecated: azure-native:network/v20200301:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -16,7 +16,8 @@ __all__ = [
     'get_access_control_record_output',
 ]
 
-warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.
+azure-native:storsimple/v20161001:AccessControlRecord is being removed in the next major version of this provider. Upgrade to at least azure-native:storsimple/v20170601:AccessControlRecord to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAccessControlRecordResult:
@@ -94,7 +95,8 @@ def get_access_control_record(access_control_record_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("""get_access_control_record is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_access_control_record is deprecated: Version 2016-10-01 will be removed in v2 of the provider.
+azure-native:storsimple/v20161001:AccessControlRecord is being removed in the next major version of this provider. Upgrade to at least azure-native:storsimple/v20170601:AccessControlRecord to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accessControlRecordName'] = access_control_record_name
     __args__['managerName'] = manager_name
@@ -122,5 +124,6 @@ def get_access_control_record_output(access_control_record_name: Optional[pulumi
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("""get_access_control_record is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_access_control_record is deprecated: Version 2016-10-01 will be removed in v2 of the provider.
+azure-native:storsimple/v20161001:AccessControlRecord is being removed in the next major version of this provider. Upgrade to at least azure-native:storsimple/v20170601:AccessControlRecord to guarantee forwards compatibility.""")
     ...

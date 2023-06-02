@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
  */
+/** @deprecated azure-native:web/v20220301:WebAppHybridConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppHybridConnection to guarantee forwards compatibility. */
 export function getWebAppHybridConnection(args: GetWebAppHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHybridConnectionResult> {
+    pulumi.log.warn("getWebAppHybridConnection is deprecated: azure-native:web/v20220301:WebAppHybridConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppHybridConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220301:getWebAppHybridConnection", {
@@ -94,6 +96,7 @@ export interface GetWebAppHybridConnectionResult {
 /**
  * Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
  */
+/** @deprecated azure-native:web/v20220301:WebAppHybridConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppHybridConnection to guarantee forwards compatibility. */
 export function getWebAppHybridConnectionOutput(args: GetWebAppHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHybridConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppHybridConnection(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a synchronizationSetting in a share
  */
+/** @deprecated azure-native:datashare/v20200901:ScheduledSynchronizationSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ScheduledSynchronizationSetting to guarantee forwards compatibility. */
 export function getScheduledSynchronizationSetting(args: GetScheduledSynchronizationSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledSynchronizationSettingResult> {
+    pulumi.log.warn("getScheduledSynchronizationSetting is deprecated: azure-native:datashare/v20200901:ScheduledSynchronizationSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ScheduledSynchronizationSetting to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20200901:getScheduledSynchronizationSetting", {
@@ -89,6 +91,7 @@ export interface GetScheduledSynchronizationSettingResult {
 /**
  * Get a synchronizationSetting in a share
  */
+/** @deprecated azure-native:datashare/v20200901:ScheduledSynchronizationSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ScheduledSynchronizationSetting to guarantee forwards compatibility. */
 export function getScheduledSynchronizationSettingOutput(args: GetScheduledSynchronizationSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledSynchronizationSettingResult> {
     return pulumi.output(args).apply((a: any) => getScheduledSynchronizationSetting(a, opts))
 }

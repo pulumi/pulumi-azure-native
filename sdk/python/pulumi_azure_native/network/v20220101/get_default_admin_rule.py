@@ -17,6 +17,8 @@ __all__ = [
     'get_default_admin_rule_output',
 ]
 
+warnings.warn("""azure-native:network/v20220101:DefaultAdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:DefaultAdminRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDefaultAdminRuleResult:
     """
@@ -254,6 +256,7 @@ def get_default_admin_rule(configuration_name: Optional[str] = None,
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.
     :param str rule_name: The name of the rule.
     """
+    pulumi.log.warn("""get_default_admin_rule is deprecated: azure-native:network/v20220101:DefaultAdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:DefaultAdminRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['configurationName'] = configuration_name
     __args__['networkManagerName'] = network_manager_name
@@ -300,4 +303,5 @@ def get_default_admin_rule_output(configuration_name: Optional[pulumi.Input[str]
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.
     :param str rule_name: The name of the rule.
     """
+    pulumi.log.warn("""get_default_admin_rule is deprecated: azure-native:network/v20220101:DefaultAdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:DefaultAdminRule to guarantee forwards compatibility.""")
     ...

@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about the model view or the instance view of a virtual machine.
  */
-/** @deprecated Version 2016-04-30-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2016-04-30-preview will be removed in v2 of the provider.
+azure-native:compute/v20160430preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility. */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
-    pulumi.log.warn("getVirtualMachine is deprecated: Version 2016-04-30-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getVirtualMachine is deprecated: Version 2016-04-30-preview will be removed in v2 of the provider.\nazure-native:compute/v20160430preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20160430preview:getVirtualMachine", {
@@ -117,7 +118,8 @@ export interface GetVirtualMachineResult {
 /**
  * Retrieves information about the model view or the instance view of a virtual machine.
  */
-/** @deprecated Version 2016-04-30-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2016-04-30-preview will be removed in v2 of the provider.
+azure-native:compute/v20160430preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility. */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))
 }

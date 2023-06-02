@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Returns a database.
  */
-/** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider. */
+/** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider.
+azure-native:kusto/v20170907privatepreview:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20180907preview:Database to guarantee forwards compatibility. */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
-    pulumi.log.warn("getDatabase is deprecated: Version 2017-09-07-privatepreview will be removed in v2 of the provider.")
+    pulumi.log.warn("getDatabase is deprecated: Version 2017-09-07-privatepreview will be removed in v2 of the provider.\nazure-native:kusto/v20170907privatepreview:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20180907preview:Database to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20170907privatepreview:getDatabase", {
@@ -85,7 +86,8 @@ export interface GetDatabaseResult {
 /**
  * Returns a database.
  */
-/** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider. */
+/** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider.
+azure-native:kusto/v20170907privatepreview:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20180907preview:Database to guarantee forwards compatibility. */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getDatabase(a, opts))
 }

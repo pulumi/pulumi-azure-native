@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.CustomerInsights.V20170101
 {
-    [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:Hub is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:Hub to guarantee forwards compatibility.")]
     public static class GetHub
     {
         /// <summary>

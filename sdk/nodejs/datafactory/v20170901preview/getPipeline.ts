@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a pipeline.
  */
-/** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Pipeline is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:Pipeline to guarantee forwards compatibility. */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
-    pulumi.log.warn("getPipeline is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getPipeline is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.\nazure-native:datafactory/v20170901preview:Pipeline is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:Pipeline to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20170901preview:getPipeline", {
@@ -81,7 +82,8 @@ export interface GetPipelineResult {
 /**
  * Gets a pipeline.
  */
-/** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Pipeline is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:Pipeline to guarantee forwards compatibility. */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
     return pulumi.output(args).apply((a: any) => getPipeline(a, opts))
 }

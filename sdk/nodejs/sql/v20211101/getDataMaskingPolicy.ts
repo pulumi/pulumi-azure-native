@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the database data masking policy.
  */
+/** @deprecated azure-native:sql/v20211101:DataMaskingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:DataMaskingPolicy to guarantee forwards compatibility. */
 export function getDataMaskingPolicy(args: GetDataMaskingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDataMaskingPolicyResult> {
+    pulumi.log.warn("getDataMaskingPolicy is deprecated: azure-native:sql/v20211101:DataMaskingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:DataMaskingPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getDataMaskingPolicy", {
@@ -81,6 +83,7 @@ export interface GetDataMaskingPolicyResult {
 /**
  * Gets the database data masking policy.
  */
+/** @deprecated azure-native:sql/v20211101:DataMaskingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:DataMaskingPolicy to guarantee forwards compatibility. */
 export function getDataMaskingPolicyOutput(args: GetDataMaskingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataMaskingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDataMaskingPolicy(a, opts))
 }

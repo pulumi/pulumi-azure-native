@@ -130,7 +130,12 @@ class AssetArgs:
         pulumi.set(self, "storage_account_name", value)
 
 
+warnings.warn("""azure-native:media/v20210601:Asset is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:Asset to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Asset(pulumi.CustomResource):
+    warnings.warn("""azure-native:media/v20210601:Asset is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:Asset to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -188,6 +193,7 @@ class Asset(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Asset is deprecated: azure-native:media/v20210601:Asset is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:Asset to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

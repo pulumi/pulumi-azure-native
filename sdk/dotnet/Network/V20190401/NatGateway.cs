@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20190401
     /// <summary>
     /// Nat Gateway resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20190401:NatGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:NatGateway to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20190401:NatGateway")]
     public partial class NatGateway : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview
     /// <summary>
     /// An object that represents a webhook for a container registry.
     /// </summary>
+    [Obsolete(@"azure-native:containerregistry/v20220201preview:Webhook is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Webhook to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerregistry/v20220201preview:Webhook")]
     public partial class Webhook : global::Pulumi.CustomResource
     {

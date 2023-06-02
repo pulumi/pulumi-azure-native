@@ -163,7 +163,12 @@ class WebAppAuthSettingsV2SlotArgs:
         pulumi.set(self, "platform", value)
 
 
+warnings.warn("""azure-native:web/v20210101:WebAppAuthSettingsV2Slot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20210201:WebAppAuthSettingsV2Slot to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
+    warnings.warn("""azure-native:web/v20210101:WebAppAuthSettingsV2Slot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20210201:WebAppAuthSettingsV2Slot to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -227,6 +232,7 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  slot: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebAppAuthSettingsV2Slot is deprecated: azure-native:web/v20210101:WebAppAuthSettingsV2Slot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20210201:WebAppAuthSettingsV2Slot to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the service.
+ *
+ * @deprecated azure-native:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter to guarantee forwards compatibility.
  */
 export class PrivateLinkServicesForM365SecurityCenter extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class PrivateLinkServicesForM365SecurityCenter extends pulumi.CustomResou
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateLinkServicesForM365SecurityCenter {
+        pulumi.log.warn("PrivateLinkServicesForM365SecurityCenter is deprecated: azure-native:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter to guarantee forwards compatibility.")
         return new PrivateLinkServicesForM365SecurityCenter(name, undefined as any, { ...opts, id: id });
     }
 
@@ -81,7 +84,9 @@ export class PrivateLinkServicesForM365SecurityCenter extends pulumi.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateLinkServicesForM365SecurityCenterArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PrivateLinkServicesForM365SecurityCenter is deprecated: azure-native:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

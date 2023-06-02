@@ -16,6 +16,8 @@ __all__ = [
     'get_source_control_output',
 ]
 
+warnings.warn("""azure-native:automation/v20170515preview:SourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:SourceControl to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSourceControlResult:
     """
@@ -188,6 +190,7 @@ def get_source_control(automation_account_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure Resource group.
     :param str source_control_name: The name of source control.
     """
+    pulumi.log.warn("""get_source_control is deprecated: azure-native:automation/v20170515preview:SourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:SourceControl to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -223,4 +226,5 @@ def get_source_control_output(automation_account_name: Optional[pulumi.Input[str
     :param str resource_group_name: Name of an Azure Resource group.
     :param str source_control_name: The name of source control.
     """
+    pulumi.log.warn("""get_source_control is deprecated: azure-native:automation/v20170515preview:SourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:SourceControl to guarantee forwards compatibility.""")
     ...

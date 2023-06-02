@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines the move resource.
+ *
+ * @deprecated azure-native:migrate/v20191001preview:MoveResource is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20220801:MoveResource to guarantee forwards compatibility.
  */
 export class MoveResource extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class MoveResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MoveResource {
+        pulumi.log.warn("MoveResource is deprecated: azure-native:migrate/v20191001preview:MoveResource is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20220801:MoveResource to guarantee forwards compatibility.")
         return new MoveResource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -57,7 +60,9 @@ export class MoveResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:migrate/v20191001preview:MoveResource is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20220801:MoveResource to guarantee forwards compatibility. */
     constructor(name: string, args: MoveResourceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MoveResource is deprecated: azure-native:migrate/v20191001preview:MoveResource is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20220801:MoveResource to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

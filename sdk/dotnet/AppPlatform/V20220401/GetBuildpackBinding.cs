@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AppPlatform.V20220401
 {
+    [Obsolete(@"azure-native:appplatform/v20220401:BuildpackBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildpackBinding to guarantee forwards compatibility.")]
     public static class GetBuildpackBinding
     {
         /// <summary>

@@ -17,6 +17,8 @@ __all__ = [
     'get_inbound_nat_rule_output',
 ]
 
+warnings.warn("""azure-native:network/v20190701:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetInboundNatRuleResult:
     """
@@ -203,6 +205,7 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_inbound_nat_rule is deprecated: azure-native:network/v20190701:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['inboundNatRuleName'] = inbound_nat_rule_name
@@ -242,4 +245,5 @@ def get_inbound_nat_rule_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_inbound_nat_rule is deprecated: azure-native:network/v20190701:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility.""")
     ...

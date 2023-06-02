@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * OpenId Connect Provider details.
+ *
+ * @deprecated azure-native:apimanagement/v20210101preview:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:OpenIdConnectProvider to guarantee forwards compatibility.
  */
 export class OpenIdConnectProvider extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OpenIdConnectProvider {
+        pulumi.log.warn("OpenIdConnectProvider is deprecated: azure-native:apimanagement/v20210101preview:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:OpenIdConnectProvider to guarantee forwards compatibility.")
         return new OpenIdConnectProvider(name, undefined as any, { ...opts, id: id });
     }
 
@@ -70,7 +73,9 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:apimanagement/v20210101preview:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:OpenIdConnectProvider to guarantee forwards compatibility. */
     constructor(name: string, args: OpenIdConnectProviderArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("OpenIdConnectProvider is deprecated: azure-native:apimanagement/v20210101preview:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:OpenIdConnectProvider to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

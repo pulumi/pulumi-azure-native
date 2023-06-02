@@ -629,7 +629,12 @@ class ApplicationGatewayArgs:
         pulumi.set(self, "zones", value)
 
 
+warnings.warn("""azure-native:network/v20220101:ApplicationGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationGateway to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ApplicationGateway(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20220101:ApplicationGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationGateway to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -780,6 +785,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  web_application_firewall_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayWebApplicationFirewallConfigurationArgs']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""ApplicationGateway is deprecated: azure-native:network/v20220101:ApplicationGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationGateway to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

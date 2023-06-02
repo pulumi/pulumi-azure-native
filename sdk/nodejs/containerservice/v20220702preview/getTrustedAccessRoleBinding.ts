@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Defines binding between a resource and role
  */
+/** @deprecated azure-native:containerservice/v20220702preview:TrustedAccessRoleBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding to guarantee forwards compatibility. */
 export function getTrustedAccessRoleBinding(args: GetTrustedAccessRoleBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustedAccessRoleBindingResult> {
+    pulumi.log.warn("getTrustedAccessRoleBinding is deprecated: azure-native:containerservice/v20220702preview:TrustedAccessRoleBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20220702preview:getTrustedAccessRoleBinding", {
@@ -71,6 +73,7 @@ export interface GetTrustedAccessRoleBindingResult {
 /**
  * Defines binding between a resource and role
  */
+/** @deprecated azure-native:containerservice/v20220702preview:TrustedAccessRoleBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding to guarantee forwards compatibility. */
 export function getTrustedAccessRoleBindingOutput(args: GetTrustedAccessRoleBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedAccessRoleBindingResult> {
     return pulumi.output(args).apply((a: any) => getTrustedAccessRoleBinding(a, opts))
 }

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
     /// <summary>
     /// A SQL server registration.
     /// </summary>
-    [Obsolete(@"Version 2017-03-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-03-01-preview will be removed in v2 of the provider.
+azure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azuredata/v20170301preview:SqlServerRegistration")]
     public partial class SqlServerRegistration : global::Pulumi.CustomResource
     {

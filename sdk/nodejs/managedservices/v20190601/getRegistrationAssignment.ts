@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of specified registration assignment.
  */
-/** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-06-01 will be removed in v2 of the provider.
+azure-native:managedservices/v20190601:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility. */
 export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationAssignmentResult> {
-    pulumi.log.warn("getRegistrationAssignment is deprecated: Version 2019-06-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getRegistrationAssignment is deprecated: Version 2019-06-01 will be removed in v2 of the provider.\nazure-native:managedservices/v20190601:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedservices/v20190601:getRegistrationAssignment", {
@@ -61,7 +62,8 @@ export interface GetRegistrationAssignmentResult {
 /**
  * Gets the details of specified registration assignment.
  */
-/** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-06-01 will be removed in v2 of the provider.
+azure-native:managedservices/v20190601:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility. */
 export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getRegistrationAssignment(a, opts))
 }

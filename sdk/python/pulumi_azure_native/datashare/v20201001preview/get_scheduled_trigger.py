@@ -17,6 +17,8 @@ __all__ = [
     'get_scheduled_trigger_output',
 ]
 
+warnings.warn("""azure-native:datashare/v20201001preview:ScheduledTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ScheduledTrigger to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetScheduledTriggerResult:
     """
@@ -192,6 +194,7 @@ def get_scheduled_trigger(account_name: Optional[str] = None,
     :param str share_subscription_name: The name of the shareSubscription.
     :param str trigger_name: The name of the trigger.
     """
+    pulumi.log.warn("""get_scheduled_trigger is deprecated: azure-native:datashare/v20201001preview:ScheduledTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ScheduledTrigger to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -230,4 +233,5 @@ def get_scheduled_trigger_output(account_name: Optional[pulumi.Input[str]] = Non
     :param str share_subscription_name: The name of the shareSubscription.
     :param str trigger_name: The name of the trigger.
     """
+    pulumi.log.warn("""get_scheduled_trigger is deprecated: azure-native:datashare/v20201001preview:ScheduledTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ScheduledTrigger to guarantee forwards compatibility.""")
     ...

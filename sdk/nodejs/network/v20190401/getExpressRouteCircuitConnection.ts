@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Express Route Circuit Connection from the specified express route circuit.
  */
+/** @deprecated azure-native:network/v20190401:ExpressRouteCircuitConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteCircuitConnection to guarantee forwards compatibility. */
 export function getExpressRouteCircuitConnection(args: GetExpressRouteCircuitConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitConnectionResult> {
+    pulumi.log.warn("getExpressRouteCircuitConnection is deprecated: azure-native:network/v20190401:ExpressRouteCircuitConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteCircuitConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190401:getExpressRouteCircuitConnection", {
@@ -88,6 +90,7 @@ export interface GetExpressRouteCircuitConnectionResult {
 /**
  * Gets the specified Express Route Circuit Connection from the specified express route circuit.
  */
+/** @deprecated azure-native:network/v20190401:ExpressRouteCircuitConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteCircuitConnection to guarantee forwards compatibility. */
 export function getExpressRouteCircuitConnectionOutput(args: GetExpressRouteCircuitConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitConnectionResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCircuitConnection(a, opts))
 }

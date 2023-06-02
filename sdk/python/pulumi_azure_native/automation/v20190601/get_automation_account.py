@@ -17,6 +17,8 @@ __all__ = [
     'get_automation_account_output',
 ]
 
+warnings.warn("""azure-native:automation/v20190601:AutomationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:AutomationAccount to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAutomationAccountResult:
     """
@@ -187,6 +189,7 @@ def get_automation_account(automation_account_name: Optional[str] = None,
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_automation_account is deprecated: azure-native:automation/v20190601:AutomationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:AutomationAccount to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -219,4 +222,5 @@ def get_automation_account_output(automation_account_name: Optional[pulumi.Input
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_automation_account is deprecated: azure-native:automation/v20190601:AutomationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:AutomationAccount to guarantee forwards compatibility.""")
     ...

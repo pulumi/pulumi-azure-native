@@ -16,6 +16,8 @@ __all__ = [
     'get_role_assignment_output',
 ]
 
+warnings.warn("""azure-native:authorization/v20180101preview:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200301preview:RoleAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRoleAssignmentResult:
     """
@@ -126,6 +128,7 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
     :param str role_assignment_name: The name of the role assignment to get.
     :param str scope: The scope of the role assignment.
     """
+    pulumi.log.warn("""get_role_assignment is deprecated: azure-native:authorization/v20180101preview:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200301preview:RoleAssignment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['roleAssignmentName'] = role_assignment_name
     __args__['scope'] = scope
@@ -153,4 +156,5 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]]
     :param str role_assignment_name: The name of the role assignment to get.
     :param str scope: The scope of the role assignment.
     """
+    pulumi.log.warn("""get_role_assignment is deprecated: azure-native:authorization/v20180101preview:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200301preview:RoleAssignment to guarantee forwards compatibility.""")
     ...

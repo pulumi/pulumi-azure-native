@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20220801Preview
     /// <summary>
     /// A hub setting
     /// </summary>
+    [Obsolete(@"azure-native:webpubsub/v20220801preview:WebPubSubHub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubHub to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:webpubsub/v20220801preview:WebPubSubHub")]
     public partial class WebPubSubHub : global::Pulumi.CustomResource
     {

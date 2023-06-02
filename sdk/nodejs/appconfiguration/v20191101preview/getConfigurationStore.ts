@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified configuration store.
  */
-/** @deprecated Version 2019-11-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-11-01-preview will be removed in v2 of the provider.
+azure-native:appconfiguration/v20191101preview:ConfigurationStore is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:ConfigurationStore to guarantee forwards compatibility. */
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
-    pulumi.log.warn("getConfigurationStore is deprecated: Version 2019-11-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getConfigurationStore is deprecated: Version 2019-11-01-preview will be removed in v2 of the provider.\nazure-native:appconfiguration/v20191101preview:ConfigurationStore is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:ConfigurationStore to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appconfiguration/v20191101preview:getConfigurationStore", {
@@ -92,7 +93,8 @@ export interface GetConfigurationStoreResult {
 /**
  * Gets the properties of the specified configuration store.
  */
-/** @deprecated Version 2019-11-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-11-01-preview will be removed in v2 of the provider.
+azure-native:appconfiguration/v20191101preview:ConfigurationStore is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:ConfigurationStore to guarantee forwards compatibility. */
 export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationStoreResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationStore(a, opts))
 }

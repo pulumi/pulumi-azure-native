@@ -17,6 +17,8 @@ __all__ = [
     'get_update_summary_output',
 ]
 
+warnings.warn("""azure-native:azurestackhci/v20221201:UpdateSummary is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:UpdateSummary to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetUpdateSummaryResult:
     """
@@ -199,6 +201,7 @@ def get_update_summary(cluster_name: Optional[str] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_update_summary is deprecated: azure-native:azurestackhci/v20221201:UpdateSummary is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:UpdateSummary to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
@@ -232,4 +235,5 @@ def get_update_summary_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_update_summary is deprecated: azure-native:azurestackhci/v20221201:UpdateSummary is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:UpdateSummary to guarantee forwards compatibility.""")
     ...

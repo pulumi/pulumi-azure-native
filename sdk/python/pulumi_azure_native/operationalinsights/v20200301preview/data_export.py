@@ -175,7 +175,12 @@ class DataExportArgs:
         pulumi.set(self, "last_modified_date", value)
 
 
+warnings.warn("""azure-native:operationalinsights/v20200301preview:DataExport is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class DataExport(pulumi.CustomResource):
+    warnings.warn("""azure-native:operationalinsights/v20200301preview:DataExport is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -242,6 +247,7 @@ class DataExport(pulumi.CustomResource):
                  table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""DataExport is deprecated: azure-native:operationalinsights/v20200301preview:DataExport is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

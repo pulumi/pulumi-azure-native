@@ -362,7 +362,12 @@ class ACIServiceArgs:
         pulumi.set(self, "vnet_configuration", value)
 
 
+warnings.warn("""azure-native:machinelearningservices/v20200501preview:ACIService is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ACIService(pulumi.CustomResource):
+    warnings.warn("""azure-native:machinelearningservices/v20200501preview:ACIService is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -463,6 +468,7 @@ class ACIService(pulumi.CustomResource):
                  vnet_configuration: Optional[pulumi.Input[pulumi.InputType['ACIServiceCreateRequestVnetConfigurationArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ACIService is deprecated: azure-native:machinelearningservices/v20200501preview:ACIService is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

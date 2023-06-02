@@ -16,6 +16,8 @@ __all__ = [
     'get_web_app_hybrid_connection_slot_output',
 ]
 
+warnings.warn("""azure-native:web/v20210115:WebAppHybridConnectionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppHybridConnectionSlot to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppHybridConnectionSlotResult:
     """
@@ -193,6 +195,7 @@ def get_web_app_hybrid_connection_slot(name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: The name of the slot for the web app.
     """
+    pulumi.log.warn("""get_web_app_hybrid_connection_slot is deprecated: azure-native:web/v20210115:WebAppHybridConnectionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppHybridConnectionSlot to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name
@@ -234,4 +237,5 @@ def get_web_app_hybrid_connection_slot_output(name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: The name of the slot for the web app.
     """
+    pulumi.log.warn("""get_web_app_hybrid_connection_slot is deprecated: azure-native:web/v20210115:WebAppHybridConnectionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppHybridConnectionSlot to guarantee forwards compatibility.""")
     ...

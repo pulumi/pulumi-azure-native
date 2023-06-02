@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of a topic
  */
-/** @deprecated Version 2018-09-15-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-09-15-preview will be removed in v2 of the provider.
+azure-native:eventgrid/v20180915preview:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20200401preview:Topic to guarantee forwards compatibility. */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
-    pulumi.log.warn("getTopic is deprecated: Version 2018-09-15-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getTopic is deprecated: Version 2018-09-15-preview will be removed in v2 of the provider.\nazure-native:eventgrid/v20180915preview:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20200401preview:Topic to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20180915preview:getTopic", {
@@ -76,7 +77,8 @@ export interface GetTopicResult {
 /**
  * Get properties of a topic
  */
-/** @deprecated Version 2018-09-15-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-09-15-preview will be removed in v2 of the provider.
+azure-native:eventgrid/v20180915preview:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20200401preview:Topic to guarantee forwards compatibility. */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
     return pulumi.output(args).apply((a: any) => getTopic(a, opts))
 }

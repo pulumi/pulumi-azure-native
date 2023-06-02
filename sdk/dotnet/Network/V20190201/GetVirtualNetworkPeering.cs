@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20190201
 {
+    [Obsolete(@"azure-native:network/v20190201:VirtualNetworkPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility.")]
     public static class GetVirtualNetworkPeering
     {
         /// <summary>

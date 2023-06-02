@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a DataSetMapping in a shareSubscription
  */
+/** @deprecated azure-native:datashare/v20181101preview:ADLSGen2FileSystemDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping to guarantee forwards compatibility. */
 export function getADLSGen2FileSystemDataSetMapping(args: GetADLSGen2FileSystemDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FileSystemDataSetMappingResult> {
+    pulumi.log.warn("getADLSGen2FileSystemDataSetMapping is deprecated: azure-native:datashare/v20181101preview:ADLSGen2FileSystemDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20181101preview:getADLSGen2FileSystemDataSetMapping", {
@@ -90,6 +92,7 @@ export interface GetADLSGen2FileSystemDataSetMappingResult {
 /**
  * Get a DataSetMapping in a shareSubscription
  */
+/** @deprecated azure-native:datashare/v20181101preview:ADLSGen2FileSystemDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping to guarantee forwards compatibility. */
 export function getADLSGen2FileSystemDataSetMappingOutput(args: GetADLSGen2FileSystemDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FileSystemDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getADLSGen2FileSystemDataSetMapping(a, opts))
 }

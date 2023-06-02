@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2020-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-04-01 will be removed in v2 of the provider.
+azure-native:documentdb/v20200401:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility. */
 export function getGremlinResourceGremlinDatabase(args: GetGremlinResourceGremlinDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetGremlinResourceGremlinDatabaseResult> {
-    pulumi.log.warn("getGremlinResourceGremlinDatabase is deprecated: Version 2020-04-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getGremlinResourceGremlinDatabase is deprecated: Version 2020-04-01 will be removed in v2 of the provider.\nazure-native:documentdb/v20200401:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20200401:getGremlinResourceGremlinDatabase", {
@@ -67,7 +68,8 @@ export interface GetGremlinResourceGremlinDatabaseResult {
 /**
  * Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2020-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-04-01 will be removed in v2 of the provider.
+azure-native:documentdb/v20200401:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility. */
 export function getGremlinResourceGremlinDatabaseOutput(args: GetGremlinResourceGremlinDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGremlinResourceGremlinDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getGremlinResourceGremlinDatabase(a, opts))
 }

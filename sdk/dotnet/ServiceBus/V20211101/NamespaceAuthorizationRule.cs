@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101
     /// <summary>
     /// Description of a namespace authorization rule.
     /// </summary>
+    [Obsolete(@"azure-native:servicebus/v20211101:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicebus/v20211101:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource
     {

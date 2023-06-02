@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20220131Preview
 {
+    [Obsolete(@"azure-native:recoveryservices/v20220131preview:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:Vault to guarantee forwards compatibility.")]
     public static class GetVault
     {
         /// <summary>

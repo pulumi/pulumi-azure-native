@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataShare.V20181101Preview
 {
+    [Obsolete(@"azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ScheduledSynchronizationSetting to guarantee forwards compatibility.")]
     public static class GetScheduledSynchronizationSetting
     {
         /// <summary>

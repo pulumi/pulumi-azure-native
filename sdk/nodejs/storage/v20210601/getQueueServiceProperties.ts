@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  */
+/** @deprecated azure-native:storage/v20210601:QueueServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:QueueServiceProperties to guarantee forwards compatibility. */
 export function getQueueServiceProperties(args: GetQueueServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueServicePropertiesResult> {
+    pulumi.log.warn("getQueueServiceProperties is deprecated: azure-native:storage/v20210601:QueueServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:QueueServiceProperties to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20210601:getQueueServiceProperties", {
@@ -59,6 +61,7 @@ export interface GetQueueServicePropertiesResult {
 /**
  * Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  */
+/** @deprecated azure-native:storage/v20210601:QueueServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:QueueServiceProperties to guarantee forwards compatibility. */
 export function getQueueServicePropertiesOutput(args: GetQueueServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueServicePropertiesResult> {
     return pulumi.output(args).apply((a: any) => getQueueServiceProperties(a, opts))
 }

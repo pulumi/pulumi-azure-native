@@ -17,6 +17,8 @@ __all__ = [
     'get_sap_database_instance_output',
 ]
 
+warnings.warn("""azure-native:workloads/v20221101preview:SAPDatabaseInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPDatabaseInstance to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSAPDatabaseInstanceResult:
     """
@@ -225,6 +227,7 @@ def get_sap_database_instance(database_instance_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
     """
+    pulumi.log.warn("""get_sap_database_instance is deprecated: azure-native:workloads/v20221101preview:SAPDatabaseInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPDatabaseInstance to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['databaseInstanceName'] = database_instance_name
     __args__['resourceGroupName'] = resource_group_name
@@ -263,4 +266,5 @@ def get_sap_database_instance_output(database_instance_name: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
     """
+    pulumi.log.warn("""get_sap_database_instance is deprecated: azure-native:workloads/v20221101preview:SAPDatabaseInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPDatabaseInstance to guarantee forwards compatibility.""")
     ...

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the agent pool by managed cluster and resource group.
  */
+/** @deprecated azure-native:containerservice/v20200301:AgentPool is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20200601:AgentPool to guarantee forwards compatibility. */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
+    pulumi.log.warn("getAgentPool is deprecated: azure-native:containerservice/v20200301:AgentPool is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20200601:AgentPool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20200301:getAgentPool", {
@@ -132,6 +134,7 @@ export interface GetAgentPoolResult {
 /**
  * Gets the details of the agent pool by managed cluster and resource group.
  */
+/** @deprecated azure-native:containerservice/v20200301:AgentPool is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20200601:AgentPool to guarantee forwards compatibility. */
 export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
     return pulumi.output(args).apply((a: any) => getAgentPool(a, opts))
 }

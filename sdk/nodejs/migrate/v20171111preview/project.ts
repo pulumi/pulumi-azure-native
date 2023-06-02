@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Azure Migrate Project.
  *
  * @deprecated Version 2017-11-11-preview will be removed in v2 of the provider.
+azure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Project to guarantee forwards compatibility.
  */
 export class Project extends pulumi.CustomResource {
     /**
@@ -22,7 +23,7 @@ export class Project extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Project {
-        pulumi.log.warn("Project is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.")
+        pulumi.log.warn("Project is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.\nazure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Project to guarantee forwards compatibility.")
         return new Project(name, undefined as any, { ...opts, id: id });
     }
 
@@ -100,9 +101,10 @@ export class Project extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
+    /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider.
+azure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Project to guarantee forwards compatibility. */
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Project is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.")
+        pulumi.log.warn("Project is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.\nazure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Project to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

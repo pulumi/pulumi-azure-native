@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20221201
     /// <summary>
     /// Get the update summaries for the cluster
     /// </summary>
+    [Obsolete(@"azure-native:azurestackhci/v20221201:UpdateSummary is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:UpdateSummary to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurestackhci/v20221201:UpdateSummary")]
     public partial class UpdateSummary : global::Pulumi.CustomResource
     {

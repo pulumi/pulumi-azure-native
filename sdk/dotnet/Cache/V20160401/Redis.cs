@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Cache.V20160401
     /// <summary>
     /// A single Redis item in List or Get Operation.
     /// </summary>
-    [Obsolete(@"Version 2016-04-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2016-04-01 will be removed in v2 of the provider.
+azure-native:cache/v20160401:Redis is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20170201:Redis to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cache/v20160401:Redis")]
     public partial class Redis : global::Pulumi.CustomResource
     {
@@ -154,8 +155,6 @@ namespace Pulumi.AzureNative.Cache.V20160401
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:Redis"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:Redis"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220601:Redis"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230401:Redis"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230501preview:Redis"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

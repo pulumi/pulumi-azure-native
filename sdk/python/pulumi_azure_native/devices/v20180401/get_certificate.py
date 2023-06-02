@@ -17,7 +17,8 @@ __all__ = [
     'get_certificate_output',
 ]
 
-warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:devices/v20180401:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20200401:Certificate to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCertificateResult:
@@ -107,7 +108,8 @@ def get_certificate(certificate_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
-    pulumi.log.warn("""get_certificate is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_certificate is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:devices/v20180401:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20200401:Certificate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['certificateName'] = certificate_name
     __args__['resourceGroupName'] = resource_group_name
@@ -136,5 +138,6 @@ def get_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
-    pulumi.log.warn("""get_certificate is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_certificate is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:devices/v20180401:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20200401:Certificate to guarantee forwards compatibility.""")
     ...

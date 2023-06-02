@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HybridCompute.V20221110
 {
+    [Obsolete(@"azure-native:hybridcompute/v20221110:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20221227preview:PrivateLinkScope to guarantee forwards compatibility.")]
     public static class GetPrivateLinkScope
     {
         /// <summary>

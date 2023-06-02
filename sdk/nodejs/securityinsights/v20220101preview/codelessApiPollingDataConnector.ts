@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents Codeless API Polling data connector.
+ *
+ * @deprecated azure-native:securityinsights/v20220101preview:CodelessApiPollingDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:CodelessApiPollingDataConnector to guarantee forwards compatibility.
  */
 export class CodelessApiPollingDataConnector extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class CodelessApiPollingDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CodelessApiPollingDataConnector {
+        pulumi.log.warn("CodelessApiPollingDataConnector is deprecated: azure-native:securityinsights/v20220101preview:CodelessApiPollingDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:CodelessApiPollingDataConnector to guarantee forwards compatibility.")
         return new CodelessApiPollingDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,7 +77,9 @@ export class CodelessApiPollingDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20220101preview:CodelessApiPollingDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:CodelessApiPollingDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: CodelessApiPollingDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("CodelessApiPollingDataConnector is deprecated: azure-native:securityinsights/v20220101preview:CodelessApiPollingDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:CodelessApiPollingDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -107,7 +112,7 @@ export class CodelessApiPollingDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20200101:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20211001:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220801:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20221101:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20230201:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:CodelessApiPollingDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20200101:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20211001:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220801:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20221101:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20230201:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:CodelessApiPollingDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CodelessApiPollingDataConnector.__pulumiType, name, resourceInputs, opts);
     }

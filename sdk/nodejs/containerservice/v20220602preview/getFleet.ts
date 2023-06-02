@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The Fleet resource which contains multiple Kubernetes clusters as its members.
  */
+/** @deprecated azure-native:containerservice/v20220602preview:Fleet is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:Fleet to guarantee forwards compatibility. */
 export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
+    pulumi.log.warn("getFleet is deprecated: azure-native:containerservice/v20220602preview:Fleet is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:Fleet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20220602preview:getFleet", {
@@ -74,6 +76,7 @@ export interface GetFleetResult {
 /**
  * The Fleet resource which contains multiple Kubernetes clusters as its members.
  */
+/** @deprecated azure-native:containerservice/v20220602preview:Fleet is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:Fleet to guarantee forwards compatibility. */
 export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
     return pulumi.output(args).apply((a: any) => getFleet(a, opts))
 }

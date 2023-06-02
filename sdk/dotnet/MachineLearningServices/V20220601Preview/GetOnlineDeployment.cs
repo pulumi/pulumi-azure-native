@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
 {
+    [Obsolete(@"azure-native:machinelearningservices/v20220601preview:OnlineDeployment is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:OnlineDeployment to guarantee forwards compatibility.")]
     public static class GetOnlineDeployment
     {
         public static Task<GetOnlineDeploymentResult> InvokeAsync(GetOnlineDeploymentArgs args, InvokeOptions? options = null)

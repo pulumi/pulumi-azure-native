@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a workspace active directory admin
  */
+/** @deprecated azure-native:synapse/v20210601:WorkspaceAadAdmin is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:WorkspaceAadAdmin to guarantee forwards compatibility. */
 export function getWorkspaceAadAdmin(args: GetWorkspaceAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceAadAdminResult> {
+    pulumi.log.warn("getWorkspaceAadAdmin is deprecated: azure-native:synapse/v20210601:WorkspaceAadAdmin is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:WorkspaceAadAdmin to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601:getWorkspaceAadAdmin", {
@@ -63,6 +65,7 @@ export interface GetWorkspaceAadAdminResult {
 /**
  * Gets a workspace active directory admin
  */
+/** @deprecated azure-native:synapse/v20210601:WorkspaceAadAdmin is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:WorkspaceAadAdmin to guarantee forwards compatibility. */
 export function getWorkspaceAadAdminOutput(args: GetWorkspaceAadAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceAadAdminResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceAadAdmin(a, opts))
 }

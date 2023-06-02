@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A cluster resource
+ *
+ * @deprecated azure-native:avs/v20211201:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Cluster to guarantee forwards compatibility.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cluster {
+        pulumi.log.warn("Cluster is deprecated: azure-native:avs/v20211201:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Cluster to guarantee forwards compatibility.")
         return new Cluster(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,7 +76,9 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:avs/v20211201:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Cluster to guarantee forwards compatibility. */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Cluster is deprecated: azure-native:avs/v20211201:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Cluster to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

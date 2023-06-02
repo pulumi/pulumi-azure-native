@@ -320,7 +320,12 @@ class PoolArgs:
         pulumi.set(self, "vm_size", value)
 
 
+warnings.warn("""azure-native:batch/v20220601:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:Pool to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Pool(pulumi.CustomResource):
+    warnings.warn("""azure-native:batch/v20220601:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:Pool to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -413,6 +418,7 @@ class Pool(pulumi.CustomResource):
                  user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccountArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Pool is deprecated: azure-native:batch/v20220601:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:Pool to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

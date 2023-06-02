@@ -179,7 +179,12 @@ class TemplateSpecVersionArgs:
         pulumi.set(self, "ui_form_definition", value)
 
 
+warnings.warn("""azure-native:resources/v20210301preview:TemplateSpecVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220201:TemplateSpecVersion to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class TemplateSpecVersion(pulumi.CustomResource):
+    warnings.warn("""azure-native:resources/v20210301preview:TemplateSpecVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220201:TemplateSpecVersion to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -246,6 +251,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
                  template_spec_version: Optional[pulumi.Input[str]] = None,
                  ui_form_definition: Optional[Any] = None,
                  __props__=None):
+        pulumi.log.warn("""TemplateSpecVersion is deprecated: azure-native:resources/v20210301preview:TemplateSpecVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220201:TemplateSpecVersion to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

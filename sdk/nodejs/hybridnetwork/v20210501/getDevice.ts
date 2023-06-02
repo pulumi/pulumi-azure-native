@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified device.
  */
+/** @deprecated azure-native:hybridnetwork/v20210501:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:Device to guarantee forwards compatibility. */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
+    pulumi.log.warn("getDevice is deprecated: azure-native:hybridnetwork/v20210501:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:Device to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20210501:getDevice", {
@@ -78,6 +80,7 @@ export interface GetDeviceResult {
 /**
  * Gets information about the specified device.
  */
+/** @deprecated azure-native:hybridnetwork/v20210501:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:Device to guarantee forwards compatibility. */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
     return pulumi.output(args).apply((a: any) => getDevice(a, opts))
 }

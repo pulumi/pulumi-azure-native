@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the automation rule.
  */
+/** @deprecated azure-native:securityinsights/v20211001preview:AutomationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AutomationRule to guarantee forwards compatibility. */
 export function getAutomationRule(args: GetAutomationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationRuleResult> {
+    pulumi.log.warn("getAutomationRule is deprecated: azure-native:securityinsights/v20211001preview:AutomationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AutomationRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20211001preview:getAutomationRule", {
@@ -92,6 +94,7 @@ export interface GetAutomationRuleResult {
 /**
  * Gets the automation rule.
  */
+/** @deprecated azure-native:securityinsights/v20211001preview:AutomationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AutomationRule to guarantee forwards compatibility. */
 export function getAutomationRuleOutput(args: GetAutomationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationRuleResult> {
     return pulumi.output(args).apply((a: any) => getAutomationRule(a, opts))
 }

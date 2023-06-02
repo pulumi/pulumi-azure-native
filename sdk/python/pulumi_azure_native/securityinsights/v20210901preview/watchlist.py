@@ -384,7 +384,12 @@ class WatchlistArgs:
         pulumi.set(self, "watchlist_type", value)
 
 
+warnings.warn("""azure-native:securityinsights/v20210901preview:Watchlist is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20211001preview:Watchlist to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Watchlist(pulumi.CustomResource):
+    warnings.warn("""azure-native:securityinsights/v20210901preview:Watchlist is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20211001preview:Watchlist to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -490,6 +495,7 @@ class Watchlist(pulumi.CustomResource):
                  watchlist_type: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Watchlist is deprecated: azure-native:securityinsights/v20210901preview:Watchlist is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20211001preview:Watchlist to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -537,7 +543,7 @@ class Watchlist(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:Watchlist")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Watchlist")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Watchlist, __self__).__init__(
             'azure-native:securityinsights/v20210901preview:Watchlist',

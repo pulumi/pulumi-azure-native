@@ -17,7 +17,8 @@ __all__ = [
     'get_data_manager_output',
 ]
 
-warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:hybriddata/v20160601:DataManager is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:DataManager to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDataManagerResult:
@@ -132,7 +133,8 @@ def get_data_manager(data_manager_name: Optional[str] = None,
     :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The Resource Group Name
     """
-    pulumi.log.warn("""get_data_manager is deprecated: Version 2016-06-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_data_manager is deprecated: Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:hybriddata/v20160601:DataManager is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:DataManager to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dataManagerName'] = data_manager_name
     __args__['resourceGroupName'] = resource_group_name
@@ -160,5 +162,6 @@ def get_data_manager_output(data_manager_name: Optional[pulumi.Input[str]] = Non
     :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The Resource Group Name
     """
-    pulumi.log.warn("""get_data_manager is deprecated: Version 2016-06-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_data_manager is deprecated: Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:hybriddata/v20160601:DataManager is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:DataManager to guarantee forwards compatibility.""")
     ...

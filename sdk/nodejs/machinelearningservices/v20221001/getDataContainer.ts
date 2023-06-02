@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Azure Resource Manager resource envelope.
  */
+/** @deprecated azure-native:machinelearningservices/v20221001:DataContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:DataContainer to guarantee forwards compatibility. */
 export function getDataContainer(args: GetDataContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataContainerResult> {
+    pulumi.log.warn("getDataContainer is deprecated: azure-native:machinelearningservices/v20221001:DataContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:DataContainer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001:getDataContainer", {
@@ -63,6 +65,7 @@ export interface GetDataContainerResult {
 /**
  * Azure Resource Manager resource envelope.
  */
+/** @deprecated azure-native:machinelearningservices/v20221001:DataContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:DataContainer to guarantee forwards compatibility. */
 export function getDataContainerOutput(args: GetDataContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataContainerResult> {
     return pulumi.output(args).apply((a: any) => getDataContainer(a, opts))
 }

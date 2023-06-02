@@ -17,7 +17,8 @@ __all__ = [
     'get_replication_protected_item_output',
 ]
 
-warnings.warn("""Version 2018-01-10 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationProtectedItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationProtectedItem to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetReplicationProtectedItemResult:
@@ -111,7 +112,8 @@ def get_replication_protected_item(fabric_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
-    pulumi.log.warn("""get_replication_protected_item is deprecated: Version 2018-01-10 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_replication_protected_item is deprecated: Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationProtectedItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationProtectedItem to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['protectionContainerName'] = protection_container_name
@@ -146,5 +148,6 @@ def get_replication_protected_item_output(fabric_name: Optional[pulumi.Input[str
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
-    pulumi.log.warn("""get_replication_protected_item is deprecated: Version 2018-01-10 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_replication_protected_item is deprecated: Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationProtectedItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationProtectedItem to guarantee forwards compatibility.""")
     ...

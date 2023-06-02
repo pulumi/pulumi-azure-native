@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a DataSet in a share
  */
+/** @deprecated azure-native:datashare/v20191101:KustoDatabaseDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:KustoDatabaseDataSet to guarantee forwards compatibility. */
 export function getKustoDatabaseDataSet(args: GetKustoDatabaseDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoDatabaseDataSetResult> {
+    pulumi.log.warn("getKustoDatabaseDataSet is deprecated: azure-native:datashare/v20191101:KustoDatabaseDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:KustoDatabaseDataSet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20191101:getKustoDatabaseDataSet", {
@@ -78,6 +80,7 @@ export interface GetKustoDatabaseDataSetResult {
 /**
  * Get a DataSet in a share
  */
+/** @deprecated azure-native:datashare/v20191101:KustoDatabaseDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:KustoDatabaseDataSet to guarantee forwards compatibility. */
 export function getKustoDatabaseDataSetOutput(args: GetKustoDatabaseDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoDatabaseDataSetResult> {
     return pulumi.output(args).apply((a: any) => getKustoDatabaseDataSet(a, opts))
 }

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HybridNetwork.V20210501
 {
+    [Obsolete(@"azure-native:hybridnetwork/v20210501:VendorSkuPreview is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:VendorSkuPreview to guarantee forwards compatibility.")]
     public static class GetVendorSkuPreview
     {
         /// <summary>

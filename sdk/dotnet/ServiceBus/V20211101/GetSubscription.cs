@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceBus.V20211101
 {
+    [Obsolete(@"azure-native:servicebus/v20211101:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:Subscription to guarantee forwards compatibility.")]
     public static class GetSubscription
     {
         /// <summary>

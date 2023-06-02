@@ -17,6 +17,8 @@ __all__ = [
     'get_application_type_output',
 ]
 
+warnings.warn("""azure-native:servicefabric/v20211101preview:ApplicationType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:ApplicationType to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationTypeResult:
     """
@@ -129,6 +131,7 @@ def get_application_type(application_type_name: Optional[str] = None,
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_application_type is deprecated: azure-native:servicefabric/v20211101preview:ApplicationType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:ApplicationType to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['applicationTypeName'] = application_type_name
     __args__['clusterName'] = cluster_name
@@ -159,4 +162,5 @@ def get_application_type_output(application_type_name: Optional[pulumi.Input[str
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_application_type is deprecated: azure-native:servicefabric/v20211101preview:ApplicationType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:ApplicationType to guarantee forwards compatibility.""")
     ...

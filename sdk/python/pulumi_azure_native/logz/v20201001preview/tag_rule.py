@@ -80,7 +80,12 @@ class TagRuleArgs:
         pulumi.set(self, "rule_set_name", value)
 
 
+warnings.warn("""azure-native:logz/v20201001preview:TagRule is being removed in the next major version of this provider. Upgrade to at least azure-native:logz/v20220101preview:TagRule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class TagRule(pulumi.CustomResource):
+    warnings.warn("""azure-native:logz/v20201001preview:TagRule is being removed in the next major version of this provider. Upgrade to at least azure-native:logz/v20220101preview:TagRule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -128,6 +133,7 @@ class TagRule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_set_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""TagRule is deprecated: azure-native:logz/v20201001preview:TagRule is being removed in the next major version of this provider. Upgrade to at least azure-native:logz/v20220101preview:TagRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

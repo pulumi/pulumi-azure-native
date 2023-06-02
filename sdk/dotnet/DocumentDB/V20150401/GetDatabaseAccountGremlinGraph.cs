@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20150401
 {
-    [Obsolete(@"Version 2015-04-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2015-04-01 will be removed in v2 of the provider.
+azure-native:documentdb/v20150401:DatabaseAccountGremlinGraph is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountGremlinGraph to guarantee forwards compatibility.")]
     public static class GetDatabaseAccountGremlinGraph
     {
         /// <summary>

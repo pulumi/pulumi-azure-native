@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Storage.V20210801
     /// <summary>
     /// Properties of the blob container, including Id, resource name, resource type, Etag.
     /// </summary>
+    [Obsolete(@"azure-native:storage/v20210801:BlobContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobContainer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storage/v20210801:BlobContainer")]
     public partial class BlobContainer : global::Pulumi.CustomResource
     {

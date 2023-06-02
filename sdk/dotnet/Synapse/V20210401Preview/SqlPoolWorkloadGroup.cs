@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
     /// <summary>
     /// Workload group operations for a sql pool
     /// </summary>
+    [Obsolete(@"azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup")]
     public partial class SqlPoolWorkloadGroup : global::Pulumi.CustomResource
     {

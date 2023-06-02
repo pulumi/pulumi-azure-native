@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
     /// <summary>
     /// The key resource.
     /// </summary>
+    [Obsolete(@"azure-native:keyvault/v20210601preview:Key is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:Key to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:keyvault/v20210601preview:Key")]
     public partial class Key : global::Pulumi.CustomResource
     {

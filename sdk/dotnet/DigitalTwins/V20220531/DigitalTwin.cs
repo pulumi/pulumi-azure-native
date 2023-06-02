@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20220531
     /// <summary>
     /// The description of the DigitalTwins service.
     /// </summary>
+    [Obsolete(@"azure-native:digitaltwins/v20220531:DigitalTwin is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:digitaltwins/v20220531:DigitalTwin")]
     public partial class DigitalTwin : global::Pulumi.CustomResource
     {

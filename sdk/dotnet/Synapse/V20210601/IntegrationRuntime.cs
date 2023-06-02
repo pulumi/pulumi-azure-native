@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
     /// <summary>
     /// Integration runtime resource type.
     /// </summary>
+    [Obsolete(@"azure-native:synapse/v20210601:IntegrationRuntime is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:IntegrationRuntime to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:synapse/v20210601:IntegrationRuntime")]
     public partial class IntegrationRuntime : global::Pulumi.CustomResource
     {

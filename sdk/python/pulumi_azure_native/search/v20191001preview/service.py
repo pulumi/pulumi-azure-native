@@ -187,11 +187,13 @@ class ServiceArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2019-10-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-10-01-preview will be removed in v2 of the provider.
+azure-native:search/v20191001preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20210401preview:Service to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Service(pulumi.CustomResource):
-    warnings.warn("""Version 2019-10-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2019-10-01-preview will be removed in v2 of the provider.
+azure-native:search/v20191001preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20210401preview:Service to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -259,7 +261,8 @@ class Service(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Service is deprecated: Version 2019-10-01-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""Service is deprecated: Version 2019-10-01-preview will be removed in v2 of the provider.
+azure-native:search/v20191001preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20210401preview:Service to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

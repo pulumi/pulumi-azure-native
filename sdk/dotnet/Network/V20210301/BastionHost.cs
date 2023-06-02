@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20210301
     /// <summary>
     /// Bastion Host resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20210301:BastionHost is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:BastionHost to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20210301:BastionHost")]
     public partial class BastionHost : global::Pulumi.CustomResource
     {

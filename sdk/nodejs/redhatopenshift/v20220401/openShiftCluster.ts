@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+ *
+ * @deprecated azure-native:redhatopenshift/v20220401:OpenShiftCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:redhatopenshift/v20220904:OpenShiftCluster to guarantee forwards compatibility.
  */
 export class OpenShiftCluster extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class OpenShiftCluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OpenShiftCluster {
+        pulumi.log.warn("OpenShiftCluster is deprecated: azure-native:redhatopenshift/v20220401:OpenShiftCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:redhatopenshift/v20220904:OpenShiftCluster to guarantee forwards compatibility.")
         return new OpenShiftCluster(name, undefined as any, { ...opts, id: id });
     }
 
@@ -101,7 +104,9 @@ export class OpenShiftCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:redhatopenshift/v20220401:OpenShiftCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:redhatopenshift/v20220904:OpenShiftCluster to guarantee forwards compatibility. */
     constructor(name: string, args: OpenShiftClusterArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("OpenShiftCluster is deprecated: azure-native:redhatopenshift/v20220401:OpenShiftCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:redhatopenshift/v20220904:OpenShiftCluster to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

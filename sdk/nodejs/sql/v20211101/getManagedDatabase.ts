@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a managed database.
  */
+/** @deprecated azure-native:sql/v20211101:ManagedDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedDatabase to guarantee forwards compatibility. */
 export function getManagedDatabase(args: GetManagedDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDatabaseResult> {
+    pulumi.log.warn("getManagedDatabase is deprecated: azure-native:sql/v20211101:ManagedDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedDatabase to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getManagedDatabase", {
@@ -88,6 +90,7 @@ export interface GetManagedDatabaseResult {
 /**
  * Gets a managed database.
  */
+/** @deprecated azure-native:sql/v20211101:ManagedDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedDatabase to guarantee forwards compatibility. */
 export function getManagedDatabaseOutput(args: GetManagedDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getManagedDatabase(a, opts))
 }

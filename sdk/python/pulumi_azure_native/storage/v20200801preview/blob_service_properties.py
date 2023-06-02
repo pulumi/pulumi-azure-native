@@ -212,11 +212,13 @@ class BlobServicePropertiesArgs:
         pulumi.set(self, "restore_policy", value)
 
 
-warnings.warn("""Version 2020-08-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-08-01-preview will be removed in v2 of the provider.
+azure-native:storage/v20200801preview:BlobServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobServiceProperties to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class BlobServiceProperties(pulumi.CustomResource):
-    warnings.warn("""Version 2020-08-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2020-08-01-preview will be removed in v2 of the provider.
+azure-native:storage/v20200801preview:BlobServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobServiceProperties to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -290,7 +292,8 @@ class BlobServiceProperties(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_policy: Optional[pulumi.Input[pulumi.InputType['RestorePolicyPropertiesArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""BlobServiceProperties is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""BlobServiceProperties is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.
+azure-native:storage/v20200801preview:BlobServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobServiceProperties to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

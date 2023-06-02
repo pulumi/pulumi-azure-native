@@ -17,6 +17,8 @@ __all__ = [
     'get_data_version_output',
 ]
 
+warnings.warn("""azure-native:machinelearningservices/v20221001:DataVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:DataVersion to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataVersionResult:
     """
@@ -107,6 +109,7 @@ def get_data_version(name: Optional[str] = None,
     :param str version: Version identifier.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_data_version is deprecated: azure-native:machinelearningservices/v20221001:DataVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:DataVersion to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -138,4 +141,5 @@ def get_data_version_output(name: Optional[pulumi.Input[str]] = None,
     :param str version: Version identifier.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_data_version is deprecated: azure-native:machinelearningservices/v20221001:DataVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:DataVersion to guarantee forwards compatibility.""")
     ...

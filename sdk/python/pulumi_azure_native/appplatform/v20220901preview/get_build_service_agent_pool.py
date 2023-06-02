@@ -17,6 +17,8 @@ __all__ = [
     'get_build_service_agent_pool_output',
 ]
 
+warnings.warn("""azure-native:appplatform/v20220901preview:BuildServiceAgentPool is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildServiceAgentPool to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBuildServiceAgentPoolResult:
     """
@@ -107,6 +109,7 @@ def get_build_service_agent_pool(agent_pool_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
+    pulumi.log.warn("""get_build_service_agent_pool is deprecated: azure-native:appplatform/v20220901preview:BuildServiceAgentPool is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildServiceAgentPool to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['agentPoolName'] = agent_pool_name
     __args__['buildServiceName'] = build_service_name
@@ -138,4 +141,5 @@ def get_build_service_agent_pool_output(agent_pool_name: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
+    pulumi.log.warn("""get_build_service_agent_pool is deprecated: azure-native:appplatform/v20220901preview:BuildServiceAgentPool is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildServiceAgentPool to guarantee forwards compatibility.""")
     ...

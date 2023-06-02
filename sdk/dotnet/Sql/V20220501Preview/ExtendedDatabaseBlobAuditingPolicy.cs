@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20220501Preview
     /// <summary>
     /// An extended database blob auditing policy.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20220501preview:ExtendedDatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ExtendedDatabaseBlobAuditingPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20220501preview:ExtendedDatabaseBlobAuditingPolicy")]
     public partial class ExtendedDatabaseBlobAuditingPolicy : global::Pulumi.CustomResource
     {

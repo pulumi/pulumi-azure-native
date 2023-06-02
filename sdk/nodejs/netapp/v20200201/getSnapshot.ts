@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Get details of the specified snapshot
  */
-/** @deprecated Version 2020-02-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-02-01 will be removed in v2 of the provider.
+azure-native:netapp/v20200201:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Snapshot to guarantee forwards compatibility. */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-    pulumi.log.warn("getSnapshot is deprecated: Version 2020-02-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getSnapshot is deprecated: Version 2020-02-01 will be removed in v2 of the provider.\nazure-native:netapp/v20200201:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Snapshot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20200201:getSnapshot", {
@@ -80,7 +81,8 @@ export interface GetSnapshotResult {
 /**
  * Get details of the specified snapshot
  */
-/** @deprecated Version 2020-02-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-02-01 will be removed in v2 of the provider.
+azure-native:netapp/v20200201:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Snapshot to guarantee forwards compatibility. */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
 }

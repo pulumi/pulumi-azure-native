@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20210201
     /// <summary>
     /// Virtual Appliance Site resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20210201:VirtualHubBgpConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubBgpConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20210201:VirtualHubBgpConnection")]
     public partial class VirtualHubBgpConnection : global::Pulumi.CustomResource
     {

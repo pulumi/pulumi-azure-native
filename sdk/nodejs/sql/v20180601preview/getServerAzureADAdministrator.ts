@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a server Administrator.
  */
+/** @deprecated azure-native:sql/v20180601preview:ServerAzureADAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerAzureADAdministrator to guarantee forwards compatibility. */
 export function getServerAzureADAdministrator(args: GetServerAzureADAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAzureADAdministratorResult> {
+    pulumi.log.warn("getServerAzureADAdministrator is deprecated: azure-native:sql/v20180601preview:ServerAzureADAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerAzureADAdministrator to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20180601preview:getServerAzureADAdministrator", {
@@ -68,6 +70,7 @@ export interface GetServerAzureADAdministratorResult {
 /**
  * Gets a server Administrator.
  */
+/** @deprecated azure-native:sql/v20180601preview:ServerAzureADAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerAzureADAdministrator to guarantee forwards compatibility. */
 export function getServerAzureADAdministratorOutput(args: GetServerAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAzureADAdministratorResult> {
     return pulumi.output(args).apply((a: any) => getServerAzureADAdministrator(a, opts))
 }

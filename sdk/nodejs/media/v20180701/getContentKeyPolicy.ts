@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the details of a Content Key Policy in the Media Services account
  */
+/** @deprecated azure-native:media/v20180701:ContentKeyPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:ContentKeyPolicy to guarantee forwards compatibility. */
 export function getContentKeyPolicy(args: GetContentKeyPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetContentKeyPolicyResult> {
+    pulumi.log.warn("getContentKeyPolicy is deprecated: azure-native:media/v20180701:ContentKeyPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:ContentKeyPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20180701:getContentKeyPolicy", {
@@ -75,6 +77,7 @@ export interface GetContentKeyPolicyResult {
 /**
  * Get the details of a Content Key Policy in the Media Services account
  */
+/** @deprecated azure-native:media/v20180701:ContentKeyPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:ContentKeyPolicy to guarantee forwards compatibility. */
 export function getContentKeyPolicyOutput(args: GetContentKeyPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentKeyPolicyResult> {
     return pulumi.output(args).apply((a: any) => getContentKeyPolicy(a, opts))
 }

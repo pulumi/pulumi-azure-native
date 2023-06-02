@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20221001Preview
 {
+    [Obsolete(@"azure-native:securityinsights/v20221001preview:TIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:TIDataConnector to guarantee forwards compatibility.")]
     public static class GetTIDataConnector
     {
         /// <summary>

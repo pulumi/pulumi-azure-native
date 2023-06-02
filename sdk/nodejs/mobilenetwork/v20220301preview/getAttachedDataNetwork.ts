@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified attached data network.
  */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork to guarantee forwards compatibility. */
 export function getAttachedDataNetwork(args: GetAttachedDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDataNetworkResult> {
+    pulumi.log.warn("getAttachedDataNetwork is deprecated: azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220301preview:getAttachedDataNetwork", {
@@ -120,6 +122,7 @@ export interface GetAttachedDataNetworkResult {
 /**
  * Gets information about the specified attached data network.
  */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork to guarantee forwards compatibility. */
 export function getAttachedDataNetworkOutput(args: GetAttachedDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedDataNetworkResult> {
     return pulumi.output(args).apply((a: any) => getAttachedDataNetwork(a, opts))
 }

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The application type name resource
+ *
+ * @deprecated azure-native:servicefabric/v20220101:ApplicationType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:ApplicationType to guarantee forwards compatibility.
  */
 export class ApplicationType extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ApplicationType extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationType {
+        pulumi.log.warn("ApplicationType is deprecated: azure-native:servicefabric/v20220101:ApplicationType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:ApplicationType to guarantee forwards compatibility.")
         return new ApplicationType(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,7 +72,9 @@ export class ApplicationType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:servicefabric/v20220101:ApplicationType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:ApplicationType to guarantee forwards compatibility. */
     constructor(name: string, args: ApplicationTypeArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ApplicationType is deprecated: azure-native:servicefabric/v20220101:ApplicationType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:ApplicationType to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -97,7 +102,7 @@ export class ApplicationType extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210501:ApplicationType" }, { type: "azure-native:servicefabric/v20210701preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210901privatepreview:ApplicationType" }, { type: "azure-native:servicefabric/v20211101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220201preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220601preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220801preview:ApplicationType" }, { type: "azure-native:servicefabric/v20221001preview:ApplicationType" }, { type: "azure-native:servicefabric/v20230201preview:ApplicationType" }, { type: "azure-native:servicefabric/v20230301preview:ApplicationType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210501:ApplicationType" }, { type: "azure-native:servicefabric/v20210701preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210901privatepreview:ApplicationType" }, { type: "azure-native:servicefabric/v20211101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220201preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220601preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220801preview:ApplicationType" }, { type: "azure-native:servicefabric/v20221001preview:ApplicationType" }, { type: "azure-native:servicefabric/v20230201preview:ApplicationType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationType.__pulumiType, name, resourceInputs, opts);
     }

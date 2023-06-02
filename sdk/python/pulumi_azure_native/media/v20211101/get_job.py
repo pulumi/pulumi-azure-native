@@ -17,6 +17,8 @@ __all__ = [
     'get_job_output',
 ]
 
+warnings.warn("""azure-native:media/v20211101:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20220701:Job to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetJobResult:
     """
@@ -215,6 +217,7 @@ def get_job(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str transform_name: The Transform name.
     """
+    pulumi.log.warn("""get_job is deprecated: azure-native:media/v20211101:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20220701:Job to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['jobName'] = job_name
@@ -255,4 +258,5 @@ def get_job_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str transform_name: The Transform name.
     """
+    pulumi.log.warn("""get_job is deprecated: azure-native:media/v20211101:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20220701:Job to guarantee forwards compatibility.""")
     ...

@@ -222,7 +222,12 @@ class SystemTopicEventSubscriptionArgs:
         pulumi.set(self, "retry_policy", value)
 
 
+warnings.warn("""azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:SystemTopicEventSubscription to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class SystemTopicEventSubscription(pulumi.CustomResource):
+    warnings.warn("""azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:SystemTopicEventSubscription to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -299,6 +304,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
                  retry_policy: Optional[pulumi.Input[pulumi.InputType['RetryPolicyArgs']]] = None,
                  system_topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""SystemTopicEventSubscription is deprecated: azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:SystemTopicEventSubscription to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

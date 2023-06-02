@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Private Endpoint connection on an application gateway.
+ *
+ * @deprecated azure-native:network/v20210801:ApplicationGatewayPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationGatewayPrivateEndpointConnection to guarantee forwards compatibility.
  */
 export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationGatewayPrivateEndpointConnection {
+        pulumi.log.warn("ApplicationGatewayPrivateEndpointConnection is deprecated: azure-native:network/v20210801:ApplicationGatewayPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationGatewayPrivateEndpointConnection to guarantee forwards compatibility.")
         return new ApplicationGatewayPrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,7 +76,9 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:network/v20210801:ApplicationGatewayPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationGatewayPrivateEndpointConnection to guarantee forwards compatibility. */
     constructor(name: string, args: ApplicationGatewayPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ApplicationGatewayPrivateEndpointConnection is deprecated: azure-native:network/v20210801:ApplicationGatewayPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationGatewayPrivateEndpointConnection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

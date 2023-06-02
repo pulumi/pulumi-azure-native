@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Shared Private Link Resource
+ *
+ * @deprecated azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.
  */
 export class WebPubSubSharedPrivateLinkResource extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class WebPubSubSharedPrivateLinkResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebPubSubSharedPrivateLinkResource {
+        pulumi.log.warn("WebPubSubSharedPrivateLinkResource is deprecated: azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.")
         return new WebPubSubSharedPrivateLinkResource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,7 +80,9 @@ export class WebPubSubSharedPrivateLinkResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility. */
     constructor(name: string, args: WebPubSubSharedPrivateLinkResourceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebPubSubSharedPrivateLinkResource is deprecated: azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

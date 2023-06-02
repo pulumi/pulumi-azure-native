@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get a particular backup Policy
  */
-/** @deprecated Version 2020-11-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-11-01 will be removed in v2 of the provider.
+azure-native:netapp/v20201101:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20210401:BackupPolicy to guarantee forwards compatibility. */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
-    pulumi.log.warn("getBackupPolicy is deprecated: Version 2020-11-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getBackupPolicy is deprecated: Version 2020-11-01 will be removed in v2 of the provider.\nazure-native:netapp/v20201101:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20210401:BackupPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20201101:getBackupPolicy", {
@@ -97,7 +98,8 @@ export interface GetBackupPolicyResult {
 /**
  * Get a particular backup Policy
  */
-/** @deprecated Version 2020-11-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-11-01 will be removed in v2 of the provider.
+azure-native:netapp/v20201101:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20210401:BackupPolicy to guarantee forwards compatibility. */
 export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBackupPolicy(a, opts))
 }

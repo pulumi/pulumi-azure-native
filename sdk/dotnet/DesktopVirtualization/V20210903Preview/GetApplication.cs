@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
 {
+    [Obsolete(@"azure-native:desktopvirtualization/v20210903preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:Application to guarantee forwards compatibility.")]
     public static class GetApplication
     {
         /// <summary>

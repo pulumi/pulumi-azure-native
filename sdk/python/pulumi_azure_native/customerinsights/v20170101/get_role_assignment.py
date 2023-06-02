@@ -17,7 +17,8 @@ __all__ = [
     'get_role_assignment_output',
 ]
 
-warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:RoleAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRoleAssignmentResult:
@@ -323,7 +324,8 @@ def get_role_assignment(assignment_name: Optional[str] = None,
     :param str hub_name: The name of the hub.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_role_assignment is deprecated: Version 2017-01-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_role_assignment is deprecated: Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:RoleAssignment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['assignmentName'] = assignment_name
     __args__['hubName'] = hub_name
@@ -370,5 +372,6 @@ def get_role_assignment_output(assignment_name: Optional[pulumi.Input[str]] = No
     :param str hub_name: The name of the hub.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_role_assignment is deprecated: Version 2017-01-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_role_assignment is deprecated: Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:RoleAssignment to guarantee forwards compatibility.""")
     ...

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Firewall resource
+ *
+ * @deprecated azure-native:network/v20180601:AzureFirewall is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility.
  */
 export class AzureFirewall extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class AzureFirewall extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AzureFirewall {
+        pulumi.log.warn("AzureFirewall is deprecated: azure-native:network/v20180601:AzureFirewall is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility.")
         return new AzureFirewall(name, undefined as any, { ...opts, id: id });
     }
 
@@ -81,7 +84,9 @@ export class AzureFirewall extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:network/v20180601:AzureFirewall is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility. */
     constructor(name: string, args: AzureFirewallArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AzureFirewall is deprecated: azure-native:network/v20180601:AzureFirewall is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

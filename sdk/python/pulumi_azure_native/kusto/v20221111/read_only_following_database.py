@@ -131,7 +131,12 @@ class ReadOnlyFollowingDatabaseArgs:
         pulumi.set(self, "location", value)
 
 
+warnings.warn("""azure-native:kusto/v20221111:ReadOnlyFollowingDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:ReadOnlyFollowingDatabase to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ReadOnlyFollowingDatabase(pulumi.CustomResource):
+    warnings.warn("""azure-native:kusto/v20221111:ReadOnlyFollowingDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:ReadOnlyFollowingDatabase to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -190,6 +195,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ReadOnlyFollowingDatabase is deprecated: azure-native:kusto/v20221111:ReadOnlyFollowingDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:ReadOnlyFollowingDatabase to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

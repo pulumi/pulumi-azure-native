@@ -17,7 +17,8 @@ __all__ = [
     'get_resource_group_output',
 ]
 
-warnings.warn("""Version 2018-05-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-05-01 will be removed in v2 of the provider.
+azure-native:resources/v20180501:ResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:ResourceGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetResourceGroupResult:
@@ -127,7 +128,8 @@ def get_resource_group(resource_group_name: Optional[str] = None,
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
     """
-    pulumi.log.warn("""get_resource_group is deprecated: Version 2018-05-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_resource_group is deprecated: Version 2018-05-01 will be removed in v2 of the provider.
+azure-native:resources/v20180501:ResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:ResourceGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -152,5 +154,6 @@ def get_resource_group_output(resource_group_name: Optional[pulumi.Input[str]] =
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
     """
-    pulumi.log.warn("""get_resource_group is deprecated: Version 2018-05-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_resource_group is deprecated: Version 2018-05-01 will be removed in v2 of the provider.
+azure-native:resources/v20180501:ResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:ResourceGroup to guarantee forwards compatibility.""")
     ...

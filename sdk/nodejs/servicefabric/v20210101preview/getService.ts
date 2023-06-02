@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
  */
+/** @deprecated azure-native:servicefabric/v20210101preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210601:Service to guarantee forwards compatibility. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+    pulumi.log.warn("getService is deprecated: azure-native:servicefabric/v20210101preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210601:Service to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20210101preview:getService", {
@@ -76,6 +78,7 @@ export interface GetServiceResult {
 /**
  * Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
  */
+/** @deprecated azure-native:servicefabric/v20210101preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210601:Service to guarantee forwards compatibility. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))
 }

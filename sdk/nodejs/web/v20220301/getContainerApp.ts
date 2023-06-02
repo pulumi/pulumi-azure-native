@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Container App.
  */
+/** @deprecated azure-native:web/v20220301:ContainerApp is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:ContainerApp to guarantee forwards compatibility. */
 export function getContainerApp(args: GetContainerAppArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppResult> {
+    pulumi.log.warn("getContainerApp is deprecated: azure-native:web/v20220301:ContainerApp is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:ContainerApp to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220301:getContainerApp", {
@@ -86,6 +88,7 @@ export interface GetContainerAppResult {
 /**
  * Container App.
  */
+/** @deprecated azure-native:web/v20220301:ContainerApp is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:ContainerApp to guarantee forwards compatibility. */
 export function getContainerAppOutput(args: GetContainerAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppResult> {
     return pulumi.output(args).apply((a: any) => getContainerApp(a, opts))
 }

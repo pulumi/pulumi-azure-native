@@ -17,6 +17,8 @@ __all__ = [
     'get_lab_output',
 ]
 
+warnings.warn("""azure-native:labservices/v20211001preview:Lab is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Lab to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLabResult:
     """
@@ -247,6 +249,7 @@ def get_lab(lab_name: Optional[str] = None,
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_lab is deprecated: azure-native:labservices/v20211001preview:Lab is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Lab to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['labName'] = lab_name
     __args__['resourceGroupName'] = resource_group_name
@@ -284,4 +287,5 @@ def get_lab_output(lab_name: Optional[pulumi.Input[str]] = None,
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_lab is deprecated: azure-native:labservices/v20211001preview:Lab is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Lab to guarantee forwards compatibility.""")
     ...

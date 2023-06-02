@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  */
+/** @deprecated azure-native:storage/v20220501:BlobServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobServiceProperties to guarantee forwards compatibility. */
 export function getBlobServiceProperties(args: GetBlobServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobServicePropertiesResult> {
+    pulumi.log.warn("getBlobServiceProperties is deprecated: azure-native:storage/v20220501:BlobServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobServiceProperties to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20220501:getBlobServiceProperties", {
@@ -95,6 +97,7 @@ export interface GetBlobServicePropertiesResult {
 /**
  * Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  */
+/** @deprecated azure-native:storage/v20220501:BlobServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobServiceProperties to guarantee forwards compatibility. */
 export function getBlobServicePropertiesOutput(args: GetBlobServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobServicePropertiesResult> {
     return pulumi.output(args).apply((a: any) => getBlobServiceProperties(a, opts))
 }

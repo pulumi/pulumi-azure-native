@@ -146,11 +146,13 @@ class OriginGroupArgs:
         pulumi.set(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", value)
 
 
-warnings.warn("""Version 2020-03-31 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-03-31 will be removed in v2 of the provider.
+azure-native:cdn/v20200331:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class OriginGroup(pulumi.CustomResource):
-    warnings.warn("""Version 2020-03-31 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2020-03-31 will be removed in v2 of the provider.
+azure-native:cdn/v20200331:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -212,7 +214,8 @@ class OriginGroup(pulumi.CustomResource):
                  response_based_origin_error_detection_settings: Optional[pulumi.Input[pulumi.InputType['ResponseBasedOriginErrorDetectionParametersArgs']]] = None,
                  traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""OriginGroup is deprecated: Version 2020-03-31 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""OriginGroup is deprecated: Version 2020-03-31 will be removed in v2 of the provider.
+azure-native:cdn/v20200331:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

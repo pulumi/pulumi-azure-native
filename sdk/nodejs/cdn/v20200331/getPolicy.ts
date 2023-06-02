@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve protection policy with specified name within a resource group.
  */
-/** @deprecated Version 2020-03-31 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-03-31 will be removed in v2 of the provider.
+azure-native:cdn/v20200331:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Policy to guarantee forwards compatibility. */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-    pulumi.log.warn("getPolicy is deprecated: Version 2020-03-31 will be removed in v2 of the provider.")
+    pulumi.log.warn("getPolicy is deprecated: Version 2020-03-31 will be removed in v2 of the provider.\nazure-native:cdn/v20200331:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Policy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20200331:getPolicy", {
@@ -93,7 +94,8 @@ export interface GetPolicyResult {
 /**
  * Retrieve protection policy with specified name within a resource group.
  */
-/** @deprecated Version 2020-03-31 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-03-31 will be removed in v2 of the provider.
+azure-native:cdn/v20200331:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Policy to guarantee forwards compatibility. */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
 }

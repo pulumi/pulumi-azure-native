@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
     /// <summary>
     /// Represents a Database.
     /// </summary>
+    [Obsolete(@"azure-native:dbformysql/v20200701privatepreview:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20220101:Database to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbformysql/v20200701privatepreview:Database")]
     public partial class Database : global::Pulumi.CustomResource
     {

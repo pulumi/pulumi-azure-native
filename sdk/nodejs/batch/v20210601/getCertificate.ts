@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified certificate.
  */
+/** @deprecated azure-native:batch/v20210601:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20220601:Certificate to guarantee forwards compatibility. */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
+    pulumi.log.warn("getCertificate is deprecated: azure-native:batch/v20210601:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20220601:Certificate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:batch/v20210601:getCertificate", {
@@ -86,6 +88,7 @@ export interface GetCertificateResult {
 /**
  * Gets information about the specified certificate.
  */
+/** @deprecated azure-native:batch/v20210601:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20220601:Certificate to guarantee forwards compatibility. */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }

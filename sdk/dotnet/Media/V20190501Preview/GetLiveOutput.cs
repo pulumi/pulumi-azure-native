@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Media.V20190501Preview
 {
+    [Obsolete(@"azure-native:media/v20190501preview:LiveOutput is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20221101:LiveOutput to guarantee forwards compatibility.")]
     public static class GetLiveOutput
     {
         /// <summary>

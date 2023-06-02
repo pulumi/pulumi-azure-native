@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20220801
     /// <summary>
     /// Restore Point details.
     /// </summary>
+    [Obsolete(@"azure-native:compute/v20220801:RestorePoint is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:RestorePoint to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20220801:RestorePoint")]
     public partial class RestorePoint : global::Pulumi.CustomResource
     {

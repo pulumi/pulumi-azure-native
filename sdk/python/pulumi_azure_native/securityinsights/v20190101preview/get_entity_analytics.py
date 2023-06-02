@@ -16,6 +16,8 @@ __all__ = [
     'get_entity_analytics_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20190101preview:EntityAnalytics is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:EntityAnalytics to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEntityAnalyticsResult:
     """
@@ -119,6 +121,7 @@ def get_entity_analytics(operational_insights_resource_provider: Optional[str] =
     :param str settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_entity_analytics is deprecated: azure-native:securityinsights/v20190101preview:EntityAnalytics is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:EntityAnalytics to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
@@ -151,4 +154,5 @@ def get_entity_analytics_output(operational_insights_resource_provider: Optional
     :param str settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_entity_analytics is deprecated: azure-native:securityinsights/v20190101preview:EntityAnalytics is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:EntityAnalytics to guarantee forwards compatibility.""")
     ...

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of an event channel.
  */
+/** @deprecated azure-native:eventgrid/v20200401preview:EventChannel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility. */
 export function getEventChannel(args: GetEventChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetEventChannelResult> {
+    pulumi.log.warn("getEventChannel is deprecated: azure-native:eventgrid/v20200401preview:EventChannel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20200401preview:getEventChannel", {
@@ -89,6 +91,7 @@ export interface GetEventChannelResult {
 /**
  * Get properties of an event channel.
  */
+/** @deprecated azure-native:eventgrid/v20200401preview:EventChannel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility. */
 export function getEventChannelOutput(args: GetEventChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventChannelResult> {
     return pulumi.output(args).apply((a: any) => getEventChannel(a, opts))
 }

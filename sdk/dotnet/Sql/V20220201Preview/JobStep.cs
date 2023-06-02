@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
     /// <summary>
     /// A job step.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20220201preview:JobStep is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:JobStep to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20220201preview:JobStep")]
     public partial class JobStep : global::Pulumi.CustomResource
     {

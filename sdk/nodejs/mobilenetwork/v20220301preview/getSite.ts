@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified mobile network site.
  */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility. */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
+    pulumi.log.warn("getSite is deprecated: azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220301preview:getSite", {
@@ -99,6 +101,7 @@ export interface GetSiteResult {
 /**
  * Gets information about the specified mobile network site.
  */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility. */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
     return pulumi.output(args).apply((a: any) => getSite(a, opts))
 }

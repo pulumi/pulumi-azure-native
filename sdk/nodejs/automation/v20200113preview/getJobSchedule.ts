@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve the job schedule identified by job schedule name.
  */
+/** @deprecated azure-native:automation/v20200113preview:JobSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:JobSchedule to guarantee forwards compatibility. */
 export function getJobSchedule(args: GetJobScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetJobScheduleResult> {
+    pulumi.log.warn("getJobSchedule is deprecated: azure-native:automation/v20200113preview:JobSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:JobSchedule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20200113preview:getJobSchedule", {
@@ -75,6 +77,7 @@ export interface GetJobScheduleResult {
 /**
  * Retrieve the job schedule identified by job schedule name.
  */
+/** @deprecated azure-native:automation/v20200113preview:JobSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:JobSchedule to guarantee forwards compatibility. */
 export function getJobScheduleOutput(args: GetJobScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobScheduleResult> {
     return pulumi.output(args).apply((a: any) => getJobSchedule(a, opts))
 }

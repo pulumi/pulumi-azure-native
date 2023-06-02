@@ -17,6 +17,8 @@ __all__ = [
     'get_commitment_plan_output',
 ]
 
+warnings.warn("""azure-native:cognitiveservices/v20220301:CommitmentPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20221001:CommitmentPlan to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCommitmentPlanResult:
     """
@@ -117,6 +119,7 @@ def get_commitment_plan(account_name: Optional[str] = None,
     :param str commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_commitment_plan is deprecated: azure-native:cognitiveservices/v20220301:CommitmentPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20221001:CommitmentPlan to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['commitmentPlanName'] = commitment_plan_name
@@ -146,4 +149,5 @@ def get_commitment_plan_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_commitment_plan is deprecated: azure-native:cognitiveservices/v20220301:CommitmentPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20221001:CommitmentPlan to guarantee forwards compatibility.""")
     ...

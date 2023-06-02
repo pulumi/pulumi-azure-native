@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a VirtualHub.
  */
+/** @deprecated azure-native:network/v20181101:VirtualHub is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:VirtualHub to guarantee forwards compatibility. */
 export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubResult> {
+    pulumi.log.warn("getVirtualHub is deprecated: azure-native:network/v20181101:VirtualHub is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:VirtualHub to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20181101:getVirtualHub", {
@@ -94,6 +96,7 @@ export interface GetVirtualHubResult {
 /**
  * Retrieves the details of a VirtualHub.
  */
+/** @deprecated azure-native:network/v20181101:VirtualHub is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:VirtualHub to guarantee forwards compatibility. */
 export function getVirtualHubOutput(args: GetVirtualHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubResult> {
     return pulumi.output(args).apply((a: any) => getVirtualHub(a, opts))
 }

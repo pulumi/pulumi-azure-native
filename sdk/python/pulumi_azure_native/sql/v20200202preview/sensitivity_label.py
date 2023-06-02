@@ -202,7 +202,12 @@ class SensitivityLabelArgs:
         pulumi.set(self, "sensitivity_label_source", value)
 
 
+warnings.warn("""azure-native:sql/v20200202preview:SensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class SensitivityLabel(pulumi.CustomResource):
+    warnings.warn("""azure-native:sql/v20200202preview:SensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -274,6 +279,7 @@ class SensitivityLabel(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""SensitivityLabel is deprecated: azure-native:sql/v20200202preview:SensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

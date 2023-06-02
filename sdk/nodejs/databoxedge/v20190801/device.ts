@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * The Data Box Edge/Gateway device.
  *
  * @deprecated Version 2019-08-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20190801:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20200501preview:Device to guarantee forwards compatibility.
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -22,7 +23,7 @@ export class Device extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Device {
-        pulumi.log.warn("Device is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("Device is deprecated: Version 2019-08-01 will be removed in v2 of the provider.\nazure-native:databoxedge/v20190801:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20200501preview:Device to guarantee forwards compatibility.")
         return new Device(name, undefined as any, { ...opts, id: id });
     }
 
@@ -128,9 +129,10 @@ export class Device extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
+    /** @deprecated Version 2019-08-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20190801:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20200501preview:Device to guarantee forwards compatibility. */
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Device is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("Device is deprecated: Version 2019-08-01 will be removed in v2 of the provider.\nazure-native:databoxedge/v20190801:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20200501preview:Device to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

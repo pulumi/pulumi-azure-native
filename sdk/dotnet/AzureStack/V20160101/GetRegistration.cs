@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureStack.V20160101
 {
-    [Obsolete(@"Version 2016-01-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2016-01-01 will be removed in v2 of the provider.
+azure-native:azurestack/v20160101:Registration is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestack/v20200601preview:Registration to guarantee forwards compatibility.")]
     public static class GetRegistration
     {
         /// <summary>

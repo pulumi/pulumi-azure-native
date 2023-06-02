@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * The operation to get the VMSS VM extension.
  */
-/** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension to guarantee forwards compatibility. */
 export function getVirtualMachineScaleSetVMExtension(args: GetVirtualMachineScaleSetVMExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMExtensionResult> {
-    pulumi.log.warn("getVirtualMachineScaleSetVMExtension is deprecated: Version 2020-06-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getVirtualMachineScaleSetVMExtension is deprecated: Version 2020-06-01 will be removed in v2 of the provider.\nazure-native:compute/v20200601:VirtualMachineScaleSetVMExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20200601:getVirtualMachineScaleSetVMExtension", {
@@ -103,7 +104,8 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
 /**
  * The operation to get the VMSS VM extension.
  */
-/** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension to guarantee forwards compatibility. */
 export function getVirtualMachineScaleSetVMExtensionOutput(args: GetVirtualMachineScaleSetVMExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMExtensionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVMExtension(a, opts))
 }

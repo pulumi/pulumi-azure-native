@@ -211,7 +211,12 @@ class PacketCoreDataPlaneArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class PacketCoreDataPlane(pulumi.CustomResource):
+    warnings.warn("""azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -284,6 +289,7 @@ class PacketCoreDataPlane(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_plane_access_interface: Optional[pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""PacketCoreDataPlane is deprecated: azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

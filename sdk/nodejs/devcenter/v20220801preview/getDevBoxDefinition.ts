@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Dev Box definition
  */
+/** @deprecated azure-native:devcenter/v20220801preview:DevBoxDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility. */
 export function getDevBoxDefinition(args: GetDevBoxDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDevBoxDefinitionResult> {
+    pulumi.log.warn("getDevBoxDefinition is deprecated: azure-native:devcenter/v20220801preview:DevBoxDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20220801preview:getDevBoxDefinition", {
@@ -95,6 +97,7 @@ export interface GetDevBoxDefinitionResult {
 /**
  * Gets a Dev Box definition
  */
+/** @deprecated azure-native:devcenter/v20220801preview:DevBoxDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility. */
 export function getDevBoxDefinitionOutput(args: GetDevBoxDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevBoxDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getDevBoxDefinition(a, opts))
 }

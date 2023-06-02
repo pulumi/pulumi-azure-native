@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Service and its properties.
  */
+/** @deprecated azure-native:appplatform/v20220901preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Service to guarantee forwards compatibility. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+    pulumi.log.warn("getService is deprecated: azure-native:appplatform/v20220901preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Service to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220901preview:getService", {
@@ -70,6 +72,7 @@ export interface GetServiceResult {
 /**
  * Get a Service and its properties.
  */
+/** @deprecated azure-native:appplatform/v20220901preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Service to guarantee forwards compatibility. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))
 }

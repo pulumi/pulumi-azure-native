@@ -228,7 +228,12 @@ class InboundNatRuleInitArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
+warnings.warn("""azure-native:network/v20181201:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:InboundNatRule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class InboundNatRule(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20181201:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:InboundNatRule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -304,6 +309,7 @@ class InboundNatRule(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""InboundNatRule is deprecated: azure-native:network/v20181201:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:InboundNatRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

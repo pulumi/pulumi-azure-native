@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a workload classifier of Sql pool's workload group.
  */
+/** @deprecated azure-native:synapse/v20210601:SqlPoolWorkloadClassifier is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolWorkloadClassifier to guarantee forwards compatibility. */
 export function getSqlPoolWorkloadClassifier(args: GetSqlPoolWorkloadClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadClassifierResult> {
+    pulumi.log.warn("getSqlPoolWorkloadClassifier is deprecated: azure-native:synapse/v20210601:SqlPoolWorkloadClassifier is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolWorkloadClassifier to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601:getSqlPoolWorkloadClassifier", {
@@ -86,6 +88,7 @@ export interface GetSqlPoolWorkloadClassifierResult {
 /**
  * Get a workload classifier of Sql pool's workload group.
  */
+/** @deprecated azure-native:synapse/v20210601:SqlPoolWorkloadClassifier is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolWorkloadClassifier to guarantee forwards compatibility. */
 export function getSqlPoolWorkloadClassifierOutput(args: GetSqlPoolWorkloadClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolWorkloadClassifierResult> {
     return pulumi.output(args).apply((a: any) => getSqlPoolWorkloadClassifier(a, opts))
 }

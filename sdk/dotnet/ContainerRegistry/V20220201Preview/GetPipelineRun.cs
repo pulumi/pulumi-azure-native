@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview
 {
+    [Obsolete(@"azure-native:containerregistry/v20220201preview:PipelineRun is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:PipelineRun to guarantee forwards compatibility.")]
     public static class GetPipelineRun
     {
         /// <summary>

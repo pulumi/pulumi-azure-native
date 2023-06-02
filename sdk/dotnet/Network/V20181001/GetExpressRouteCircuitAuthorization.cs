@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20181001
 {
+    [Obsolete(@"azure-native:network/v20181001:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:ExpressRouteCircuitAuthorization to guarantee forwards compatibility.")]
     public static class GetExpressRouteCircuitAuthorization
     {
         /// <summary>

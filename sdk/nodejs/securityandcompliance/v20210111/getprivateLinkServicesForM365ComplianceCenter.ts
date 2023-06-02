@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
  */
+/** @deprecated azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter to guarantee forwards compatibility. */
 export function getprivateLinkServicesForM365ComplianceCenter(args: GetprivateLinkServicesForM365ComplianceCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForM365ComplianceCenterResult> {
+    pulumi.log.warn("getprivateLinkServicesForM365ComplianceCenter is deprecated: azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForM365ComplianceCenter", {
@@ -78,6 +80,7 @@ export interface GetprivateLinkServicesForM365ComplianceCenterResult {
 /**
  * Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
  */
+/** @deprecated azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter to guarantee forwards compatibility. */
 export function getprivateLinkServicesForM365ComplianceCenterOutput(args: GetprivateLinkServicesForM365ComplianceCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForM365ComplianceCenterResult> {
     return pulumi.output(args).apply((a: any) => getprivateLinkServicesForM365ComplianceCenter(a, opts))
 }

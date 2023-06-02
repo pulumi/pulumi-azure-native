@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents office data connector.
+ *
+ * @deprecated azure-native:securityinsights/v20220801:OfficeDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:OfficeDataConnector to guarantee forwards compatibility.
  */
 export class OfficeDataConnector extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class OfficeDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OfficeDataConnector {
+        pulumi.log.warn("OfficeDataConnector is deprecated: azure-native:securityinsights/v20220801:OfficeDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:OfficeDataConnector to guarantee forwards compatibility.")
         return new OfficeDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,7 +77,9 @@ export class OfficeDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20220801:OfficeDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:OfficeDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: OfficeDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("OfficeDataConnector is deprecated: azure-native:securityinsights/v20220801:OfficeDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:OfficeDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -107,7 +112,7 @@ export class OfficeDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20200101:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20211001:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221101:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230201:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:OfficeDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20200101:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20211001:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221101:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230201:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:OfficeDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OfficeDataConnector.__pulumiType, name, resourceInputs, opts);
     }

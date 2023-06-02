@@ -100,7 +100,12 @@ class UebaArgs:
         pulumi.set(self, "settings_name", value)
 
 
+warnings.warn("""azure-native:securityinsights/v20220801preview:Ueba is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Ueba to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Ueba(pulumi.CustomResource):
+    warnings.warn("""azure-native:securityinsights/v20220801preview:Ueba is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Ueba to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -153,6 +158,7 @@ class Ueba(pulumi.CustomResource):
                  settings_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Ueba is deprecated: azure-native:securityinsights/v20220801preview:Ueba is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Ueba to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -176,7 +182,7 @@ class Ueba(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:Ueba")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Ueba")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Ueba, __self__).__init__(
             'azure-native:securityinsights/v20220801preview:Ueba',

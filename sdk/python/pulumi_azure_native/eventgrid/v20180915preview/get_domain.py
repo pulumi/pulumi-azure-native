@@ -17,7 +17,8 @@ __all__ = [
     'get_domain_output',
 ]
 
-warnings.warn("""Version 2018-09-15-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-09-15-preview will be removed in v2 of the provider.
+azure-native:eventgrid/v20180915preview:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20200401preview:Domain to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDomainResult:
@@ -153,7 +154,8 @@ def get_domain(domain_name: Optional[str] = None,
     :param str domain_name: Name of the domain
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    pulumi.log.warn("""get_domain is deprecated: Version 2018-09-15-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_domain is deprecated: Version 2018-09-15-preview will be removed in v2 of the provider.
+azure-native:eventgrid/v20180915preview:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20200401preview:Domain to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['resourceGroupName'] = resource_group_name
@@ -183,5 +185,6 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str domain_name: Name of the domain
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    pulumi.log.warn("""get_domain is deprecated: Version 2018-09-15-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_domain is deprecated: Version 2018-09-15-preview will be removed in v2 of the provider.
+azure-native:eventgrid/v20180915preview:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20200401preview:Domain to guarantee forwards compatibility.""")
     ...

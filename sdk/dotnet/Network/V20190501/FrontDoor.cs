@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20190501
     /// <summary>
     /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20190501:FrontDoor is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:FrontDoor to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20190501:FrontDoor")]
     public partial class FrontDoor : global::Pulumi.CustomResource
     {

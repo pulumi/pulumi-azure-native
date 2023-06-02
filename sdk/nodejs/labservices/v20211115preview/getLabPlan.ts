@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the properties of a Lab Plan.
  */
+/** @deprecated azure-native:labservices/v20211115preview:LabPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:LabPlan to guarantee forwards compatibility. */
 export function getLabPlan(args: GetLabPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetLabPlanResult> {
+    pulumi.log.warn("getLabPlan is deprecated: azure-native:labservices/v20211115preview:LabPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:LabPlan to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices/v20211115preview:getLabPlan", {
@@ -94,6 +96,7 @@ export interface GetLabPlanResult {
 /**
  * Retrieves the properties of a Lab Plan.
  */
+/** @deprecated azure-native:labservices/v20211115preview:LabPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:LabPlan to guarantee forwards compatibility. */
 export function getLabPlanOutput(args: GetLabPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabPlanResult> {
     return pulumi.output(args).apply((a: any) => getLabPlan(a, opts))
 }

@@ -351,7 +351,12 @@ class NrtAlertRuleArgs:
         pulumi.set(self, "template_version", value)
 
 
+warnings.warn("""azure-native:securityinsights/v20221101preview:NrtAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:NrtAlertRule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class NrtAlertRule(pulumi.CustomResource):
+    warnings.warn("""azure-native:securityinsights/v20221101preview:NrtAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:NrtAlertRule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -452,6 +457,7 @@ class NrtAlertRule(pulumi.CustomResource):
                  template_version: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""NrtAlertRule is deprecated: azure-native:securityinsights/v20221101preview:NrtAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:NrtAlertRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -504,7 +510,7 @@ class NrtAlertRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:NrtAlertRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:NrtAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:NrtAlertRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NrtAlertRule, __self__).__init__(
             'azure-native:securityinsights/v20221101preview:NrtAlertRule',

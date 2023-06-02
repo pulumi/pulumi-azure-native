@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve the runbook identified by runbook name.
  */
+/** @deprecated azure-native:automation/v20180630:Runbook is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Runbook to guarantee forwards compatibility. */
 export function getRunbook(args: GetRunbookArgs, opts?: pulumi.InvokeOptions): Promise<GetRunbookResult> {
+    pulumi.log.warn("getRunbook is deprecated: azure-native:automation/v20180630:Runbook is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Runbook to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20180630:getRunbook", {
@@ -127,6 +129,7 @@ export interface GetRunbookResult {
 /**
  * Retrieve the runbook identified by runbook name.
  */
+/** @deprecated azure-native:automation/v20180630:Runbook is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Runbook to guarantee forwards compatibility. */
 export function getRunbookOutput(args: GetRunbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRunbookResult> {
     return pulumi.output(args).apply((a: any) => getRunbook(a, opts))
 }

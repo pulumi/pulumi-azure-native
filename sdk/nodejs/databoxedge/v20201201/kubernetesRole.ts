@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Kubernetes role.
+ *
+ * @deprecated azure-native:databoxedge/v20201201:KubernetesRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility.
  */
 export class KubernetesRole extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class KubernetesRole extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): KubernetesRole {
+        pulumi.log.warn("KubernetesRole is deprecated: azure-native:databoxedge/v20201201:KubernetesRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility.")
         return new KubernetesRole(name, undefined as any, { ...opts, id: id });
     }
 
@@ -86,7 +89,9 @@ export class KubernetesRole extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:databoxedge/v20201201:KubernetesRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility. */
     constructor(name: string, args: KubernetesRoleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("KubernetesRole is deprecated: azure-native:databoxedge/v20201201:KubernetesRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

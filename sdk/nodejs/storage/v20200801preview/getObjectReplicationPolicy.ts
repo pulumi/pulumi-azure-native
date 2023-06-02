@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get the object replication policy of the storage account by policy ID.
  */
-/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider.
+azure-native:storage/v20200801preview:ObjectReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility. */
 export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectReplicationPolicyResult> {
-    pulumi.log.warn("getObjectReplicationPolicy is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getObjectReplicationPolicy is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.\nazure-native:storage/v20200801preview:ObjectReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20200801preview:getObjectReplicationPolicy", {
@@ -77,7 +78,8 @@ export interface GetObjectReplicationPolicyResult {
 /**
  * Get the object replication policy of the storage account by policy ID.
  */
-/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider.
+azure-native:storage/v20200801preview:ObjectReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility. */
 export function getObjectReplicationPolicyOutput(args: GetObjectReplicationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectReplicationPolicyResult> {
     return pulumi.output(args).apply((a: any) => getObjectReplicationPolicy(a, opts))
 }

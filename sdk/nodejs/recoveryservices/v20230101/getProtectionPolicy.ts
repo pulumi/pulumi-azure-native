@@ -11,7 +11,9 @@ import * as utilities from "../../utilities";
  * Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
  * operation. Status of the operation can be fetched using GetPolicyOperationResult API.
  */
+/** @deprecated azure-native:recoveryservices/v20230101:ProtectionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionPolicy to guarantee forwards compatibility. */
 export function getProtectionPolicy(args: GetProtectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionPolicyResult> {
+    pulumi.log.warn("getProtectionPolicy is deprecated: azure-native:recoveryservices/v20230101:ProtectionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20230101:getProtectionPolicy", {
@@ -73,6 +75,7 @@ export interface GetProtectionPolicyResult {
  * Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
  * operation. Status of the operation can be fetched using GetPolicyOperationResult API.
  */
+/** @deprecated azure-native:recoveryservices/v20230101:ProtectionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionPolicy to guarantee forwards compatibility. */
 export function getProtectionPolicyOutput(args: GetProtectionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionPolicyResult> {
     return pulumi.output(args).apply((a: any) => getProtectionPolicy(a, opts))
 }

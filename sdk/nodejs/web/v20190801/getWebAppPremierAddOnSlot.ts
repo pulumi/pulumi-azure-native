@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a named add-on of an app.
  */
+/** @deprecated azure-native:web/v20190801:WebAppPremierAddOnSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppPremierAddOnSlot to guarantee forwards compatibility. */
 export function getWebAppPremierAddOnSlot(args: GetWebAppPremierAddOnSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPremierAddOnSlotResult> {
+    pulumi.log.warn("getWebAppPremierAddOnSlot is deprecated: azure-native:web/v20190801:WebAppPremierAddOnSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppPremierAddOnSlot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20190801:getWebAppPremierAddOnSlot", {
@@ -89,6 +91,7 @@ export interface GetWebAppPremierAddOnSlotResult {
 /**
  * Gets a named add-on of an app.
  */
+/** @deprecated azure-native:web/v20190801:WebAppPremierAddOnSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppPremierAddOnSlot to guarantee forwards compatibility. */
 export function getWebAppPremierAddOnSlotOutput(args: GetWebAppPremierAddOnSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPremierAddOnSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppPremierAddOnSlot(a, opts))
 }

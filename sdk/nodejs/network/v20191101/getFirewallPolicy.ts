@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Firewall Policy.
  */
+/** @deprecated azure-native:network/v20191101:FirewallPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:FirewallPolicy to guarantee forwards compatibility. */
 export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
+    pulumi.log.warn("getFirewallPolicy is deprecated: azure-native:network/v20191101:FirewallPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:FirewallPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20191101:getFirewallPolicy", {
@@ -91,6 +93,7 @@ export interface GetFirewallPolicyResult {
 /**
  * Gets the specified Firewall Policy.
  */
+/** @deprecated azure-native:network/v20191101:FirewallPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:FirewallPolicy to guarantee forwards compatibility. */
 export function getFirewallPolicyOutput(args: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyResult> {
     return pulumi.output(args).apply((a: any) => getFirewallPolicy(a, opts))
 }

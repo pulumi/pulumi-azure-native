@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Management.V20201001
     /// <summary>
     /// The details of subscription under management group.
     /// </summary>
+    [Obsolete(@"azure-native:management/v20201001:ManagementGroupSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:ManagementGroupSubscription to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:management/v20201001:ManagementGroupSubscription")]
     public partial class ManagementGroupSubscription : global::Pulumi.CustomResource
     {

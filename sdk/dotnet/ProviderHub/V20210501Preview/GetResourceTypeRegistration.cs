@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ProviderHub.V20210501Preview
 {
+    [Obsolete(@"azure-native:providerhub/v20210501preview:ResourceTypeRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:ResourceTypeRegistration to guarantee forwards compatibility.")]
     public static class GetResourceTypeRegistration
     {
         /// <summary>

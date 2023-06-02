@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Description for Gets a private endpoint connection
  */
+/** @deprecated azure-native:web/v20220301:StaticSitePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSitePrivateEndpointConnection to guarantee forwards compatibility. */
 export function getStaticSitePrivateEndpointConnection(args: GetStaticSitePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSitePrivateEndpointConnectionResult> {
+    pulumi.log.warn("getStaticSitePrivateEndpointConnection is deprecated: azure-native:web/v20220301:StaticSitePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSitePrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220301:getStaticSitePrivateEndpointConnection", {
@@ -72,6 +74,7 @@ export interface GetStaticSitePrivateEndpointConnectionResult {
 /**
  * Description for Gets a private endpoint connection
  */
+/** @deprecated azure-native:web/v20220301:StaticSitePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSitePrivateEndpointConnection to guarantee forwards compatibility. */
 export function getStaticSitePrivateEndpointConnectionOutput(args: GetStaticSitePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSitePrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getStaticSitePrivateEndpointConnection(a, opts))
 }

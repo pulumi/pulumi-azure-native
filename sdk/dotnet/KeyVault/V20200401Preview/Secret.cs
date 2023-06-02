@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.KeyVault.V20200401Preview
     /// <summary>
     /// Resource information with extended details.
     /// </summary>
+    [Obsolete(@"azure-native:keyvault/v20200401preview:Secret is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:Secret to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:keyvault/v20200401preview:Secret")]
     public partial class Secret : global::Pulumi.CustomResource
     {

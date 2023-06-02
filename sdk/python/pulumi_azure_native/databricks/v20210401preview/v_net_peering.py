@@ -194,7 +194,12 @@ class VNetPeeringArgs:
         pulumi.set(self, "use_remote_gateways", value)
 
 
+warnings.warn("""azure-native:databricks/v20210401preview:vNetPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class VNetPeering(pulumi.CustomResource):
+    warnings.warn("""azure-native:databricks/v20210401preview:vNetPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -264,6 +269,7 @@ class VNetPeering(pulumi.CustomResource):
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""VNetPeering is deprecated: azure-native:databricks/v20210401preview:vNetPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211201
     /// <summary>
     /// Event Subscription
     /// </summary>
+    [Obsolete(@"azure-native:eventgrid/v20211201:SystemTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:SystemTopicEventSubscription to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20211201:SystemTopicEventSubscription")]
     public partial class SystemTopicEventSubscription : global::Pulumi.CustomResource
     {

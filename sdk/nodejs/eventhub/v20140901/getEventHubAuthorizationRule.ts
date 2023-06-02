@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets an AuthorizationRule for an Event Hub by rule name.
  */
-/** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:eventhub/v20140901:EventHubAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20150801:EventHubAuthorizationRule to guarantee forwards compatibility. */
 export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubAuthorizationRuleResult> {
-    pulumi.log.warn("getEventHubAuthorizationRule is deprecated: Version 2014-09-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getEventHubAuthorizationRule is deprecated: Version 2014-09-01 will be removed in v2 of the provider.\nazure-native:eventhub/v20140901:EventHubAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20150801:EventHubAuthorizationRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20140901:getEventHubAuthorizationRule", {
@@ -67,7 +68,8 @@ export interface GetEventHubAuthorizationRuleResult {
 /**
  * Gets an AuthorizationRule for an Event Hub by rule name.
  */
-/** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:eventhub/v20140901:EventHubAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20150801:EventHubAuthorizationRule to guarantee forwards compatibility. */
 export function getEventHubAuthorizationRuleOutput(args: GetEventHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getEventHubAuthorizationRule(a, opts))
 }

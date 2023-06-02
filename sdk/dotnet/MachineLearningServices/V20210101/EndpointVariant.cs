@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210101
     /// <summary>
     /// Machine Learning service object wrapped into ARM resource envelope.
     /// </summary>
+    [Obsolete(@"azure-native:machinelearningservices/v20210101:EndpointVariant is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:EndpointVariant to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210101:EndpointVariant")]
     public partial class EndpointVariant : global::Pulumi.CustomResource
     {

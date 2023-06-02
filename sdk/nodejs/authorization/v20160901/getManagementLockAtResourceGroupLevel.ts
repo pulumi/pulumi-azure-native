@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a management lock at the resource group level.
  */
-/** @deprecated Version 2016-09-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel to guarantee forwards compatibility. */
 export function getManagementLockAtResourceGroupLevel(args: GetManagementLockAtResourceGroupLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceGroupLevelResult> {
-    pulumi.log.warn("getManagementLockAtResourceGroupLevel is deprecated: Version 2016-09-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getManagementLockAtResourceGroupLevel is deprecated: Version 2016-09-01 will be removed in v2 of the provider.\nazure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20160901:getManagementLockAtResourceGroupLevel", {
@@ -64,7 +65,8 @@ export interface GetManagementLockAtResourceGroupLevelResult {
 /**
  * Gets a management lock at the resource group level.
  */
-/** @deprecated Version 2016-09-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel to guarantee forwards compatibility. */
 export function getManagementLockAtResourceGroupLevelOutput(args: GetManagementLockAtResourceGroupLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtResourceGroupLevelResult> {
     return pulumi.output(args).apply((a: any) => getManagementLockAtResourceGroupLevel(a, opts))
 }

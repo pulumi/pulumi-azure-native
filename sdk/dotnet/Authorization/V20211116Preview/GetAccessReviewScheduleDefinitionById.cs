@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Authorization.V20211116Preview
 {
+    [Obsolete(@"azure-native:authorization/v20211116preview:AccessReviewScheduleDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById to guarantee forwards compatibility.")]
     public static class GetAccessReviewScheduleDefinitionById
     {
         /// <summary>

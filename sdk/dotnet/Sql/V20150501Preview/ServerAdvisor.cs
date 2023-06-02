@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
     /// <summary>
     /// Database, Server or Elastic Pool Advisor.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20150501preview:ServerAdvisor is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerAdvisor to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20150501preview:ServerAdvisor")]
     public partial class ServerAdvisor : global::Pulumi.CustomResource
     {

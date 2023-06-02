@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a connector in the hub.
  */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:Connector is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:Connector to guarantee forwards compatibility. */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
-    pulumi.log.warn("getConnector is deprecated: Version 2017-01-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getConnector is deprecated: Version 2017-01-01 will be removed in v2 of the provider.\nazure-native:customerinsights/v20170101:Connector is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:Connector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170101:getConnector", {
@@ -98,7 +99,8 @@ export interface GetConnectorResult {
 /**
  * Gets a connector in the hub.
  */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:Connector is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:Connector to guarantee forwards compatibility. */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
     return pulumi.output(args).apply((a: any) => getConnector(a, opts))
 }

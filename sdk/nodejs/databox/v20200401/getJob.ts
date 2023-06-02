@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified job.
  */
-/** @deprecated Version 2020-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-04-01 will be removed in v2 of the provider.
+azure-native:databox/v20200401:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:databox/v20221201:Job to guarantee forwards compatibility. */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    pulumi.log.warn("getJob is deprecated: Version 2020-04-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getJob is deprecated: Version 2020-04-01 will be removed in v2 of the provider.\nazure-native:databox/v20200401:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:databox/v20221201:Job to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databox/v20200401:getJob", {
@@ -125,7 +126,8 @@ export interface GetJobResult {
 /**
  * Gets information about the specified job.
  */
-/** @deprecated Version 2020-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-04-01 will be removed in v2 of the provider.
+azure-native:databox/v20200401:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:databox/v20221201:Job to guarantee forwards compatibility. */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))
 }

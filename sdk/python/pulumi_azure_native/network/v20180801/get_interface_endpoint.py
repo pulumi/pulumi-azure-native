@@ -17,6 +17,8 @@ __all__ = [
     'get_interface_endpoint_output',
 ]
 
+warnings.warn("""azure-native:network/v20180801:InterfaceEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190201:InterfaceEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetInterfaceEndpointResult:
     """
@@ -189,6 +191,7 @@ def get_interface_endpoint(expand: Optional[str] = None,
     :param str interface_endpoint_name: The name of the interface endpoint.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_interface_endpoint is deprecated: azure-native:network/v20180801:InterfaceEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190201:InterfaceEndpoint to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['interfaceEndpointName'] = interface_endpoint_name
@@ -224,4 +227,5 @@ def get_interface_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] 
     :param str interface_endpoint_name: The name of the interface endpoint.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_interface_endpoint is deprecated: azure-native:network/v20180801:InterfaceEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190201:InterfaceEndpoint to guarantee forwards compatibility.""")
     ...

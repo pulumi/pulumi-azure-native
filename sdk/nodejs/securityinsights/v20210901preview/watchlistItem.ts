@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Watchlist item in Azure Security Insights.
+ *
+ * @deprecated azure-native:securityinsights/v20210901preview:WatchlistItem is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:WatchlistItem to guarantee forwards compatibility.
  */
 export class WatchlistItem extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class WatchlistItem extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WatchlistItem {
+        pulumi.log.warn("WatchlistItem is deprecated: azure-native:securityinsights/v20210901preview:WatchlistItem is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:WatchlistItem to guarantee forwards compatibility.")
         return new WatchlistItem(name, undefined as any, { ...opts, id: id });
     }
 
@@ -101,7 +104,9 @@ export class WatchlistItem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20210901preview:WatchlistItem is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:WatchlistItem to guarantee forwards compatibility. */
     constructor(name: string, args: WatchlistItemArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WatchlistItem is deprecated: azure-native:securityinsights/v20210901preview:WatchlistItem is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:WatchlistItem to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -151,7 +156,7 @@ export class WatchlistItem extends pulumi.CustomResource {
             resourceInputs["watchlistItemType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:WatchlistItem" }, { type: "azure-native:securityinsights/v20190101preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20210301preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20210401:WatchlistItem" }, { type: "azure-native:securityinsights/v20211001:WatchlistItem" }, { type: "azure-native:securityinsights/v20211001preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20220101preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20220401preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20220501preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20220601preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20220701preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20220801:WatchlistItem" }, { type: "azure-native:securityinsights/v20220801preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20220901preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20221001preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20221101:WatchlistItem" }, { type: "azure-native:securityinsights/v20221101preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20221201preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20230201:WatchlistItem" }, { type: "azure-native:securityinsights/v20230201preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20230401preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20230501preview:WatchlistItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:WatchlistItem" }, { type: "azure-native:securityinsights/v20190101preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20210301preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20210401:WatchlistItem" }, { type: "azure-native:securityinsights/v20211001:WatchlistItem" }, { type: "azure-native:securityinsights/v20211001preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20220101preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20220401preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20220501preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20220601preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20220701preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20220801:WatchlistItem" }, { type: "azure-native:securityinsights/v20220801preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20220901preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20221001preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20221101:WatchlistItem" }, { type: "azure-native:securityinsights/v20221101preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20221201preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20230201:WatchlistItem" }, { type: "azure-native:securityinsights/v20230201preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20230401preview:WatchlistItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WatchlistItem.__pulumiType, name, resourceInputs, opts);
     }

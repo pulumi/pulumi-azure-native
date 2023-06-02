@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
     /// <summary>
     /// Represents Amazon Web Services S3 data connector.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20221201preview:AwsS3DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AwsS3DataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20221201preview:AwsS3DataConnector")]
     public partial class AwsS3DataConnector : global::Pulumi.CustomResource
     {
@@ -123,7 +124,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:AwsS3DataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:AwsS3DataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:AwsS3DataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:AwsS3DataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

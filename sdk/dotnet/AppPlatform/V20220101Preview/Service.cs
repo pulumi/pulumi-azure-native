@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
     /// <summary>
     /// Service resource
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20220101preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Service to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20220101preview:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {

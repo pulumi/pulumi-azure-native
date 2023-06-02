@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
  */
+/** @deprecated azure-native:databoxedge/v20210201:Container is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility. */
 export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
+    pulumi.log.warn("getContainer is deprecated: azure-native:databoxedge/v20210201:Container is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210201:getContainer", {
@@ -80,6 +82,7 @@ export interface GetContainerResult {
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
  */
+/** @deprecated azure-native:databoxedge/v20210201:Container is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility. */
 export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerResult> {
     return pulumi.output(args).apply((a: any) => getContainer(a, opts))
 }

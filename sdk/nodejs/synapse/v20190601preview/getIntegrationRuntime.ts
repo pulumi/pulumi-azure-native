@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get an integration runtime
  */
-/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider.
+azure-native:synapse/v20190601preview:IntegrationRuntime is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:IntegrationRuntime to guarantee forwards compatibility. */
 export function getIntegrationRuntime(args: GetIntegrationRuntimeArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeResult> {
-    pulumi.log.warn("getIntegrationRuntime is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getIntegrationRuntime is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.\nazure-native:synapse/v20190601preview:IntegrationRuntime is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:IntegrationRuntime to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20190601preview:getIntegrationRuntime", {
@@ -65,7 +66,8 @@ export interface GetIntegrationRuntimeResult {
 /**
  * Get an integration runtime
  */
-/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider.
+azure-native:synapse/v20190601preview:IntegrationRuntime is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:IntegrationRuntime to guarantee forwards compatibility. */
 export function getIntegrationRuntimeOutput(args: GetIntegrationRuntimeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationRuntime(a, opts))
 }

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Represents an instance of a orchestrator.
  *
  * @deprecated Version 2020-08-08-preview will be removed in v2 of the provider.
+azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails is being removed in the next major version of this provider. Upgrade to at least azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails to guarantee forwards compatibility.
  */
 export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
     /**
@@ -22,7 +23,7 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OrchestratorInstanceServiceDetails {
-        pulumi.log.warn("OrchestratorInstanceServiceDetails is deprecated: Version 2020-08-08-preview will be removed in v2 of the provider.")
+        pulumi.log.warn("OrchestratorInstanceServiceDetails is deprecated: Version 2020-08-08-preview will be removed in v2 of the provider.\nazure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails is being removed in the next major version of this provider. Upgrade to at least azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails to guarantee forwards compatibility.")
         return new OrchestratorInstanceServiceDetails(name, undefined as any, { ...opts, id: id });
     }
 
@@ -100,9 +101,10 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider. */
+    /** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider.
+azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails is being removed in the next major version of this provider. Upgrade to at least azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails to guarantee forwards compatibility. */
     constructor(name: string, args: OrchestratorInstanceServiceDetailsArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("OrchestratorInstanceServiceDetails is deprecated: Version 2020-08-08-preview will be removed in v2 of the provider.")
+        pulumi.log.warn("OrchestratorInstanceServiceDetails is deprecated: Version 2020-08-08-preview will be removed in v2 of the provider.\nazure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails is being removed in the next major version of this provider. Upgrade to at least azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -113,11 +113,13 @@ class ReplicationNetworkMappingArgs:
         pulumi.set(self, "properties", value)
 
 
-warnings.warn("""Version 2018-01-10 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationNetworkMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationNetworkMapping to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ReplicationNetworkMapping(pulumi.CustomResource):
-    warnings.warn("""Version 2018-01-10 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationNetworkMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationNetworkMapping to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -173,7 +175,8 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ReplicationNetworkMapping is deprecated: Version 2018-01-10 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""ReplicationNetworkMapping is deprecated: Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationNetworkMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationNetworkMapping to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

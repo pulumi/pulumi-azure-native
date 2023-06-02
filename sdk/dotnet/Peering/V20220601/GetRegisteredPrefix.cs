@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Peering.V20220601
 {
+    [Obsolete(@"azure-native:peering/v20220601:RegisteredPrefix is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:RegisteredPrefix to guarantee forwards compatibility.")]
     public static class GetRegisteredPrefix
     {
         /// <summary>

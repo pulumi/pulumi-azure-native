@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
     /// <summary>
     /// The order details.
     /// </summary>
+    [Obsolete(@"azure-native:databoxedge/v20210201preview:Order is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20220401preview:Order to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20210201preview:Order")]
     public partial class Order : global::Pulumi.CustomResource
     {

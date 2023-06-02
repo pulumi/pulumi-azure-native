@@ -16,7 +16,8 @@ __all__ = [
     'get_database_account_cassandra_keyspace_output',
 ]
 
-warnings.warn("""Version 2015-11-06 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2015-11-06 will be removed in v2 of the provider.
+azure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDatabaseAccountCassandraKeyspaceResult:
@@ -106,7 +107,8 @@ def get_database_account_cassandra_keyspace(account_name: Optional[str] = None,
     :param str keyspace_name: Cosmos DB keyspace name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("""get_database_account_cassandra_keyspace is deprecated: Version 2015-11-06 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_database_account_cassandra_keyspace is deprecated: Version 2015-11-06 will be removed in v2 of the provider.
+azure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['keyspaceName'] = keyspace_name
@@ -135,5 +137,6 @@ def get_database_account_cassandra_keyspace_output(account_name: Optional[pulumi
     :param str keyspace_name: Cosmos DB keyspace name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("""get_database_account_cassandra_keyspace is deprecated: Version 2015-11-06 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_database_account_cassandra_keyspace is deprecated: Version 2015-11-06 will be removed in v2 of the provider.
+azure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace to guarantee forwards compatibility.""")
     ...

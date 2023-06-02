@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Insights.V20180617Preview
     /// <summary>
     /// An Application Insights workbook definition.
     /// </summary>
+    [Obsolete(@"azure-native:insights/v20180617preview:Workbook is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210308:Workbook to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:insights/v20180617preview:Workbook")]
     public partial class Workbook : global::Pulumi.CustomResource
     {

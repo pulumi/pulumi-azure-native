@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview
     /// <summary>
     /// Organization resource.
     /// </summary>
+    [Obsolete(@"azure-native:confluent/v20210301preview:Organization is being removed in the next major version of this provider. Upgrade to at least azure-native:confluent/v20211201:Organization to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:confluent/v20210301preview:Organization")]
     public partial class Organization : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
     /// <summary>
     /// IoT Addon.
     /// </summary>
+    [Obsolete(@"azure-native:databoxedge/v20210601preview:IoTAddon is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20210601preview:IoTAddon")]
     public partial class IoTAddon : global::Pulumi.CustomResource
     {

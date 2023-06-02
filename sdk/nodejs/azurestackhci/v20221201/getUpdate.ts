@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get specified Update
  */
+/** @deprecated azure-native:azurestackhci/v20221201:Update is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:Update to guarantee forwards compatibility. */
 export function getUpdate(args: GetUpdateArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateResult> {
+    pulumi.log.warn("getUpdate is deprecated: azure-native:azurestackhci/v20221201:Update is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:Update to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20221201:getUpdate", {
@@ -131,6 +133,7 @@ export interface GetUpdateResult {
 /**
  * Get specified Update
  */
+/** @deprecated azure-native:azurestackhci/v20221201:Update is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:Update to guarantee forwards compatibility. */
 export function getUpdateOutput(args: GetUpdateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateResult> {
     return pulumi.output(args).apply((a: any) => getUpdate(a, opts))
 }

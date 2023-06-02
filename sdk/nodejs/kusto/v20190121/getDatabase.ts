@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a database.
  */
+/** @deprecated azure-native:kusto/v20190121:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20190515:Database to guarantee forwards compatibility. */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
+    pulumi.log.warn("getDatabase is deprecated: azure-native:kusto/v20190121:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20190515:Database to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20190121:getDatabase", {
@@ -75,6 +77,7 @@ export interface GetDatabaseResult {
 /**
  * Returns a database.
  */
+/** @deprecated azure-native:kusto/v20190121:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20190515:Database to guarantee forwards compatibility. */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getDatabase(a, opts))
 }

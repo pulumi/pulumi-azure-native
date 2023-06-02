@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the budget for a subscription by budget name.
  */
-/** @deprecated Version 2018-03-31 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-03-31 will be removed in v2 of the provider.
+azure-native:consumption/v20180331:Budget is being removed in the next major version of this provider. Upgrade to at least azure-native:consumption/v20181001:Budget to guarantee forwards compatibility. */
 export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
-    pulumi.log.warn("getBudget is deprecated: Version 2018-03-31 will be removed in v2 of the provider.")
+    pulumi.log.warn("getBudget is deprecated: Version 2018-03-31 will be removed in v2 of the provider.\nazure-native:consumption/v20180331:Budget is being removed in the next major version of this provider. Upgrade to at least azure-native:consumption/v20181001:Budget to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:consumption/v20180331:getBudget", {
@@ -79,7 +80,8 @@ export interface GetBudgetResult {
 /**
  * Gets the budget for a subscription by budget name.
  */
-/** @deprecated Version 2018-03-31 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-03-31 will be removed in v2 of the provider.
+azure-native:consumption/v20180331:Budget is being removed in the next major version of this provider. Upgrade to at least azure-native:consumption/v20181001:Budget to guarantee forwards compatibility. */
 export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResult> {
     return pulumi.output(args).apply((a: any) => getBudget(a, opts))
 }

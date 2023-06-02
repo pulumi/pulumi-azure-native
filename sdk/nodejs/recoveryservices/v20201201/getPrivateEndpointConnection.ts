@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get Private Endpoint Connection. This call is made by Backup Admin.
  */
+/** @deprecated azure-native:recoveryservices/v20201201:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
+    pulumi.log.warn("getPrivateEndpointConnection is deprecated: azure-native:recoveryservices/v20201201:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:PrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20201201:getPrivateEndpointConnection", {
@@ -71,6 +73,7 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * Get Private Endpoint Connection. This call is made by Backup Admin.
  */
+/** @deprecated azure-native:recoveryservices/v20201201:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
 }

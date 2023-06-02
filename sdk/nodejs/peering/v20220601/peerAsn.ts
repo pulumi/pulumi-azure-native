@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The essential information related to the peer's ASN.
+ *
+ * @deprecated azure-native:peering/v20220601:PeerAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility.
  */
 export class PeerAsn extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class PeerAsn extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PeerAsn {
+        pulumi.log.warn("PeerAsn is deprecated: azure-native:peering/v20220601:PeerAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility.")
         return new PeerAsn(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,7 +76,9 @@ export class PeerAsn extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:peering/v20220601:PeerAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility. */
     constructor(name: string, args?: PeerAsnArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PeerAsn is deprecated: azure-native:peering/v20220601:PeerAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

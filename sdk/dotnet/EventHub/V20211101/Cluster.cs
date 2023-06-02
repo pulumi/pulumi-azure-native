@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventHub.V20211101
     /// <summary>
     /// Single Event Hubs Cluster resource in List or Get operations.
     /// </summary>
+    [Obsolete(@"azure-native:eventhub/v20211101:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:Cluster to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventhub/v20211101:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {

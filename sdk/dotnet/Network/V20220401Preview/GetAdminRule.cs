@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20220401Preview
 {
+    [Obsolete(@"azure-native:network/v20220401preview:AdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:AdminRule to guarantee forwards compatibility.")]
     public static class GetAdminRule
     {
         /// <summary>

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration account schema.
+ *
+ * @deprecated azure-native:logic/v20180701preview:IntegrationAccountSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountSchema to guarantee forwards compatibility.
  */
 export class IntegrationAccountSchema extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationAccountSchema {
+        pulumi.log.warn("IntegrationAccountSchema is deprecated: azure-native:logic/v20180701preview:IntegrationAccountSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountSchema to guarantee forwards compatibility.")
         return new IntegrationAccountSchema(name, undefined as any, { ...opts, id: id });
     }
 
@@ -101,7 +104,9 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:logic/v20180701preview:IntegrationAccountSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountSchema to guarantee forwards compatibility. */
     constructor(name: string, args: IntegrationAccountSchemaArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("IntegrationAccountSchema is deprecated: azure-native:logic/v20180701preview:IntegrationAccountSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountSchema to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -309,11 +309,13 @@ class ManagedClusterArgs:
         pulumi.set(self, "windows_profile", value)
 
 
-warnings.warn("""Version 2019-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-04-01 will be removed in v2 of the provider.
+azure-native:containerservice/v20190401:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20190601:ManagedCluster to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ManagedCluster(pulumi.CustomResource):
-    warnings.warn("""Version 2019-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2019-04-01 will be removed in v2 of the provider.
+azure-native:containerservice/v20190401:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20190601:ManagedCluster to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -405,7 +407,8 @@ class ManagedCluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ManagedCluster is deprecated: Version 2019-04-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""ManagedCluster is deprecated: Version 2019-04-01 will be removed in v2 of the provider.
+azure-native:containerservice/v20190401:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20190601:ManagedCluster to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

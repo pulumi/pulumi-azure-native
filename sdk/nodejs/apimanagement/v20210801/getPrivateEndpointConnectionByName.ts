@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the Private Endpoint Connection specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionByName(args: GetPrivateEndpointConnectionByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionByNameResult> {
+    pulumi.log.warn("getPrivateEndpointConnectionByName is deprecated: azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210801:getPrivateEndpointConnectionByName", {
@@ -67,6 +69,7 @@ export interface GetPrivateEndpointConnectionByNameResult {
 /**
  * Gets the details of the Private Endpoint Connection specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionByNameOutput(args: GetPrivateEndpointConnectionByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionByNameResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionByName(a, opts))
 }

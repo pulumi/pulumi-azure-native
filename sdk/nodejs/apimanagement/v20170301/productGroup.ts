@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Contract details.
+ *
+ * @deprecated azure-native:apimanagement/v20170301:ProductGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ProductGroup to guarantee forwards compatibility.
  */
 export class ProductGroup extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class ProductGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ProductGroup {
+        pulumi.log.warn("ProductGroup is deprecated: azure-native:apimanagement/v20170301:ProductGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ProductGroup to guarantee forwards compatibility.")
         return new ProductGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -66,7 +69,9 @@ export class ProductGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:apimanagement/v20170301:ProductGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ProductGroup to guarantee forwards compatibility. */
     constructor(name: string, args: ProductGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ProductGroup is deprecated: azure-native:apimanagement/v20170301:ProductGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ProductGroup to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

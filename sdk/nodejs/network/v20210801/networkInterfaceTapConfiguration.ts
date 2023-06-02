@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Tap configuration in a Network Interface.
+ *
+ * @deprecated azure-native:network/v20210801:NetworkInterfaceTapConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkInterfaceTapConfiguration to guarantee forwards compatibility.
  */
 export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NetworkInterfaceTapConfiguration {
+        pulumi.log.warn("NetworkInterfaceTapConfiguration is deprecated: azure-native:network/v20210801:NetworkInterfaceTapConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkInterfaceTapConfiguration to guarantee forwards compatibility.")
         return new NetworkInterfaceTapConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,7 +68,9 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:network/v20210801:NetworkInterfaceTapConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkInterfaceTapConfiguration to guarantee forwards compatibility. */
     constructor(name: string, args: NetworkInterfaceTapConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("NetworkInterfaceTapConfiguration is deprecated: azure-native:network/v20210801:NetworkInterfaceTapConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkInterfaceTapConfiguration to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

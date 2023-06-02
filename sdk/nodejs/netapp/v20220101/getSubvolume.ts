@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns the path associated with the subvolumeName provided
  */
+/** @deprecated azure-native:netapp/v20220101:Subvolume is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Subvolume to guarantee forwards compatibility. */
 export function getSubvolume(args: GetSubvolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetSubvolumeResult> {
+    pulumi.log.warn("getSubvolume is deprecated: azure-native:netapp/v20220101:Subvolume is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Subvolume to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20220101:getSubvolume", {
@@ -81,6 +83,7 @@ export interface GetSubvolumeResult {
 /**
  * Returns the path associated with the subvolumeName provided
  */
+/** @deprecated azure-native:netapp/v20220101:Subvolume is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Subvolume to guarantee forwards compatibility. */
 export function getSubvolumeOutput(args: GetSubvolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubvolumeResult> {
     return pulumi.output(args).apply((a: any) => getSubvolume(a, opts))
 }

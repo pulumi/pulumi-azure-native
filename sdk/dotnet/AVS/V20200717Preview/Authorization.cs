@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
     /// <summary>
     /// ExpressRoute Circuit Authorization
     /// </summary>
+    [Obsolete(@"azure-native:avs/v20200717preview:Authorization is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Authorization to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20200717preview:Authorization")]
     public partial class Authorization : global::Pulumi.CustomResource
     {

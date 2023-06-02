@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureArcData.V20211101
 {
+    [Obsolete(@"azure-native:azurearcdata/v20211101:SqlManagedInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:SqlManagedInstance to guarantee forwards compatibility.")]
     public static class GetSqlManagedInstance
     {
         /// <summary>

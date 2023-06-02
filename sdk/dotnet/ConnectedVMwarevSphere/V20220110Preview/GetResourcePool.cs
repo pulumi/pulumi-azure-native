@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
 {
+    [Obsolete(@"azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool to guarantee forwards compatibility.")]
     public static class GetResourcePool
     {
         /// <summary>

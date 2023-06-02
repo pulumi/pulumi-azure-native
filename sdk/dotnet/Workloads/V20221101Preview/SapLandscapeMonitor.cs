@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Workloads.V20221101Preview
     /// <summary>
     /// configuration associated with SAP Landscape Monitor Dashboard.
     /// </summary>
+    [Obsolete(@"azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:workloads/v20221101preview:SapLandscapeMonitor")]
     public partial class SapLandscapeMonitor : global::Pulumi.CustomResource
     {

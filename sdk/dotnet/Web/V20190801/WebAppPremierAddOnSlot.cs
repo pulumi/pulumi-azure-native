@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20190801
     /// <summary>
     /// Premier add-on.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20190801:WebAppPremierAddOnSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppPremierAddOnSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20190801:WebAppPremierAddOnSlot")]
     public partial class WebAppPremierAddOnSlot : global::Pulumi.CustomResource
     {

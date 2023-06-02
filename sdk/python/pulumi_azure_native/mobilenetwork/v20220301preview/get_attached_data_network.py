@@ -17,6 +17,8 @@ __all__ = [
     'get_attached_data_network_output',
 ]
 
+warnings.warn("""azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAttachedDataNetworkResult:
     """
@@ -255,6 +257,7 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
     :param str packet_core_data_plane_name: The name of the packet core data plane.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_attached_data_network is deprecated: azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['attachedDataNetworkName'] = attached_data_network_name
     __args__['packetCoreControlPlaneName'] = packet_core_control_plane_name
@@ -298,4 +301,5 @@ def get_attached_data_network_output(attached_data_network_name: Optional[pulumi
     :param str packet_core_data_plane_name: The name of the packet core data plane.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_attached_data_network is deprecated: azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork to guarantee forwards compatibility.""")
     ...

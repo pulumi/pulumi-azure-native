@@ -17,6 +17,8 @@ __all__ = [
     'get_import_pipeline_output',
 ]
 
+warnings.warn("""azure-native:containerregistry/v20210801preview:ImportPipeline is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ImportPipeline to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetImportPipelineResult:
     """
@@ -165,6 +167,7 @@ def get_import_pipeline(import_pipeline_name: Optional[str] = None,
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("""get_import_pipeline is deprecated: azure-native:containerregistry/v20210801preview:ImportPipeline is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ImportPipeline to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['importPipelineName'] = import_pipeline_name
     __args__['registryName'] = registry_name
@@ -198,4 +201,5 @@ def get_import_pipeline_output(import_pipeline_name: Optional[pulumi.Input[str]]
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("""get_import_pipeline is deprecated: azure-native:containerregistry/v20210801preview:ImportPipeline is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ImportPipeline to guarantee forwards compatibility.""")
     ...

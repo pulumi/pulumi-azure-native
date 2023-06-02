@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
+    [Obsolete(@"azure-native:securityinsights/v20210901preview:EntityAnalytics is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20220101preview:EntityAnalytics to guarantee forwards compatibility.")]
     public static class GetEntityAnalytics
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20210301
     /// <summary>
     /// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
     /// </summary>
+    [Obsolete(@"azure-native:compute/v20210301:DedicatedHostGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20210301:DedicatedHostGroup")]
     public partial class DedicatedHostGroup : global::Pulumi.CustomResource
     {

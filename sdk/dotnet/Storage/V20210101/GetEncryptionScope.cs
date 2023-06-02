@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Storage.V20210101
 {
+    [Obsolete(@"azure-native:storage/v20210101:EncryptionScope is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:EncryptionScope to guarantee forwards compatibility.")]
     public static class GetEncryptionScope
     {
         /// <summary>

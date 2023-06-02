@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20220515Preview
 {
+    [Obsolete(@"azure-native:documentdb/v20220515preview:TableResourceTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:TableResourceTable to guarantee forwards compatibility.")]
     public static class GetTableResourceTable
     {
         /// <summary>

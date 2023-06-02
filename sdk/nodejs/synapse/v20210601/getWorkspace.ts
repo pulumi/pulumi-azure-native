@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a workspace
  */
+/** @deprecated azure-native:synapse/v20210601:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:Workspace to guarantee forwards compatibility. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
+    pulumi.log.warn("getWorkspace is deprecated: azure-native:synapse/v20210601:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:Workspace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601:getWorkspace", {
@@ -142,6 +144,7 @@ export interface GetWorkspaceResult {
 /**
  * Gets a workspace
  */
+/** @deprecated azure-native:synapse/v20210601:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:Workspace to guarantee forwards compatibility. */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
 }

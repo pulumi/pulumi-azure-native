@@ -17,7 +17,8 @@ __all__ = [
     'get_private_endpoint_connection_output',
 ]
 
-warnings.warn("""Version 2019-06-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-06-01-preview will be removed in v2 of the provider.
+azure-native:synapse/v20190601preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
@@ -119,7 +120,8 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.
+azure-native:synapse/v20190601preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -149,5 +151,6 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.
+azure-native:synapse/v20190601preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

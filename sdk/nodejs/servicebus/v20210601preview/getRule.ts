@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the description for the specified rule.
  */
+/** @deprecated azure-native:servicebus/v20210601preview:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:Rule to guarantee forwards compatibility. */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
+    pulumi.log.warn("getRule is deprecated: azure-native:servicebus/v20210601preview:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:Rule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20210601preview:getRule", {
@@ -85,6 +87,7 @@ export interface GetRuleResult {
 /**
  * Retrieves the description for the specified rule.
  */
+/** @deprecated azure-native:servicebus/v20210601preview:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:Rule to guarantee forwards compatibility. */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
     return pulumi.output(args).apply((a: any) => getRule(a, opts))
 }

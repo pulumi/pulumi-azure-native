@@ -97,7 +97,12 @@ class TopicAuthorizationRuleArgs:
         pulumi.set(self, "authorization_rule_name", value)
 
 
+warnings.warn("""azure-native:servicebus/v20210101preview:TopicAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:TopicAuthorizationRule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class TopicAuthorizationRule(pulumi.CustomResource):
+    warnings.warn("""azure-native:servicebus/v20210101preview:TopicAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:TopicAuthorizationRule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -149,6 +154,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
                  rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""TopicAuthorizationRule is deprecated: azure-native:servicebus/v20210101preview:TopicAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:TopicAuthorizationRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

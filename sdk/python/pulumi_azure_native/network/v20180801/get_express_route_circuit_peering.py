@@ -17,6 +17,8 @@ __all__ = [
     'get_express_route_circuit_peering_output',
 ]
 
+warnings.warn("""azure-native:network/v20180801:ExpressRouteCircuitPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190201:ExpressRouteCircuitPeering to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExpressRouteCircuitPeeringResult:
     """
@@ -309,6 +311,7 @@ def get_express_route_circuit_peering(circuit_name: Optional[str] = None,
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_express_route_circuit_peering is deprecated: azure-native:network/v20180801:ExpressRouteCircuitPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190201:ExpressRouteCircuitPeering to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['circuitName'] = circuit_name
     __args__['peeringName'] = peering_name
@@ -354,4 +357,5 @@ def get_express_route_circuit_peering_output(circuit_name: Optional[pulumi.Input
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_express_route_circuit_peering is deprecated: azure-native:network/v20180801:ExpressRouteCircuitPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190201:ExpressRouteCircuitPeering to guarantee forwards compatibility.""")
     ...

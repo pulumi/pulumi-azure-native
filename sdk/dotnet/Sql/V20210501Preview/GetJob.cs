@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20210501Preview
 {
+    [Obsolete(@"azure-native:sql/v20210501preview:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:Job to guarantee forwards compatibility.")]
     public static class GetJob
     {
         /// <summary>

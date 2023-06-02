@@ -161,7 +161,12 @@ class RouteInitArgs:
         pulumi.set(self, "route_name", value)
 
 
+warnings.warn("""azure-native:network/v20190401:Route is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:Route to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Route(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20190401:Route is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:Route to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -225,6 +230,7 @@ class Route(pulumi.CustomResource):
                  route_name: Optional[pulumi.Input[str]] = None,
                  route_table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Route is deprecated: azure-native:network/v20190401:Route is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:Route to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

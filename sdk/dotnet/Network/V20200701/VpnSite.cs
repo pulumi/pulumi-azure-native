@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20200701
     /// <summary>
     /// VpnSite Resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20200701:VpnSite is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VpnSite to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20200701:VpnSite")]
     public partial class VpnSite : global::Pulumi.CustomResource
     {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DigitalTwins.V20220531
 {
+    [Obsolete(@"azure-native:digitaltwins/v20220531:TimeSeriesDatabaseConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:TimeSeriesDatabaseConnection to guarantee forwards compatibility.")]
     public static class GetTimeSeriesDatabaseConnection
     {
         /// <summary>

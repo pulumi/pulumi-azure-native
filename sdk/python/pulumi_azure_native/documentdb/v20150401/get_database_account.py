@@ -17,7 +17,8 @@ __all__ = [
     'get_database_account_output',
 ]
 
-warnings.warn("""Version 2015-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2015-04-01 will be removed in v2 of the provider.
+azure-native:documentdb/v20150401:DatabaseAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20200301:DatabaseAccount to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDatabaseAccountResult:
@@ -297,7 +298,8 @@ def get_database_account(account_name: Optional[str] = None,
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("""get_database_account is deprecated: Version 2015-04-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_database_account is deprecated: Version 2015-04-01 will be removed in v2 of the provider.
+azure-native:documentdb/v20150401:DatabaseAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20200301:DatabaseAccount to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -339,5 +341,6 @@ def get_database_account_output(account_name: Optional[pulumi.Input[str]] = None
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("""get_database_account is deprecated: Version 2015-04-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_database_account is deprecated: Version 2015-04-01 will be removed in v2 of the provider.
+azure-native:documentdb/v20150401:DatabaseAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20200301:DatabaseAccount to guarantee forwards compatibility.""")
     ...

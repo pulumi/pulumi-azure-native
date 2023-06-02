@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a host pool.
  */
+/** @deprecated azure-native:desktopvirtualization/v20220909:HostPool is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:HostPool to guarantee forwards compatibility. */
 export function getHostPool(args: GetHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetHostPoolResult> {
+    pulumi.log.warn("getHostPool is deprecated: azure-native:desktopvirtualization/v20220909:HostPool is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:HostPool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20220909:getHostPool", {
@@ -161,6 +163,7 @@ export interface GetHostPoolResult {
 /**
  * Get a host pool.
  */
+/** @deprecated azure-native:desktopvirtualization/v20220909:HostPool is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:HostPool to guarantee forwards compatibility. */
 export function getHostPoolOutput(args: GetHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolResult> {
     return pulumi.output(args).apply((a: any) => getHostPool(a, opts))
 }

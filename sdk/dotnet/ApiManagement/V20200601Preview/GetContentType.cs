@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
+    [Obsolete(@"azure-native:apimanagement/v20200601preview:ContentType is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ContentType to guarantee forwards compatibility.")]
     public static class GetContentType
     {
         /// <summary>

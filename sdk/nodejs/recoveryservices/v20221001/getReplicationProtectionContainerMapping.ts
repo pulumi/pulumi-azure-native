@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of a protection container mapping.
  */
+/** @deprecated azure-native:recoveryservices/v20221001:ReplicationProtectionContainerMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping to guarantee forwards compatibility. */
 export function getReplicationProtectionContainerMapping(args: GetReplicationProtectionContainerMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectionContainerMappingResult> {
+    pulumi.log.warn("getReplicationProtectionContainerMapping is deprecated: azure-native:recoveryservices/v20221001:ReplicationProtectionContainerMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20221001:getReplicationProtectionContainerMapping", {
@@ -73,6 +75,7 @@ export interface GetReplicationProtectionContainerMappingResult {
 /**
  * Gets the details of a protection container mapping.
  */
+/** @deprecated azure-native:recoveryservices/v20221001:ReplicationProtectionContainerMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping to guarantee forwards compatibility. */
 export function getReplicationProtectionContainerMappingOutput(args: GetReplicationProtectionContainerMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectionContainerMappingResult> {
     return pulumi.output(args).apply((a: any) => getReplicationProtectionContainerMapping(a, opts))
 }

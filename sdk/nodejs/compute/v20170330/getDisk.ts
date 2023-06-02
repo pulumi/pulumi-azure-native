@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a disk.
  */
-/** @deprecated Version 2017-03-30 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-03-30 will be removed in v2 of the provider.
+azure-native:compute/v20170330:Disk is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20180601:Disk to guarantee forwards compatibility. */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
-    pulumi.log.warn("getDisk is deprecated: Version 2017-03-30 will be removed in v2 of the provider.")
+    pulumi.log.warn("getDisk is deprecated: Version 2017-03-30 will be removed in v2 of the provider.\nazure-native:compute/v20170330:Disk is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20180601:Disk to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20170330:getDisk", {
@@ -96,7 +97,8 @@ export interface GetDiskResult {
 /**
  * Gets information about a disk.
  */
-/** @deprecated Version 2017-03-30 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-03-30 will be removed in v2 of the provider.
+azure-native:compute/v20170330:Disk is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20180601:Disk to guarantee forwards compatibility. */
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
     return pulumi.output(args).apply((a: any) => getDisk(a, opts))
 }

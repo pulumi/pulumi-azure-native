@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataShare.V20191101
 {
+    [Obsolete(@"azure-native:datashare/v20191101:SqlDBTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SqlDBTableDataSet to guarantee forwards compatibility.")]
     public static class GetSqlDBTableDataSet
     {
         /// <summary>

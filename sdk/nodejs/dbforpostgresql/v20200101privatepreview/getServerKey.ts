@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a PostgreSQL Server key.
  */
+/** @deprecated azure-native:dbforpostgresql/v20200101privatepreview:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20200214privatepreview:ServerKey to guarantee forwards compatibility. */
 export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerKeyResult> {
+    pulumi.log.warn("getServerKey is deprecated: azure-native:dbforpostgresql/v20200101privatepreview:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20200214privatepreview:ServerKey to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20200101privatepreview:getServerKey", {
@@ -68,6 +70,7 @@ export interface GetServerKeyResult {
 /**
  * Gets a PostgreSQL Server key.
  */
+/** @deprecated azure-native:dbforpostgresql/v20200101privatepreview:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20200214privatepreview:ServerKey to guarantee forwards compatibility. */
 export function getServerKeyOutput(args: GetServerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerKeyResult> {
     return pulumi.output(args).apply((a: any) => getServerKey(a, opts))
 }

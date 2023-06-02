@@ -146,7 +146,12 @@ class DscNodeConfigurationArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:automation/v20180115:DscNodeConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:DscNodeConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class DscNodeConfiguration(pulumi.CustomResource):
+    warnings.warn("""azure-native:automation/v20180115:DscNodeConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:DscNodeConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -207,6 +212,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
                  source: Optional[pulumi.Input[pulumi.InputType['ContentSourceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""DscNodeConfiguration is deprecated: azure-native:automation/v20180115:DscNodeConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:DscNodeConfiguration to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

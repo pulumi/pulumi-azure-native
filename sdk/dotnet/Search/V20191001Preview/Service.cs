@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Search.V20191001Preview
     /// <summary>
     /// Describes an Azure Cognitive Search service and its current state.
     /// </summary>
-    [Obsolete(@"Version 2019-10-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-10-01-preview will be removed in v2 of the provider.
+azure-native:search/v20191001preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20210401preview:Service to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:search/v20191001preview:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {

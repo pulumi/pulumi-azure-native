@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the connection.
+ *
+ * @deprecated azure-native:automation/v20151031:Connection is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Connection to guarantee forwards compatibility.
  */
 export class Connection extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Connection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Connection {
+        pulumi.log.warn("Connection is deprecated: azure-native:automation/v20151031:Connection is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Connection to guarantee forwards compatibility.")
         return new Connection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,7 +76,9 @@ export class Connection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:automation/v20151031:Connection is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Connection to guarantee forwards compatibility. */
     constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Connection is deprecated: azure-native:automation/v20151031:Connection is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Connection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

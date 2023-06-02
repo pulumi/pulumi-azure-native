@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a specific offer.
  */
+/** @deprecated azure-native:marketplace/v20220901:PrivateStoreCollectionOffer is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollectionOffer to guarantee forwards compatibility. */
 export function getPrivateStoreCollectionOffer(args: GetPrivateStoreCollectionOfferArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreCollectionOfferResult> {
+    pulumi.log.warn("getPrivateStoreCollectionOffer is deprecated: azure-native:marketplace/v20220901:PrivateStoreCollectionOffer is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollectionOffer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:marketplace/v20220901:getPrivateStoreCollectionOffer", {
@@ -103,6 +105,7 @@ export interface GetPrivateStoreCollectionOfferResult {
 /**
  * Gets information about a specific offer.
  */
+/** @deprecated azure-native:marketplace/v20220901:PrivateStoreCollectionOffer is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollectionOffer to guarantee forwards compatibility. */
 export function getPrivateStoreCollectionOfferOutput(args: GetPrivateStoreCollectionOfferOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreCollectionOfferResult> {
     return pulumi.output(args).apply((a: any) => getPrivateStoreCollectionOffer(a, opts))
 }

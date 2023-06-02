@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
     /// <summary>
     /// Azure Active Directory administrator.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20200801preview:ServerAzureADAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerAzureADAdministrator to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20200801preview:ServerAzureADAdministrator")]
     public partial class ServerAzureADAdministrator : global::Pulumi.CustomResource
     {

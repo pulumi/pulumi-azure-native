@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     /// <summary>
     /// Sim policy resource.
     /// </summary>
+    [Obsolete(@"azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220301preview:SimPolicy")]
     public partial class SimPolicy : global::Pulumi.CustomResource
     {

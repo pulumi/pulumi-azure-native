@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified private link service by resource group.
  */
+/** @deprecated azure-native:network/v20200401:PrivateLinkService is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210201:PrivateLinkService to guarantee forwards compatibility. */
 export function getPrivateLinkService(args: GetPrivateLinkServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServiceResult> {
+    pulumi.log.warn("getPrivateLinkService is deprecated: azure-native:network/v20200401:PrivateLinkService is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210201:PrivateLinkService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200401:getPrivateLinkService", {
@@ -107,6 +109,7 @@ export interface GetPrivateLinkServiceResult {
 /**
  * Gets the specified private link service by resource group.
  */
+/** @deprecated azure-native:network/v20200401:PrivateLinkService is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210201:PrivateLinkService to guarantee forwards compatibility. */
 export function getPrivateLinkServiceOutput(args: GetPrivateLinkServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServiceResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkService(a, opts))
 }

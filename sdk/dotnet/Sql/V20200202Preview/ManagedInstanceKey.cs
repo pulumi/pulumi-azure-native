@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
     /// <summary>
     /// A managed instance key.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20200202preview:ManagedInstanceKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceKey to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20200202preview:ManagedInstanceKey")]
     public partial class ManagedInstanceKey : global::Pulumi.CustomResource
     {

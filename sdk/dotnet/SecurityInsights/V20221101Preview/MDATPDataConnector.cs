@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221101Preview
     /// <summary>
     /// Represents MDATP (Microsoft Defender Advanced Threat Protection) data connector.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20221101preview:MDATPDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:MDATPDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20221101preview:MDATPDataConnector")]
     public partial class MDATPDataConnector : global::Pulumi.CustomResource
     {
@@ -111,7 +112,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:MDATPDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:MDATPDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:MDATPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:MDATPDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -17,7 +17,8 @@ __all__ = [
     'get_service_unit_output',
 ]
 
-warnings.warn("""Version 2018-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:deploymentmanager/v20180901preview:ServiceUnit is being removed in the next major version of this provider. Upgrade to at least azure-native:deploymentmanager/v20191101preview:ServiceUnit to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetServiceUnitResult:
@@ -145,7 +146,8 @@ def get_service_unit(resource_group_name: Optional[str] = None,
     :param str service_topology_name: The name of the service topology .
     :param str service_unit_name: The name of the service unit resource.
     """
-    pulumi.log.warn("""get_service_unit is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_service_unit is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:deploymentmanager/v20180901preview:ServiceUnit is being removed in the next major version of this provider. Upgrade to at least azure-native:deploymentmanager/v20191101preview:ServiceUnit to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
@@ -180,5 +182,6 @@ def get_service_unit_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str service_topology_name: The name of the service topology .
     :param str service_unit_name: The name of the service unit resource.
     """
-    pulumi.log.warn("""get_service_unit is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_service_unit is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:deploymentmanager/v20180901preview:ServiceUnit is being removed in the next major version of this provider. Upgrade to at least azure-native:deploymentmanager/v20191101preview:ServiceUnit to guarantee forwards compatibility.""")
     ...

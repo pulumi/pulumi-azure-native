@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20190801
     /// <summary>
     /// A DDoS protection plan in a resource group.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20190801:DdosProtectionPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220501:DdosProtectionPlan to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20190801:DdosProtectionPlan")]
     public partial class DdosProtectionPlan : global::Pulumi.CustomResource
     {

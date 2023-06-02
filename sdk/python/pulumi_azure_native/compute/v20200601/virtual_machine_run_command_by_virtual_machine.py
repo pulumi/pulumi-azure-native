@@ -245,11 +245,13 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
-warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
-    warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -329,7 +331,8 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VirtualMachineRunCommandByVirtualMachine is deprecated: Version 2020-06-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""VirtualMachineRunCommandByVirtualMachine is deprecated: Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -132,7 +132,12 @@ class WebAppDiagnosticLogsConfigurationArgs:
         pulumi.set(self, "kind", value)
 
 
+warnings.warn("""azure-native:web/v20210301:WebAppDiagnosticLogsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppDiagnosticLogsConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WebAppDiagnosticLogsConfiguration(pulumi.CustomResource):
+    warnings.warn("""azure-native:web/v20210301:WebAppDiagnosticLogsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppDiagnosticLogsConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -190,6 +195,7 @@ class WebAppDiagnosticLogsConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebAppDiagnosticLogsConfiguration is deprecated: azure-native:web/v20210301:WebAppDiagnosticLogsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppDiagnosticLogsConfiguration to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

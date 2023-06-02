@@ -17,6 +17,8 @@ __all__ = [
     'get_web_app_diagnostic_logs_configuration_output',
 ]
 
+warnings.warn("""azure-native:web/v20190801:WebAppDiagnosticLogsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppDiagnosticLogsConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppDiagnosticLogsConfigurationResult:
     """
@@ -139,6 +141,7 @@ def get_web_app_diagnostic_logs_configuration(name: Optional[str] = None,
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_web_app_diagnostic_logs_configuration is deprecated: azure-native:web/v20190801:WebAppDiagnosticLogsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppDiagnosticLogsConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -167,4 +170,5 @@ def get_web_app_diagnostic_logs_configuration_output(name: Optional[pulumi.Input
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_web_app_diagnostic_logs_configuration is deprecated: azure-native:web/v20190801:WebAppDiagnosticLogsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppDiagnosticLogsConfiguration to guarantee forwards compatibility.""")
     ...

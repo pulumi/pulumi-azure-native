@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20221001Preview
 {
+    [Obsolete(@"azure-native:machinelearningservices/v20221001preview:Registry is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Registry to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20221001preview:Registry")]
     public partial class Registry : global::Pulumi.CustomResource
     {

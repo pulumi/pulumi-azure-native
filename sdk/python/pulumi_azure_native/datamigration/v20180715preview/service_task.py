@@ -84,7 +84,12 @@ class ServiceTaskArgs:
         pulumi.set(self, "task_name", value)
 
 
+warnings.warn("""azure-native:datamigration/v20180715preview:ServiceTask is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:ServiceTask to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ServiceTask(pulumi.CustomResource):
+    warnings.warn("""azure-native:datamigration/v20180715preview:ServiceTask is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:ServiceTask to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -133,6 +138,7 @@ class ServiceTask(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  task_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ServiceTask is deprecated: azure-native:datamigration/v20180715preview:ServiceTask is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:ServiceTask to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

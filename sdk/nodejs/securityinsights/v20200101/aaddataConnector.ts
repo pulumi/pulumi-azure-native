@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents AAD (Azure Active Directory) data connector.
+ *
+ * @deprecated azure-native:securityinsights/v20200101:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AADDataConnector to guarantee forwards compatibility.
  */
 export class AADDataConnector extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class AADDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AADDataConnector {
+        pulumi.log.warn("AADDataConnector is deprecated: azure-native:securityinsights/v20200101:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AADDataConnector to guarantee forwards compatibility.")
         return new AADDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -70,7 +73,9 @@ export class AADDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20200101:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AADDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: AADDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AADDataConnector is deprecated: azure-native:securityinsights/v20200101:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AADDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -101,7 +106,7 @@ export class AADDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AADDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20211001:AADDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20220801:AADDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20221101:AADDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20230201:AADDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:AADDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AADDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20211001:AADDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20220801:AADDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20221101:AADDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20230201:AADDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:AADDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AADDataConnector.__pulumiType, name, resourceInputs, opts);
     }

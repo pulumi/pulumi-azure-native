@@ -17,7 +17,8 @@ __all__ = [
     'get_dataset_output',
 ]
 
-warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Dataset is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:Dataset to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDatasetResult:
@@ -107,7 +108,8 @@ def get_dataset(dataset_name: Optional[str] = None,
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_dataset is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_dataset is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Dataset is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:Dataset to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['datasetName'] = dataset_name
     __args__['factoryName'] = factory_name
@@ -136,5 +138,6 @@ def get_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_dataset is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_dataset is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Dataset is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:Dataset to guarantee forwards compatibility.""")
     ...

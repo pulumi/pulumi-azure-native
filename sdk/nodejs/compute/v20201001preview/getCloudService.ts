@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Display information about a cloud service.
  */
+/** @deprecated azure-native:compute/v20201001preview:CloudService is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220904:CloudService to guarantee forwards compatibility. */
 export function getCloudService(args: GetCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudServiceResult> {
+    pulumi.log.warn("getCloudService is deprecated: azure-native:compute/v20201001preview:CloudService is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220904:CloudService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20201001preview:getCloudService", {
@@ -62,6 +64,7 @@ export interface GetCloudServiceResult {
 /**
  * Display information about a cloud service.
  */
+/** @deprecated azure-native:compute/v20201001preview:CloudService is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220904:CloudService to guarantee forwards compatibility. */
 export function getCloudServiceOutput(args: GetCloudServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudServiceResult> {
     return pulumi.output(args).apply((a: any) => getCloudService(a, opts))
 }

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
 {
+    [Obsolete(@"azure-native:apimanagement/v20211201preview:Diagnostic is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Diagnostic to guarantee forwards compatibility.")]
     public static class GetDiagnostic
     {
         /// <summary>

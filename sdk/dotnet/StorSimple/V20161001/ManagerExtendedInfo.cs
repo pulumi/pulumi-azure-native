@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     /// <summary>
     /// The extended info of the manager.
     /// </summary>
-    [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.
+azure-native:storsimple/v20161001:ManagerExtendedInfo is being removed in the next major version of this provider. Upgrade to at least azure-native:storsimple/v20170601:ManagerExtendedInfo to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:ManagerExtendedInfo")]
     public partial class ManagerExtendedInfo : global::Pulumi.CustomResource
     {

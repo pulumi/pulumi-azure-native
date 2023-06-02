@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The key resource.
+ *
+ * @deprecated azure-native:keyvault/v20210601preview:Key is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:Key to guarantee forwards compatibility.
  */
 export class Key extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Key extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Key {
+        pulumi.log.warn("Key is deprecated: azure-native:keyvault/v20210601preview:Key is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:Key to guarantee forwards compatibility.")
         return new Key(name, undefined as any, { ...opts, id: id });
     }
 
@@ -94,7 +97,9 @@ export class Key extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:keyvault/v20210601preview:Key is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:Key to guarantee forwards compatibility. */
     constructor(name: string, args: KeyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Key is deprecated: azure-native:keyvault/v20210601preview:Key is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:Key to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

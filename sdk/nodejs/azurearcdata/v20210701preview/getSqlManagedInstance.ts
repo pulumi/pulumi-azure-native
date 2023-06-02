@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves a SQL Managed Instance resource
  */
+/** @deprecated azure-native:azurearcdata/v20210701preview:SqlManagedInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:SqlManagedInstance to guarantee forwards compatibility. */
 export function getSqlManagedInstance(args: GetSqlManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlManagedInstanceResult> {
+    pulumi.log.warn("getSqlManagedInstance is deprecated: azure-native:azurearcdata/v20210701preview:SqlManagedInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:SqlManagedInstance to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20210701preview:getSqlManagedInstance", {
@@ -74,6 +76,7 @@ export interface GetSqlManagedInstanceResult {
 /**
  * Retrieves a SQL Managed Instance resource
  */
+/** @deprecated azure-native:azurearcdata/v20210701preview:SqlManagedInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:SqlManagedInstance to guarantee forwards compatibility. */
 export function getSqlManagedInstanceOutput(args: GetSqlManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlManagedInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSqlManagedInstance(a, opts))
 }

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns the details of an API release.
  */
+/** @deprecated azure-native:apimanagement/v20220401preview:ApiRelease is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiRelease to guarantee forwards compatibility. */
 export function getApiRelease(args: GetApiReleaseArgs, opts?: pulumi.InvokeOptions): Promise<GetApiReleaseResult> {
+    pulumi.log.warn("getApiRelease is deprecated: azure-native:apimanagement/v20220401preview:ApiRelease is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiRelease to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220401preview:getApiRelease", {
@@ -73,6 +75,7 @@ export interface GetApiReleaseResult {
 /**
  * Returns the details of an API release.
  */
+/** @deprecated azure-native:apimanagement/v20220401preview:ApiRelease is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiRelease to guarantee forwards compatibility. */
 export function getApiReleaseOutput(args: GetApiReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiReleaseResult> {
     return pulumi.output(args).apply((a: any) => getApiRelease(a, opts))
 }

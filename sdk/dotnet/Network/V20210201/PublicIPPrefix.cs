@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20210201
     /// <summary>
     /// Public IP prefix resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20210201:PublicIPPrefix is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:PublicIPPrefix to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20210201:PublicIPPrefix")]
     public partial class PublicIPPrefix : global::Pulumi.CustomResource
     {

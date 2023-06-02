@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
+    [Obsolete(@"azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell")]
     public partial class PrivateEndpointConnectionsForSCCPowershell : global::Pulumi.CustomResource
     {

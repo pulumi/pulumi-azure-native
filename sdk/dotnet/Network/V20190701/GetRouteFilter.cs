@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20190701
 {
+    [Obsolete(@"azure-native:network/v20190701:RouteFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190801:RouteFilter to guarantee forwards compatibility.")]
     public static class GetRouteFilter
     {
         /// <summary>

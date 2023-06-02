@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Describes a VMSS VM Extension.
  *
  * @deprecated Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension to guarantee forwards compatibility.
  */
 export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
     /**
@@ -22,7 +23,7 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineScaleSetVMExtension {
-        pulumi.log.warn("VirtualMachineScaleSetVMExtension is deprecated: Version 2020-06-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("VirtualMachineScaleSetVMExtension is deprecated: Version 2020-06-01 will be removed in v2 of the provider.\nazure-native:compute/v20200601:VirtualMachineScaleSetVMExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension to guarantee forwards compatibility.")
         return new VirtualMachineScaleSetVMExtension(name, undefined as any, { ...opts, id: id });
     }
 
@@ -92,9 +93,10 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
+    /** @deprecated Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension to guarantee forwards compatibility. */
     constructor(name: string, args: VirtualMachineScaleSetVMExtensionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VirtualMachineScaleSetVMExtension is deprecated: Version 2020-06-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("VirtualMachineScaleSetVMExtension is deprecated: Version 2020-06-01 will be removed in v2 of the provider.\nazure-native:compute/v20200601:VirtualMachineScaleSetVMExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

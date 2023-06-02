@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Virtual Router.
  */
+/** @deprecated azure-native:network/v20190701:VirtualRouter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualRouter to guarantee forwards compatibility. */
 export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterResult> {
+    pulumi.log.warn("getVirtualRouter is deprecated: azure-native:network/v20190701:VirtualRouter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualRouter to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190701:getVirtualRouter", {
@@ -91,6 +93,7 @@ export interface GetVirtualRouterResult {
 /**
  * Gets the specified Virtual Router.
  */
+/** @deprecated azure-native:network/v20190701:VirtualRouter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualRouter to guarantee forwards compatibility. */
 export function getVirtualRouterOutput(args: GetVirtualRouterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterResult> {
     return pulumi.output(args).apply((a: any) => getVirtualRouter(a, opts))
 }

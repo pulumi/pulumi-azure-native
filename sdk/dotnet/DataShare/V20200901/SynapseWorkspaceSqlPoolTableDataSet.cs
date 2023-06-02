@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataShare.V20200901
     /// <summary>
     /// A Synapse Workspace Sql Pool Table data set.
     /// </summary>
+    [Obsolete(@"azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet")]
     public partial class SynapseWorkspaceSqlPoolTableDataSet : global::Pulumi.CustomResource
     {

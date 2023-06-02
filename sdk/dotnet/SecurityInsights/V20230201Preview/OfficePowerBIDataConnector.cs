@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201Preview
     /// <summary>
     /// Represents Office Microsoft PowerBI data connector.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20230201preview:OfficePowerBIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:OfficePowerBIDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230201preview:OfficePowerBIDataConnector")]
     public partial class OfficePowerBIDataConnector : global::Pulumi.CustomResource
     {
@@ -111,7 +112,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:OfficePowerBIDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:OfficePowerBIDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:OfficePowerBIDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:OfficePowerBIDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

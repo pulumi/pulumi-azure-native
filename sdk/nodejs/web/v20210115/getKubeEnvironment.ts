@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the properties of a Kubernetes Environment.
  */
+/** @deprecated azure-native:web/v20210115:KubeEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:KubeEnvironment to guarantee forwards compatibility. */
 export function getKubeEnvironment(args: GetKubeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKubeEnvironmentResult> {
+    pulumi.log.warn("getKubeEnvironment is deprecated: azure-native:web/v20210115:KubeEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:KubeEnvironment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210115:getKubeEnvironment", {
@@ -99,6 +101,7 @@ export interface GetKubeEnvironmentResult {
 /**
  * Get the properties of a Kubernetes Environment.
  */
+/** @deprecated azure-native:web/v20210115:KubeEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:KubeEnvironment to guarantee forwards compatibility. */
 export function getKubeEnvironmentOutput(args: GetKubeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubeEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getKubeEnvironment(a, opts))
 }

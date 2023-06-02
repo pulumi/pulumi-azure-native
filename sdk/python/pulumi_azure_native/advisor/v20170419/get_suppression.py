@@ -16,7 +16,8 @@ __all__ = [
     'get_suppression_output',
 ]
 
-warnings.warn("""Version 2017-04-19 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-04-19 will be removed in v2 of the provider.
+azure-native:advisor/v20170419:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSuppressionResult:
@@ -106,7 +107,8 @@ def get_suppression(name: Optional[str] = None,
     :param str recommendation_id: The recommendation ID.
     :param str resource_uri: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
     """
-    pulumi.log.warn("""get_suppression is deprecated: Version 2017-04-19 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_suppression is deprecated: Version 2017-04-19 will be removed in v2 of the provider.
+azure-native:advisor/v20170419:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['recommendationId'] = recommendation_id
@@ -135,5 +137,6 @@ def get_suppression_output(name: Optional[pulumi.Input[str]] = None,
     :param str recommendation_id: The recommendation ID.
     :param str resource_uri: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
     """
-    pulumi.log.warn("""get_suppression is deprecated: Version 2017-04-19 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_suppression is deprecated: Version 2017-04-19 will be removed in v2 of the provider.
+azure-native:advisor/v20170419:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.""")
     ...

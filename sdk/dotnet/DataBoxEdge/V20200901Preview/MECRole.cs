@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
     /// <summary>
     /// MEC role.
     /// </summary>
+    [Obsolete(@"azure-native:databoxedge/v20200901preview:MECRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MECRole to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20200901preview:MECRole")]
     public partial class MECRole : global::Pulumi.CustomResource
     {

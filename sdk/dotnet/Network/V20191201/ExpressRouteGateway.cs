@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20191201
     /// <summary>
     /// ExpressRoute gateway resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20191201:ExpressRouteGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210301:ExpressRouteGateway to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20191201:ExpressRouteGateway")]
     public partial class ExpressRouteGateway : global::Pulumi.CustomResource
     {

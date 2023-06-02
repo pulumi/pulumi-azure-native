@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the specified shared private link resource
  */
+/** @deprecated azure-native:signalrservice/v20220201:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource to guarantee forwards compatibility. */
 export function getSignalRSharedPrivateLinkResource(args: GetSignalRSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRSharedPrivateLinkResourceResult> {
+    pulumi.log.warn("getSignalRSharedPrivateLinkResource is deprecated: azure-native:signalrservice/v20220201:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:signalrservice/v20220201:getSignalRSharedPrivateLinkResource", {
@@ -79,6 +81,7 @@ export interface GetSignalRSharedPrivateLinkResourceResult {
 /**
  * Get the specified shared private link resource
  */
+/** @deprecated azure-native:signalrservice/v20220201:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource to guarantee forwards compatibility. */
 export function getSignalRSharedPrivateLinkResourceOutput(args: GetSignalRSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRSharedPrivateLinkResourceResult> {
     return pulumi.output(args).apply((a: any) => getSignalRSharedPrivateLinkResource(a, opts))
 }

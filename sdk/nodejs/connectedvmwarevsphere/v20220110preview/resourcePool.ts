@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Define the resourcePool.
+ *
+ * @deprecated azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool to guarantee forwards compatibility.
  */
 export class ResourcePool extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ResourcePool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ResourcePool {
+        pulumi.log.warn("ResourcePool is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool to guarantee forwards compatibility.")
         return new ResourcePool(name, undefined as any, { ...opts, id: id });
     }
 
@@ -135,7 +138,9 @@ export class ResourcePool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool to guarantee forwards compatibility. */
     constructor(name: string, args: ResourcePoolArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ResourcePool is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

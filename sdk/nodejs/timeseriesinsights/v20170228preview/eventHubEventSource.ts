@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An event source that receives its data from an Azure EventHub.
+ *
+ * @deprecated azure-native:timeseriesinsights/v20170228preview:EventHubEventSource is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:EventHubEventSource to guarantee forwards compatibility.
  */
 export class EventHubEventSource extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class EventHubEventSource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EventHubEventSource {
+        pulumi.log.warn("EventHubEventSource is deprecated: azure-native:timeseriesinsights/v20170228preview:EventHubEventSource is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:EventHubEventSource to guarantee forwards compatibility.")
         return new EventHubEventSource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -95,7 +98,9 @@ export class EventHubEventSource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:timeseriesinsights/v20170228preview:EventHubEventSource is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:EventHubEventSource to guarantee forwards compatibility. */
     constructor(name: string, args: EventHubEventSourceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("EventHubEventSource is deprecated: azure-native:timeseriesinsights/v20170228preview:EventHubEventSource is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:EventHubEventSource to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

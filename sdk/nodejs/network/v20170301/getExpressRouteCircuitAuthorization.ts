@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified authorization from the specified express route circuit.
  */
-/** @deprecated Version 2017-03-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-03-01 will be removed in v2 of the provider.
+azure-native:network/v20170301:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:ExpressRouteCircuitAuthorization to guarantee forwards compatibility. */
 export function getExpressRouteCircuitAuthorization(args: GetExpressRouteCircuitAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitAuthorizationResult> {
-    pulumi.log.warn("getExpressRouteCircuitAuthorization is deprecated: Version 2017-03-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getExpressRouteCircuitAuthorization is deprecated: Version 2017-03-01 will be removed in v2 of the provider.\nazure-native:network/v20170301:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:ExpressRouteCircuitAuthorization to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20170301:getExpressRouteCircuitAuthorization", {
@@ -66,7 +67,8 @@ export interface GetExpressRouteCircuitAuthorizationResult {
 /**
  * Gets the specified authorization from the specified express route circuit.
  */
-/** @deprecated Version 2017-03-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-03-01 will be removed in v2 of the provider.
+azure-native:network/v20170301:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:ExpressRouteCircuitAuthorization to guarantee forwards compatibility. */
 export function getExpressRouteCircuitAuthorizationOutput(args: GetExpressRouteCircuitAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitAuthorizationResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCircuitAuthorization(a, opts))
 }

@@ -16,6 +16,8 @@ __all__ = [
     'get_sql_pool_transparent_data_encryption_output',
 ]
 
+warnings.warn("""azure-native:synapse/v20210601:SqlPoolTransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlPoolTransparentDataEncryptionResult:
     """
@@ -106,6 +108,7 @@ def get_sql_pool_transparent_data_encryption(resource_group_name: Optional[str] 
     :param str transparent_data_encryption_name: The name of the transparent data encryption configuration.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_sql_pool_transparent_data_encryption is deprecated: azure-native:synapse/v20210601:SqlPoolTransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlPoolName'] = sql_pool_name
@@ -137,4 +140,5 @@ def get_sql_pool_transparent_data_encryption_output(resource_group_name: Optiona
     :param str transparent_data_encryption_name: The name of the transparent data encryption configuration.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_sql_pool_transparent_data_encryption is deprecated: azure-native:synapse/v20210601:SqlPoolTransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption to guarantee forwards compatibility.""")
     ...

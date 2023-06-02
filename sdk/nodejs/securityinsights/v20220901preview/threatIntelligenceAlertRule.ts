@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents Threat Intelligence alert rule.
+ *
+ * @deprecated azure-native:securityinsights/v20220901preview:ThreatIntelligenceAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ThreatIntelligenceAlertRule to guarantee forwards compatibility.
  */
 export class ThreatIntelligenceAlertRule extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ThreatIntelligenceAlertRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ThreatIntelligenceAlertRule {
+        pulumi.log.warn("ThreatIntelligenceAlertRule is deprecated: azure-native:securityinsights/v20220901preview:ThreatIntelligenceAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ThreatIntelligenceAlertRule to guarantee forwards compatibility.")
         return new ThreatIntelligenceAlertRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -98,7 +101,9 @@ export class ThreatIntelligenceAlertRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20220901preview:ThreatIntelligenceAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ThreatIntelligenceAlertRule to guarantee forwards compatibility. */
     constructor(name: string, args: ThreatIntelligenceAlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ThreatIntelligenceAlertRule is deprecated: azure-native:securityinsights/v20220901preview:ThreatIntelligenceAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ThreatIntelligenceAlertRule to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -149,7 +154,7 @@ export class ThreatIntelligenceAlertRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20200101:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20211001:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220401preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220501preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220601preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220701preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220801:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220801preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20221001preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20221101:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20221101preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20221201preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20230201:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20230201preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20230401preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20230501preview:ThreatIntelligenceAlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20200101:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20211001:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220401preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220501preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220601preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220701preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220801:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220801preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20221001preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20221101:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20221101preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20221201preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20230201:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20230201preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20230401preview:ThreatIntelligenceAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ThreatIntelligenceAlertRule.__pulumiType, name, resourceInputs, opts);
     }

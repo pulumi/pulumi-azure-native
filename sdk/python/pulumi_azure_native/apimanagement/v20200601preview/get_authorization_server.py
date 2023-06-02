@@ -17,6 +17,8 @@ __all__ = [
     'get_authorization_server_output',
 ]
 
+warnings.warn("""azure-native:apimanagement/v20200601preview:AuthorizationServer is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationServer to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAuthorizationServerResult:
     """
@@ -273,6 +275,7 @@ def get_authorization_server(authsid: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("""get_authorization_server is deprecated: azure-native:apimanagement/v20200601preview:AuthorizationServer is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationServer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['authsid'] = authsid
     __args__['resourceGroupName'] = resource_group_name
@@ -315,4 +318,5 @@ def get_authorization_server_output(authsid: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("""get_authorization_server is deprecated: azure-native:apimanagement/v20200601preview:AuthorizationServer is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationServer to guarantee forwards compatibility.""")
     ...

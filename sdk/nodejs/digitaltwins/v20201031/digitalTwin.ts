@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * The description of the DigitalTwins service.
  *
  * @deprecated Version 2020-10-31 will be removed in v2 of the provider.
+azure-native:digitaltwins/v20201031:DigitalTwin is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.
  */
 export class DigitalTwin extends pulumi.CustomResource {
     /**
@@ -19,7 +20,7 @@ export class DigitalTwin extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DigitalTwin {
-        pulumi.log.warn("DigitalTwin is deprecated: Version 2020-10-31 will be removed in v2 of the provider.")
+        pulumi.log.warn("DigitalTwin is deprecated: Version 2020-10-31 will be removed in v2 of the provider.\nazure-native:digitaltwins/v20201031:DigitalTwin is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.")
         return new DigitalTwin(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,9 +78,10 @@ export class DigitalTwin extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2020-10-31 will be removed in v2 of the provider. */
+    /** @deprecated Version 2020-10-31 will be removed in v2 of the provider.
+azure-native:digitaltwins/v20201031:DigitalTwin is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility. */
     constructor(name: string, args: DigitalTwinArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DigitalTwin is deprecated: Version 2020-10-31 will be removed in v2 of the provider.")
+        pulumi.log.warn("DigitalTwin is deprecated: Version 2020-10-31 will be removed in v2 of the provider.\nazure-native:digitaltwins/v20201031:DigitalTwin is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515
     /// <summary>
     /// An Azure Cosmos DB Role Assignment
     /// </summary>
+    [Obsolete(@"azure-native:documentdb/v20210515:SqlResourceSqlRoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:SqlResourceSqlRoleAssignment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20210515:SqlResourceSqlRoleAssignment")]
     public partial class SqlResourceSqlRoleAssignment : global::Pulumi.CustomResource
     {

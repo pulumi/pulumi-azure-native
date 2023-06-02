@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Implements GuestAgent GET method.
  */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility. */
 export function getGuestAgent(args: GetGuestAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestAgentResult> {
+    pulumi.log.warn("getGuestAgent is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220110preview:getGuestAgent", {
@@ -91,6 +93,7 @@ export interface GetGuestAgentResult {
 /**
  * Implements GuestAgent GET method.
  */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility. */
 export function getGuestAgentOutput(args: GetGuestAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestAgentResult> {
     return pulumi.output(args).apply((a: any) => getGuestAgent(a, opts))
 }

@@ -17,6 +17,8 @@ __all__ = [
     'get_p2s_vpn_server_configuration_output',
 ]
 
+warnings.warn("""azure-native:network/v20180801:P2sVpnServerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetP2sVpnServerConfigurationResult:
     """
@@ -198,6 +200,7 @@ def get_p2s_vpn_server_configuration(p2_s_vpn_server_configuration_name: Optiona
     :param str resource_group_name: The resource group name of the P2SVpnServerConfiguration.
     :param str virtual_wan_name: The name of the VirtualWan.
     """
+    pulumi.log.warn("""get_p2s_vpn_server_configuration is deprecated: azure-native:network/v20180801:P2sVpnServerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['p2SVpnServerConfigurationName'] = p2_s_vpn_server_configuration_name
     __args__['resourceGroupName'] = resource_group_name
@@ -234,4 +237,5 @@ def get_p2s_vpn_server_configuration_output(p2_s_vpn_server_configuration_name: 
     :param str resource_group_name: The resource group name of the P2SVpnServerConfiguration.
     :param str virtual_wan_name: The name of the VirtualWan.
     """
+    pulumi.log.warn("""get_p2s_vpn_server_configuration is deprecated: azure-native:network/v20180801:P2sVpnServerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility.""")
     ...

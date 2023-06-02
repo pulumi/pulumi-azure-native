@@ -536,7 +536,12 @@ class WebAppSlotArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+warnings.warn("""azure-native:web/v20210301:WebAppSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSlot to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WebAppSlot(pulumi.CustomResource):
+    warnings.warn("""azure-native:web/v20210301:WebAppSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSlot to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -672,6 +677,7 @@ class WebAppSlot(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebAppSlot is deprecated: azure-native:web/v20210301:WebAppSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSlot to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve protection policy with specified name within a resource group.
  */
+/** @deprecated azure-native:network/v20191001:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:Policy to guarantee forwards compatibility. */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
+    pulumi.log.warn("getPolicy is deprecated: azure-native:network/v20191001:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:Policy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20191001:getPolicy", {
@@ -83,6 +85,7 @@ export interface GetPolicyResult {
 /**
  * Retrieve protection policy with specified name within a resource group.
  */
+/** @deprecated azure-native:network/v20191001:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:Policy to guarantee forwards compatibility. */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
 }

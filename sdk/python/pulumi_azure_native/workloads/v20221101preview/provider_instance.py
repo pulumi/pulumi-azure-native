@@ -100,7 +100,12 @@ class ProviderInstanceArgs:
         pulumi.set(self, "provider_settings", value)
 
 
+warnings.warn("""azure-native:workloads/v20221101preview:ProviderInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:ProviderInstance to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ProviderInstance(pulumi.CustomResource):
+    warnings.warn("""azure-native:workloads/v20221101preview:ProviderInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:ProviderInstance to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -152,6 +157,7 @@ class ProviderInstance(pulumi.CustomResource):
                  provider_settings: Optional[pulumi.Input[Union[pulumi.InputType['DB2ProviderInstancePropertiesArgs'], pulumi.InputType['HanaDbProviderInstancePropertiesArgs'], pulumi.InputType['MsSqlServerProviderInstancePropertiesArgs'], pulumi.InputType['PrometheusHaClusterProviderInstancePropertiesArgs'], pulumi.InputType['PrometheusOSProviderInstancePropertiesArgs'], pulumi.InputType['SapNetWeaverProviderInstancePropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ProviderInstance is deprecated: azure-native:workloads/v20221101preview:ProviderInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:ProviderInstance to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220501
     /// <summary>
     /// VirtualRouter Resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20220501:VirtualRouter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualRouter to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220501:VirtualRouter")]
     public partial class VirtualRouter : global::Pulumi.CustomResource
     {

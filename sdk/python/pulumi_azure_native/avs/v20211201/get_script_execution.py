@@ -17,6 +17,8 @@ __all__ = [
     'get_script_execution_output',
 ]
 
+warnings.warn("""azure-native:avs/v20211201:ScriptExecution is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:ScriptExecution to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetScriptExecutionResult:
     """
@@ -261,6 +263,7 @@ def get_script_execution(private_cloud_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str script_execution_name: Name of the user-invoked script execution resource
     """
+    pulumi.log.warn("""get_script_execution is deprecated: azure-native:avs/v20211201:ScriptExecution is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:ScriptExecution to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
@@ -302,4 +305,5 @@ def get_script_execution_output(private_cloud_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str script_execution_name: Name of the user-invoked script execution resource
     """
+    pulumi.log.warn("""get_script_execution is deprecated: azure-native:avs/v20211201:ScriptExecution is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:ScriptExecution to guarantee forwards compatibility.""")
     ...

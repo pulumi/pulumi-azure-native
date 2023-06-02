@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20210101
     /// <summary>
     /// Class representing an event hub data connection.
     /// </summary>
+    [Obsolete(@"azure-native:kusto/v20210101:EventHubDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:EventHubDataConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kusto/v20210101:EventHubDataConnection")]
     public partial class EventHubDataConnection : global::Pulumi.CustomResource
     {

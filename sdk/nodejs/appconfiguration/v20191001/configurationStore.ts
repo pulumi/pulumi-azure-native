@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
  *
  * @deprecated Version 2019-10-01 will be removed in v2 of the provider.
+azure-native:appconfiguration/v20191001:ConfigurationStore is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:ConfigurationStore to guarantee forwards compatibility.
  */
 export class ConfigurationStore extends pulumi.CustomResource {
     /**
@@ -22,7 +23,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ConfigurationStore {
-        pulumi.log.warn("ConfigurationStore is deprecated: Version 2019-10-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("ConfigurationStore is deprecated: Version 2019-10-01 will be removed in v2 of the provider.\nazure-native:appconfiguration/v20191001:ConfigurationStore is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:ConfigurationStore to guarantee forwards compatibility.")
         return new ConfigurationStore(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,9 +85,10 @@ export class ConfigurationStore extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2019-10-01 will be removed in v2 of the provider. */
+    /** @deprecated Version 2019-10-01 will be removed in v2 of the provider.
+azure-native:appconfiguration/v20191001:ConfigurationStore is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:ConfigurationStore to guarantee forwards compatibility. */
     constructor(name: string, args: ConfigurationStoreArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ConfigurationStore is deprecated: Version 2019-10-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("ConfigurationStore is deprecated: Version 2019-10-01 will be removed in v2 of the provider.\nazure-native:appconfiguration/v20191001:ConfigurationStore is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:ConfigurationStore to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -17,6 +17,8 @@ __all__ = [
     'get_scaling_plan_output',
 ]
 
+warnings.warn("""azure-native:desktopvirtualization/v20210712:ScalingPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20220210preview:ScalingPlan to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetScalingPlanResult:
     """
@@ -262,6 +264,7 @@ def get_scaling_plan(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scaling_plan_name: The name of the scaling plan.
     """
+    pulumi.log.warn("""get_scaling_plan is deprecated: azure-native:desktopvirtualization/v20210712:ScalingPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20220210preview:ScalingPlan to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['scalingPlanName'] = scaling_plan_name
@@ -301,4 +304,5 @@ def get_scaling_plan_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scaling_plan_name: The name of the scaling plan.
     """
+    pulumi.log.warn("""get_scaling_plan is deprecated: azure-native:desktopvirtualization/v20210712:ScalingPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20220210preview:ScalingPlan to guarantee forwards compatibility.""")
     ...

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
     /// <summary>
     /// Represents Office Microsoft Project data connector.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20211001preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20211001preview:Office365ProjectDataConnector")]
     public partial class Office365ProjectDataConnector : global::Pulumi.CustomResource
     {
@@ -111,7 +112,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:Office365ProjectDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:Office365ProjectDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:Office365ProjectDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

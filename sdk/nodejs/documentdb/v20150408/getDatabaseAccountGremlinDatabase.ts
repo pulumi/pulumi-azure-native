@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2015-04-08 will be removed in v2 of the provider. */
+/** @deprecated Version 2015-04-08 will be removed in v2 of the provider.
+azure-native:documentdb/v20150408:DatabaseAccountGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountGremlinDatabase to guarantee forwards compatibility. */
 export function getDatabaseAccountGremlinDatabase(args: GetDatabaseAccountGremlinDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountGremlinDatabaseResult> {
-    pulumi.log.warn("getDatabaseAccountGremlinDatabase is deprecated: Version 2015-04-08 will be removed in v2 of the provider.")
+    pulumi.log.warn("getDatabaseAccountGremlinDatabase is deprecated: Version 2015-04-08 will be removed in v2 of the provider.\nazure-native:documentdb/v20150408:DatabaseAccountGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountGremlinDatabase to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20150408:getDatabaseAccountGremlinDatabase", {
@@ -74,7 +75,8 @@ export interface GetDatabaseAccountGremlinDatabaseResult {
 /**
  * Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2015-04-08 will be removed in v2 of the provider. */
+/** @deprecated Version 2015-04-08 will be removed in v2 of the provider.
+azure-native:documentdb/v20150408:DatabaseAccountGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountGremlinDatabase to guarantee forwards compatibility. */
 export function getDatabaseAccountGremlinDatabaseOutput(args: GetDatabaseAccountGremlinDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountGremlinDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccountGremlinDatabase(a, opts))
 }

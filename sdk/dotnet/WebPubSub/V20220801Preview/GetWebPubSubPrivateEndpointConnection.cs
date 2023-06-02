@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.WebPubSub.V20220801Preview
 {
+    [Obsolete(@"azure-native:webpubsub/v20220801preview:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetWebPubSubPrivateEndpointConnection
     {
         /// <summary>

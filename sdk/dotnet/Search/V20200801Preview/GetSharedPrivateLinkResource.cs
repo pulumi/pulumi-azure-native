@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Search.V20200801Preview
 {
+    [Obsolete(@"azure-native:search/v20200801preview:SharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility.")]
     public static class GetSharedPrivateLinkResource
     {
         /// <summary>

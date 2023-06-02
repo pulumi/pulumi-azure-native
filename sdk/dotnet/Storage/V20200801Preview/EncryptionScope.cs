@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
     /// <summary>
     /// The Encryption Scope resource.
     /// </summary>
-    [Obsolete(@"Version 2020-08-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-08-01-preview will be removed in v2 of the provider.
+azure-native:storage/v20200801preview:EncryptionScope is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:EncryptionScope to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storage/v20200801preview:EncryptionScope")]
     public partial class EncryptionScope : global::Pulumi.CustomResource
     {

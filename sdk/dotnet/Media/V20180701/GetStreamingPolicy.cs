@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Media.V20180701
 {
+    [Obsolete(@"azure-native:media/v20180701:StreamingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:StreamingPolicy to guarantee forwards compatibility.")]
     public static class GetStreamingPolicy
     {
         /// <summary>

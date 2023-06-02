@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Security.V20190101Preview
 {
+    [Obsolete(@"azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20200101:Assessment to guarantee forwards compatibility.")]
     public static class GetAssessment
     {
         /// <summary>

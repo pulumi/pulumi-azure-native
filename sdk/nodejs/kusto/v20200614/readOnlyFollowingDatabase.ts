@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a read only following database.
+ *
+ * @deprecated azure-native:kusto/v20200614:ReadOnlyFollowingDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:ReadOnlyFollowingDatabase to guarantee forwards compatibility.
  */
 export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReadOnlyFollowingDatabase {
+        pulumi.log.warn("ReadOnlyFollowingDatabase is deprecated: azure-native:kusto/v20200614:ReadOnlyFollowingDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:ReadOnlyFollowingDatabase to guarantee forwards compatibility.")
         return new ReadOnlyFollowingDatabase(name, undefined as any, { ...opts, id: id });
     }
 
@@ -90,7 +93,9 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:kusto/v20200614:ReadOnlyFollowingDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:ReadOnlyFollowingDatabase to guarantee forwards compatibility. */
     constructor(name: string, args: ReadOnlyFollowingDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ReadOnlyFollowingDatabase is deprecated: azure-native:kusto/v20200614:ReadOnlyFollowingDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:ReadOnlyFollowingDatabase to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

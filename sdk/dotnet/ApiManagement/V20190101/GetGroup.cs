@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20190101
 {
+    [Obsolete(@"azure-native:apimanagement/v20190101:Group is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Group to guarantee forwards compatibility.")]
     public static class GetGroup
     {
         /// <summary>

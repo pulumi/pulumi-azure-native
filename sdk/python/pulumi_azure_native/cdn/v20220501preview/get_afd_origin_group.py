@@ -17,6 +17,8 @@ __all__ = [
     'get_afd_origin_group_output',
 ]
 
+warnings.warn("""azure-native:cdn/v20220501preview:AFDOriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAFDOriginGroupResult:
     """
@@ -174,6 +176,7 @@ def get_afd_origin_group(origin_group_name: Optional[str] = None,
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_afd_origin_group is deprecated: azure-native:cdn/v20220501preview:AFDOriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['originGroupName'] = origin_group_name
     __args__['profileName'] = profile_name
@@ -208,4 +211,5 @@ def get_afd_origin_group_output(origin_group_name: Optional[pulumi.Input[str]] =
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_afd_origin_group is deprecated: azure-native:cdn/v20220501preview:AFDOriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility.""")
     ...

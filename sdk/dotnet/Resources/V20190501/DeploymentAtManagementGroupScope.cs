@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Resources.V20190501
     /// <summary>
     /// Deployment information.
     /// </summary>
+    [Obsolete(@"azure-native:resources/v20190501:DeploymentAtManagementGroupScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtManagementGroupScope to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:resources/v20190501:DeploymentAtManagementGroupScope")]
     public partial class DeploymentAtManagementGroupScope : global::Pulumi.CustomResource
     {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified load balancer inbound NAT rule.
  */
+/** @deprecated azure-native:network/v20220701:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility. */
 export function getInboundNatRule(args: GetInboundNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInboundNatRuleResult> {
+    pulumi.log.warn("getInboundNatRule is deprecated: azure-native:network/v20220701:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220701:getInboundNatRule", {
@@ -112,6 +114,7 @@ export interface GetInboundNatRuleResult {
 /**
  * Gets the specified load balancer inbound NAT rule.
  */
+/** @deprecated azure-native:network/v20220701:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility. */
 export function getInboundNatRuleOutput(args: GetInboundNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInboundNatRuleResult> {
     return pulumi.output(args).apply((a: any) => getInboundNatRule(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
     /// <summary>
     /// Represents OfficeATP (Office 365 Advanced Threat Protection) data connector.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20220701preview:OfficeATPDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:OfficeATPDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20220701preview:OfficeATPDataConnector")]
     public partial class OfficeATPDataConnector : global::Pulumi.CustomResource
     {
@@ -111,7 +112,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:OfficeATPDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:OfficeATPDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:OfficeATPDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:OfficeATPDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -386,7 +386,12 @@ class AppServicePlanArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
+warnings.warn("""azure-native:web/v20210301:AppServicePlan is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:AppServicePlan to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AppServicePlan(pulumi.CustomResource):
+    warnings.warn("""azure-native:web/v20210301:AppServicePlan is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:AppServicePlan to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -491,6 +496,7 @@ class AppServicePlan(pulumi.CustomResource):
                  worker_tier_name: Optional[pulumi.Input[str]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
+        pulumi.log.warn("""AppServicePlan is deprecated: azure-native:web/v20210301:AppServicePlan is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:AppServicePlan to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

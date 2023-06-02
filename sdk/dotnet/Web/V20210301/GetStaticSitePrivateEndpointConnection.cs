@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Web.V20210301
 {
+    [Obsolete(@"azure-native:web/v20210301:StaticSitePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSitePrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetStaticSitePrivateEndpointConnection
     {
         /// <summary>

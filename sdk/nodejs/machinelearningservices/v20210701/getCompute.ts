@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
  */
+/** @deprecated azure-native:machinelearningservices/v20210701:Compute is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20220101preview:Compute to guarantee forwards compatibility. */
 export function getCompute(args: GetComputeArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeResult> {
+    pulumi.log.warn("getCompute is deprecated: azure-native:machinelearningservices/v20210701:Compute is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20220101preview:Compute to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20210701:getCompute", {
@@ -79,6 +81,7 @@ export interface GetComputeResult {
 /**
  * Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
  */
+/** @deprecated azure-native:machinelearningservices/v20210701:Compute is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20220101preview:Compute to guarantee forwards compatibility. */
 export function getComputeOutput(args: GetComputeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeResult> {
     return pulumi.output(args).apply((a: any) => getCompute(a, opts))
 }

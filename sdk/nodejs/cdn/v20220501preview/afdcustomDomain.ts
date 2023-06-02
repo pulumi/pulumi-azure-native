@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+ *
+ * @deprecated azure-native:cdn/v20220501preview:AFDCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDCustomDomain to guarantee forwards compatibility.
  */
 export class AFDCustomDomain extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AFDCustomDomain {
+        pulumi.log.warn("AFDCustomDomain is deprecated: azure-native:cdn/v20220501preview:AFDCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDCustomDomain to guarantee forwards compatibility.")
         return new AFDCustomDomain(name, undefined as any, { ...opts, id: id });
     }
 
@@ -94,7 +97,9 @@ export class AFDCustomDomain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:cdn/v20220501preview:AFDCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDCustomDomain to guarantee forwards compatibility. */
     constructor(name: string, args: AFDCustomDomainArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AFDCustomDomain is deprecated: azure-native:cdn/v20220501preview:AFDCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDCustomDomain to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

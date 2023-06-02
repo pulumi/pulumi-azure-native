@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.EventHub.V20220101Preview
 {
+    [Obsolete(@"azure-native:eventhub/v20220101preview:ConsumerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:ConsumerGroup to guarantee forwards compatibility.")]
     public static class GetConsumerGroup
     {
         /// <summary>

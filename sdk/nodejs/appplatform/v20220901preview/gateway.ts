@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Spring Cloud Gateway resource
+ *
+ * @deprecated azure-native:appplatform/v20220901preview:Gateway is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Gateway to guarantee forwards compatibility.
  */
 export class Gateway extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Gateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Gateway {
+        pulumi.log.warn("Gateway is deprecated: azure-native:appplatform/v20220901preview:Gateway is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Gateway to guarantee forwards compatibility.")
         return new Gateway(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,7 +68,9 @@ export class Gateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:appplatform/v20220901preview:Gateway is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Gateway to guarantee forwards compatibility. */
     constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Gateway is deprecated: azure-native:appplatform/v20220901preview:Gateway is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Gateway to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

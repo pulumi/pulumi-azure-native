@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220501
     /// <summary>
     /// Linker of source and target resource
     /// </summary>
+    [Obsolete(@"azure-native:servicelinker/v20220501:Linker is being removed in the next major version of this provider. Upgrade to at least azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicelinker/v20220501:Linker")]
     public partial class Linker : global::Pulumi.CustomResource
     {

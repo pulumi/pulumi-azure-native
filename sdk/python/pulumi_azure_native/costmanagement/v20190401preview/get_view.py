@@ -17,6 +17,8 @@ __all__ = [
     'get_view_output',
 ]
 
+warnings.warn("""azure-native:costmanagement/v20190401preview:View is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20191101:View to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetViewResult:
     """
@@ -233,6 +235,7 @@ def get_view(view_name: Optional[str] = None,
 
     :param str view_name: View name
     """
+    pulumi.log.warn("""get_view is deprecated: azure-native:costmanagement/v20190401preview:View is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20191101:View to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['viewName'] = view_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -266,4 +269,5 @@ def get_view_output(view_name: Optional[pulumi.Input[str]] = None,
 
     :param str view_name: View name
     """
+    pulumi.log.warn("""get_view is deprecated: azure-native:costmanagement/v20190401preview:View is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20191101:View to guarantee forwards compatibility.""")
     ...

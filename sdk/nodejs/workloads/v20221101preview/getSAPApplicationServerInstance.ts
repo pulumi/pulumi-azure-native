@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
  */
+/** @deprecated azure-native:workloads/v20221101preview:SAPApplicationServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPApplicationServerInstance to guarantee forwards compatibility. */
 export function getSAPApplicationServerInstance(args: GetSAPApplicationServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPApplicationServerInstanceResult> {
+    pulumi.log.warn("getSAPApplicationServerInstance is deprecated: azure-native:workloads/v20221101preview:SAPApplicationServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPApplicationServerInstance to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20221101preview:getSAPApplicationServerInstance", {
@@ -127,6 +129,7 @@ export interface GetSAPApplicationServerInstanceResult {
 /**
  * Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
  */
+/** @deprecated azure-native:workloads/v20221101preview:SAPApplicationServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPApplicationServerInstance to guarantee forwards compatibility. */
 export function getSAPApplicationServerInstanceOutput(args: GetSAPApplicationServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPApplicationServerInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSAPApplicationServerInstance(a, opts))
 }

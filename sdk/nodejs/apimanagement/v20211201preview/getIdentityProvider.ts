@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the configuration details of the identity Provider configured in specified service instance.
  */
+/** @deprecated azure-native:apimanagement/v20211201preview:IdentityProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:IdentityProvider to guarantee forwards compatibility. */
 export function getIdentityProvider(args: GetIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityProviderResult> {
+    pulumi.log.warn("getIdentityProvider is deprecated: azure-native:apimanagement/v20211201preview:IdentityProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:IdentityProvider to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20211201preview:getIdentityProvider", {
@@ -92,6 +94,7 @@ export interface GetIdentityProviderResult {
 /**
  * Gets the configuration details of the identity Provider configured in specified service instance.
  */
+/** @deprecated azure-native:apimanagement/v20211201preview:IdentityProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:IdentityProvider to guarantee forwards compatibility. */
 export function getIdentityProviderOutput(args: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityProviderResult> {
     return pulumi.output(args).apply((a: any) => getIdentityProvider(a, opts))
 }

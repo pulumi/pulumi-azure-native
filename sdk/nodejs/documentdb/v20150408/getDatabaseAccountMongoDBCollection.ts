@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the MongoDB collection under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2015-04-08 will be removed in v2 of the provider. */
+/** @deprecated Version 2015-04-08 will be removed in v2 of the provider.
+azure-native:documentdb/v20150408:DatabaseAccountMongoDBCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection to guarantee forwards compatibility. */
 export function getDatabaseAccountMongoDBCollection(args: GetDatabaseAccountMongoDBCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountMongoDBCollectionResult> {
-    pulumi.log.warn("getDatabaseAccountMongoDBCollection is deprecated: Version 2015-04-08 will be removed in v2 of the provider.")
+    pulumi.log.warn("getDatabaseAccountMongoDBCollection is deprecated: Version 2015-04-08 will be removed in v2 of the provider.\nazure-native:documentdb/v20150408:DatabaseAccountMongoDBCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20150408:getDatabaseAccountMongoDBCollection", {
@@ -78,7 +79,8 @@ export interface GetDatabaseAccountMongoDBCollectionResult {
 /**
  * Gets the MongoDB collection under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2015-04-08 will be removed in v2 of the provider. */
+/** @deprecated Version 2015-04-08 will be removed in v2 of the provider.
+azure-native:documentdb/v20150408:DatabaseAccountMongoDBCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection to guarantee forwards compatibility. */
 export function getDatabaseAccountMongoDBCollectionOutput(args: GetDatabaseAccountMongoDBCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountMongoDBCollectionResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccountMongoDBCollection(a, opts))
 }

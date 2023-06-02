@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
 {
+    [Obsolete(@"azure-native:operationalinsights/v20190801preview:DataExport is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility.")]
     public static class GetDataExport
     {
         /// <summary>

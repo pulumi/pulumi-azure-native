@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20200601
     /// <summary>
     /// SSL certificate for an app.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20200601:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:Certificate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20200601:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {

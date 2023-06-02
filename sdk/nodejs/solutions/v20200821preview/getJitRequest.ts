@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the JIT request.
  */
+/** @deprecated azure-native:solutions/v20200821preview:JitRequest is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:JitRequest to guarantee forwards compatibility. */
 export function getJitRequest(args: GetJitRequestArgs, opts?: pulumi.InvokeOptions): Promise<GetJitRequestResult> {
+    pulumi.log.warn("getJitRequest is deprecated: azure-native:solutions/v20200821preview:JitRequest is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:JitRequest to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:solutions/v20200821preview:getJitRequest", {
@@ -90,6 +92,7 @@ export interface GetJitRequestResult {
 /**
  * Gets the JIT request.
  */
+/** @deprecated azure-native:solutions/v20200821preview:JitRequest is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:JitRequest to guarantee forwards compatibility. */
 export function getJitRequestOutput(args: GetJitRequestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitRequestResult> {
     return pulumi.output(args).apply((a: any) => getJitRequest(a, opts))
 }

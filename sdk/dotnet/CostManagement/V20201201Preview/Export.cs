@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.CostManagement.V20201201Preview
     /// <summary>
     /// An export resource.
     /// </summary>
+    [Obsolete(@"azure-native:costmanagement/v20201201preview:Export is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221001:Export to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:costmanagement/v20201201preview:Export")]
     public partial class Export : global::Pulumi.CustomResource
     {
@@ -103,7 +104,6 @@ namespace Pulumi.AzureNative.CostManagement.V20201201Preview
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20210101:Export"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20211001:Export"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001:Export"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230401preview:Export"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

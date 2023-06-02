@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
  */
-/** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider.
+azure-native:migrate/v20171111preview:Group is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Group to guarantee forwards compatibility. */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
-    pulumi.log.warn("getGroup is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getGroup is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.\nazure-native:migrate/v20171111preview:Group is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Group to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20171111preview:getGroup", {
@@ -74,7 +75,8 @@ export interface GetGroupResult {
 /**
  * Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
  */
-/** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider.
+azure-native:migrate/v20171111preview:Group is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Group to guarantee forwards compatibility. */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
     return pulumi.output(args).apply((a: any) => getGroup(a, opts))
 }

@@ -17,6 +17,8 @@ __all__ = [
     'get_batch_endpoint_output',
 ]
 
+warnings.warn("""azure-native:machinelearningservices/v20221001:BatchEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:BatchEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBatchEndpointResult:
     def __init__(__self__, batch_endpoint_properties=None, id=None, identity=None, kind=None, location=None, name=None, sku=None, system_data=None, tags=None, type=None):
@@ -161,6 +163,7 @@ def get_batch_endpoint(endpoint_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_batch_endpoint is deprecated: azure-native:machinelearningservices/v20221001:BatchEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:BatchEndpoint to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['resourceGroupName'] = resource_group_name
@@ -193,4 +196,5 @@ def get_batch_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_batch_endpoint is deprecated: azure-native:machinelearningservices/v20221001:BatchEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:BatchEndpoint to guarantee forwards compatibility.""")
     ...

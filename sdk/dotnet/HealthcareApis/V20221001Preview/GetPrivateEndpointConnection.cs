@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HealthcareApis.V20221001Preview
 {
+    [Obsolete(@"azure-native:healthcareapis/v20221001preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:PrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnection
     {
         /// <summary>

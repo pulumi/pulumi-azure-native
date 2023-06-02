@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * A global reach connection resource
  */
+/** @deprecated azure-native:avs/v20211201:GlobalReachConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:GlobalReachConnection to guarantee forwards compatibility. */
 export function getGlobalReachConnection(args: GetGlobalReachConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalReachConnectionResult> {
+    pulumi.log.warn("getGlobalReachConnection is deprecated: azure-native:avs/v20211201:GlobalReachConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:GlobalReachConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getGlobalReachConnection", {
@@ -76,6 +78,7 @@ export interface GetGlobalReachConnectionResult {
 /**
  * A global reach connection resource
  */
+/** @deprecated azure-native:avs/v20211201:GlobalReachConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:GlobalReachConnection to guarantee forwards compatibility. */
 export function getGlobalReachConnectionOutput(args: GetGlobalReachConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalReachConnectionResult> {
     return pulumi.output(args).apply((a: any) => getGlobalReachConnection(a, opts))
 }

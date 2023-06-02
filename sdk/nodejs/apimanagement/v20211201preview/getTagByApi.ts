@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get tag associated with the API.
  */
+/** @deprecated azure-native:apimanagement/v20211201preview:TagByApi is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:TagByApi to guarantee forwards compatibility. */
 export function getTagByApi(args: GetTagByApiArgs, opts?: pulumi.InvokeOptions): Promise<GetTagByApiResult> {
+    pulumi.log.warn("getTagByApi is deprecated: azure-native:apimanagement/v20211201preview:TagByApi is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:TagByApi to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20211201preview:getTagByApi", {
@@ -61,6 +63,7 @@ export interface GetTagByApiResult {
 /**
  * Get tag associated with the API.
  */
+/** @deprecated azure-native:apimanagement/v20211201preview:TagByApi is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:TagByApi to guarantee forwards compatibility. */
 export function getTagByApiOutput(args: GetTagByApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByApiResult> {
     return pulumi.output(args).apply((a: any) => getTagByApi(a, opts))
 }

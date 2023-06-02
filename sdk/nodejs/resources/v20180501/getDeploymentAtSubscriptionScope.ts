@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a deployment.
  */
-/** @deprecated Version 2018-05-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-05-01 will be removed in v2 of the provider.
+azure-native:resources/v20180501:DeploymentAtSubscriptionScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtSubscriptionScope to guarantee forwards compatibility. */
 export function getDeploymentAtSubscriptionScope(args: GetDeploymentAtSubscriptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtSubscriptionScopeResult> {
-    pulumi.log.warn("getDeploymentAtSubscriptionScope is deprecated: Version 2018-05-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getDeploymentAtSubscriptionScope is deprecated: Version 2018-05-01 will be removed in v2 of the provider.\nazure-native:resources/v20180501:DeploymentAtSubscriptionScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtSubscriptionScope to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20180501:getDeploymentAtSubscriptionScope", {
@@ -55,7 +56,8 @@ export interface GetDeploymentAtSubscriptionScopeResult {
 /**
  * Gets a deployment.
  */
-/** @deprecated Version 2018-05-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-05-01 will be removed in v2 of the provider.
+azure-native:resources/v20180501:DeploymentAtSubscriptionScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtSubscriptionScope to guarantee forwards compatibility. */
 export function getDeploymentAtSubscriptionScopeOutput(args: GetDeploymentAtSubscriptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtSubscriptionScopeResult> {
     return pulumi.output(args).apply((a: any) => getDeploymentAtSubscriptionScope(a, opts))
 }

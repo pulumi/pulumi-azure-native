@@ -17,6 +17,8 @@ __all__ = [
     'get_data_collection_rule_output',
 ]
 
+warnings.warn("""azure-native:insights/v20210901preview:DataCollectionRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataCollectionRuleResult:
     """
@@ -248,6 +250,7 @@ def get_data_collection_rule(data_collection_rule_name: Optional[str] = None,
     :param str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_data_collection_rule is deprecated: azure-native:insights/v20210901preview:DataCollectionRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dataCollectionRuleName'] = data_collection_rule_name
     __args__['resourceGroupName'] = resource_group_name
@@ -285,4 +288,5 @@ def get_data_collection_rule_output(data_collection_rule_name: Optional[pulumi.I
     :param str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_data_collection_rule is deprecated: azure-native:insights/v20210901preview:DataCollectionRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility.""")
     ...

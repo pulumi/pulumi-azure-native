@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20180601Preview
 {
+    [Obsolete(@"azure-native:sql/v20180601preview:InstancePool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:InstancePool to guarantee forwards compatibility.")]
     public static class GetInstancePool
     {
         /// <summary>

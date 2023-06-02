@@ -148,11 +148,13 @@ class VirtualHubArgs:
         pulumi.set(self, "virtual_wan", value)
 
 
-warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:VirtualHub is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VirtualHub to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class VirtualHub(pulumi.CustomResource):
-    warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:VirtualHub is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VirtualHub to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -214,7 +216,8 @@ class VirtualHub(pulumi.CustomResource):
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
                  virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""VirtualHub is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""VirtualHub is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:VirtualHub is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VirtualHub to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

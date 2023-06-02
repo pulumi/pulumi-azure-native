@@ -17,6 +17,8 @@ __all__ = [
     'get_shared_private_link_resource_output',
 ]
 
+warnings.warn("""azure-native:search/v20200801preview:SharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSharedPrivateLinkResourceResult:
     """
@@ -93,6 +95,7 @@ def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
     :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
     :param str shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
     """
+    pulumi.log.warn("""get_shared_private_link_resource is deprecated: azure-native:search/v20200801preview:SharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['searchServiceName'] = search_service_name
@@ -120,4 +123,5 @@ def get_shared_private_link_resource_output(resource_group_name: Optional[pulumi
     :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
     :param str shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
     """
+    pulumi.log.warn("""get_shared_private_link_resource is deprecated: azure-native:search/v20200801preview:SharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility.""")
     ...

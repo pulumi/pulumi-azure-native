@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the action of alert rule.
  */
+/** @deprecated azure-native:securityinsights/v20220101preview:Action is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Action to guarantee forwards compatibility. */
 export function getAction(args: GetActionArgs, opts?: pulumi.InvokeOptions): Promise<GetActionResult> {
+    pulumi.log.warn("getAction is deprecated: azure-native:securityinsights/v20220101preview:Action is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Action to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220101preview:getAction", {
@@ -76,6 +78,7 @@ export interface GetActionResult {
 /**
  * Gets the action of alert rule.
  */
+/** @deprecated azure-native:securityinsights/v20220101preview:Action is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Action to guarantee forwards compatibility. */
 export function getActionOutput(args: GetActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionResult> {
     return pulumi.output(args).apply((a: any) => getAction(a, opts))
 }

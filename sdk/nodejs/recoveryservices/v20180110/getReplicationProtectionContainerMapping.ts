@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of a protection container mapping.
  */
-/** @deprecated Version 2018-01-10 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationProtectionContainerMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping to guarantee forwards compatibility. */
 export function getReplicationProtectionContainerMapping(args: GetReplicationProtectionContainerMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectionContainerMappingResult> {
-    pulumi.log.warn("getReplicationProtectionContainerMapping is deprecated: Version 2018-01-10 will be removed in v2 of the provider.")
+    pulumi.log.warn("getReplicationProtectionContainerMapping is deprecated: Version 2018-01-10 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20180110:ReplicationProtectionContainerMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20180110:getReplicationProtectionContainerMapping", {
@@ -75,7 +76,8 @@ export interface GetReplicationProtectionContainerMappingResult {
 /**
  * Gets the details of a protection container mapping.
  */
-/** @deprecated Version 2018-01-10 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationProtectionContainerMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping to guarantee forwards compatibility. */
 export function getReplicationProtectionContainerMappingOutput(args: GetReplicationProtectionContainerMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectionContainerMappingResult> {
     return pulumi.output(args).apply((a: any) => getReplicationProtectionContainerMapping(a, opts))
 }

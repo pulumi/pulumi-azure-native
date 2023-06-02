@@ -16,6 +16,8 @@ __all__ = [
     'get_endpoint_output',
 ]
 
+warnings.warn("""azure-native:hybridconnectivity/v20211006preview:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridconnectivity/v20220501preview:Endpoint to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEndpointResult:
     """
@@ -171,6 +173,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     :param str endpoint_name: The endpoint name.
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     """
+    pulumi.log.warn("""get_endpoint is deprecated: azure-native:hybridconnectivity/v20211006preview:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridconnectivity/v20220501preview:Endpoint to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['resourceUri'] = resource_uri
@@ -202,4 +205,5 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str endpoint_name: The endpoint name.
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     """
+    pulumi.log.warn("""get_endpoint is deprecated: azure-native:hybridconnectivity/v20211006preview:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridconnectivity/v20220501preview:Endpoint to guarantee forwards compatibility.""")
     ...

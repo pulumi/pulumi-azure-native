@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20181101
     /// <summary>
     /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnection")]
     public partial class WebAppSwiftVirtualNetworkConnection : global::Pulumi.CustomResource
     {

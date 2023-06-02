@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the metadata of a privateLinkServicesForEDMUpload resource.
  */
+/** @deprecated azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForEDMUpload to guarantee forwards compatibility. */
 export function getprivateLinkServicesForEDMUpload(args: GetprivateLinkServicesForEDMUploadArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForEDMUploadResult> {
+    pulumi.log.warn("getprivateLinkServicesForEDMUpload is deprecated: azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForEDMUpload to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForEDMUpload", {
@@ -78,6 +80,7 @@ export interface GetprivateLinkServicesForEDMUploadResult {
 /**
  * Get the metadata of a privateLinkServicesForEDMUpload resource.
  */
+/** @deprecated azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForEDMUpload to guarantee forwards compatibility. */
 export function getprivateLinkServicesForEDMUploadOutput(args: GetprivateLinkServicesForEDMUploadOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForEDMUploadResult> {
     return pulumi.output(args).apply((a: any) => getprivateLinkServicesForEDMUpload(a, opts))
 }

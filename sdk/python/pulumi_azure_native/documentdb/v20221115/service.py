@@ -115,7 +115,12 @@ class ServiceArgs:
         pulumi.set(self, "service_type", value)
 
 
+warnings.warn("""azure-native:documentdb/v20221115:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:Service to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Service(pulumi.CustomResource):
+    warnings.warn("""azure-native:documentdb/v20221115:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:Service to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -170,6 +175,7 @@ class Service(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_type: Optional[pulumi.Input[Union[str, 'ServiceType']]] = None,
                  __props__=None):
+        pulumi.log.warn("""Service is deprecated: azure-native:documentdb/v20221115:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:Service to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

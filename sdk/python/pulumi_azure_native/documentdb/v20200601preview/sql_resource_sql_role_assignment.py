@@ -113,11 +113,13 @@ class SqlResourceSqlRoleAssignmentArgs:
         pulumi.set(self, "scope", value)
 
 
-warnings.warn("""Version 2020-06-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-06-01-preview will be removed in v2 of the provider.
+azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:SqlResourceSqlRoleAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
-    warnings.warn("""Version 2020-06-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2020-06-01-preview will be removed in v2 of the provider.
+azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:SqlResourceSqlRoleAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -173,7 +175,8 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SqlResourceSqlRoleAssignment is deprecated: Version 2020-06-01-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""SqlResourceSqlRoleAssignment is deprecated: Version 2020-06-01-preview will be removed in v2 of the provider.
+azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:SqlResourceSqlRoleAssignment to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

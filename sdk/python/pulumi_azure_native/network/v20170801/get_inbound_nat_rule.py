@@ -17,7 +17,8 @@ __all__ = [
     'get_inbound_nat_rule_output',
 ]
 
-warnings.warn("""Version 2017-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-08-01 will be removed in v2 of the provider.
+azure-native:network/v20170801:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:InboundNatRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetInboundNatRuleResult:
@@ -181,7 +182,8 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_inbound_nat_rule is deprecated: Version 2017-08-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_inbound_nat_rule is deprecated: Version 2017-08-01 will be removed in v2 of the provider.
+azure-native:network/v20170801:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:InboundNatRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['inboundNatRuleName'] = inbound_nat_rule_name
@@ -219,5 +221,6 @@ def get_inbound_nat_rule_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_inbound_nat_rule is deprecated: Version 2017-08-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_inbound_nat_rule is deprecated: Version 2017-08-01 will be removed in v2 of the provider.
+azure-native:network/v20170801:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:InboundNatRule to guarantee forwards compatibility.""")
     ...

@@ -17,6 +17,8 @@ __all__ = [
     'get_managed_hsm_output',
 ]
 
+warnings.warn("""azure-native:keyvault/v20211101preview:ManagedHsm is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:ManagedHsm to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagedHsmResult:
     """
@@ -139,6 +141,7 @@ def get_managed_hsm(name: Optional[str] = None,
     :param str name: The name of the managed HSM Pool.
     :param str resource_group_name: Name of the resource group that contains the managed HSM pool.
     """
+    pulumi.log.warn("""get_managed_hsm is deprecated: azure-native:keyvault/v20211101preview:ManagedHsm is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:ManagedHsm to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -167,4 +170,5 @@ def get_managed_hsm_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the managed HSM Pool.
     :param str resource_group_name: Name of the resource group that contains the managed HSM pool.
     """
+    pulumi.log.warn("""get_managed_hsm is deprecated: azure-native:keyvault/v20211101preview:ManagedHsm is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:ManagedHsm to guarantee forwards compatibility.""")
     ...

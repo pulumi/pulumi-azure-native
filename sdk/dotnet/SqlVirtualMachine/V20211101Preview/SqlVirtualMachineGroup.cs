@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
     /// <summary>
     /// A SQL virtual machine group.
     /// </summary>
+    [Obsolete(@"azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup")]
     public partial class SqlVirtualMachineGroup : global::Pulumi.CustomResource
     {

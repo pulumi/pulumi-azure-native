@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified Batch account.
  */
-/** @deprecated Version 2017-05-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-05-01 will be removed in v2 of the provider.
+azure-native:batch/v20170501:BatchAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20220101:BatchAccount to guarantee forwards compatibility. */
 export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchAccountResult> {
-    pulumi.log.warn("getBatchAccount is deprecated: Version 2017-05-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getBatchAccount is deprecated: Version 2017-05-01 will be removed in v2 of the provider.\nazure-native:batch/v20170501:BatchAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20220101:BatchAccount to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:batch/v20170501:getBatchAccount", {
@@ -84,7 +85,8 @@ export interface GetBatchAccountResult {
 /**
  * Gets information about the specified Batch account.
  */
-/** @deprecated Version 2017-05-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-05-01 will be removed in v2 of the provider.
+azure-native:batch/v20170501:BatchAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20220101:BatchAccount to guarantee forwards compatibility. */
 export function getBatchAccountOutput(args: GetBatchAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchAccountResult> {
     return pulumi.output(args).apply((a: any) => getBatchAccount(a, opts))
 }

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20200601
 {
+    [Obsolete(@"azure-native:network/v20200601:SecurityRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:SecurityRule to guarantee forwards compatibility.")]
     public static class GetSecurityRule
     {
         /// <summary>

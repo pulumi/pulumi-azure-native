@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the specified tap configuration on a network interface.
  */
+/** @deprecated azure-native:network/v20190701:NetworkInterfaceTapConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkInterfaceTapConfiguration to guarantee forwards compatibility. */
 export function getNetworkInterfaceTapConfiguration(args: GetNetworkInterfaceTapConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceTapConfigurationResult> {
+    pulumi.log.warn("getNetworkInterfaceTapConfiguration is deprecated: azure-native:network/v20190701:NetworkInterfaceTapConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkInterfaceTapConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190701:getNetworkInterfaceTapConfiguration", {
@@ -67,6 +69,7 @@ export interface GetNetworkInterfaceTapConfigurationResult {
 /**
  * Get the specified tap configuration on a network interface.
  */
+/** @deprecated azure-native:network/v20190701:NetworkInterfaceTapConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkInterfaceTapConfiguration to guarantee forwards compatibility. */
 export function getNetworkInterfaceTapConfigurationOutput(args: GetNetworkInterfaceTapConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceTapConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getNetworkInterfaceTapConfiguration(a, opts))
 }

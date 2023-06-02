@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Domain ownership Identifier.
+ *
+ * @deprecated azure-native:domainregistration/v20210201:DomainOwnershipIdentifier is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility.
  */
 export class DomainOwnershipIdentifier extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DomainOwnershipIdentifier {
+        pulumi.log.warn("DomainOwnershipIdentifier is deprecated: azure-native:domainregistration/v20210201:DomainOwnershipIdentifier is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility.")
         return new DomainOwnershipIdentifier(name, undefined as any, { ...opts, id: id });
     }
 
@@ -58,7 +61,9 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:domainregistration/v20210201:DomainOwnershipIdentifier is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility. */
     constructor(name: string, args: DomainOwnershipIdentifierArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DomainOwnershipIdentifier is deprecated: azure-native:domainregistration/v20210201:DomainOwnershipIdentifier is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

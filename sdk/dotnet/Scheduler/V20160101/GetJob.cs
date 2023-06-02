@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Scheduler.V20160101
 {
-    [Obsolete(@"Version 2016-01-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2016-01-01 will be removed in v2 of the provider.
+azure-native:scheduler/v20160101:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:scheduler/v20160301:Job to guarantee forwards compatibility.")]
     public static class GetJob
     {
         /// <summary>

@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * @deprecated azure-native:securityinsights/v20220701preview:AutomationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AutomationRule to guarantee forwards compatibility.
+ */
 export class AutomationRule extends pulumi.CustomResource {
     /**
      * Get an existing AutomationRule resource's state with the given name, ID, and optional extra
@@ -17,6 +20,7 @@ export class AutomationRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AutomationRule {
+        pulumi.log.warn("AutomationRule is deprecated: azure-native:securityinsights/v20220701preview:AutomationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AutomationRule to guarantee forwards compatibility.")
         return new AutomationRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -90,7 +94,9 @@ export class AutomationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20220701preview:AutomationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AutomationRule to guarantee forwards compatibility. */
     constructor(name: string, args: AutomationRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AutomationRule is deprecated: azure-native:securityinsights/v20220701preview:AutomationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AutomationRule to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -142,7 +148,7 @@ export class AutomationRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AutomationRule" }, { type: "azure-native:securityinsights/v20190101preview:AutomationRule" }, { type: "azure-native:securityinsights/v20210901preview:AutomationRule" }, { type: "azure-native:securityinsights/v20211001:AutomationRule" }, { type: "azure-native:securityinsights/v20211001preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220101preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220401preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220501preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220601preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220801:AutomationRule" }, { type: "azure-native:securityinsights/v20220801preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220901preview:AutomationRule" }, { type: "azure-native:securityinsights/v20221001preview:AutomationRule" }, { type: "azure-native:securityinsights/v20221101:AutomationRule" }, { type: "azure-native:securityinsights/v20221101preview:AutomationRule" }, { type: "azure-native:securityinsights/v20221201preview:AutomationRule" }, { type: "azure-native:securityinsights/v20230201:AutomationRule" }, { type: "azure-native:securityinsights/v20230201preview:AutomationRule" }, { type: "azure-native:securityinsights/v20230401preview:AutomationRule" }, { type: "azure-native:securityinsights/v20230501preview:AutomationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AutomationRule" }, { type: "azure-native:securityinsights/v20190101preview:AutomationRule" }, { type: "azure-native:securityinsights/v20210901preview:AutomationRule" }, { type: "azure-native:securityinsights/v20211001:AutomationRule" }, { type: "azure-native:securityinsights/v20211001preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220101preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220401preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220501preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220601preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220801:AutomationRule" }, { type: "azure-native:securityinsights/v20220801preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220901preview:AutomationRule" }, { type: "azure-native:securityinsights/v20221001preview:AutomationRule" }, { type: "azure-native:securityinsights/v20221101:AutomationRule" }, { type: "azure-native:securityinsights/v20221101preview:AutomationRule" }, { type: "azure-native:securityinsights/v20221201preview:AutomationRule" }, { type: "azure-native:securityinsights/v20230201:AutomationRule" }, { type: "azure-native:securityinsights/v20230201preview:AutomationRule" }, { type: "azure-native:securityinsights/v20230401preview:AutomationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutomationRule.__pulumiType, name, resourceInputs, opts);
     }

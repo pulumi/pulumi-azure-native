@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a deployment.
  */
+/** @deprecated azure-native:resources/v20190801:DeploymentAtTenantScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtTenantScope to guarantee forwards compatibility. */
 export function getDeploymentAtTenantScope(args: GetDeploymentAtTenantScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtTenantScopeResult> {
+    pulumi.log.warn("getDeploymentAtTenantScope is deprecated: azure-native:resources/v20190801:DeploymentAtTenantScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtTenantScope to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20190801:getDeploymentAtTenantScope", {
@@ -53,6 +55,7 @@ export interface GetDeploymentAtTenantScopeResult {
 /**
  * Gets a deployment.
  */
+/** @deprecated azure-native:resources/v20190801:DeploymentAtTenantScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtTenantScope to guarantee forwards compatibility. */
 export function getDeploymentAtTenantScopeOutput(args: GetDeploymentAtTenantScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtTenantScopeResult> {
     return pulumi.output(args).apply((a: any) => getDeploymentAtTenantScope(a, opts))
 }

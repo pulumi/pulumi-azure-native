@@ -96,11 +96,13 @@ class DatabaseAccountGremlinDatabaseArgs:
         pulumi.set(self, "database_name", value)
 
 
-warnings.warn("""Version 2016-03-19 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-03-19 will be removed in v2 of the provider.
+azure-native:documentdb/v20160319:DatabaseAccountGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountGremlinDatabase to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
-    warnings.warn("""Version 2016-03-19 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2016-03-19 will be removed in v2 of the provider.
+azure-native:documentdb/v20160319:DatabaseAccountGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountGremlinDatabase to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -153,7 +155,8 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
                  resource: Optional[pulumi.Input[pulumi.InputType['GremlinDatabaseResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DatabaseAccountGremlinDatabase is deprecated: Version 2016-03-19 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""DatabaseAccountGremlinDatabase is deprecated: Version 2016-03-19 will be removed in v2 of the provider.
+azure-native:documentdb/v20160319:DatabaseAccountGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountGremlinDatabase to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

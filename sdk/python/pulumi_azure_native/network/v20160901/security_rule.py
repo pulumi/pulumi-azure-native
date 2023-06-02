@@ -253,11 +253,13 @@ class SecurityRuleInitArgs:
         pulumi.set(self, "source_port_range", value)
 
 
-warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:network/v20160901:SecurityRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20170301:SecurityRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class SecurityRule(pulumi.CustomResource):
-    warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:network/v20160901:SecurityRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20170301:SecurityRule to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -340,7 +342,8 @@ class SecurityRule(pulumi.CustomResource):
                  source_address_prefix: Optional[pulumi.Input[str]] = None,
                  source_port_range: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SecurityRule is deprecated: Version 2016-09-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""SecurityRule is deprecated: Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:network/v20160901:SecurityRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20170301:SecurityRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

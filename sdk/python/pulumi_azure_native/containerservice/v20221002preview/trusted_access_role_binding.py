@@ -96,7 +96,12 @@ class TrustedAccessRoleBindingArgs:
         pulumi.set(self, "trusted_access_role_binding_name", value)
 
 
+warnings.warn("""azure-native:containerservice/v20221002preview:TrustedAccessRoleBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class TrustedAccessRoleBinding(pulumi.CustomResource):
+    warnings.warn("""azure-native:containerservice/v20221002preview:TrustedAccessRoleBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -148,6 +153,7 @@ class TrustedAccessRoleBinding(pulumi.CustomResource):
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  trusted_access_role_binding_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""TrustedAccessRoleBinding is deprecated: azure-native:containerservice/v20221002preview:TrustedAccessRoleBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

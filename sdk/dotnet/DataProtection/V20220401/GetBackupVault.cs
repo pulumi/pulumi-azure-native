@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataProtection.V20220401
 {
+    [Obsolete(@"azure-native:dataprotection/v20220401:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility.")]
     public static class GetBackupVault
     {
         /// <summary>

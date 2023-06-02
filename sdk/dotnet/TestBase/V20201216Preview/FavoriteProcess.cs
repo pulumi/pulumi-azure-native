@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
     /// <summary>
     /// A favorite process identifier.
     /// </summary>
-    [Obsolete(@"Version 2020-12-16-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-12-16-preview will be removed in v2 of the provider.
+azure-native:testbase/v20201216preview:FavoriteProcess is being removed in the next major version of this provider. Upgrade to at least azure-native:testbase/v20220401preview:FavoriteProcess to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:testbase/v20201216preview:FavoriteProcess")]
     public partial class FavoriteProcess : global::Pulumi.CustomResource
     {

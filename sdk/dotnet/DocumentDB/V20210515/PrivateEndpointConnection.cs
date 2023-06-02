@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515
     /// <summary>
     /// A private endpoint connection
     /// </summary>
+    [Obsolete(@"azure-native:documentdb/v20210515:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20210515:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20220901preview:CodelessApiPollingDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:CodelessApiPollingDataConnector to guarantee forwards compatibility. */
 export function getCodelessApiPollingDataConnector(args: GetCodelessApiPollingDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetCodelessApiPollingDataConnectorResult> {
+    pulumi.log.warn("getCodelessApiPollingDataConnector is deprecated: azure-native:securityinsights/v20220901preview:CodelessApiPollingDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:CodelessApiPollingDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220901preview:getCodelessApiPollingDataConnector", {
@@ -76,6 +78,7 @@ export interface GetCodelessApiPollingDataConnectorResult {
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20220901preview:CodelessApiPollingDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:CodelessApiPollingDataConnector to guarantee forwards compatibility. */
 export function getCodelessApiPollingDataConnectorOutput(args: GetCodelessApiPollingDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodelessApiPollingDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getCodelessApiPollingDataConnector(a, opts))
 }

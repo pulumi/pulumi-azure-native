@@ -97,7 +97,12 @@ class WorkloadNetworkPublicIPArgs:
         pulumi.set(self, "public_ip_id", value)
 
 
+warnings.warn("""azure-native:avs/v20211201:WorkloadNetworkPublicIP is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPublicIP to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WorkloadNetworkPublicIP(pulumi.CustomResource):
+    warnings.warn("""azure-native:avs/v20211201:WorkloadNetworkPublicIP is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPublicIP to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -149,6 +154,7 @@ class WorkloadNetworkPublicIP(pulumi.CustomResource):
                  public_ip_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WorkloadNetworkPublicIP is deprecated: azure-native:avs/v20211201:WorkloadNetworkPublicIP is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPublicIP to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

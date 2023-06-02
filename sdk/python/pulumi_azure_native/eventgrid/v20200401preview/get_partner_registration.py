@@ -17,6 +17,8 @@ __all__ = [
     'get_partner_registration_output',
 ]
 
+warnings.warn("""azure-native:eventgrid/v20200401preview:PartnerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:PartnerRegistration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPartnerRegistrationResult:
     """
@@ -279,6 +281,7 @@ def get_partner_registration(partner_registration_name: Optional[str] = None,
     :param str partner_registration_name: Name of the partner registration.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("""get_partner_registration is deprecated: azure-native:eventgrid/v20200401preview:PartnerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:PartnerRegistration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['partnerRegistrationName'] = partner_registration_name
     __args__['resourceGroupName'] = resource_group_name
@@ -318,4 +321,5 @@ def get_partner_registration_output(partner_registration_name: Optional[pulumi.I
     :param str partner_registration_name: Name of the partner registration.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("""get_partner_registration is deprecated: azure-native:eventgrid/v20200401preview:PartnerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:PartnerRegistration to guarantee forwards compatibility.""")
     ...

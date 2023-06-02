@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Backup Vault Resource
+ *
+ * @deprecated azure-native:dataprotection/v20220331preview:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility.
  */
 export class BackupVault extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class BackupVault extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BackupVault {
+        pulumi.log.warn("BackupVault is deprecated: azure-native:dataprotection/v20220331preview:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility.")
         return new BackupVault(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,7 +80,9 @@ export class BackupVault extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:dataprotection/v20220331preview:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility. */
     constructor(name: string, args: BackupVaultArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BackupVault is deprecated: azure-native:dataprotection/v20220331preview:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -108,7 +113,7 @@ export class BackupVault extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dataprotection:BackupVault" }, { type: "azure-native:dataprotection/v20210101:BackupVault" }, { type: "azure-native:dataprotection/v20210201preview:BackupVault" }, { type: "azure-native:dataprotection/v20210601preview:BackupVault" }, { type: "azure-native:dataprotection/v20210701:BackupVault" }, { type: "azure-native:dataprotection/v20211001preview:BackupVault" }, { type: "azure-native:dataprotection/v20211201preview:BackupVault" }, { type: "azure-native:dataprotection/v20220101:BackupVault" }, { type: "azure-native:dataprotection/v20220201preview:BackupVault" }, { type: "azure-native:dataprotection/v20220301:BackupVault" }, { type: "azure-native:dataprotection/v20220401:BackupVault" }, { type: "azure-native:dataprotection/v20220501:BackupVault" }, { type: "azure-native:dataprotection/v20220901preview:BackupVault" }, { type: "azure-native:dataprotection/v20221001preview:BackupVault" }, { type: "azure-native:dataprotection/v20221101preview:BackupVault" }, { type: "azure-native:dataprotection/v20221201:BackupVault" }, { type: "azure-native:dataprotection/v20230101:BackupVault" }, { type: "azure-native:dataprotection/v20230401preview:BackupVault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dataprotection:BackupVault" }, { type: "azure-native:dataprotection/v20210101:BackupVault" }, { type: "azure-native:dataprotection/v20210201preview:BackupVault" }, { type: "azure-native:dataprotection/v20210601preview:BackupVault" }, { type: "azure-native:dataprotection/v20210701:BackupVault" }, { type: "azure-native:dataprotection/v20211001preview:BackupVault" }, { type: "azure-native:dataprotection/v20211201preview:BackupVault" }, { type: "azure-native:dataprotection/v20220101:BackupVault" }, { type: "azure-native:dataprotection/v20220201preview:BackupVault" }, { type: "azure-native:dataprotection/v20220301:BackupVault" }, { type: "azure-native:dataprotection/v20220401:BackupVault" }, { type: "azure-native:dataprotection/v20220501:BackupVault" }, { type: "azure-native:dataprotection/v20220901preview:BackupVault" }, { type: "azure-native:dataprotection/v20221001preview:BackupVault" }, { type: "azure-native:dataprotection/v20221101preview:BackupVault" }, { type: "azure-native:dataprotection/v20221201:BackupVault" }, { type: "azure-native:dataprotection/v20230101:BackupVault" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupVault.__pulumiType, name, resourceInputs, opts);
     }

@@ -17,6 +17,8 @@ __all__ = [
     'get_endpoint_variant_output',
 ]
 
+warnings.warn("""azure-native:machinelearningservices/v20200501preview:EndpointVariant is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:EndpointVariant to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEndpointVariantResult:
     """
@@ -143,6 +145,7 @@ def get_endpoint_variant(expand: Optional[bool] = None,
     :param str service_name: Name of the Azure Machine Learning service.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_endpoint_variant is deprecated: azure-native:machinelearningservices/v20200501preview:EndpointVariant is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:EndpointVariant to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -177,4 +180,5 @@ def get_endpoint_variant_output(expand: Optional[pulumi.Input[Optional[bool]]] =
     :param str service_name: Name of the Azure Machine Learning service.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_endpoint_variant is deprecated: azure-native:machinelearningservices/v20200501preview:EndpointVariant is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:EndpointVariant to guarantee forwards compatibility.""")
     ...

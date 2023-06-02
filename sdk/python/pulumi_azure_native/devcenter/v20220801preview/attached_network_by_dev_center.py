@@ -81,7 +81,12 @@ class AttachedNetworkByDevCenterArgs:
         pulumi.set(self, "attached_network_connection_name", value)
 
 
+warnings.warn("""azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AttachedNetworkByDevCenter(pulumi.CustomResource):
+    warnings.warn("""azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -130,6 +135,7 @@ class AttachedNetworkByDevCenter(pulumi.CustomResource):
                  network_connection_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""AttachedNetworkByDevCenter is deprecated: azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -155,7 +161,7 @@ class AttachedNetworkByDevCenter(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20230401:AttachedNetworkByDevCenter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttachedNetworkByDevCenter, __self__).__init__(
             'azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter',

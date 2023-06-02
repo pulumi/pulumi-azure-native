@@ -61,7 +61,12 @@ class OutboundFirewallRuleArgs:
         pulumi.set(self, "outbound_rule_fqdn", value)
 
 
+warnings.warn("""azure-native:sql/v20211101preview:OutboundFirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:OutboundFirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class OutboundFirewallRule(pulumi.CustomResource):
+    warnings.warn("""azure-native:sql/v20211101preview:OutboundFirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:OutboundFirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -106,6 +111,7 @@ class OutboundFirewallRule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""OutboundFirewallRule is deprecated: azure-native:sql/v20211101preview:OutboundFirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:OutboundFirewallRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

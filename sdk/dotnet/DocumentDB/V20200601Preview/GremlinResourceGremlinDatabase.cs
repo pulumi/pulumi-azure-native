@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
     /// <summary>
     /// An Azure Cosmos DB Gremlin database.
     /// </summary>
-    [Obsolete(@"Version 2020-06-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-06-01-preview will be removed in v2 of the provider.
+azure-native:documentdb/v20200601preview:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20200601preview:GremlinResourceGremlinDatabase")]
     public partial class GremlinResourceGremlinDatabase : global::Pulumi.CustomResource
     {

@@ -163,7 +163,12 @@ class VirtualWanArgs:
         pulumi.set(self, "virtual_wan_name", value)
 
 
+warnings.warn("""azure-native:network/v20210501:VirtualWan is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualWan to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class VirtualWan(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20210501:VirtualWan is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualWan to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -227,6 +232,7 @@ class VirtualWan(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  virtual_wan_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""VirtualWan is deprecated: azure-native:network/v20210501:VirtualWan is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualWan to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

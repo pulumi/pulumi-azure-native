@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20220501Preview
     /// <summary>
     /// An Azure SQL instance pool.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20220501preview:InstancePool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:InstancePool to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20220501preview:InstancePool")]
     public partial class InstancePool : global::Pulumi.CustomResource
     {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a failover group.
  */
+/** @deprecated azure-native:sql/v20220201preview:FailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:FailoverGroup to guarantee forwards compatibility. */
 export function getFailoverGroup(args: GetFailoverGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFailoverGroupResult> {
+    pulumi.log.warn("getFailoverGroup is deprecated: azure-native:sql/v20220201preview:FailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:FailoverGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20220201preview:getFailoverGroup", {
@@ -87,6 +89,7 @@ export interface GetFailoverGroupResult {
 /**
  * Gets a failover group.
  */
+/** @deprecated azure-native:sql/v20220201preview:FailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:FailoverGroup to guarantee forwards compatibility. */
 export function getFailoverGroupOutput(args: GetFailoverGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFailoverGroupResult> {
     return pulumi.output(args).apply((a: any) => getFailoverGroup(a, opts))
 }

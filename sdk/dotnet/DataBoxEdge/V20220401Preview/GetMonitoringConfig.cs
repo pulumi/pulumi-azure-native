@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
 {
+    [Obsolete(@"azure-native:databoxedge/v20220401preview:MonitoringConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility.")]
     public static class GetMonitoringConfig
     {
         /// <summary>

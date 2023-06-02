@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Azure key vault.
  */
+/** @deprecated azure-native:keyvault/v20220201preview:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:Vault to guarantee forwards compatibility. */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
+    pulumi.log.warn("getVault is deprecated: azure-native:keyvault/v20220201preview:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:Vault to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:keyvault/v20220201preview:getVault", {
@@ -66,6 +68,7 @@ export interface GetVaultResult {
 /**
  * Gets the specified Azure key vault.
  */
+/** @deprecated azure-native:keyvault/v20220201preview:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:Vault to guarantee forwards compatibility. */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
     return pulumi.output(args).apply((a: any) => getVault(a, opts))
 }

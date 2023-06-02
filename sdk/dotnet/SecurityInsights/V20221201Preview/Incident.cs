@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
 {
+    [Obsolete(@"azure-native:securityinsights/v20221201preview:Incident is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201preview:Incident to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20221201preview:Incident")]
     public partial class Incident : global::Pulumi.CustomResource
     {
@@ -203,7 +204,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:Incident"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:Incident"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:Incident"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:Incident"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -16,6 +16,8 @@ __all__ = [
     'get_policy_output',
 ]
 
+warnings.warn("""azure-native:apimanagement/v20170301:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20180601preview:Policy to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPolicyResult:
     """
@@ -92,6 +94,7 @@ def get_policy(policy_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("""get_policy is deprecated: azure-native:apimanagement/v20170301:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20180601preview:Policy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['policyId'] = policy_id
     __args__['resourceGroupName'] = resource_group_name
@@ -119,4 +122,5 @@ def get_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("""get_policy is deprecated: azure-native:apimanagement/v20170301:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20180601preview:Policy to guarantee forwards compatibility.""")
     ...

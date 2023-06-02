@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220501
     /// <summary>
     /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
     /// </summary>
+    [Obsolete(@"azure-native:appconfiguration/v20220501:ConfigurationStore is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:ConfigurationStore to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appconfiguration/v20220501:ConfigurationStore")]
     public partial class ConfigurationStore : global::Pulumi.CustomResource
     {

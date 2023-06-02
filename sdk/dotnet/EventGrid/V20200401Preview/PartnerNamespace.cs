@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
     /// <summary>
     /// EventGrid Partner Namespace.
     /// </summary>
+    [Obsolete(@"azure-native:eventgrid/v20200401preview:PartnerNamespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:PartnerNamespace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20200401preview:PartnerNamespace")]
     public partial class PartnerNamespace : global::Pulumi.CustomResource
     {

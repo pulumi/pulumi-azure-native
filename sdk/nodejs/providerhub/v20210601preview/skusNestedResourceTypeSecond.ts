@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * @deprecated azure-native:providerhub/v20210601preview:SkusNestedResourceTypeSecond is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond to guarantee forwards compatibility.
+ */
 export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
     /**
      * Get an existing SkusNestedResourceTypeSecond resource's state with the given name, ID, and optional extra
@@ -17,6 +20,7 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SkusNestedResourceTypeSecond {
+        pulumi.log.warn("SkusNestedResourceTypeSecond is deprecated: azure-native:providerhub/v20210601preview:SkusNestedResourceTypeSecond is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond to guarantee forwards compatibility.")
         return new SkusNestedResourceTypeSecond(name, undefined as any, { ...opts, id: id });
     }
 
@@ -55,7 +59,9 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:providerhub/v20210601preview:SkusNestedResourceTypeSecond is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond to guarantee forwards compatibility. */
     constructor(name: string, args: SkusNestedResourceTypeSecondArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SkusNestedResourceTypeSecond is deprecated: azure-native:providerhub/v20210601preview:SkusNestedResourceTypeSecond is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

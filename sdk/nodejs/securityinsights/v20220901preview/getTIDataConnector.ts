@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20220901preview:TIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:TIDataConnector to guarantee forwards compatibility. */
 export function getTIDataConnector(args: GetTIDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetTIDataConnectorResult> {
+    pulumi.log.warn("getTIDataConnector is deprecated: azure-native:securityinsights/v20220901preview:TIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:TIDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220901preview:getTIDataConnector", {
@@ -80,6 +82,7 @@ export interface GetTIDataConnectorResult {
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20220901preview:TIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:TIDataConnector to guarantee forwards compatibility. */
 export function getTIDataConnectorOutput(args: GetTIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTIDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getTIDataConnector(a, opts))
 }

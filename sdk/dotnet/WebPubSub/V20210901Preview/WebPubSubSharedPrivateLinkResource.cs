@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210901Preview
     /// <summary>
     /// Describes a Shared Private Link Resource
     /// </summary>
+    [Obsolete(@"azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource")]
     public partial class WebPubSubSharedPrivateLinkResource : global::Pulumi.CustomResource
     {

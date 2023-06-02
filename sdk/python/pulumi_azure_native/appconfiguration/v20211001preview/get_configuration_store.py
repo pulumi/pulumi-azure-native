@@ -17,6 +17,8 @@ __all__ = [
     'get_configuration_store_output',
 ]
 
+warnings.warn("""azure-native:appconfiguration/v20211001preview:ConfigurationStore is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:ConfigurationStore to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConfigurationStoreResult:
     """
@@ -247,6 +249,7 @@ def get_configuration_store(config_store_name: Optional[str] = None,
     :param str config_store_name: The name of the configuration store.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("""get_configuration_store is deprecated: azure-native:appconfiguration/v20211001preview:ConfigurationStore is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:ConfigurationStore to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['configStoreName'] = config_store_name
     __args__['resourceGroupName'] = resource_group_name
@@ -284,4 +287,5 @@ def get_configuration_store_output(config_store_name: Optional[pulumi.Input[str]
     :param str config_store_name: The name of the configuration store.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("""get_configuration_store is deprecated: azure-native:appconfiguration/v20211001preview:ConfigurationStore is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:ConfigurationStore to guarantee forwards compatibility.""")
     ...

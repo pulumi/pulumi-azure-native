@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20210115
     /// <summary>
     /// Function information.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20210115:WebAppInstanceFunctionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppInstanceFunctionSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20210115:WebAppInstanceFunctionSlot")]
     public partial class WebAppInstanceFunctionSlot : global::Pulumi.CustomResource
     {

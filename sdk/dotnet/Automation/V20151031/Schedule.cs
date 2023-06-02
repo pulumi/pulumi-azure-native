@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Automation.V20151031
     /// <summary>
     /// Definition of the schedule.
     /// </summary>
+    [Obsolete(@"azure-native:automation/v20151031:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Schedule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automation/v20151031:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource
     {

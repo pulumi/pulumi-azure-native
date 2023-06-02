@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20221115
     /// <summary>
     /// An Azure Cosmos DB Table.
     /// </summary>
+    [Obsolete(@"azure-native:documentdb/v20221115:TableResourceTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:TableResourceTable to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20221115:TableResourceTable")]
     public partial class TableResourceTable : global::Pulumi.CustomResource
     {

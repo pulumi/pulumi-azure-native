@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * This operation retrieves the policy set definition in the given management group with the given name.
  */
+/** @deprecated azure-native:authorization/v20190101:PolicySetDefinitionAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20190601:PolicySetDefinitionAtManagementGroup to guarantee forwards compatibility. */
 export function getPolicySetDefinitionAtManagementGroup(args: GetPolicySetDefinitionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionAtManagementGroupResult> {
+    pulumi.log.warn("getPolicySetDefinitionAtManagementGroup is deprecated: azure-native:authorization/v20190101:PolicySetDefinitionAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20190601:PolicySetDefinitionAtManagementGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20190101:getPolicySetDefinitionAtManagementGroup", {
@@ -74,6 +76,7 @@ export interface GetPolicySetDefinitionAtManagementGroupResult {
 /**
  * This operation retrieves the policy set definition in the given management group with the given name.
  */
+/** @deprecated azure-native:authorization/v20190101:PolicySetDefinitionAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20190601:PolicySetDefinitionAtManagementGroup to guarantee forwards compatibility. */
 export function getPolicySetDefinitionAtManagementGroupOutput(args: GetPolicySetDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionAtManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getPolicySetDefinitionAtManagementGroup(a, opts))
 }

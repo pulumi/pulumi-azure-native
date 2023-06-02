@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Azure Resource Manager resource envelope.
  */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:ComponentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:ComponentContainer to guarantee forwards compatibility. */
 export function getComponentContainer(args: GetComponentContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentContainerResult> {
+    pulumi.log.warn("getComponentContainer is deprecated: azure-native:machinelearningservices/v20221001preview:ComponentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:ComponentContainer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001preview:getComponentContainer", {
@@ -63,6 +65,7 @@ export interface GetComponentContainerResult {
 /**
  * Azure Resource Manager resource envelope.
  */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:ComponentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:ComponentContainer to guarantee forwards compatibility. */
 export function getComponentContainerOutput(args: GetComponentContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentContainerResult> {
     return pulumi.output(args).apply((a: any) => getComponentContainer(a, opts))
 }

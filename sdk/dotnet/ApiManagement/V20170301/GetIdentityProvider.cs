@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20170301
 {
+    [Obsolete(@"azure-native:apimanagement/v20170301:IdentityProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20190101:IdentityProvider to guarantee forwards compatibility.")]
     public static class GetIdentityProvider
     {
         /// <summary>

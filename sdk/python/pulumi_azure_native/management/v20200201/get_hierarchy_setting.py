@@ -16,7 +16,8 @@ __all__ = [
     'get_hierarchy_setting_output',
 ]
 
-warnings.warn("""Version 2020-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-02-01 will be removed in v2 of the provider.
+azure-native:management/v20200201:HierarchySetting is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:HierarchySetting to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetHierarchySettingResult:
@@ -114,7 +115,8 @@ def get_hierarchy_setting(group_id: Optional[str] = None,
 
     :param str group_id: Management Group ID.
     """
-    pulumi.log.warn("""get_hierarchy_setting is deprecated: Version 2020-02-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_hierarchy_setting is deprecated: Version 2020-02-01 will be removed in v2 of the provider.
+azure-native:management/v20200201:HierarchySetting is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:HierarchySetting to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['groupId'] = group_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -138,5 +140,6 @@ def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[str]] = None,
 
     :param str group_id: Management Group ID.
     """
-    pulumi.log.warn("""get_hierarchy_setting is deprecated: Version 2020-02-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_hierarchy_setting is deprecated: Version 2020-02-01 will be removed in v2 of the provider.
+azure-native:management/v20200201:HierarchySetting is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:HierarchySetting to guarantee forwards compatibility.""")
     ...

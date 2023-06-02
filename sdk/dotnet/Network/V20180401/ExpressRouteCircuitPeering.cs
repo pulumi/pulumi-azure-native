@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Network.V20180401
     /// <summary>
     /// Peering in an ExpressRouteCircuit resource.
     /// </summary>
-    [Obsolete(@"Version 2018-04-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:ExpressRouteCircuitPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190201:ExpressRouteCircuitPeering to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20180401:ExpressRouteCircuitPeering")]
     public partial class ExpressRouteCircuitPeering : global::Pulumi.CustomResource
     {

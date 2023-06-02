@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceFabric.V20220801Preview
 {
+    [Obsolete(@"azure-native:servicefabric/v20220801preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:Service to guarantee forwards compatibility.")]
     public static class GetService
     {
         /// <summary>

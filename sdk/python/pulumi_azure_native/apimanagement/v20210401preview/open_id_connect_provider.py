@@ -142,7 +142,12 @@ class OpenIdConnectProviderArgs:
         pulumi.set(self, "opid", value)
 
 
+warnings.warn("""azure-native:apimanagement/v20210401preview:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:OpenIdConnectProvider to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class OpenIdConnectProvider(pulumi.CustomResource):
+    warnings.warn("""azure-native:apimanagement/v20210401preview:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:OpenIdConnectProvider to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -203,6 +208,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""OpenIdConnectProvider is deprecated: azure-native:apimanagement/v20210401preview:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:OpenIdConnectProvider to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

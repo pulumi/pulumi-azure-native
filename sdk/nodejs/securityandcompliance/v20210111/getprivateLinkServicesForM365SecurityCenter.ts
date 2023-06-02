@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the metadata of a privateLinkServicesForM365SecurityCenter resource.
  */
+/** @deprecated azure-native:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter to guarantee forwards compatibility. */
 export function getprivateLinkServicesForM365SecurityCenter(args: GetprivateLinkServicesForM365SecurityCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForM365SecurityCenterResult> {
+    pulumi.log.warn("getprivateLinkServicesForM365SecurityCenter is deprecated: azure-native:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForM365SecurityCenter", {
@@ -78,6 +80,7 @@ export interface GetprivateLinkServicesForM365SecurityCenterResult {
 /**
  * Get the metadata of a privateLinkServicesForM365SecurityCenter resource.
  */
+/** @deprecated azure-native:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter to guarantee forwards compatibility. */
 export function getprivateLinkServicesForM365SecurityCenterOutput(args: GetprivateLinkServicesForM365SecurityCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForM365SecurityCenterResult> {
     return pulumi.output(args).apply((a: any) => getprivateLinkServicesForM365SecurityCenter(a, opts))
 }

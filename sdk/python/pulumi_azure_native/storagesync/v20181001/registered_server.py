@@ -193,11 +193,13 @@ class RegisteredServerArgs:
         pulumi.set(self, "server_role", value)
 
 
-warnings.warn("""Version 2018-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-10-01 will be removed in v2 of the provider.
+azure-native:storagesync/v20181001:RegisteredServer is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class RegisteredServer(pulumi.CustomResource):
-    warnings.warn("""Version 2018-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2018-10-01 will be removed in v2 of the provider.
+azure-native:storagesync/v20181001:RegisteredServer is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -268,7 +270,8 @@ class RegisteredServer(pulumi.CustomResource):
                  server_role: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""RegisteredServer is deprecated: Version 2018-10-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""RegisteredServer is deprecated: Version 2018-10-01 will be removed in v2 of the provider.
+azure-native:storagesync/v20181001:RegisteredServer is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

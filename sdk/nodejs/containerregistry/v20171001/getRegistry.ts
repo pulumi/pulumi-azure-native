@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified container registry.
  */
+/** @deprecated azure-native:containerregistry/v20171001:Registry is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20190501:Registry to guarantee forwards compatibility. */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
+    pulumi.log.warn("getRegistry is deprecated: azure-native:containerregistry/v20171001:Registry is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20190501:Registry to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20171001:getRegistry", {
@@ -90,6 +92,7 @@ export interface GetRegistryResult {
 /**
  * Gets the properties of the specified container registry.
  */
+/** @deprecated azure-native:containerregistry/v20171001:Registry is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20190501:Registry to guarantee forwards compatibility. */
 export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {
     return pulumi.output(args).apply((a: any) => getRegistry(a, opts))
 }

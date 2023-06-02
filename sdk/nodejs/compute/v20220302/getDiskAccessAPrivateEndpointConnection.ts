@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a private endpoint connection under a disk access resource.
  */
+/** @deprecated azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection to guarantee forwards compatibility. */
 export function getDiskAccessAPrivateEndpointConnection(args: GetDiskAccessAPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessAPrivateEndpointConnectionResult> {
+    pulumi.log.warn("getDiskAccessAPrivateEndpointConnection is deprecated: azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20220302:getDiskAccessAPrivateEndpointConnection", {
@@ -67,6 +69,7 @@ export interface GetDiskAccessAPrivateEndpointConnectionResult {
 /**
  * Gets information about a private endpoint connection under a disk access resource.
  */
+/** @deprecated azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection to guarantee forwards compatibility. */
 export function getDiskAccessAPrivateEndpointConnectionOutput(args: GetDiskAccessAPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessAPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getDiskAccessAPrivateEndpointConnection(a, opts))
 }

@@ -116,7 +116,12 @@ class AccountFilterArgs:
         pulumi.set(self, "tracks", value)
 
 
+warnings.warn("""azure-native:media/v20210601:AccountFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:AccountFilter to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AccountFilter(pulumi.CustomResource):
+    warnings.warn("""azure-native:media/v20210601:AccountFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:AccountFilter to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -171,6 +176,7 @@ class AccountFilter(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tracks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FilterTrackSelectionArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""AccountFilter is deprecated: azure-native:media/v20210601:AccountFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:AccountFilter to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

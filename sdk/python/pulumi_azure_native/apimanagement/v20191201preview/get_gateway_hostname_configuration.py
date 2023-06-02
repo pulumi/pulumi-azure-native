@@ -16,6 +16,8 @@ __all__ = [
     'get_gateway_hostname_configuration_output',
 ]
 
+warnings.warn("""azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GatewayHostnameConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGatewayHostnameConfigurationResult:
     """
@@ -118,6 +120,7 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("""get_gateway_hostname_configuration is deprecated: azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GatewayHostnameConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['gatewayId'] = gateway_id
     __args__['hcId'] = hc_id
@@ -150,4 +153,5 @@ def get_gateway_hostname_configuration_output(gateway_id: Optional[pulumi.Input[
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("""get_gateway_hostname_configuration is deprecated: azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GatewayHostnameConfiguration to guarantee forwards compatibility.""")
     ...

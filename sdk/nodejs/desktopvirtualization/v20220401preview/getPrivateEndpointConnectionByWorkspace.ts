@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a private endpoint connection.
  */
+/** @deprecated azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByWorkspace to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionByWorkspace(args: GetPrivateEndpointConnectionByWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionByWorkspaceResult> {
+    pulumi.log.warn("getPrivateEndpointConnectionByWorkspace is deprecated: azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByWorkspace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20220401preview:getPrivateEndpointConnectionByWorkspace", {
@@ -71,6 +73,7 @@ export interface GetPrivateEndpointConnectionByWorkspaceResult {
 /**
  * Get a private endpoint connection.
  */
+/** @deprecated azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByWorkspace to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionByWorkspaceOutput(args: GetPrivateEndpointConnectionByWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionByWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionByWorkspace(a, opts))
 }

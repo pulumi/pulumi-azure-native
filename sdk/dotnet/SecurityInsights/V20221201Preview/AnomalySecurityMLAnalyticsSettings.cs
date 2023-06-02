@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
     /// <summary>
     /// Represents Anomaly Security ML Analytics Settings
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20221201preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20221201preview:AnomalySecurityMLAnalyticsSettings")]
     public partial class AnomalySecurityMLAnalyticsSettings : global::Pulumi.CustomResource
     {
@@ -174,7 +175,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:AnomalySecurityMLAnalyticsSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:AnomalySecurityMLAnalyticsSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:AnomalySecurityMLAnalyticsSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

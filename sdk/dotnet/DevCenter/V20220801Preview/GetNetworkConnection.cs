@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DevCenter.V20220801Preview
 {
+    [Obsolete(@"azure-native:devcenter/v20220801preview:NetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:NetworkConnection to guarantee forwards compatibility.")]
     public static class GetNetworkConnection
     {
         /// <summary>

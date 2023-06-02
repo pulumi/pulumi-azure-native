@@ -17,6 +17,8 @@ __all__ = [
     'get_sql_resource_sql_role_definition_output',
 ]
 
+warnings.warn("""azure-native:documentdb/v20211115preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:SqlResourceSqlRoleDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlResourceSqlRoleDefinitionResult:
     """
@@ -117,6 +119,7 @@ def get_sql_resource_sql_role_definition(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str role_definition_id: The GUID for the Role Definition.
     """
+    pulumi.log.warn("""get_sql_resource_sql_role_definition is deprecated: azure-native:documentdb/v20211115preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:SqlResourceSqlRoleDefinition to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -146,4 +149,5 @@ def get_sql_resource_sql_role_definition_output(account_name: Optional[pulumi.In
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str role_definition_id: The GUID for the Role Definition.
     """
+    pulumi.log.warn("""get_sql_resource_sql_role_definition is deprecated: azure-native:documentdb/v20211115preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:SqlResourceSqlRoleDefinition to guarantee forwards compatibility.""")
     ...

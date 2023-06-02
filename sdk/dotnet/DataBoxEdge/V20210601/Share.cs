@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
     /// <summary>
     /// Represents a share on the  Data Box Edge/Gateway device.
     /// </summary>
+    [Obsolete(@"azure-native:databoxedge/v20210601:Share is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Share to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20210601:Share")]
     public partial class Share : global::Pulumi.CustomResource
     {

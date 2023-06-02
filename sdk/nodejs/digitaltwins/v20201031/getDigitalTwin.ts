@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Get DigitalTwinsInstances resource.
  */
-/** @deprecated Version 2020-10-31 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-10-31 will be removed in v2 of the provider.
+azure-native:digitaltwins/v20201031:DigitalTwin is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility. */
 export function getDigitalTwin(args: GetDigitalTwinArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinResult> {
-    pulumi.log.warn("getDigitalTwin is deprecated: Version 2020-10-31 will be removed in v2 of the provider.")
+    pulumi.log.warn("getDigitalTwin is deprecated: Version 2020-10-31 will be removed in v2 of the provider.\nazure-native:digitaltwins/v20201031:DigitalTwin is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:digitaltwins/v20201031:getDigitalTwin", {
@@ -73,7 +74,8 @@ export interface GetDigitalTwinResult {
 /**
  * Get DigitalTwinsInstances resource.
  */
-/** @deprecated Version 2020-10-31 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-10-31 will be removed in v2 of the provider.
+azure-native:digitaltwins/v20201031:DigitalTwin is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility. */
 export function getDigitalTwinOutput(args: GetDigitalTwinOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinResult> {
     return pulumi.output(args).apply((a: any) => getDigitalTwin(a, opts))
 }

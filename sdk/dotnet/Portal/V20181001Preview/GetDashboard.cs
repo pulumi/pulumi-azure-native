@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Portal.V20181001Preview
 {
+    [Obsolete(@"azure-native:portal/v20181001preview:Dashboard is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility.")]
     public static class GetDashboard
     {
         /// <summary>

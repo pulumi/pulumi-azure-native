@@ -16,6 +16,8 @@ __all__ = [
     'get_express_route_circuit_authorization_output',
 ]
 
+warnings.warn("""azure-native:network/v20181001:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:ExpressRouteCircuitAuthorization to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExpressRouteCircuitAuthorizationResult:
     """
@@ -116,6 +118,7 @@ def get_express_route_circuit_authorization(authorization_name: Optional[str] = 
     :param str circuit_name: The name of the express route circuit.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_express_route_circuit_authorization is deprecated: azure-native:network/v20181001:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:ExpressRouteCircuitAuthorization to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['authorizationName'] = authorization_name
     __args__['circuitName'] = circuit_name
@@ -145,4 +148,5 @@ def get_express_route_circuit_authorization_output(authorization_name: Optional[
     :param str circuit_name: The name of the express route circuit.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_express_route_circuit_authorization is deprecated: azure-native:network/v20181001:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:ExpressRouteCircuitAuthorization to guarantee forwards compatibility.""")
     ...

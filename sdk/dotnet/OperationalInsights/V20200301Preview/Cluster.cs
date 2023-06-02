@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
     /// <summary>
     /// The top level Log Analytics cluster resource container.
     /// </summary>
+    [Obsolete(@"azure-native:operationalinsights/v20200301preview:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:Cluster to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:operationalinsights/v20200301preview:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of a web, mobile, or API app.
  */
+/** @deprecated azure-native:web/v20180201:WebAppSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20181101:WebAppSlot to guarantee forwards compatibility. */
 export function getWebAppSlot(args: GetWebAppSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSlotResult> {
+    pulumi.log.warn("getWebAppSlot is deprecated: azure-native:web/v20180201:WebAppSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20181101:WebAppSlot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20180201:getWebAppSlot", {
@@ -219,6 +221,7 @@ export interface GetWebAppSlotResult {
 /**
  * Gets the details of a web, mobile, or API app.
  */
+/** @deprecated azure-native:web/v20180201:WebAppSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20181101:WebAppSlot to guarantee forwards compatibility. */
 export function getWebAppSlotOutput(args: GetWebAppSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSlot(a, opts))
 }

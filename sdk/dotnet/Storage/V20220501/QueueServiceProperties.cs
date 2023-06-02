@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Storage.V20220501
     /// <summary>
     /// The properties of a storage account’s Queue service.
     /// </summary>
+    [Obsolete(@"azure-native:storage/v20220501:QueueServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:QueueServiceProperties to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storage/v20220501:QueueServiceProperties")]
     public partial class QueueServiceProperties : global::Pulumi.CustomResource
     {

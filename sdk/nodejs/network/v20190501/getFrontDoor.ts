@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
  */
+/** @deprecated azure-native:network/v20190501:FrontDoor is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:FrontDoor to guarantee forwards compatibility. */
 export function getFrontDoor(args: GetFrontDoorArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontDoorResult> {
+    pulumi.log.warn("getFrontDoor is deprecated: azure-native:network/v20190501:FrontDoor is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:FrontDoor to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190501:getFrontDoor", {
@@ -102,6 +104,7 @@ export interface GetFrontDoorResult {
 /**
  * Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
  */
+/** @deprecated azure-native:network/v20190501:FrontDoor is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:FrontDoor to guarantee forwards compatibility. */
 export function getFrontDoorOutput(args: GetFrontDoorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontDoorResult> {
     return pulumi.output(args).apply((a: any) => getFrontDoor(a, opts))
 }

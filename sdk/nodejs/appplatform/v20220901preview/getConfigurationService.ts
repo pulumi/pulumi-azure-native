@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the Application Configuration Service and its properties.
  */
+/** @deprecated azure-native:appplatform/v20220901preview:ConfigurationService is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ConfigurationService to guarantee forwards compatibility. */
 export function getConfigurationService(args: GetConfigurationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationServiceResult> {
+    pulumi.log.warn("getConfigurationService is deprecated: azure-native:appplatform/v20220901preview:ConfigurationService is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ConfigurationService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220901preview:getConfigurationService", {
@@ -63,6 +65,7 @@ export interface GetConfigurationServiceResult {
 /**
  * Get the Application Configuration Service and its properties.
  */
+/** @deprecated azure-native:appplatform/v20220901preview:ConfigurationService is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ConfigurationService to guarantee forwards compatibility. */
 export function getConfigurationServiceOutput(args: GetConfigurationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationServiceResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationService(a, opts))
 }

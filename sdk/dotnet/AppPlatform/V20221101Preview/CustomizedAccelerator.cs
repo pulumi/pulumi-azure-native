@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20221101Preview
     /// <summary>
     /// Customized accelerator resource
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20221101preview:CustomizedAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:CustomizedAccelerator to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20221101preview:CustomizedAccelerator")]
     public partial class CustomizedAccelerator : global::Pulumi.CustomResource
     {

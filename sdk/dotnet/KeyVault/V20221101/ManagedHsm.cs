@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.KeyVault.V20221101
     /// <summary>
     /// Resource information with extended details.
     /// </summary>
+    [Obsolete(@"azure-native:keyvault/v20221101:ManagedHsm is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:ManagedHsm to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:keyvault/v20221101:ManagedHsm")]
     public partial class ManagedHsm : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601Preview
     /// <summary>
     /// Represents a server.
     /// </summary>
+    [Obsolete(@"azure-native:dbforpostgresql/v20210601preview:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20210615privatepreview:Server to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20210601preview:Server")]
     public partial class Server : global::Pulumi.CustomResource
     {

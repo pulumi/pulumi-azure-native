@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the Data Box Edge/Data Box Gateway device.
  */
-/** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-07-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20190701:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20200501preview:Device to guarantee forwards compatibility. */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
-    pulumi.log.warn("getDevice is deprecated: Version 2019-07-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getDevice is deprecated: Version 2019-07-01 will be removed in v2 of the provider.\nazure-native:databoxedge/v20190701:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20200501preview:Device to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20190701:getDevice", {
@@ -124,7 +125,8 @@ export interface GetDeviceResult {
 /**
  * Gets the properties of the Data Box Edge/Data Box Gateway device.
  */
-/** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-07-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20190701:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20200501preview:Device to guarantee forwards compatibility. */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
     return pulumi.output(args).apply((a: any) => getDevice(a, opts))
 }

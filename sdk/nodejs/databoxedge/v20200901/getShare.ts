@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
  */
-/** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20200901:Share is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Share to guarantee forwards compatibility. */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
-    pulumi.log.warn("getShare is deprecated: Version 2020-09-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getShare is deprecated: Version 2020-09-01 will be removed in v2 of the provider.\nazure-native:databoxedge/v20200901:Share is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Share to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20200901:getShare", {
@@ -101,7 +102,8 @@ export interface GetShareResult {
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
  */
-/** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20200901:Share is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Share to guarantee forwards compatibility. */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
     return pulumi.output(args).apply((a: any) => getShare(a, opts))
 }

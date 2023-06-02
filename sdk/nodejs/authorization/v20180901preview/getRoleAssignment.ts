@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the specified role assignment.
  */
+/** @deprecated azure-native:authorization/v20180901preview:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200301preview:RoleAssignment to guarantee forwards compatibility. */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
+    pulumi.log.warn("getRoleAssignment is deprecated: azure-native:authorization/v20180901preview:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200301preview:RoleAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20180901preview:getRoleAssignment", {
@@ -67,6 +69,7 @@ export interface GetRoleAssignmentResult {
 /**
  * Get the specified role assignment.
  */
+/** @deprecated azure-native:authorization/v20180901preview:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200301preview:RoleAssignment to guarantee forwards compatibility. */
 export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getRoleAssignment(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210515
     /// <summary>
     /// An Azure Cosmos DB Cassandra table.
     /// </summary>
+    [Obsolete(@"azure-native:documentdb/v20210515:CassandraResourceCassandraTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:CassandraResourceCassandraTable to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20210515:CassandraResourceCassandraTable")]
     public partial class CassandraResourceCassandraTable : global::Pulumi.CustomResource
     {

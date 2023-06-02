@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
 {
+    [Obsolete(@"azure-native:securityinsights/v20220401preview:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:AADDataConnector to guarantee forwards compatibility.")]
     public static class GetAADDataConnector
     {
         /// <summary>

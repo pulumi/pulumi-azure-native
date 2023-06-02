@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
  */
-/** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider.
+azure-native:storage/v20180301preview:StorageAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20181101:StorageAccount to guarantee forwards compatibility. */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
-    pulumi.log.warn("getStorageAccount is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getStorageAccount is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.\nazure-native:storage/v20180301preview:StorageAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20181101:StorageAccount to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20180301preview:getStorageAccount", {
@@ -132,7 +133,8 @@ export interface GetStorageAccountResult {
 /**
  * Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
  */
-/** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider.
+azure-native:storage/v20180301preview:StorageAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20181101:StorageAccount to guarantee forwards compatibility. */
 export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountResult> {
     return pulumi.output(args).apply((a: any) => getStorageAccount(a, opts))
 }

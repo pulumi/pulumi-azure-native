@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Addons.V20170515
     /// <summary>
     /// The status of the Canonical support plan.
     /// </summary>
-    [Obsolete(@"Version 2017-05-15 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-05-15 will be removed in v2 of the provider.
+azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Upgrade to at least azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:addons/v20170515:SupportPlanType")]
     public partial class SupportPlanType : global::Pulumi.CustomResource
     {

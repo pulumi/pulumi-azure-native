@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve the watcher identified by watcher name.
  */
+/** @deprecated azure-native:automation/v20151031:Watcher is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20200113preview:Watcher to guarantee forwards compatibility. */
 export function getWatcher(args: GetWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetWatcherResult> {
+    pulumi.log.warn("getWatcher is deprecated: azure-native:automation/v20151031:Watcher is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20200113preview:Watcher to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20151031:getWatcher", {
@@ -100,6 +102,7 @@ export interface GetWatcherResult {
 /**
  * Retrieve the watcher identified by watcher name.
  */
+/** @deprecated azure-native:automation/v20151031:Watcher is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20200113preview:Watcher to guarantee forwards compatibility. */
 export function getWatcherOutput(args: GetWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatcherResult> {
     return pulumi.output(args).apply((a: any) => getWatcher(a, opts))
 }

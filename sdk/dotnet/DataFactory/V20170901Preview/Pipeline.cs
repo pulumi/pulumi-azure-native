@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
     /// <summary>
     /// Pipeline resource type.
     /// </summary>
-    [Obsolete(@"Version 2017-09-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Pipeline is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:Pipeline to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datafactory/v20170901preview:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource
     {

@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.BotService.V20171201
 {
-    [Obsolete(@"Version 2017-12-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-12-01 will be removed in v2 of the provider.
+azure-native:botservice/v20171201:BotConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:botservice/v20220915:BotConnection to guarantee forwards compatibility.")]
     public static class GetBotConnection
     {
         /// <summary>

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
 {
+    [Obsolete(@"azure-native:desktopvirtualization/v20210114preview:MSIXPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:MSIXPackage to guarantee forwards compatibility.")]
     public static class GetMSIXPackage
     {
         /// <summary>

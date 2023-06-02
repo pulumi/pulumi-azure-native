@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
     /// <summary>
     /// Product details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20200601preview:Product is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Product to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20200601preview:Product")]
     public partial class Product : global::Pulumi.CustomResource
     {

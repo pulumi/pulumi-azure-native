@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20230201
 {
+    [Obsolete(@"azure-native:securityinsights/v20230201:ASCDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ASCDataConnector to guarantee forwards compatibility.")]
     public static class GetASCDataConnector
     {
         /// <summary>

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Implements HybridIdentityMetadata GET method.
  */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum to guarantee forwards compatibility. */
 export function getHybridIdentityMetadatum(args: GetHybridIdentityMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridIdentityMetadatumResult> {
+    pulumi.log.warn("getHybridIdentityMetadatum is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220110preview:getHybridIdentityMetadatum", {
@@ -75,6 +77,7 @@ export interface GetHybridIdentityMetadatumResult {
 /**
  * Implements HybridIdentityMetadata GET method.
  */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum to guarantee forwards compatibility. */
 export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
     return pulumi.output(args).apply((a: any) => getHybridIdentityMetadatum(a, opts))
 }

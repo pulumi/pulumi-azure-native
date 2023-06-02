@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the properties of a managed Cassandra cluster.
  */
+/** @deprecated azure-native:documentdb/v20210401preview:CassandraCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20210701preview:CassandraCluster to guarantee forwards compatibility. */
 export function getCassandraCluster(args: GetCassandraClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraClusterResult> {
+    pulumi.log.warn("getCassandraCluster is deprecated: azure-native:documentdb/v20210401preview:CassandraCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20210701preview:CassandraCluster to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20210401preview:getCassandraCluster", {
@@ -66,6 +68,7 @@ export interface GetCassandraClusterResult {
 /**
  * Get the properties of a managed Cassandra cluster.
  */
+/** @deprecated azure-native:documentdb/v20210401preview:CassandraCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20210701preview:CassandraCluster to guarantee forwards compatibility. */
 export function getCassandraClusterOutput(args: GetCassandraClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraClusterResult> {
     return pulumi.output(args).apply((a: any) => getCassandraCluster(a, opts))
 }

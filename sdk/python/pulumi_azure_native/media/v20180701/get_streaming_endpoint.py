@@ -17,6 +17,8 @@ __all__ = [
     'get_streaming_endpoint_output',
 ]
 
+warnings.warn("""azure-native:media/v20180701:StreamingEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20221101:StreamingEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStreamingEndpointResult:
     """
@@ -297,6 +299,7 @@ def get_streaming_endpoint(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str streaming_endpoint_name: The name of the StreamingEndpoint.
     """
+    pulumi.log.warn("""get_streaming_endpoint is deprecated: azure-native:media/v20180701:StreamingEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20221101:StreamingEndpoint to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -341,4 +344,5 @@ def get_streaming_endpoint_output(account_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str streaming_endpoint_name: The name of the StreamingEndpoint.
     """
+    pulumi.log.warn("""get_streaming_endpoint is deprecated: azure-native:media/v20180701:StreamingEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20221101:StreamingEndpoint to guarantee forwards compatibility.""")
     ...

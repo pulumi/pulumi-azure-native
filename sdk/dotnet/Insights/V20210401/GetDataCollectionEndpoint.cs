@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Insights.V20210401
 {
+    [Obsolete(@"azure-native:insights/v20210401:DataCollectionEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionEndpoint to guarantee forwards compatibility.")]
     public static class GetDataCollectionEndpoint
     {
         /// <summary>

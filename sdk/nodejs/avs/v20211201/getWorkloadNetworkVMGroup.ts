@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * NSX VM Group
  */
+/** @deprecated azure-native:avs/v20211201:WorkloadNetworkVMGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkVMGroup to guarantee forwards compatibility. */
 export function getWorkloadNetworkVMGroup(args: GetWorkloadNetworkVMGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkVMGroupResult> {
+    pulumi.log.warn("getWorkloadNetworkVMGroup is deprecated: azure-native:avs/v20211201:WorkloadNetworkVMGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkVMGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getWorkloadNetworkVMGroup", {
@@ -72,6 +74,7 @@ export interface GetWorkloadNetworkVMGroupResult {
 /**
  * NSX VM Group
  */
+/** @deprecated azure-native:avs/v20211201:WorkloadNetworkVMGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkVMGroup to guarantee forwards compatibility. */
 export function getWorkloadNetworkVMGroupOutput(args: GetWorkloadNetworkVMGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkVMGroupResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadNetworkVMGroup(a, opts))
 }

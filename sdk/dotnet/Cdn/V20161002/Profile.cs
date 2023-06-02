@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Cdn.V20161002
     /// <summary>
     /// CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
     /// </summary>
-    [Obsolete(@"Version 2016-10-02 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2016-10-02 will be removed in v2 of the provider.
+azure-native:cdn/v20161002:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20200901:Profile to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20161002:Profile")]
     public partial class Profile : global::Pulumi.CustomResource
     {

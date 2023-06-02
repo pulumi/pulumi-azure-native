@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220308Preview
     /// <summary>
     /// Represents an Active Directory administrator.
     /// </summary>
+    [Obsolete(@"azure-native:dbforpostgresql/v20220308preview:Administrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221201:Administrator to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20220308preview:Administrator")]
     public partial class Administrator : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     /// <summary>
     /// Represents a gallery.
     /// </summary>
+    [Obsolete(@"azure-native:devcenter/v20220801preview:Gallery is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Gallery to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devcenter/v20220801preview:Gallery")]
     public partial class Gallery : global::Pulumi.CustomResource
     {
@@ -74,7 +75,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Gallery"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Gallery"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:Gallery"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

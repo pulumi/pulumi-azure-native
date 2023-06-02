@@ -17,6 +17,8 @@ __all__ = [
     'get_event_channel_output',
 ]
 
+warnings.warn("""azure-native:eventgrid/v20200401preview:EventChannel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEventChannelResult:
     """
@@ -179,6 +181,7 @@ def get_event_channel(event_channel_name: Optional[str] = None,
     :param str partner_namespace_name: Name of the partner namespace.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("""get_event_channel is deprecated: azure-native:eventgrid/v20200401preview:EventChannel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['eventChannelName'] = event_channel_name
     __args__['partnerNamespaceName'] = partner_namespace_name
@@ -213,4 +216,5 @@ def get_event_channel_output(event_channel_name: Optional[pulumi.Input[str]] = N
     :param str partner_namespace_name: Name of the partner namespace.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("""get_event_channel is deprecated: azure-native:eventgrid/v20200401preview:EventChannel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.""")
     ...

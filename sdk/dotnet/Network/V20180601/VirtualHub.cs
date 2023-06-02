@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20180601
     /// <summary>
     /// VirtualHub Resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20180601:VirtualHub is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VirtualHub to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20180601:VirtualHub")]
     public partial class VirtualHub : global::Pulumi.CustomResource
     {

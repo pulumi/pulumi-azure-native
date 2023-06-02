@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
  */
+/** @deprecated azure-native:peering/v20210601:RegisteredPrefix is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:RegisteredPrefix to guarantee forwards compatibility. */
 export function getRegisteredPrefix(args: GetRegisteredPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredPrefixResult> {
+    pulumi.log.warn("getRegisteredPrefix is deprecated: azure-native:peering/v20210601:RegisteredPrefix is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:RegisteredPrefix to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering/v20210601:getRegisteredPrefix", {
@@ -72,6 +74,7 @@ export interface GetRegisteredPrefixResult {
 /**
  * Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
  */
+/** @deprecated azure-native:peering/v20210601:RegisteredPrefix is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:RegisteredPrefix to guarantee forwards compatibility. */
 export function getRegisteredPrefixOutput(args: GetRegisteredPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredPrefixResult> {
     return pulumi.output(args).apply((a: any) => getRegisteredPrefix(a, opts))
 }

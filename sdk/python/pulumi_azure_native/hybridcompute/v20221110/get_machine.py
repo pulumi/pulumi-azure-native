@@ -17,6 +17,8 @@ __all__ = [
     'get_machine_output',
 ]
 
+warnings.warn("""azure-native:hybridcompute/v20221110:Machine is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20221227preview:Machine to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMachineResult:
     """
@@ -465,6 +467,7 @@ def get_machine(expand: Optional[str] = None,
     :param str machine_name: The name of the hybrid machine.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_machine is deprecated: azure-native:hybridcompute/v20221110:Machine is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20221227preview:Machine to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['machineName'] = machine_name
@@ -523,4 +526,5 @@ def get_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str machine_name: The name of the hybrid machine.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_machine is deprecated: azure-native:hybridcompute/v20221110:Machine is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20221227preview:Machine to guarantee forwards compatibility.""")
     ...

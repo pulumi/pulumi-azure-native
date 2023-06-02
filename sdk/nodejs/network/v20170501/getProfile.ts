@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Traffic Manager profile.
  */
-/** @deprecated Version 2017-05-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-05-01 will be removed in v2 of the provider.
+azure-native:network/v20170501:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180201:Profile to guarantee forwards compatibility. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    pulumi.log.warn("getProfile is deprecated: Version 2017-05-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getProfile is deprecated: Version 2017-05-01 will be removed in v2 of the provider.\nazure-native:network/v20170501:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180201:Profile to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20170501:getProfile", {
@@ -80,7 +81,8 @@ export interface GetProfileResult {
 /**
  * Gets a Traffic Manager profile.
  */
-/** @deprecated Version 2017-05-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-05-01 will be removed in v2 of the provider.
+azure-native:network/v20170501:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180201:Profile to guarantee forwards compatibility. */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
     return pulumi.output(args).apply((a: any) => getProfile(a, opts))
 }

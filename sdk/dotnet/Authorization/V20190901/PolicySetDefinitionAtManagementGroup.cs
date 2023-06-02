@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Authorization.V20190901
     /// <summary>
     /// The policy set definition.
     /// </summary>
+    [Obsolete(@"azure-native:authorization/v20190901:PolicySetDefinitionAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20210601:PolicySetDefinitionAtManagementGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:authorization/v20190901:PolicySetDefinitionAtManagementGroup")]
     public partial class PolicySetDefinitionAtManagementGroup : global::Pulumi.CustomResource
     {

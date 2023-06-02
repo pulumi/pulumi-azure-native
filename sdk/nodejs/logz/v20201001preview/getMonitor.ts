@@ -7,7 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/** @deprecated azure-native:logz/v20201001preview:Monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:logz/v20220101preview:Monitor to guarantee forwards compatibility. */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
+    pulumi.log.warn("getMonitor is deprecated: azure-native:logz/v20201001preview:Monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:logz/v20220101preview:Monitor to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz/v20201001preview:getMonitor", {
@@ -52,6 +54,7 @@ export interface GetMonitorResult {
      */
     readonly type: string;
 }
+/** @deprecated azure-native:logz/v20201001preview:Monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:logz/v20220101preview:Monitor to guarantee forwards compatibility. */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
     return pulumi.output(args).apply((a: any) => getMonitor(a, opts))
 }

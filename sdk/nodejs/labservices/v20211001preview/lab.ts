@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The lab resource.
+ *
+ * @deprecated azure-native:labservices/v20211001preview:Lab is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Lab to guarantee forwards compatibility.
  */
 export class Lab extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Lab extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Lab {
+        pulumi.log.warn("Lab is deprecated: azure-native:labservices/v20211001preview:Lab is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Lab to guarantee forwards compatibility.")
         return new Lab(name, undefined as any, { ...opts, id: id });
     }
 
@@ -109,7 +112,9 @@ export class Lab extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:labservices/v20211001preview:Lab is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Lab to guarantee forwards compatibility. */
     constructor(name: string, args: LabArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Lab is deprecated: azure-native:labservices/v20211001preview:Lab is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Lab to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -17,6 +17,8 @@ __all__ = [
     'get_private_endpoint_connection_proxy_output',
 ]
 
+warnings.warn("""azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionProxyResult:
     """
@@ -141,6 +143,7 @@ def get_private_endpoint_connection_proxy(account_name: Optional[str] = None,
     :param str private_endpoint_connection_proxy_id: The ID of the private endpoint connection proxy object.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_private_endpoint_connection_proxy is deprecated: azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['privateEndpointConnectionProxyId'] = private_endpoint_connection_proxy_id
@@ -172,4 +175,5 @@ def get_private_endpoint_connection_proxy_output(account_name: Optional[pulumi.I
     :param str private_endpoint_connection_proxy_id: The ID of the private endpoint connection proxy object.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_private_endpoint_connection_proxy is deprecated: azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy to guarantee forwards compatibility.""")
     ...

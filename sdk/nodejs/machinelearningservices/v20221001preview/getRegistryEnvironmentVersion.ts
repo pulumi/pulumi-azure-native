@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Azure Resource Manager resource envelope.
  */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:RegistryEnvironmentVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentVersion to guarantee forwards compatibility. */
 export function getRegistryEnvironmentVersion(args: GetRegistryEnvironmentVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryEnvironmentVersionResult> {
+    pulumi.log.warn("getRegistryEnvironmentVersion is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryEnvironmentVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentVersion to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001preview:getRegistryEnvironmentVersion", {
@@ -68,6 +70,7 @@ export interface GetRegistryEnvironmentVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:RegistryEnvironmentVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentVersion to guarantee forwards compatibility. */
 export function getRegistryEnvironmentVersionOutput(args: GetRegistryEnvironmentVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryEnvironmentVersionResult> {
     return pulumi.output(args).apply((a: any) => getRegistryEnvironmentVersion(a, opts))
 }

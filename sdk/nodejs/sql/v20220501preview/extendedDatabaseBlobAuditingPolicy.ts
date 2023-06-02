@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An extended database blob auditing policy.
+ *
+ * @deprecated azure-native:sql/v20220501preview:ExtendedDatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ExtendedDatabaseBlobAuditingPolicy to guarantee forwards compatibility.
  */
 export class ExtendedDatabaseBlobAuditingPolicy extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ExtendedDatabaseBlobAuditingPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ExtendedDatabaseBlobAuditingPolicy {
+        pulumi.log.warn("ExtendedDatabaseBlobAuditingPolicy is deprecated: azure-native:sql/v20220501preview:ExtendedDatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ExtendedDatabaseBlobAuditingPolicy to guarantee forwards compatibility.")
         return new ExtendedDatabaseBlobAuditingPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -164,7 +167,9 @@ export class ExtendedDatabaseBlobAuditingPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:sql/v20220501preview:ExtendedDatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ExtendedDatabaseBlobAuditingPolicy to guarantee forwards compatibility. */
     constructor(name: string, args: ExtendedDatabaseBlobAuditingPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ExtendedDatabaseBlobAuditingPolicy is deprecated: azure-native:sql/v20220501preview:ExtendedDatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ExtendedDatabaseBlobAuditingPolicy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

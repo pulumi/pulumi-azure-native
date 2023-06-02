@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The build service agent pool resource
+ *
+ * @deprecated azure-native:appplatform/v20221201:BuildServiceAgentPool is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildServiceAgentPool to guarantee forwards compatibility.
  */
 export class BuildServiceAgentPool extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class BuildServiceAgentPool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BuildServiceAgentPool {
+        pulumi.log.warn("BuildServiceAgentPool is deprecated: azure-native:appplatform/v20221201:BuildServiceAgentPool is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildServiceAgentPool to guarantee forwards compatibility.")
         return new BuildServiceAgentPool(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,7 +64,9 @@ export class BuildServiceAgentPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:appplatform/v20221201:BuildServiceAgentPool is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildServiceAgentPool to guarantee forwards compatibility. */
     constructor(name: string, args: BuildServiceAgentPoolArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BuildServiceAgentPool is deprecated: azure-native:appplatform/v20221201:BuildServiceAgentPool is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildServiceAgentPool to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

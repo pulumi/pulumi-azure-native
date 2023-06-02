@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+ *
+ * @deprecated azure-native:network/v20180901:PrivateRecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateRecordSet to guarantee forwards compatibility.
  */
 export class PrivateRecordSet extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class PrivateRecordSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateRecordSet {
+        pulumi.log.warn("PrivateRecordSet is deprecated: azure-native:network/v20180901:PrivateRecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateRecordSet to guarantee forwards compatibility.")
         return new PrivateRecordSet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -105,7 +108,9 @@ export class PrivateRecordSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:network/v20180901:PrivateRecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateRecordSet to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateRecordSetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PrivateRecordSet is deprecated: azure-native:network/v20180901:PrivateRecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateRecordSet to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

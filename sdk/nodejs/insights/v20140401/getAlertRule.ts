@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a classic metric alert rule
  */
-/** @deprecated Version 2014-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2014-04-01 will be removed in v2 of the provider.
+azure-native:insights/v20140401:AlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20160301:AlertRule to guarantee forwards compatibility. */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
-    pulumi.log.warn("getAlertRule is deprecated: Version 2014-04-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getAlertRule is deprecated: Version 2014-04-01 will be removed in v2 of the provider.\nazure-native:insights/v20140401:AlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20160301:AlertRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20140401:getAlertRule", {
@@ -88,7 +89,8 @@ export interface GetAlertRuleResult {
 /**
  * Gets a classic metric alert rule
  */
-/** @deprecated Version 2014-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2014-04-01 will be removed in v2 of the provider.
+azure-native:insights/v20140401:AlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20160301:AlertRule to guarantee forwards compatibility. */
 export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getAlertRule(a, opts))
 }

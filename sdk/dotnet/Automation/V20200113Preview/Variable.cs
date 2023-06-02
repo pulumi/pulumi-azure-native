@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
     /// <summary>
     /// Definition of the variable.
     /// </summary>
+    [Obsolete(@"azure-native:automation/v20200113preview:Variable is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Variable to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automation/v20200113preview:Variable")]
     public partial class Variable : global::Pulumi.CustomResource
     {

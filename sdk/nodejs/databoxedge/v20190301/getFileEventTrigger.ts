@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a specific trigger by name.
  */
+/** @deprecated azure-native:databoxedge/v20190301:FileEventTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility. */
 export function getFileEventTrigger(args: GetFileEventTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetFileEventTriggerResult> {
+    pulumi.log.warn("getFileEventTrigger is deprecated: azure-native:databoxedge/v20190301:FileEventTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20190301:getFileEventTrigger", {
@@ -72,6 +74,7 @@ export interface GetFileEventTriggerResult {
 /**
  * Get a specific trigger by name.
  */
+/** @deprecated azure-native:databoxedge/v20190301:FileEventTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility. */
 export function getFileEventTriggerOutput(args: GetFileEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileEventTriggerResult> {
     return pulumi.output(args).apply((a: any) => getFileEventTrigger(a, opts))
 }

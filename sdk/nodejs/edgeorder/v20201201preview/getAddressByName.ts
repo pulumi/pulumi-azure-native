@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified address.
  */
-/** @deprecated Version 2020-12-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-12-01-preview will be removed in v2 of the provider.
+azure-native:edgeorder/v20201201preview:AddressByName is being removed in the next major version of this provider. Upgrade to at least azure-native:edgeorder/v20211201:AddressByName to guarantee forwards compatibility. */
 export function getAddressByName(args: GetAddressByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAddressByNameResult> {
-    pulumi.log.warn("getAddressByName is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getAddressByName is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.\nazure-native:edgeorder/v20201201preview:AddressByName is being removed in the next major version of this provider. Upgrade to at least azure-native:edgeorder/v20211201:AddressByName to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:edgeorder/v20201201preview:getAddressByName", {
@@ -72,7 +73,8 @@ export interface GetAddressByNameResult {
 /**
  * Gets information about the specified address.
  */
-/** @deprecated Version 2020-12-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-12-01-preview will be removed in v2 of the provider.
+azure-native:edgeorder/v20201201preview:AddressByName is being removed in the next major version of this provider. Upgrade to at least azure-native:edgeorder/v20211201:AddressByName to guarantee forwards compatibility. */
 export function getAddressByNameOutput(args: GetAddressByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddressByNameResult> {
     return pulumi.output(args).apply((a: any) => getAddressByName(a, opts))
 }

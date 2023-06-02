@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.NetworkFunction.V20220801
     /// <summary>
     /// Collector policy resource.
     /// </summary>
+    [Obsolete(@"azure-native:networkfunction/v20220801:CollectorPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:networkfunction/v20221101:CollectorPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:networkfunction/v20220801:CollectorPolicy")]
     public partial class CollectorPolicy : global::Pulumi.CustomResource
     {

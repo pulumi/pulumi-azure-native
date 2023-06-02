@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerService.V20221101
     /// <summary>
     /// A node pool snapshot resource.
     /// </summary>
+    [Obsolete(@"azure-native:containerservice/v20221101:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:Snapshot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerservice/v20221101:Snapshot")]
     public partial class Snapshot : global::Pulumi.CustomResource
     {

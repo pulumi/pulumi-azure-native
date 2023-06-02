@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of maintenance configurations by managed cluster and resource group.
  */
+/** @deprecated azure-native:containerservice/v20210201:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:MaintenanceConfiguration to guarantee forwards compatibility. */
 export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceConfigurationResult> {
+    pulumi.log.warn("getMaintenanceConfiguration is deprecated: azure-native:containerservice/v20210201:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:MaintenanceConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20210201:getMaintenanceConfiguration", {
@@ -67,6 +69,7 @@ export interface GetMaintenanceConfigurationResult {
 /**
  * Gets the details of maintenance configurations by managed cluster and resource group.
  */
+/** @deprecated azure-native:containerservice/v20210201:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:MaintenanceConfiguration to guarantee forwards compatibility. */
 export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getMaintenanceConfiguration(a, opts))
 }

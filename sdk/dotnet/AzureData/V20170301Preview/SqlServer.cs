@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
     /// <summary>
     /// A SQL server.
     /// </summary>
-    [Obsolete(@"Version 2017-03-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-03-01-preview will be removed in v2 of the provider.
+azure-native:azuredata/v20170301preview:SqlServer is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azuredata/v20170301preview:SqlServer")]
     public partial class SqlServer : global::Pulumi.CustomResource
     {

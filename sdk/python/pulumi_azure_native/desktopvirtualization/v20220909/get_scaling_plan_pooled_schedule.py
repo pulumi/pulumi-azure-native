@@ -17,6 +17,8 @@ __all__ = [
     'get_scaling_plan_pooled_schedule_output',
 ]
 
+warnings.warn("""azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetScalingPlanPooledScheduleResult:
     """
@@ -297,6 +299,7 @@ def get_scaling_plan_pooled_schedule(resource_group_name: Optional[str] = None,
     :param str scaling_plan_name: The name of the scaling plan.
     :param str scaling_plan_schedule_name: The name of the ScalingPlanSchedule
     """
+    pulumi.log.warn("""get_scaling_plan_pooled_schedule is deprecated: azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['scalingPlanName'] = scaling_plan_name
@@ -341,4 +344,5 @@ def get_scaling_plan_pooled_schedule_output(resource_group_name: Optional[pulumi
     :param str scaling_plan_name: The name of the scaling plan.
     :param str scaling_plan_schedule_name: The name of the ScalingPlanSchedule
     """
+    pulumi.log.warn("""get_scaling_plan_pooled_schedule is deprecated: azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule to guarantee forwards compatibility.""")
     ...

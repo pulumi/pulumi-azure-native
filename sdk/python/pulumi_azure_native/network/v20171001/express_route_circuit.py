@@ -277,11 +277,13 @@ class ExpressRouteCircuitArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2017-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-10-01 will be removed in v2 of the provider.
+azure-native:network/v20171001:ExpressRouteCircuit is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20181201:ExpressRouteCircuit to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ExpressRouteCircuit(pulumi.CustomResource):
-    warnings.warn("""Version 2017-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2017-10-01 will be removed in v2 of the provider.
+azure-native:network/v20171001:ExpressRouteCircuit is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20181201:ExpressRouteCircuit to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -367,7 +369,8 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""ExpressRouteCircuit is deprecated: Version 2017-10-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""ExpressRouteCircuit is deprecated: Version 2017-10-01 will be removed in v2 of the provider.
+azure-native:network/v20171001:ExpressRouteCircuit is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20181201:ExpressRouteCircuit to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

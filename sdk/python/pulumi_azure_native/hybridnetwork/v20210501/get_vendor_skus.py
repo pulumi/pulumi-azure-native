@@ -17,6 +17,8 @@ __all__ = [
     'get_vendor_skus_output',
 ]
 
+warnings.warn("""azure-native:hybridnetwork/v20210501:VendorSkus is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:VendorSkus to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVendorSkusResult:
     """
@@ -187,6 +189,7 @@ def get_vendor_skus(sku_name: Optional[str] = None,
     :param str sku_name: The name of the sku.
     :param str vendor_name: The name of the vendor.
     """
+    pulumi.log.warn("""get_vendor_skus is deprecated: azure-native:hybridnetwork/v20210501:VendorSkus is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:VendorSkus to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['skuName'] = sku_name
     __args__['vendorName'] = vendor_name
@@ -219,4 +222,5 @@ def get_vendor_skus_output(sku_name: Optional[pulumi.Input[str]] = None,
     :param str sku_name: The name of the sku.
     :param str vendor_name: The name of the vendor.
     """
+    pulumi.log.warn("""get_vendor_skus is deprecated: azure-native:hybridnetwork/v20210501:VendorSkus is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:VendorSkus to guarantee forwards compatibility.""")
     ...

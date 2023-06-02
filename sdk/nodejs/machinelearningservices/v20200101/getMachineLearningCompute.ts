@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
  */
-/** @deprecated Version 2020-01-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-01-01 will be removed in v2 of the provider.
+azure-native:machinelearningservices/v20200101:MachineLearningCompute is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:MachineLearningCompute to guarantee forwards compatibility. */
 export function getMachineLearningCompute(args: GetMachineLearningComputeArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningComputeResult> {
-    pulumi.log.warn("getMachineLearningCompute is deprecated: Version 2020-01-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getMachineLearningCompute is deprecated: Version 2020-01-01 will be removed in v2 of the provider.\nazure-native:machinelearningservices/v20200101:MachineLearningCompute is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:MachineLearningCompute to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200101:getMachineLearningCompute", {
@@ -77,7 +78,8 @@ export interface GetMachineLearningComputeResult {
 /**
  * Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
  */
-/** @deprecated Version 2020-01-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-01-01 will be removed in v2 of the provider.
+azure-native:machinelearningservices/v20200101:MachineLearningCompute is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:MachineLearningCompute to guarantee forwards compatibility. */
 export function getMachineLearningComputeOutput(args: GetMachineLearningComputeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningComputeResult> {
     return pulumi.output(args).apply((a: any) => getMachineLearningCompute(a, opts))
 }

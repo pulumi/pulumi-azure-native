@@ -119,11 +119,13 @@ class SignalRArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.
+azure-native:signalrservice/v20180301preview:SignalR is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20181001:SignalR to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class SignalR(pulumi.CustomResource):
-    warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.
+azure-native:signalrservice/v20180301preview:SignalR is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20181001:SignalR to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -180,7 +182,8 @@ class SignalR(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""SignalR is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""SignalR is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.
+azure-native:signalrservice/v20180301preview:SignalR is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20181001:SignalR to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

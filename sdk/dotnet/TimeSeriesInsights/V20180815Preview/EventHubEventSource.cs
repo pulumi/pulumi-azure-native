@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
     /// <summary>
     /// An event source that receives its data from an Azure EventHub.
     /// </summary>
+    [Obsolete(@"azure-native:timeseriesinsights/v20180815preview:EventHubEventSource is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:EventHubEventSource to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20180815preview:EventHubEventSource")]
     public partial class EventHubEventSource : global::Pulumi.CustomResource
     {

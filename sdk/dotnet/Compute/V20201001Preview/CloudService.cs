@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview
     /// <summary>
     /// Describes the cloud service.
     /// </summary>
+    [Obsolete(@"azure-native:compute/v20201001preview:CloudService is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220904:CloudService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20201001preview:CloudService")]
     public partial class CloudService : global::Pulumi.CustomResource
     {

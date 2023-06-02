@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StorageSync.V20181001
 {
-    [Obsolete(@"Version 2018-10-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-10-01 will be removed in v2 of the provider.
+azure-native:storagesync/v20181001:SyncGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:SyncGroup to guarantee forwards compatibility.")]
     public static class GetSyncGroup
     {
         /// <summary>

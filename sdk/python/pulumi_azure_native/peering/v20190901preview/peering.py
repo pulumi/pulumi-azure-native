@@ -163,11 +163,13 @@ class PeeringArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2019-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-09-01-preview will be removed in v2 of the provider.
+azure-native:peering/v20190901preview:Peering is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:Peering to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Peering(pulumi.CustomResource):
-    warnings.warn("""Version 2019-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2019-09-01-preview will be removed in v2 of the provider.
+azure-native:peering/v20190901preview:Peering is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:Peering to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -232,7 +234,8 @@ class Peering(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['PeeringSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Peering is deprecated: Version 2019-09-01-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""Peering is deprecated: Version 2019-09-01-preview will be removed in v2 of the provider.
+azure-native:peering/v20190901preview:Peering is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:Peering to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

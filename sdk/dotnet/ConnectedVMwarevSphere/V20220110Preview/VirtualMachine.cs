@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     /// <summary>
     /// Define the virtualMachine.
     /// </summary>
+    [Obsolete(@"azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource
     {

@@ -17,6 +17,8 @@ __all__ = [
     'get_project_output',
 ]
 
+warnings.warn("""azure-native:devcenter/v20221012preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Project to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProjectResult:
     """
@@ -151,6 +153,7 @@ def get_project(project_name: Optional[str] = None,
     :param str project_name: The name of the project.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_project is deprecated: azure-native:devcenter/v20221012preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Project to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
@@ -180,4 +183,5 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: The name of the project.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_project is deprecated: azure-native:devcenter/v20221012preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Project to guarantee forwards compatibility.""")
     ...

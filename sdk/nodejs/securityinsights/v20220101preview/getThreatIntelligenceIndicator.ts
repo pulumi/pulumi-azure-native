@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * View a threat intelligence indicator by name.
  */
+/** @deprecated azure-native:securityinsights/v20220101preview:ThreatIntelligenceIndicator is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ThreatIntelligenceIndicator to guarantee forwards compatibility. */
 export function getThreatIntelligenceIndicator(args: GetThreatIntelligenceIndicatorArgs, opts?: pulumi.InvokeOptions): Promise<GetThreatIntelligenceIndicatorResult> {
+    pulumi.log.warn("getThreatIntelligenceIndicator is deprecated: azure-native:securityinsights/v20220101preview:ThreatIntelligenceIndicator is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ThreatIntelligenceIndicator to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220101preview:getThreatIntelligenceIndicator", {
@@ -67,6 +69,7 @@ export interface GetThreatIntelligenceIndicatorResult {
 /**
  * View a threat intelligence indicator by name.
  */
+/** @deprecated azure-native:securityinsights/v20220101preview:ThreatIntelligenceIndicator is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ThreatIntelligenceIndicator to guarantee forwards compatibility. */
 export function getThreatIntelligenceIndicatorOutput(args: GetThreatIntelligenceIndicatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelligenceIndicatorResult> {
     return pulumi.output(args).apply((a: any) => getThreatIntelligenceIndicator(a, opts))
 }

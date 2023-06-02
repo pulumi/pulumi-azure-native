@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220501
     /// <summary>
     /// Network profile resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20220501:NetworkProfile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkProfile to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220501:NetworkProfile")]
     public partial class NetworkProfile : global::Pulumi.CustomResource
     {

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Geo backup policy for the given database resource.
  */
+/** @deprecated azure-native:sql/v20220501preview:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:GeoBackupPolicy to guarantee forwards compatibility. */
 export function getGeoBackupPolicy(args: GetGeoBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGeoBackupPolicyResult> {
+    pulumi.log.warn("getGeoBackupPolicy is deprecated: azure-native:sql/v20220501preview:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:GeoBackupPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20220501preview:getGeoBackupPolicy", {
@@ -73,6 +75,7 @@ export interface GetGeoBackupPolicyResult {
 /**
  * Gets a Geo backup policy for the given database resource.
  */
+/** @deprecated azure-native:sql/v20220501preview:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:GeoBackupPolicy to guarantee forwards compatibility. */
 export function getGeoBackupPolicyOutput(args: GetGeoBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeoBackupPolicyResult> {
     return pulumi.output(args).apply((a: any) => getGeoBackupPolicy(a, opts))
 }

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
+    [Obsolete(@"azure-native:servicebus/v20180101preview:TopicAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:TopicAuthorizationRule to guarantee forwards compatibility.")]
     public static class GetTopicAuthorizationRule
     {
         /// <summary>

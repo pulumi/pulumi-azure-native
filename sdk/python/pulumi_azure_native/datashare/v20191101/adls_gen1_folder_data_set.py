@@ -142,7 +142,12 @@ class ADLSGen1FolderDataSetArgs:
         pulumi.set(self, "data_set_name", value)
 
 
+warnings.warn("""azure-native:datashare/v20191101:ADLSGen1FolderDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen1FolderDataSet to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ADLSGen1FolderDataSet(pulumi.CustomResource):
+    warnings.warn("""azure-native:datashare/v20191101:ADLSGen1FolderDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen1FolderDataSet to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -204,6 +209,7 @@ class ADLSGen1FolderDataSet(pulumi.CustomResource):
                  share_name: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ADLSGen1FolderDataSet is deprecated: azure-native:datashare/v20191101:ADLSGen1FolderDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen1FolderDataSet to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
     /// <summary>
     /// NamedValue details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20191201:NamedValue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:NamedValue to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20191201:NamedValue")]
     public partial class NamedValue : global::Pulumi.CustomResource
     {

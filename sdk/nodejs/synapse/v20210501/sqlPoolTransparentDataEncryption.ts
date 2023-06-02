@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Sql pool transparent data encryption configuration.
+ *
+ * @deprecated azure-native:synapse/v20210501:SqlPoolTransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption to guarantee forwards compatibility.
  */
 export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlPoolTransparentDataEncryption {
+        pulumi.log.warn("SqlPoolTransparentDataEncryption is deprecated: azure-native:synapse/v20210501:SqlPoolTransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption to guarantee forwards compatibility.")
         return new SqlPoolTransparentDataEncryption(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,7 +64,9 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:synapse/v20210501:SqlPoolTransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption to guarantee forwards compatibility. */
     constructor(name: string, args: SqlPoolTransparentDataEncryptionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SqlPoolTransparentDataEncryption is deprecated: azure-native:synapse/v20210501:SqlPoolTransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

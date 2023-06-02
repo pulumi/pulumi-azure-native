@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
     /// <summary>
     /// The description of the service.
     /// </summary>
+    [Obsolete(@"azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForEDMUpload to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload")]
     public partial class PrivateLinkServicesForEDMUpload : global::Pulumi.CustomResource
     {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
 {
+    [Obsolete(@"azure-native:appplatform/v20220501preview:MonitoringSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:MonitoringSetting to guarantee forwards compatibility.")]
     public static class GetMonitoringSetting
     {
         /// <summary>

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a server.
  */
+/** @deprecated azure-native:dbformysql/v20210501:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20220101:Server to guarantee forwards compatibility. */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
+    pulumi.log.warn("getServer is deprecated: azure-native:dbformysql/v20210501:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20220101:Server to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbformysql/v20210501:getServer", {
@@ -126,6 +128,7 @@ export interface GetServerResult {
 /**
  * Gets information about a server.
  */
+/** @deprecated azure-native:dbformysql/v20210501:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20220101:Server to guarantee forwards compatibility. */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))
 }

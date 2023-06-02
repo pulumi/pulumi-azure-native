@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
     /// <summary>
     /// Contract details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20180101:TagDescription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20180601preview:TagDescription to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20180101:TagDescription")]
     public partial class TagDescription : global::Pulumi.CustomResource
     {

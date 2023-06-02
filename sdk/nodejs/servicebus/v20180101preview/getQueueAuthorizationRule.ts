@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an authorization rule for a queue by rule name.
  */
+/** @deprecated azure-native:servicebus/v20180101preview:QueueAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:QueueAuthorizationRule to guarantee forwards compatibility. */
 export function getQueueAuthorizationRule(args: GetQueueAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueAuthorizationRuleResult> {
+    pulumi.log.warn("getQueueAuthorizationRule is deprecated: azure-native:servicebus/v20180101preview:QueueAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:QueueAuthorizationRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20180101preview:getQueueAuthorizationRule", {
@@ -61,6 +63,7 @@ export interface GetQueueAuthorizationRuleResult {
 /**
  * Gets an authorization rule for a queue by rule name.
  */
+/** @deprecated azure-native:servicebus/v20180101preview:QueueAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:QueueAuthorizationRule to guarantee forwards compatibility. */
 export function getQueueAuthorizationRuleOutput(args: GetQueueAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getQueueAuthorizationRule(a, opts))
 }

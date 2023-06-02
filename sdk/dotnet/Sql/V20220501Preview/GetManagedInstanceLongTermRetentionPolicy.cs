@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20220501Preview
 {
+    [Obsolete(@"azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy to guarantee forwards compatibility.")]
     public static class GetManagedInstanceLongTermRetentionPolicy
     {
         /// <summary>

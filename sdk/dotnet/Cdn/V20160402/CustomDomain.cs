@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Cdn.V20160402
     /// <summary>
     /// CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
     /// </summary>
-    [Obsolete(@"Version 2016-04-02 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2016-04-02 will be removed in v2 of the provider.
+azure-native:cdn/v20160402:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20161002:CustomDomain to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20160402:CustomDomain")]
     public partial class CustomDomain : global::Pulumi.CustomResource
     {

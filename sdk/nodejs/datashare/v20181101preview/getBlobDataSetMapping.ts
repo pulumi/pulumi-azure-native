@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a DataSetMapping in a shareSubscription
  */
+/** @deprecated azure-native:datashare/v20181101preview:BlobDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:BlobDataSetMapping to guarantee forwards compatibility. */
 export function getBlobDataSetMapping(args: GetBlobDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobDataSetMappingResult> {
+    pulumi.log.warn("getBlobDataSetMapping is deprecated: azure-native:datashare/v20181101preview:BlobDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:BlobDataSetMapping to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20181101preview:getBlobDataSetMapping", {
@@ -98,6 +100,7 @@ export interface GetBlobDataSetMappingResult {
 /**
  * Get a DataSetMapping in a shareSubscription
  */
+/** @deprecated azure-native:datashare/v20181101preview:BlobDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:BlobDataSetMapping to guarantee forwards compatibility. */
 export function getBlobDataSetMappingOutput(args: GetBlobDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getBlobDataSetMapping(a, opts))
 }

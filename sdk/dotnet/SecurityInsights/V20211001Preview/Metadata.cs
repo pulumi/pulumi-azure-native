@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
     /// <summary>
     /// Metadata resource definition.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20211001preview:Metadata is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201preview:Metadata to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20211001preview:Metadata")]
     public partial class Metadata : global::Pulumi.CustomResource
     {
@@ -152,7 +153,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:Metadata"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:Metadata"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:Metadata"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:Metadata"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

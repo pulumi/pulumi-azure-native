@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
  */
+/** @deprecated azure-native:management/v20201001:HierarchySetting is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:HierarchySetting to guarantee forwards compatibility. */
 export function getHierarchySetting(args: GetHierarchySettingArgs, opts?: pulumi.InvokeOptions): Promise<GetHierarchySettingResult> {
+    pulumi.log.warn("getHierarchySetting is deprecated: azure-native:management/v20201001:HierarchySetting is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:HierarchySetting to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:management/v20201001:getHierarchySetting", {
@@ -54,6 +56,7 @@ export interface GetHierarchySettingResult {
 /**
  * Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
  */
+/** @deprecated azure-native:management/v20201001:HierarchySetting is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:HierarchySetting to guarantee forwards compatibility. */
 export function getHierarchySettingOutput(args: GetHierarchySettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHierarchySettingResult> {
     return pulumi.output(args).apply((a: any) => getHierarchySetting(a, opts))
 }

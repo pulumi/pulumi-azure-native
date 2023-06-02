@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Relay.V20160701
 {
-    [Obsolete(@"Version 2016-07-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2016-07-01 will be removed in v2 of the provider.
+azure-native:relay/v20160701:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20170401:NamespaceAuthorizationRule to guarantee forwards compatibility.")]
     public static class GetNamespaceAuthorizationRule
     {
         /// <summary>

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The service tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a service task.
  */
+/** @deprecated azure-native:datamigration/v20180715preview:ServiceTask is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:ServiceTask to guarantee forwards compatibility. */
 export function getServiceTask(args: GetServiceTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTaskResult> {
+    pulumi.log.warn("getServiceTask is deprecated: azure-native:datamigration/v20180715preview:ServiceTask is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:ServiceTask to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20180715preview:getServiceTask", {
@@ -68,6 +70,7 @@ export interface GetServiceTaskResult {
 /**
  * The service tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a service task.
  */
+/** @deprecated azure-native:datamigration/v20180715preview:ServiceTask is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:ServiceTask to guarantee forwards compatibility. */
 export function getServiceTaskOutput(args: GetServiceTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTaskResult> {
     return pulumi.output(args).apply((a: any) => getServiceTask(a, opts))
 }

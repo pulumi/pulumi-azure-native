@@ -17,6 +17,8 @@ __all__ = [
     'get_object_replication_policy_output',
 ]
 
+warnings.warn("""azure-native:storage/v20220501:ObjectReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetObjectReplicationPolicyResult:
     """
@@ -141,6 +143,7 @@ def get_object_replication_policy(account_name: Optional[str] = None,
     :param str object_replication_policy_id: For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("""get_object_replication_policy is deprecated: azure-native:storage/v20220501:ObjectReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['objectReplicationPolicyId'] = object_replication_policy_id
@@ -172,4 +175,5 @@ def get_object_replication_policy_output(account_name: Optional[pulumi.Input[str
     :param str object_replication_policy_id: For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("""get_object_replication_policy is deprecated: azure-native:storage/v20220501:ObjectReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility.""")
     ...

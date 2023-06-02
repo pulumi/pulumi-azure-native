@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Resources.V20210101
 {
+    [Obsolete(@"azure-native:resources/v20210101:ResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:ResourceGroup to guarantee forwards compatibility.")]
     public static class GetResourceGroup
     {
         /// <summary>

@@ -147,7 +147,12 @@ class ImportPipelineArgs:
         pulumi.set(self, "trigger", value)
 
 
+warnings.warn("""azure-native:containerregistry/v20220201preview:ImportPipeline is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ImportPipeline to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ImportPipeline(pulumi.CustomResource):
+    warnings.warn("""azure-native:containerregistry/v20220201preview:ImportPipeline is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ImportPipeline to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -208,6 +213,7 @@ class ImportPipeline(pulumi.CustomResource):
                  source: Optional[pulumi.Input[pulumi.InputType['ImportPipelineSourcePropertiesArgs']]] = None,
                  trigger: Optional[pulumi.Input[pulumi.InputType['PipelineTriggerPropertiesArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""ImportPipeline is deprecated: azure-native:containerregistry/v20220201preview:ImportPipeline is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ImportPipeline to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

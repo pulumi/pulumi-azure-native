@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+ *
+ * @deprecated azure-native:compute/v20211101:DedicatedHostGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.
  */
 export class DedicatedHostGroup extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DedicatedHostGroup {
+        pulumi.log.warn("DedicatedHostGroup is deprecated: azure-native:compute/v20211101:DedicatedHostGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.")
         return new DedicatedHostGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -81,7 +84,9 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:compute/v20211101:DedicatedHostGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility. */
     constructor(name: string, args: DedicatedHostGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DedicatedHostGroup is deprecated: azure-native:compute/v20211101:DedicatedHostGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201
 {
+    [Obsolete(@"azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener to guarantee forwards compatibility.")]
     public static class GetAvailabilityGroupListener
     {
         /// <summary>

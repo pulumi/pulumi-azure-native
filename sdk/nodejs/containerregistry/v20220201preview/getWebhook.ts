@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified webhook.
  */
+/** @deprecated azure-native:containerregistry/v20220201preview:Webhook is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Webhook to guarantee forwards compatibility. */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
+    pulumi.log.warn("getWebhook is deprecated: azure-native:containerregistry/v20220201preview:Webhook is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Webhook to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20220201preview:getWebhook", {
@@ -83,6 +85,7 @@ export interface GetWebhookResult {
 /**
  * Gets the properties of the specified webhook.
  */
+/** @deprecated azure-native:containerregistry/v20220201preview:Webhook is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Webhook to guarantee forwards compatibility. */
 export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
     return pulumi.output(args).apply((a: any) => getWebhook(a, opts))
 }

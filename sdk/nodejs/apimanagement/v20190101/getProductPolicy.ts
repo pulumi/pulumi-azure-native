@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the policy configuration at the Product level.
  */
+/** @deprecated azure-native:apimanagement/v20190101:ProductPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ProductPolicy to guarantee forwards compatibility. */
 export function getProductPolicy(args: GetProductPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProductPolicyResult> {
+    pulumi.log.warn("getProductPolicy is deprecated: azure-native:apimanagement/v20190101:ProductPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ProductPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20190101:getProductPolicy", {
@@ -70,6 +72,7 @@ export interface GetProductPolicyResult {
 /**
  * Get the policy configuration at the Product level.
  */
+/** @deprecated azure-native:apimanagement/v20190101:ProductPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ProductPolicy to guarantee forwards compatibility. */
 export function getProductPolicyOutput(args: GetProductPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductPolicyResult> {
     return pulumi.output(args).apply((a: any) => getProductPolicy(a, opts))
 }

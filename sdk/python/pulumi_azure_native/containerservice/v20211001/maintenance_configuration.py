@@ -100,7 +100,12 @@ class MaintenanceConfigurationArgs:
         pulumi.set(self, "time_in_week", value)
 
 
+warnings.warn("""azure-native:containerservice/v20211001:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:MaintenanceConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class MaintenanceConfiguration(pulumi.CustomResource):
+    warnings.warn("""azure-native:containerservice/v20211001:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:MaintenanceConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -152,6 +157,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeInWeekArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""MaintenanceConfiguration is deprecated: azure-native:containerservice/v20211001:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:MaintenanceConfiguration to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

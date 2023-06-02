@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a DataSet in a share
  */
+/** @deprecated azure-native:datashare/v20191101:ADLSGen1FileDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen1FileDataSet to guarantee forwards compatibility. */
 export function getADLSGen1FileDataSet(args: GetADLSGen1FileDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen1FileDataSetResult> {
+    pulumi.log.warn("getADLSGen1FileDataSet is deprecated: azure-native:datashare/v20191101:ADLSGen1FileDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen1FileDataSet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20191101:getADLSGen1FileDataSet", {
@@ -86,6 +88,7 @@ export interface GetADLSGen1FileDataSetResult {
 /**
  * Get a DataSet in a share
  */
+/** @deprecated azure-native:datashare/v20191101:ADLSGen1FileDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen1FileDataSet to guarantee forwards compatibility. */
 export function getADLSGen1FileDataSetOutput(args: GetADLSGen1FileDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen1FileDataSetResult> {
     return pulumi.output(args).apply((a: any) => getADLSGen1FileDataSet(a, opts))
 }

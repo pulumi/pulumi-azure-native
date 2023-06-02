@@ -17,6 +17,8 @@ __all__ = [
     'get_iot_connector_fhir_destination_output',
 ]
 
+warnings.warn("""azure-native:healthcareapis/v20220601:IotConnectorFhirDestination is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:IotConnectorFhirDestination to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIotConnectorFhirDestinationResult:
     """
@@ -155,6 +157,7 @@ def get_iot_connector_fhir_destination(fhir_destination_name: Optional[str] = No
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str workspace_name: The name of workspace resource.
     """
+    pulumi.log.warn("""get_iot_connector_fhir_destination is deprecated: azure-native:healthcareapis/v20220601:IotConnectorFhirDestination is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:IotConnectorFhirDestination to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['fhirDestinationName'] = fhir_destination_name
     __args__['iotConnectorName'] = iot_connector_name
@@ -190,4 +193,5 @@ def get_iot_connector_fhir_destination_output(fhir_destination_name: Optional[pu
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str workspace_name: The name of workspace resource.
     """
+    pulumi.log.warn("""get_iot_connector_fhir_destination is deprecated: azure-native:healthcareapis/v20220601:IotConnectorFhirDestination is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:IotConnectorFhirDestination to guarantee forwards compatibility.""")
     ...

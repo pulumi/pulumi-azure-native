@@ -115,7 +115,12 @@ class MSTIDataConnectorArgs:
         pulumi.set(self, "data_connector_id", value)
 
 
+warnings.warn("""azure-native:securityinsights/v20220501preview:MSTIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MSTIDataConnector to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class MSTIDataConnector(pulumi.CustomResource):
+    warnings.warn("""azure-native:securityinsights/v20220501preview:MSTIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MSTIDataConnector to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -171,6 +176,7 @@ class MSTIDataConnector(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""MSTIDataConnector is deprecated: azure-native:securityinsights/v20220501preview:MSTIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MSTIDataConnector to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -199,7 +205,7 @@ class MSTIDataConnector(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:MSTIDataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:MSTIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:MSTIDataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MSTIDataConnector, __self__).__init__(
             'azure-native:securityinsights/v20220501preview:MSTIDataConnector',

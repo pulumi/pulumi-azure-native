@@ -17,6 +17,8 @@ __all__ = [
     'get_live_output_output',
 ]
 
+warnings.warn("""azure-native:media/v20220801:LiveOutput is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20221101:LiveOutput to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLiveOutputResult:
     """
@@ -227,6 +229,7 @@ def get_live_output(account_name: Optional[str] = None,
     :param str live_output_name: The name of the live output.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_live_output is deprecated: azure-native:media/v20220801:LiveOutput is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20221101:LiveOutput to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['liveEventName'] = live_event_name
@@ -268,4 +271,5 @@ def get_live_output_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str live_output_name: The name of the live output.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_live_output is deprecated: azure-native:media/v20220801:LiveOutput is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20221101:LiveOutput to guarantee forwards compatibility.""")
     ...

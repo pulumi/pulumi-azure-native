@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get a domain.
  */
-/** @deprecated Version 2015-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2015-04-01 will be removed in v2 of the provider.
+azure-native:domainregistration/v20150401:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20201001:Domain to guarantee forwards compatibility. */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    pulumi.log.warn("getDomain is deprecated: Version 2015-04-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getDomain is deprecated: Version 2015-04-01 will be removed in v2 of the provider.\nazure-native:domainregistration/v20150401:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20201001:Domain to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:domainregistration/v20150401:getDomain", {
@@ -122,7 +123,8 @@ export interface GetDomainResult {
 /**
  * Get a domain.
  */
-/** @deprecated Version 2015-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2015-04-01 will be removed in v2 of the provider.
+azure-native:domainregistration/v20150401:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20201001:Domain to guarantee forwards compatibility. */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply((a: any) => getDomain(a, opts))
 }

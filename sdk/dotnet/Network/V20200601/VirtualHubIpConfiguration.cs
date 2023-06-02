@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20200601
     /// <summary>
     /// IpConfigurations.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20200601:VirtualHubIpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubIpConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20200601:VirtualHubIpConfiguration")]
     public partial class VirtualHubIpConfiguration : global::Pulumi.CustomResource
     {

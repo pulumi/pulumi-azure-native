@@ -17,6 +17,8 @@ __all__ = [
     'get_static_site_private_endpoint_connection_output',
 ]
 
+warnings.warn("""azure-native:web/v20210201:StaticSitePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSitePrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStaticSitePrivateEndpointConnectionResult:
     """
@@ -138,6 +140,7 @@ def get_static_site_private_endpoint_connection(name: Optional[str] = None,
     :param str private_endpoint_connection_name: Name of the private endpoint connection.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_static_site_private_endpoint_connection is deprecated: azure-native:web/v20210201:StaticSitePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSitePrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
@@ -169,4 +172,5 @@ def get_static_site_private_endpoint_connection_output(name: Optional[pulumi.Inp
     :param str private_endpoint_connection_name: Name of the private endpoint connection.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_static_site_private_endpoint_connection is deprecated: azure-native:web/v20210201:StaticSitePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSitePrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

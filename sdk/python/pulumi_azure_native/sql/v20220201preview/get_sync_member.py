@@ -16,6 +16,8 @@ __all__ = [
     'get_sync_member_output',
 ]
 
+warnings.warn("""azure-native:sql/v20220201preview:SyncMember is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SyncMember to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSyncMemberResult:
     """
@@ -216,6 +218,7 @@ def get_sync_member(database_name: Optional[str] = None,
     :param str sync_group_name: The name of the sync group on which the sync member is hosted.
     :param str sync_member_name: The name of the sync member.
     """
+    pulumi.log.warn("""get_sync_member is deprecated: azure-native:sql/v20220201preview:SyncMember is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SyncMember to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
@@ -259,4 +262,5 @@ def get_sync_member_output(database_name: Optional[pulumi.Input[str]] = None,
     :param str sync_group_name: The name of the sync group on which the sync member is hosted.
     :param str sync_member_name: The name of the sync member.
     """
+    pulumi.log.warn("""get_sync_member is deprecated: azure-native:sql/v20220201preview:SyncMember is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SyncMember to guarantee forwards compatibility.""")
     ...

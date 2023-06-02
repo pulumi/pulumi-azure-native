@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get information about a virtual machine image template
  */
-/** @deprecated Version 2019-02-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-02-01-preview will be removed in v2 of the provider.
+azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate to guarantee forwards compatibility. */
 export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineImageTemplateResult> {
-    pulumi.log.warn("getVirtualMachineImageTemplate is deprecated: Version 2019-02-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getVirtualMachineImageTemplate is deprecated: Version 2019-02-01-preview will be removed in v2 of the provider.\nazure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:virtualmachineimages/v20190201preview:getVirtualMachineImageTemplate", {
@@ -81,7 +82,8 @@ export interface GetVirtualMachineImageTemplateResult {
 /**
  * Get information about a virtual machine image template
  */
-/** @deprecated Version 2019-02-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-02-01-preview will be removed in v2 of the provider.
+azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate to guarantee forwards compatibility. */
 export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineImageTemplate(a, opts))
 }

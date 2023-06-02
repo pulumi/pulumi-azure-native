@@ -248,7 +248,12 @@ class FluxConfigurationArgs:
         pulumi.set(self, "suspend", value)
 
 
+warnings.warn("""azure-native:kubernetesconfiguration/v20220701:FluxConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20221101:FluxConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class FluxConfiguration(pulumi.CustomResource):
+    warnings.warn("""azure-native:kubernetesconfiguration/v20220701:FluxConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20221101:FluxConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -327,6 +332,7 @@ class FluxConfiguration(pulumi.CustomResource):
                  source_kind: Optional[pulumi.Input[Union[str, 'SourceKindType']]] = None,
                  suspend: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
+        pulumi.log.warn("""FluxConfiguration is deprecated: azure-native:kubernetesconfiguration/v20220701:FluxConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20221101:FluxConfiguration to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

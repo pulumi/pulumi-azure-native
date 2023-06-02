@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents ASC (Azure Security Center) data connector.
+ *
+ * @deprecated azure-native:securityinsights/v20211001preview:ASCDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ASCDataConnector to guarantee forwards compatibility.
  */
 export class ASCDataConnector extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ASCDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ASCDataConnector {
+        pulumi.log.warn("ASCDataConnector is deprecated: azure-native:securityinsights/v20211001preview:ASCDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ASCDataConnector to guarantee forwards compatibility.")
         return new ASCDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,7 +77,9 @@ export class ASCDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20211001preview:ASCDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ASCDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: ASCDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ASCDataConnector is deprecated: azure-native:securityinsights/v20211001preview:ASCDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ASCDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -107,7 +112,7 @@ export class ASCDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ASCDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20200101:ASCDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20211001:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220801:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221101:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230201:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:ASCDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ASCDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20200101:ASCDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20211001:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220801:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221101:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230201:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:ASCDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ASCDataConnector.__pulumiType, name, resourceInputs, opts);
     }

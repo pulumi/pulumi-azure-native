@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a specific role by name.
  */
+/** @deprecated azure-native:databoxedge/v20200901:KubernetesRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility. */
 export function getKubernetesRole(args: GetKubernetesRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesRoleResult> {
+    pulumi.log.warn("getKubernetesRole is deprecated: azure-native:databoxedge/v20200901:KubernetesRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20200901:getKubernetesRole", {
@@ -88,6 +90,7 @@ export interface GetKubernetesRoleResult {
 /**
  * Gets a specific role by name.
  */
+/** @deprecated azure-native:databoxedge/v20200901:KubernetesRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility. */
 export function getKubernetesRoleOutput(args: GetKubernetesRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesRoleResult> {
     return pulumi.output(args).apply((a: any) => getKubernetesRole(a, opts))
 }

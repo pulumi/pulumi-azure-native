@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified public IP prefix in a specified resource group.
  */
+/** @deprecated azure-native:network/v20190901:PublicIPPrefix is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:PublicIPPrefix to guarantee forwards compatibility. */
 export function getPublicIPPrefix(args: GetPublicIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPPrefixResult> {
+    pulumi.log.warn("getPublicIPPrefix is deprecated: azure-native:network/v20190901:PublicIPPrefix is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:PublicIPPrefix to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190901:getPublicIPPrefix", {
@@ -107,6 +109,7 @@ export interface GetPublicIPPrefixResult {
 /**
  * Gets the specified public IP prefix in a specified resource group.
  */
+/** @deprecated azure-native:network/v20190901:PublicIPPrefix is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:PublicIPPrefix to guarantee forwards compatibility. */
 export function getPublicIPPrefixOutput(args: GetPublicIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPPrefixResult> {
     return pulumi.output(args).apply((a: any) => getPublicIPPrefix(a, opts))
 }

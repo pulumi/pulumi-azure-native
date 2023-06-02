@@ -16,6 +16,8 @@ __all__ = [
     'get_credential_output',
 ]
 
+warnings.warn("""azure-native:automation/v20200113preview:Credential is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Credential to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCredentialResult:
     """
@@ -128,6 +130,7 @@ def get_credential(automation_account_name: Optional[str] = None,
     :param str credential_name: The name of credential.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_credential is deprecated: azure-native:automation/v20200113preview:Credential is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Credential to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['credentialName'] = credential_name
@@ -158,4 +161,5 @@ def get_credential_output(automation_account_name: Optional[pulumi.Input[str]] =
     :param str credential_name: The name of credential.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_credential is deprecated: azure-native:automation/v20200113preview:Credential is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Credential to guarantee forwards compatibility.""")
     ...

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20170301
 {
+    [Obsolete(@"azure-native:apimanagement/v20170301:ApiPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20180601preview:ApiPolicy to guarantee forwards compatibility.")]
     public static class GetApiPolicy
     {
         /// <summary>

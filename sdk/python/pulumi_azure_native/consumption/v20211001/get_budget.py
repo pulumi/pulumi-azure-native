@@ -17,6 +17,8 @@ __all__ = [
     'get_budget_output',
 ]
 
+warnings.warn("""azure-native:consumption/v20211001:Budget is being removed in the next major version of this provider. Upgrade to at least azure-native:consumption/v20220901:Budget to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBudgetResult:
     """
@@ -187,6 +189,7 @@ def get_budget(budget_name: Optional[str] = None,
     :param str budget_name: Budget Name.
     :param str scope: The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
     """
+    pulumi.log.warn("""get_budget is deprecated: azure-native:consumption/v20211001:Budget is being removed in the next major version of this provider. Upgrade to at least azure-native:consumption/v20220901:Budget to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['budgetName'] = budget_name
     __args__['scope'] = scope
@@ -219,4 +222,5 @@ def get_budget_output(budget_name: Optional[pulumi.Input[str]] = None,
     :param str budget_name: Budget Name.
     :param str scope: The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
     """
+    pulumi.log.warn("""get_budget is deprecated: azure-native:consumption/v20211001:Budget is being removed in the next major version of this provider. Upgrade to at least azure-native:consumption/v20220901:Budget to guarantee forwards compatibility.""")
     ...

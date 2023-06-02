@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Container App.
+ *
+ * @deprecated azure-native:web/v20210301:ContainerApp is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:ContainerApp to guarantee forwards compatibility.
  */
 export class ContainerApp extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ContainerApp extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ContainerApp {
+        pulumi.log.warn("ContainerApp is deprecated: azure-native:web/v20210301:ContainerApp is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:ContainerApp to guarantee forwards compatibility.")
         return new ContainerApp(name, undefined as any, { ...opts, id: id });
     }
 
@@ -89,7 +92,9 @@ export class ContainerApp extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:web/v20210301:ContainerApp is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:ContainerApp to guarantee forwards compatibility. */
     constructor(name: string, args: ContainerAppArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ContainerApp is deprecated: azure-native:web/v20210301:ContainerApp is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:ContainerApp to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

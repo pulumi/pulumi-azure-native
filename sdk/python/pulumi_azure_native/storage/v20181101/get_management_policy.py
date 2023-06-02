@@ -17,7 +17,8 @@ __all__ = [
     'get_management_policy_output',
 ]
 
-warnings.warn("""Version 2018-11-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-11-01 will be removed in v2 of the provider.
+azure-native:storage/v20181101:ManagementPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ManagementPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetManagementPolicyResult:
@@ -107,7 +108,8 @@ def get_management_policy(account_name: Optional[str] = None,
     :param str management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_management_policy is deprecated: Version 2018-11-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_management_policy is deprecated: Version 2018-11-01 will be removed in v2 of the provider.
+azure-native:storage/v20181101:ManagementPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ManagementPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['managementPolicyName'] = management_policy_name
@@ -136,5 +138,6 @@ def get_management_policy_output(account_name: Optional[pulumi.Input[str]] = Non
     :param str management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_management_policy is deprecated: Version 2018-11-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_management_policy is deprecated: Version 2018-11-01 will be removed in v2 of the provider.
+azure-native:storage/v20181101:ManagementPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ManagementPolicy to guarantee forwards compatibility.""")
     ...

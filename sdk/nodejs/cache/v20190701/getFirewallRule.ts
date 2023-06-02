@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a single firewall rule in a specified redis cache.
  */
-/** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-07-01 will be removed in v2 of the provider.
+azure-native:cache/v20190701:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility. */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
-    pulumi.log.warn("getFirewallRule is deprecated: Version 2019-07-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getFirewallRule is deprecated: Version 2019-07-01 will be removed in v2 of the provider.\nazure-native:cache/v20190701:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20190701:getFirewallRule", {
@@ -62,7 +63,8 @@ export interface GetFirewallRuleResult {
 /**
  * Gets a single firewall rule in a specified redis cache.
  */
-/** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-07-01 will be removed in v2 of the provider.
+azure-native:cache/v20190701:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility. */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))
 }

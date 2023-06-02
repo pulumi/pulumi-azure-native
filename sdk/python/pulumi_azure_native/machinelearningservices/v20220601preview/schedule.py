@@ -83,7 +83,12 @@ class ScheduleInitArgs:
         pulumi.set(self, "name", value)
 
 
+warnings.warn("""azure-native:machinelearningservices/v20220601preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Schedule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Schedule(pulumi.CustomResource):
+    warnings.warn("""azure-native:machinelearningservices/v20220601preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Schedule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,6 +137,7 @@ class Schedule(pulumi.CustomResource):
                  schedule_properties: Optional[pulumi.Input[pulumi.InputType['ScheduleArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Schedule is deprecated: azure-native:machinelearningservices/v20220601preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Schedule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

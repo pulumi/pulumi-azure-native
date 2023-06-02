@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20210115
     /// <summary>
     /// A hostname binding object.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20210115:WebAppHostNameBindingSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppHostNameBindingSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20210115:WebAppHostNameBindingSlot")]
     public partial class WebAppHostNameBindingSlot : global::Pulumi.CustomResource
     {

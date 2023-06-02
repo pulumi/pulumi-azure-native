@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
     /// <summary>
     /// User of a lab that can register for and use virtual machines within the lab.
     /// </summary>
+    [Obsolete(@"azure-native:labservices/v20211001preview:User is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:User to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:labservices/v20211001preview:User")]
     public partial class User : global::Pulumi.CustomResource
     {

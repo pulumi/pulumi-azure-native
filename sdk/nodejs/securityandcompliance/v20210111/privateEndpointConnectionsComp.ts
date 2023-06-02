@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
+ *
+ * @deprecated azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility.
  */
 export class PrivateEndpointConnectionsComp extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class PrivateEndpointConnectionsComp extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpointConnectionsComp {
+        pulumi.log.warn("PrivateEndpointConnectionsComp is deprecated: azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility.")
         return new PrivateEndpointConnectionsComp(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,7 +72,9 @@ export class PrivateEndpointConnectionsComp extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateEndpointConnectionsCompArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PrivateEndpointConnectionsComp is deprecated: azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

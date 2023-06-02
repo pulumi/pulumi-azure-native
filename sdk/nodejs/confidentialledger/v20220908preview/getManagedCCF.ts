@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the properties of a Managed CCF app.
  */
+/** @deprecated azure-native:confidentialledger/v20220908preview:ManagedCCF is being removed in the next major version of this provider. Upgrade to at least azure-native:confidentialledger/v20230126preview:ManagedCCF to guarantee forwards compatibility. */
 export function getManagedCCF(args: GetManagedCCFArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedCCFResult> {
+    pulumi.log.warn("getManagedCCF is deprecated: azure-native:confidentialledger/v20220908preview:ManagedCCF is being removed in the next major version of this provider. Upgrade to at least azure-native:confidentialledger/v20230126preview:ManagedCCF to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:confidentialledger/v20220908preview:getManagedCCF", {
@@ -66,6 +68,7 @@ export interface GetManagedCCFResult {
 /**
  * Retrieves the properties of a Managed CCF app.
  */
+/** @deprecated azure-native:confidentialledger/v20220908preview:ManagedCCF is being removed in the next major version of this provider. Upgrade to at least azure-native:confidentialledger/v20230126preview:ManagedCCF to guarantee forwards compatibility. */
 export function getManagedCCFOutput(args: GetManagedCCFOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedCCFResult> {
     return pulumi.output(args).apply((a: any) => getManagedCCF(a, opts))
 }

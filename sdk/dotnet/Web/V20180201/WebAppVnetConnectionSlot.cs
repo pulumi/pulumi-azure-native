@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20180201
     /// <summary>
     /// Virtual Network information contract.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20180201:WebAppVnetConnectionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppVnetConnectionSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20180201:WebAppVnetConnectionSlot")]
     public partial class WebAppVnetConnectionSlot : global::Pulumi.CustomResource
     {

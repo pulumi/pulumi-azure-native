@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
     /// <summary>
     /// Represents a Configuration.
     /// </summary>
+    [Obsolete(@"azure-native:dbformysql/v20211201preview:Configuration is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20220101:Configuration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbformysql/v20211201preview:Configuration")]
     public partial class Configuration : global::Pulumi.CustomResource
     {

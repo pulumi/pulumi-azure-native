@@ -17,6 +17,8 @@ __all__ = [
     'get_load_test_output',
 ]
 
+warnings.warn("""azure-native:loadtestservice/v20220415preview:LoadTest is being removed in the next major version of this provider. Upgrade to at least azure-native:loadtestservice/v20221201:LoadTest to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLoadTestResult:
     """
@@ -175,6 +177,7 @@ def get_load_test(load_test_name: Optional[str] = None,
     :param str load_test_name: Load Test resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_load_test is deprecated: azure-native:loadtestservice/v20220415preview:LoadTest is being removed in the next major version of this provider. Upgrade to at least azure-native:loadtestservice/v20221201:LoadTest to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['loadTestName'] = load_test_name
     __args__['resourceGroupName'] = resource_group_name
@@ -206,4 +209,5 @@ def get_load_test_output(load_test_name: Optional[pulumi.Input[str]] = None,
     :param str load_test_name: Load Test resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_load_test is deprecated: azure-native:loadtestservice/v20220415preview:LoadTest is being removed in the next major version of this provider. Upgrade to at least azure-native:loadtestservice/v20221201:LoadTest to guarantee forwards compatibility.""")
     ...

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a hybrid connection configuration by its name.
  */
+/** @deprecated azure-native:web/v20210115:WebAppRelayServiceConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppRelayServiceConnection to guarantee forwards compatibility. */
 export function getWebAppRelayServiceConnection(args: GetWebAppRelayServiceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppRelayServiceConnectionResult> {
+    pulumi.log.warn("getWebAppRelayServiceConnection is deprecated: azure-native:web/v20210115:WebAppRelayServiceConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppRelayServiceConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210115:getWebAppRelayServiceConnection", {
@@ -63,6 +65,7 @@ export interface GetWebAppRelayServiceConnectionResult {
 /**
  * Gets a hybrid connection configuration by its name.
  */
+/** @deprecated azure-native:web/v20210115:WebAppRelayServiceConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppRelayServiceConnection to guarantee forwards compatibility. */
 export function getWebAppRelayServiceConnectionOutput(args: GetWebAppRelayServiceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppRelayServiceConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppRelayServiceConnection(a, opts))
 }

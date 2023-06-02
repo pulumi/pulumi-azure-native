@@ -116,11 +116,13 @@ class ConfigurationStoreArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2019-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-10-01 will be removed in v2 of the provider.
+azure-native:appconfiguration/v20191001:ConfigurationStore is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:ConfigurationStore to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ConfigurationStore(pulumi.CustomResource):
-    warnings.warn("""Version 2019-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2019-10-01 will be removed in v2 of the provider.
+azure-native:appconfiguration/v20191001:ConfigurationStore is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:ConfigurationStore to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -176,7 +178,8 @@ class ConfigurationStore(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""ConfigurationStore is deprecated: Version 2019-10-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""ConfigurationStore is deprecated: Version 2019-10-01 will be removed in v2 of the provider.
+azure-native:appconfiguration/v20191001:ConfigurationStore is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:ConfigurationStore to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.EventHub.V20140901
     /// <summary>
     /// Single item in List or Get Event Hub operation
     /// </summary>
-    [Obsolete(@"Version 2014-09-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:eventhub/v20140901:EventHub is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20150801:EventHub to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventhub/v20140901:EventHub")]
     public partial class EventHub : global::Pulumi.CustomResource
     {

@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Dashboard.
  */
-/** @deprecated Version 2015-08-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2015-08-01-preview will be removed in v2 of the provider.
+azure-native:portal/v20150801preview:Dashboard is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility. */
 export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
-    pulumi.log.warn("getDashboard is deprecated: Version 2015-08-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getDashboard is deprecated: Version 2015-08-01-preview will be removed in v2 of the provider.\nazure-native:portal/v20150801preview:Dashboard is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portal/v20150801preview:getDashboard", {
@@ -68,7 +69,8 @@ export interface GetDashboardResult {
 /**
  * Gets the Dashboard.
  */
-/** @deprecated Version 2015-08-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2015-08-01-preview will be removed in v2 of the provider.
+azure-native:portal/v20150801preview:Dashboard is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility. */
 export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
     return pulumi.output(args).apply((a: any) => getDashboard(a, opts))
 }

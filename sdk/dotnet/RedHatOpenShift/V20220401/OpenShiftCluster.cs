@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220401
     /// <summary>
     /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
     /// </summary>
+    [Obsolete(@"azure-native:redhatopenshift/v20220401:OpenShiftCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:redhatopenshift/v20220904:OpenShiftCluster to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:redhatopenshift/v20220401:OpenShiftCluster")]
     public partial class OpenShiftCluster : global::Pulumi.CustomResource
     {

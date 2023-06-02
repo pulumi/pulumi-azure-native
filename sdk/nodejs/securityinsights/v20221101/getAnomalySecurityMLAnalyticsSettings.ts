@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Security ML Analytics Settings.
  */
+/** @deprecated azure-native:securityinsights/v20221101:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility. */
 export function getAnomalySecurityMLAnalyticsSettings(args: GetAnomalySecurityMLAnalyticsSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomalySecurityMLAnalyticsSettingsResult> {
+    pulumi.log.warn("getAnomalySecurityMLAnalyticsSettings is deprecated: azure-native:securityinsights/v20221101:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20221101:getAnomalySecurityMLAnalyticsSettings", {
@@ -124,6 +126,7 @@ export interface GetAnomalySecurityMLAnalyticsSettingsResult {
 /**
  * Gets the Security ML Analytics Settings.
  */
+/** @deprecated azure-native:securityinsights/v20221101:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility. */
 export function getAnomalySecurityMLAnalyticsSettingsOutput(args: GetAnomalySecurityMLAnalyticsSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalySecurityMLAnalyticsSettingsResult> {
     return pulumi.output(args).apply((a: any) => getAnomalySecurityMLAnalyticsSettings(a, opts))
 }

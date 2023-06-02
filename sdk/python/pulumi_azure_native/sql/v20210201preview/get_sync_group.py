@@ -17,6 +17,8 @@ __all__ = [
     'get_sync_group_output',
 ]
 
+warnings.warn("""azure-native:sql/v20210201preview:SyncGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SyncGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSyncGroupResult:
     """
@@ -227,6 +229,7 @@ def get_sync_group(database_name: Optional[str] = None,
     :param str server_name: The name of the server.
     :param str sync_group_name: The name of the sync group.
     """
+    pulumi.log.warn("""get_sync_group is deprecated: azure-native:sql/v20210201preview:SyncGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SyncGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
@@ -268,4 +271,5 @@ def get_sync_group_output(database_name: Optional[pulumi.Input[str]] = None,
     :param str server_name: The name of the server.
     :param str sync_group_name: The name of the sync group.
     """
+    pulumi.log.warn("""get_sync_group is deprecated: azure-native:sql/v20210201preview:SyncGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SyncGroup to guarantee forwards compatibility.""")
     ...

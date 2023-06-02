@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a VPN site.
  */
-/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:VpnSite is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VpnSite to guarantee forwards compatibility. */
 export function getVpnSite(args: GetVpnSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnSiteResult> {
-    pulumi.log.warn("getVpnSite is deprecated: Version 2018-04-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getVpnSite is deprecated: Version 2018-04-01 will be removed in v2 of the provider.\nazure-native:network/v20180401:VpnSite is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VpnSite to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180401:getVpnSite", {
@@ -92,7 +93,8 @@ export interface GetVpnSiteResult {
 /**
  * Retrieves the details of a VPN site.
  */
-/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:VpnSite is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VpnSite to guarantee forwards compatibility. */
 export function getVpnSiteOutput(args: GetVpnSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnSiteResult> {
     return pulumi.output(args).apply((a: any) => getVpnSite(a, opts))
 }

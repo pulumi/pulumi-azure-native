@@ -16,7 +16,8 @@ __all__ = [
     'get_application_output',
 ]
 
-warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:batch/v20200901:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:Application to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetApplicationResult:
@@ -130,7 +131,8 @@ def get_application(account_name: Optional[str] = None,
     :param str application_name: The name of the application. This must be unique within the account.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
-    pulumi.log.warn("""get_application is deprecated: Version 2020-09-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_application is deprecated: Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:batch/v20200901:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:Application to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['applicationName'] = application_name
@@ -161,5 +163,6 @@ def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str application_name: The name of the application. This must be unique within the account.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
-    pulumi.log.warn("""get_application is deprecated: Version 2020-09-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_application is deprecated: Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:batch/v20200901:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:Application to guarantee forwards compatibility.""")
     ...

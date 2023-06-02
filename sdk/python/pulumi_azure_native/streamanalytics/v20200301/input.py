@@ -100,7 +100,12 @@ class InputInitArgs:
         pulumi.set(self, "properties", value)
 
 
+warnings.warn("""azure-native:streamanalytics/v20200301:Input is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Input to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Input(pulumi.CustomResource):
+    warnings.warn("""azure-native:streamanalytics/v20200301:Input is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Input to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -152,6 +157,7 @@ class Input(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[Union[pulumi.InputType['ReferenceInputPropertiesArgs'], pulumi.InputType['StreamInputPropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Input is deprecated: azure-native:streamanalytics/v20200301:Input is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Input to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

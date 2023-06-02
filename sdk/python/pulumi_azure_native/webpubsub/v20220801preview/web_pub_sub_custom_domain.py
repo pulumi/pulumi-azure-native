@@ -97,7 +97,12 @@ class WebPubSubCustomDomainArgs:
         pulumi.set(self, "name", value)
 
 
+warnings.warn("""azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubCustomDomain to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WebPubSubCustomDomain(pulumi.CustomResource):
+    warnings.warn("""azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubCustomDomain to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -149,6 +154,7 @@ class WebPubSubCustomDomain(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebPubSubCustomDomain is deprecated: azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubCustomDomain to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

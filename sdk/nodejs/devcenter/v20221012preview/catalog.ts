@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a catalog.
+ *
+ * @deprecated azure-native:devcenter/v20221012preview:Catalog is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Catalog to guarantee forwards compatibility.
  */
 export class Catalog extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Catalog extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Catalog {
+        pulumi.log.warn("Catalog is deprecated: azure-native:devcenter/v20221012preview:Catalog is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Catalog to guarantee forwards compatibility.")
         return new Catalog(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,7 +80,9 @@ export class Catalog extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:devcenter/v20221012preview:Catalog is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Catalog to guarantee forwards compatibility. */
     constructor(name: string, args: CatalogArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Catalog is deprecated: azure-native:devcenter/v20221012preview:Catalog is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Catalog to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -109,7 +114,7 @@ export class Catalog extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:Catalog" }, { type: "azure-native:devcenter/v20220801preview:Catalog" }, { type: "azure-native:devcenter/v20220901preview:Catalog" }, { type: "azure-native:devcenter/v20221111preview:Catalog" }, { type: "azure-native:devcenter/v20230401:Catalog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:Catalog" }, { type: "azure-native:devcenter/v20220801preview:Catalog" }, { type: "azure-native:devcenter/v20220901preview:Catalog" }, { type: "azure-native:devcenter/v20221111preview:Catalog" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Catalog.__pulumiType, name, resourceInputs, opts);
     }

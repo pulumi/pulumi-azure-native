@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20230201Preview
 {
+    [Obsolete(@"azure-native:securityinsights/v20230201preview:Dynamics365DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility.")]
     public static class GetDynamics365DataConnector
     {
         /// <summary>

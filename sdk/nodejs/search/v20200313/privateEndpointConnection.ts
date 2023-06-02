@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
  *
  * @deprecated Version 2020-03-13 will be removed in v2 of the provider.
+azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -22,7 +23,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpointConnection {
-        pulumi.log.warn("PrivateEndpointConnection is deprecated: Version 2020-03-13 will be removed in v2 of the provider.")
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: Version 2020-03-13 will be removed in v2 of the provider.\nazure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.")
         return new PrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,9 +61,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2020-03-13 will be removed in v2 of the provider. */
+    /** @deprecated Version 2020-03-13 will be removed in v2 of the provider.
+azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PrivateEndpointConnection is deprecated: Version 2020-03-13 will be removed in v2 of the provider.")
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: Version 2020-03-13 will be removed in v2 of the provider.\nazure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

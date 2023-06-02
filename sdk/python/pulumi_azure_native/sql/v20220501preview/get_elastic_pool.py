@@ -17,6 +17,8 @@ __all__ = [
     'get_elastic_pool_output',
 ]
 
+warnings.warn("""azure-native:sql/v20220501preview:ElasticPool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ElasticPool to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetElasticPoolResult:
     """
@@ -243,6 +245,7 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("""get_elastic_pool is deprecated: azure-native:sql/v20220501preview:ElasticPool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ElasticPool to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['elasticPoolName'] = elastic_pool_name
     __args__['resourceGroupName'] = resource_group_name
@@ -282,4 +285,5 @@ def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("""get_elastic_pool is deprecated: azure-native:sql/v20220501preview:ElasticPool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ElasticPool to guarantee forwards compatibility.""")
     ...

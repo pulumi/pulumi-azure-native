@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210501
     /// <summary>
     /// The manged cluster resource
     /// </summary>
+    [Obsolete(@"azure-native:servicefabric/v20210501:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20220101:ManagedCluster to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicefabric/v20210501:ManagedCluster")]
     public partial class ManagedCluster : global::Pulumi.CustomResource
     {
@@ -238,7 +239,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210501
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220801preview:ManagedCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20221001preview:ManagedCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230201preview:ManagedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230301preview:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

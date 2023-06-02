@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a VirtualWAN.
  */
+/** @deprecated azure-native:network/v20180601:VirtualWAN is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VirtualWAN to guarantee forwards compatibility. */
 export function getVirtualWAN(args: GetVirtualWANArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualWANResult> {
+    pulumi.log.warn("getVirtualWAN is deprecated: azure-native:network/v20180601:VirtualWAN is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VirtualWAN to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180601:getVirtualWAN", {
@@ -75,6 +77,7 @@ export interface GetVirtualWANResult {
 /**
  * Retrieves the details of a VirtualWAN.
  */
+/** @deprecated azure-native:network/v20180601:VirtualWAN is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VirtualWAN to guarantee forwards compatibility. */
 export function getVirtualWANOutput(args: GetVirtualWANOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualWANResult> {
     return pulumi.output(args).apply((a: any) => getVirtualWAN(a, opts))
 }

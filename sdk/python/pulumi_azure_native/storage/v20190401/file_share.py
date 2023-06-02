@@ -97,11 +97,13 @@ class FileShareArgs:
         pulumi.set(self, "share_quota", value)
 
 
-warnings.warn("""Version 2019-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-04-01 will be removed in v2 of the provider.
+azure-native:storage/v20190401:FileShare is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileShare to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class FileShare(pulumi.CustomResource):
-    warnings.warn("""Version 2019-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2019-04-01 will be removed in v2 of the provider.
+azure-native:storage/v20190401:FileShare is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileShare to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -154,7 +156,8 @@ class FileShare(pulumi.CustomResource):
                  share_name: Optional[pulumi.Input[str]] = None,
                  share_quota: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""FileShare is deprecated: Version 2019-04-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""FileShare is deprecated: Version 2019-04-01 will be removed in v2 of the provider.
+azure-native:storage/v20190401:FileShare is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileShare to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

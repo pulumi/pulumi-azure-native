@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a datasource instance.
  */
+/** @deprecated azure-native:operationalinsights/v20200301preview:DataSource is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:DataSource to guarantee forwards compatibility. */
 export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
+    pulumi.log.warn("getDataSource is deprecated: azure-native:operationalinsights/v20200301preview:DataSource is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:DataSource to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20200301preview:getDataSource", {
@@ -68,6 +70,7 @@ export interface GetDataSourceResult {
 /**
  * Gets a datasource instance.
  */
+/** @deprecated azure-native:operationalinsights/v20200301preview:DataSource is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:DataSource to guarantee forwards compatibility. */
 export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
     return pulumi.output(args).apply((a: any) => getDataSource(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified bandwidth schedule.
  */
+/** @deprecated azure-native:databoxedge/v20220401preview:BandwidthSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:BandwidthSchedule to guarantee forwards compatibility. */
 export function getBandwidthSchedule(args: GetBandwidthScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthScheduleResult> {
+    pulumi.log.warn("getBandwidthSchedule is deprecated: azure-native:databoxedge/v20220401preview:BandwidthSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:BandwidthSchedule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20220401preview:getBandwidthSchedule", {
@@ -75,6 +77,7 @@ export interface GetBandwidthScheduleResult {
 /**
  * Gets the properties of the specified bandwidth schedule.
  */
+/** @deprecated azure-native:databoxedge/v20220401preview:BandwidthSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:BandwidthSchedule to guarantee forwards compatibility. */
 export function getBandwidthScheduleOutput(args: GetBandwidthScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBandwidthScheduleResult> {
     return pulumi.output(args).apply((a: any) => getBandwidthSchedule(a, opts))
 }

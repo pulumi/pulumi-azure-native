@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Binding and its properties.
  */
+/** @deprecated azure-native:appplatform/v20220401:Binding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Binding to guarantee forwards compatibility. */
 export function getBinding(args: GetBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBindingResult> {
+    pulumi.log.warn("getBinding is deprecated: azure-native:appplatform/v20220401:Binding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Binding to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220401:getBinding", {
@@ -68,6 +70,7 @@ export interface GetBindingResult {
 /**
  * Get a Binding and its properties.
  */
+/** @deprecated azure-native:appplatform/v20220401:Binding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Binding to guarantee forwards compatibility. */
 export function getBindingOutput(args: GetBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBindingResult> {
     return pulumi.output(args).apply((a: any) => getBinding(a, opts))
 }

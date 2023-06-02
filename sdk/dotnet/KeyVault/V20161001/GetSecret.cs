@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.KeyVault.V20161001
 {
-    [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.
+azure-native:keyvault/v20161001:Secret is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:Secret to guarantee forwards compatibility.")]
     public static class GetSecret
     {
         /// <summary>

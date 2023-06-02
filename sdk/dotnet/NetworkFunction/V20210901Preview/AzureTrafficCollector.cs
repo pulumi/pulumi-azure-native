@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.NetworkFunction.V20210901Preview
     /// <summary>
     /// Azure Traffic Collector resource.
     /// </summary>
+    [Obsolete(@"azure-native:networkfunction/v20210901preview:AzureTrafficCollector is being removed in the next major version of this provider. Upgrade to at least azure-native:networkfunction/v20220801:AzureTrafficCollector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:networkfunction/v20210901preview:AzureTrafficCollector")]
     public partial class AzureTrafficCollector : global::Pulumi.CustomResource
     {

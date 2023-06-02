@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
     /// <summary>
     /// Arc Addon.
     /// </summary>
+    [Obsolete(@"azure-native:databoxedge/v20210601preview:ArcAddon is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:ArcAddon to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20210601preview:ArcAddon")]
     public partial class ArcAddon : global::Pulumi.CustomResource
     {

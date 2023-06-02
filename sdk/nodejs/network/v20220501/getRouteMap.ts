@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a RouteMap.
  */
+/** @deprecated azure-native:network/v20220501:RouteMap is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteMap to guarantee forwards compatibility. */
 export function getRouteMap(args: GetRouteMapArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteMapResult> {
+    pulumi.log.warn("getRouteMap is deprecated: azure-native:network/v20220501:RouteMap is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteMap to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220501:getRouteMap", {
@@ -75,6 +77,7 @@ export interface GetRouteMapResult {
 /**
  * Retrieves the details of a RouteMap.
  */
+/** @deprecated azure-native:network/v20220501:RouteMap is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteMap to guarantee forwards compatibility. */
 export function getRouteMapOutput(args: GetRouteMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteMapResult> {
     return pulumi.output(args).apply((a: any) => getRouteMap(a, opts))
 }

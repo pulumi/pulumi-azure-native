@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an integration account certificate.
  */
+/** @deprecated azure-native:logic/v20180701preview:IntegrationAccountCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountCertificate to guarantee forwards compatibility. */
 export function getIntegrationAccountCertificate(args: GetIntegrationAccountCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountCertificateResult> {
+    pulumi.log.warn("getIntegrationAccountCertificate is deprecated: azure-native:logic/v20180701preview:IntegrationAccountCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountCertificate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20180701preview:getIntegrationAccountCertificate", {
@@ -83,6 +85,7 @@ export interface GetIntegrationAccountCertificateResult {
 /**
  * Gets an integration account certificate.
  */
+/** @deprecated azure-native:logic/v20180701preview:IntegrationAccountCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountCertificate to guarantee forwards compatibility. */
 export function getIntegrationAccountCertificateOutput(args: GetIntegrationAccountCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountCertificateResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccountCertificate(a, opts))
 }

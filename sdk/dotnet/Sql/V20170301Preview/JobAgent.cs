@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
     /// <summary>
     /// An Azure SQL job agent.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20170301preview:JobAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:JobAgent to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20170301preview:JobAgent")]
     public partial class JobAgent : global::Pulumi.CustomResource
     {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
 {
+    [Obsolete(@"azure-native:documentdb/v20211115preview:MongoDBResourceMongoUserDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:MongoDBResourceMongoUserDefinition to guarantee forwards compatibility.")]
     public static class GetMongoDBResourceMongoUserDefinition
     {
         /// <summary>

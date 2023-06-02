@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes the RedisEnterprise cluster
+ *
+ * @deprecated azure-native:cache/v20221101preview:RedisEnterprise is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230301preview:RedisEnterprise to guarantee forwards compatibility.
  */
 export class RedisEnterprise extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class RedisEnterprise extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RedisEnterprise {
+        pulumi.log.warn("RedisEnterprise is deprecated: azure-native:cache/v20221101preview:RedisEnterprise is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230301preview:RedisEnterprise to guarantee forwards compatibility.")
         return new RedisEnterprise(name, undefined as any, { ...opts, id: id });
     }
 
@@ -105,7 +108,9 @@ export class RedisEnterprise extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:cache/v20221101preview:RedisEnterprise is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230301preview:RedisEnterprise to guarantee forwards compatibility. */
     constructor(name: string, args: RedisEnterpriseArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("RedisEnterprise is deprecated: azure-native:cache/v20221101preview:RedisEnterprise is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230301preview:RedisEnterprise to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

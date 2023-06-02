@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AVS.V20211201
 {
+    [Obsolete(@"azure-native:avs/v20211201:WorkloadNetworkPublicIP is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPublicIP to guarantee forwards compatibility.")]
     public static class GetWorkloadNetworkPublicIP
     {
         /// <summary>

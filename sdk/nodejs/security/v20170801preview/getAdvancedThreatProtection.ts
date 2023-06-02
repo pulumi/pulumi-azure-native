@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Advanced Threat Protection settings for the specified resource.
  */
+/** @deprecated azure-native:security/v20170801preview:AdvancedThreatProtection is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20190101:AdvancedThreatProtection to guarantee forwards compatibility. */
 export function getAdvancedThreatProtection(args: GetAdvancedThreatProtectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAdvancedThreatProtectionResult> {
+    pulumi.log.warn("getAdvancedThreatProtection is deprecated: azure-native:security/v20170801preview:AdvancedThreatProtection is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20190101:AdvancedThreatProtection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20170801preview:getAdvancedThreatProtection", {
@@ -51,6 +53,7 @@ export interface GetAdvancedThreatProtectionResult {
 /**
  * Gets the Advanced Threat Protection settings for the specified resource.
  */
+/** @deprecated azure-native:security/v20170801preview:AdvancedThreatProtection is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20190101:AdvancedThreatProtection to guarantee forwards compatibility. */
 export function getAdvancedThreatProtectionOutput(args: GetAdvancedThreatProtectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdvancedThreatProtectionResult> {
     return pulumi.output(args).apply((a: any) => getAdvancedThreatProtection(a, opts))
 }

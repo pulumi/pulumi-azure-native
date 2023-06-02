@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Configuration settings for the Azure App Service Authentication / Authorization feature.
+ *
+ * @deprecated azure-native:web/v20190801:WebAppAuthSettingsSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppAuthSettingsSlot to guarantee forwards compatibility.
  */
 export class WebAppAuthSettingsSlot extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class WebAppAuthSettingsSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppAuthSettingsSlot {
+        pulumi.log.warn("WebAppAuthSettingsSlot is deprecated: azure-native:web/v20190801:WebAppAuthSettingsSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppAuthSettingsSlot to guarantee forwards compatibility.")
         return new WebAppAuthSettingsSlot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -199,7 +202,9 @@ export class WebAppAuthSettingsSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:web/v20190801:WebAppAuthSettingsSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppAuthSettingsSlot to guarantee forwards compatibility. */
     constructor(name: string, args: WebAppAuthSettingsSlotArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppAuthSettingsSlot is deprecated: azure-native:web/v20190801:WebAppAuthSettingsSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppAuthSettingsSlot to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

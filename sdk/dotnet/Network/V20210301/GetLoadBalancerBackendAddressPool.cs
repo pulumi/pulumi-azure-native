@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20210301
 {
+    [Obsolete(@"azure-native:network/v20210301:LoadBalancerBackendAddressPool is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:LoadBalancerBackendAddressPool to guarantee forwards compatibility.")]
     public static class GetLoadBalancerBackendAddressPool
     {
         /// <summary>

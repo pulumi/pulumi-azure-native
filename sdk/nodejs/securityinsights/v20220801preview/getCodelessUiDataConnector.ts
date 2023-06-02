@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20220801preview:CodelessUiDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:CodelessUiDataConnector to guarantee forwards compatibility. */
 export function getCodelessUiDataConnector(args: GetCodelessUiDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetCodelessUiDataConnectorResult> {
+    pulumi.log.warn("getCodelessUiDataConnector is deprecated: azure-native:securityinsights/v20220801preview:CodelessUiDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:CodelessUiDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220801preview:getCodelessUiDataConnector", {
@@ -72,6 +74,7 @@ export interface GetCodelessUiDataConnectorResult {
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20220801preview:CodelessUiDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:CodelessUiDataConnector to guarantee forwards compatibility. */
 export function getCodelessUiDataConnectorOutput(args: GetCodelessUiDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodelessUiDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getCodelessUiDataConnector(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
  */
+/** @deprecated azure-native:cdn/v20210601:Route is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Route to guarantee forwards compatibility. */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
+    pulumi.log.warn("getRoute is deprecated: azure-native:cdn/v20210601:Route is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Route to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20210601:getRoute", {
@@ -117,6 +119,7 @@ export interface GetRouteResult {
 /**
  * Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
  */
+/** @deprecated azure-native:cdn/v20210601:Route is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Route to guarantee forwards compatibility. */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
     return pulumi.output(args).apply((a: any) => getRoute(a, opts))
 }

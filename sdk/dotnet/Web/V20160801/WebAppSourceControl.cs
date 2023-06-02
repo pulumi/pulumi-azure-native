@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20160801
     /// <summary>
     /// Source control configuration for an app.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20160801:WebAppSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppSourceControl to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20160801:WebAppSourceControl")]
     public partial class WebAppSourceControl : global::Pulumi.CustomResource
     {

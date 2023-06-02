@@ -17,7 +17,8 @@ __all__ = [
     'get_managed_cluster_output',
 ]
 
-warnings.warn("""Version 2018-08-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-08-01-preview will be removed in v2 of the provider.
+azure-native:containerservice/v20180801preview:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20190201:ManagedCluster to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetManagedClusterResult:
@@ -249,7 +250,8 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
-    pulumi.log.warn("""get_managed_cluster is deprecated: Version 2018-08-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_managed_cluster is deprecated: Version 2018-08-01-preview will be removed in v2 of the provider.
+azure-native:containerservice/v20180801preview:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20190201:ManagedCluster to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -287,5 +289,6 @@ def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
-    pulumi.log.warn("""get_managed_cluster is deprecated: Version 2018-08-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_managed_cluster is deprecated: Version 2018-08-01-preview will be removed in v2 of the provider.
+azure-native:containerservice/v20180801preview:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20190201:ManagedCluster to guarantee forwards compatibility.""")
     ...

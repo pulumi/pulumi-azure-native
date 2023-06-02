@@ -17,6 +17,8 @@ __all__ = [
     'get_iscsi_target_output',
 ]
 
+warnings.warn("""azure-native:storagepool/v20210401preview:IscsiTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagepool/v20210801:IscsiTarget to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIscsiTargetResult:
     """
@@ -189,6 +191,7 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
     :param str iscsi_target_name: The name of the iSCSI Target.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_iscsi_target is deprecated: azure-native:storagepool/v20210401preview:IscsiTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagepool/v20210801:IscsiTarget to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['diskPoolName'] = disk_pool_name
     __args__['iscsiTargetName'] = iscsi_target_name
@@ -224,4 +227,5 @@ def get_iscsi_target_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
     :param str iscsi_target_name: The name of the iSCSI Target.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_iscsi_target is deprecated: azure-native:storagepool/v20210401preview:IscsiTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagepool/v20210801:IscsiTarget to guarantee forwards compatibility.""")
     ...

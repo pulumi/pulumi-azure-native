@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource for OuContainer.
+ *
+ * @deprecated azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.
  */
 export class OuContainer extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class OuContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OuContainer {
+        pulumi.log.warn("OuContainer is deprecated: azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.")
         return new OuContainer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -101,7 +104,9 @@ export class OuContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility. */
     constructor(name: string, args: OuContainerArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("OuContainer is deprecated: azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Media.V20180701
     /// <summary>
     /// A Streaming Locator resource
     /// </summary>
+    [Obsolete(@"azure-native:media/v20180701:StreamingLocator is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:StreamingLocator to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:media/v20180701:StreamingLocator")]
     public partial class StreamingLocator : global::Pulumi.CustomResource
     {

@@ -17,6 +17,8 @@ __all__ = [
     'get_integration_account_schema_output',
 ]
 
+warnings.warn("""azure-native:logic/v20180701preview:IntegrationAccountSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountSchema to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIntegrationAccountSchemaResult:
     """
@@ -225,6 +227,7 @@ def get_integration_account_schema(integration_account_name: Optional[str] = Non
     :param str resource_group_name: The resource group name.
     :param str schema_name: The integration account schema name.
     """
+    pulumi.log.warn("""get_integration_account_schema is deprecated: azure-native:logic/v20180701preview:IntegrationAccountSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountSchema to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -263,4 +266,5 @@ def get_integration_account_schema_output(integration_account_name: Optional[pul
     :param str resource_group_name: The resource group name.
     :param str schema_name: The integration account schema name.
     """
+    pulumi.log.warn("""get_integration_account_schema is deprecated: azure-native:logic/v20180701preview:IntegrationAccountSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountSchema to guarantee forwards compatibility.""")
     ...

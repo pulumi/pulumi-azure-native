@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Redis cache (resource description).
  */
-/** @deprecated Version 2018-03-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-03-01 will be removed in v2 of the provider.
+azure-native:cache/v20180301:Redis is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20190701:Redis to guarantee forwards compatibility. */
 export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisResult> {
-    pulumi.log.warn("getRedis is deprecated: Version 2018-03-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getRedis is deprecated: Version 2018-03-01 will be removed in v2 of the provider.\nazure-native:cache/v20180301:Redis is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20190701:Redis to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20180301:getRedis", {
@@ -124,7 +125,8 @@ export interface GetRedisResult {
 /**
  * Gets a Redis cache (resource description).
  */
-/** @deprecated Version 2018-03-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-03-01 will be removed in v2 of the provider.
+azure-native:cache/v20180301:Redis is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20190701:Redis to guarantee forwards compatibility. */
 export function getRedisOutput(args: GetRedisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisResult> {
     return pulumi.output(args).apply((a: any) => getRedis(a, opts))
 }

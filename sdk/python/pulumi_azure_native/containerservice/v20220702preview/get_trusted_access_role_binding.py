@@ -17,6 +17,8 @@ __all__ = [
     'get_trusted_access_role_binding_output',
 ]
 
+warnings.warn("""azure-native:containerservice/v20220702preview:TrustedAccessRoleBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTrustedAccessRoleBindingResult:
     """
@@ -129,6 +131,7 @@ def get_trusted_access_role_binding(resource_group_name: Optional[str] = None,
     :param str resource_name: The name of the managed cluster resource.
     :param str trusted_access_role_binding_name: The name of trusted access role binding.
     """
+    pulumi.log.warn("""get_trusted_access_role_binding is deprecated: azure-native:containerservice/v20220702preview:TrustedAccessRoleBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -159,4 +162,5 @@ def get_trusted_access_role_binding_output(resource_group_name: Optional[pulumi.
     :param str resource_name: The name of the managed cluster resource.
     :param str trusted_access_role_binding_name: The name of trusted access role binding.
     """
+    pulumi.log.warn("""get_trusted_access_role_binding is deprecated: azure-native:containerservice/v20220702preview:TrustedAccessRoleBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding to guarantee forwards compatibility.""")
     ...

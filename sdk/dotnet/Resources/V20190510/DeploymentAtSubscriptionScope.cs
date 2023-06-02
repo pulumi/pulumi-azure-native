@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Resources.V20190510
     /// <summary>
     /// Deployment information.
     /// </summary>
+    [Obsolete(@"azure-native:resources/v20190510:DeploymentAtSubscriptionScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtSubscriptionScope to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:resources/v20190510:DeploymentAtSubscriptionScope")]
     public partial class DeploymentAtSubscriptionScope : global::Pulumi.CustomResource
     {

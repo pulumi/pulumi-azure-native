@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in List or Get Alias(Disaster Recovery configuration) operation
+ *
+ * @deprecated azure-native:eventhub/v20210601preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility.
  */
 export class DisasterRecoveryConfig extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DisasterRecoveryConfig {
+        pulumi.log.warn("DisasterRecoveryConfig is deprecated: azure-native:eventhub/v20210601preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility.")
         return new DisasterRecoveryConfig(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,7 +80,9 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:eventhub/v20210601preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility. */
     constructor(name: string, args: DisasterRecoveryConfigArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DisasterRecoveryConfig is deprecated: azure-native:eventhub/v20210601preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

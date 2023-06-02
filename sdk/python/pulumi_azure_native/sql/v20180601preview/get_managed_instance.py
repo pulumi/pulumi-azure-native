@@ -17,6 +17,8 @@ __all__ = [
     'get_managed_instance_output',
 ]
 
+warnings.warn("""azure-native:sql/v20180601preview:ManagedInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20210201preview:ManagedInstance to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagedInstanceResult:
     """
@@ -312,6 +314,7 @@ def get_managed_instance(managed_instance_name: Optional[str] = None,
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
+    pulumi.log.warn("""get_managed_instance is deprecated: azure-native:sql/v20180601preview:ManagedInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20210201preview:ManagedInstance to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['managedInstanceName'] = managed_instance_name
     __args__['resourceGroupName'] = resource_group_name
@@ -354,4 +357,5 @@ def get_managed_instance_output(managed_instance_name: Optional[pulumi.Input[str
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
+    pulumi.log.warn("""get_managed_instance is deprecated: azure-native:sql/v20180601preview:ManagedInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20210201preview:ManagedInstance to guarantee forwards compatibility.""")
     ...

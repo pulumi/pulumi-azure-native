@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701
     /// <summary>
     /// Machine Learning compute object wrapped into ARM resource envelope.
     /// </summary>
+    [Obsolete(@"azure-native:machinelearningservices/v20210701:Compute is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20220101preview:Compute to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210701:Compute")]
     public partial class Compute : global::Pulumi.CustomResource
     {

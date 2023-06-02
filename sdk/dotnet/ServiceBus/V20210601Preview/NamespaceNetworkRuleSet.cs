@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
     /// <summary>
     /// Description of NetworkRuleSet resource.
     /// </summary>
+    [Obsolete(@"azure-native:servicebus/v20210601preview:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicebus/v20210601preview:NamespaceNetworkRuleSet")]
     public partial class NamespaceNetworkRuleSet : global::Pulumi.CustomResource
     {

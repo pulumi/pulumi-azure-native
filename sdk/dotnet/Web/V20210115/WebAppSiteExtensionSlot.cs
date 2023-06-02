@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20210115
     /// <summary>
     /// Site Extension Information.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20210115:WebAppSiteExtensionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSiteExtensionSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20210115:WebAppSiteExtensionSlot")]
     public partial class WebAppSiteExtensionSlot : global::Pulumi.CustomResource
     {

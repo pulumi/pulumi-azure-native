@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20210301
     /// <summary>
     /// Specifies information about the proximity placement group.
     /// </summary>
+    [Obsolete(@"azure-native:compute/v20210301:ProximityPlacementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:ProximityPlacementGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20210301:ProximityPlacementGroup")]
     public partial class ProximityPlacementGroup : global::Pulumi.CustomResource
     {

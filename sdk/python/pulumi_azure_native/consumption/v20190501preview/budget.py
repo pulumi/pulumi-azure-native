@@ -161,11 +161,13 @@ class BudgetArgs:
         pulumi.set(self, "notifications", value)
 
 
-warnings.warn("""Version 2019-05-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-05-01-preview will be removed in v2 of the provider.
+azure-native:consumption/v20190501preview:Budget is being removed in the next major version of this provider. Upgrade to at least azure-native:consumption/v20190601:Budget to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Budget(pulumi.CustomResource):
-    warnings.warn("""Version 2019-05-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2019-05-01-preview will be removed in v2 of the provider.
+azure-native:consumption/v20190501preview:Budget is being removed in the next major version of this provider. Upgrade to at least azure-native:consumption/v20190601:Budget to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -230,7 +232,8 @@ class Budget(pulumi.CustomResource):
                  time_grain: Optional[pulumi.Input[Union[str, 'TimeGrainType']]] = None,
                  time_period: Optional[pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Budget is deprecated: Version 2019-05-01-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""Budget is deprecated: Version 2019-05-01-preview will be removed in v2 of the provider.
+azure-native:consumption/v20190501preview:Budget is being removed in the next major version of this provider. Upgrade to at least azure-native:consumption/v20190601:Budget to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

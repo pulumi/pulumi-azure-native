@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
 {
+    [Obsolete(@"azure-native:providerhub/v20210601preview:Skus is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:Skus to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:providerhub/v20210601preview:Skus")]
     public partial class Skus : global::Pulumi.CustomResource
     {

@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the SQL container under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2015-11-06 will be removed in v2 of the provider. */
+/** @deprecated Version 2015-11-06 will be removed in v2 of the provider.
+azure-native:documentdb/v20151106:DatabaseAccountSqlContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountSqlContainer to guarantee forwards compatibility. */
 export function getDatabaseAccountSqlContainer(args: GetDatabaseAccountSqlContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountSqlContainerResult> {
-    pulumi.log.warn("getDatabaseAccountSqlContainer is deprecated: Version 2015-11-06 will be removed in v2 of the provider.")
+    pulumi.log.warn("getDatabaseAccountSqlContainer is deprecated: Version 2015-11-06 will be removed in v2 of the provider.\nazure-native:documentdb/v20151106:DatabaseAccountSqlContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountSqlContainer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20151106:getDatabaseAccountSqlContainer", {
@@ -102,7 +103,8 @@ export interface GetDatabaseAccountSqlContainerResult {
 /**
  * Gets the SQL container under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2015-11-06 will be removed in v2 of the provider. */
+/** @deprecated Version 2015-11-06 will be removed in v2 of the provider.
+azure-native:documentdb/v20151106:DatabaseAccountSqlContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountSqlContainer to guarantee forwards compatibility. */
 export function getDatabaseAccountSqlContainerOutput(args: GetDatabaseAccountSqlContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountSqlContainerResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccountSqlContainer(a, opts))
 }

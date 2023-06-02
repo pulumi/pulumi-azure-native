@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The operation to get the extension.
  */
+/** @deprecated azure-native:compute/v20210701:VirtualMachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineExtension to guarantee forwards compatibility. */
 export function getVirtualMachineExtension(args: GetVirtualMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineExtensionResult> {
+    pulumi.log.warn("getVirtualMachineExtension is deprecated: azure-native:compute/v20210701:VirtualMachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineExtension to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20210701:getVirtualMachineExtension", {
@@ -108,6 +110,7 @@ export interface GetVirtualMachineExtensionResult {
 /**
  * The operation to get the extension.
  */
+/** @deprecated azure-native:compute/v20210701:VirtualMachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineExtension to guarantee forwards compatibility. */
 export function getVirtualMachineExtensionOutput(args: GetVirtualMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineExtensionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineExtension(a, opts))
 }

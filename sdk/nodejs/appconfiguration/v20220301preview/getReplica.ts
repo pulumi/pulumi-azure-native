@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified replica.
  */
+/** @deprecated azure-native:appconfiguration/v20220301preview:Replica is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:Replica to guarantee forwards compatibility. */
 export function getReplica(args: GetReplicaArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicaResult> {
+    pulumi.log.warn("getReplica is deprecated: azure-native:appconfiguration/v20220301preview:Replica is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:Replica to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appconfiguration/v20220301preview:getReplica", {
@@ -71,6 +73,7 @@ export interface GetReplicaResult {
 /**
  * Gets the properties of the specified replica.
  */
+/** @deprecated azure-native:appconfiguration/v20220301preview:Replica is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:Replica to guarantee forwards compatibility. */
 export function getReplicaOutput(args: GetReplicaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicaResult> {
     return pulumi.output(args).apply((a: any) => getReplica(a, opts))
 }

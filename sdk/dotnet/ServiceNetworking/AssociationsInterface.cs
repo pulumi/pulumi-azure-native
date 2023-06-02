@@ -90,7 +90,6 @@ namespace Pulumi.AzureNative.ServiceNetworking
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20221001preview:AssociationsInterface"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20230501preview:AssociationsInterface"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

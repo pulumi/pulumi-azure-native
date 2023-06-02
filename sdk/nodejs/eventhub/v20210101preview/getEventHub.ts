@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an Event Hubs description for the specified Event Hub.
  */
+/** @deprecated azure-native:eventhub/v20210101preview:EventHub is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:EventHub to guarantee forwards compatibility. */
 export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
+    pulumi.log.warn("getEventHub is deprecated: azure-native:eventhub/v20210101preview:EventHub is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:EventHub to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20210101preview:getEventHub", {
@@ -87,6 +89,7 @@ export interface GetEventHubResult {
 /**
  * Gets an Event Hubs description for the specified Event Hub.
  */
+/** @deprecated azure-native:eventhub/v20210101preview:EventHub is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:EventHub to guarantee forwards compatibility. */
 export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubResult> {
     return pulumi.output(args).apply((a: any) => getEventHub(a, opts))
 }

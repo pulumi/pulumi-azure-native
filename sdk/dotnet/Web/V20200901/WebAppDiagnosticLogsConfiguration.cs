@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20200901
     /// <summary>
     /// Configuration of App Service site logs.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20200901:WebAppDiagnosticLogsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppDiagnosticLogsConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20200901:WebAppDiagnosticLogsConfiguration")]
     public partial class WebAppDiagnosticLogsConfiguration : global::Pulumi.CustomResource
     {

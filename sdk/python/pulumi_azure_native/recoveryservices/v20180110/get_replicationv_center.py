@@ -17,7 +17,8 @@ __all__ = [
     'get_replicationv_center_output',
 ]
 
-warnings.warn("""Version 2018-01-10 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetReplicationvCenterResult:
@@ -109,7 +110,8 @@ def get_replicationv_center(fabric_name: Optional[str] = None,
     :param str resource_name: The name of the recovery services vault.
     :param str v_center_name: vCenter name.
     """
-    pulumi.log.warn("""get_replicationv_center is deprecated: Version 2018-01-10 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_replicationv_center is deprecated: Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['resourceGroupName'] = resource_group_name
@@ -141,5 +143,6 @@ def get_replicationv_center_output(fabric_name: Optional[pulumi.Input[str]] = No
     :param str resource_name: The name of the recovery services vault.
     :param str v_center_name: vCenter name.
     """
-    pulumi.log.warn("""get_replicationv_center is deprecated: Version 2018-01-10 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_replicationv_center is deprecated: Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.""")
     ...

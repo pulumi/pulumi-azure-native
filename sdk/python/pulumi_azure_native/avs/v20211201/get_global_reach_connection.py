@@ -16,6 +16,8 @@ __all__ = [
     'get_global_reach_connection_output',
 ]
 
+warnings.warn("""azure-native:avs/v20211201:GlobalReachConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:GlobalReachConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGlobalReachConnectionResult:
     """
@@ -152,6 +154,7 @@ def get_global_reach_connection(global_reach_connection_name: Optional[str] = No
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_global_reach_connection is deprecated: azure-native:avs/v20211201:GlobalReachConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:GlobalReachConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['globalReachConnectionName'] = global_reach_connection_name
     __args__['privateCloudName'] = private_cloud_name
@@ -184,4 +187,5 @@ def get_global_reach_connection_output(global_reach_connection_name: Optional[pu
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_global_reach_connection is deprecated: azure-native:avs/v20211201:GlobalReachConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:GlobalReachConnection to guarantee forwards compatibility.""")
     ...

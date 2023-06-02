@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified private endpoint connection associated with the service.
  */
+/** @deprecated azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionsComp(args: GetPrivateEndpointConnectionsCompArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionsCompResult> {
+    pulumi.log.warn("getPrivateEndpointConnectionsComp is deprecated: azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210111:getPrivateEndpointConnectionsComp", {
@@ -71,6 +73,7 @@ export interface GetPrivateEndpointConnectionsCompResult {
 /**
  * Gets the specified private endpoint connection associated with the service.
  */
+/** @deprecated azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionsCompOutput(args: GetPrivateEndpointConnectionsCompOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsCompResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionsComp(a, opts))
 }

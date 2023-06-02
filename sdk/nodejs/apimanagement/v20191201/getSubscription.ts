@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Subscription entity.
  */
+/** @deprecated azure-native:apimanagement/v20191201:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Subscription to guarantee forwards compatibility. */
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
+    pulumi.log.warn("getSubscription is deprecated: azure-native:apimanagement/v20191201:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Subscription to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201:getSubscription", {
@@ -104,6 +106,7 @@ export interface GetSubscriptionResult {
 /**
  * Gets the specified Subscription entity.
  */
+/** @deprecated azure-native:apimanagement/v20191201:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Subscription to guarantee forwards compatibility. */
 export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getSubscription(a, opts))
 }

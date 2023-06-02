@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the local user of the storage account by username.
  */
+/** @deprecated azure-native:storage/v20210901:LocalUser is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:LocalUser to guarantee forwards compatibility. */
 export function getLocalUser(args: GetLocalUserArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalUserResult> {
+    pulumi.log.warn("getLocalUser is deprecated: azure-native:storage/v20210901:LocalUser is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:LocalUser to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20210901:getLocalUser", {
@@ -87,6 +89,7 @@ export interface GetLocalUserResult {
 /**
  * Get the local user of the storage account by username.
  */
+/** @deprecated azure-native:storage/v20210901:LocalUser is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:LocalUser to guarantee forwards compatibility. */
 export function getLocalUserOutput(args: GetLocalUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalUserResult> {
     return pulumi.output(args).apply((a: any) => getLocalUser(a, opts))
 }

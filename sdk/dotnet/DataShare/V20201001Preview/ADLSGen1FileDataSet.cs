@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     /// <summary>
     /// An ADLS Gen 1 file data set.
     /// </summary>
+    [Obsolete(@"azure-native:datashare/v20201001preview:ADLSGen1FileDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen1FileDataSet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datashare/v20201001preview:ADLSGen1FileDataSet")]
     public partial class ADLSGen1FileDataSet : global::Pulumi.CustomResource
     {

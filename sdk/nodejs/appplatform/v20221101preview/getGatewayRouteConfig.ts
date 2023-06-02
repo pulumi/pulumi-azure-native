@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the Spring Cloud Gateway route configs.
  */
+/** @deprecated azure-native:appplatform/v20221101preview:GatewayRouteConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:GatewayRouteConfig to guarantee forwards compatibility. */
 export function getGatewayRouteConfig(args: GetGatewayRouteConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayRouteConfigResult> {
+    pulumi.log.warn("getGatewayRouteConfig is deprecated: azure-native:appplatform/v20221101preview:GatewayRouteConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:GatewayRouteConfig to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20221101preview:getGatewayRouteConfig", {
@@ -68,6 +70,7 @@ export interface GetGatewayRouteConfigResult {
 /**
  * Get the Spring Cloud Gateway route configs.
  */
+/** @deprecated azure-native:appplatform/v20221101preview:GatewayRouteConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:GatewayRouteConfig to guarantee forwards compatibility. */
 export function getGatewayRouteConfigOutput(args: GetGatewayRouteConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteConfigResult> {
     return pulumi.output(args).apply((a: any) => getGatewayRouteConfig(a, opts))
 }

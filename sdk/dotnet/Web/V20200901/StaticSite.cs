@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20200901
     /// <summary>
     /// Static Site ARM resource.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20200901:StaticSite is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:StaticSite to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20200901:StaticSite")]
     public partial class StaticSite : global::Pulumi.CustomResource
     {

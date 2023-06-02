@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Media.V20211101
     /// <summary>
     /// A Content Key Policy resource.
     /// </summary>
+    [Obsolete(@"azure-native:media/v20211101:ContentKeyPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:ContentKeyPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:media/v20211101:ContentKeyPolicy")]
     public partial class ContentKeyPolicy : global::Pulumi.CustomResource
     {

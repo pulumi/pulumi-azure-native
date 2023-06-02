@@ -164,7 +164,12 @@ class AvailabilityGroupListenerArgs:
         pulumi.set(self, "port", value)
 
 
+warnings.warn("""azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AvailabilityGroupListener(pulumi.CustomResource):
+    warnings.warn("""azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -228,6 +233,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_virtual_machine_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""AvailabilityGroupListener is deprecated: azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

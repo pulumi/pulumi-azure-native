@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an incident task.
  */
+/** @deprecated azure-native:securityinsights/v20221201preview:IncidentTask is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IncidentTask to guarantee forwards compatibility. */
 export function getIncidentTask(args: GetIncidentTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentTaskResult> {
+    pulumi.log.warn("getIncidentTask is deprecated: azure-native:securityinsights/v20221201preview:IncidentTask is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IncidentTask to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20221201preview:getIncidentTask", {
@@ -90,6 +92,7 @@ export interface GetIncidentTaskResult {
 /**
  * Gets an incident task.
  */
+/** @deprecated azure-native:securityinsights/v20221201preview:IncidentTask is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IncidentTask to guarantee forwards compatibility. */
 export function getIncidentTaskOutput(args: GetIncidentTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentTaskResult> {
     return pulumi.output(args).apply((a: any) => getIncidentTask(a, opts))
 }

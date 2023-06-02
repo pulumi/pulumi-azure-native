@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210115
     /// <summary>
     /// Information about a domain.
     /// </summary>
+    [Obsolete(@"azure-native:domainregistration/v20210115:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:Domain to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:domainregistration/v20210115:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
     {

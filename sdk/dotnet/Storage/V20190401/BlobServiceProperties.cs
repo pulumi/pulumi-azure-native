@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Storage.V20190401
     /// <summary>
     /// The properties of a storage account’s Blob service.
     /// </summary>
-    [Obsolete(@"Version 2019-04-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-04-01 will be removed in v2 of the provider.
+azure-native:storage/v20190401:BlobServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobServiceProperties to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storage/v20190401:BlobServiceProperties")]
     public partial class BlobServiceProperties : global::Pulumi.CustomResource
     {

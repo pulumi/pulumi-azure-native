@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20200901
     /// <summary>
     /// App Service plan.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20200901:AppServicePlan is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:AppServicePlan to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20200901:AppServicePlan")]
     public partial class AppServicePlan : global::Pulumi.CustomResource
     {

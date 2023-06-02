@@ -282,7 +282,12 @@ class WebTestArgs:
         pulumi.set(self, "web_test_name", value)
 
 
+warnings.warn("""azure-native:insights/v20180501preview:WebTest is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201005preview:WebTest to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WebTest(pulumi.CustomResource):
+    warnings.warn("""azure-native:insights/v20180501preview:WebTest is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201005preview:WebTest to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -367,6 +372,7 @@ class WebTest(pulumi.CustomResource):
                  web_test_kind: Optional[pulumi.Input['WebTestKindEnum']] = None,
                  web_test_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebTest is deprecated: azure-native:insights/v20180501preview:WebTest is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201005preview:WebTest to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

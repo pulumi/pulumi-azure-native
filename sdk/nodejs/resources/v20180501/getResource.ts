@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a resource.
  */
-/** @deprecated Version 2018-05-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-05-01 will be removed in v2 of the provider.
+azure-native:resources/v20180501:Resource is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:Resource to guarantee forwards compatibility. */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
-    pulumi.log.warn("getResource is deprecated: Version 2018-05-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getResource is deprecated: Version 2018-05-01 will be removed in v2 of the provider.\nazure-native:resources/v20180501:Resource is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:Resource to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20180501:getResource", {
@@ -99,7 +100,8 @@ export interface GetResourceResult {
 /**
  * Gets a resource.
  */
-/** @deprecated Version 2018-05-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-05-01 will be removed in v2 of the provider.
+azure-native:resources/v20180501:Resource is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:Resource to guarantee forwards compatibility. */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
     return pulumi.output(args).apply((a: any) => getResource(a, opts))
 }

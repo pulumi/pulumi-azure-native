@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get Tag description in scope of API
  */
+/** @deprecated azure-native:apimanagement/v20191201:ApiTagDescription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiTagDescription to guarantee forwards compatibility. */
 export function getApiTagDescription(args: GetApiTagDescriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetApiTagDescriptionResult> {
+    pulumi.log.warn("getApiTagDescription is deprecated: azure-native:apimanagement/v20191201:ApiTagDescription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiTagDescription to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201:getApiTagDescription", {
@@ -77,6 +79,7 @@ export interface GetApiTagDescriptionResult {
 /**
  * Get Tag description in scope of API
  */
+/** @deprecated azure-native:apimanagement/v20191201:ApiTagDescription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiTagDescription to guarantee forwards compatibility. */
 export function getApiTagDescriptionOutput(args: GetApiTagDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiTagDescriptionResult> {
     return pulumi.output(args).apply((a: any) => getApiTagDescription(a, opts))
 }

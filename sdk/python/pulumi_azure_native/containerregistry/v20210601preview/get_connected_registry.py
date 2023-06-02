@@ -17,6 +17,8 @@ __all__ = [
     'get_connected_registry_output',
 ]
 
+warnings.warn("""azure-native:containerregistry/v20210601preview:ConnectedRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ConnectedRegistry to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConnectedRegistryResult:
     """
@@ -225,6 +227,7 @@ def get_connected_registry(connected_registry_name: Optional[str] = None,
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("""get_connected_registry is deprecated: azure-native:containerregistry/v20210601preview:ConnectedRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ConnectedRegistry to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['connectedRegistryName'] = connected_registry_name
     __args__['registryName'] = registry_name
@@ -263,4 +266,5 @@ def get_connected_registry_output(connected_registry_name: Optional[pulumi.Input
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("""get_connected_registry is deprecated: azure-native:containerregistry/v20210601preview:ConnectedRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ConnectedRegistry to guarantee forwards compatibility.""")
     ...

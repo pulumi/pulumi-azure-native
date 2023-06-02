@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20210201
     /// <summary>
     /// Slot Config names azure resource.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20210201:WebAppSlotConfigurationNames is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSlotConfigurationNames to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20210201:WebAppSlotConfigurationNames")]
     public partial class WebAppSlotConfigurationNames : global::Pulumi.CustomResource
     {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a privateLinkHub
  */
+/** @deprecated azure-native:synapse/v20210401preview:PrivateLinkHub is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:PrivateLinkHub to guarantee forwards compatibility. */
 export function getPrivateLinkHub(args: GetPrivateLinkHubArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkHubResult> {
+    pulumi.log.warn("getPrivateLinkHub is deprecated: azure-native:synapse/v20210401preview:PrivateLinkHub is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:PrivateLinkHub to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210401preview:getPrivateLinkHub", {
@@ -66,6 +68,7 @@ export interface GetPrivateLinkHubResult {
 /**
  * Gets a privateLinkHub
  */
+/** @deprecated azure-native:synapse/v20210401preview:PrivateLinkHub is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:PrivateLinkHub to guarantee forwards compatibility. */
 export function getPrivateLinkHubOutput(args: GetPrivateLinkHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkHubResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkHub(a, opts))
 }

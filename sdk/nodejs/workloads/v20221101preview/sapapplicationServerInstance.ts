@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Define the SAP Application Server Instance resource.
+ *
+ * @deprecated azure-native:workloads/v20221101preview:SAPApplicationServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPApplicationServerInstance to guarantee forwards compatibility.
  */
 export class SAPApplicationServerInstance extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SAPApplicationServerInstance {
+        pulumi.log.warn("SAPApplicationServerInstance is deprecated: azure-native:workloads/v20221101preview:SAPApplicationServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPApplicationServerInstance to guarantee forwards compatibility.")
         return new SAPApplicationServerInstance(name, undefined as any, { ...opts, id: id });
     }
 
@@ -125,7 +128,9 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:workloads/v20221101preview:SAPApplicationServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPApplicationServerInstance to guarantee forwards compatibility. */
     constructor(name: string, args: SAPApplicationServerInstanceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SAPApplicationServerInstance is deprecated: azure-native:workloads/v20221101preview:SAPApplicationServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPApplicationServerInstance to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

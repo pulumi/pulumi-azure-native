@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20220401Preview
 {
+    [Obsolete(@"azure-native:apimanagement/v20220401preview:EmailTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:EmailTemplate to guarantee forwards compatibility.")]
     public static class GetEmailTemplate
     {
         /// <summary>

@@ -83,7 +83,12 @@ class SapLandscapeMonitorArgs:
         pulumi.set(self, "top_metrics_thresholds", value)
 
 
+warnings.warn("""azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class SapLandscapeMonitor(pulumi.CustomResource):
+    warnings.warn("""azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,6 +137,7 @@ class SapLandscapeMonitor(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  top_metrics_thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SapLandscapeMonitorMetricThresholdsArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""SapLandscapeMonitor is deprecated: azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

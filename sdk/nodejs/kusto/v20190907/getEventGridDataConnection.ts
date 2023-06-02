@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a data connection.
  */
+/** @deprecated azure-native:kusto/v20190907:EventGridDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20200215:EventGridDataConnection to guarantee forwards compatibility. */
 export function getEventGridDataConnection(args: GetEventGridDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventGridDataConnectionResult> {
+    pulumi.log.warn("getEventGridDataConnection is deprecated: azure-native:kusto/v20190907:EventGridDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20200215:EventGridDataConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20190907:getEventGridDataConnection", {
@@ -90,6 +92,7 @@ export interface GetEventGridDataConnectionResult {
 /**
  * Returns a data connection.
  */
+/** @deprecated azure-native:kusto/v20190907:EventGridDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20200215:EventGridDataConnection to guarantee forwards compatibility. */
 export function getEventGridDataConnectionOutput(args: GetEventGridDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventGridDataConnectionResult> {
     return pulumi.output(args).apply((a: any) => getEventGridDataConnection(a, opts))
 }

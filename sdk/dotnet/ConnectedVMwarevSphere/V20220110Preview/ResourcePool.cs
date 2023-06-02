@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     /// <summary>
     /// Define the resourcePool.
     /// </summary>
+    [Obsolete(@"azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool")]
     public partial class ResourcePool : global::Pulumi.CustomResource
     {

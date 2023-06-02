@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20190801
     /// <summary>
     /// A domain specific resource identifier.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20190801:WebAppDomainOwnershipIdentifierSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppDomainOwnershipIdentifierSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20190801:WebAppDomainOwnershipIdentifierSlot")]
     public partial class WebAppDomainOwnershipIdentifierSlot : global::Pulumi.CustomResource
     {

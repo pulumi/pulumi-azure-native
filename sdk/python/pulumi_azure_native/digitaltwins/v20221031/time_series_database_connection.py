@@ -84,7 +84,12 @@ class TimeSeriesDatabaseConnectionArgs:
         pulumi.set(self, "time_series_database_connection_name", value)
 
 
+warnings.warn("""azure-native:digitaltwins/v20221031:TimeSeriesDatabaseConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:TimeSeriesDatabaseConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class TimeSeriesDatabaseConnection(pulumi.CustomResource):
+    warnings.warn("""azure-native:digitaltwins/v20221031:TimeSeriesDatabaseConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:TimeSeriesDatabaseConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -133,6 +138,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  time_series_database_connection_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""TimeSeriesDatabaseConnection is deprecated: azure-native:digitaltwins/v20221031:TimeSeriesDatabaseConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:TimeSeriesDatabaseConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

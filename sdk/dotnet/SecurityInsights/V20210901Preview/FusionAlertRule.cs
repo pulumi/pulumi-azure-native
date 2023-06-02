@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     /// <summary>
     /// Represents Fusion alert rule.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20210901preview:FusionAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20211001preview:FusionAlertRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20210901preview:FusionAlertRule")]
     public partial class FusionAlertRule : global::Pulumi.CustomResource
     {
@@ -141,7 +142,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:FusionAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:FusionAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:FusionAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:FusionAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

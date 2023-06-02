@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the blob inventory policy associated with the specified storage account.
  */
+/** @deprecated azure-native:storage/v20220501:BlobInventoryPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility. */
 export function getBlobInventoryPolicy(args: GetBlobInventoryPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobInventoryPolicyResult> {
+    pulumi.log.warn("getBlobInventoryPolicy is deprecated: azure-native:storage/v20220501:BlobInventoryPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20220501:getBlobInventoryPolicy", {
@@ -67,6 +69,7 @@ export interface GetBlobInventoryPolicyResult {
 /**
  * Gets the blob inventory policy associated with the specified storage account.
  */
+/** @deprecated azure-native:storage/v20220501:BlobInventoryPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility. */
 export function getBlobInventoryPolicyOutput(args: GetBlobInventoryPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobInventoryPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBlobInventoryPolicy(a, opts))
 }

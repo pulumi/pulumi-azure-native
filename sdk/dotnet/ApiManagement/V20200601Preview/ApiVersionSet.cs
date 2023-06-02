@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
     /// <summary>
     /// Api Version Set Contract details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20200601preview:ApiVersionSet is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiVersionSet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20200601preview:ApiVersionSet")]
     public partial class ApiVersionSet : global::Pulumi.CustomResource
     {

@@ -16,6 +16,8 @@ __all__ = [
     'get_microsoft_security_incident_creation_alert_rule_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20190101preview:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMicrosoftSecurityIncidentCreationAlertRuleResult:
     """
@@ -215,6 +217,7 @@ def get_microsoft_security_incident_creation_alert_rule(operational_insights_res
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_microsoft_security_incident_creation_alert_rule is deprecated: azure-native:securityinsights/v20190101preview:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
@@ -255,4 +258,5 @@ def get_microsoft_security_incident_creation_alert_rule_output(operational_insig
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_microsoft_security_incident_creation_alert_rule is deprecated: azure-native:securityinsights/v20190101preview:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility.""")
     ...

@@ -17,6 +17,8 @@ __all__ = [
     'get_node_type_output',
 ]
 
+warnings.warn("""azure-native:servicefabric/v20220201preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:NodeType to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNodeTypeResult:
     """
@@ -477,6 +479,7 @@ def get_node_type(cluster_name: Optional[str] = None,
     :param str node_type_name: The name of the node type.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_node_type is deprecated: azure-native:servicefabric/v20220201preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:NodeType to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['nodeTypeName'] = node_type_name
@@ -536,4 +539,5 @@ def get_node_type_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str node_type_name: The name of the node type.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_node_type is deprecated: azure-native:servicefabric/v20220201preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:NodeType to guarantee forwards compatibility.""")
     ...

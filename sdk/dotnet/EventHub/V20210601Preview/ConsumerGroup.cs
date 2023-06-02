@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
     /// <summary>
     /// Single item in List or Get Consumer group operation
     /// </summary>
+    [Obsolete(@"azure-native:eventhub/v20210601preview:ConsumerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:ConsumerGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventhub/v20210601preview:ConsumerGroup")]
     public partial class ConsumerGroup : global::Pulumi.CustomResource
     {

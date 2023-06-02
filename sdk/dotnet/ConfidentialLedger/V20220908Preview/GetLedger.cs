@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ConfidentialLedger.V20220908Preview
 {
+    [Obsolete(@"azure-native:confidentialledger/v20220908preview:Ledger is being removed in the next major version of this provider. Upgrade to at least azure-native:confidentialledger/v20230126preview:Ledger to guarantee forwards compatibility.")]
     public static class GetLedger
     {
         /// <summary>

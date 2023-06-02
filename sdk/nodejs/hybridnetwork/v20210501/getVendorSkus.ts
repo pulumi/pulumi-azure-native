@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified sku.
  */
+/** @deprecated azure-native:hybridnetwork/v20210501:VendorSkus is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:VendorSkus to guarantee forwards compatibility. */
 export function getVendorSkus(args: GetVendorSkusArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkusResult> {
+    pulumi.log.warn("getVendorSkus is deprecated: azure-native:hybridnetwork/v20210501:VendorSkus is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:VendorSkus to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20210501:getVendorSkus", {
@@ -86,6 +88,7 @@ export interface GetVendorSkusResult {
 /**
  * Gets information about the specified sku.
  */
+/** @deprecated azure-native:hybridnetwork/v20210501:VendorSkus is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:VendorSkus to guarantee forwards compatibility. */
 export function getVendorSkusOutput(args: GetVendorSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkusResult> {
     return pulumi.output(args).apply((a: any) => getVendorSkus(a, opts))
 }

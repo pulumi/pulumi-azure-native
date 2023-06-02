@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     /// <summary>
     /// A type of trigger based on schedule
     /// </summary>
+    [Obsolete(@"azure-native:datashare/v20201001preview:ScheduledTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ScheduledTrigger to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datashare/v20201001preview:ScheduledTrigger")]
     public partial class ScheduledTrigger : global::Pulumi.CustomResource
     {

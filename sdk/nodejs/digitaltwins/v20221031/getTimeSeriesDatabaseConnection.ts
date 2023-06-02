@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the description of an existing time series database connection.
  */
+/** @deprecated azure-native:digitaltwins/v20221031:TimeSeriesDatabaseConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:TimeSeriesDatabaseConnection to guarantee forwards compatibility. */
 export function getTimeSeriesDatabaseConnection(args: GetTimeSeriesDatabaseConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetTimeSeriesDatabaseConnectionResult> {
+    pulumi.log.warn("getTimeSeriesDatabaseConnection is deprecated: azure-native:digitaltwins/v20221031:TimeSeriesDatabaseConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:TimeSeriesDatabaseConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:digitaltwins/v20221031:getTimeSeriesDatabaseConnection", {
@@ -63,6 +65,7 @@ export interface GetTimeSeriesDatabaseConnectionResult {
 /**
  * Get the description of an existing time series database connection.
  */
+/** @deprecated azure-native:digitaltwins/v20221031:TimeSeriesDatabaseConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:TimeSeriesDatabaseConnection to guarantee forwards compatibility. */
 export function getTimeSeriesDatabaseConnectionOutput(args: GetTimeSeriesDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTimeSeriesDatabaseConnectionResult> {
     return pulumi.output(args).apply((a: any) => getTimeSeriesDatabaseConnection(a, opts))
 }

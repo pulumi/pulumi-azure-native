@@ -16,7 +16,8 @@ __all__ = [
     'get_domain_ownership_identifier_output',
 ]
 
-warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:domainregistration/v20200601:DomainOwnershipIdentifier is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20201001:DomainOwnershipIdentifier to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDomainOwnershipIdentifierResult:
@@ -106,7 +107,8 @@ def get_domain_ownership_identifier(domain_name: Optional[str] = None,
     :param str name: Name of identifier.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_domain_ownership_identifier is deprecated: Version 2020-06-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_domain_ownership_identifier is deprecated: Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:domainregistration/v20200601:DomainOwnershipIdentifier is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20201001:DomainOwnershipIdentifier to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['name'] = name
@@ -135,5 +137,6 @@ def get_domain_ownership_identifier_output(domain_name: Optional[pulumi.Input[st
     :param str name: Name of identifier.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_domain_ownership_identifier is deprecated: Version 2020-06-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_domain_ownership_identifier is deprecated: Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:domainregistration/v20200601:DomainOwnershipIdentifier is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20201001:DomainOwnershipIdentifier to guarantee forwards compatibility.""")
     ...

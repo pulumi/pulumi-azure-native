@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
 {
-    [Obsolete(@"Version 2018-08-15-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-08-15-preview will be removed in v2 of the provider.
+azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:ReferenceDataSet to guarantee forwards compatibility.")]
     public static class GetReferenceDataSet
     {
         /// <summary>

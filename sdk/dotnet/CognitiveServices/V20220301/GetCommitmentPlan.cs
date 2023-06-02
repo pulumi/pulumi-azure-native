@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.CognitiveServices.V20220301
 {
+    [Obsolete(@"azure-native:cognitiveservices/v20220301:CommitmentPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20221001:CommitmentPlan to guarantee forwards compatibility.")]
     public static class GetCommitmentPlan
     {
         /// <summary>

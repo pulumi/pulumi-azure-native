@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetApp.V20210601
 {
+    [Obsolete(@"azure-native:netapp/v20210601:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:BackupPolicy to guarantee forwards compatibility.")]
     public static class GetBackupPolicy
     {
         /// <summary>

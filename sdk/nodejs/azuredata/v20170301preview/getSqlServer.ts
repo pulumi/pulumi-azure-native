@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a SQL Server.
  */
-/** @deprecated Version 2017-03-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2017-03-01-preview will be removed in v2 of the provider.
+azure-native:azuredata/v20170301preview:SqlServer is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServer to guarantee forwards compatibility. */
 export function getSqlServer(args: GetSqlServerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerResult> {
-    pulumi.log.warn("getSqlServer is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getSqlServer is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.\nazure-native:azuredata/v20170301preview:SqlServer is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredata/v20170301preview:getSqlServer", {
@@ -75,7 +76,8 @@ export interface GetSqlServerResult {
 /**
  * Gets a SQL Server.
  */
-/** @deprecated Version 2017-03-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2017-03-01-preview will be removed in v2 of the provider.
+azure-native:azuredata/v20170301preview:SqlServer is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServer to guarantee forwards compatibility. */
 export function getSqlServerOutput(args: GetSqlServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerResult> {
     return pulumi.output(args).apply((a: any) => getSqlServer(a, opts))
 }

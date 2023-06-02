@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20190801
     /// <summary>
     /// Rule Group resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20190801:FirewallPolicyRuleGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:FirewallPolicyRuleGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20190801:FirewallPolicyRuleGroup")]
     public partial class FirewallPolicyRuleGroup : global::Pulumi.CustomResource
     {

@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Active Directory only authentication.
+ *
+ * @deprecated azure-native:sql/v20210801preview:ServerAzureADOnlyAuthentication is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerAzureADOnlyAuthentication to guarantee forwards compatibility.
  */
 export class ServerAzureADOnlyAuthentication extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class ServerAzureADOnlyAuthentication extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerAzureADOnlyAuthentication {
+        pulumi.log.warn("ServerAzureADOnlyAuthentication is deprecated: azure-native:sql/v20210801preview:ServerAzureADOnlyAuthentication is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerAzureADOnlyAuthentication to guarantee forwards compatibility.")
         return new ServerAzureADOnlyAuthentication(name, undefined as any, { ...opts, id: id });
     }
 
@@ -54,7 +57,9 @@ export class ServerAzureADOnlyAuthentication extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:sql/v20210801preview:ServerAzureADOnlyAuthentication is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerAzureADOnlyAuthentication to guarantee forwards compatibility. */
     constructor(name: string, args: ServerAzureADOnlyAuthenticationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ServerAzureADOnlyAuthentication is deprecated: azure-native:sql/v20210801preview:ServerAzureADOnlyAuthentication is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerAzureADOnlyAuthentication to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

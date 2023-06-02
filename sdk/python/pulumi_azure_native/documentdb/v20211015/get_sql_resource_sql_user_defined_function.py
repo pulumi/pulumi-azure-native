@@ -17,6 +17,8 @@ __all__ = [
     'get_sql_resource_sql_user_defined_function_output',
 ]
 
+warnings.warn("""azure-native:documentdb/v20211015:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlResourceSqlUserDefinedFunctionResult:
     """
@@ -118,6 +120,7 @@ def get_sql_resource_sql_user_defined_function(account_name: Optional[str] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str user_defined_function_name: Cosmos DB userDefinedFunction name.
     """
+    pulumi.log.warn("""get_sql_resource_sql_user_defined_function is deprecated: azure-native:documentdb/v20211015:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name
@@ -153,4 +156,5 @@ def get_sql_resource_sql_user_defined_function_output(account_name: Optional[pul
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str user_defined_function_name: Cosmos DB userDefinedFunction name.
     """
+    pulumi.log.warn("""get_sql_resource_sql_user_defined_function is deprecated: azure-native:documentdb/v20211015:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility.""")
     ...

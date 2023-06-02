@@ -325,11 +325,13 @@ class VirtualMachineScaleSetArgs:
         pulumi.set(self, "zones", value)
 
 
-warnings.warn("""Version 2019-12-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-12-01 will be removed in v2 of the provider.
+azure-native:compute/v20191201:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class VirtualMachineScaleSet(pulumi.CustomResource):
-    warnings.warn("""Version 2019-12-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2019-12-01 will be removed in v2 of the provider.
+azure-native:compute/v20191201:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -424,7 +426,8 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""VirtualMachineScaleSet is deprecated: Version 2019-12-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""VirtualMachineScaleSet is deprecated: Version 2019-12-01 will be removed in v2 of the provider.
+azure-native:compute/v20191201:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

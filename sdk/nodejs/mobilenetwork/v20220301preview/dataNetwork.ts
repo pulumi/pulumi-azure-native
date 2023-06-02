@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Data network resource.
+ *
+ * @deprecated azure-native:mobilenetwork/v20220301preview:DataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:DataNetwork to guarantee forwards compatibility.
  */
 export class DataNetwork extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class DataNetwork extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataNetwork {
+        pulumi.log.warn("DataNetwork is deprecated: azure-native:mobilenetwork/v20220301preview:DataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:DataNetwork to guarantee forwards compatibility.")
         return new DataNetwork(name, undefined as any, { ...opts, id: id });
     }
 
@@ -97,7 +100,9 @@ export class DataNetwork extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:mobilenetwork/v20220301preview:DataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:DataNetwork to guarantee forwards compatibility. */
     constructor(name: string, args: DataNetworkArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DataNetwork is deprecated: azure-native:mobilenetwork/v20220301preview:DataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:DataNetwork to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

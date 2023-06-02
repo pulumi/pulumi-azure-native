@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview
 {
-    [Obsolete(@"Version 2019-02-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-02-01-preview will be removed in v2 of the provider.
+azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate")]
     public partial class VirtualMachineImageTemplate : global::Pulumi.CustomResource
     {

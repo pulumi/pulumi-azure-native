@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
+ *
+ * @deprecated azure-native:cache/v20210601:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PrivateEndpointConnection to guarantee forwards compatibility.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpointConnection {
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: azure-native:cache/v20210601:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PrivateEndpointConnection to guarantee forwards compatibility.")
         return new PrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,7 +68,9 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:cache/v20210601:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PrivateEndpointConnection to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: azure-native:cache/v20210601:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PrivateEndpointConnection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -94,7 +99,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20200601:PrivateEndpointConnection" }, { type: "azure-native:cache/v20201201:PrivateEndpointConnection" }, { type: "azure-native:cache/v20220501:PrivateEndpointConnection" }, { type: "azure-native:cache/v20220601:PrivateEndpointConnection" }, { type: "azure-native:cache/v20230401:PrivateEndpointConnection" }, { type: "azure-native:cache/v20230501preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20200601:PrivateEndpointConnection" }, { type: "azure-native:cache/v20201201:PrivateEndpointConnection" }, { type: "azure-native:cache/v20220501:PrivateEndpointConnection" }, { type: "azure-native:cache/v20220601:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

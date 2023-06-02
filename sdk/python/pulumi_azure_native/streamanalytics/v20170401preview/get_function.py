@@ -17,6 +17,8 @@ __all__ = [
     'get_function_output',
 ]
 
+warnings.warn("""azure-native:streamanalytics/v20170401preview:Function is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Function to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFunctionResult:
     """
@@ -93,6 +95,7 @@ def get_function(function_name: Optional[str] = None,
     :param str job_name: The name of the streaming job.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_function is deprecated: azure-native:streamanalytics/v20170401preview:Function is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Function to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['jobName'] = job_name
@@ -120,4 +123,5 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
     :param str job_name: The name of the streaming job.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_function is deprecated: azure-native:streamanalytics/v20170401preview:Function is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Function to guarantee forwards compatibility.""")
     ...

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Solutions.V20180901Preview
     /// <summary>
     /// Information about JIT request definition.
     /// </summary>
-    [Obsolete(@"Version 2018-09-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:solutions/v20180901preview:JitRequest is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:JitRequest to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:solutions/v20180901preview:JitRequest")]
     public partial class JitRequest : global::Pulumi.CustomResource
     {

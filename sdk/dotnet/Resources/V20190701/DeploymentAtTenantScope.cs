@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Resources.V20190701
     /// <summary>
     /// Deployment information.
     /// </summary>
+    [Obsolete(@"azure-native:resources/v20190701:DeploymentAtTenantScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtTenantScope to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:resources/v20190701:DeploymentAtTenantScope")]
     public partial class DeploymentAtTenantScope : global::Pulumi.CustomResource
     {

@@ -145,11 +145,13 @@ class SqlServerArgs:
         pulumi.set(self, "version", value)
 
 
-warnings.warn("""Version 2017-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-03-01-preview will be removed in v2 of the provider.
+azure-native:azuredata/v20170301preview:SqlServer is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServer to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class SqlServer(pulumi.CustomResource):
-    warnings.warn("""Version 2017-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2017-03-01-preview will be removed in v2 of the provider.
+azure-native:azuredata/v20170301preview:SqlServer is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServer to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -211,7 +213,8 @@ class SqlServer(pulumi.CustomResource):
                  sql_server_registration_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SqlServer is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""SqlServer is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.
+azure-native:azuredata/v20170301preview:SqlServer is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServer to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

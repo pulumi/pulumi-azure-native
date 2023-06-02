@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The service resource.
+ *
+ * @deprecated azure-native:servicefabric/v20210701preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:Service to guarantee forwards compatibility.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Service extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Service {
+        pulumi.log.warn("Service is deprecated: azure-native:servicefabric/v20210701preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:Service to guarantee forwards compatibility.")
         return new Service(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,7 +72,9 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:servicefabric/v20210701preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:Service to guarantee forwards compatibility. */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Service is deprecated: azure-native:servicefabric/v20210701preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:Service to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -101,7 +106,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:Service" }, { type: "azure-native:servicefabric/v20210501:Service" }, { type: "azure-native:servicefabric/v20210901privatepreview:Service" }, { type: "azure-native:servicefabric/v20211101preview:Service" }, { type: "azure-native:servicefabric/v20220101:Service" }, { type: "azure-native:servicefabric/v20220201preview:Service" }, { type: "azure-native:servicefabric/v20220601preview:Service" }, { type: "azure-native:servicefabric/v20220801preview:Service" }, { type: "azure-native:servicefabric/v20221001preview:Service" }, { type: "azure-native:servicefabric/v20230201preview:Service" }, { type: "azure-native:servicefabric/v20230301preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:Service" }, { type: "azure-native:servicefabric/v20210501:Service" }, { type: "azure-native:servicefabric/v20210901privatepreview:Service" }, { type: "azure-native:servicefabric/v20211101preview:Service" }, { type: "azure-native:servicefabric/v20220101:Service" }, { type: "azure-native:servicefabric/v20220201preview:Service" }, { type: "azure-native:servicefabric/v20220601preview:Service" }, { type: "azure-native:servicefabric/v20220801preview:Service" }, { type: "azure-native:servicefabric/v20221001preview:Service" }, { type: "azure-native:servicefabric/v20230201preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

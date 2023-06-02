@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified network group.
  */
+/** @deprecated azure-native:network/v20220501:NetworkGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkGroup to guarantee forwards compatibility. */
 export function getNetworkGroup(args: GetNetworkGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkGroupResult> {
+    pulumi.log.warn("getNetworkGroup is deprecated: azure-native:network/v20220501:NetworkGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220501:getNetworkGroup", {
@@ -71,6 +73,7 @@ export interface GetNetworkGroupResult {
 /**
  * Gets the specified network group.
  */
+/** @deprecated azure-native:network/v20220501:NetworkGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkGroup to guarantee forwards compatibility. */
 export function getNetworkGroupOutput(args: GetNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkGroupResult> {
     return pulumi.output(args).apply((a: any) => getNetworkGroup(a, opts))
 }

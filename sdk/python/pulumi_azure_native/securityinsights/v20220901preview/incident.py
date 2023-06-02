@@ -273,7 +273,12 @@ class IncidentArgs:
         pulumi.set(self, "provider_name", value)
 
 
+warnings.warn("""azure-native:securityinsights/v20220901preview:Incident is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201preview:Incident to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Incident(pulumi.CustomResource):
+    warnings.warn("""azure-native:securityinsights/v20220901preview:Incident is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201preview:Incident to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -358,6 +363,7 @@ class Incident(pulumi.CustomResource):
                  title: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Incident is deprecated: azure-native:securityinsights/v20220901preview:Incident is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201preview:Incident to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -403,7 +409,7 @@ class Incident(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["team_information"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:Incident")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Incident")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Incident, __self__).__init__(
             'azure-native:securityinsights/v20220901preview:Incident',

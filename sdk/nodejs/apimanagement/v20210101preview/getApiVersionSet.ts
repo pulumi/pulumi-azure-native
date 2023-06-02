@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the Api Version Set specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20210101preview:ApiVersionSet is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiVersionSet to guarantee forwards compatibility. */
 export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> {
+    pulumi.log.warn("getApiVersionSet is deprecated: azure-native:apimanagement/v20210101preview:ApiVersionSet is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiVersionSet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210101preview:getApiVersionSet", {
@@ -72,6 +74,7 @@ export interface GetApiVersionSetResult {
 /**
  * Gets the details of the Api Version Set specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20210101preview:ApiVersionSet is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiVersionSet to guarantee forwards compatibility. */
 export function getApiVersionSetOutput(args: GetApiVersionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiVersionSetResult> {
     return pulumi.output(args).apply((a: any) => getApiVersionSet(a, opts))
 }

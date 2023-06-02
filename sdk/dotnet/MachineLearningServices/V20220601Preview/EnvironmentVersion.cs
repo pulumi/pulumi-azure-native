@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
     /// <summary>
     /// Azure Resource Manager resource envelope.
     /// </summary>
+    [Obsolete(@"azure-native:machinelearningservices/v20220601preview:EnvironmentVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:EnvironmentVersion to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220601preview:EnvironmentVersion")]
     public partial class EnvironmentVersion : global::Pulumi.CustomResource
     {

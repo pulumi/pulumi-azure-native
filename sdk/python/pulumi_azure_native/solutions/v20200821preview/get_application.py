@@ -17,6 +17,8 @@ __all__ = [
     'get_application_output',
 ]
 
+warnings.warn("""azure-native:solutions/v20200821preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:Application to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationResult:
     """
@@ -343,6 +345,7 @@ def get_application(application_name: Optional[str] = None,
     :param str application_name: The name of the managed application.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_application is deprecated: azure-native:solutions/v20200821preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:Application to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['applicationName'] = application_name
     __args__['resourceGroupName'] = resource_group_name
@@ -388,4 +391,5 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
     :param str application_name: The name of the managed application.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_application is deprecated: azure-native:solutions/v20200821preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:Application to guarantee forwards compatibility.""")
     ...

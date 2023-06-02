@@ -16,6 +16,8 @@ __all__ = [
     'get_workload_network_public_ip_output',
 ]
 
+warnings.warn("""azure-native:avs/v20211201:WorkloadNetworkPublicIP is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPublicIP to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWorkloadNetworkPublicIPResult:
     """
@@ -128,6 +130,7 @@ def get_workload_network_public_ip(private_cloud_name: Optional[str] = None,
     :param str public_ip_id: NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_workload_network_public_ip is deprecated: azure-native:avs/v20211201:WorkloadNetworkPublicIP is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPublicIP to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
     __args__['publicIPId'] = public_ip_id
@@ -158,4 +161,5 @@ def get_workload_network_public_ip_output(private_cloud_name: Optional[pulumi.In
     :param str public_ip_id: NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_workload_network_public_ip is deprecated: azure-native:avs/v20211201:WorkloadNetworkPublicIP is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPublicIP to guarantee forwards compatibility.""")
     ...

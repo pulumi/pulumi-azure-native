@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HybridConnectivity.V20211006Preview
 {
+    [Obsolete(@"azure-native:hybridconnectivity/v20211006preview:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridconnectivity/v20220501preview:Endpoint to guarantee forwards compatibility.")]
     public static class GetEndpoint
     {
         /// <summary>

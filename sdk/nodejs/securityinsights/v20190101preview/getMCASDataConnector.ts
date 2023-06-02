@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20190101preview:MCASDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:MCASDataConnector to guarantee forwards compatibility. */
 export function getMCASDataConnector(args: GetMCASDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMCASDataConnectorResult> {
+    pulumi.log.warn("getMCASDataConnector is deprecated: azure-native:securityinsights/v20190101preview:MCASDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:MCASDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getMCASDataConnector", {
@@ -77,6 +79,7 @@ export interface GetMCASDataConnectorResult {
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20190101preview:MCASDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:MCASDataConnector to guarantee forwards compatibility. */
 export function getMCASDataConnectorOutput(args: GetMCASDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMCASDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getMCASDataConnector(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Automation.V20180630
     /// <summary>
     /// Definition of the runbook type.
     /// </summary>
+    [Obsolete(@"azure-native:automation/v20180630:Runbook is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Runbook to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automation/v20180630:Runbook")]
     public partial class Runbook : global::Pulumi.CustomResource
     {

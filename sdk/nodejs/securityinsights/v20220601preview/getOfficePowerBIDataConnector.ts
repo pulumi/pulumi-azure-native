@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20220601preview:OfficePowerBIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:OfficePowerBIDataConnector to guarantee forwards compatibility. */
 export function getOfficePowerBIDataConnector(args: GetOfficePowerBIDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficePowerBIDataConnectorResult> {
+    pulumi.log.warn("getOfficePowerBIDataConnector is deprecated: azure-native:securityinsights/v20220601preview:OfficePowerBIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:OfficePowerBIDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220601preview:getOfficePowerBIDataConnector", {
@@ -76,6 +78,7 @@ export interface GetOfficePowerBIDataConnectorResult {
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20220601preview:OfficePowerBIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:OfficePowerBIDataConnector to guarantee forwards compatibility. */
 export function getOfficePowerBIDataConnectorOutput(args: GetOfficePowerBIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficePowerBIDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getOfficePowerBIDataConnector(a, opts))
 }

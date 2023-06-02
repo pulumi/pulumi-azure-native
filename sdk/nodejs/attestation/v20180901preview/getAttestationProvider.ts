@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Get the status of Attestation Provider.
  */
-/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:attestation/v20180901preview:AttestationProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:attestation/v20210601preview:AttestationProvider to guarantee forwards compatibility. */
 export function getAttestationProvider(args: GetAttestationProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationProviderResult> {
-    pulumi.log.warn("getAttestationProvider is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getAttestationProvider is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.\nazure-native:attestation/v20180901preview:AttestationProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:attestation/v20210601preview:AttestationProvider to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:attestation/v20180901preview:getAttestationProvider", {
@@ -69,7 +70,8 @@ export interface GetAttestationProviderResult {
 /**
  * Get the status of Attestation Provider.
  */
-/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:attestation/v20180901preview:AttestationProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:attestation/v20210601preview:AttestationProvider to guarantee forwards compatibility. */
 export function getAttestationProviderOutput(args: GetAttestationProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationProviderResult> {
     return pulumi.output(args).apply((a: any) => getAttestationProvider(a, opts))
 }

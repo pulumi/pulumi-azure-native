@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Automation.V20151031
 {
+    [Obsolete(@"azure-native:automation/v20151031:Watcher is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20200113preview:Watcher to guarantee forwards compatibility.")]
     public static class GetWatcher
     {
         /// <summary>

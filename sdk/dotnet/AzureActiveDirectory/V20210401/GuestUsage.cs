@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20210401
     /// <summary>
     /// Guest Usages Resource
     /// </summary>
+    [Obsolete(@"azure-native:azureactivedirectory/v20210401:GuestUsage is being removed in the next major version of this provider. Upgrade to at least azure-native:azureactivedirectory/v20230118preview:GuestUsage to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azureactivedirectory/v20210401:GuestUsage")]
     public partial class GuestUsage : global::Pulumi.CustomResource
     {

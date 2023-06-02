@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
 {
+    [Obsolete(@"azure-native:machinelearningservices/v20220601preview:OnlineEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:OnlineEndpoint to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220601preview:OnlineEndpoint")]
     public partial class OnlineEndpoint : global::Pulumi.CustomResource
     {

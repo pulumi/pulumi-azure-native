@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified mobile network dataNetwork.
  */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:DataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:DataNetwork to guarantee forwards compatibility. */
 export function getDataNetwork(args: GetDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetDataNetworkResult> {
+    pulumi.log.warn("getDataNetwork is deprecated: azure-native:mobilenetwork/v20220301preview:DataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:DataNetwork to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220301preview:getDataNetwork", {
@@ -99,6 +101,7 @@ export interface GetDataNetworkResult {
 /**
  * Gets information about the specified mobile network dataNetwork.
  */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:DataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:DataNetwork to guarantee forwards compatibility. */
 export function getDataNetworkOutput(args: GetDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataNetworkResult> {
     return pulumi.output(args).apply((a: any) => getDataNetwork(a, opts))
 }

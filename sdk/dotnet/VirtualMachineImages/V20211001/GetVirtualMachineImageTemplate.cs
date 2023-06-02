@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.VirtualMachineImages.V20211001
 {
+    [Obsolete(@"azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.")]
     public static class GetVirtualMachineImageTemplate
     {
         /// <summary>

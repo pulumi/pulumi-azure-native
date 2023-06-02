@@ -179,7 +179,12 @@ class SnapshotPolicyArgs:
         pulumi.set(self, "weekly_schedule", value)
 
 
+warnings.warn("""azure-native:netapp/v20210601:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class SnapshotPolicy(pulumi.CustomResource):
+    warnings.warn("""azure-native:netapp/v20210601:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -246,6 +251,7 @@ class SnapshotPolicy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  weekly_schedule: Optional[pulumi.Input[pulumi.InputType['WeeklyScheduleArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""SnapshotPolicy is deprecated: azure-native:netapp/v20210601:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

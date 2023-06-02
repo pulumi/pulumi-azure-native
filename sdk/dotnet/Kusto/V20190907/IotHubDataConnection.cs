@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20190907
     /// <summary>
     /// Class representing an iot hub data connection.
     /// </summary>
+    [Obsolete(@"azure-native:kusto/v20190907:IotHubDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:IotHubDataConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kusto/v20190907:IotHubDataConnection")]
     public partial class IotHubDataConnection : global::Pulumi.CustomResource
     {

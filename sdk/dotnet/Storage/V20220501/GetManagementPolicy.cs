@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Storage.V20220501
 {
+    [Obsolete(@"azure-native:storage/v20220501:ManagementPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ManagementPolicy to guarantee forwards compatibility.")]
     public static class GetManagementPolicy
     {
         /// <summary>

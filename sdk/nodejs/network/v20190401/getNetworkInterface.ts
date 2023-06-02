@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified network interface.
  */
+/** @deprecated azure-native:network/v20190401:NetworkInterface is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:NetworkInterface to guarantee forwards compatibility. */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
+    pulumi.log.warn("getNetworkInterface is deprecated: azure-native:network/v20190401:NetworkInterface is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:NetworkInterface to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190401:getNetworkInterface", {
@@ -119,6 +121,7 @@ export interface GetNetworkInterfaceResult {
 /**
  * Gets information about the specified network interface.
  */
+/** @deprecated azure-native:network/v20190401:NetworkInterface is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:NetworkInterface to guarantee forwards compatibility. */
 export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkInterface(a, opts))
 }

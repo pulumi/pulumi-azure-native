@@ -173,7 +173,12 @@ class SqlPoolWorkloadGroupArgs:
         pulumi.set(self, "workload_group_name", value)
 
 
+warnings.warn("""azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class SqlPoolWorkloadGroup(pulumi.CustomResource):
+    warnings.warn("""azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -240,6 +245,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
                  workload_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""SqlPoolWorkloadGroup is deprecated: azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

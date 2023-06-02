@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20221101Preview
     /// <summary>
     /// The build service agent pool resource
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20221101preview:BuildServiceAgentPool is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildServiceAgentPool to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20221101preview:BuildServiceAgentPool")]
     public partial class BuildServiceAgentPool : global::Pulumi.CustomResource
     {

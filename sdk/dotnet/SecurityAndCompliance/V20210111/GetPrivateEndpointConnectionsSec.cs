@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
 {
+    [Obsolete(@"azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsSec is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsSec to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnectionsSec
     {
         /// <summary>

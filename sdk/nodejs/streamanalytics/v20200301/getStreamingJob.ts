@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets details about the specified streaming job.
  */
+/** @deprecated azure-native:streamanalytics/v20200301:StreamingJob is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:StreamingJob to guarantee forwards compatibility. */
 export function getStreamingJob(args: GetStreamingJobArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingJobResult> {
+    pulumi.log.warn("getStreamingJob is deprecated: azure-native:streamanalytics/v20200301:StreamingJob is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:StreamingJob to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:streamanalytics/v20200301:getStreamingJob", {
@@ -159,6 +161,7 @@ export interface GetStreamingJobResult {
 /**
  * Gets details about the specified streaming job.
  */
+/** @deprecated azure-native:streamanalytics/v20200301:StreamingJob is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:StreamingJob to guarantee forwards compatibility. */
 export function getStreamingJobOutput(args: GetStreamingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingJobResult> {
     return pulumi.output(args).apply((a: any) => getStreamingJob(a, opts))
 }

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An Application Insights workbook definition.
+ *
+ * @deprecated azure-native:insights/v20180617preview:Workbook is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210308:Workbook to guarantee forwards compatibility.
  */
 export class Workbook extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Workbook extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Workbook {
+        pulumi.log.warn("Workbook is deprecated: azure-native:insights/v20180617preview:Workbook is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210308:Workbook to guarantee forwards compatibility.")
         return new Workbook(name, undefined as any, { ...opts, id: id });
     }
 
@@ -93,7 +96,9 @@ export class Workbook extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:insights/v20180617preview:Workbook is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210308:Workbook to guarantee forwards compatibility. */
     constructor(name: string, args: WorkbookArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Workbook is deprecated: azure-native:insights/v20180617preview:Workbook is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210308:Workbook to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

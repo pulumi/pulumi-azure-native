@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get a certificate order.
  */
-/** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:certificateregistration/v20200901:AppServiceCertificateOrder is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20201001:AppServiceCertificateOrder to guarantee forwards compatibility. */
 export function getAppServiceCertificateOrder(args: GetAppServiceCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderResult> {
-    pulumi.log.warn("getAppServiceCertificateOrder is deprecated: Version 2020-09-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getAppServiceCertificateOrder is deprecated: Version 2020-09-01 will be removed in v2 of the provider.\nazure-native:certificateregistration/v20200901:AppServiceCertificateOrder is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20201001:AppServiceCertificateOrder to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:certificateregistration/v20200901:getAppServiceCertificateOrder", {
@@ -144,7 +145,8 @@ export interface GetAppServiceCertificateOrderResult {
 /**
  * Get a certificate order.
  */
-/** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:certificateregistration/v20200901:AppServiceCertificateOrder is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20201001:AppServiceCertificateOrder to guarantee forwards compatibility. */
 export function getAppServiceCertificateOrderOutput(args: GetAppServiceCertificateOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderResult> {
     return pulumi.output(args).apply((a: any) => getAppServiceCertificateOrder(a, opts))
 }

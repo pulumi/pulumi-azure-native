@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the properties of a Managed Environment used to host container apps.
  */
+/** @deprecated azure-native:app/v20220601preview:ManagedEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ManagedEnvironment to guarantee forwards compatibility. */
 export function getManagedEnvironment(args: GetManagedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentResult> {
+    pulumi.log.warn("getManagedEnvironment is deprecated: azure-native:app/v20220601preview:ManagedEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ManagedEnvironment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20220601preview:getManagedEnvironment", {
@@ -116,6 +118,7 @@ export interface GetManagedEnvironmentResult {
 /**
  * Get the properties of a Managed Environment used to host container apps.
  */
+/** @deprecated azure-native:app/v20220601preview:ManagedEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ManagedEnvironment to guarantee forwards compatibility. */
 export function getManagedEnvironmentOutput(args: GetManagedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getManagedEnvironment(a, opts))
 }

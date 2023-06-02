@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a private endpoint connection
  */
+/** @deprecated azure-native:web/v20210115:AppServiceEnvironmentPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:AppServiceEnvironmentPrivateEndpointConnection to guarantee forwards compatibility. */
 export function getAppServiceEnvironmentPrivateEndpointConnection(args: GetAppServiceEnvironmentPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentPrivateEndpointConnectionResult> {
+    pulumi.log.warn("getAppServiceEnvironmentPrivateEndpointConnection is deprecated: azure-native:web/v20210115:AppServiceEnvironmentPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:AppServiceEnvironmentPrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210115:getAppServiceEnvironmentPrivateEndpointConnection", {
@@ -72,6 +74,7 @@ export interface GetAppServiceEnvironmentPrivateEndpointConnectionResult {
 /**
  * Gets a private endpoint connection
  */
+/** @deprecated azure-native:web/v20210115:AppServiceEnvironmentPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:AppServiceEnvironmentPrivateEndpointConnection to guarantee forwards compatibility. */
 export function getAppServiceEnvironmentPrivateEndpointConnectionOutput(args: GetAppServiceEnvironmentPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getAppServiceEnvironmentPrivateEndpointConnection(a, opts))
 }

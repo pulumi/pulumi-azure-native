@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about a proximity placement group .
  */
-/** @deprecated Version 2018-10-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-10-01 will be removed in v2 of the provider.
+azure-native:compute/v20181001:ProximityPlacementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20190301:ProximityPlacementGroup to guarantee forwards compatibility. */
 export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProximityPlacementGroupResult> {
-    pulumi.log.warn("getProximityPlacementGroup is deprecated: Version 2018-10-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getProximityPlacementGroup is deprecated: Version 2018-10-01 will be removed in v2 of the provider.\nazure-native:compute/v20181001:ProximityPlacementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20190301:ProximityPlacementGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20181001:getProximityPlacementGroup", {
@@ -76,7 +77,8 @@ export interface GetProximityPlacementGroupResult {
 /**
  * Retrieves information about a proximity placement group .
  */
-/** @deprecated Version 2018-10-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-10-01 will be removed in v2 of the provider.
+azure-native:compute/v20181001:ProximityPlacementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20190301:ProximityPlacementGroup to guarantee forwards compatibility. */
 export function getProximityPlacementGroupOutput(args: GetProximityPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProximityPlacementGroupResult> {
     return pulumi.output(args).apply((a: any) => getProximityPlacementGroup(a, opts))
 }

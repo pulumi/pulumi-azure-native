@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a certificate order.
  */
+/** @deprecated azure-native:certificateregistration/v20210101:AppServiceCertificateOrder is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20220901:AppServiceCertificateOrder to guarantee forwards compatibility. */
 export function getAppServiceCertificateOrder(args: GetAppServiceCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderResult> {
+    pulumi.log.warn("getAppServiceCertificateOrder is deprecated: azure-native:certificateregistration/v20210101:AppServiceCertificateOrder is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20220901:AppServiceCertificateOrder to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:certificateregistration/v20210101:getAppServiceCertificateOrder", {
@@ -142,6 +144,7 @@ export interface GetAppServiceCertificateOrderResult {
 /**
  * Get a certificate order.
  */
+/** @deprecated azure-native:certificateregistration/v20210101:AppServiceCertificateOrder is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20220901:AppServiceCertificateOrder to guarantee forwards compatibility. */
 export function getAppServiceCertificateOrderOutput(args: GetAppServiceCertificateOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderResult> {
     return pulumi.output(args).apply((a: any) => getAppServiceCertificateOrder(a, opts))
 }

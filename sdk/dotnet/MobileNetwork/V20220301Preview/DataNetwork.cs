@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     /// <summary>
     /// Data network resource.
     /// </summary>
+    [Obsolete(@"azure-native:mobilenetwork/v20220301preview:DataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:DataNetwork to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220301preview:DataNetwork")]
     public partial class DataNetwork : global::Pulumi.CustomResource
     {

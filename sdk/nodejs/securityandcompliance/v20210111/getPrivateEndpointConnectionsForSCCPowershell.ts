@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified private endpoint connection associated with the service.
  */
+/** @deprecated azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionsForSCCPowershell(args: GetPrivateEndpointConnectionsForSCCPowershellArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionsForSCCPowershellResult> {
+    pulumi.log.warn("getPrivateEndpointConnectionsForSCCPowershell is deprecated: azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210111:getPrivateEndpointConnectionsForSCCPowershell", {
@@ -71,6 +73,7 @@ export interface GetPrivateEndpointConnectionsForSCCPowershellResult {
 /**
  * Gets the specified private endpoint connection associated with the service.
  */
+/** @deprecated azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionsForSCCPowershellOutput(args: GetPrivateEndpointConnectionsForSCCPowershellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsForSCCPowershellResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionsForSCCPowershell(a, opts))
 }

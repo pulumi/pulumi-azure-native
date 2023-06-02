@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves a network manager security user configuration.
  */
+/** @deprecated azure-native:network/v20220201preview:SecurityUserConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:SecurityUserConfiguration to guarantee forwards compatibility. */
 export function getSecurityUserConfiguration(args: GetSecurityUserConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityUserConfigurationResult> {
+    pulumi.log.warn("getSecurityUserConfiguration is deprecated: azure-native:network/v20220201preview:SecurityUserConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:SecurityUserConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220201preview:getSecurityUserConfiguration", {
@@ -75,6 +77,7 @@ export interface GetSecurityUserConfigurationResult {
 /**
  * Retrieves a network manager security user configuration.
  */
+/** @deprecated azure-native:network/v20220201preview:SecurityUserConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:SecurityUserConfiguration to guarantee forwards compatibility. */
 export function getSecurityUserConfigurationOutput(args: GetSecurityUserConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityUserConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getSecurityUserConfiguration(a, opts))
 }

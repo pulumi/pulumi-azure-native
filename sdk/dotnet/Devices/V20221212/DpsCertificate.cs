@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Devices.V20221212
     /// <summary>
     /// The X509 Certificate.
     /// </summary>
+    [Obsolete(@"azure-native:devices/v20221212:DpsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20230301preview:DpsCertificate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devices/v20221212:DpsCertificate")]
     public partial class DpsCertificate : global::Pulumi.CustomResource
     {

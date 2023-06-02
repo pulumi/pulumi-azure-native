@@ -261,7 +261,12 @@ class AzureFirewallArgs:
         pulumi.set(self, "zones", value)
 
 
+warnings.warn("""azure-native:network/v20190901:AzureFirewall is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AzureFirewall(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20190901:AzureFirewall is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -343,6 +348,7 @@ class AzureFirewall(pulumi.CustomResource):
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""AzureFirewall is deprecated: azure-native:network/v20190901:AzureFirewall is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

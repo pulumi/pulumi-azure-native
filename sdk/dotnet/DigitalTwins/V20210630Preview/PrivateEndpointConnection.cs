@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20210630Preview
     /// <summary>
     /// The private endpoint connection of a Digital Twin.
     /// </summary>
+    [Obsolete(@"azure-native:digitaltwins/v20210630preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:digitaltwins/v20210630preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

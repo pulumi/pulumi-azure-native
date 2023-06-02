@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.VideoIndexer.V20211110Preview
 {
+    [Obsolete(@"azure-native:videoindexer/v20211110preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:videoindexer/v20220801:Account to guarantee forwards compatibility.")]
     public static class GetAccount
     {
         /// <summary>

@@ -82,11 +82,13 @@ class DpsCertificateArgs:
         pulumi.set(self, "certificate_name", value)
 
 
-warnings.warn("""Version 2017-11-15 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-11-15 will be removed in v2 of the provider.
+azure-native:devices/v20171115:DpsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class DpsCertificate(pulumi.CustomResource):
-    warnings.warn("""Version 2017-11-15 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2017-11-15 will be removed in v2 of the provider.
+azure-native:devices/v20171115:DpsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -136,7 +138,8 @@ class DpsCertificate(pulumi.CustomResource):
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DpsCertificate is deprecated: Version 2017-11-15 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""DpsCertificate is deprecated: Version 2017-11-15 will be removed in v2 of the provider.
+azure-native:devices/v20171115:DpsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

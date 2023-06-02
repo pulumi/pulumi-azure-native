@@ -17,7 +17,8 @@ __all__ = [
     'get_guest_configuration_hcrpassignment_output',
 ]
 
-warnings.warn("""Version 2018-11-20 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-11-20 will be removed in v2 of the provider.
+azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetGuestConfigurationHCRPAssignmentResult:
@@ -107,7 +108,8 @@ def get_guest_configuration_hcrpassignment(guest_configuration_assignment_name: 
     :param str machine_name: The name of the ARC machine.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_guest_configuration_hcrpassignment is deprecated: Version 2018-11-20 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_guest_configuration_hcrpassignment is deprecated: Version 2018-11-20 will be removed in v2 of the provider.
+azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['guestConfigurationAssignmentName'] = guest_configuration_assignment_name
     __args__['machineName'] = machine_name
@@ -136,5 +138,6 @@ def get_guest_configuration_hcrpassignment_output(guest_configuration_assignment
     :param str machine_name: The name of the ARC machine.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_guest_configuration_hcrpassignment is deprecated: Version 2018-11-20 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_guest_configuration_hcrpassignment is deprecated: Version 2018-11-20 will be removed in v2 of the provider.
+azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment to guarantee forwards compatibility.""")
     ...

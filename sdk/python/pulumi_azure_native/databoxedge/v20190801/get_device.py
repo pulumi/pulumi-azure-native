@@ -17,7 +17,8 @@ __all__ = [
     'get_device_output',
 ]
 
-warnings.warn("""Version 2019-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-08-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20190801:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20200501preview:Device to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDeviceResult:
@@ -297,7 +298,8 @@ def get_device(device_name: Optional[str] = None,
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_device is deprecated: Version 2019-08-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_device is deprecated: Version 2019-08-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20190801:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20200501preview:Device to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
@@ -339,5 +341,6 @@ def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_device is deprecated: Version 2019-08-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_device is deprecated: Version 2019-08-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20190801:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20200501preview:Device to guarantee forwards compatibility.""")
     ...

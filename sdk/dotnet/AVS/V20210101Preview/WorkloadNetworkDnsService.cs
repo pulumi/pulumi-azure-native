@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
     /// <summary>
     /// NSX DNS Service
     /// </summary>
+    [Obsolete(@"azure-native:avs/v20210101preview:WorkloadNetworkDnsService is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkDnsService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20210101preview:WorkloadNetworkDnsService")]
     public partial class WorkloadNetworkDnsService : global::Pulumi.CustomResource
     {

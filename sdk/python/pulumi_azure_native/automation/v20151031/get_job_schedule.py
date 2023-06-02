@@ -17,6 +17,8 @@ __all__ = [
     'get_job_schedule_output',
 ]
 
+warnings.warn("""azure-native:automation/v20151031:JobSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:JobSchedule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetJobScheduleResult:
     """
@@ -141,6 +143,7 @@ def get_job_schedule(automation_account_name: Optional[str] = None,
     :param str job_schedule_id: The job schedule name.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_job_schedule is deprecated: azure-native:automation/v20151031:JobSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:JobSchedule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['jobScheduleId'] = job_schedule_id
@@ -172,4 +175,5 @@ def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[str]]
     :param str job_schedule_id: The job schedule name.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_job_schedule is deprecated: azure-native:automation/v20151031:JobSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:JobSchedule to guarantee forwards compatibility.""")
     ...

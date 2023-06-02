@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HybridCompute.V20210520
 {
+    [Obsolete(@"azure-native:hybridcompute/v20210520:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20220510preview:MachineExtension to guarantee forwards compatibility.")]
     public static class GetMachineExtension
     {
         /// <summary>

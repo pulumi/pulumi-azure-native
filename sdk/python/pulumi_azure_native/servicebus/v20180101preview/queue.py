@@ -307,7 +307,12 @@ class QueueArgs:
         pulumi.set(self, "status", value)
 
 
+warnings.warn("""azure-native:servicebus/v20180101preview:Queue is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:Queue to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Queue(pulumi.CustomResource):
+    warnings.warn("""azure-native:servicebus/v20180101preview:Queue is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:Queue to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -398,6 +403,7 @@ class Queue(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['EntityStatus']] = None,
                  __props__=None):
+        pulumi.log.warn("""Queue is deprecated: azure-native:servicebus/v20180101preview:Queue is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:Queue to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

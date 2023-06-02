@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * The order details.
  */
-/** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-08-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20190801:Order is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20200501preview:Order to guarantee forwards compatibility. */
 export function getOrder(args: GetOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderResult> {
-    pulumi.log.warn("getOrder is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getOrder is deprecated: Version 2019-08-01 will be removed in v2 of the provider.\nazure-native:databoxedge/v20190801:Order is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20200501preview:Order to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20190801:getOrder", {
@@ -80,7 +81,8 @@ export interface GetOrderResult {
 /**
  * The order details.
  */
-/** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-08-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20190801:Order is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20200501preview:Order to guarantee forwards compatibility. */
 export function getOrderOutput(args: GetOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderResult> {
     return pulumi.output(args).apply((a: any) => getOrder(a, opts))
 }

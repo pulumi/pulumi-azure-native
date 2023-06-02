@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HealthcareApis.V20210111
 {
+    [Obsolete(@"azure-native:healthcareapis/v20210111:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Service to guarantee forwards compatibility.")]
     public static class GetService
     {
         /// <summary>

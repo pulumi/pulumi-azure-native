@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets properties of a specified share.
  */
-/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider.
+azure-native:storage/v20200801preview:FileShare is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileShare to guarantee forwards compatibility. */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
-    pulumi.log.warn("getFileShare is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getFileShare is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.\nazure-native:storage/v20200801preview:FileShare is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileShare to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20200801preview:getFileShare", {
@@ -119,7 +120,8 @@ export interface GetFileShareResult {
 /**
  * Gets properties of a specified share.
  */
-/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider.
+azure-native:storage/v20200801preview:FileShare is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileShare to guarantee forwards compatibility. */
 export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileShareResult> {
     return pulumi.output(args).apply((a: any) => getFileShare(a, opts))
 }

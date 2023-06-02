@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets NetworkRuleSet for a Namespace.
  */
+/** @deprecated azure-native:eventhub/v20210101preview:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility. */
 export function getNamespaceNetworkRuleSet(args: GetNamespaceNetworkRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceNetworkRuleSetResult> {
+    pulumi.log.warn("getNamespaceNetworkRuleSet is deprecated: azure-native:eventhub/v20210101preview:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20210101preview:getNamespaceNetworkRuleSet", {
@@ -70,6 +72,7 @@ export interface GetNamespaceNetworkRuleSetResult {
 /**
  * Gets NetworkRuleSet for a Namespace.
  */
+/** @deprecated azure-native:eventhub/v20210101preview:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility. */
 export function getNamespaceNetworkRuleSetOutput(args: GetNamespaceNetworkRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceNetworkRuleSetResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceNetworkRuleSet(a, opts))
 }

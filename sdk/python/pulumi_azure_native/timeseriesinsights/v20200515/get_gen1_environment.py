@@ -17,6 +17,8 @@ __all__ = [
     'get_gen1_environment_output',
 ]
 
+warnings.warn("""azure-native:timeseriesinsights/v20200515:Gen1Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:Gen1Environment to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGen1EnvironmentResult:
     """
@@ -226,6 +228,7 @@ def get_gen1_environment(environment_name: Optional[str] = None,
     :param str expand: Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_gen1_environment is deprecated: azure-native:timeseriesinsights/v20200515:Gen1Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:Gen1Environment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['expand'] = expand
@@ -264,4 +267,5 @@ def get_gen1_environment_output(environment_name: Optional[pulumi.Input[str]] = 
     :param str expand: Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_gen1_environment is deprecated: azure-native:timeseriesinsights/v20200515:Gen1Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:Gen1Environment to guarantee forwards compatibility.""")
     ...

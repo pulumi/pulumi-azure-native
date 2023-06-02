@@ -148,7 +148,6 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:MicrosoftSecurityIncidentCreationAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:MicrosoftSecurityIncidentCreationAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:MicrosoftSecurityIncidentCreationAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:MicrosoftSecurityIncidentCreationAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

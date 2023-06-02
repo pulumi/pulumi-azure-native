@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets all linked storage account of a specific data source type associated with the specified workspace.
  */
+/** @deprecated azure-native:operationalinsights/v20190801preview:LinkedStorageAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:LinkedStorageAccount to guarantee forwards compatibility. */
 export function getLinkedStorageAccount(args: GetLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedStorageAccountResult> {
+    pulumi.log.warn("getLinkedStorageAccount is deprecated: azure-native:operationalinsights/v20190801preview:LinkedStorageAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:LinkedStorageAccount to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20190801preview:getLinkedStorageAccount", {
@@ -60,6 +62,7 @@ export interface GetLinkedStorageAccountResult {
 /**
  * Gets all linked storage account of a specific data source type associated with the specified workspace.
  */
+/** @deprecated azure-native:operationalinsights/v20190801preview:LinkedStorageAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:LinkedStorageAccount to guarantee forwards compatibility. */
 export function getLinkedStorageAccountOutput(args: GetLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedStorageAccountResult> {
     return pulumi.output(args).apply((a: any) => getLinkedStorageAccount(a, opts))
 }

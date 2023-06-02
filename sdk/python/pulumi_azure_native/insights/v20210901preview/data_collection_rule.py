@@ -199,7 +199,12 @@ class DataCollectionRuleArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:insights/v20210901preview:DataCollectionRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class DataCollectionRule(pulumi.CustomResource):
+    warnings.warn("""azure-native:insights/v20210901preview:DataCollectionRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -270,6 +275,7 @@ class DataCollectionRule(pulumi.CustomResource):
                  stream_declarations: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['StreamDeclarationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""DataCollectionRule is deprecated: azure-native:insights/v20210901preview:DataCollectionRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Slot Config names azure resource.
+ *
+ * @deprecated azure-native:web/v20210301:WebAppSlotConfigurationNames is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSlotConfigurationNames to guarantee forwards compatibility.
  */
 export class WebAppSlotConfigurationNames extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class WebAppSlotConfigurationNames extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppSlotConfigurationNames {
+        pulumi.log.warn("WebAppSlotConfigurationNames is deprecated: azure-native:web/v20210301:WebAppSlotConfigurationNames is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSlotConfigurationNames to guarantee forwards compatibility.")
         return new WebAppSlotConfigurationNames(name, undefined as any, { ...opts, id: id });
     }
 
@@ -66,7 +69,9 @@ export class WebAppSlotConfigurationNames extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:web/v20210301:WebAppSlotConfigurationNames is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSlotConfigurationNames to guarantee forwards compatibility. */
     constructor(name: string, args: WebAppSlotConfigurationNamesArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppSlotConfigurationNames is deprecated: azure-native:web/v20210301:WebAppSlotConfigurationNames is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSlotConfigurationNames to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

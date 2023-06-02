@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of an ASR replication protected item.
  */
+/** @deprecated azure-native:recoveryservices/v20210701:ReplicationProtectedItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationProtectedItem to guarantee forwards compatibility. */
 export function getReplicationProtectedItem(args: GetReplicationProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectedItemResult> {
+    pulumi.log.warn("getReplicationProtectedItem is deprecated: azure-native:recoveryservices/v20210701:ReplicationProtectedItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationProtectedItem to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20210701:getReplicationProtectedItem", {
@@ -73,6 +75,7 @@ export interface GetReplicationProtectedItemResult {
 /**
  * Gets the details of an ASR replication protected item.
  */
+/** @deprecated azure-native:recoveryservices/v20210701:ReplicationProtectedItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationProtectedItem to guarantee forwards compatibility. */
 export function getReplicationProtectedItemOutput(args: GetReplicationProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectedItemResult> {
     return pulumi.output(args).apply((a: any) => getReplicationProtectedItem(a, opts))
 }

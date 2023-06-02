@@ -83,7 +83,12 @@ class ManagementPolicyArgs:
         pulumi.set(self, "management_policy_name", value)
 
 
+warnings.warn("""azure-native:storage/v20210601:ManagementPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ManagementPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ManagementPolicy(pulumi.CustomResource):
+    warnings.warn("""azure-native:storage/v20210601:ManagementPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ManagementPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,6 +137,7 @@ class ManagementPolicy(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[pulumi.InputType['ManagementPolicySchemaArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ManagementPolicy is deprecated: azure-native:storage/v20210601:ManagementPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ManagementPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

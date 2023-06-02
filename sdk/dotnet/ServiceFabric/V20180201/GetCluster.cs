@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceFabric.V20180201
 {
-    [Obsolete(@"Version 2018-02-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-02-01 will be removed in v2 of the provider.
+azure-native:servicefabric/v20180201:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20201201preview:Cluster to guarantee forwards compatibility.")]
     public static class GetCluster
     {
         /// <summary>

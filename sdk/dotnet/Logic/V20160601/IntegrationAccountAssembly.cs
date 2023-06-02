@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
     /// <summary>
     /// The assembly definition.
     /// </summary>
+    [Obsolete(@"azure-native:logic/v20160601:IntegrationAccountAssembly is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountAssembly to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:logic/v20160601:IntegrationAccountAssembly")]
     public partial class IntegrationAccountAssembly : global::Pulumi.CustomResource
     {

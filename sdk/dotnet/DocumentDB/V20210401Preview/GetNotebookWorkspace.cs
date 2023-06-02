@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210401Preview
 {
+    [Obsolete(@"azure-native:documentdb/v20210401preview:NotebookWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:NotebookWorkspace to guarantee forwards compatibility.")]
     public static class GetNotebookWorkspace
     {
         /// <summary>

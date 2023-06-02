@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about a proximity placement group .
  */
+/** @deprecated azure-native:compute/v20211101:ProximityPlacementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:ProximityPlacementGroup to guarantee forwards compatibility. */
 export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProximityPlacementGroupResult> {
+    pulumi.log.warn("getProximityPlacementGroup is deprecated: azure-native:compute/v20211101:ProximityPlacementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:ProximityPlacementGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20211101:getProximityPlacementGroup", {
@@ -83,6 +85,7 @@ export interface GetProximityPlacementGroupResult {
 /**
  * Retrieves information about a proximity placement group .
  */
+/** @deprecated azure-native:compute/v20211101:ProximityPlacementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:ProximityPlacementGroup to guarantee forwards compatibility. */
 export function getProximityPlacementGroupOutput(args: GetProximityPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProximityPlacementGroupResult> {
     return pulumi.output(args).apply((a: any) => getProximityPlacementGroup(a, opts))
 }

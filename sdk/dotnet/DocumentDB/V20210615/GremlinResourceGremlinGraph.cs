@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210615
     /// <summary>
     /// An Azure Cosmos DB Gremlin graph.
     /// </summary>
+    [Obsolete(@"azure-native:documentdb/v20210615:GremlinResourceGremlinGraph is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:GremlinResourceGremlinGraph to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20210615:GremlinResourceGremlinGraph")]
     public partial class GremlinResourceGremlinGraph : global::Pulumi.CustomResource
     {

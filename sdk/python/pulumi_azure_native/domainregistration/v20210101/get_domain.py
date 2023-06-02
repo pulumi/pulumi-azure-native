@@ -17,6 +17,8 @@ __all__ = [
     'get_domain_output',
 ]
 
+warnings.warn("""azure-native:domainregistration/v20210101:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:Domain to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDomainResult:
     """
@@ -293,6 +295,7 @@ def get_domain(domain_name: Optional[str] = None,
     :param str domain_name: Name of the domain.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_domain is deprecated: azure-native:domainregistration/v20210101:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:Domain to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['resourceGroupName'] = resource_group_name
@@ -334,4 +337,5 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str domain_name: Name of the domain.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_domain is deprecated: azure-native:domainregistration/v20210101:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:Domain to guarantee forwards compatibility.""")
     ...

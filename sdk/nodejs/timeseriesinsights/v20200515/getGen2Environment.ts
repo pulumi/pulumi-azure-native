@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the environment with the specified name in the specified subscription and resource group.
  */
+/** @deprecated azure-native:timeseriesinsights/v20200515:Gen2Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210331preview:Gen2Environment to guarantee forwards compatibility. */
 export function getGen2Environment(args: GetGen2EnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGen2EnvironmentResult> {
+    pulumi.log.warn("getGen2Environment is deprecated: azure-native:timeseriesinsights/v20200515:Gen2Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210331preview:Gen2Environment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20200515:getGen2Environment", {
@@ -104,6 +106,7 @@ export interface GetGen2EnvironmentResult {
 /**
  * Gets the environment with the specified name in the specified subscription and resource group.
  */
+/** @deprecated azure-native:timeseriesinsights/v20200515:Gen2Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210331preview:Gen2Environment to guarantee forwards compatibility. */
 export function getGen2EnvironmentOutput(args: GetGen2EnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGen2EnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getGen2Environment(a, opts))
 }

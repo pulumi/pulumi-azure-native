@@ -17,6 +17,8 @@ __all__ = [
     'get_rule_set_output',
 ]
 
+warnings.warn("""azure-native:cdn/v20210601:RuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:RuleSet to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRuleSetResult:
     """
@@ -126,6 +128,7 @@ def get_rule_set(profile_name: Optional[str] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str rule_set_name: Name of the rule set under the profile which is unique globally.
     """
+    pulumi.log.warn("""get_rule_set is deprecated: azure-native:cdn/v20210601:RuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:RuleSet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
@@ -156,4 +159,5 @@ def get_rule_set_output(profile_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str rule_set_name: Name of the rule set under the profile which is unique globally.
     """
+    pulumi.log.warn("""get_rule_set is deprecated: azure-native:cdn/v20210601:RuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:RuleSet to guarantee forwards compatibility.""")
     ...

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get function information by its ID for web site, or a deployment slot.
  */
+/** @deprecated azure-native:web/v20190801:WebAppFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppFunction to guarantee forwards compatibility. */
 export function getWebAppFunction(args: GetWebAppFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFunctionResult> {
+    pulumi.log.warn("getWebAppFunction is deprecated: azure-native:web/v20190801:WebAppFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppFunction to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20190801:getWebAppFunction", {
@@ -108,6 +110,7 @@ export interface GetWebAppFunctionResult {
 /**
  * Get function information by its ID for web site, or a deployment slot.
  */
+/** @deprecated azure-native:web/v20190801:WebAppFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppFunction to guarantee forwards compatibility. */
 export function getWebAppFunctionOutput(args: GetWebAppFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppFunctionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppFunction(a, opts))
 }

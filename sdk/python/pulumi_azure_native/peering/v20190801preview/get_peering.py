@@ -17,7 +17,8 @@ __all__ = [
     'get_peering_output',
 ]
 
-warnings.warn("""Version 2019-08-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-08-01-preview will be removed in v2 of the provider.
+azure-native:peering/v20190801preview:Peering is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:Peering to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPeeringResult:
@@ -177,7 +178,8 @@ def get_peering(peering_name: Optional[str] = None,
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_peering is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_peering is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.
+azure-native:peering/v20190801preview:Peering is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:Peering to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['peeringName'] = peering_name
     __args__['resourceGroupName'] = resource_group_name
@@ -209,5 +211,6 @@ def get_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_peering is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_peering is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.
+azure-native:peering/v20190801preview:Peering is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:Peering to guarantee forwards compatibility.""")
     ...

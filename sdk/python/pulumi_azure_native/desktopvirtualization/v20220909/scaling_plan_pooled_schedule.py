@@ -340,7 +340,12 @@ class ScalingPlanPooledScheduleArgs:
         pulumi.set(self, "scaling_plan_schedule_name", value)
 
 
+warnings.warn("""azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ScalingPlanPooledSchedule(pulumi.CustomResource):
+    warnings.warn("""azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -437,6 +442,7 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
                  scaling_plan_name: Optional[pulumi.Input[str]] = None,
                  scaling_plan_schedule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ScalingPlanPooledSchedule is deprecated: azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

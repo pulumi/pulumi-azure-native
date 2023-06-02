@@ -17,6 +17,8 @@ __all__ = [
     'get_addon_output',
 ]
 
+warnings.warn("""azure-native:avs/v20210601:Addon is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Addon to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAddonResult:
     """
@@ -93,6 +95,7 @@ def get_addon(addon_name: Optional[str] = None,
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_addon is deprecated: azure-native:avs/v20210601:Addon is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Addon to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['addonName'] = addon_name
     __args__['privateCloudName'] = private_cloud_name
@@ -120,4 +123,5 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_addon is deprecated: azure-native:avs/v20210601:Addon is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Addon to guarantee forwards compatibility.""")
     ...

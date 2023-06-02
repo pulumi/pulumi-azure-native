@@ -17,7 +17,8 @@ __all__ = [
     'get_integration_runtime_output',
 ]
 
-warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:IntegrationRuntime is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:IntegrationRuntime to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetIntegrationRuntimeResult:
@@ -107,7 +108,8 @@ def get_integration_runtime(factory_name: Optional[str] = None,
     :param str integration_runtime_name: The integration runtime name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_integration_runtime is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_integration_runtime is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:IntegrationRuntime is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:IntegrationRuntime to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['integrationRuntimeName'] = integration_runtime_name
@@ -136,5 +138,6 @@ def get_integration_runtime_output(factory_name: Optional[pulumi.Input[str]] = N
     :param str integration_runtime_name: The integration runtime name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_integration_runtime is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_integration_runtime is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:IntegrationRuntime is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:IntegrationRuntime to guarantee forwards compatibility.""")
     ...

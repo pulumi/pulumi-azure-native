@@ -16,6 +16,8 @@ __all__ = [
     'get_threat_intelligence_alert_rule_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20190101preview:ThreatIntelligenceAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:ThreatIntelligenceAlertRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetThreatIntelligenceAlertRuleResult:
     """
@@ -191,6 +193,7 @@ def get_threat_intelligence_alert_rule(operational_insights_resource_provider: O
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_threat_intelligence_alert_rule is deprecated: azure-native:securityinsights/v20190101preview:ThreatIntelligenceAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:ThreatIntelligenceAlertRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
@@ -229,4 +232,5 @@ def get_threat_intelligence_alert_rule_output(operational_insights_resource_prov
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_threat_intelligence_alert_rule is deprecated: azure-native:securityinsights/v20190101preview:ThreatIntelligenceAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:ThreatIntelligenceAlertRule to guarantee forwards compatibility.""")
     ...

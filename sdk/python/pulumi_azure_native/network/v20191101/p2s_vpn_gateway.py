@@ -164,7 +164,12 @@ class P2sVpnGatewayArgs:
         pulumi.set(self, "vpn_server_configuration", value)
 
 
+warnings.warn("""azure-native:network/v20191101:P2sVpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:P2sVpnGateway to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class P2sVpnGateway(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20191101:P2sVpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:P2sVpnGateway to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -228,6 +233,7 @@ class P2sVpnGateway(pulumi.CustomResource):
                  vpn_gateway_scale_unit: Optional[pulumi.Input[int]] = None,
                  vpn_server_configuration: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""P2sVpnGateway is deprecated: azure-native:network/v20191101:P2sVpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:P2sVpnGateway to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

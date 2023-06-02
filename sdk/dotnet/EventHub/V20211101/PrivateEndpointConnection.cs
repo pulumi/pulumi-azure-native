@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventHub.V20211101
     /// <summary>
     /// Properties of the PrivateEndpointConnection.
     /// </summary>
+    [Obsolete(@"azure-native:eventhub/v20211101:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventhub/v20211101:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

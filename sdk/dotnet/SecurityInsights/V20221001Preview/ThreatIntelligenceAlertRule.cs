@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221001Preview
     /// <summary>
     /// Represents Threat Intelligence alert rule.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20221001preview:ThreatIntelligenceAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ThreatIntelligenceAlertRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20221001preview:ThreatIntelligenceAlertRule")]
     public partial class ThreatIntelligenceAlertRule : global::Pulumi.CustomResource
     {
@@ -147,7 +148,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221001Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:ThreatIntelligenceAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:ThreatIntelligenceAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:ThreatIntelligenceAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:ThreatIntelligenceAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

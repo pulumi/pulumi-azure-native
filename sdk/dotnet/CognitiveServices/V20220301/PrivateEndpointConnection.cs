@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20220301
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
+    [Obsolete(@"azure-native:cognitiveservices/v20220301:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20221201:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cognitiveservices/v20220301:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

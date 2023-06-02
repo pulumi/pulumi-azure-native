@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents Microsoft Threat Intelligence data connector.
+ *
+ * @deprecated azure-native:securityinsights/v20230201preview:MSTIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MSTIDataConnector to guarantee forwards compatibility.
  */
 export class MSTIDataConnector extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class MSTIDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MSTIDataConnector {
+        pulumi.log.warn("MSTIDataConnector is deprecated: azure-native:securityinsights/v20230201preview:MSTIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MSTIDataConnector to guarantee forwards compatibility.")
         return new MSTIDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,7 +77,9 @@ export class MSTIDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20230201preview:MSTIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MSTIDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: MSTIDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MSTIDataConnector is deprecated: azure-native:securityinsights/v20230201preview:MSTIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MSTIDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -113,7 +118,7 @@ export class MSTIDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20200101:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20211001:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220801:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20221101:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20230201:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:MSTIDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20200101:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20211001:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220801:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20221101:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20230201:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:MSTIDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MSTIDataConnector.__pulumiType, name, resourceInputs, opts);
     }

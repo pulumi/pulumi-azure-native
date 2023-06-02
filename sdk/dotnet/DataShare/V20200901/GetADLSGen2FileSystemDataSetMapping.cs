@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataShare.V20200901
 {
+    [Obsolete(@"azure-native:datashare/v20200901:ADLSGen2FileSystemDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping to guarantee forwards compatibility.")]
     public static class GetADLSGen2FileSystemDataSetMapping
     {
         /// <summary>

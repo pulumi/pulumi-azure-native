@@ -17,6 +17,8 @@ __all__ = [
     'get_default_rollout_output',
 ]
 
+warnings.warn("""azure-native:providerhub/v20210501preview:DefaultRollout is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:DefaultRollout to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDefaultRolloutResult:
     """
@@ -91,6 +93,7 @@ def get_default_rollout(provider_namespace: Optional[str] = None,
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str rollout_name: The rollout name.
     """
+    pulumi.log.warn("""get_default_rollout is deprecated: azure-native:providerhub/v20210501preview:DefaultRollout is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:DefaultRollout to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['providerNamespace'] = provider_namespace
     __args__['rolloutName'] = rollout_name
@@ -115,4 +118,5 @@ def get_default_rollout_output(provider_namespace: Optional[pulumi.Input[str]] =
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str rollout_name: The rollout name.
     """
+    pulumi.log.warn("""get_default_rollout is deprecated: azure-native:providerhub/v20210501preview:DefaultRollout is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:DefaultRollout to guarantee forwards compatibility.""")
     ...

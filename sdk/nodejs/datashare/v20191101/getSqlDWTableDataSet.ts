@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a DataSet in a share
  */
+/** @deprecated azure-native:datashare/v20191101:SqlDWTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SqlDWTableDataSet to guarantee forwards compatibility. */
 export function getSqlDWTableDataSet(args: GetSqlDWTableDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDWTableDataSetResult> {
+    pulumi.log.warn("getSqlDWTableDataSet is deprecated: azure-native:datashare/v20191101:SqlDWTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SqlDWTableDataSet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20191101:getSqlDWTableDataSet", {
@@ -82,6 +84,7 @@ export interface GetSqlDWTableDataSetResult {
 /**
  * Get a DataSet in a share
  */
+/** @deprecated azure-native:datashare/v20191101:SqlDWTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SqlDWTableDataSet to guarantee forwards compatibility. */
 export function getSqlDWTableDataSetOutput(args: GetSqlDWTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDWTableDataSetResult> {
     return pulumi.output(args).apply((a: any) => getSqlDWTableDataSet(a, opts))
 }

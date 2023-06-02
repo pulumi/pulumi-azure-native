@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the status of service.
  */
+/** @deprecated azure-native:documentdb/v20220815preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:Service to guarantee forwards compatibility. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+    pulumi.log.warn("getService is deprecated: azure-native:documentdb/v20220815preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:Service to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20220815preview:getService", {
@@ -59,6 +61,7 @@ export interface GetServiceResult {
 /**
  * Gets the status of service.
  */
+/** @deprecated azure-native:documentdb/v20220815preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:Service to guarantee forwards compatibility. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))
 }

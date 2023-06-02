@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get details of the specified volume group
  */
+/** @deprecated azure-native:netapp/v20220501:VolumeGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:VolumeGroup to guarantee forwards compatibility. */
 export function getVolumeGroup(args: GetVolumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupResult> {
+    pulumi.log.warn("getVolumeGroup is deprecated: azure-native:netapp/v20220501:VolumeGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:VolumeGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20220501:getVolumeGroup", {
@@ -71,6 +73,7 @@ export interface GetVolumeGroupResult {
 /**
  * Get details of the specified volume group
  */
+/** @deprecated azure-native:netapp/v20220501:VolumeGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:VolumeGroup to guarantee forwards compatibility. */
 export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupResult> {
     return pulumi.output(args).apply((a: any) => getVolumeGroup(a, opts))
 }

@@ -17,7 +17,8 @@ __all__ = [
     'get_trigger_output',
 ]
 
-warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Trigger is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:Trigger to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetTriggerResult:
@@ -107,7 +108,8 @@ def get_trigger(factory_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str trigger_name: The trigger name.
     """
-    pulumi.log.warn("""get_trigger is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_trigger is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Trigger is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:Trigger to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['resourceGroupName'] = resource_group_name
@@ -136,5 +138,6 @@ def get_trigger_output(factory_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name.
     :param str trigger_name: The trigger name.
     """
-    pulumi.log.warn("""get_trigger is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_trigger is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Trigger is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:Trigger to guarantee forwards compatibility.""")
     ...

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The scheduled query rule resource.
+ *
+ * @deprecated azure-native:insights/v20210201preview:ScheduledQueryRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility.
  */
 export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ScheduledQueryRule {
+        pulumi.log.warn("ScheduledQueryRule is deprecated: azure-native:insights/v20210201preview:ScheduledQueryRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility.")
         return new ScheduledQueryRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -145,7 +148,9 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:insights/v20210201preview:ScheduledQueryRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility. */
     constructor(name: string, args: ScheduledQueryRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ScheduledQueryRule is deprecated: azure-native:insights/v20210201preview:ScheduledQueryRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -216,7 +221,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             resourceInputs["windowSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights:ScheduledQueryRule" }, { type: "azure-native:insights/v20180416:ScheduledQueryRule" }, { type: "azure-native:insights/v20200501preview:ScheduledQueryRule" }, { type: "azure-native:insights/v20210801:ScheduledQueryRule" }, { type: "azure-native:insights/v20220615:ScheduledQueryRule" }, { type: "azure-native:insights/v20220801preview:ScheduledQueryRule" }, { type: "azure-native:insights/v20230315preview:ScheduledQueryRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:ScheduledQueryRule" }, { type: "azure-native:insights/v20180416:ScheduledQueryRule" }, { type: "azure-native:insights/v20200501preview:ScheduledQueryRule" }, { type: "azure-native:insights/v20210801:ScheduledQueryRule" }, { type: "azure-native:insights/v20220615:ScheduledQueryRule" }, { type: "azure-native:insights/v20220801preview:ScheduledQueryRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledQueryRule.__pulumiType, name, resourceInputs, opts);
     }

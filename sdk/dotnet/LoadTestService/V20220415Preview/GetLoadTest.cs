@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.LoadTestService.V20220415Preview
 {
+    [Obsolete(@"azure-native:loadtestservice/v20220415preview:LoadTest is being removed in the next major version of this provider. Upgrade to at least azure-native:loadtestservice/v20221201:LoadTest to guarantee forwards compatibility.")]
     public static class GetLoadTest
     {
         /// <summary>

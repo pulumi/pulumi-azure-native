@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a workspace SQL active directory admin
  */
-/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider.
+azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin to guarantee forwards compatibility. */
 export function getWorkspaceSqlAadAdmin(args: GetWorkspaceSqlAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSqlAadAdminResult> {
-    pulumi.log.warn("getWorkspaceSqlAadAdmin is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getWorkspaceSqlAadAdmin is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.\nazure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20190601preview:getWorkspaceSqlAadAdmin", {
@@ -65,7 +66,8 @@ export interface GetWorkspaceSqlAadAdminResult {
 /**
  * Gets a workspace SQL active directory admin
  */
-/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider.
+azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin to guarantee forwards compatibility. */
 export function getWorkspaceSqlAadAdminOutput(args: GetWorkspaceSqlAadAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSqlAadAdminResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceSqlAadAdmin(a, opts))
 }

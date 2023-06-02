@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Alert processing rule object containing target scopes, conditions and scheduling logic.
+ *
+ * @deprecated azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName to guarantee forwards compatibility.
  */
 export class AlertProcessingRuleByName extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class AlertProcessingRuleByName extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AlertProcessingRuleByName {
+        pulumi.log.warn("AlertProcessingRuleByName is deprecated: azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName to guarantee forwards compatibility.")
         return new AlertProcessingRuleByName(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,7 +72,9 @@ export class AlertProcessingRuleByName extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName to guarantee forwards compatibility. */
     constructor(name: string, args: AlertProcessingRuleByNameArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AlertProcessingRuleByName is deprecated: azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

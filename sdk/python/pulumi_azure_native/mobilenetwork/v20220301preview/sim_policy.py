@@ -275,7 +275,12 @@ class SimPolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class SimPolicy(pulumi.CustomResource):
+    warnings.warn("""azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -360,6 +365,7 @@ class SimPolicy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ue_ambr: Optional[pulumi.Input[pulumi.InputType['AmbrArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""SimPolicy is deprecated: azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

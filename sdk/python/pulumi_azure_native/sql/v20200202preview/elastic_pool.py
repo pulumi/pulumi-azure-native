@@ -192,7 +192,12 @@ class ElasticPoolArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
+warnings.warn("""azure-native:sql/v20200202preview:ElasticPool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ElasticPool to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ElasticPool(pulumi.CustomResource):
+    warnings.warn("""azure-native:sql/v20200202preview:ElasticPool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ElasticPool to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -265,6 +270,7 @@ class ElasticPool(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
+        pulumi.log.warn("""ElasticPool is deprecated: azure-native:sql/v20200202preview:ElasticPool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ElasticPool to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

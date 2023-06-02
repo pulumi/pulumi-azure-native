@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Devices.V20210331
     /// <summary>
     /// The private endpoint connection of an IotHub
     /// </summary>
+    [Obsolete(@"azure-native:devices/v20210331:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20220430preview:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devices/v20210331:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

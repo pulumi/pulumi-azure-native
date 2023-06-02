@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Returns a description for the specified topic.
  */
-/** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:servicebus/v20140901:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Topic to guarantee forwards compatibility. */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
-    pulumi.log.warn("getTopic is deprecated: Version 2014-09-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getTopic is deprecated: Version 2014-09-01 will be removed in v2 of the provider.\nazure-native:servicebus/v20140901:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Topic to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20140901:getTopic", {
@@ -138,7 +139,8 @@ export interface GetTopicResult {
 /**
  * Returns a description for the specified topic.
  */
-/** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:servicebus/v20140901:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Topic to guarantee forwards compatibility. */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
     return pulumi.output(args).apply((a: any) => getTopic(a, opts))
 }

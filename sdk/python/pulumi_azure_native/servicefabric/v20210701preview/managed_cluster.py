@@ -441,7 +441,12 @@ class ManagedClusterArgs:
         pulumi.set(self, "zonal_resiliency", value)
 
 
+warnings.warn("""azure-native:servicefabric/v20210701preview:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20220101:ManagedCluster to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ManagedCluster(pulumi.CustomResource):
+    warnings.warn("""azure-native:servicefabric/v20210701preview:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20220101:ManagedCluster to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -556,6 +561,7 @@ class ManagedCluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zonal_resiliency: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
+        pulumi.log.warn("""ManagedCluster is deprecated: azure-native:servicefabric/v20210701preview:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20220101:ManagedCluster to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -612,7 +618,7 @@ class ManagedCluster(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20200101preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20210901privatepreview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20211101preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20220101:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20220201preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20220601preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20220801preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20221001preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20230201preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20230301preview:ManagedCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20200101preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20210901privatepreview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20211101preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20220101:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20220201preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20220601preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20220801preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20221001preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20230201preview:ManagedCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedCluster, __self__).__init__(
             'azure-native:servicefabric/v20210701preview:ManagedCluster',

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20200601
     /// <summary>
     /// DSCP Configuration in a resource group.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20200601:DscpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:DscpConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20200601:DscpConfiguration")]
     public partial class DscpConfiguration : global::Pulumi.CustomResource
     {

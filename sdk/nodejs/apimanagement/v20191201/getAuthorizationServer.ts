@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the authorization server specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20191201:AuthorizationServer is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationServer to guarantee forwards compatibility. */
 export function getAuthorizationServer(args: GetAuthorizationServerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationServerResult> {
+    pulumi.log.warn("getAuthorizationServer is deprecated: azure-native:apimanagement/v20191201:AuthorizationServer is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationServer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201:getAuthorizationServer", {
@@ -119,6 +121,7 @@ export interface GetAuthorizationServerResult {
 /**
  * Gets the details of the authorization server specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20191201:AuthorizationServer is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationServer to guarantee forwards compatibility. */
 export function getAuthorizationServerOutput(args: GetAuthorizationServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationServerResult> {
     return pulumi.output(args).apply((a: any) => getAuthorizationServer(a, opts))
 }

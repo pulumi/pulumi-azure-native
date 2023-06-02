@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing origin within an endpoint.
  */
+/** @deprecated azure-native:cdn/v20210601:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility. */
 export function getOrigin(args: GetOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginResult> {
+    pulumi.log.warn("getOrigin is deprecated: azure-native:cdn/v20210601:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20210601:getOrigin", {
@@ -120,6 +122,7 @@ export interface GetOriginResult {
 /**
  * Gets an existing origin within an endpoint.
  */
+/** @deprecated azure-native:cdn/v20210601:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility. */
 export function getOriginOutput(args: GetOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginResult> {
     return pulumi.output(args).apply((a: any) => getOrigin(a, opts))
 }

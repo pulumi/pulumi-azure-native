@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
 {
+    [Obsolete(@"azure-native:servicebus/v20210601preview:MigrationConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:MigrationConfig to guarantee forwards compatibility.")]
     public static class GetMigrationConfig
     {
         /// <summary>

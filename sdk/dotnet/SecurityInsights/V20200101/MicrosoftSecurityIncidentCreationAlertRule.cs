@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
     /// <summary>
     /// Represents MicrosoftSecurityIncidentCreation rule.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20200101:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20200101:MicrosoftSecurityIncidentCreationAlertRule")]
     public partial class MicrosoftSecurityIncidentCreationAlertRule : global::Pulumi.CustomResource
     {
@@ -147,7 +148,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:MicrosoftSecurityIncidentCreationAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:MicrosoftSecurityIncidentCreationAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:MicrosoftSecurityIncidentCreationAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:MicrosoftSecurityIncidentCreationAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Network.V20180201
     /// <summary>
     /// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
     /// </summary>
-    [Obsolete(@"Version 2018-02-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-02-01 will be removed in v2 of the provider.
+azure-native:network/v20180201:ExpressRouteCircuitConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteCircuitConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20180201:ExpressRouteCircuitConnection")]
     public partial class ExpressRouteCircuitConnection : global::Pulumi.CustomResource
     {

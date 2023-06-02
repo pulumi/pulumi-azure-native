@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.StorageSync.V20190601
     /// <summary>
     /// Storage Sync Service object.
     /// </summary>
-    [Obsolete(@"Version 2019-06-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-06-01 will be removed in v2 of the provider.
+azure-native:storagesync/v20190601:StorageSyncService is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20191001:StorageSyncService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storagesync/v20190601:StorageSyncService")]
     public partial class StorageSyncService : global::Pulumi.CustomResource
     {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Service by name.
  */
+/** @deprecated azure-native:machinelearningservices/v20200501preview:AKSService is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:AKSService to guarantee forwards compatibility. */
 export function getAKSService(args: GetAKSServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAKSServiceResult> {
+    pulumi.log.warn("getAKSService is deprecated: azure-native:machinelearningservices/v20200501preview:AKSService is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:AKSService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200501preview:getAKSService", {
@@ -80,6 +82,7 @@ export interface GetAKSServiceResult {
 /**
  * Get a Service by name.
  */
+/** @deprecated azure-native:machinelearningservices/v20200501preview:AKSService is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:AKSService to guarantee forwards compatibility. */
 export function getAKSServiceOutput(args: GetAKSServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAKSServiceResult> {
     return pulumi.output(args).apply((a: any) => getAKSService(a, opts))
 }

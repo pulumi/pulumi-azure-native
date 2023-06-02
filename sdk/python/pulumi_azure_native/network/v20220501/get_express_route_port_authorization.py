@@ -16,6 +16,8 @@ __all__ = [
     'get_express_route_port_authorization_output',
 ]
 
+warnings.warn("""azure-native:network/v20220501:ExpressRoutePortAuthorization is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRoutePortAuthorization to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExpressRoutePortAuthorizationResult:
     """
@@ -140,6 +142,7 @@ def get_express_route_port_authorization(authorization_name: Optional[str] = Non
     :param str express_route_port_name: The name of the express route port.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_express_route_port_authorization is deprecated: azure-native:network/v20220501:ExpressRoutePortAuthorization is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRoutePortAuthorization to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['authorizationName'] = authorization_name
     __args__['expressRoutePortName'] = express_route_port_name
@@ -171,4 +174,5 @@ def get_express_route_port_authorization_output(authorization_name: Optional[pul
     :param str express_route_port_name: The name of the express route port.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_express_route_port_authorization is deprecated: azure-native:network/v20220501:ExpressRoutePortAuthorization is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRoutePortAuthorization to guarantee forwards compatibility.""")
     ...

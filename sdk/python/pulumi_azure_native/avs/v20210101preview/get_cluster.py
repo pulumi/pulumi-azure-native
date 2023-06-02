@@ -17,6 +17,8 @@ __all__ = [
     'get_cluster_output',
 ]
 
+warnings.warn("""azure-native:avs/v20210101preview:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20210601:Cluster to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetClusterResult:
     """
@@ -141,6 +143,7 @@ def get_cluster(cluster_name: Optional[str] = None,
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_cluster is deprecated: azure-native:avs/v20210101preview:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20210601:Cluster to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['privateCloudName'] = private_cloud_name
@@ -172,4 +175,5 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_cluster is deprecated: azure-native:avs/v20210101preview:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20210601:Cluster to guarantee forwards compatibility.""")
     ...

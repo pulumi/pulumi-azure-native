@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20191001
 {
+    [Obsolete(@"azure-native:network/v20191001:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:Policy to guarantee forwards compatibility.")]
     public static class GetPolicy
     {
         /// <summary>

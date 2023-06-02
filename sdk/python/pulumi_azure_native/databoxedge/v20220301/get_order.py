@@ -17,6 +17,8 @@ __all__ = [
     'get_order_output',
 ]
 
+warnings.warn("""azure-native:databoxedge/v20220301:Order is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20220401preview:Order to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetOrderResult:
     """
@@ -211,6 +213,7 @@ def get_order(device_name: Optional[str] = None,
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_order is deprecated: azure-native:databoxedge/v20220301:Order is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20220401preview:Order to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
@@ -245,4 +248,5 @@ def get_order_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_order is deprecated: azure-native:databoxedge/v20220301:Order is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20220401preview:Order to guarantee forwards compatibility.""")
     ...

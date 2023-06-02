@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Network.V20170901
     /// <summary>
     /// Application gateway resource
     /// </summary>
-    [Obsolete(@"Version 2017-09-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-09-01 will be removed in v2 of the provider.
+azure-native:network/v20170901:ApplicationGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:ApplicationGateway to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20170901:ApplicationGateway")]
     public partial class ApplicationGateway : global::Pulumi.CustomResource
     {

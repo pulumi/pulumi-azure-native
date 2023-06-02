@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Media.V20180701
     /// <summary>
     /// An Asset Filter.
     /// </summary>
+    [Obsolete(@"azure-native:media/v20180701:AssetFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:AssetFilter to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:media/v20180701:AssetFilter")]
     public partial class AssetFilter : global::Pulumi.CustomResource
     {

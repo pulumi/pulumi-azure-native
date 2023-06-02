@@ -17,6 +17,8 @@ __all__ = [
     'get_file_service_properties_output',
 ]
 
+warnings.warn("""azure-native:storage/v20220501:FileServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileServiceProperties to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFileServicePropertiesResult:
     """
@@ -129,6 +131,7 @@ def get_file_service_properties(account_name: Optional[str] = None,
     :param str file_services_name: The name of the file Service within the specified storage account. File Service Name must be "default"
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("""get_file_service_properties is deprecated: azure-native:storage/v20220501:FileServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileServiceProperties to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['fileServicesName'] = file_services_name
@@ -159,4 +162,5 @@ def get_file_service_properties_output(account_name: Optional[pulumi.Input[str]]
     :param str file_services_name: The name of the file Service within the specified storage account. File Service Name must be "default"
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("""get_file_service_properties is deprecated: azure-native:storage/v20220501:FileServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileServiceProperties to guarantee forwards compatibility.""")
     ...

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Media.V20180701
 {
+    [Obsolete(@"azure-native:media/v20180701:LiveEvent is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20190501preview:LiveEvent to guarantee forwards compatibility.")]
     public static class GetLiveEvent
     {
         /// <summary>

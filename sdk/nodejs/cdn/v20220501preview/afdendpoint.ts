@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
+ *
+ * @deprecated azure-native:cdn/v20220501preview:AFDEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDEndpoint to guarantee forwards compatibility.
  */
 export class AFDEndpoint extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class AFDEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AFDEndpoint {
+        pulumi.log.warn("AFDEndpoint is deprecated: azure-native:cdn/v20220501preview:AFDEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDEndpoint to guarantee forwards compatibility.")
         return new AFDEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
@@ -86,7 +89,9 @@ export class AFDEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:cdn/v20220501preview:AFDEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDEndpoint to guarantee forwards compatibility. */
     constructor(name: string, args: AFDEndpointArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AFDEndpoint is deprecated: azure-native:cdn/v20220501preview:AFDEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDEndpoint to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
  */
+/** @deprecated azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility. */
 export function getPrivateZone(args: GetPrivateZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateZoneResult> {
+    pulumi.log.warn("getPrivateZone is deprecated: azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180901:getPrivateZone", {
@@ -87,6 +89,7 @@ export interface GetPrivateZoneResult {
 /**
  * Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
  */
+/** @deprecated azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility. */
 export function getPrivateZoneOutput(args: GetPrivateZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateZoneResult> {
     return pulumi.output(args).apply((a: any) => getPrivateZone(a, opts))
 }

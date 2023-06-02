@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureActiveDirectory.V20210401
 {
+    [Obsolete(@"azure-native:azureactivedirectory/v20210401:GuestUsage is being removed in the next major version of this provider. Upgrade to at least azure-native:azureactivedirectory/v20230118preview:GuestUsage to guarantee forwards compatibility.")]
     public static class GetGuestUsage
     {
         /// <summary>

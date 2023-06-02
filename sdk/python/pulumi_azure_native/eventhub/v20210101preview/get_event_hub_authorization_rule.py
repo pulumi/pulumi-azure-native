@@ -17,6 +17,8 @@ __all__ = [
     'get_event_hub_authorization_rule_output',
 ]
 
+warnings.warn("""azure-native:eventhub/v20210101preview:EventHubAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:EventHubAuthorizationRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEventHubAuthorizationRuleResult:
     """
@@ -107,6 +109,7 @@ def get_event_hub_authorization_rule(authorization_rule_name: Optional[str] = No
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
+    pulumi.log.warn("""get_event_hub_authorization_rule is deprecated: azure-native:eventhub/v20210101preview:EventHubAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:EventHubAuthorizationRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['eventHubName'] = event_hub_name
@@ -138,4 +141,5 @@ def get_event_hub_authorization_rule_output(authorization_rule_name: Optional[pu
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
+    pulumi.log.warn("""get_event_hub_authorization_rule is deprecated: azure-native:eventhub/v20210101preview:EventHubAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:EventHubAuthorizationRule to guarantee forwards compatibility.""")
     ...

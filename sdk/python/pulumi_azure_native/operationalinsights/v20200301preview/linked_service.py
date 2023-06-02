@@ -130,7 +130,12 @@ class LinkedServiceArgs:
         pulumi.set(self, "write_access_resource_id", value)
 
 
+warnings.warn("""azure-native:operationalinsights/v20200301preview:LinkedService is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:LinkedService to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class LinkedService(pulumi.CustomResource):
+    warnings.warn("""azure-native:operationalinsights/v20200301preview:LinkedService is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:LinkedService to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -188,6 +193,7 @@ class LinkedService(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  write_access_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""LinkedService is deprecated: azure-native:operationalinsights/v20200301preview:LinkedService is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:LinkedService to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about an azure ad administrator.
  */
+/** @deprecated azure-native:dbformysql/v20211201preview:AzureADAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20220101:AzureADAdministrator to guarantee forwards compatibility. */
 export function getAzureADAdministrator(args: GetAzureADAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureADAdministratorResult> {
+    pulumi.log.warn("getAzureADAdministrator is deprecated: azure-native:dbformysql/v20211201preview:AzureADAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20220101:AzureADAdministrator to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbformysql/v20211201preview:getAzureADAdministrator", {
@@ -79,6 +81,7 @@ export interface GetAzureADAdministratorResult {
 /**
  * Gets information about an azure ad administrator.
  */
+/** @deprecated azure-native:dbformysql/v20211201preview:AzureADAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20220101:AzureADAdministrator to guarantee forwards compatibility. */
 export function getAzureADAdministratorOutput(args: GetAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureADAdministratorResult> {
     return pulumi.output(args).apply((a: any) => getAzureADAdministrator(a, opts))
 }

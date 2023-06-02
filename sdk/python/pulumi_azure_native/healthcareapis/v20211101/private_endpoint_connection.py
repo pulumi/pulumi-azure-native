@@ -83,7 +83,12 @@ class PrivateEndpointConnectionInitArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
+warnings.warn("""azure-native:healthcareapis/v20211101:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class PrivateEndpointConnection(pulumi.CustomResource):
+    warnings.warn("""azure-native:healthcareapis/v20211101:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,6 +137,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""PrivateEndpointConnection is deprecated: azure-native:healthcareapis/v20211101:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:PrivateEndpointConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

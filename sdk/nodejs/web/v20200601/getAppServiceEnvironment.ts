@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the properties of an App Service Environment.
  */
+/** @deprecated azure-native:web/v20200601:AppServiceEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:AppServiceEnvironment to guarantee forwards compatibility. */
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
+    pulumi.log.warn("getAppServiceEnvironment is deprecated: azure-native:web/v20200601:AppServiceEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:AppServiceEnvironment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20200601:getAppServiceEnvironment", {
@@ -212,6 +214,7 @@ export interface GetAppServiceEnvironmentResult {
 /**
  * Get the properties of an App Service Environment.
  */
+/** @deprecated azure-native:web/v20200601:AppServiceEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:AppServiceEnvironment to guarantee forwards compatibility. */
 export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getAppServiceEnvironment(a, opts))
 }

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets specific OpenID Connect Provider.
  */
+/** @deprecated azure-native:apimanagement/v20191201preview:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:OpenIdConnectProvider to guarantee forwards compatibility. */
 export function getOpenIdConnectProvider(args: GetOpenIdConnectProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenIdConnectProviderResult> {
+    pulumi.log.warn("getOpenIdConnectProvider is deprecated: azure-native:apimanagement/v20191201preview:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:OpenIdConnectProvider to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201preview:getOpenIdConnectProvider", {
@@ -72,6 +74,7 @@ export interface GetOpenIdConnectProviderResult {
 /**
  * Gets specific OpenID Connect Provider.
  */
+/** @deprecated azure-native:apimanagement/v20191201preview:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:OpenIdConnectProvider to guarantee forwards compatibility. */
 export function getOpenIdConnectProviderOutput(args: GetOpenIdConnectProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenIdConnectProviderResult> {
     return pulumi.output(args).apply((a: any) => getOpenIdConnectProvider(a, opts))
 }

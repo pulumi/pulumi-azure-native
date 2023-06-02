@@ -17,6 +17,8 @@ __all__ = [
     'get_resource_pool_output',
 ]
 
+warnings.warn("""azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetResourcePoolResult:
     """
@@ -313,6 +315,7 @@ def get_resource_pool(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The Resource Group Name.
     :param str resource_pool_name: Name of the resourcePool.
     """
+    pulumi.log.warn("""get_resource_pool is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourcePoolName'] = resource_pool_name
@@ -355,4 +358,5 @@ def get_resource_pool_output(resource_group_name: Optional[pulumi.Input[str]] = 
     :param str resource_group_name: The Resource Group Name.
     :param str resource_pool_name: Name of the resourcePool.
     """
+    pulumi.log.warn("""get_resource_pool is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool to guarantee forwards compatibility.""")
     ...

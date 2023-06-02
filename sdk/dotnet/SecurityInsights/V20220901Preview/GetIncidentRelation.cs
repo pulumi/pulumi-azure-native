@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20220901Preview
 {
+    [Obsolete(@"azure-native:securityinsights/v20220901preview:IncidentRelation is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IncidentRelation to guarantee forwards compatibility.")]
     public static class GetIncidentRelation
     {
         /// <summary>

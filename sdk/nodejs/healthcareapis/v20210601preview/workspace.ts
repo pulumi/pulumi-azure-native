@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Workspace resource.
+ *
+ * @deprecated azure-native:healthcareapis/v20210601preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Workspace to guarantee forwards compatibility.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Workspace {
+        pulumi.log.warn("Workspace is deprecated: azure-native:healthcareapis/v20210601preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Workspace to guarantee forwards compatibility.")
         return new Workspace(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,7 +76,9 @@ export class Workspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:healthcareapis/v20210601preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Workspace to guarantee forwards compatibility. */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Workspace is deprecated: azure-native:healthcareapis/v20210601preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Workspace to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

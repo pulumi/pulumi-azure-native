@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns ResourceGuardProxy under vault and with the name referenced in request
  */
+/** @deprecated azure-native:recoveryservices/v20220930preview:ResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ResourceGuardProxy to guarantee forwards compatibility. */
 export function getResourceGuardProxy(args: GetResourceGuardProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGuardProxyResult> {
+    pulumi.log.warn("getResourceGuardProxy is deprecated: azure-native:recoveryservices/v20220930preview:ResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ResourceGuardProxy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20220930preview:getResourceGuardProxy", {
@@ -65,6 +67,7 @@ export interface GetResourceGuardProxyResult {
 /**
  * Returns ResourceGuardProxy under vault and with the name referenced in request
  */
+/** @deprecated azure-native:recoveryservices/v20220930preview:ResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ResourceGuardProxy to guarantee forwards compatibility. */
 export function getResourceGuardProxyOutput(args: GetResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardProxyResult> {
     return pulumi.output(args).apply((a: any) => getResourceGuardProxy(a, opts))
 }

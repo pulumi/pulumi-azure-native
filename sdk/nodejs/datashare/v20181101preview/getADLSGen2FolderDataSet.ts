@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a DataSet in a share
  */
+/** @deprecated azure-native:datashare/v20181101preview:ADLSGen2FolderDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen2FolderDataSet to guarantee forwards compatibility. */
 export function getADLSGen2FolderDataSet(args: GetADLSGen2FolderDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FolderDataSetResult> {
+    pulumi.log.warn("getADLSGen2FolderDataSet is deprecated: azure-native:datashare/v20181101preview:ADLSGen2FolderDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen2FolderDataSet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20181101preview:getADLSGen2FolderDataSet", {
@@ -86,6 +88,7 @@ export interface GetADLSGen2FolderDataSetResult {
 /**
  * Get a DataSet in a share
  */
+/** @deprecated azure-native:datashare/v20181101preview:ADLSGen2FolderDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen2FolderDataSet to guarantee forwards compatibility. */
 export function getADLSGen2FolderDataSetOutput(args: GetADLSGen2FolderDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FolderDataSetResult> {
     return pulumi.output(args).apply((a: any) => getADLSGen2FolderDataSet(a, opts))
 }

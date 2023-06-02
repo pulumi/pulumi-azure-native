@@ -17,6 +17,8 @@ __all__ = [
     'get_integration_account_certificate_output',
 ]
 
+warnings.warn("""azure-native:logic/v20180701preview:IntegrationAccountCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountCertificate to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIntegrationAccountCertificateResult:
     """
@@ -165,6 +167,7 @@ def get_integration_account_certificate(certificate_name: Optional[str] = None,
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_integration_account_certificate is deprecated: azure-native:logic/v20180701preview:IntegrationAccountCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountCertificate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['certificateName'] = certificate_name
     __args__['integrationAccountName'] = integration_account_name
@@ -198,4 +201,5 @@ def get_integration_account_certificate_output(certificate_name: Optional[pulumi
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_integration_account_certificate is deprecated: azure-native:logic/v20180701preview:IntegrationAccountCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountCertificate to guarantee forwards compatibility.""")
     ...

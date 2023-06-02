@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns Linker resource for a given name.
  */
+/** @deprecated azure-native:servicelinker/v20220101preview:Linker is being removed in the next major version of this provider. Upgrade to at least azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility. */
 export function getLinker(args: GetLinkerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkerResult> {
+    pulumi.log.warn("getLinker is deprecated: azure-native:servicelinker/v20220101preview:Linker is being removed in the next major version of this provider. Upgrade to at least azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicelinker/v20220101preview:getLinker", {
@@ -82,6 +84,7 @@ export interface GetLinkerResult {
 /**
  * Returns Linker resource for a given name.
  */
+/** @deprecated azure-native:servicelinker/v20220101preview:Linker is being removed in the next major version of this provider. Upgrade to at least azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility. */
 export function getLinkerOutput(args: GetLinkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerResult> {
     return pulumi.output(args).apply((a: any) => getLinker(a, opts))
 }

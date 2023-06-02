@@ -17,6 +17,8 @@ __all__ = [
     'get_web_app_deployment_slot_output',
 ]
 
+warnings.warn("""azure-native:web/v20200901:WebAppDeploymentSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppDeploymentSlot to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppDeploymentSlotResult:
     """
@@ -215,6 +217,7 @@ def get_web_app_deployment_slot(id: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API gets a deployment for the production slot.
     """
+    pulumi.log.warn("""get_web_app_deployment_slot is deprecated: azure-native:web/v20200901:WebAppDeploymentSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppDeploymentSlot to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
@@ -255,4 +258,5 @@ def get_web_app_deployment_slot_output(id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API gets a deployment for the production slot.
     """
+    pulumi.log.warn("""get_web_app_deployment_slot is deprecated: azure-native:web/v20200901:WebAppDeploymentSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppDeploymentSlot to guarantee forwards compatibility.""")
     ...

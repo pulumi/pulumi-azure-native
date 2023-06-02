@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a user rule.
  */
+/** @deprecated azure-native:network/v20210201preview:DefaultUserRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210501preview:DefaultUserRule to guarantee forwards compatibility. */
 export function getDefaultUserRule(args: GetDefaultUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultUserRuleResult> {
+    pulumi.log.warn("getDefaultUserRule is deprecated: azure-native:network/v20210201preview:DefaultUserRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210501preview:DefaultUserRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210201preview:getDefaultUserRule", {
@@ -118,6 +120,7 @@ export interface GetDefaultUserRuleResult {
 /**
  * Gets a user rule.
  */
+/** @deprecated azure-native:network/v20210201preview:DefaultUserRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210501preview:DefaultUserRule to guarantee forwards compatibility. */
 export function getDefaultUserRuleOutput(args: GetDefaultUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultUserRuleResult> {
     return pulumi.output(args).apply((a: any) => getDefaultUserRule(a, opts))
 }

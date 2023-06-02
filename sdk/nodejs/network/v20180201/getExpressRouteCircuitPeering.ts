@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified authorization from the specified express route circuit.
  */
-/** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-02-01 will be removed in v2 of the provider.
+azure-native:network/v20180201:ExpressRouteCircuitPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190201:ExpressRouteCircuitPeering to guarantee forwards compatibility. */
 export function getExpressRouteCircuitPeering(args: GetExpressRouteCircuitPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitPeeringResult> {
-    pulumi.log.warn("getExpressRouteCircuitPeering is deprecated: Version 2018-02-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getExpressRouteCircuitPeering is deprecated: Version 2018-02-01 will be removed in v2 of the provider.\nazure-native:network/v20180201:ExpressRouteCircuitPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190201:ExpressRouteCircuitPeering to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180201:getExpressRouteCircuitPeering", {
@@ -129,7 +130,8 @@ export interface GetExpressRouteCircuitPeeringResult {
 /**
  * Gets the specified authorization from the specified express route circuit.
  */
-/** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-02-01 will be removed in v2 of the provider.
+azure-native:network/v20180201:ExpressRouteCircuitPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190201:ExpressRouteCircuitPeering to guarantee forwards compatibility. */
 export function getExpressRouteCircuitPeeringOutput(args: GetExpressRouteCircuitPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitPeeringResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCircuitPeering(a, opts))
 }

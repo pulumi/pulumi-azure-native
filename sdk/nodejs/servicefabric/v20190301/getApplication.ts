@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get a Service Fabric application resource created or in the process of being created in the Service Fabric cluster resource.
  */
-/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-03-01 will be removed in v2 of the provider.
+azure-native:servicefabric/v20190301:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210601:Application to guarantee forwards compatibility. */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    pulumi.log.warn("getApplication is deprecated: Version 2019-03-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getApplication is deprecated: Version 2019-03-01 will be removed in v2 of the provider.\nazure-native:servicefabric/v20190301:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210601:Application to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20190301:getApplication", {
@@ -105,7 +106,8 @@ export interface GetApplicationResult {
 /**
  * Get a Service Fabric application resource created or in the process of being created in the Service Fabric cluster resource.
  */
-/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-03-01 will be removed in v2 of the provider.
+azure-native:servicefabric/v20190301:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210601:Application to guarantee forwards compatibility. */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }

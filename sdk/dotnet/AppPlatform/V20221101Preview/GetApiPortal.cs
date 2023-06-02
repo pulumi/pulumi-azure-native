@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AppPlatform.V20221101Preview
 {
+    [Obsolete(@"azure-native:appplatform/v20221101preview:ApiPortal is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApiPortal to guarantee forwards compatibility.")]
     public static class GetApiPortal
     {
         /// <summary>

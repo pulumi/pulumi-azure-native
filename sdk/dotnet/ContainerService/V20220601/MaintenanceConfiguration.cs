@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220601
     /// <summary>
     /// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
     /// </summary>
+    [Obsolete(@"azure-native:containerservice/v20220601:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:MaintenanceConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerservice/v20220601:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : global::Pulumi.CustomResource
     {

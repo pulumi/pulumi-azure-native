@@ -144,7 +144,12 @@ class ManagedInstanceLongTermRetentionPolicyArgs:
         pulumi.set(self, "yearly_retention", value)
 
 
+warnings.warn("""azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
+    warnings.warn("""azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -205,6 +210,7 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
                  weekly_retention: Optional[pulumi.Input[str]] = None,
                  yearly_retention: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ManagedInstanceLongTermRetentionPolicy is deprecated: azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an integration account schema.
  */
+/** @deprecated azure-native:logic/v20180701preview:IntegrationAccountSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountSchema to guarantee forwards compatibility. */
 export function getIntegrationAccountSchema(args: GetIntegrationAccountSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountSchemaResult> {
+    pulumi.log.warn("getIntegrationAccountSchema is deprecated: azure-native:logic/v20180701preview:IntegrationAccountSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountSchema to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20180701preview:getIntegrationAccountSchema", {
@@ -103,6 +105,7 @@ export interface GetIntegrationAccountSchemaResult {
 /**
  * Gets an integration account schema.
  */
+/** @deprecated azure-native:logic/v20180701preview:IntegrationAccountSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountSchema to guarantee forwards compatibility. */
 export function getIntegrationAccountSchemaOutput(args: GetIntegrationAccountSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountSchemaResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccountSchema(a, opts))
 }

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
     /// <summary>
     /// Hub resource.
     /// </summary>
-    [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:Hub is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:Hub to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:customerinsights/v20170101:Hub")]
     public partial class Hub : global::Pulumi.CustomResource
     {

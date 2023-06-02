@@ -17,6 +17,8 @@ __all__ = [
     'getmonitor_output',
 ]
 
+warnings.warn("""azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:monitor to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetmonitorResult:
     """
@@ -247,6 +249,7 @@ def getmonitor(monitor_name: Optional[str] = None,
     :param str monitor_name: Name of the SAP monitor resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""getmonitor is deprecated: azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:monitor to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
@@ -284,4 +287,5 @@ def getmonitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
     :param str monitor_name: Name of the SAP monitor resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""getmonitor is deprecated: azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:monitor to guarantee forwards compatibility.""")
     ...

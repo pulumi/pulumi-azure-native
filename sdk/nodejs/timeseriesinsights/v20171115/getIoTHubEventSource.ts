@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the event source with the specified name in the specified environment.
  */
+/** @deprecated azure-native:timeseriesinsights/v20171115:IoTHubEventSource is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource to guarantee forwards compatibility. */
 export function getIoTHubEventSource(args: GetIoTHubEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTHubEventSourceResult> {
+    pulumi.log.warn("getIoTHubEventSource is deprecated: azure-native:timeseriesinsights/v20171115:IoTHubEventSource is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20171115:getIoTHubEventSource", {
@@ -93,6 +95,7 @@ export interface GetIoTHubEventSourceResult {
 /**
  * Gets the event source with the specified name in the specified environment.
  */
+/** @deprecated azure-native:timeseriesinsights/v20171115:IoTHubEventSource is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource to guarantee forwards compatibility. */
 export function getIoTHubEventSourceOutput(args: GetIoTHubEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTHubEventSourceResult> {
     return pulumi.output(args).apply((a: any) => getIoTHubEventSource(a, opts))
 }

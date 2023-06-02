@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified virtual network tap.
  */
+/** @deprecated azure-native:network/v20180801:VirtualNetworkTap is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualNetworkTap to guarantee forwards compatibility. */
 export function getVirtualNetworkTap(args: GetVirtualNetworkTapArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkTapResult> {
+    pulumi.log.warn("getVirtualNetworkTap is deprecated: azure-native:network/v20180801:VirtualNetworkTap is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualNetworkTap to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180801:getVirtualNetworkTap", {
@@ -86,6 +88,7 @@ export interface GetVirtualNetworkTapResult {
 /**
  * Gets information about the specified virtual network tap.
  */
+/** @deprecated azure-native:network/v20180801:VirtualNetworkTap is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualNetworkTap to guarantee forwards compatibility. */
 export function getVirtualNetworkTapOutput(args: GetVirtualNetworkTapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkTapResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkTap(a, opts))
 }

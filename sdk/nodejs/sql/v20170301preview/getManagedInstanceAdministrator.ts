@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a managed instance administrator.
  */
+/** @deprecated azure-native:sql/v20170301preview:ManagedInstanceAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceAdministrator to guarantee forwards compatibility. */
 export function getManagedInstanceAdministrator(args: GetManagedInstanceAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceAdministratorResult> {
+    pulumi.log.warn("getManagedInstanceAdministrator is deprecated: azure-native:sql/v20170301preview:ManagedInstanceAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceAdministrator to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20170301preview:getManagedInstanceAdministrator", {
@@ -68,6 +70,7 @@ export interface GetManagedInstanceAdministratorResult {
 /**
  * Gets a managed instance administrator.
  */
+/** @deprecated azure-native:sql/v20170301preview:ManagedInstanceAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceAdministrator to guarantee forwards compatibility. */
 export function getManagedInstanceAdministratorOutput(args: GetManagedInstanceAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceAdministratorResult> {
     return pulumi.output(args).apply((a: any) => getManagedInstanceAdministrator(a, opts))
 }

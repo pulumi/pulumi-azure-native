@@ -17,6 +17,8 @@ __all__ = [
     'get_instance_failover_group_output',
 ]
 
+warnings.warn("""azure-native:sql/v20210201preview:InstanceFailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:InstanceFailoverGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetInstanceFailoverGroupResult:
     """
@@ -153,6 +155,7 @@ def get_instance_failover_group(failover_group_name: Optional[str] = None,
     :param str location_name: The name of the region where the resource is located.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
+    pulumi.log.warn("""get_instance_failover_group is deprecated: azure-native:sql/v20210201preview:InstanceFailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:InstanceFailoverGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['failoverGroupName'] = failover_group_name
     __args__['locationName'] = location_name
@@ -185,4 +188,5 @@ def get_instance_failover_group_output(failover_group_name: Optional[pulumi.Inpu
     :param str location_name: The name of the region where the resource is located.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
+    pulumi.log.warn("""get_instance_failover_group is deprecated: azure-native:sql/v20210201preview:InstanceFailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:InstanceFailoverGroup to guarantee forwards compatibility.""")
     ...

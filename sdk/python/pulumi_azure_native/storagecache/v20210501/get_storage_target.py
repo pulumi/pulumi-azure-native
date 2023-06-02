@@ -17,6 +17,8 @@ __all__ = [
     'get_storage_target_output',
 ]
 
+warnings.warn("""azure-native:storagecache/v20210501:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20230301preview:StorageTarget to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStorageTargetResult:
     """
@@ -189,6 +191,7 @@ def get_storage_target(cache_name: Optional[str] = None,
     :param str resource_group_name: Target resource group.
     :param str storage_target_name: Name of Storage Target.
     """
+    pulumi.log.warn("""get_storage_target is deprecated: azure-native:storagecache/v20210501:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20230301preview:StorageTarget to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name
@@ -224,4 +227,5 @@ def get_storage_target_output(cache_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Target resource group.
     :param str storage_target_name: Name of Storage Target.
     """
+    pulumi.log.warn("""get_storage_target is deprecated: azure-native:storagecache/v20210501:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20230301preview:StorageTarget to guarantee forwards compatibility.""")
     ...

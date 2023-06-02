@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
     /// <summary>
     /// The resource representation of a service in a service topology.
     /// </summary>
-    [Obsolete(@"Version 2018-09-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:deploymentmanager/v20180901preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:deploymentmanager/v20191101preview:Service to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:deploymentmanager/v20180901preview:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {

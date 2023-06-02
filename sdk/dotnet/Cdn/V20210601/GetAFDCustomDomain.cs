@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Cdn.V20210601
 {
+    [Obsolete(@"azure-native:cdn/v20210601:AFDCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDCustomDomain to guarantee forwards compatibility.")]
     public static class GetAFDCustomDomain
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501
     /// <summary>
     /// Azure Resource Manager resource envelope.
     /// </summary>
+    [Obsolete(@"azure-native:machinelearningservices/v20220501:ModelContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:ModelContainer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220501:ModelContainer")]
     public partial class ModelContainer : global::Pulumi.CustomResource
     {

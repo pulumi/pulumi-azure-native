@@ -17,6 +17,8 @@ __all__ = [
     'get_private_cloud_output',
 ]
 
+warnings.warn("""azure-native:avs/v20210101preview:PrivateCloud is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:PrivateCloud to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateCloudResult:
     """
@@ -283,6 +285,7 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_private_cloud is deprecated: azure-native:avs/v20210101preview:PrivateCloud is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:PrivateCloud to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
@@ -323,4 +326,5 @@ def get_private_cloud_output(private_cloud_name: Optional[pulumi.Input[str]] = N
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_private_cloud is deprecated: azure-native:avs/v20210101preview:PrivateCloud is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:PrivateCloud to guarantee forwards compatibility.""")
     ...

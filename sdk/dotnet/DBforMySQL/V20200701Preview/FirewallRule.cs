@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
     /// <summary>
     /// Represents a server firewall rule.
     /// </summary>
+    [Obsolete(@"azure-native:dbformysql/v20200701preview:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20220101:FirewallRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbformysql/v20200701preview:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource
     {

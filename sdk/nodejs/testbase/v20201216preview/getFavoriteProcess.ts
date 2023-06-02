@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a favorite process for a Test Base Package.
  */
-/** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider.
+azure-native:testbase/v20201216preview:FavoriteProcess is being removed in the next major version of this provider. Upgrade to at least azure-native:testbase/v20220401preview:FavoriteProcess to guarantee forwards compatibility. */
 export function getFavoriteProcess(args: GetFavoriteProcessArgs, opts?: pulumi.InvokeOptions): Promise<GetFavoriteProcessResult> {
-    pulumi.log.warn("getFavoriteProcess is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getFavoriteProcess is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.\nazure-native:testbase/v20201216preview:FavoriteProcess is being removed in the next major version of this provider. Upgrade to at least azure-native:testbase/v20220401preview:FavoriteProcess to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20201216preview:getFavoriteProcess", {
@@ -70,7 +71,8 @@ export interface GetFavoriteProcessResult {
 /**
  * Gets a favorite process for a Test Base Package.
  */
-/** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider.
+azure-native:testbase/v20201216preview:FavoriteProcess is being removed in the next major version of this provider. Upgrade to at least azure-native:testbase/v20220401preview:FavoriteProcess to guarantee forwards compatibility. */
 export function getFavoriteProcessOutput(args: GetFavoriteProcessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteProcessResult> {
     return pulumi.output(args).apply((a: any) => getFavoriteProcess(a, opts))
 }

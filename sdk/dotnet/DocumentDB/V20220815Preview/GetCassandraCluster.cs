@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20220815Preview
 {
+    [Obsolete(@"azure-native:documentdb/v20220815preview:CassandraCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:CassandraCluster to guarantee forwards compatibility.")]
     public static class GetCassandraCluster
     {
         /// <summary>

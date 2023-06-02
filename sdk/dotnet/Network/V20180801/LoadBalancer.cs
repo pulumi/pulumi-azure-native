@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20180801
     /// <summary>
     /// LoadBalancer resource
     /// </summary>
+    [Obsolete(@"azure-native:network/v20180801:LoadBalancer is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:LoadBalancer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20180801:LoadBalancer")]
     public partial class LoadBalancer : global::Pulumi.CustomResource
     {

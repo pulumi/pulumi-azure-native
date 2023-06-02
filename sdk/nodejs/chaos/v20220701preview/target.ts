@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Model that represents a Target resource.
+ *
+ * @deprecated azure-native:chaos/v20220701preview:Target is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Target to guarantee forwards compatibility.
  */
 export class Target extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Target extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Target {
+        pulumi.log.warn("Target is deprecated: azure-native:chaos/v20220701preview:Target is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Target to guarantee forwards compatibility.")
         return new Target(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,7 +68,9 @@ export class Target extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:chaos/v20220701preview:Target is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Target to guarantee forwards compatibility. */
     constructor(name: string, args: TargetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Target is deprecated: azure-native:chaos/v20220701preview:Target is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Target to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

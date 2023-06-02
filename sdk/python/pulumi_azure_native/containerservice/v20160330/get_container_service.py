@@ -17,7 +17,8 @@ __all__ = [
     'get_container_service_output',
 ]
 
-warnings.warn("""Version 2016-03-30 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-03-30 will be removed in v2 of the provider.
+azure-native:containerservice/v20160330:ContainerService is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetContainerServiceResult:
@@ -189,7 +190,8 @@ def get_container_service(container_service_name: Optional[str] = None,
     :param str container_service_name: The name of the container service in the specified subscription and resource group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_container_service is deprecated: Version 2016-03-30 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_container_service is deprecated: Version 2016-03-30 will be removed in v2 of the provider.
+azure-native:containerservice/v20160330:ContainerService is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['containerServiceName'] = container_service_name
     __args__['resourceGroupName'] = resource_group_name
@@ -222,5 +224,6 @@ def get_container_service_output(container_service_name: Optional[pulumi.Input[s
     :param str container_service_name: The name of the container service in the specified subscription and resource group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_container_service is deprecated: Version 2016-03-30 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_container_service is deprecated: Version 2016-03-30 will be removed in v2 of the provider.
+azure-native:containerservice/v20160330:ContainerService is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility.""")
     ...

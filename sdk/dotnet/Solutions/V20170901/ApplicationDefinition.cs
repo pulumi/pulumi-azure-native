@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Solutions.V20170901
     /// <summary>
     /// Information about managed application definition.
     /// </summary>
-    [Obsolete(@"Version 2017-09-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-09-01 will be removed in v2 of the provider.
+azure-native:solutions/v20170901:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20171201:ApplicationDefinition to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:solutions/v20170901:ApplicationDefinition")]
     public partial class ApplicationDefinition : global::Pulumi.CustomResource
     {

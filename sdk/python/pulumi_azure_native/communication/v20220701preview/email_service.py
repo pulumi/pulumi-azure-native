@@ -98,7 +98,12 @@ class EmailServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:communication/v20220701preview:EmailService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230331:EmailService to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class EmailService(pulumi.CustomResource):
+    warnings.warn("""azure-native:communication/v20220701preview:EmailService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230331:EmailService to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -150,6 +155,7 @@ class EmailService(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""EmailService is deprecated: azure-native:communication/v20220701preview:EmailService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230331:EmailService to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401
     /// <summary>
     /// Private Endpoint Connection Response Properties
     /// </summary>
+    [Obsolete(@"azure-native:recoveryservices/v20220401:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20220401:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

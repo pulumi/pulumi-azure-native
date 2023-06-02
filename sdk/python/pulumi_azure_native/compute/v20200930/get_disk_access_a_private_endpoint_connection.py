@@ -17,6 +17,8 @@ __all__ = [
     'get_disk_access_a_private_endpoint_connection_output',
 ]
 
+warnings.warn("""azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDiskAccessAPrivateEndpointConnectionResult:
     """
@@ -117,6 +119,7 @@ def get_disk_access_a_private_endpoint_connection(disk_access_name: Optional[str
     :param str private_endpoint_connection_name: The name of the private endpoint connection
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_disk_access_a_private_endpoint_connection is deprecated: azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['diskAccessName'] = disk_access_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
@@ -146,4 +149,5 @@ def get_disk_access_a_private_endpoint_connection_output(disk_access_name: Optio
     :param str private_endpoint_connection_name: The name of the private endpoint connection
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_disk_access_a_private_endpoint_connection is deprecated: azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

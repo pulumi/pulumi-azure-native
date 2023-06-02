@@ -95,7 +95,12 @@ class FirewallRuleArgs:
         pulumi.set(self, "rule_name", value)
 
 
+warnings.warn("""azure-native:cache/v20210601:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class FirewallRule(pulumi.CustomResource):
+    warnings.warn("""azure-native:cache/v20210601:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -147,6 +152,7 @@ class FirewallRule(pulumi.CustomResource):
                  rule_name: Optional[pulumi.Input[str]] = None,
                  start_ip: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""FirewallRule is deprecated: azure-native:cache/v20210601:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -170,7 +176,7 @@ class FirewallRule(pulumi.CustomResource):
             __props__.__dict__["start_ip"] = start_ip
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20160401:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20170201:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20171001:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20180301:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20190701:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20200601:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20201201:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20220501:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20220601:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20230401:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20230501preview:FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20160401:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20170201:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20171001:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20180301:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20190701:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20200601:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20201201:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20220501:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20220601:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallRule, __self__).__init__(
             'azure-native:cache/v20210601:FirewallRule',

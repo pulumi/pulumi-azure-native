@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220901Preview
     /// <summary>
     /// Represents scheduled alert rule.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20220901preview:ScheduledAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ScheduledAlertRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20220901preview:ScheduledAlertRule")]
     public partial class ScheduledAlertRule : global::Pulumi.CustomResource
     {
@@ -225,7 +226,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220901Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:ScheduledAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:ScheduledAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:ScheduledAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:ScheduledAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

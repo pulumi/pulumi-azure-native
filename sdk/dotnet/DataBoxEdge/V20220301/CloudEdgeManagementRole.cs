@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
     /// For more information, refer to: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-virtual-machine-overview
     /// By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
     /// </summary>
+    [Obsolete(@"azure-native:databoxedge/v20220301:CloudEdgeManagementRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:CloudEdgeManagementRole to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20220301:CloudEdgeManagementRole")]
     public partial class CloudEdgeManagementRole : global::Pulumi.CustomResource
     {

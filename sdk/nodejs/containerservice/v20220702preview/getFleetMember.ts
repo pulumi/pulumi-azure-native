@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
  */
+/** @deprecated azure-native:containerservice/v20220702preview:FleetMember is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:FleetMember to guarantee forwards compatibility. */
 export function getFleetMember(args: GetFleetMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetMemberResult> {
+    pulumi.log.warn("getFleetMember is deprecated: azure-native:containerservice/v20220702preview:FleetMember is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:FleetMember to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20220702preview:getFleetMember", {
@@ -71,6 +73,7 @@ export interface GetFleetMemberResult {
 /**
  * A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
  */
+/** @deprecated azure-native:containerservice/v20220702preview:FleetMember is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:FleetMember to guarantee forwards compatibility. */
 export function getFleetMemberOutput(args: GetFleetMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetMemberResult> {
     return pulumi.output(args).apply((a: any) => getFleetMember(a, opts))
 }

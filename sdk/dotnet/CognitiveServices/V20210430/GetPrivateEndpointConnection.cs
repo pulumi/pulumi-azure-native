@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.CognitiveServices.V20210430
 {
+    [Obsolete(@"azure-native:cognitiveservices/v20210430:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20221201:PrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnection
     {
         /// <summary>

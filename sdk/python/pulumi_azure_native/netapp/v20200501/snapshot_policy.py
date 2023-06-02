@@ -179,11 +179,13 @@ class SnapshotPolicyArgs:
         pulumi.set(self, "weekly_schedule", value)
 
 
-warnings.warn("""Version 2020-05-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-05-01 will be removed in v2 of the provider.
+azure-native:netapp/v20200501:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class SnapshotPolicy(pulumi.CustomResource):
-    warnings.warn("""Version 2020-05-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2020-05-01 will be removed in v2 of the provider.
+azure-native:netapp/v20200501:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -251,7 +253,8 @@ class SnapshotPolicy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  weekly_schedule: Optional[pulumi.Input[pulumi.InputType['WeeklyScheduleArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""SnapshotPolicy is deprecated: Version 2020-05-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""SnapshotPolicy is deprecated: Version 2020-05-01 will be removed in v2 of the provider.
+azure-native:netapp/v20200501:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

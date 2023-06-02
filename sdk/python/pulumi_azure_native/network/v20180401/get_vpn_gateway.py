@@ -17,7 +17,8 @@ __all__ = [
     'get_vpn_gateway_output',
 ]
 
-warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:VpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VpnGateway to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVpnGatewayResult:
@@ -177,7 +178,8 @@ def get_vpn_gateway(gateway_name: Optional[str] = None,
     :param str gateway_name: The name of the gateway.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
-    pulumi.log.warn("""get_vpn_gateway is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_vpn_gateway is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:VpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VpnGateway to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['gatewayName'] = gateway_name
     __args__['resourceGroupName'] = resource_group_name
@@ -209,5 +211,6 @@ def get_vpn_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
     :param str gateway_name: The name of the gateway.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
-    pulumi.log.warn("""get_vpn_gateway is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_vpn_gateway is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:VpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VpnGateway to guarantee forwards compatibility.""")
     ...

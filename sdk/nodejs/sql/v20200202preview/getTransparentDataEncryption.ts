@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a logical database's transparent data encryption.
  */
+/** @deprecated azure-native:sql/v20200202preview:TransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:TransparentDataEncryption to guarantee forwards compatibility. */
 export function getTransparentDataEncryption(args: GetTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTransparentDataEncryptionResult> {
+    pulumi.log.warn("getTransparentDataEncryption is deprecated: azure-native:sql/v20200202preview:TransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:TransparentDataEncryption to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20200202preview:getTransparentDataEncryption", {
@@ -61,6 +63,7 @@ export interface GetTransparentDataEncryptionResult {
 /**
  * Gets a logical database's transparent data encryption.
  */
+/** @deprecated azure-native:sql/v20200202preview:TransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:TransparentDataEncryption to guarantee forwards compatibility. */
 export function getTransparentDataEncryptionOutput(args: GetTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransparentDataEncryptionResult> {
     return pulumi.output(args).apply((a: any) => getTransparentDataEncryption(a, opts))
 }

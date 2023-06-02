@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns oep resource for a given name.
  */
+/** @deprecated azure-native:openenergyplatform/v20210601preview:EnergyService is being removed in the next major version of this provider. Upgrade to at least azure-native:openenergyplatform/v20220404preview:EnergyService to guarantee forwards compatibility. */
 export function getEnergyService(args: GetEnergyServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetEnergyServiceResult> {
+    pulumi.log.warn("getEnergyService is deprecated: azure-native:openenergyplatform/v20210601preview:EnergyService is being removed in the next major version of this provider. Upgrade to at least azure-native:openenergyplatform/v20220404preview:EnergyService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:openenergyplatform/v20210601preview:getEnergyService", {
@@ -60,6 +62,7 @@ export interface GetEnergyServiceResult {
 /**
  * Returns oep resource for a given name.
  */
+/** @deprecated azure-native:openenergyplatform/v20210601preview:EnergyService is being removed in the next major version of this provider. Upgrade to at least azure-native:openenergyplatform/v20220404preview:EnergyService to guarantee forwards compatibility. */
 export function getEnergyServiceOutput(args: GetEnergyServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnergyServiceResult> {
     return pulumi.output(args).apply((a: any) => getEnergyService(a, opts))
 }

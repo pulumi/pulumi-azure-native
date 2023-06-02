@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Kusto.V20190121
 {
+    [Obsolete(@"azure-native:kusto/v20190121:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20190515:Database to guarantee forwards compatibility.")]
     public static class GetDatabase
     {
         /// <summary>

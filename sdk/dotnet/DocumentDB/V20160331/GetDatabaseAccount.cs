@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20160331
 {
-    [Obsolete(@"Version 2016-03-31 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2016-03-31 will be removed in v2 of the provider.
+azure-native:documentdb/v20160331:DatabaseAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20200301:DatabaseAccount to guarantee forwards compatibility.")]
     public static class GetDatabaseAccount
     {
         /// <summary>

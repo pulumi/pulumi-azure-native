@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221101Preview
     /// <summary>
     /// Represents a file import in Azure Security Insights.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20221101preview:FileImport is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:FileImport to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20221101preview:FileImport")]
     public partial class FileImport : global::Pulumi.CustomResource
     {
@@ -142,7 +143,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:FileImport"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:FileImport"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:FileImport"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:FileImport"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

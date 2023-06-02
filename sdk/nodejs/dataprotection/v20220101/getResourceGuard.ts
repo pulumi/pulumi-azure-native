@@ -7,7 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/** @deprecated azure-native:dataprotection/v20220101:ResourceGuard is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20221101preview:ResourceGuard to guarantee forwards compatibility. */
 export function getResourceGuard(args: GetResourceGuardArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGuardResult> {
+    pulumi.log.warn("getResourceGuard is deprecated: azure-native:dataprotection/v20220101:ResourceGuard is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20221101preview:ResourceGuard to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dataprotection/v20220101:getResourceGuard", {
@@ -65,6 +67,7 @@ export interface GetResourceGuardResult {
      */
     readonly type: string;
 }
+/** @deprecated azure-native:dataprotection/v20220101:ResourceGuard is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20221101preview:ResourceGuard to guarantee forwards compatibility. */
 export function getResourceGuardOutput(args: GetResourceGuardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardResult> {
     return pulumi.output(args).apply((a: any) => getResourceGuard(a, opts))
 }

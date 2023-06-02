@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents scheduled alert rule.
+ *
+ * @deprecated azure-native:securityinsights/v20220401preview:ScheduledAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ScheduledAlertRule to guarantee forwards compatibility.
  */
 export class ScheduledAlertRule extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ScheduledAlertRule {
+        pulumi.log.warn("ScheduledAlertRule is deprecated: azure-native:securityinsights/v20220401preview:ScheduledAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ScheduledAlertRule to guarantee forwards compatibility.")
         return new ScheduledAlertRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -150,7 +153,9 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20220401preview:ScheduledAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ScheduledAlertRule to guarantee forwards compatibility. */
     constructor(name: string, args: ScheduledAlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ScheduledAlertRule is deprecated: azure-native:securityinsights/v20220401preview:ScheduledAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ScheduledAlertRule to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -251,7 +256,7 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20200101:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20211001:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20220501preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20220601preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20220701preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20220801:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20220801preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20220901preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20221001preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20221101:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20221101preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20221201preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20230201:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20230201preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20230401preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20230501preview:ScheduledAlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20200101:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20211001:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20220501preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20220601preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20220701preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20220801:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20220801preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20220901preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20221001preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20221101:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20221101preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20221201preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20230201:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20230201preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20230401preview:ScheduledAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledAlertRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves Migration Config
  */
+/** @deprecated azure-native:servicebus/v20210601preview:MigrationConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:MigrationConfig to guarantee forwards compatibility. */
 export function getMigrationConfig(args: GetMigrationConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationConfigResult> {
+    pulumi.log.warn("getMigrationConfig is deprecated: azure-native:servicebus/v20210601preview:MigrationConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:MigrationConfig to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20210601preview:getMigrationConfig", {
@@ -79,6 +81,7 @@ export interface GetMigrationConfigResult {
 /**
  * Retrieves Migration Config
  */
+/** @deprecated azure-native:servicebus/v20210601preview:MigrationConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:MigrationConfig to guarantee forwards compatibility. */
 export function getMigrationConfigOutput(args: GetMigrationConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationConfigResult> {
     return pulumi.output(args).apply((a: any) => getMigrationConfig(a, opts))
 }

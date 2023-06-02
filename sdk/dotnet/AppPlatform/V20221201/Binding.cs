@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20221201
     /// <summary>
     /// Binding resource payload
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20221201:Binding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Binding to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20221201:Binding")]
     public partial class Binding : global::Pulumi.CustomResource
     {

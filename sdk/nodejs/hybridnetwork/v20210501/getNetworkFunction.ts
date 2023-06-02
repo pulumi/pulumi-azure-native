@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified network function resource.
  */
+/** @deprecated azure-native:hybridnetwork/v20210501:NetworkFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:NetworkFunction to guarantee forwards compatibility. */
 export function getNetworkFunction(args: GetNetworkFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFunctionResult> {
+    pulumi.log.warn("getNetworkFunction is deprecated: azure-native:hybridnetwork/v20210501:NetworkFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:NetworkFunction to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20210501:getNetworkFunction", {
@@ -110,6 +112,7 @@ export interface GetNetworkFunctionResult {
 /**
  * Gets information about the specified network function resource.
  */
+/** @deprecated azure-native:hybridnetwork/v20210501:NetworkFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:NetworkFunction to guarantee forwards compatibility. */
 export function getNetworkFunctionOutput(args: GetNetworkFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFunctionResult> {
     return pulumi.output(args).apply((a: any) => getNetworkFunction(a, opts))
 }

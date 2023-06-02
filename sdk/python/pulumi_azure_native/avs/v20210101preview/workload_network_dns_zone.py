@@ -161,7 +161,12 @@ class WorkloadNetworkDnsZoneArgs:
         pulumi.set(self, "source_ip", value)
 
 
+warnings.warn("""azure-native:avs/v20210101preview:WorkloadNetworkDnsZone is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkDnsZone to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WorkloadNetworkDnsZone(pulumi.CustomResource):
+    warnings.warn("""azure-native:avs/v20210101preview:WorkloadNetworkDnsZone is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkDnsZone to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -225,6 +230,7 @@ class WorkloadNetworkDnsZone(pulumi.CustomResource):
                  revision: Optional[pulumi.Input[float]] = None,
                  source_ip: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WorkloadNetworkDnsZone is deprecated: azure-native:avs/v20210101preview:WorkloadNetworkDnsZone is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkDnsZone to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

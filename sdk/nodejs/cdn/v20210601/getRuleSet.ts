@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
  */
+/** @deprecated azure-native:cdn/v20210601:RuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:RuleSet to guarantee forwards compatibility. */
 export function getRuleSet(args: GetRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleSetResult> {
+    pulumi.log.warn("getRuleSet is deprecated: azure-native:cdn/v20210601:RuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:RuleSet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20210601:getRuleSet", {
@@ -68,6 +70,7 @@ export interface GetRuleSetResult {
 /**
  * Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
  */
+/** @deprecated azure-native:cdn/v20210601:RuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:RuleSet to guarantee forwards compatibility. */
 export function getRuleSetOutput(args: GetRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleSetResult> {
     return pulumi.output(args).apply((a: any) => getRuleSet(a, opts))
 }

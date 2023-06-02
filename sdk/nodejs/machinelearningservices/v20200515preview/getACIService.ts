@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Service by name.
  */
+/** @deprecated azure-native:machinelearningservices/v20200515preview:ACIService is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility. */
 export function getACIService(args: GetACIServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetACIServiceResult> {
+    pulumi.log.warn("getACIService is deprecated: azure-native:machinelearningservices/v20200515preview:ACIService is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200515preview:getACIService", {
@@ -80,6 +82,7 @@ export interface GetACIServiceResult {
 /**
  * Get a Service by name.
  */
+/** @deprecated azure-native:machinelearningservices/v20200515preview:ACIService is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility. */
 export function getACIServiceOutput(args: GetACIServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetACIServiceResult> {
     return pulumi.output(args).apply((a: any) => getACIService(a, opts))
 }

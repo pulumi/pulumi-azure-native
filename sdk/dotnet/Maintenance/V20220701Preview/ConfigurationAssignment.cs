@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview
     /// <summary>
     /// Configuration Assignment
     /// </summary>
+    [Obsolete(@"azure-native:maintenance/v20220701preview:ConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:ConfigurationAssignment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:maintenance/v20220701preview:ConfigurationAssignment")]
     public partial class ConfigurationAssignment : global::Pulumi.CustomResource
     {
@@ -80,7 +81,6 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:ConfigurationAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:ConfigurationAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20221101preview:ConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230401:ConfigurationAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Maintenance.V20210401Preview
 {
+    [Obsolete(@"azure-native:maintenance/v20210401preview:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.")]
     public static class GetMaintenanceConfiguration
     {
         /// <summary>

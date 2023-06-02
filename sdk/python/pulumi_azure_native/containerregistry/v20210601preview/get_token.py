@@ -17,6 +17,8 @@ __all__ = [
     'get_token_output',
 ]
 
+warnings.warn("""azure-native:containerregistry/v20210601preview:Token is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Token to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTokenResult:
     """
@@ -153,6 +155,7 @@ def get_token(registry_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str token_name: The name of the token.
     """
+    pulumi.log.warn("""get_token is deprecated: azure-native:containerregistry/v20210601preview:Token is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Token to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
@@ -185,4 +188,5 @@ def get_token_output(registry_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str token_name: The name of the token.
     """
+    pulumi.log.warn("""get_token is deprecated: azure-native:containerregistry/v20210601preview:Token is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Token to guarantee forwards compatibility.""")
     ...

@@ -16,6 +16,8 @@ __all__ = [
     'get_managed_instance_administrator_output',
 ]
 
+warnings.warn("""azure-native:sql/v20211101preview:ManagedInstanceAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceAdministrator to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagedInstanceAdministratorResult:
     """
@@ -127,6 +129,7 @@ def get_managed_instance_administrator(administrator_name: Optional[str] = None,
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
+    pulumi.log.warn("""get_managed_instance_administrator is deprecated: azure-native:sql/v20211101preview:ManagedInstanceAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceAdministrator to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['administratorName'] = administrator_name
     __args__['managedInstanceName'] = managed_instance_name
@@ -156,4 +159,5 @@ def get_managed_instance_administrator_output(administrator_name: Optional[pulum
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
+    pulumi.log.warn("""get_managed_instance_administrator is deprecated: azure-native:sql/v20211101preview:ManagedInstanceAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceAdministrator to guarantee forwards compatibility.""")
     ...

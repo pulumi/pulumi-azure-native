@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
     /// <summary>
     /// Gateway details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20210101preview:Gateway is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Gateway to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20210101preview:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource
     {

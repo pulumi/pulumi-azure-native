@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
     /// <summary>
     /// NSX DHCP
     /// </summary>
+    [Obsolete(@"azure-native:avs/v20210601:WorkloadNetworkDhcp is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkDhcp to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20210601:WorkloadNetworkDhcp")]
     public partial class WorkloadNetworkDhcp : global::Pulumi.CustomResource
     {

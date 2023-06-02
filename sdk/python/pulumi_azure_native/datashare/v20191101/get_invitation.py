@@ -16,7 +16,8 @@ __all__ = [
     'get_invitation_output',
 ]
 
-warnings.warn("""Version 2019-11-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-11-01 will be removed in v2 of the provider.
+azure-native:datashare/v20191101:Invitation is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:Invitation to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetInvitationResult:
@@ -194,7 +195,8 @@ def get_invitation(account_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
     """
-    pulumi.log.warn("""get_invitation is deprecated: Version 2019-11-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_invitation is deprecated: Version 2019-11-01 will be removed in v2 of the provider.
+azure-native:datashare/v20191101:Invitation is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:Invitation to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['invitationName'] = invitation_name
@@ -233,5 +235,6 @@ def get_invitation_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
     """
-    pulumi.log.warn("""get_invitation is deprecated: Version 2019-11-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_invitation is deprecated: Version 2019-11-01 will be removed in v2 of the provider.
+azure-native:datashare/v20191101:Invitation is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:Invitation to guarantee forwards compatibility.""")
     ...

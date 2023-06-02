@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a target group.
  */
+/** @deprecated azure-native:sql/v20220201preview:JobTargetGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:JobTargetGroup to guarantee forwards compatibility. */
 export function getJobTargetGroup(args: GetJobTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetJobTargetGroupResult> {
+    pulumi.log.warn("getJobTargetGroup is deprecated: azure-native:sql/v20220201preview:JobTargetGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:JobTargetGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20220201preview:getJobTargetGroup", {
@@ -64,6 +66,7 @@ export interface GetJobTargetGroupResult {
 /**
  * Gets a target group.
  */
+/** @deprecated azure-native:sql/v20220201preview:JobTargetGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:JobTargetGroup to guarantee forwards compatibility. */
 export function getJobTargetGroupOutput(args: GetJobTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobTargetGroupResult> {
     return pulumi.output(args).apply((a: any) => getJobTargetGroup(a, opts))
 }

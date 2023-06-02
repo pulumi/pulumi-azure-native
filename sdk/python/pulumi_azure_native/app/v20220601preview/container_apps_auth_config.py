@@ -148,7 +148,12 @@ class ContainerAppsAuthConfigArgs:
         pulumi.set(self, "platform", value)
 
 
+warnings.warn("""azure-native:app/v20220601preview:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerAppsAuthConfig to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ContainerAppsAuthConfig(pulumi.CustomResource):
+    warnings.warn("""azure-native:app/v20220601preview:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerAppsAuthConfig to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -209,6 +214,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
                  platform: Optional[pulumi.Input[pulumi.InputType['AuthPlatformArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ContainerAppsAuthConfig is deprecated: azure-native:app/v20220601preview:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerAppsAuthConfig to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

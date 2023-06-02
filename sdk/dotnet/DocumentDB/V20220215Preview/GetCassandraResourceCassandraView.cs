@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
 {
+    [Obsolete(@"azure-native:documentdb/v20220215preview:CassandraResourceCassandraView is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:CassandraResourceCassandraView to guarantee forwards compatibility.")]
     public static class GetCassandraResourceCassandraView
     {
         /// <summary>

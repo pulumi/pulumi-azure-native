@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20210201
     /// <summary>
     /// AzureStorageInfo dictionary resource.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20210201:WebAppAzureStorageAccountsSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppAzureStorageAccountsSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20210201:WebAppAzureStorageAccountsSlot")]
     public partial class WebAppAzureStorageAccountsSlot : global::Pulumi.CustomResource
     {

@@ -17,6 +17,8 @@ __all__ = [
     'get_network_group_output',
 ]
 
+warnings.warn("""azure-native:network/v20220201preview:NetworkGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:NetworkGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNetworkGroupResult:
     """
@@ -141,6 +143,7 @@ def get_network_group(network_group_name: Optional[str] = None,
     :param str network_manager_name: The name of the network manager.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_network_group is deprecated: azure-native:network/v20220201preview:NetworkGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:NetworkGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['networkGroupName'] = network_group_name
     __args__['networkManagerName'] = network_manager_name
@@ -172,4 +175,5 @@ def get_network_group_output(network_group_name: Optional[pulumi.Input[str]] = N
     :param str network_manager_name: The name of the network manager.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_network_group is deprecated: azure-native:network/v20220201preview:NetworkGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:NetworkGroup to guarantee forwards compatibility.""")
     ...

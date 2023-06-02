@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Synapse.V20210401Preview
 {
+    [Obsolete(@"azure-native:synapse/v20210401preview:EventHubDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:EventHubDataConnection to guarantee forwards compatibility.")]
     public static class GetEventHubDataConnection
     {
         /// <summary>

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Trigger in a shareSubscription
  */
+/** @deprecated azure-native:datashare/v20201001preview:ScheduledTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ScheduledTrigger to guarantee forwards compatibility. */
 export function getScheduledTrigger(args: GetScheduledTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledTriggerResult> {
+    pulumi.log.warn("getScheduledTrigger is deprecated: azure-native:datashare/v20201001preview:ScheduledTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ScheduledTrigger to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:getScheduledTrigger", {
@@ -97,6 +99,7 @@ export interface GetScheduledTriggerResult {
 /**
  * Get a Trigger in a shareSubscription
  */
+/** @deprecated azure-native:datashare/v20201001preview:ScheduledTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ScheduledTrigger to guarantee forwards compatibility. */
 export function getScheduledTriggerOutput(args: GetScheduledTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledTriggerResult> {
     return pulumi.output(args).apply((a: any) => getScheduledTrigger(a, opts))
 }

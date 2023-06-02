@@ -133,7 +133,12 @@ class GalleryArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:compute/v20211001:Gallery is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:Gallery to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Gallery(pulumi.CustomResource):
+    warnings.warn("""azure-native:compute/v20211001:Gallery is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:Gallery to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -191,6 +196,7 @@ class Gallery(pulumi.CustomResource):
                  soft_delete_policy: Optional[pulumi.Input[pulumi.InputType['SoftDeletePolicyArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Gallery is deprecated: azure-native:compute/v20211001:Gallery is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:Gallery to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

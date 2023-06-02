@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210415
 {
+    [Obsolete(@"azure-native:documentdb/v20210415:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:PrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnection
     {
         /// <summary>

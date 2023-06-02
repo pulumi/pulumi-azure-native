@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Kusto.V20190515
 {
+    [Obsolete(@"azure-native:kusto/v20190515:EventGridDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20200215:EventGridDataConnection to guarantee forwards compatibility.")]
     public static class GetEventGridDataConnection
     {
         /// <summary>

@@ -218,11 +218,13 @@ class AppServiceCertificateOrderArgs:
         pulumi.set(self, "validity_in_years", value)
 
 
-warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:certificateregistration/v20200901:AppServiceCertificateOrder is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20201001:AppServiceCertificateOrder to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class AppServiceCertificateOrder(pulumi.CustomResource):
-    warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:certificateregistration/v20200901:AppServiceCertificateOrder is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20201001:AppServiceCertificateOrder to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -296,7 +298,8 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validity_in_years: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""AppServiceCertificateOrder is deprecated: Version 2020-09-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""AppServiceCertificateOrder is deprecated: Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:certificateregistration/v20200901:AppServiceCertificateOrder is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20201001:AppServiceCertificateOrder to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

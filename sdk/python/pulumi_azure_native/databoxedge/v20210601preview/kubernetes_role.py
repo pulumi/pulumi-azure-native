@@ -145,7 +145,12 @@ class KubernetesRoleArgs:
         pulumi.set(self, "name", value)
 
 
+warnings.warn("""azure-native:databoxedge/v20210601preview:KubernetesRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class KubernetesRole(pulumi.CustomResource):
+    warnings.warn("""azure-native:databoxedge/v20210601preview:KubernetesRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -207,6 +212,7 @@ class KubernetesRole(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_status: Optional[pulumi.Input[Union[str, 'RoleStatus']]] = None,
                  __props__=None):
+        pulumi.log.warn("""KubernetesRole is deprecated: azure-native:databoxedge/v20210601preview:KubernetesRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

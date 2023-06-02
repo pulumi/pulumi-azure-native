@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a gallery.
+ *
+ * @deprecated azure-native:devcenter/v20220801preview:Gallery is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Gallery to guarantee forwards compatibility.
  */
 export class Gallery extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Gallery extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Gallery {
+        pulumi.log.warn("Gallery is deprecated: azure-native:devcenter/v20220801preview:Gallery is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Gallery to guarantee forwards compatibility.")
         return new Gallery(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,7 +68,9 @@ export class Gallery extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:devcenter/v20220801preview:Gallery is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Gallery to guarantee forwards compatibility. */
     constructor(name: string, args: GalleryArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Gallery is deprecated: azure-native:devcenter/v20220801preview:Gallery is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Gallery to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -94,7 +99,7 @@ export class Gallery extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:Gallery" }, { type: "azure-native:devcenter/v20220901preview:Gallery" }, { type: "azure-native:devcenter/v20221012preview:Gallery" }, { type: "azure-native:devcenter/v20221111preview:Gallery" }, { type: "azure-native:devcenter/v20230401:Gallery" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:Gallery" }, { type: "azure-native:devcenter/v20220901preview:Gallery" }, { type: "azure-native:devcenter/v20221012preview:Gallery" }, { type: "azure-native:devcenter/v20221111preview:Gallery" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gallery.__pulumiType, name, resourceInputs, opts);
     }

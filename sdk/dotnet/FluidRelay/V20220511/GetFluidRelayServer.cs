@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.FluidRelay.V20220511
 {
+    [Obsolete(@"azure-native:fluidrelay/v20220511:FluidRelayServer is being removed in the next major version of this provider. Upgrade to at least azure-native:fluidrelay/v20220601:FluidRelayServer to guarantee forwards compatibility.")]
     public static class GetFluidRelayServer
     {
         /// <summary>

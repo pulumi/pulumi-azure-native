@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * P2SVpnServerConfiguration Resource.
+ *
+ * @deprecated azure-native:network/v20190601:P2sVpnServerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility.
  */
 export class P2sVpnServerConfiguration extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): P2sVpnServerConfiguration {
+        pulumi.log.warn("P2sVpnServerConfiguration is deprecated: azure-native:network/v20190601:P2sVpnServerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility.")
         return new P2sVpnServerConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -93,7 +96,9 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:network/v20190601:P2sVpnServerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility. */
     constructor(name: string, args: P2sVpnServerConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("P2sVpnServerConfiguration is deprecated: azure-native:network/v20190601:P2sVpnServerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

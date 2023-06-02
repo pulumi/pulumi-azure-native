@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.App.V20220601Preview
 {
+    [Obsolete(@"azure-native:app/v20220601preview:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerAppsAuthConfig to guarantee forwards compatibility.")]
     public static class GetContainerAppsAuthConfig
     {
         /// <summary>

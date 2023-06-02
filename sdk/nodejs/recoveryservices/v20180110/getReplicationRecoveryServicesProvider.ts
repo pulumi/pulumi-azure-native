@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of registered recovery services provider.
  */
-/** @deprecated Version 2018-01-10 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationRecoveryServicesProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationRecoveryServicesProvider to guarantee forwards compatibility. */
 export function getReplicationRecoveryServicesProvider(args: GetReplicationRecoveryServicesProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryServicesProviderResult> {
-    pulumi.log.warn("getReplicationRecoveryServicesProvider is deprecated: Version 2018-01-10 will be removed in v2 of the provider.")
+    pulumi.log.warn("getReplicationRecoveryServicesProvider is deprecated: Version 2018-01-10 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20180110:ReplicationRecoveryServicesProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationRecoveryServicesProvider to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20180110:getReplicationRecoveryServicesProvider", {
@@ -70,7 +71,8 @@ export interface GetReplicationRecoveryServicesProviderResult {
 /**
  * Gets the details of registered recovery services provider.
  */
-/** @deprecated Version 2018-01-10 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-01-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20180110:ReplicationRecoveryServicesProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationRecoveryServicesProvider to guarantee forwards compatibility. */
 export function getReplicationRecoveryServicesProviderOutput(args: GetReplicationRecoveryServicesProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryServicesProviderResult> {
     return pulumi.output(args).apply((a: any) => getReplicationRecoveryServicesProvider(a, opts))
 }

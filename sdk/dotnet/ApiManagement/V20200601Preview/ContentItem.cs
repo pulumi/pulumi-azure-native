@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
     /// <summary>
     /// Content type contract details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20200601preview:ContentItem is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ContentItem to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20200601preview:ContentItem")]
     public partial class ContentItem : global::Pulumi.CustomResource
     {

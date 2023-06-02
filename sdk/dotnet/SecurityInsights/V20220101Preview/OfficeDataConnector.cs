@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
     /// <summary>
     /// Represents office data connector.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20220101preview:OfficeDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:OfficeDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20220101preview:OfficeDataConnector")]
     public partial class OfficeDataConnector : global::Pulumi.CustomResource
     {
@@ -111,7 +112,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:OfficeDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:OfficeDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:OfficeDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:OfficeDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

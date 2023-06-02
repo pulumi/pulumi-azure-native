@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Devices.V20180122
 {
-    [Obsolete(@"Version 2018-01-22 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-01-22 will be removed in v2 of the provider.
+azure-native:devices/v20180122:IotDpsResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility.")]
     public static class GetIotDpsResource
     {
         /// <summary>

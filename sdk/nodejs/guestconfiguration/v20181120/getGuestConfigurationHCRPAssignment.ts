@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get information about a guest configuration assignment
  */
-/** @deprecated Version 2018-11-20 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-11-20 will be removed in v2 of the provider.
+azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment to guarantee forwards compatibility. */
 export function getGuestConfigurationHCRPAssignment(args: GetGuestConfigurationHCRPAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationHCRPAssignmentResult> {
-    pulumi.log.warn("getGuestConfigurationHCRPAssignment is deprecated: Version 2018-11-20 will be removed in v2 of the provider.")
+    pulumi.log.warn("getGuestConfigurationHCRPAssignment is deprecated: Version 2018-11-20 will be removed in v2 of the provider.\nazure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:guestconfiguration/v20181120:getGuestConfigurationHCRPAssignment", {
@@ -65,7 +66,8 @@ export interface GetGuestConfigurationHCRPAssignmentResult {
 /**
  * Get information about a guest configuration assignment
  */
-/** @deprecated Version 2018-11-20 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-11-20 will be removed in v2 of the provider.
+azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment to guarantee forwards compatibility. */
 export function getGuestConfigurationHCRPAssignmentOutput(args: GetGuestConfigurationHCRPAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationHCRPAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getGuestConfigurationHCRPAssignment(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get an event subscription.
  */
+/** @deprecated azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:SystemTopicEventSubscription to guarantee forwards compatibility. */
 export function getSystemTopicEventSubscription(args: GetSystemTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionResult> {
+    pulumi.log.warn("getSystemTopicEventSubscription is deprecated: azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:SystemTopicEventSubscription to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20210601preview:getSystemTopicEventSubscription", {
@@ -107,6 +109,7 @@ export interface GetSystemTopicEventSubscriptionResult {
 /**
  * Get an event subscription.
  */
+/** @deprecated azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:SystemTopicEventSubscription to guarantee forwards compatibility. */
 export function getSystemTopicEventSubscriptionOutput(args: GetSystemTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getSystemTopicEventSubscription(a, opts))
 }

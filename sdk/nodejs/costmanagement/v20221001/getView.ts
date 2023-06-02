@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the view by view name.
  */
+/** @deprecated azure-native:costmanagement/v20221001:View is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221005preview:View to guarantee forwards compatibility. */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
+    pulumi.log.warn("getView is deprecated: azure-native:costmanagement/v20221001:View is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221005preview:View to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20221001:getView", {
@@ -109,6 +111,7 @@ export interface GetViewResult {
 /**
  * Gets the view by view name.
  */
+/** @deprecated azure-native:costmanagement/v20221001:View is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221005preview:View to guarantee forwards compatibility. */
 export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
     return pulumi.output(args).apply((a: any) => getView(a, opts))
 }
