@@ -46,7 +46,7 @@ _ := $(shell mkdir -p .make)
 .PHONY: default ensure dist
 default: provider arm2pulumi build_sdks
 ensure: bin/pulumictl .make/provider_mod_download
-dist: dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt
+dist: dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt dist/docs-schema.json
 
 # Binaries
 .PHONY: codegen provider arm2pulumi
@@ -172,13 +172,7 @@ schema_squeeze: bin/schema-tools bin/schema-full.json
 	./bin/schema-tools squeeze -s bin/schema-full.json --out versions/v1-squeeze.json
 
 .PHONY: explode_schema
-explode_schema: bin/schema-full.json
-	rm -rf bin/schema
-	mkdir -p bin/schema
-	yarn install
-	yarn explode --schema bin/schema-full.json --outDir bin/schema
-	# Write docs schema over the top so we include examples
-	yarn explode --schema provider/cmd/pulumi-resource-azure-native/schema.json --outDir bin/schema
+explode_schema: dist/docs-schema.json
 
 .PHONY: upgrade_tools upgrade_java upgrade_pulumi upgrade_pulumictl upgrade_schematools
 upgrade_tools: upgrade_java upgrade_pulumi upgrade_pulumictl upgrade_schematools
@@ -230,6 +224,17 @@ LOCAL_ARM2PULUMI_PATH := bin/$(GOOS)-$(GOARCH)/$(LOCAL_ARM2PULUMI_FILENAME)
 bin/$(LOCAL_ARM2PULUMI_FILENAME): $(LOCAL_ARM2PULUMI_PATH)
 	rm -f $@
 	cp $(LOCAL_ARM2PULUMI_PATH) bin
+
+dist/docs-schema.json: bin/schema-full.json
+	rm -rf bin/schema
+	mkdir -p bin/schema
+	yarn install
+	yarn schema explode --schema bin/schema-full.json --outDir bin/schema
+	# Write docs schema over the top so we include examples
+	yarn schema explode --schema provider/cmd/pulumi-resource-azure-native/schema.json --outDir bin/schema
+	# Combine all the schemas into one
+	mkdir -p dist
+	yarn schema implode --cwd bin/schema --outFile dist/docs-schema.json
 
 bin/linux-amd64/arm2pulumi: TARGET := linux-amd64
 bin/linux-arm64/arm2pulumi: TARGET := linux-arm64
