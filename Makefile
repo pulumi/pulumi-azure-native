@@ -237,7 +237,7 @@ bin/darwin-amd64/arm2pulumi: TARGET := darwin-amd64
 bin/darwin-arm64/arm2pulumi: TARGET := darwin-arm64
 bin/windows-amd64/arm2pulumi.exe: TARGET := windows-amd64
 bin/%/arm2pulumi bin/%/arm2pulumi.exe: bin/pulumictl .make/provider_mod_download provider/cmd/arm2pulumi/* .make/arm2pulumi_prebuild $(PROVIDER_PKG)
-	cd provider && CGO_ENABLED=0 go build -o $(WORKING_DIR)/$@ $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi
+	cd provider && CGO_ENABLED=0 go build -o $(WORKING_DIR)/$@ $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/arm2pulumi
 
 bin/$(CODEGEN): bin/pulumictl .make/provider_mod_download provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(CODEGEN)
