@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
     /// <summary>
     /// Sentinel onboarding state
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20230201:SentinelOnboardingState is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SentinelOnboardingState to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20230201:SentinelOnboardingState is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:SentinelOnboardingState to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230201:SentinelOnboardingState")]
     public partial class SentinelOnboardingState : global::Pulumi.CustomResource
     {

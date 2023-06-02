@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
-/** @deprecated azure-native:securityinsights/v20221101preview:AATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:AATPDataConnector to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20221101preview:AATPDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:AATPDataConnector to guarantee forwards compatibility. */
 export function getAATPDataConnector(args: GetAATPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAATPDataConnectorResult> {
-    pulumi.log.warn("getAATPDataConnector is deprecated: azure-native:securityinsights/v20221101preview:AATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:AATPDataConnector to guarantee forwards compatibility.")
+    pulumi.log.warn("getAATPDataConnector is deprecated: azure-native:securityinsights/v20221101preview:AATPDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:AATPDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20221101preview:getAATPDataConnector", {
@@ -78,7 +78,7 @@ export interface GetAATPDataConnectorResult {
 /**
  * Gets a data connector.
  */
-/** @deprecated azure-native:securityinsights/v20221101preview:AATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:AATPDataConnector to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20221101preview:AATPDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:AATPDataConnector to guarantee forwards compatibility. */
 export function getAATPDataConnectorOutput(args: GetAATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAATPDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getAATPDataConnector(a, opts))
 }

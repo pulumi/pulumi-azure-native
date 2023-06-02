@@ -17,7 +17,7 @@ __all__ = [
     'get_private_endpoint_connection_output',
 ]
 
-warnings.warn("""azure-native:eventhub/v20220101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:eventhub/v20220101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
@@ -143,7 +143,7 @@ def get_private_endpoint_connection(namespace_name: Optional[str] = None,
     :param str private_endpoint_connection_name: The PrivateEndpointConnection name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:eventhub/v20220101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:eventhub/v20220101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
@@ -175,5 +175,5 @@ def get_private_endpoint_connection_output(namespace_name: Optional[pulumi.Input
     :param str private_endpoint_connection_name: The PrivateEndpointConnection name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:eventhub/v20220101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:eventhub/v20220101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

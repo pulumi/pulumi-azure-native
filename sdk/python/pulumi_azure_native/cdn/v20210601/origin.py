@@ -256,11 +256,11 @@ class OriginArgs:
         pulumi.set(self, "weight", value)
 
 
-warnings.warn("""azure-native:cdn/v20210601:Origin is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:cdn/v20210601:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Origin(pulumi.CustomResource):
-    warnings.warn("""azure-native:cdn/v20210601:Origin is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:cdn/v20210601:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -343,7 +343,7 @@ class Origin(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""Origin is deprecated: azure-native:cdn/v20210601:Origin is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""")
+        pulumi.log.warn("""Origin is deprecated: azure-native:cdn/v20210601:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

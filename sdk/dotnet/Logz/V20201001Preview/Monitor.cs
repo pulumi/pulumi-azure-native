@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Logz.V20201001Preview
 {
-    [Obsolete(@"azure-native:logz/v20201001preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:Monitor to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:logz/v20201001preview:Monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:logz/v20220101preview:Monitor to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:logz/v20201001preview:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
     {

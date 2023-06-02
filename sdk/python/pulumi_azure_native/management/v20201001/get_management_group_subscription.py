@@ -17,7 +17,7 @@ __all__ = [
     'get_management_group_subscription_output',
 ]
 
-warnings.warn("""azure-native:management/v20201001:ManagementGroupSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20210401:ManagementGroupSubscription to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:management/v20201001:ManagementGroupSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:ManagementGroupSubscription to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetManagementGroupSubscriptionResult:
@@ -129,7 +129,7 @@ def get_management_group_subscription(group_id: Optional[str] = None,
     :param str group_id: Management Group ID.
     :param str subscription_id: Subscription ID.
     """
-    pulumi.log.warn("""get_management_group_subscription is deprecated: azure-native:management/v20201001:ManagementGroupSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20210401:ManagementGroupSubscription to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_management_group_subscription is deprecated: azure-native:management/v20201001:ManagementGroupSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:ManagementGroupSubscription to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['groupId'] = group_id
     __args__['subscriptionId'] = subscription_id
@@ -157,5 +157,5 @@ def get_management_group_subscription_output(group_id: Optional[pulumi.Input[str
     :param str group_id: Management Group ID.
     :param str subscription_id: Subscription ID.
     """
-    pulumi.log.warn("""get_management_group_subscription is deprecated: azure-native:management/v20201001:ManagementGroupSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20210401:ManagementGroupSubscription to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_management_group_subscription is deprecated: azure-native:management/v20201001:ManagementGroupSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:ManagementGroupSubscription to guarantee forwards compatibility.""")
     ...

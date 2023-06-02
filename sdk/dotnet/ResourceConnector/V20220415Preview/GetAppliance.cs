@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ResourceConnector.V20220415Preview
 {
-    [Obsolete(@"azure-native:resourceconnector/v20220415preview:Appliance is being removed in the next major version of this provider. Please upgrade to azure-native:resourceconnector/v20221027:Appliance to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:resourceconnector/v20220415preview:Appliance is being removed in the next major version of this provider. Upgrade to at least azure-native:resourceconnector/v20221027:Appliance to guarantee forwards compatibility.")]
     public static class GetAppliance
     {
         /// <summary>

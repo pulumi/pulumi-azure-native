@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Event Channel.
  *
- * @deprecated azure-native:eventgrid/v20201015preview:EventChannel is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.
+ * @deprecated azure-native:eventgrid/v20201015preview:EventChannel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.
  */
 export class EventChannel extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class EventChannel extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EventChannel {
-        pulumi.log.warn("EventChannel is deprecated: azure-native:eventgrid/v20201015preview:EventChannel is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.")
+        pulumi.log.warn("EventChannel is deprecated: azure-native:eventgrid/v20201015preview:EventChannel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.")
         return new EventChannel(name, undefined as any, { ...opts, id: id });
     }
 
@@ -90,9 +90,9 @@ export class EventChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:eventgrid/v20201015preview:EventChannel is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility. */
+    /** @deprecated azure-native:eventgrid/v20201015preview:EventChannel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility. */
     constructor(name: string, args: EventChannelArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("EventChannel is deprecated: azure-native:eventgrid/v20201015preview:EventChannel is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.")
+        pulumi.log.warn("EventChannel is deprecated: azure-native:eventgrid/v20201015preview:EventChannel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

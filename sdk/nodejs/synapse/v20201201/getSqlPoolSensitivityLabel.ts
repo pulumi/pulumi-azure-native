@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Gets the sensitivity label of a given column
  */
 /** @deprecated Version 2020-12-01 will be removed in v2 of the provider.
-azure-native:synapse/v20201201:SqlPoolSensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel to guarantee forwards compatibility. */
+azure-native:synapse/v20201201:SqlPoolSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel to guarantee forwards compatibility. */
 export function getSqlPoolSensitivityLabel(args: GetSqlPoolSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolSensitivityLabelResult> {
-    pulumi.log.warn("getSqlPoolSensitivityLabel is deprecated: Version 2020-12-01 will be removed in v2 of the provider.\nazure-native:synapse/v20201201:SqlPoolSensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel to guarantee forwards compatibility.")
+    pulumi.log.warn("getSqlPoolSensitivityLabel is deprecated: Version 2020-12-01 will be removed in v2 of the provider.\nazure-native:synapse/v20201201:SqlPoolSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20201201:getSqlPoolSensitivityLabel", {
@@ -113,7 +113,7 @@ export interface GetSqlPoolSensitivityLabelResult {
  * Gets the sensitivity label of a given column
  */
 /** @deprecated Version 2020-12-01 will be removed in v2 of the provider.
-azure-native:synapse/v20201201:SqlPoolSensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel to guarantee forwards compatibility. */
+azure-native:synapse/v20201201:SqlPoolSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel to guarantee forwards compatibility. */
 export function getSqlPoolSensitivityLabelOutput(args: GetSqlPoolSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolSensitivityLabelResult> {
     return pulumi.output(args).apply((a: any) => getSqlPoolSensitivityLabel(a, opts))
 }

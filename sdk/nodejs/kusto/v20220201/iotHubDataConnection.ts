@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Class representing an iot hub data connection.
  *
- * @deprecated azure-native:kusto/v20220201:IotHubDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:IotHubDataConnection to guarantee forwards compatibility.
+ * @deprecated azure-native:kusto/v20220201:IotHubDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:IotHubDataConnection to guarantee forwards compatibility.
  */
 export class IotHubDataConnection extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IotHubDataConnection {
-        pulumi.log.warn("IotHubDataConnection is deprecated: azure-native:kusto/v20220201:IotHubDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:IotHubDataConnection to guarantee forwards compatibility.")
+        pulumi.log.warn("IotHubDataConnection is deprecated: azure-native:kusto/v20220201:IotHubDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:IotHubDataConnection to guarantee forwards compatibility.")
         return new IotHubDataConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -101,9 +101,9 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:kusto/v20220201:IotHubDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:IotHubDataConnection to guarantee forwards compatibility. */
+    /** @deprecated azure-native:kusto/v20220201:IotHubDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:IotHubDataConnection to guarantee forwards compatibility. */
     constructor(name: string, args: IotHubDataConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("IotHubDataConnection is deprecated: azure-native:kusto/v20220201:IotHubDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:IotHubDataConnection to guarantee forwards compatibility.")
+        pulumi.log.warn("IotHubDataConnection is deprecated: azure-native:kusto/v20220201:IotHubDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:IotHubDataConnection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

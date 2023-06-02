@@ -116,12 +116,12 @@ class FileServicePropertiesArgs:
 
 
 warnings.warn("""Version 2020-08-01-preview will be removed in v2 of the provider.
-azure-native:storage/v20200801preview:FileServiceProperties is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:FileServiceProperties to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:storage/v20200801preview:FileServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileServiceProperties to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class FileServiceProperties(pulumi.CustomResource):
     warnings.warn("""Version 2020-08-01-preview will be removed in v2 of the provider.
-azure-native:storage/v20200801preview:FileServiceProperties is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:FileServiceProperties to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:storage/v20200801preview:FileServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileServiceProperties to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -178,7 +178,7 @@ azure-native:storage/v20200801preview:FileServiceProperties is being removed in 
                  share_delete_retention_policy: Optional[pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""FileServiceProperties is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.
-azure-native:storage/v20200801preview:FileServiceProperties is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:FileServiceProperties to guarantee forwards compatibility.""")
+azure-native:storage/v20200801preview:FileServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileServiceProperties to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Authorization.V20170601Preview
 {
-    [Obsolete(@"azure-native:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20190601:PolicySetDefinitionAtManagementGroup to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20190601:PolicySetDefinitionAtManagementGroup to guarantee forwards compatibility.")]
     public static class GetPolicySetDefinitionAtManagementGroup
     {
         /// <summary>

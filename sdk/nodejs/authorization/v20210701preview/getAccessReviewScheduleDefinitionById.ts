@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get single access review definition
  */
-/** @deprecated azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById to guarantee forwards compatibility. */
+/** @deprecated azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById to guarantee forwards compatibility. */
 export function getAccessReviewScheduleDefinitionById(args: GetAccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewScheduleDefinitionByIdResult> {
-    pulumi.log.warn("getAccessReviewScheduleDefinitionById is deprecated: azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById to guarantee forwards compatibility.")
+    pulumi.log.warn("getAccessReviewScheduleDefinitionById is deprecated: azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20210701preview:getAccessReviewScheduleDefinitionById", {
@@ -167,7 +167,7 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
 /**
  * Get single access review definition
  */
-/** @deprecated azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById to guarantee forwards compatibility. */
+/** @deprecated azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById to guarantee forwards compatibility. */
 export function getAccessReviewScheduleDefinitionByIdOutput(args: GetAccessReviewScheduleDefinitionByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessReviewScheduleDefinitionByIdResult> {
     return pulumi.output(args).apply((a: any) => getAccessReviewScheduleDefinitionById(a, opts))
 }

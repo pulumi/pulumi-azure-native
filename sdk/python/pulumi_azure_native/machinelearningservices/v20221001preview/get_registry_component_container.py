@@ -17,7 +17,7 @@ __all__ = [
     'get_registry_component_container_output',
 ]
 
-warnings.warn("""azure-native:machinelearningservices/v20221001preview:RegistryComponentContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:RegistryComponentContainer to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:machinelearningservices/v20221001preview:RegistryComponentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryComponentContainer to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRegistryComponentContainerResult:
@@ -107,7 +107,7 @@ def get_registry_component_container(component_name: Optional[str] = None,
     :param str registry_name: Name of Azure Machine Learning registry.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_registry_component_container is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryComponentContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:RegistryComponentContainer to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_registry_component_container is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryComponentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryComponentContainer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['componentName'] = component_name
     __args__['registryName'] = registry_name
@@ -136,5 +136,5 @@ def get_registry_component_container_output(component_name: Optional[pulumi.Inpu
     :param str registry_name: Name of Azure Machine Learning registry.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_registry_component_container is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryComponentContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:RegistryComponentContainer to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_registry_component_container is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryComponentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryComponentContainer to guarantee forwards compatibility.""")
     ...

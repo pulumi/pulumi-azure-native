@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * Response to put/get patch schedules for Redis cache.
  *
  * @deprecated Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:cache/v20190701:PatchSchedule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.
+azure-native:cache/v20190701:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.
  */
 export class PatchSchedule extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class PatchSchedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PatchSchedule {
-        pulumi.log.warn("PatchSchedule is deprecated: Version 2019-07-01 will be removed in v2 of the provider.\nazure-native:cache/v20190701:PatchSchedule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.")
+        pulumi.log.warn("PatchSchedule is deprecated: Version 2019-07-01 will be removed in v2 of the provider.\nazure-native:cache/v20190701:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.")
         return new PatchSchedule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -62,9 +62,9 @@ export class PatchSchedule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:cache/v20190701:PatchSchedule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility. */
+azure-native:cache/v20190701:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility. */
     constructor(name: string, args: PatchScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PatchSchedule is deprecated: Version 2019-07-01 will be removed in v2 of the provider.\nazure-native:cache/v20190701:PatchSchedule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.")
+        pulumi.log.warn("PatchSchedule is deprecated: Version 2019-07-01 will be removed in v2 of the provider.\nazure-native:cache/v20190701:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

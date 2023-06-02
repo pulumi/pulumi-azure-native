@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
 {
-    [Obsolete(@"azure-native:timeseriesinsights/v20210331preview:AccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:timeseriesinsights/v20210331preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility.")]
     public static class GetAccessPolicy
     {
         /// <summary>

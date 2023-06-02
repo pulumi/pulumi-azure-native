@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     /// <summary>
     /// A Invitation data transfer object.
     /// </summary>
-    [Obsolete(@"azure-native:datashare/v20201001preview:Invitation is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Invitation to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:datashare/v20201001preview:Invitation is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:Invitation to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datashare/v20201001preview:Invitation")]
     public partial class Invitation : global::Pulumi.CustomResource
     {

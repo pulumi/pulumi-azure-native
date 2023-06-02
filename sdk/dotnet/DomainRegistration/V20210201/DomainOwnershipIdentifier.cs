@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210201
     /// <summary>
     /// Domain ownership Identifier.
     /// </summary>
-    [Obsolete(@"azure-native:domainregistration/v20210201:DomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:domainregistration/v20210201:DomainOwnershipIdentifier is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:domainregistration/v20210201:DomainOwnershipIdentifier")]
     public partial class DomainOwnershipIdentifier : global::Pulumi.CustomResource
     {

@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets a packet capture session by name.
  */
 /** @deprecated Version 2017-06-01 will be removed in v2 of the provider.
-azure-native:network/v20170601:PacketCapture is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180101:PacketCapture to guarantee forwards compatibility. */
+azure-native:network/v20170601:PacketCapture is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180101:PacketCapture to guarantee forwards compatibility. */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
-    pulumi.log.warn("getPacketCapture is deprecated: Version 2017-06-01 will be removed in v2 of the provider.\nazure-native:network/v20170601:PacketCapture is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180101:PacketCapture to guarantee forwards compatibility.")
+    pulumi.log.warn("getPacketCapture is deprecated: Version 2017-06-01 will be removed in v2 of the provider.\nazure-native:network/v20170601:PacketCapture is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180101:PacketCapture to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20170601:getPacketCapture", {
@@ -81,7 +81,7 @@ export interface GetPacketCaptureResult {
  * Gets a packet capture session by name.
  */
 /** @deprecated Version 2017-06-01 will be removed in v2 of the provider.
-azure-native:network/v20170601:PacketCapture is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180101:PacketCapture to guarantee forwards compatibility. */
+azure-native:network/v20170601:PacketCapture is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180101:PacketCapture to guarantee forwards compatibility. */
 export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCaptureResult> {
     return pulumi.output(args).apply((a: any) => getPacketCapture(a, opts))
 }

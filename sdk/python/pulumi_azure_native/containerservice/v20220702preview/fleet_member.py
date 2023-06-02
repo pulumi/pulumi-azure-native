@@ -82,11 +82,11 @@ class FleetMemberArgs:
         pulumi.set(self, "fleet_member_name", value)
 
 
-warnings.warn("""azure-native:containerservice/v20220702preview:FleetMember is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20220902preview:FleetMember to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:containerservice/v20220702preview:FleetMember is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:FleetMember to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class FleetMember(pulumi.CustomResource):
-    warnings.warn("""azure-native:containerservice/v20220702preview:FleetMember is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20220902preview:FleetMember to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:containerservice/v20220702preview:FleetMember is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:FleetMember to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -136,7 +136,7 @@ class FleetMember(pulumi.CustomResource):
                  fleet_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""FleetMember is deprecated: azure-native:containerservice/v20220702preview:FleetMember is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20220902preview:FleetMember to guarantee forwards compatibility.""")
+        pulumi.log.warn("""FleetMember is deprecated: azure-native:containerservice/v20220702preview:FleetMember is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:FleetMember to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

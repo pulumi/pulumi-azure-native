@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the connection type.
  *
- * @deprecated azure-native:automation/v20151031:ConnectionType is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility.
+ * @deprecated azure-native:automation/v20151031:ConnectionType is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility.
  */
 export class ConnectionType extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class ConnectionType extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ConnectionType {
-        pulumi.log.warn("ConnectionType is deprecated: azure-native:automation/v20151031:ConnectionType is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility.")
+        pulumi.log.warn("ConnectionType is deprecated: azure-native:automation/v20151031:ConnectionType is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility.")
         return new ConnectionType(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,9 +76,9 @@ export class ConnectionType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:automation/v20151031:ConnectionType is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility. */
+    /** @deprecated azure-native:automation/v20151031:ConnectionType is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility. */
     constructor(name: string, args: ConnectionTypeArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ConnectionType is deprecated: azure-native:automation/v20151031:ConnectionType is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility.")
+        pulumi.log.warn("ConnectionType is deprecated: azure-native:automation/v20151031:ConnectionType is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

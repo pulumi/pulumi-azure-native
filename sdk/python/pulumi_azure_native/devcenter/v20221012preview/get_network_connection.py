@@ -17,7 +17,7 @@ __all__ = [
     'get_network_connection_output',
 ]
 
-warnings.warn("""azure-native:devcenter/v20221012preview:NetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:NetworkConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:devcenter/v20221012preview:NetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:NetworkConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetNetworkConnectionResult:
@@ -225,7 +225,7 @@ def get_network_connection(network_connection_name: Optional[str] = None,
     :param str network_connection_name: Name of the Network Connection that can be applied to a Pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_network_connection is deprecated: azure-native:devcenter/v20221012preview:NetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:NetworkConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_network_connection is deprecated: azure-native:devcenter/v20221012preview:NetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:NetworkConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['networkConnectionName'] = network_connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -261,5 +261,5 @@ def get_network_connection_output(network_connection_name: Optional[pulumi.Input
     :param str network_connection_name: Name of the Network Connection that can be applied to a Pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_network_connection is deprecated: azure-native:devcenter/v20221012preview:NetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:NetworkConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_network_connection is deprecated: azure-native:devcenter/v20221012preview:NetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:NetworkConnection to guarantee forwards compatibility.""")
     ...

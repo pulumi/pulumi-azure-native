@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The operation returns properties of a OpenShift cluster.
  */
-/** @deprecated azure-native:redhatopenshift/v20220401:OpenShiftCluster is being removed in the next major version of this provider. Please upgrade to azure-native:redhatopenshift/v20220904:OpenShiftCluster to guarantee forwards compatibility. */
+/** @deprecated azure-native:redhatopenshift/v20220401:OpenShiftCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:redhatopenshift/v20220904:OpenShiftCluster to guarantee forwards compatibility. */
 export function getOpenShiftCluster(args: GetOpenShiftClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftClusterResult> {
-    pulumi.log.warn("getOpenShiftCluster is deprecated: azure-native:redhatopenshift/v20220401:OpenShiftCluster is being removed in the next major version of this provider. Please upgrade to azure-native:redhatopenshift/v20220904:OpenShiftCluster to guarantee forwards compatibility.")
+    pulumi.log.warn("getOpenShiftCluster is deprecated: azure-native:redhatopenshift/v20220401:OpenShiftCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:redhatopenshift/v20220904:OpenShiftCluster to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:redhatopenshift/v20220401:getOpenShiftCluster", {
@@ -100,7 +100,7 @@ export interface GetOpenShiftClusterResult {
 /**
  * The operation returns properties of a OpenShift cluster.
  */
-/** @deprecated azure-native:redhatopenshift/v20220401:OpenShiftCluster is being removed in the next major version of this provider. Please upgrade to azure-native:redhatopenshift/v20220904:OpenShiftCluster to guarantee forwards compatibility. */
+/** @deprecated azure-native:redhatopenshift/v20220401:OpenShiftCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:redhatopenshift/v20220904:OpenShiftCluster to guarantee forwards compatibility. */
 export function getOpenShiftClusterOutput(args: GetOpenShiftClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftClusterResult> {
     return pulumi.output(args).apply((a: any) => getOpenShiftCluster(a, opts))
 }

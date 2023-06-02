@@ -17,7 +17,7 @@ __all__ = [
     'get_ledger_output',
 ]
 
-warnings.warn("""azure-native:confidentialledger/v20220908preview:Ledger is being removed in the next major version of this provider. Please upgrade to azure-native:confidentialledger/v20230126preview:Ledger to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:confidentialledger/v20220908preview:Ledger is being removed in the next major version of this provider. Upgrade to at least azure-native:confidentialledger/v20230126preview:Ledger to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetLedgerResult:
@@ -129,7 +129,7 @@ def get_ledger(ledger_name: Optional[str] = None,
     :param str ledger_name: Name of the Confidential Ledger
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_ledger is deprecated: azure-native:confidentialledger/v20220908preview:Ledger is being removed in the next major version of this provider. Please upgrade to azure-native:confidentialledger/v20230126preview:Ledger to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_ledger is deprecated: azure-native:confidentialledger/v20220908preview:Ledger is being removed in the next major version of this provider. Upgrade to at least azure-native:confidentialledger/v20230126preview:Ledger to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['ledgerName'] = ledger_name
     __args__['resourceGroupName'] = resource_group_name
@@ -157,5 +157,5 @@ def get_ledger_output(ledger_name: Optional[pulumi.Input[str]] = None,
     :param str ledger_name: Name of the Confidential Ledger
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_ledger is deprecated: azure-native:confidentialledger/v20220908preview:Ledger is being removed in the next major version of this provider. Please upgrade to azure-native:confidentialledger/v20230126preview:Ledger to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_ledger is deprecated: azure-native:confidentialledger/v20220908preview:Ledger is being removed in the next major version of this provider. Upgrade to at least azure-native:confidentialledger/v20230126preview:Ledger to guarantee forwards compatibility.""")
     ...

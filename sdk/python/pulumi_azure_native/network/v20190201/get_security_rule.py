@@ -17,7 +17,7 @@ __all__ = [
     'get_security_rule_output',
 ]
 
-warnings.warn("""azure-native:network/v20190201:SecurityRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:SecurityRule to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20190201:SecurityRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:SecurityRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSecurityRuleResult:
@@ -275,7 +275,7 @@ def get_security_rule(network_security_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str security_rule_name: The name of the security rule.
     """
-    pulumi.log.warn("""get_security_rule is deprecated: azure-native:network/v20190201:SecurityRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:SecurityRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_security_rule is deprecated: azure-native:network/v20190201:SecurityRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:SecurityRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['networkSecurityGroupName'] = network_security_group_name
     __args__['resourceGroupName'] = resource_group_name
@@ -318,5 +318,5 @@ def get_security_rule_output(network_security_group_name: Optional[pulumi.Input[
     :param str resource_group_name: The name of the resource group.
     :param str security_rule_name: The name of the security rule.
     """
-    pulumi.log.warn("""get_security_rule is deprecated: azure-native:network/v20190201:SecurityRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:SecurityRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_security_rule is deprecated: azure-native:network/v20190201:SecurityRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:SecurityRule to guarantee forwards compatibility.""")
     ...

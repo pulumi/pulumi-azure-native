@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the named public certificate for an app (or deployment slot, if specified).
  */
-/** @deprecated azure-native:web/v20180201:WebAppPublicCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppPublicCertificate to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20180201:WebAppPublicCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppPublicCertificate to guarantee forwards compatibility. */
 export function getWebAppPublicCertificate(args: GetWebAppPublicCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPublicCertificateResult> {
-    pulumi.log.warn("getWebAppPublicCertificate is deprecated: azure-native:web/v20180201:WebAppPublicCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppPublicCertificate to guarantee forwards compatibility.")
+    pulumi.log.warn("getWebAppPublicCertificate is deprecated: azure-native:web/v20180201:WebAppPublicCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppPublicCertificate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20180201:getWebAppPublicCertificate", {
@@ -70,7 +70,7 @@ export interface GetWebAppPublicCertificateResult {
 /**
  * Get the named public certificate for an app (or deployment slot, if specified).
  */
-/** @deprecated azure-native:web/v20180201:WebAppPublicCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppPublicCertificate to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20180201:WebAppPublicCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppPublicCertificate to guarantee forwards compatibility. */
 export function getWebAppPublicCertificateOutput(args: GetWebAppPublicCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPublicCertificateResult> {
     return pulumi.output(args).apply((a: any) => getWebAppPublicCertificate(a, opts))
 }

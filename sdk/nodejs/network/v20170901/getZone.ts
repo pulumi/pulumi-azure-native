@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
  */
 /** @deprecated Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:network/v20170901:Zone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:Zone to guarantee forwards compatibility. */
+azure-native:network/v20170901:Zone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180501:Zone to guarantee forwards compatibility. */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
-    pulumi.log.warn("getZone is deprecated: Version 2017-09-01 will be removed in v2 of the provider.\nazure-native:network/v20170901:Zone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:Zone to guarantee forwards compatibility.")
+    pulumi.log.warn("getZone is deprecated: Version 2017-09-01 will be removed in v2 of the provider.\nazure-native:network/v20170901:Zone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180501:Zone to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20170901:getZone", {
@@ -83,7 +83,7 @@ export interface GetZoneResult {
  * Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
  */
 /** @deprecated Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:network/v20170901:Zone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:Zone to guarantee forwards compatibility. */
+azure-native:network/v20170901:Zone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180501:Zone to guarantee forwards compatibility. */
 export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
     return pulumi.output(args).apply((a: any) => getZone(a, opts))
 }

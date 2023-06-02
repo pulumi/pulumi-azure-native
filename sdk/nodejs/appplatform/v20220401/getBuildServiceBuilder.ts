@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a KPack builder.
  */
-/** @deprecated azure-native:appplatform/v20220401:BuildServiceBuilder is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:BuildServiceBuilder to guarantee forwards compatibility. */
+/** @deprecated azure-native:appplatform/v20220401:BuildServiceBuilder is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildServiceBuilder to guarantee forwards compatibility. */
 export function getBuildServiceBuilder(args: GetBuildServiceBuilderArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceBuilderResult> {
-    pulumi.log.warn("getBuildServiceBuilder is deprecated: azure-native:appplatform/v20220401:BuildServiceBuilder is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:BuildServiceBuilder to guarantee forwards compatibility.")
+    pulumi.log.warn("getBuildServiceBuilder is deprecated: azure-native:appplatform/v20220401:BuildServiceBuilder is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildServiceBuilder to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220401:getBuildServiceBuilder", {
@@ -70,7 +70,7 @@ export interface GetBuildServiceBuilderResult {
 /**
  * Get a KPack builder.
  */
-/** @deprecated azure-native:appplatform/v20220401:BuildServiceBuilder is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:BuildServiceBuilder to guarantee forwards compatibility. */
+/** @deprecated azure-native:appplatform/v20220401:BuildServiceBuilder is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildServiceBuilder to guarantee forwards compatibility. */
 export function getBuildServiceBuilderOutput(args: GetBuildServiceBuilderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceBuilderResult> {
     return pulumi.output(args).apply((a: any) => getBuildServiceBuilder(a, opts))
 }

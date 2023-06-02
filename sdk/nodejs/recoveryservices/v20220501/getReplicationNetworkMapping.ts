@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of an ASR network mapping.
  */
-/** @deprecated azure-native:recoveryservices/v20220501:ReplicationNetworkMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationNetworkMapping to guarantee forwards compatibility. */
+/** @deprecated azure-native:recoveryservices/v20220501:ReplicationNetworkMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationNetworkMapping to guarantee forwards compatibility. */
 export function getReplicationNetworkMapping(args: GetReplicationNetworkMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationNetworkMappingResult> {
-    pulumi.log.warn("getReplicationNetworkMapping is deprecated: azure-native:recoveryservices/v20220501:ReplicationNetworkMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationNetworkMapping to guarantee forwards compatibility.")
+    pulumi.log.warn("getReplicationNetworkMapping is deprecated: azure-native:recoveryservices/v20220501:ReplicationNetworkMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationNetworkMapping to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20220501:getReplicationNetworkMapping", {
@@ -75,7 +75,7 @@ export interface GetReplicationNetworkMappingResult {
 /**
  * Gets the details of an ASR network mapping.
  */
-/** @deprecated azure-native:recoveryservices/v20220501:ReplicationNetworkMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationNetworkMapping to guarantee forwards compatibility. */
+/** @deprecated azure-native:recoveryservices/v20220501:ReplicationNetworkMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationNetworkMapping to guarantee forwards compatibility. */
 export function getReplicationNetworkMappingOutput(args: GetReplicationNetworkMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationNetworkMappingResult> {
     return pulumi.output(args).apply((a: any) => getReplicationNetworkMapping(a, opts))
 }

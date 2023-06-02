@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Web.V20210301
     /// <summary>
     /// User credentials used for publishing activity.
     /// </summary>
-    [Obsolete(@"azure-native:web/v20210301:WebAppDeployment is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppDeployment to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:web/v20210301:WebAppDeployment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppDeployment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20210301:WebAppDeployment")]
     public partial class WebAppDeployment : global::Pulumi.CustomResource
     {

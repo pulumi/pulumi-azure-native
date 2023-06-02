@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Peering.V20220601
     /// <summary>
     /// The essential information related to the peer's ASN.
     /// </summary>
-    [Obsolete(@"azure-native:peering/v20220601:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:peering/v20220601:PeerAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:peering/v20220601:PeerAsn")]
     public partial class PeerAsn : global::Pulumi.CustomResource
     {

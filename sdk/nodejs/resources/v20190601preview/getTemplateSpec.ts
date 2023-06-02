@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Template Spec with a given name.
  */
-/** @deprecated azure-native:resources/v20190601preview:TemplateSpec is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility. */
+/** @deprecated azure-native:resources/v20190601preview:TemplateSpec is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility. */
 export function getTemplateSpec(args: GetTemplateSpecArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecResult> {
-    pulumi.log.warn("getTemplateSpec is deprecated: azure-native:resources/v20190601preview:TemplateSpec is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility.")
+    pulumi.log.warn("getTemplateSpec is deprecated: azure-native:resources/v20190601preview:TemplateSpec is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20190601preview:getTemplateSpec", {
@@ -81,7 +81,7 @@ export interface GetTemplateSpecResult {
 /**
  * Gets a Template Spec with a given name.
  */
-/** @deprecated azure-native:resources/v20190601preview:TemplateSpec is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility. */
+/** @deprecated azure-native:resources/v20190601preview:TemplateSpec is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility. */
 export function getTemplateSpecOutput(args: GetTemplateSpecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecResult> {
     return pulumi.output(args).apply((a: any) => getTemplateSpec(a, opts))
 }

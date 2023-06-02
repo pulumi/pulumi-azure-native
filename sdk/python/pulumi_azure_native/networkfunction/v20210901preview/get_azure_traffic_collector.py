@@ -17,7 +17,7 @@ __all__ = [
     'get_azure_traffic_collector_output',
 ]
 
-warnings.warn("""azure-native:networkfunction/v20210901preview:AzureTrafficCollector is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20220801:AzureTrafficCollector to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:networkfunction/v20210901preview:AzureTrafficCollector is being removed in the next major version of this provider. Upgrade to at least azure-native:networkfunction/v20220801:AzureTrafficCollector to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAzureTrafficCollectorResult:
@@ -165,7 +165,7 @@ def get_azure_traffic_collector(azure_traffic_collector_name: Optional[str] = No
     :param str azure_traffic_collector_name: Azure Traffic Collector name
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_azure_traffic_collector is deprecated: azure-native:networkfunction/v20210901preview:AzureTrafficCollector is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20220801:AzureTrafficCollector to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_azure_traffic_collector is deprecated: azure-native:networkfunction/v20210901preview:AzureTrafficCollector is being removed in the next major version of this provider. Upgrade to at least azure-native:networkfunction/v20220801:AzureTrafficCollector to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['azureTrafficCollectorName'] = azure_traffic_collector_name
     __args__['resourceGroupName'] = resource_group_name
@@ -196,5 +196,5 @@ def get_azure_traffic_collector_output(azure_traffic_collector_name: Optional[pu
     :param str azure_traffic_collector_name: Azure Traffic Collector name
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_azure_traffic_collector is deprecated: azure-native:networkfunction/v20210901preview:AzureTrafficCollector is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20220801:AzureTrafficCollector to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_azure_traffic_collector is deprecated: azure-native:networkfunction/v20210901preview:AzureTrafficCollector is being removed in the next major version of this provider. Upgrade to at least azure-native:networkfunction/v20220801:AzureTrafficCollector to guarantee forwards compatibility.""")
     ...

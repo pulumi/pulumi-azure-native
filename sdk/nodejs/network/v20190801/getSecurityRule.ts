@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the specified network security rule.
  */
-/** @deprecated azure-native:network/v20190801:SecurityRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220701:SecurityRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20190801:SecurityRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:SecurityRule to guarantee forwards compatibility. */
 export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityRuleResult> {
-    pulumi.log.warn("getSecurityRule is deprecated: azure-native:network/v20190801:SecurityRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220701:SecurityRule to guarantee forwards compatibility.")
+    pulumi.log.warn("getSecurityRule is deprecated: azure-native:network/v20190801:SecurityRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:SecurityRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190801:getSecurityRule", {
@@ -121,7 +121,7 @@ export interface GetSecurityRuleResult {
 /**
  * Get the specified network security rule.
  */
-/** @deprecated azure-native:network/v20190801:SecurityRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220701:SecurityRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20190801:SecurityRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:SecurityRule to guarantee forwards compatibility. */
 export function getSecurityRuleOutput(args: GetSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityRuleResult> {
     return pulumi.output(args).apply((a: any) => getSecurityRule(a, opts))
 }

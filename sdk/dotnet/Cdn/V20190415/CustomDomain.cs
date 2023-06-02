@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20190415
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     /// </summary>
     [Obsolete(@"Version 2019-04-15 will be removed in v2 of the provider.
-azure-native:cdn/v20190415:CustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:CustomDomain to guarantee forwards compatibility.")]
+azure-native:cdn/v20190415:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:CustomDomain to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20190415:CustomDomain")]
     public partial class CustomDomain : global::Pulumi.CustomResource
     {

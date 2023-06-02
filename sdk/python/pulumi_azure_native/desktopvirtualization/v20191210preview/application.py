@@ -194,12 +194,12 @@ class ApplicationArgs:
 
 
 warnings.warn("""Version 2019-12-10-preview will be removed in v2 of the provider.
-azure-native:desktopvirtualization/v20191210preview:Application is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:Application to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:desktopvirtualization/v20191210preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:Application to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Application(pulumi.CustomResource):
     warnings.warn("""Version 2019-12-10-preview will be removed in v2 of the provider.
-azure-native:desktopvirtualization/v20191210preview:Application is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:Application to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:desktopvirtualization/v20191210preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:Application to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -271,7 +271,7 @@ azure-native:desktopvirtualization/v20191210preview:Application is being removed
                  show_in_portal: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         pulumi.log.warn("""Application is deprecated: Version 2019-12-10-preview will be removed in v2 of the provider.
-azure-native:desktopvirtualization/v20191210preview:Application is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:Application to guarantee forwards compatibility.""")
+azure-native:desktopvirtualization/v20191210preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:Application to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

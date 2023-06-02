@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ConfidentialLedger.V20220908Preview
 {
-    [Obsolete(@"azure-native:confidentialledger/v20220908preview:ManagedCCF is being removed in the next major version of this provider. Please upgrade to azure-native:confidentialledger/v20230126preview:ManagedCCF to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:confidentialledger/v20220908preview:ManagedCCF is being removed in the next major version of this provider. Upgrade to at least azure-native:confidentialledger/v20230126preview:ManagedCCF to guarantee forwards compatibility.")]
     public static class GetManagedCCF
     {
         /// <summary>

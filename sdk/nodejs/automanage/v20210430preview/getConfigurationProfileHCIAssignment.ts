@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get information about a configuration profile assignment
  */
-/** @deprecated azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment to guarantee forwards compatibility. */
+/** @deprecated azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment to guarantee forwards compatibility. */
 export function getConfigurationProfileHCIAssignment(args: GetConfigurationProfileHCIAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileHCIAssignmentResult> {
-    pulumi.log.warn("getConfigurationProfileHCIAssignment is deprecated: azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment to guarantee forwards compatibility.")
+    pulumi.log.warn("getConfigurationProfileHCIAssignment is deprecated: azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automanage/v20210430preview:getConfigurationProfileHCIAssignment", {
@@ -65,7 +65,7 @@ export interface GetConfigurationProfileHCIAssignmentResult {
 /**
  * Get information about a configuration profile assignment
  */
-/** @deprecated azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment to guarantee forwards compatibility. */
+/** @deprecated azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment to guarantee forwards compatibility. */
 export function getConfigurationProfileHCIAssignmentOutput(args: GetConfigurationProfileHCIAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileHCIAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationProfileHCIAssignment(a, opts))
 }

@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Migration item.
  *
- * @deprecated azure-native:recoveryservices/v20220801:ReplicationMigrationItem is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationMigrationItem to guarantee forwards compatibility.
+ * @deprecated azure-native:recoveryservices/v20220801:ReplicationMigrationItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationMigrationItem to guarantee forwards compatibility.
  */
 export class ReplicationMigrationItem extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class ReplicationMigrationItem extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReplicationMigrationItem {
-        pulumi.log.warn("ReplicationMigrationItem is deprecated: azure-native:recoveryservices/v20220801:ReplicationMigrationItem is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationMigrationItem to guarantee forwards compatibility.")
+        pulumi.log.warn("ReplicationMigrationItem is deprecated: azure-native:recoveryservices/v20220801:ReplicationMigrationItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationMigrationItem to guarantee forwards compatibility.")
         return new ReplicationMigrationItem(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,9 +64,9 @@ export class ReplicationMigrationItem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:recoveryservices/v20220801:ReplicationMigrationItem is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationMigrationItem to guarantee forwards compatibility. */
+    /** @deprecated azure-native:recoveryservices/v20220801:ReplicationMigrationItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationMigrationItem to guarantee forwards compatibility. */
     constructor(name: string, args: ReplicationMigrationItemArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ReplicationMigrationItem is deprecated: azure-native:recoveryservices/v20220801:ReplicationMigrationItem is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationMigrationItem to guarantee forwards compatibility.")
+        pulumi.log.warn("ReplicationMigrationItem is deprecated: azure-native:recoveryservices/v20220801:ReplicationMigrationItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationMigrationItem to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

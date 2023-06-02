@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets an autoscale setting
  */
 /** @deprecated Version 2014-04-01 will be removed in v2 of the provider.
-azure-native:insights/v20140401:AutoscaleSetting is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20221001:AutoscaleSetting to guarantee forwards compatibility. */
+azure-native:insights/v20140401:AutoscaleSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20221001:AutoscaleSetting to guarantee forwards compatibility. */
 export function getAutoscaleSetting(args: GetAutoscaleSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscaleSettingResult> {
-    pulumi.log.warn("getAutoscaleSetting is deprecated: Version 2014-04-01 will be removed in v2 of the provider.\nazure-native:insights/v20140401:AutoscaleSetting is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20221001:AutoscaleSetting to guarantee forwards compatibility.")
+    pulumi.log.warn("getAutoscaleSetting is deprecated: Version 2014-04-01 will be removed in v2 of the provider.\nazure-native:insights/v20140401:AutoscaleSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20221001:AutoscaleSetting to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20140401:getAutoscaleSetting", {
@@ -82,7 +82,7 @@ export interface GetAutoscaleSettingResult {
  * Gets an autoscale setting
  */
 /** @deprecated Version 2014-04-01 will be removed in v2 of the provider.
-azure-native:insights/v20140401:AutoscaleSetting is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20221001:AutoscaleSetting to guarantee forwards compatibility. */
+azure-native:insights/v20140401:AutoscaleSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20221001:AutoscaleSetting to guarantee forwards compatibility. */
 export function getAutoscaleSettingOutput(args: GetAutoscaleSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoscaleSettingResult> {
     return pulumi.output(args).apply((a: any) => getAutoscaleSetting(a, opts))
 }

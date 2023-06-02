@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the object replication policy of the storage account by policy ID.
  */
-/** @deprecated azure-native:storage/v20210101:ObjectReplicationPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:storage/v20210101:ObjectReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility. */
 export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectReplicationPolicyResult> {
-    pulumi.log.warn("getObjectReplicationPolicy is deprecated: azure-native:storage/v20210101:ObjectReplicationPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility.")
+    pulumi.log.warn("getObjectReplicationPolicy is deprecated: azure-native:storage/v20210101:ObjectReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20210101:getObjectReplicationPolicy", {
@@ -77,7 +77,7 @@ export interface GetObjectReplicationPolicyResult {
 /**
  * Get the object replication policy of the storage account by policy ID.
  */
-/** @deprecated azure-native:storage/v20210101:ObjectReplicationPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:storage/v20210101:ObjectReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility. */
 export function getObjectReplicationPolicyOutput(args: GetObjectReplicationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectReplicationPolicyResult> {
     return pulumi.output(args).apply((a: any) => getObjectReplicationPolicy(a, opts))
 }

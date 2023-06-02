@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview
     /// <summary>
     /// An Azure Cosmos DB User Definition
     /// </summary>
-    [Obsolete(@"azure-native:documentdb/v20220515preview:MongoDBResourceMongoUserDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:MongoDBResourceMongoUserDefinition to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:documentdb/v20220515preview:MongoDBResourceMongoUserDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:MongoDBResourceMongoUserDefinition to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20220515preview:MongoDBResourceMongoUserDefinition")]
     public partial class MongoDBResourceMongoUserDefinition : global::Pulumi.CustomResource
     {

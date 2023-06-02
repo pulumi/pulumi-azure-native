@@ -17,7 +17,7 @@ __all__ = [
     'get_aci_service_output',
 ]
 
-warnings.warn("""azure-native:machinelearningservices/v20210101:ACIService is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:machinelearningservices/v20210101:ACIService is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetACIServiceResult:
@@ -157,7 +157,7 @@ def get_aci_service(expand: Optional[bool] = None,
     :param str service_name: Name of the Azure Machine Learning service.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    pulumi.log.warn("""get_aci_service is deprecated: azure-native:machinelearningservices/v20210101:ACIService is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_aci_service is deprecated: azure-native:machinelearningservices/v20210101:ACIService is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -193,5 +193,5 @@ def get_aci_service_output(expand: Optional[pulumi.Input[Optional[bool]]] = None
     :param str service_name: Name of the Azure Machine Learning service.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    pulumi.log.warn("""get_aci_service is deprecated: azure-native:machinelearningservices/v20210101:ACIService is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_aci_service is deprecated: azure-native:machinelearningservices/v20210101:ACIService is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility.""")
     ...

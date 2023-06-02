@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified DICOM Service.
  */
-/** @deprecated azure-native:healthcareapis/v20211101:DicomService is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:DicomService to guarantee forwards compatibility. */
+/** @deprecated azure-native:healthcareapis/v20211101:DicomService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:DicomService to guarantee forwards compatibility. */
 export function getDicomService(args: GetDicomServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDicomServiceResult> {
-    pulumi.log.warn("getDicomService is deprecated: azure-native:healthcareapis/v20211101:DicomService is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:DicomService to guarantee forwards compatibility.")
+    pulumi.log.warn("getDicomService is deprecated: azure-native:healthcareapis/v20211101:DicomService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:DicomService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20211101:getDicomService", {
@@ -97,7 +97,7 @@ export interface GetDicomServiceResult {
 /**
  * Gets the properties of the specified DICOM Service.
  */
-/** @deprecated azure-native:healthcareapis/v20211101:DicomService is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:DicomService to guarantee forwards compatibility. */
+/** @deprecated azure-native:healthcareapis/v20211101:DicomService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:DicomService to guarantee forwards compatibility. */
 export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDicomServiceResult> {
     return pulumi.output(args).apply((a: any) => getDicomService(a, opts))
 }

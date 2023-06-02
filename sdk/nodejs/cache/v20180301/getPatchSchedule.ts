@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the patching schedule of a redis cache.
  */
 /** @deprecated Version 2018-03-01 will be removed in v2 of the provider.
-azure-native:cache/v20180301:PatchSchedule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility. */
+azure-native:cache/v20180301:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility. */
 export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchScheduleResult> {
-    pulumi.log.warn("getPatchSchedule is deprecated: Version 2018-03-01 will be removed in v2 of the provider.\nazure-native:cache/v20180301:PatchSchedule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.")
+    pulumi.log.warn("getPatchSchedule is deprecated: Version 2018-03-01 will be removed in v2 of the provider.\nazure-native:cache/v20180301:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20180301:getPatchSchedule", {
@@ -63,7 +63,7 @@ export interface GetPatchScheduleResult {
  * Gets the patching schedule of a redis cache.
  */
 /** @deprecated Version 2018-03-01 will be removed in v2 of the provider.
-azure-native:cache/v20180301:PatchSchedule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility. */
+azure-native:cache/v20180301:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility. */
 export function getPatchScheduleOutput(args: GetPatchScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchScheduleResult> {
     return pulumi.output(args).apply((a: any) => getPatchSchedule(a, opts))
 }

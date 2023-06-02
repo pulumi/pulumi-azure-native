@@ -259,11 +259,11 @@ class LiveEventArgs:
         pulumi.set(self, "use_static_hostname", value)
 
 
-warnings.warn("""azure-native:media/v20211101:LiveEvent is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:LiveEvent to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:media/v20211101:LiveEvent is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20221101:LiveEvent to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class LiveEvent(pulumi.CustomResource):
-    warnings.warn("""azure-native:media/v20211101:LiveEvent is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:LiveEvent to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:media/v20211101:LiveEvent is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20221101:LiveEvent to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -346,7 +346,7 @@ class LiveEvent(pulumi.CustomResource):
                  transcriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LiveEventTranscriptionArgs']]]]] = None,
                  use_static_hostname: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
-        pulumi.log.warn("""LiveEvent is deprecated: azure-native:media/v20211101:LiveEvent is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:LiveEvent to guarantee forwards compatibility.""")
+        pulumi.log.warn("""LiveEvent is deprecated: azure-native:media/v20211101:LiveEvent is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20221101:LiveEvent to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

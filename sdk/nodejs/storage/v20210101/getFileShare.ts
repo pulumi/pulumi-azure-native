@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets properties of a specified share.
  */
-/** @deprecated azure-native:storage/v20210101:FileShare is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:FileShare to guarantee forwards compatibility. */
+/** @deprecated azure-native:storage/v20210101:FileShare is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileShare to guarantee forwards compatibility. */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
-    pulumi.log.warn("getFileShare is deprecated: azure-native:storage/v20210101:FileShare is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:FileShare to guarantee forwards compatibility.")
+    pulumi.log.warn("getFileShare is deprecated: azure-native:storage/v20210101:FileShare is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileShare to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20210101:getFileShare", {
@@ -119,7 +119,7 @@ export interface GetFileShareResult {
 /**
  * Gets properties of a specified share.
  */
-/** @deprecated azure-native:storage/v20210101:FileShare is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:FileShare to guarantee forwards compatibility. */
+/** @deprecated azure-native:storage/v20210101:FileShare is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileShare to guarantee forwards compatibility. */
 export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileShareResult> {
     return pulumi.output(args).apply((a: any) => getFileShare(a, opts))
 }

@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Define the Virtual Instance for SAP solutions resource.
  *
- * @deprecated azure-native:workloads/v20221101preview:SAPVirtualInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility.
+ * @deprecated azure-native:workloads/v20221101preview:SAPVirtualInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility.
  */
 export class SAPVirtualInstance extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class SAPVirtualInstance extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SAPVirtualInstance {
-        pulumi.log.warn("SAPVirtualInstance is deprecated: azure-native:workloads/v20221101preview:SAPVirtualInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility.")
+        pulumi.log.warn("SAPVirtualInstance is deprecated: azure-native:workloads/v20221101preview:SAPVirtualInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility.")
         return new SAPVirtualInstance(name, undefined as any, { ...opts, id: id });
     }
 
@@ -108,9 +108,9 @@ export class SAPVirtualInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:workloads/v20221101preview:SAPVirtualInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility. */
+    /** @deprecated azure-native:workloads/v20221101preview:SAPVirtualInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility. */
     constructor(name: string, args: SAPVirtualInstanceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SAPVirtualInstance is deprecated: azure-native:workloads/v20221101preview:SAPVirtualInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility.")
+        pulumi.log.warn("SAPVirtualInstance is deprecated: azure-native:workloads/v20221101preview:SAPVirtualInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

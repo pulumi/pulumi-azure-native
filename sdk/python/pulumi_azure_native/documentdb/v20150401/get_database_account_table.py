@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2015-04-01 will be removed in v2 of the provider.
-azure-native:documentdb/v20150401:DatabaseAccountTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountTable to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:documentdb/v20150401:DatabaseAccountTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountTable to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDatabaseAccountTableResult:
@@ -108,7 +108,7 @@ def get_database_account_table(account_name: Optional[str] = None,
     :param str table_name: Cosmos DB table name.
     """
     pulumi.log.warn("""get_database_account_table is deprecated: Version 2015-04-01 will be removed in v2 of the provider.
-azure-native:documentdb/v20150401:DatabaseAccountTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountTable to guarantee forwards compatibility.""")
+azure-native:documentdb/v20150401:DatabaseAccountTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountTable to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -138,5 +138,5 @@ def get_database_account_table_output(account_name: Optional[pulumi.Input[str]] 
     :param str table_name: Cosmos DB table name.
     """
     pulumi.log.warn("""get_database_account_table is deprecated: Version 2015-04-01 will be removed in v2 of the provider.
-azure-native:documentdb/v20150401:DatabaseAccountTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountTable to guarantee forwards compatibility.""")
+azure-native:documentdb/v20150401:DatabaseAccountTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountTable to guarantee forwards compatibility.""")
     ...

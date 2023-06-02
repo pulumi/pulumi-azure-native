@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
     /// <summary>
     /// A group of job targets.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20210201preview:JobTargetGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:JobTargetGroup to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20210201preview:JobTargetGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:JobTargetGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20210201preview:JobTargetGroup")]
     public partial class JobTargetGroup : global::Pulumi.CustomResource
     {

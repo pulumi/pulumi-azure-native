@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
     /// <summary>
     /// An Azure SQL managed instance.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20180601preview:ManagedInstance is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20210201preview:ManagedInstance to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20180601preview:ManagedInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20210201preview:ManagedInstance to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20180601preview:ManagedInstance")]
     public partial class ManagedInstance : global::Pulumi.CustomResource
     {

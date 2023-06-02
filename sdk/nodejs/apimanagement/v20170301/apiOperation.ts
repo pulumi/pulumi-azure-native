@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Api Operation details.
  *
- * @deprecated azure-native:apimanagement/v20170301:ApiOperation is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiOperation to guarantee forwards compatibility.
+ * @deprecated azure-native:apimanagement/v20170301:ApiOperation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiOperation to guarantee forwards compatibility.
  */
 export class ApiOperation extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class ApiOperation extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiOperation {
-        pulumi.log.warn("ApiOperation is deprecated: azure-native:apimanagement/v20170301:ApiOperation is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiOperation to guarantee forwards compatibility.")
+        pulumi.log.warn("ApiOperation is deprecated: azure-native:apimanagement/v20170301:ApiOperation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiOperation to guarantee forwards compatibility.")
         return new ApiOperation(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,9 +88,9 @@ export class ApiOperation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20170301:ApiOperation is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiOperation to guarantee forwards compatibility. */
+    /** @deprecated azure-native:apimanagement/v20170301:ApiOperation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiOperation to guarantee forwards compatibility. */
     constructor(name: string, args: ApiOperationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApiOperation is deprecated: azure-native:apimanagement/v20170301:ApiOperation is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiOperation to guarantee forwards compatibility.")
+        pulumi.log.warn("ApiOperation is deprecated: azure-native:apimanagement/v20170301:ApiOperation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiOperation to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

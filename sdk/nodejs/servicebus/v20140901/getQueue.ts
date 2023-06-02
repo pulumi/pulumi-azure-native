@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Returns a description for the specified queue.
  */
 /** @deprecated Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:servicebus/v20140901:Queue is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Queue to guarantee forwards compatibility. */
+azure-native:servicebus/v20140901:Queue is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Queue to guarantee forwards compatibility. */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
-    pulumi.log.warn("getQueue is deprecated: Version 2014-09-01 will be removed in v2 of the provider.\nazure-native:servicebus/v20140901:Queue is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Queue to guarantee forwards compatibility.")
+    pulumi.log.warn("getQueue is deprecated: Version 2014-09-01 will be removed in v2 of the provider.\nazure-native:servicebus/v20140901:Queue is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Queue to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20140901:getQueue", {
@@ -151,7 +151,7 @@ export interface GetQueueResult {
  * Returns a description for the specified queue.
  */
 /** @deprecated Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:servicebus/v20140901:Queue is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Queue to guarantee forwards compatibility. */
+azure-native:servicebus/v20140901:Queue is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Queue to guarantee forwards compatibility. */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
     return pulumi.output(args).apply((a: any) => getQueue(a, opts))
 }

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.CostManagement.V20201201Preview
     /// <summary>
     /// An export resource.
     /// </summary>
-    [Obsolete(@"azure-native:costmanagement/v20201201preview:Export is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221001:Export to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:costmanagement/v20201201preview:Export is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221001:Export to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:costmanagement/v20201201preview:Export")]
     public partial class Export : global::Pulumi.CustomResource
     {

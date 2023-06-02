@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501Preview
     /// <summary>
     /// An object that represents a scope map for a container registry.
     /// </summary>
-    [Obsolete(@"azure-native:containerregistry/v20190501preview:ScopeMap is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ScopeMap to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:containerregistry/v20190501preview:ScopeMap is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ScopeMap to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerregistry/v20190501preview:ScopeMap")]
     public partial class ScopeMap : global::Pulumi.CustomResource
     {

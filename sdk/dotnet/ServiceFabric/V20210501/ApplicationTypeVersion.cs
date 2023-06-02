@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210501
     /// <summary>
     /// An application type version resource for the specified application type name resource.
     /// </summary>
-    [Obsolete(@"azure-native:servicefabric/v20210501:ApplicationTypeVersion is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:ApplicationTypeVersion to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:servicefabric/v20210501:ApplicationTypeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210601:ApplicationTypeVersion to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicefabric/v20210501:ApplicationTypeVersion")]
     public partial class ApplicationTypeVersion : global::Pulumi.CustomResource
     {

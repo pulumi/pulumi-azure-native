@@ -17,7 +17,7 @@ __all__ = [
     'get_source_control_configuration_output',
 ]
 
-warnings.warn("""azure-native:kubernetesconfiguration/v20220301:SourceControlConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:kubernetesconfiguration/v20220301:SourceControlConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSourceControlConfigurationResult:
@@ -255,7 +255,7 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str source_control_configuration_name: Name of the Source Control Configuration.
     """
-    pulumi.log.warn("""get_source_control_configuration is deprecated: azure-native:kubernetesconfiguration/v20220301:SourceControlConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_source_control_configuration is deprecated: azure-native:kubernetesconfiguration/v20220301:SourceControlConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['clusterResourceName'] = cluster_resource_name
@@ -302,5 +302,5 @@ def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str source_control_configuration_name: Name of the Source Control Configuration.
     """
-    pulumi.log.warn("""get_source_control_configuration is deprecated: azure-native:kubernetesconfiguration/v20220301:SourceControlConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_source_control_configuration is deprecated: azure-native:kubernetesconfiguration/v20220301:SourceControlConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility.""")
     ...

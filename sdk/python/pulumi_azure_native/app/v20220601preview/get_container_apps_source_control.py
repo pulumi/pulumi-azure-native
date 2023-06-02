@@ -17,7 +17,7 @@ __all__ = [
     'get_container_apps_source_control_output',
 ]
 
-warnings.warn("""azure-native:app/v20220601preview:ContainerAppsSourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ContainerAppsSourceControl to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:app/v20220601preview:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerAppsSourceControl to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetContainerAppsSourceControlResult:
@@ -145,7 +145,7 @@ def get_container_apps_source_control(container_app_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str source_control_name: Name of the Container App SourceControl.
     """
-    pulumi.log.warn("""get_container_apps_source_control is deprecated: azure-native:app/v20220601preview:ContainerAppsSourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ContainerAppsSourceControl to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_container_apps_source_control is deprecated: azure-native:app/v20220601preview:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerAppsSourceControl to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['containerAppName'] = container_app_name
     __args__['resourceGroupName'] = resource_group_name
@@ -177,5 +177,5 @@ def get_container_apps_source_control_output(container_app_name: Optional[pulumi
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str source_control_name: Name of the Container App SourceControl.
     """
-    pulumi.log.warn("""get_container_apps_source_control is deprecated: azure-native:app/v20220601preview:ContainerAppsSourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ContainerAppsSourceControl to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_container_apps_source_control is deprecated: azure-native:app/v20220601preview:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerAppsSourceControl to guarantee forwards compatibility.""")
     ...

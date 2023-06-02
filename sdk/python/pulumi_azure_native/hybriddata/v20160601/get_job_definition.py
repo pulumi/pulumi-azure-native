@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.
-azure-native:hybriddata/v20160601:JobDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:JobDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:hybriddata/v20160601:JobDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:JobDefinition to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetJobDefinitionResult:
@@ -195,7 +195,7 @@ def get_job_definition(data_manager_name: Optional[str] = None,
     :param str resource_group_name: The Resource Group Name
     """
     pulumi.log.warn("""get_job_definition is deprecated: Version 2016-06-01 will be removed in v2 of the provider.
-azure-native:hybriddata/v20160601:JobDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:JobDefinition to guarantee forwards compatibility.""")
+azure-native:hybriddata/v20160601:JobDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:JobDefinition to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dataManagerName'] = data_manager_name
     __args__['dataServiceName'] = data_service_name
@@ -235,5 +235,5 @@ def get_job_definition_output(data_manager_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The Resource Group Name
     """
     pulumi.log.warn("""get_job_definition is deprecated: Version 2016-06-01 will be removed in v2 of the provider.
-azure-native:hybriddata/v20160601:JobDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:JobDefinition to guarantee forwards compatibility.""")
+azure-native:hybriddata/v20160601:JobDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:JobDefinition to guarantee forwards compatibility.""")
     ...

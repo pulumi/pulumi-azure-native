@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about a Shared Image Gallery.
  */
-/** @deprecated azure-native:compute/v20211001:Gallery is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:Gallery to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20211001:Gallery is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:Gallery to guarantee forwards compatibility. */
 export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryResult> {
-    pulumi.log.warn("getGallery is deprecated: azure-native:compute/v20211001:Gallery is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:Gallery to guarantee forwards compatibility.")
+    pulumi.log.warn("getGallery is deprecated: azure-native:compute/v20211001:Gallery is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:Gallery to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20211001:getGallery", {
@@ -94,7 +94,7 @@ export interface GetGalleryResult {
 /**
  * Retrieves information about a Shared Image Gallery.
  */
-/** @deprecated azure-native:compute/v20211001:Gallery is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:Gallery to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20211001:Gallery is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:Gallery to guarantee forwards compatibility. */
 export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryResult> {
     return pulumi.output(args).apply((a: any) => getGallery(a, opts))
 }

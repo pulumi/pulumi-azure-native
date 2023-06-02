@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:AzureFirewall is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20180401:AzureFirewall is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAzureFirewallResult:
@@ -167,7 +167,7 @@ def get_azure_firewall(azure_firewall_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_azure_firewall is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:AzureFirewall is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility.""")
+azure-native:network/v20180401:AzureFirewall is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['azureFirewallName'] = azure_firewall_name
     __args__['resourceGroupName'] = resource_group_name
@@ -199,5 +199,5 @@ def get_azure_firewall_output(azure_firewall_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_azure_firewall is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:AzureFirewall is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility.""")
+azure-native:network/v20180401:AzureFirewall is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility.""")
     ...

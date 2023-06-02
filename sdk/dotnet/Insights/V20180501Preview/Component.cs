@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Insights.V20180501Preview
     /// <summary>
     /// An Application Insights component definition.
     /// </summary>
-    [Obsolete(@"azure-native:insights/v20180501preview:Component is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20200202:Component to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:insights/v20180501preview:Component is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20200202:Component to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:insights/v20180501preview:Component")]
     public partial class Component : global::Pulumi.CustomResource
     {

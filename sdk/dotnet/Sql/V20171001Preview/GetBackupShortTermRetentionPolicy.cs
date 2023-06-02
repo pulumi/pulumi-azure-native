@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20171001Preview
 {
-    [Obsolete(@"azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility.")]
     public static class GetBackupShortTermRetentionPolicy
     {
         /// <summary>

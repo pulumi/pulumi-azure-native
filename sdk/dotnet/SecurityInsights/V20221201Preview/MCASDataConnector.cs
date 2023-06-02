@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
     /// <summary>
     /// Represents MCAS (Microsoft Cloud App Security) data connector.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20221201preview:MCASDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:MCASDataConnector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20221201preview:MCASDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:MCASDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20221201preview:MCASDataConnector")]
     public partial class MCASDataConnector : global::Pulumi.CustomResource
     {

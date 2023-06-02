@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-12-01 will be removed in v2 of the provider.
-azure-native:compute/v20191201:GalleryImage is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImage to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:compute/v20191201:GalleryImage is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryImage to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetGalleryImageResult:
@@ -265,7 +265,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_gallery_image is deprecated: Version 2019-12-01 will be removed in v2 of the provider.
-azure-native:compute/v20191201:GalleryImage is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImage to guarantee forwards compatibility.""")
+azure-native:compute/v20191201:GalleryImage is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryImage to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['galleryImageName'] = gallery_image_name
     __args__['galleryName'] = gallery_name
@@ -308,5 +308,5 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_gallery_image is deprecated: Version 2019-12-01 will be removed in v2 of the provider.
-azure-native:compute/v20191201:GalleryImage is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImage to guarantee forwards compatibility.""")
+azure-native:compute/v20191201:GalleryImage is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryImage to guarantee forwards compatibility.""")
     ...

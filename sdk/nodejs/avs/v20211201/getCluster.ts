@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * A cluster resource
  */
-/** @deprecated azure-native:avs/v20211201:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Cluster to guarantee forwards compatibility. */
+/** @deprecated azure-native:avs/v20211201:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Cluster to guarantee forwards compatibility. */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    pulumi.log.warn("getCluster is deprecated: azure-native:avs/v20211201:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Cluster to guarantee forwards compatibility.")
+    pulumi.log.warn("getCluster is deprecated: azure-native:avs/v20211201:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Cluster to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getCluster", {
@@ -77,7 +77,7 @@ export interface GetClusterResult {
 /**
  * A cluster resource
  */
-/** @deprecated azure-native:avs/v20211201:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Cluster to guarantee forwards compatibility. */
+/** @deprecated azure-native:avs/v20211201:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Cluster to guarantee forwards compatibility. */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }

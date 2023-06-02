@@ -600,11 +600,11 @@ class WebAppSlotArgs:
         pulumi.set(self, "vnet_route_all_enabled", value)
 
 
-warnings.warn("""azure-native:web/v20220301:WebAppSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSlot to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:web/v20220301:WebAppSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSlot to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class WebAppSlot(pulumi.CustomResource):
-    warnings.warn("""azure-native:web/v20220301:WebAppSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSlot to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:web/v20220301:WebAppSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSlot to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -753,7 +753,7 @@ class WebAppSlot(pulumi.CustomResource):
                  vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
-        pulumi.log.warn("""WebAppSlot is deprecated: azure-native:web/v20220301:WebAppSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSlot to guarantee forwards compatibility.""")
+        pulumi.log.warn("""WebAppSlot is deprecated: azure-native:web/v20220301:WebAppSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSlot to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -16,7 +16,7 @@ __all__ = [
     'get_domain_ownership_identifier_output',
 ]
 
-warnings.warn("""azure-native:domainregistration/v20210301:DomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:domainregistration/v20210301:DomainOwnershipIdentifier is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDomainOwnershipIdentifierResult:
@@ -106,7 +106,7 @@ def get_domain_ownership_identifier(domain_name: Optional[str] = None,
     :param str name: Name of identifier.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_domain_ownership_identifier is deprecated: azure-native:domainregistration/v20210301:DomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_domain_ownership_identifier is deprecated: azure-native:domainregistration/v20210301:DomainOwnershipIdentifier is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['name'] = name
@@ -135,5 +135,5 @@ def get_domain_ownership_identifier_output(domain_name: Optional[pulumi.Input[st
     :param str name: Name of identifier.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_domain_ownership_identifier is deprecated: azure-native:domainregistration/v20210301:DomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_domain_ownership_identifier is deprecated: azure-native:domainregistration/v20210301:DomainOwnershipIdentifier is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility.""")
     ...

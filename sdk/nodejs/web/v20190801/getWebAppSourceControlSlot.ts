@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the source control configuration of an app.
  */
-/** @deprecated azure-native:web/v20190801:WebAppSourceControlSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSourceControlSlot to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20190801:WebAppSourceControlSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppSourceControlSlot to guarantee forwards compatibility. */
 export function getWebAppSourceControlSlot(args: GetWebAppSourceControlSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlSlotResult> {
-    pulumi.log.warn("getWebAppSourceControlSlot is deprecated: azure-native:web/v20190801:WebAppSourceControlSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSourceControlSlot to guarantee forwards compatibility.")
+    pulumi.log.warn("getWebAppSourceControlSlot is deprecated: azure-native:web/v20190801:WebAppSourceControlSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppSourceControlSlot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20190801:getWebAppSourceControlSlot", {
@@ -78,7 +78,7 @@ export interface GetWebAppSourceControlSlotResult {
 /**
  * Gets the source control configuration of an app.
  */
-/** @deprecated azure-native:web/v20190801:WebAppSourceControlSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSourceControlSlot to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20190801:WebAppSourceControlSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppSourceControlSlot to guarantee forwards compatibility. */
 export function getWebAppSourceControlSlotOutput(args: GetWebAppSourceControlSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSourceControlSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSourceControlSlot(a, opts))
 }

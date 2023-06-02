@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets information about the specified network interface.
  */
 /** @deprecated Version 2018-01-01 will be removed in v2 of the provider.
-azure-native:network/v20180101:NetworkInterface is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180701:NetworkInterface to guarantee forwards compatibility. */
+azure-native:network/v20180101:NetworkInterface is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:NetworkInterface to guarantee forwards compatibility. */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
-    pulumi.log.warn("getNetworkInterface is deprecated: Version 2018-01-01 will be removed in v2 of the provider.\nazure-native:network/v20180101:NetworkInterface is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180701:NetworkInterface to guarantee forwards compatibility.")
+    pulumi.log.warn("getNetworkInterface is deprecated: Version 2018-01-01 will be removed in v2 of the provider.\nazure-native:network/v20180101:NetworkInterface is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:NetworkInterface to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180101:getNetworkInterface", {
@@ -111,7 +111,7 @@ export interface GetNetworkInterfaceResult {
  * Gets information about the specified network interface.
  */
 /** @deprecated Version 2018-01-01 will be removed in v2 of the provider.
-azure-native:network/v20180101:NetworkInterface is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180701:NetworkInterface to guarantee forwards compatibility. */
+azure-native:network/v20180101:NetworkInterface is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:NetworkInterface to guarantee forwards compatibility. */
 export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkInterface(a, opts))
 }

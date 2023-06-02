@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * Private endpoint connection resource.
  *
  * @deprecated Version 2018-02-14 will be removed in v2 of the provider.
-azure-native:keyvault/v20180214:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:PrivateEndpointConnection to guarantee forwards compatibility.
+azure-native:keyvault/v20180214:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:PrivateEndpointConnection to guarantee forwards compatibility.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpointConnection {
-        pulumi.log.warn("PrivateEndpointConnection is deprecated: Version 2018-02-14 will be removed in v2 of the provider.\nazure-native:keyvault/v20180214:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:PrivateEndpointConnection to guarantee forwards compatibility.")
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: Version 2018-02-14 will be removed in v2 of the provider.\nazure-native:keyvault/v20180214:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:PrivateEndpointConnection to guarantee forwards compatibility.")
         return new PrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -78,9 +78,9 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2018-02-14 will be removed in v2 of the provider.
-azure-native:keyvault/v20180214:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:PrivateEndpointConnection to guarantee forwards compatibility. */
+azure-native:keyvault/v20180214:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:PrivateEndpointConnection to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PrivateEndpointConnection is deprecated: Version 2018-02-14 will be removed in v2 of the provider.\nazure-native:keyvault/v20180214:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:PrivateEndpointConnection to guarantee forwards compatibility.")
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: Version 2018-02-14 will be removed in v2 of the provider.\nazure-native:keyvault/v20180214:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:PrivateEndpointConnection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

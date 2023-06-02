@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Web.V20200901
     /// <summary>
     /// Push settings for the App.
     /// </summary>
-    [Obsolete(@"azure-native:web/v20200901:WebAppSitePushSettingsSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSitePushSettingsSlot to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:web/v20200901:WebAppSitePushSettingsSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppSitePushSettingsSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20200901:WebAppSitePushSettingsSlot")]
     public partial class WebAppSitePushSettingsSlot : global::Pulumi.CustomResource
     {

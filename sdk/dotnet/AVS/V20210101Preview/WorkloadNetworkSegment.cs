@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
     /// <summary>
     /// NSX Segment
     /// </summary>
-    [Obsolete(@"azure-native:avs/v20210101preview:WorkloadNetworkSegment is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkSegment to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:avs/v20210101preview:WorkloadNetworkSegment is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkSegment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20210101preview:WorkloadNetworkSegment")]
     public partial class WorkloadNetworkSegment : global::Pulumi.CustomResource
     {

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Fetches the details of a ExpressRoute gateway in a resource group.
  */
-/** @deprecated azure-native:network/v20220101:ExpressRouteGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteGateway to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220101:ExpressRouteGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteGateway to guarantee forwards compatibility. */
 export function getExpressRouteGateway(args: GetExpressRouteGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteGatewayResult> {
-    pulumi.log.warn("getExpressRouteGateway is deprecated: azure-native:network/v20220101:ExpressRouteGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteGateway to guarantee forwards compatibility.")
+    pulumi.log.warn("getExpressRouteGateway is deprecated: azure-native:network/v20220101:ExpressRouteGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteGateway to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220101:getExpressRouteGateway", {
@@ -80,7 +80,7 @@ export interface GetExpressRouteGatewayResult {
 /**
  * Fetches the details of a ExpressRoute gateway in a resource group.
  */
-/** @deprecated azure-native:network/v20220101:ExpressRouteGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteGateway to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220101:ExpressRouteGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteGateway to guarantee forwards compatibility. */
 export function getExpressRouteGatewayOutput(args: GetExpressRouteGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteGatewayResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteGateway(a, opts))
 }

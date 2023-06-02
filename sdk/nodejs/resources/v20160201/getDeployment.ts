@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Get a deployment.
  */
 /** @deprecated Version 2016-02-01 will be removed in v2 of the provider.
-azure-native:resources/v20160201:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20160701:Deployment to guarantee forwards compatibility. */
+azure-native:resources/v20160201:Deployment is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20160701:Deployment to guarantee forwards compatibility. */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
-    pulumi.log.warn("getDeployment is deprecated: Version 2016-02-01 will be removed in v2 of the provider.\nazure-native:resources/v20160201:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20160701:Deployment to guarantee forwards compatibility.")
+    pulumi.log.warn("getDeployment is deprecated: Version 2016-02-01 will be removed in v2 of the provider.\nazure-native:resources/v20160201:Deployment is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20160701:Deployment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20160201:getDeployment", {
@@ -54,7 +54,7 @@ export interface GetDeploymentResult {
  * Get a deployment.
  */
 /** @deprecated Version 2016-02-01 will be removed in v2 of the provider.
-azure-native:resources/v20160201:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20160701:Deployment to guarantee forwards compatibility. */
+azure-native:resources/v20160201:Deployment is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20160701:Deployment to guarantee forwards compatibility. */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getDeployment(a, opts))
 }

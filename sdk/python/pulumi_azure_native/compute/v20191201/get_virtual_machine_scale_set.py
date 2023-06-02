@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-12-01 will be removed in v2 of the provider.
-azure-native:compute/v20191201:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:compute/v20191201:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualMachineScaleSetResult:
@@ -311,7 +311,7 @@ def get_virtual_machine_scale_set(resource_group_name: Optional[str] = None,
     :param str vm_scale_set_name: The name of the VM scale set.
     """
     pulumi.log.warn("""get_virtual_machine_scale_set is deprecated: Version 2019-12-01 will be removed in v2 of the provider.
-azure-native:compute/v20191201:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""")
+azure-native:compute/v20191201:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vmScaleSetName'] = vm_scale_set_name
@@ -355,5 +355,5 @@ def get_virtual_machine_scale_set_output(resource_group_name: Optional[pulumi.In
     :param str vm_scale_set_name: The name of the VM scale set.
     """
     pulumi.log.warn("""get_virtual_machine_scale_set is deprecated: Version 2019-12-01 will be removed in v2 of the provider.
-azure-native:compute/v20191201:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""")
+azure-native:compute/v20191201:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""")
     ...

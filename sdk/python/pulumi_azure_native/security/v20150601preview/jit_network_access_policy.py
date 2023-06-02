@@ -112,12 +112,12 @@ class JitNetworkAccessPolicyArgs:
 
 
 warnings.warn("""Version 2015-06-01-preview will be removed in v2 of the provider.
-azure-native:security/v20150601preview:JitNetworkAccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20200101:JitNetworkAccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:security/v20150601preview:JitNetworkAccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20200101:JitNetworkAccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class JitNetworkAccessPolicy(pulumi.CustomResource):
     warnings.warn("""Version 2015-06-01-preview will be removed in v2 of the provider.
-azure-native:security/v20150601preview:JitNetworkAccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20200101:JitNetworkAccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:security/v20150601preview:JitNetworkAccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20200101:JitNetworkAccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -171,7 +171,7 @@ azure-native:security/v20150601preview:JitNetworkAccessPolicy is being removed i
                  virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""JitNetworkAccessPolicy is deprecated: Version 2015-06-01-preview will be removed in v2 of the provider.
-azure-native:security/v20150601preview:JitNetworkAccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20200101:JitNetworkAccessPolicy to guarantee forwards compatibility.""")
+azure-native:security/v20150601preview:JitNetworkAccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20200101:JitNetworkAccessPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Gets the access policy with the specified name in the specified environment.
  */
 /** @deprecated Version 2018-08-15-preview will be removed in v2 of the provider.
-azure-native:timeseriesinsights/v20180815preview:AccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility. */
+azure-native:timeseriesinsights/v20180815preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility. */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
-    pulumi.log.warn("getAccessPolicy is deprecated: Version 2018-08-15-preview will be removed in v2 of the provider.\nazure-native:timeseriesinsights/v20180815preview:AccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility.")
+    pulumi.log.warn("getAccessPolicy is deprecated: Version 2018-08-15-preview will be removed in v2 of the provider.\nazure-native:timeseriesinsights/v20180815preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20180815preview:getAccessPolicy", {
@@ -68,7 +68,7 @@ export interface GetAccessPolicyResult {
  * Gets the access policy with the specified name in the specified environment.
  */
 /** @deprecated Version 2018-08-15-preview will be removed in v2 of the provider.
-azure-native:timeseriesinsights/v20180815preview:AccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility. */
+azure-native:timeseriesinsights/v20180815preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility. */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))
 }

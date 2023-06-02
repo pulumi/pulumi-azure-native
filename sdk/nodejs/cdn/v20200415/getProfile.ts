@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets a CDN profile with the specified profile name under the specified subscription and resource group.
  */
 /** @deprecated Version 2020-04-15 will be removed in v2 of the provider.
-azure-native:cdn/v20200415:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20200901:Profile to guarantee forwards compatibility. */
+azure-native:cdn/v20200415:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20200901:Profile to guarantee forwards compatibility. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    pulumi.log.warn("getProfile is deprecated: Version 2020-04-15 will be removed in v2 of the provider.\nazure-native:cdn/v20200415:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20200901:Profile to guarantee forwards compatibility.")
+    pulumi.log.warn("getProfile is deprecated: Version 2020-04-15 will be removed in v2 of the provider.\nazure-native:cdn/v20200415:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20200901:Profile to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20200415:getProfile", {
@@ -74,7 +74,7 @@ export interface GetProfileResult {
  * Gets a CDN profile with the specified profile name under the specified subscription and resource group.
  */
 /** @deprecated Version 2020-04-15 will be removed in v2 of the provider.
-azure-native:cdn/v20200415:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20200901:Profile to guarantee forwards compatibility. */
+azure-native:cdn/v20200415:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20200901:Profile to guarantee forwards compatibility. */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
     return pulumi.output(args).apply((a: any) => getProfile(a, opts))
 }

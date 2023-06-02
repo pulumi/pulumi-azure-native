@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a resource group.
  */
-/** @deprecated azure-native:resources/v20191001:ResourceGroup is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:ResourceGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:resources/v20191001:ResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:ResourceGroup to guarantee forwards compatibility. */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
-    pulumi.log.warn("getResourceGroup is deprecated: azure-native:resources/v20191001:ResourceGroup is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:ResourceGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getResourceGroup is deprecated: azure-native:resources/v20191001:ResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:ResourceGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20191001:getResourceGroup", {
@@ -63,7 +63,7 @@ export interface GetResourceGroupResult {
 /**
  * Gets a resource group.
  */
-/** @deprecated azure-native:resources/v20191001:ResourceGroup is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:ResourceGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:resources/v20191001:ResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:ResourceGroup to guarantee forwards compatibility. */
 export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
     return pulumi.output(args).apply((a: any) => getResourceGroup(a, opts))
 }

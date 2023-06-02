@@ -97,12 +97,12 @@ class GroupArgs:
 
 
 warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.
-azure-native:migrate/v20171111preview:Group is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20180202:Group to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:migrate/v20171111preview:Group is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Group to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Group(pulumi.CustomResource):
     warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.
-azure-native:migrate/v20171111preview:Group is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20180202:Group to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:migrate/v20171111preview:Group is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Group to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -156,7 +156,7 @@ azure-native:migrate/v20171111preview:Group is being removed in the next major v
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Group is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.
-azure-native:migrate/v20171111preview:Group is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20180202:Group to guarantee forwards compatibility.""")
+azure-native:migrate/v20171111preview:Group is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Group to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

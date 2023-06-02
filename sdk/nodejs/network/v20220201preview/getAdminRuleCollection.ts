@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a network manager security admin configuration rule collection.
  */
-/** @deprecated azure-native:network/v20220201preview:AdminRuleCollection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:AdminRuleCollection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220201preview:AdminRuleCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:AdminRuleCollection to guarantee forwards compatibility. */
 export function getAdminRuleCollection(args: GetAdminRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAdminRuleCollectionResult> {
-    pulumi.log.warn("getAdminRuleCollection is deprecated: azure-native:network/v20220201preview:AdminRuleCollection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:AdminRuleCollection to guarantee forwards compatibility.")
+    pulumi.log.warn("getAdminRuleCollection is deprecated: azure-native:network/v20220201preview:AdminRuleCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:AdminRuleCollection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220201preview:getAdminRuleCollection", {
@@ -82,7 +82,7 @@ export interface GetAdminRuleCollectionResult {
 /**
  * Gets a network manager security admin configuration rule collection.
  */
-/** @deprecated azure-native:network/v20220201preview:AdminRuleCollection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:AdminRuleCollection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220201preview:AdminRuleCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:AdminRuleCollection to guarantee forwards compatibility. */
 export function getAdminRuleCollectionOutput(args: GetAdminRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdminRuleCollectionResult> {
     return pulumi.output(args).apply((a: any) => getAdminRuleCollection(a, opts))
 }

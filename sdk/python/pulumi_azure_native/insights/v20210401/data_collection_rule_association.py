@@ -99,11 +99,11 @@ class DataCollectionRuleAssociationArgs:
         pulumi.set(self, "description", value)
 
 
-warnings.warn("""azure-native:insights/v20210401:DataCollectionRuleAssociation is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220601:DataCollectionRuleAssociation to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:insights/v20210401:DataCollectionRuleAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRuleAssociation to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class DataCollectionRuleAssociation(pulumi.CustomResource):
-    warnings.warn("""azure-native:insights/v20210401:DataCollectionRuleAssociation is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220601:DataCollectionRuleAssociation to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:insights/v20210401:DataCollectionRuleAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRuleAssociation to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -156,7 +156,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DataCollectionRuleAssociation is deprecated: azure-native:insights/v20210401:DataCollectionRuleAssociation is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220601:DataCollectionRuleAssociation to guarantee forwards compatibility.""")
+        pulumi.log.warn("""DataCollectionRuleAssociation is deprecated: azure-native:insights/v20210401:DataCollectionRuleAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRuleAssociation to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

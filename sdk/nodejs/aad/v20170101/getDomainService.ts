@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * The Get Domain Service operation retrieves a json representation of the Domain Service.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
-azure-native:aad/v20170101:DomainService is being removed in the next major version of this provider. Please upgrade to azure-native:aad/v20170601:DomainService to guarantee forwards compatibility. */
+azure-native:aad/v20170101:DomainService is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20170601:DomainService to guarantee forwards compatibility. */
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
-    pulumi.log.warn("getDomainService is deprecated: Version 2017-01-01 will be removed in v2 of the provider.\nazure-native:aad/v20170101:DomainService is being removed in the next major version of this provider. Please upgrade to azure-native:aad/v20170601:DomainService to guarantee forwards compatibility.")
+    pulumi.log.warn("getDomainService is deprecated: Version 2017-01-01 will be removed in v2 of the provider.\nazure-native:aad/v20170101:DomainService is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20170601:DomainService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:aad/v20170101:getDomainService", {
@@ -126,7 +126,7 @@ export interface GetDomainServiceResult {
  * The Get Domain Service operation retrieves a json representation of the Domain Service.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
-azure-native:aad/v20170101:DomainService is being removed in the next major version of this provider. Please upgrade to azure-native:aad/v20170601:DomainService to guarantee forwards compatibility. */
+azure-native:aad/v20170101:DomainService is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20170601:DomainService to guarantee forwards compatibility. */
 export function getDomainServiceOutput(args: GetDomainServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainServiceResult> {
     return pulumi.output(args).apply((a: any) => getDomainService(a, opts))
 }

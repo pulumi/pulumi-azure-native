@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Get the non-security related metadata of an IoT hub.
  */
 /** @deprecated Version 2018-12-01-preview will be removed in v2 of the provider.
-azure-native:devices/v20181201preview:IotHubResource is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20220430preview:IotHubResource to guarantee forwards compatibility. */
+azure-native:devices/v20181201preview:IotHubResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20220430preview:IotHubResource to guarantee forwards compatibility. */
 export function getIotHubResource(args: GetIotHubResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceResult> {
-    pulumi.log.warn("getIotHubResource is deprecated: Version 2018-12-01-preview will be removed in v2 of the provider.\nazure-native:devices/v20181201preview:IotHubResource is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20220430preview:IotHubResource to guarantee forwards compatibility.")
+    pulumi.log.warn("getIotHubResource is deprecated: Version 2018-12-01-preview will be removed in v2 of the provider.\nazure-native:devices/v20181201preview:IotHubResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20220430preview:IotHubResource to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices/v20181201preview:getIotHubResource", {
@@ -74,7 +74,7 @@ export interface GetIotHubResourceResult {
  * Get the non-security related metadata of an IoT hub.
  */
 /** @deprecated Version 2018-12-01-preview will be removed in v2 of the provider.
-azure-native:devices/v20181201preview:IotHubResource is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20220430preview:IotHubResource to guarantee forwards compatibility. */
+azure-native:devices/v20181201preview:IotHubResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20220430preview:IotHubResource to guarantee forwards compatibility. */
 export function getIotHubResourceOutput(args: GetIotHubResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceResult> {
     return pulumi.output(args).apply((a: any) => getIotHubResource(a, opts))
 }

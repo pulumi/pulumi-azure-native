@@ -217,11 +217,11 @@ class ManagedEnvironmentArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
-warnings.warn("""azure-native:app/v20220601preview:ManagedEnvironment is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ManagedEnvironment to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:app/v20220601preview:ManagedEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ManagedEnvironment to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ManagedEnvironment(pulumi.CustomResource):
-    warnings.warn("""azure-native:app/v20220601preview:ManagedEnvironment is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ManagedEnvironment to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:app/v20220601preview:ManagedEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ManagedEnvironment to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -297,7 +297,7 @@ class ManagedEnvironment(pulumi.CustomResource):
                  workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadProfileArgs']]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
-        pulumi.log.warn("""ManagedEnvironment is deprecated: azure-native:app/v20220601preview:ManagedEnvironment is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ManagedEnvironment to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ManagedEnvironment is deprecated: azure-native:app/v20220601preview:ManagedEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ManagedEnvironment to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

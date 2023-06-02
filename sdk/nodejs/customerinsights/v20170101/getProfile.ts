@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets information about the specified profile.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
-azure-native:customerinsights/v20170101:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Profile to guarantee forwards compatibility. */
+azure-native:customerinsights/v20170101:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:Profile to guarantee forwards compatibility. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    pulumi.log.warn("getProfile is deprecated: Version 2017-01-01 will be removed in v2 of the provider.\nazure-native:customerinsights/v20170101:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Profile to guarantee forwards compatibility.")
+    pulumi.log.warn("getProfile is deprecated: Version 2017-01-01 will be removed in v2 of the provider.\nazure-native:customerinsights/v20170101:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:Profile to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170101:getProfile", {
@@ -136,7 +136,7 @@ export interface GetProfileResult {
  * Gets information about the specified profile.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
-azure-native:customerinsights/v20170101:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Profile to guarantee forwards compatibility. */
+azure-native:customerinsights/v20170101:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:Profile to guarantee forwards compatibility. */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
     return pulumi.output(args).apply((a: any) => getProfile(a, opts))
 }

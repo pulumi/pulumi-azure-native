@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:servicebus/v20140901:Subscription is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Subscription to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:servicebus/v20140901:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Subscription to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSubscriptionResult:
@@ -291,7 +291,7 @@ def get_subscription(namespace_name: Optional[str] = None,
     :param str topic_name: The topic name.
     """
     pulumi.log.warn("""get_subscription is deprecated: Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:servicebus/v20140901:Subscription is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Subscription to guarantee forwards compatibility.""")
+azure-native:servicebus/v20140901:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Subscription to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
@@ -339,5 +339,5 @@ def get_subscription_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str topic_name: The topic name.
     """
     pulumi.log.warn("""get_subscription is deprecated: Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:servicebus/v20140901:Subscription is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Subscription to guarantee forwards compatibility.""")
+azure-native:servicebus/v20140901:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Subscription to guarantee forwards compatibility.""")
     ...

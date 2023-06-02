@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a virtual network rule.
  */
-/** @deprecated azure-native:sql/v20211101preview:VirtualNetworkRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:VirtualNetworkRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101preview:VirtualNetworkRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:VirtualNetworkRule to guarantee forwards compatibility. */
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
-    pulumi.log.warn("getVirtualNetworkRule is deprecated: azure-native:sql/v20211101preview:VirtualNetworkRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:VirtualNetworkRule to guarantee forwards compatibility.")
+    pulumi.log.warn("getVirtualNetworkRule is deprecated: azure-native:sql/v20211101preview:VirtualNetworkRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:VirtualNetworkRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101preview:getVirtualNetworkRule", {
@@ -66,7 +66,7 @@ export interface GetVirtualNetworkRuleResult {
 /**
  * Gets a virtual network rule.
  */
-/** @deprecated azure-native:sql/v20211101preview:VirtualNetworkRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:VirtualNetworkRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101preview:VirtualNetworkRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:VirtualNetworkRule to guarantee forwards compatibility. */
 export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkRule(a, opts))
 }

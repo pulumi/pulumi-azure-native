@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * This method gets the data store/repository by name.
  */
 /** @deprecated Version 2016-06-01 will be removed in v2 of the provider.
-azure-native:hybriddata/v20160601:DataStore is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataStore to guarantee forwards compatibility. */
+azure-native:hybriddata/v20160601:DataStore is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:DataStore to guarantee forwards compatibility. */
 export function getDataStore(args: GetDataStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDataStoreResult> {
-    pulumi.log.warn("getDataStore is deprecated: Version 2016-06-01 will be removed in v2 of the provider.\nazure-native:hybriddata/v20160601:DataStore is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataStore to guarantee forwards compatibility.")
+    pulumi.log.warn("getDataStore is deprecated: Version 2016-06-01 will be removed in v2 of the provider.\nazure-native:hybriddata/v20160601:DataStore is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:DataStore to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybriddata/v20160601:getDataStore", {
@@ -79,7 +79,7 @@ export interface GetDataStoreResult {
  * This method gets the data store/repository by name.
  */
 /** @deprecated Version 2016-06-01 will be removed in v2 of the provider.
-azure-native:hybriddata/v20160601:DataStore is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataStore to guarantee forwards compatibility. */
+azure-native:hybriddata/v20160601:DataStore is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:DataStore to guarantee forwards compatibility. */
 export function getDataStoreOutput(args: GetDataStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataStoreResult> {
     return pulumi.output(args).apply((a: any) => getDataStore(a, opts))
 }

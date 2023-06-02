@@ -17,7 +17,7 @@ __all__ = [
     'get_rules_engine_output',
 ]
 
-warnings.warn("""azure-native:network/v20200401:RulesEngine is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210601:RulesEngine to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20200401:RulesEngine is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:RulesEngine to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRulesEngineResult:
@@ -107,7 +107,7 @@ def get_rules_engine(front_door_name: Optional[str] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
     """
-    pulumi.log.warn("""get_rules_engine is deprecated: azure-native:network/v20200401:RulesEngine is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210601:RulesEngine to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_rules_engine is deprecated: azure-native:network/v20200401:RulesEngine is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:RulesEngine to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['frontDoorName'] = front_door_name
     __args__['resourceGroupName'] = resource_group_name
@@ -136,5 +136,5 @@ def get_rules_engine_output(front_door_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
     """
-    pulumi.log.warn("""get_rules_engine is deprecated: azure-native:network/v20200401:RulesEngine is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210601:RulesEngine to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_rules_engine is deprecated: azure-native:network/v20200401:RulesEngine is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:RulesEngine to guarantee forwards compatibility.""")
     ...

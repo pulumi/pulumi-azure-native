@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Web.V20180201
 {
-    [Obsolete(@"azure-native:web/v20180201:WebAppSourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSourceControl to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:web/v20180201:WebAppSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppSourceControl to guarantee forwards compatibility.")]
     public static class GetWebAppSourceControl
     {
         /// <summary>

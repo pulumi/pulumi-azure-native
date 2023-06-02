@@ -116,11 +116,11 @@ class GuestAgentArgs:
         pulumi.set(self, "provisioning_action", value)
 
 
-warnings.warn("""azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class GuestAgent(pulumi.CustomResource):
-    warnings.warn("""azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -176,7 +176,7 @@ class GuestAgent(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""GuestAgent is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility.""")
+        pulumi.log.warn("""GuestAgent is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

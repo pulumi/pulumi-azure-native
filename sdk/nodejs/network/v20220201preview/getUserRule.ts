@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a user rule.
  */
-/** @deprecated azure-native:network/v20220201preview:UserRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:UserRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220201preview:UserRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:UserRule to guarantee forwards compatibility. */
 export function getUserRule(args: GetUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetUserRuleResult> {
-    pulumi.log.warn("getUserRule is deprecated: azure-native:network/v20220201preview:UserRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:UserRule to guarantee forwards compatibility.")
+    pulumi.log.warn("getUserRule is deprecated: azure-native:network/v20220201preview:UserRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:UserRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220201preview:getUserRule", {
@@ -112,7 +112,7 @@ export interface GetUserRuleResult {
 /**
  * Gets a user rule.
  */
-/** @deprecated azure-native:network/v20220201preview:UserRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:UserRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220201preview:UserRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:UserRule to guarantee forwards compatibility. */
 export function getUserRuleOutput(args: GetUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserRuleResult> {
     return pulumi.output(args).apply((a: any) => getUserRule(a, opts))
 }

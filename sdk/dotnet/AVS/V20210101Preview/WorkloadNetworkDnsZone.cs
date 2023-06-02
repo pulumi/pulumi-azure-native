@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
     /// <summary>
     /// NSX DNS Zone
     /// </summary>
-    [Obsolete(@"azure-native:avs/v20210101preview:WorkloadNetworkDnsZone is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkDnsZone to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:avs/v20210101preview:WorkloadNetworkDnsZone is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkDnsZone to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20210101preview:WorkloadNetworkDnsZone")]
     public partial class WorkloadNetworkDnsZone : global::Pulumi.CustomResource
     {

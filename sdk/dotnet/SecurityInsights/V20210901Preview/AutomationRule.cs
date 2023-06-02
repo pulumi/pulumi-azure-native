@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     /// <summary>
     /// Represents an automation rule.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20210901preview:AutomationRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AutomationRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20210901preview:AutomationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AutomationRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20210901preview:AutomationRule")]
     public partial class AutomationRule : global::Pulumi.CustomResource
     {

@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the table with the specified table name, under the specified account if it exists.
  */
-/** @deprecated azure-native:storage/v20210401:Table is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Table to guarantee forwards compatibility. */
+/** @deprecated azure-native:storage/v20210401:Table is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:Table to guarantee forwards compatibility. */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-    pulumi.log.warn("getTable is deprecated: azure-native:storage/v20210401:Table is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Table to guarantee forwards compatibility.")
+    pulumi.log.warn("getTable is deprecated: azure-native:storage/v20210401:Table is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:Table to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20210401:getTable", {
@@ -58,7 +58,7 @@ export interface GetTableResult {
 /**
  * Gets the table with the specified table name, under the specified account if it exists.
  */
-/** @deprecated azure-native:storage/v20210401:Table is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Table to guarantee forwards compatibility. */
+/** @deprecated azure-native:storage/v20210401:Table is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:Table to guarantee forwards compatibility. */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
     return pulumi.output(args).apply((a: any) => getTable(a, opts))
 }

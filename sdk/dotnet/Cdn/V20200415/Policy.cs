@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20200415
     /// Defines web application firewall policy for Azure CDN.
     /// </summary>
     [Obsolete(@"Version 2020-04-15 will be removed in v2 of the provider.
-azure-native:cdn/v20200415:Policy is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Policy to guarantee forwards compatibility.")]
+azure-native:cdn/v20200415:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Policy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20200415:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
     {

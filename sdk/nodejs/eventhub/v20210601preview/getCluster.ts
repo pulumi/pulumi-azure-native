@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the resource description of the specified Event Hubs Cluster.
  */
-/** @deprecated azure-native:eventhub/v20210601preview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:Cluster to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventhub/v20210601preview:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:Cluster to guarantee forwards compatibility. */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    pulumi.log.warn("getCluster is deprecated: azure-native:eventhub/v20210601preview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:Cluster to guarantee forwards compatibility.")
+    pulumi.log.warn("getCluster is deprecated: azure-native:eventhub/v20210601preview:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:Cluster to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20210601preview:getCluster", {
@@ -84,7 +84,7 @@ export interface GetClusterResult {
 /**
  * Gets the resource description of the specified Event Hubs Cluster.
  */
-/** @deprecated azure-native:eventhub/v20210601preview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:Cluster to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventhub/v20210601preview:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:Cluster to guarantee forwards compatibility. */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }

@@ -17,7 +17,7 @@ __all__ = [
     'get_restore_point_collection_output',
 ]
 
-warnings.warn("""azure-native:compute/v20210701:RestorePointCollection is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:RestorePointCollection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:compute/v20210701:RestorePointCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:RestorePointCollection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRestorePointCollectionResult:
@@ -155,7 +155,7 @@ def get_restore_point_collection(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str restore_point_collection_name: The name of the restore point collection.
     """
-    pulumi.log.warn("""get_restore_point_collection is deprecated: azure-native:compute/v20210701:RestorePointCollection is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:RestorePointCollection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_restore_point_collection is deprecated: azure-native:compute/v20210701:RestorePointCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:RestorePointCollection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -188,5 +188,5 @@ def get_restore_point_collection_output(expand: Optional[pulumi.Input[Optional[s
     :param str resource_group_name: The name of the resource group.
     :param str restore_point_collection_name: The name of the restore point collection.
     """
-    pulumi.log.warn("""get_restore_point_collection is deprecated: azure-native:compute/v20210701:RestorePointCollection is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:RestorePointCollection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_restore_point_collection is deprecated: azure-native:compute/v20210701:RestorePointCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:RestorePointCollection to guarantee forwards compatibility.""")
     ...

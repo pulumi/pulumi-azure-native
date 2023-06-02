@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a record set.
  */
-/** @deprecated azure-native:network/v20200101:PrivateRecordSet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200601:PrivateRecordSet to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20200101:PrivateRecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateRecordSet to guarantee forwards compatibility. */
 export function getPrivateRecordSet(args: GetPrivateRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateRecordSetResult> {
-    pulumi.log.warn("getPrivateRecordSet is deprecated: azure-native:network/v20200101:PrivateRecordSet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200601:PrivateRecordSet to guarantee forwards compatibility.")
+    pulumi.log.warn("getPrivateRecordSet is deprecated: azure-native:network/v20200101:PrivateRecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateRecordSet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200101:getPrivateRecordSet", {
@@ -114,7 +114,7 @@ export interface GetPrivateRecordSetResult {
 /**
  * Gets a record set.
  */
-/** @deprecated azure-native:network/v20200101:PrivateRecordSet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200601:PrivateRecordSet to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20200101:PrivateRecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateRecordSet to guarantee forwards compatibility. */
 export function getPrivateRecordSetOutput(args: GetPrivateRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateRecordSetResult> {
     return pulumi.output(args).apply((a: any) => getPrivateRecordSet(a, opts))
 }

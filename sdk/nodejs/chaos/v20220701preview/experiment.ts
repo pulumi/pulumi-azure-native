@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Model that represents a Experiment resource.
  *
- * @deprecated azure-native:chaos/v20220701preview:Experiment is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Experiment to guarantee forwards compatibility.
+ * @deprecated azure-native:chaos/v20220701preview:Experiment is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Experiment to guarantee forwards compatibility.
  */
 export class Experiment extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Experiment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Experiment {
-        pulumi.log.warn("Experiment is deprecated: azure-native:chaos/v20220701preview:Experiment is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Experiment to guarantee forwards compatibility.")
+        pulumi.log.warn("Experiment is deprecated: azure-native:chaos/v20220701preview:Experiment is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Experiment to guarantee forwards compatibility.")
         return new Experiment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,9 +76,9 @@ export class Experiment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:chaos/v20220701preview:Experiment is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Experiment to guarantee forwards compatibility. */
+    /** @deprecated azure-native:chaos/v20220701preview:Experiment is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Experiment to guarantee forwards compatibility. */
     constructor(name: string, args: ExperimentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Experiment is deprecated: azure-native:chaos/v20220701preview:Experiment is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Experiment to guarantee forwards compatibility.")
+        pulumi.log.warn("Experiment is deprecated: azure-native:chaos/v20220701preview:Experiment is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Experiment to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

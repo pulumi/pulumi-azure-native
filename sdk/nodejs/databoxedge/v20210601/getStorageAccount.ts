@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
  */
-/** @deprecated azure-native:databoxedge/v20210601:StorageAccount is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:StorageAccount to guarantee forwards compatibility. */
+/** @deprecated azure-native:databoxedge/v20210601:StorageAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:StorageAccount to guarantee forwards compatibility. */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
-    pulumi.log.warn("getStorageAccount is deprecated: azure-native:databoxedge/v20210601:StorageAccount is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:StorageAccount to guarantee forwards compatibility.")
+    pulumi.log.warn("getStorageAccount is deprecated: azure-native:databoxedge/v20210601:StorageAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:StorageAccount to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210601:getStorageAccount", {
@@ -85,7 +85,7 @@ export interface GetStorageAccountResult {
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
  */
-/** @deprecated azure-native:databoxedge/v20210601:StorageAccount is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:StorageAccount to guarantee forwards compatibility. */
+/** @deprecated azure-native:databoxedge/v20210601:StorageAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:StorageAccount to guarantee forwards compatibility. */
 export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountResult> {
     return pulumi.output(args).apply((a: any) => getStorageAccount(a, opts))
 }

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
     /// <summary>
     /// A SQL virtual machine.
     /// </summary>
-    [Obsolete(@"azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine")]
     public partial class SqlVirtualMachine : global::Pulumi.CustomResource
     {

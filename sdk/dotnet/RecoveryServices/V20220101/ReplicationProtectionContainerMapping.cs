@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101
     /// <summary>
     /// Protection container mapping object.
     /// </summary>
-    [Obsolete(@"azure-native:recoveryservices/v20220101:ReplicationProtectionContainerMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:recoveryservices/v20220101:ReplicationProtectionContainerMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20220101:ReplicationProtectionContainerMapping")]
     public partial class ReplicationProtectionContainerMapping : global::Pulumi.CustomResource
     {

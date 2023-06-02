@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20221201Preview
 {
-    [Obsolete(@"azure-native:databoxedge/v20221201preview:ArcAddon is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:ArcAddon to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:databoxedge/v20221201preview:ArcAddon is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:ArcAddon to guarantee forwards compatibility.")]
     public static class GetArcAddon
     {
         /// <summary>

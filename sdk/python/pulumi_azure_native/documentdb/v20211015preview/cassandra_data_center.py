@@ -84,11 +84,11 @@ class CassandraDataCenterArgs:
         pulumi.set(self, "properties", value)
 
 
-warnings.warn("""azure-native:documentdb/v20211015preview:CassandraDataCenter is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:CassandraDataCenter to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:documentdb/v20211015preview:CassandraDataCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:CassandraDataCenter to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class CassandraDataCenter(pulumi.CustomResource):
-    warnings.warn("""azure-native:documentdb/v20211015preview:CassandraDataCenter is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:CassandraDataCenter to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:documentdb/v20211015preview:CassandraDataCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:CassandraDataCenter to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -138,7 +138,7 @@ class CassandraDataCenter(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[pulumi.InputType['DataCenterResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""CassandraDataCenter is deprecated: azure-native:documentdb/v20211015preview:CassandraDataCenter is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:CassandraDataCenter to guarantee forwards compatibility.""")
+        pulumi.log.warn("""CassandraDataCenter is deprecated: azure-native:documentdb/v20211015preview:CassandraDataCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:CassandraDataCenter to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

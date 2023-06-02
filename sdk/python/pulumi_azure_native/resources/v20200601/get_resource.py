@@ -17,7 +17,7 @@ __all__ = [
     'get_resource_output',
 ]
 
-warnings.warn("""azure-native:resources/v20200601:Resource is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:Resource to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:resources/v20200601:Resource is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:Resource to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetResourceResult:
@@ -183,7 +183,7 @@ def get_resource(parent_resource_path: Optional[str] = None,
     :param str resource_provider_namespace: The namespace of the resource provider.
     :param str resource_type: The resource type of the resource.
     """
-    pulumi.log.warn("""get_resource is deprecated: azure-native:resources/v20200601:Resource is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:Resource to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_resource is deprecated: azure-native:resources/v20200601:Resource is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:Resource to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['parentResourcePath'] = parent_resource_path
     __args__['resourceGroupName'] = resource_group_name
@@ -224,5 +224,5 @@ def get_resource_output(parent_resource_path: Optional[pulumi.Input[str]] = None
     :param str resource_provider_namespace: The namespace of the resource provider.
     :param str resource_type: The resource type of the resource.
     """
-    pulumi.log.warn("""get_resource is deprecated: azure-native:resources/v20200601:Resource is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:Resource to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_resource is deprecated: azure-native:resources/v20200601:Resource is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:Resource to guarantee forwards compatibility.""")
     ...

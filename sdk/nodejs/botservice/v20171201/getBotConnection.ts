@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Get a Connection Setting registration for a Bot Service
  */
 /** @deprecated Version 2017-12-01 will be removed in v2 of the provider.
-azure-native:botservice/v20171201:BotConnection is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:BotConnection to guarantee forwards compatibility. */
+azure-native:botservice/v20171201:BotConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:botservice/v20220915:BotConnection to guarantee forwards compatibility. */
 export function getBotConnection(args: GetBotConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotConnectionResult> {
-    pulumi.log.warn("getBotConnection is deprecated: Version 2017-12-01 will be removed in v2 of the provider.\nazure-native:botservice/v20171201:BotConnection is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:BotConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getBotConnection is deprecated: Version 2017-12-01 will be removed in v2 of the provider.\nazure-native:botservice/v20171201:BotConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:botservice/v20220915:BotConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice/v20171201:getBotConnection", {
@@ -83,7 +83,7 @@ export interface GetBotConnectionResult {
  * Get a Connection Setting registration for a Bot Service
  */
 /** @deprecated Version 2017-12-01 will be removed in v2 of the provider.
-azure-native:botservice/v20171201:BotConnection is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:BotConnection to guarantee forwards compatibility. */
+azure-native:botservice/v20171201:BotConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:botservice/v20220915:BotConnection to guarantee forwards compatibility. */
 export function getBotConnectionOutput(args: GetBotConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotConnectionResult> {
     return pulumi.output(args).apply((a: any) => getBotConnection(a, opts))
 }

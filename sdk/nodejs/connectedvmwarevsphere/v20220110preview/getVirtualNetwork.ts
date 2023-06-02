@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Implements virtual network GET method.
  */
-/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VirtualNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VirtualNetwork to guarantee forwards compatibility. */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VirtualNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VirtualNetwork to guarantee forwards compatibility. */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
-    pulumi.log.warn("getVirtualNetwork is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VirtualNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VirtualNetwork to guarantee forwards compatibility.")
+    pulumi.log.warn("getVirtualNetwork is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VirtualNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VirtualNetwork to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220110preview:getVirtualNetwork", {
@@ -104,7 +104,7 @@ export interface GetVirtualNetworkResult {
 /**
  * Implements virtual network GET method.
  */
-/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VirtualNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VirtualNetwork to guarantee forwards compatibility. */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VirtualNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VirtualNetwork to guarantee forwards compatibility. */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))
 }

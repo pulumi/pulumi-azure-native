@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Azure Traffic Collector in a specified resource group
  */
-/** @deprecated azure-native:networkfunction/v20210901preview:AzureTrafficCollector is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20220801:AzureTrafficCollector to guarantee forwards compatibility. */
+/** @deprecated azure-native:networkfunction/v20210901preview:AzureTrafficCollector is being removed in the next major version of this provider. Upgrade to at least azure-native:networkfunction/v20220801:AzureTrafficCollector to guarantee forwards compatibility. */
 export function getAzureTrafficCollector(args: GetAzureTrafficCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureTrafficCollectorResult> {
-    pulumi.log.warn("getAzureTrafficCollector is deprecated: azure-native:networkfunction/v20210901preview:AzureTrafficCollector is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20220801:AzureTrafficCollector to guarantee forwards compatibility.")
+    pulumi.log.warn("getAzureTrafficCollector is deprecated: azure-native:networkfunction/v20210901preview:AzureTrafficCollector is being removed in the next major version of this provider. Upgrade to at least azure-native:networkfunction/v20220801:AzureTrafficCollector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkfunction/v20210901preview:getAzureTrafficCollector", {
@@ -80,7 +80,7 @@ export interface GetAzureTrafficCollectorResult {
 /**
  * Gets the specified Azure Traffic Collector in a specified resource group
  */
-/** @deprecated azure-native:networkfunction/v20210901preview:AzureTrafficCollector is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20220801:AzureTrafficCollector to guarantee forwards compatibility. */
+/** @deprecated azure-native:networkfunction/v20210901preview:AzureTrafficCollector is being removed in the next major version of this provider. Upgrade to at least azure-native:networkfunction/v20220801:AzureTrafficCollector to guarantee forwards compatibility. */
 export function getAzureTrafficCollectorOutput(args: GetAzureTrafficCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureTrafficCollectorResult> {
     return pulumi.output(args).apply((a: any) => getAzureTrafficCollector(a, opts))
 }

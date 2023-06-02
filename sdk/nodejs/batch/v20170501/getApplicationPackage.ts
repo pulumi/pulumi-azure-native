@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Gets information about the specified application package.
  */
 /** @deprecated Version 2017-05-01 will be removed in v2 of the provider.
-azure-native:batch/v20170501:ApplicationPackage is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20170901:ApplicationPackage to guarantee forwards compatibility. */
+azure-native:batch/v20170501:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20170901:ApplicationPackage to guarantee forwards compatibility. */
 export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationPackageResult> {
-    pulumi.log.warn("getApplicationPackage is deprecated: Version 2017-05-01 will be removed in v2 of the provider.\nazure-native:batch/v20170501:ApplicationPackage is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20170901:ApplicationPackage to guarantee forwards compatibility.")
+    pulumi.log.warn("getApplicationPackage is deprecated: Version 2017-05-01 will be removed in v2 of the provider.\nazure-native:batch/v20170501:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20170901:ApplicationPackage to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:batch/v20170501:getApplicationPackage", {
@@ -77,7 +77,7 @@ export interface GetApplicationPackageResult {
  * Gets information about the specified application package.
  */
 /** @deprecated Version 2017-05-01 will be removed in v2 of the provider.
-azure-native:batch/v20170501:ApplicationPackage is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20170901:ApplicationPackage to guarantee forwards compatibility. */
+azure-native:batch/v20170501:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20170901:ApplicationPackage to guarantee forwards compatibility. */
 export function getApplicationPackageOutput(args: GetApplicationPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationPackageResult> {
     return pulumi.output(args).apply((a: any) => getApplicationPackage(a, opts))
 }

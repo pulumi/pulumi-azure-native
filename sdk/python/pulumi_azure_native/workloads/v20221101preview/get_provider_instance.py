@@ -17,7 +17,7 @@ __all__ = [
     'get_provider_instance_output',
 ]
 
-warnings.warn("""azure-native:workloads/v20221101preview:ProviderInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:ProviderInstance to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:workloads/v20221101preview:ProviderInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:ProviderInstance to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetProviderInstanceResult:
@@ -143,7 +143,7 @@ def get_provider_instance(monitor_name: Optional[str] = None,
     :param str provider_instance_name: Name of the provider instance.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_provider_instance is deprecated: azure-native:workloads/v20221101preview:ProviderInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:ProviderInstance to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_provider_instance is deprecated: azure-native:workloads/v20221101preview:ProviderInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:ProviderInstance to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['monitorName'] = monitor_name
     __args__['providerInstanceName'] = provider_instance_name
@@ -175,5 +175,5 @@ def get_provider_instance_output(monitor_name: Optional[pulumi.Input[str]] = Non
     :param str provider_instance_name: Name of the provider instance.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_provider_instance is deprecated: azure-native:workloads/v20221101preview:ProviderInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:ProviderInstance to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_provider_instance is deprecated: azure-native:workloads/v20221101preview:ProviderInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:ProviderInstance to guarantee forwards compatibility.""")
     ...

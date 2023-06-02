@@ -17,7 +17,7 @@ __all__ = [
     'get_cloud_service_output',
 ]
 
-warnings.warn("""azure-native:compute/v20201001preview:CloudService is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220904:CloudService to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:compute/v20201001preview:CloudService is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220904:CloudService to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCloudServiceResult:
@@ -117,7 +117,7 @@ def get_cloud_service(cloud_service_name: Optional[str] = None,
     :param str cloud_service_name: Name of the cloud service.
     :param str resource_group_name: Name of the resource group.
     """
-    pulumi.log.warn("""get_cloud_service is deprecated: azure-native:compute/v20201001preview:CloudService is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220904:CloudService to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_cloud_service is deprecated: azure-native:compute/v20201001preview:CloudService is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220904:CloudService to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['cloudServiceName'] = cloud_service_name
     __args__['resourceGroupName'] = resource_group_name
@@ -144,5 +144,5 @@ def get_cloud_service_output(cloud_service_name: Optional[pulumi.Input[str]] = N
     :param str cloud_service_name: Name of the cloud service.
     :param str resource_group_name: Name of the resource group.
     """
-    pulumi.log.warn("""get_cloud_service is deprecated: azure-native:compute/v20201001preview:CloudService is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220904:CloudService to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_cloud_service is deprecated: azure-native:compute/v20201001preview:CloudService is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220904:CloudService to guarantee forwards compatibility.""")
     ...

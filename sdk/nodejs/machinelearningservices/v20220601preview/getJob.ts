@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Azure Resource Manager resource envelope.
  */
-/** @deprecated azure-native:machinelearningservices/v20220601preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Job to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20220601preview:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Job to guarantee forwards compatibility. */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    pulumi.log.warn("getJob is deprecated: azure-native:machinelearningservices/v20220601preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Job to guarantee forwards compatibility.")
+    pulumi.log.warn("getJob is deprecated: azure-native:machinelearningservices/v20220601preview:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Job to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220601preview:getJob", {
@@ -65,7 +65,7 @@ export interface GetJobResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-/** @deprecated azure-native:machinelearningservices/v20220601preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Job to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20220601preview:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Job to guarantee forwards compatibility. */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))
 }

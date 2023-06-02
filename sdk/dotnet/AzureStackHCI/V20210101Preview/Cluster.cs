@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210101Preview
     /// <summary>
     /// Cluster details.
     /// </summary>
-    [Obsolete(@"azure-native:azurestackhci/v20210101preview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20220101:Cluster to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:azurestackhci/v20210101preview:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20220101:Cluster to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurestackhci/v20210101preview:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {

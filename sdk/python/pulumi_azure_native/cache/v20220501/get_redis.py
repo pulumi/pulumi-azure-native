@@ -17,7 +17,7 @@ __all__ = [
     'get_redis_output',
 ]
 
-warnings.warn("""azure-native:cache/v20220501:Redis is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:Redis to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:cache/v20220501:Redis is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:Redis to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRedisResult:
@@ -369,7 +369,7 @@ def get_redis(name: Optional[str] = None,
     :param str name: The name of the Redis cache.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_redis is deprecated: azure-native:cache/v20220501:Redis is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:Redis to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_redis is deprecated: azure-native:cache/v20220501:Redis is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:Redis to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -417,5 +417,5 @@ def get_redis_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Redis cache.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_redis is deprecated: azure-native:cache/v20220501:Redis is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:Redis to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_redis is deprecated: azure-native:cache/v20220501:Redis is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:Redis to guarantee forwards compatibility.""")
     ...

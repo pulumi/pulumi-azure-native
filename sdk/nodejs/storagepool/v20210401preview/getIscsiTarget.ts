@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get an iSCSI Target.
  */
-/** @deprecated azure-native:storagepool/v20210401preview:IscsiTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagepool/v20210801:IscsiTarget to guarantee forwards compatibility. */
+/** @deprecated azure-native:storagepool/v20210401preview:IscsiTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagepool/v20210801:IscsiTarget to guarantee forwards compatibility. */
 export function getIscsiTarget(args: GetIscsiTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiTargetResult> {
-    pulumi.log.warn("getIscsiTarget is deprecated: azure-native:storagepool/v20210401preview:IscsiTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagepool/v20210801:IscsiTarget to guarantee forwards compatibility.")
+    pulumi.log.warn("getIscsiTarget is deprecated: azure-native:storagepool/v20210401preview:IscsiTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagepool/v20210801:IscsiTarget to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagepool/v20210401preview:getIscsiTarget", {
@@ -93,7 +93,7 @@ export interface GetIscsiTargetResult {
 /**
  * Get an iSCSI Target.
  */
-/** @deprecated azure-native:storagepool/v20210401preview:IscsiTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagepool/v20210801:IscsiTarget to guarantee forwards compatibility. */
+/** @deprecated azure-native:storagepool/v20210401preview:IscsiTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagepool/v20210801:IscsiTarget to guarantee forwards compatibility. */
 export function getIscsiTargetOutput(args: GetIscsiTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiTargetResult> {
     return pulumi.output(args).apply((a: any) => getIscsiTarget(a, opts))
 }

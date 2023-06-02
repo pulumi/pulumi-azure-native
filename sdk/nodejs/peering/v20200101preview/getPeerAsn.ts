@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the peer ASN with the specified name under the given subscription.
  */
 /** @deprecated Version 2020-01-01-preview will be removed in v2 of the provider.
-azure-native:peering/v20200101preview:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility. */
+azure-native:peering/v20200101preview:PeerAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility. */
 export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetPeerAsnResult> {
-    pulumi.log.warn("getPeerAsn is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.\nazure-native:peering/v20200101preview:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility.")
+    pulumi.log.warn("getPeerAsn is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.\nazure-native:peering/v20200101preview:PeerAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering/v20200101preview:getPeerAsn", {
@@ -69,7 +69,7 @@ export interface GetPeerAsnResult {
  * Gets the peer ASN with the specified name under the given subscription.
  */
 /** @deprecated Version 2020-01-01-preview will be removed in v2 of the provider.
-azure-native:peering/v20200101preview:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility. */
+azure-native:peering/v20200101preview:PeerAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility. */
 export function getPeerAsnOutput(args: GetPeerAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeerAsnResult> {
     return pulumi.output(args).apply((a: any) => getPeerAsn(a, opts))
 }

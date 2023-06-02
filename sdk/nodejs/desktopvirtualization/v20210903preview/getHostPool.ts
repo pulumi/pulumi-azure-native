@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a host pool.
  */
-/** @deprecated azure-native:desktopvirtualization/v20210903preview:HostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20220401preview:HostPool to guarantee forwards compatibility. */
+/** @deprecated azure-native:desktopvirtualization/v20210903preview:HostPool is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20220401preview:HostPool to guarantee forwards compatibility. */
 export function getHostPool(args: GetHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetHostPoolResult> {
-    pulumi.log.warn("getHostPool is deprecated: azure-native:desktopvirtualization/v20210903preview:HostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20220401preview:HostPool to guarantee forwards compatibility.")
+    pulumi.log.warn("getHostPool is deprecated: azure-native:desktopvirtualization/v20210903preview:HostPool is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20220401preview:HostPool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20210903preview:getHostPool", {
@@ -167,7 +167,7 @@ export interface GetHostPoolResult {
 /**
  * Get a host pool.
  */
-/** @deprecated azure-native:desktopvirtualization/v20210903preview:HostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20220401preview:HostPool to guarantee forwards compatibility. */
+/** @deprecated azure-native:desktopvirtualization/v20210903preview:HostPool is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20220401preview:HostPool to guarantee forwards compatibility. */
 export function getHostPoolOutput(args: GetHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolResult> {
     return pulumi.output(args).apply((a: any) => getHostPool(a, opts))
 }

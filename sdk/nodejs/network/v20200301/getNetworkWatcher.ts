@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified network watcher by resource group.
  */
-/** @deprecated azure-native:network/v20200301:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220501:NetworkWatcher to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20200301:NetworkWatcher is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220501:NetworkWatcher to guarantee forwards compatibility. */
 export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkWatcherResult> {
-    pulumi.log.warn("getNetworkWatcher is deprecated: azure-native:network/v20200301:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220501:NetworkWatcher to guarantee forwards compatibility.")
+    pulumi.log.warn("getNetworkWatcher is deprecated: azure-native:network/v20200301:NetworkWatcher is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220501:NetworkWatcher to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200301:getNetworkWatcher", {
@@ -65,7 +65,7 @@ export interface GetNetworkWatcherResult {
 /**
  * Gets the specified network watcher by resource group.
  */
-/** @deprecated azure-native:network/v20200301:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220501:NetworkWatcher to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20200301:NetworkWatcher is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220501:NetworkWatcher to guarantee forwards compatibility. */
 export function getNetworkWatcherOutput(args: GetNetworkWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkWatcherResult> {
     return pulumi.output(args).apply((a: any) => getNetworkWatcher(a, opts))
 }

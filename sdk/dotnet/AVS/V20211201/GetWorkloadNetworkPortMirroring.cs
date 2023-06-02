@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AVS.V20211201
 {
-    [Obsolete(@"azure-native:avs/v20211201:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:avs/v20211201:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility.")]
     public static class GetWorkloadNetworkPortMirroring
     {
         /// <summary>

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
     ///     Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
     ///     By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
     /// </summary>
-    [Obsolete(@"azure-native:databoxedge/v20210201:KubernetesRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:databoxedge/v20210201:KubernetesRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20210201:KubernetesRole")]
     public partial class KubernetesRole : global::Pulumi.CustomResource
     {

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a DataSet in a share
  */
-/** @deprecated azure-native:datashare/v20200901:BlobFolderDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobFolderDataSet to guarantee forwards compatibility. */
+/** @deprecated azure-native:datashare/v20200901:BlobFolderDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:BlobFolderDataSet to guarantee forwards compatibility. */
 export function getBlobFolderDataSet(args: GetBlobFolderDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobFolderDataSetResult> {
-    pulumi.log.warn("getBlobFolderDataSet is deprecated: azure-native:datashare/v20200901:BlobFolderDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobFolderDataSet to guarantee forwards compatibility.")
+    pulumi.log.warn("getBlobFolderDataSet is deprecated: azure-native:datashare/v20200901:BlobFolderDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:BlobFolderDataSet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20200901:getBlobFolderDataSet", {
@@ -95,7 +95,7 @@ export interface GetBlobFolderDataSetResult {
 /**
  * Get a DataSet in a share
  */
-/** @deprecated azure-native:datashare/v20200901:BlobFolderDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobFolderDataSet to guarantee forwards compatibility. */
+/** @deprecated azure-native:datashare/v20200901:BlobFolderDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:BlobFolderDataSet to guarantee forwards compatibility. */
 export function getBlobFolderDataSetOutput(args: GetBlobFolderDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobFolderDataSetResult> {
     return pulumi.output(args).apply((a: any) => getBlobFolderDataSet(a, opts))
 }

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Implements virtual machine template GET method.
  */
-/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachineTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachineTemplate to guarantee forwards compatibility. */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachineTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachineTemplate to guarantee forwards compatibility. */
 export function getVirtualMachineTemplate(args: GetVirtualMachineTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineTemplateResult> {
-    pulumi.log.warn("getVirtualMachineTemplate is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachineTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachineTemplate to guarantee forwards compatibility.")
+    pulumi.log.warn("getVirtualMachineTemplate is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachineTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachineTemplate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220110preview:getVirtualMachineTemplate", {
@@ -150,7 +150,7 @@ export interface GetVirtualMachineTemplateResult {
 /**
  * Implements virtual machine template GET method.
  */
-/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachineTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachineTemplate to guarantee forwards compatibility. */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachineTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachineTemplate to guarantee forwards compatibility. */
 export function getVirtualMachineTemplateOutput(args: GetVirtualMachineTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineTemplateResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineTemplate(a, opts))
 }

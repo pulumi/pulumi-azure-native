@@ -17,7 +17,7 @@ __all__ = [
     'get_private_endpoint_connection_output',
 ]
 
-warnings.warn("""azure-native:containerregistry/v20221201:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:containerregistry/v20221201:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
@@ -131,7 +131,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:containerregistry/v20221201:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:containerregistry/v20221201:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['registryName'] = registry_name
@@ -162,5 +162,5 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:containerregistry/v20221201:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:containerregistry/v20221201:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

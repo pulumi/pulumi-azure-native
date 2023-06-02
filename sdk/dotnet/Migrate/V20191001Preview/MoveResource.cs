@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview
     /// <summary>
     /// Defines the move resource.
     /// </summary>
-    [Obsolete(@"azure-native:migrate/v20191001preview:MoveResource is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20220801:MoveResource to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:migrate/v20191001preview:MoveResource is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20220801:MoveResource to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:migrate/v20191001preview:MoveResource")]
     public partial class MoveResource : global::Pulumi.CustomResource
     {

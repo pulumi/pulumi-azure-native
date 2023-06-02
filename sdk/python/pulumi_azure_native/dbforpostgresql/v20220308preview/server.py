@@ -375,11 +375,11 @@ class ServerArgs:
         pulumi.set(self, "version", value)
 
 
-warnings.warn("""azure-native:dbforpostgresql/v20220308preview:Server is being removed in the next major version of this provider. Please upgrade to azure-native:dbforpostgresql/v20221201:Server to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:dbforpostgresql/v20220308preview:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221201:Server to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Server(pulumi.CustomResource):
-    warnings.warn("""azure-native:dbforpostgresql/v20220308preview:Server is being removed in the next major version of this provider. Please upgrade to azure-native:dbforpostgresql/v20221201:Server to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:dbforpostgresql/v20220308preview:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221201:Server to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -483,7 +483,7 @@ class Server(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Server is deprecated: azure-native:dbforpostgresql/v20220308preview:Server is being removed in the next major version of this provider. Please upgrade to azure-native:dbforpostgresql/v20221201:Server to guarantee forwards compatibility.""")
+        pulumi.log.warn("""Server is deprecated: azure-native:dbforpostgresql/v20220308preview:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221201:Server to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a jobs credential.
  */
-/** @deprecated azure-native:sql/v20170301preview:JobCredential is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:JobCredential to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20170301preview:JobCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:JobCredential to guarantee forwards compatibility. */
 export function getJobCredential(args: GetJobCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCredentialResult> {
-    pulumi.log.warn("getJobCredential is deprecated: azure-native:sql/v20170301preview:JobCredential is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:JobCredential to guarantee forwards compatibility.")
+    pulumi.log.warn("getJobCredential is deprecated: azure-native:sql/v20170301preview:JobCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:JobCredential to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20170301preview:getJobCredential", {
@@ -63,7 +63,7 @@ export interface GetJobCredentialResult {
 /**
  * Gets a jobs credential.
  */
-/** @deprecated azure-native:sql/v20170301preview:JobCredential is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:JobCredential to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20170301preview:JobCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:JobCredential to guarantee forwards compatibility. */
 export function getJobCredentialOutput(args: GetJobCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobCredentialResult> {
     return pulumi.output(args).apply((a: any) => getJobCredential(a, opts))
 }

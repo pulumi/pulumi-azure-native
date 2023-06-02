@@ -213,11 +213,11 @@ class BatchAccountArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:batch/v20220601:BatchAccount is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20221001:BatchAccount to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:batch/v20220601:BatchAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:BatchAccount to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class BatchAccount(pulumi.CustomResource):
-    warnings.warn("""azure-native:batch/v20220601:BatchAccount is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20221001:BatchAccount to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:batch/v20220601:BatchAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:BatchAccount to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -291,7 +291,7 @@ class BatchAccount(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""BatchAccount is deprecated: azure-native:batch/v20220601:BatchAccount is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20221001:BatchAccount to guarantee forwards compatibility.""")
+        pulumi.log.warn("""BatchAccount is deprecated: azure-native:batch/v20220601:BatchAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:BatchAccount to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

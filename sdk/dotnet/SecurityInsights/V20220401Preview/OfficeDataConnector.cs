@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
     /// <summary>
     /// Represents office data connector.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20220401preview:OfficeDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:OfficeDataConnector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20220401preview:OfficeDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:OfficeDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20220401preview:OfficeDataConnector")]
     public partial class OfficeDataConnector : global::Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
     /// <summary>
     /// Description of a namespace authorization rule.
     /// </summary>
-    [Obsolete(@"azure-native:servicebus/v20210101preview:TopicAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20220101preview:TopicAuthorizationRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:servicebus/v20210101preview:TopicAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:TopicAuthorizationRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicebus/v20210101preview:TopicAuthorizationRule")]
     public partial class TopicAuthorizationRule : global::Pulumi.CustomResource
     {

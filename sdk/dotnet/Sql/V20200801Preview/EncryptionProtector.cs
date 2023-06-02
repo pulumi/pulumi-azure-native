@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
     /// <summary>
     /// The server encryption protector.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20200801preview:EncryptionProtector is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:EncryptionProtector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20200801preview:EncryptionProtector is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:EncryptionProtector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20200801preview:EncryptionProtector")]
     public partial class EncryptionProtector : global::Pulumi.CustomResource
     {

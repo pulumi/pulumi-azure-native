@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
     /// <summary>
     /// The top level data export resource container.
     /// </summary>
-    [Obsolete(@"azure-native:operationalinsights/v20200301preview:DataExport is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:operationalinsights/v20200301preview:DataExport is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:operationalinsights/v20200301preview:DataExport")]
     public partial class DataExport : global::Pulumi.CustomResource
     {

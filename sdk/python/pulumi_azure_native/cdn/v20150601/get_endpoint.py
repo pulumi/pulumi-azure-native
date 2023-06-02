@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2015-06-01 will be removed in v2 of the provider.
-azure-native:cdn/v20150601:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20160402:Endpoint to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:cdn/v20150601:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20160402:Endpoint to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetEndpointResult:
@@ -241,7 +241,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
     pulumi.log.warn("""get_endpoint is deprecated: Version 2015-06-01 will be removed in v2 of the provider.
-azure-native:cdn/v20150601:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20160402:Endpoint to guarantee forwards compatibility.""")
+azure-native:cdn/v20150601:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20160402:Endpoint to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['profileName'] = profile_name
@@ -282,5 +282,5 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
     pulumi.log.warn("""get_endpoint is deprecated: Version 2015-06-01 will be removed in v2 of the provider.
-azure-native:cdn/v20150601:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20160402:Endpoint to guarantee forwards compatibility.""")
+azure-native:cdn/v20150601:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20160402:Endpoint to guarantee forwards compatibility.""")
     ...

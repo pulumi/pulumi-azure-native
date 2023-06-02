@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a single workbook by its resourceName.
  */
-/** @deprecated azure-native:insights/v20180617preview:Workbook is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20210308:Workbook to guarantee forwards compatibility. */
+/** @deprecated azure-native:insights/v20180617preview:Workbook is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210308:Workbook to guarantee forwards compatibility. */
 export function getWorkbook(args: GetWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookResult> {
-    pulumi.log.warn("getWorkbook is deprecated: azure-native:insights/v20180617preview:Workbook is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20210308:Workbook to guarantee forwards compatibility.")
+    pulumi.log.warn("getWorkbook is deprecated: azure-native:insights/v20180617preview:Workbook is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210308:Workbook to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20180617preview:getWorkbook", {
@@ -89,7 +89,7 @@ export interface GetWorkbookResult {
 /**
  * Get a single workbook by its resourceName.
  */
-/** @deprecated azure-native:insights/v20180617preview:Workbook is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20210308:Workbook to guarantee forwards compatibility. */
+/** @deprecated azure-native:insights/v20180617preview:Workbook is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210308:Workbook to guarantee forwards compatibility. */
 export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookResult> {
     return pulumi.output(args).apply((a: any) => getWorkbook(a, opts))
 }

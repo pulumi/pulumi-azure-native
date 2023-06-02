@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a virtual network the app (or deployment slot) is connected to by name.
  */
-/** @deprecated azure-native:web/v20190801:WebAppVnetConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppVnetConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20190801:WebAppVnetConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppVnetConnection to guarantee forwards compatibility. */
 export function getWebAppVnetConnection(args: GetWebAppVnetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionResult> {
-    pulumi.log.warn("getWebAppVnetConnection is deprecated: azure-native:web/v20190801:WebAppVnetConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppVnetConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getWebAppVnetConnection is deprecated: azure-native:web/v20190801:WebAppVnetConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppVnetConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20190801:getWebAppVnetConnection", {
@@ -90,7 +90,7 @@ export interface GetWebAppVnetConnectionResult {
 /**
  * Gets a virtual network the app (or deployment slot) is connected to by name.
  */
-/** @deprecated azure-native:web/v20190801:WebAppVnetConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppVnetConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20190801:WebAppVnetConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppVnetConnection to guarantee forwards compatibility. */
 export function getWebAppVnetConnectionOutput(args: GetWebAppVnetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppVnetConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppVnetConnection(a, opts))
 }

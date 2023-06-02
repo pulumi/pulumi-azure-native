@@ -131,11 +131,11 @@ class TemplateSpecArgs:
         pulumi.set(self, "template_spec_name", value)
 
 
-warnings.warn("""azure-native:resources/v20210301preview:TemplateSpec is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:resources/v20210301preview:TemplateSpec is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class TemplateSpec(pulumi.CustomResource):
-    warnings.warn("""azure-native:resources/v20210301preview:TemplateSpec is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:resources/v20210301preview:TemplateSpec is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -194,7 +194,7 @@ class TemplateSpec(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_spec_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""TemplateSpec is deprecated: azure-native:resources/v20210301preview:TemplateSpec is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility.""")
+        pulumi.log.warn("""TemplateSpec is deprecated: azure-native:resources/v20210301preview:TemplateSpec is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

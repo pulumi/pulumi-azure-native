@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * Resource information with extended details.
  *
  * @deprecated Version 2018-02-14 will be removed in v2 of the provider.
-azure-native:keyvault/v20180214:Vault is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.
+azure-native:keyvault/v20180214:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.
  */
 export class Vault extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class Vault extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Vault {
-        pulumi.log.warn("Vault is deprecated: Version 2018-02-14 will be removed in v2 of the provider.\nazure-native:keyvault/v20180214:Vault is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.")
+        pulumi.log.warn("Vault is deprecated: Version 2018-02-14 will be removed in v2 of the provider.\nazure-native:keyvault/v20180214:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.")
         return new Vault(name, undefined as any, { ...opts, id: id });
     }
 
@@ -70,9 +70,9 @@ export class Vault extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2018-02-14 will be removed in v2 of the provider.
-azure-native:keyvault/v20180214:Vault is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility. */
+azure-native:keyvault/v20180214:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility. */
     constructor(name: string, args: VaultArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Vault is deprecated: Version 2018-02-14 will be removed in v2 of the provider.\nazure-native:keyvault/v20180214:Vault is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.")
+        pulumi.log.warn("Vault is deprecated: Version 2018-02-14 will be removed in v2 of the provider.\nazure-native:keyvault/v20180214:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     /// <summary>
     /// Represents AATP (Azure Advanced Threat Protection) data connector.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20190101preview:AATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:AATPDataConnector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20190101preview:AATPDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AATPDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:AATPDataConnector")]
     public partial class AATPDataConnector : global::Pulumi.CustomResource
     {

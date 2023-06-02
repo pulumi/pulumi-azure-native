@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Represents Amazon Web Services CloudTrail data connector.
  *
- * @deprecated azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector to guarantee forwards compatibility.
+ * @deprecated azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector to guarantee forwards compatibility.
  */
 export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AwsCloudTrailDataConnector {
-        pulumi.log.warn("AwsCloudTrailDataConnector is deprecated: azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector to guarantee forwards compatibility.")
+        pulumi.log.warn("AwsCloudTrailDataConnector is deprecated: azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector to guarantee forwards compatibility.")
         return new AwsCloudTrailDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,9 +73,9 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector to guarantee forwards compatibility. */
+    /** @deprecated azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: AwsCloudTrailDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("AwsCloudTrailDataConnector is deprecated: azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector to guarantee forwards compatibility.")
+        pulumi.log.warn("AwsCloudTrailDataConnector is deprecated: azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the Issue for an API specified by its identifier.
  */
-/** @deprecated azure-native:apimanagement/v20210101preview:ApiIssue is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiIssue to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20210101preview:ApiIssue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiIssue to guarantee forwards compatibility. */
 export function getApiIssue(args: GetApiIssueArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueResult> {
-    pulumi.log.warn("getApiIssue is deprecated: azure-native:apimanagement/v20210101preview:ApiIssue is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiIssue to guarantee forwards compatibility.")
+    pulumi.log.warn("getApiIssue is deprecated: azure-native:apimanagement/v20210101preview:ApiIssue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiIssue to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210101preview:getApiIssue", {
@@ -88,7 +88,7 @@ export interface GetApiIssueResult {
 /**
  * Gets the details of the Issue for an API specified by its identifier.
  */
-/** @deprecated azure-native:apimanagement/v20210101preview:ApiIssue is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiIssue to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20210101preview:ApiIssue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiIssue to guarantee forwards compatibility. */
 export function getApiIssueOutput(args: GetApiIssueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueResult> {
     return pulumi.output(args).apply((a: any) => getApiIssue(a, opts))
 }

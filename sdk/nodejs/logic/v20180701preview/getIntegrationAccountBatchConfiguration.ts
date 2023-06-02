@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a batch configuration for an integration account.
  */
-/** @deprecated azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountBatchConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountBatchConfiguration to guarantee forwards compatibility. */
 export function getIntegrationAccountBatchConfiguration(args: GetIntegrationAccountBatchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountBatchConfigurationResult> {
-    pulumi.log.warn("getIntegrationAccountBatchConfiguration is deprecated: azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountBatchConfiguration to guarantee forwards compatibility.")
+    pulumi.log.warn("getIntegrationAccountBatchConfiguration is deprecated: azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountBatchConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20180701preview:getIntegrationAccountBatchConfiguration", {
@@ -69,7 +69,7 @@ export interface GetIntegrationAccountBatchConfigurationResult {
 /**
  * Get a batch configuration for an integration account.
  */
-/** @deprecated azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountBatchConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountBatchConfiguration to guarantee forwards compatibility. */
 export function getIntegrationAccountBatchConfigurationOutput(args: GetIntegrationAccountBatchConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountBatchConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccountBatchConfiguration(a, opts))
 }

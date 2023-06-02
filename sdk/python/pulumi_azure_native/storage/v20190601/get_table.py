@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-06-01 will be removed in v2 of the provider.
-azure-native:storage/v20190601:Table is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Table to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:storage/v20190601:Table is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:Table to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetTableResult:
@@ -96,7 +96,7 @@ def get_table(account_name: Optional[str] = None,
     :param str table_name: A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
     """
     pulumi.log.warn("""get_table is deprecated: Version 2019-06-01 will be removed in v2 of the provider.
-azure-native:storage/v20190601:Table is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Table to guarantee forwards compatibility.""")
+azure-native:storage/v20190601:Table is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:Table to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -125,5 +125,5 @@ def get_table_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str table_name: A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
     """
     pulumi.log.warn("""get_table is deprecated: Version 2019-06-01 will be removed in v2 of the provider.
-azure-native:storage/v20190601:Table is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Table to guarantee forwards compatibility.""")
+azure-native:storage/v20190601:Table is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:Table to guarantee forwards compatibility.""")
     ...

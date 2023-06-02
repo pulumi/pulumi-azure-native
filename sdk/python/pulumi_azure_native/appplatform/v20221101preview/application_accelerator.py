@@ -83,11 +83,11 @@ class ApplicationAcceleratorArgs:
         pulumi.set(self, "sku", value)
 
 
-warnings.warn("""azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ApplicationAccelerator(pulumi.CustomResource):
-    warnings.warn("""azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -137,7 +137,7 @@ class ApplicationAccelerator(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApplicationAccelerator is deprecated: azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ApplicationAccelerator is deprecated: azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:VirtualNetworkPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20180401:VirtualNetworkPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualNetworkPeeringResult:
@@ -181,7 +181,7 @@ def get_virtual_network_peering(resource_group_name: Optional[str] = None,
     :param str virtual_network_peering_name: The name of the virtual network peering.
     """
     pulumi.log.warn("""get_virtual_network_peering is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:VirtualNetworkPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility.""")
+azure-native:network/v20180401:VirtualNetworkPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkName'] = virtual_network_name
@@ -217,5 +217,5 @@ def get_virtual_network_peering_output(resource_group_name: Optional[pulumi.Inpu
     :param str virtual_network_peering_name: The name of the virtual network peering.
     """
     pulumi.log.warn("""get_virtual_network_peering is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:VirtualNetworkPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility.""")
+azure-native:network/v20180401:VirtualNetworkPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility.""")
     ...

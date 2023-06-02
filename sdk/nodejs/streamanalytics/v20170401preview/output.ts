@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
  *
- * @deprecated azure-native:streamanalytics/v20170401preview:Output is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.
+ * @deprecated azure-native:streamanalytics/v20170401preview:Output is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.
  */
 export class Output extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Output extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Output {
-        pulumi.log.warn("Output is deprecated: azure-native:streamanalytics/v20170401preview:Output is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.")
+        pulumi.log.warn("Output is deprecated: azure-native:streamanalytics/v20170401preview:Output is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.")
         return new Output(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,9 +77,9 @@ export class Output extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:streamanalytics/v20170401preview:Output is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility. */
+    /** @deprecated azure-native:streamanalytics/v20170401preview:Output is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility. */
     constructor(name: string, args: OutputArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Output is deprecated: azure-native:streamanalytics/v20170401preview:Output is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.")
+        pulumi.log.warn("Output is deprecated: azure-native:streamanalytics/v20170401preview:Output is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

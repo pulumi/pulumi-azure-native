@@ -103,12 +103,12 @@ class PeerAsnArgs:
 
 
 warnings.warn("""Version 2020-04-01 will be removed in v2 of the provider.
-azure-native:peering/v20200401:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:peering/v20200401:PeerAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class PeerAsn(pulumi.CustomResource):
     warnings.warn("""Version 2020-04-01 will be removed in v2 of the provider.
-azure-native:peering/v20200401:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:peering/v20200401:PeerAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -162,7 +162,7 @@ azure-native:peering/v20200401:PeerAsn is being removed in the next major versio
                  validation_state: Optional[pulumi.Input[Union[str, 'ValidationState']]] = None,
                  __props__=None):
         pulumi.log.warn("""PeerAsn is deprecated: Version 2020-04-01 will be removed in v2 of the provider.
-azure-native:peering/v20200401:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility.""")
+azure-native:peering/v20200401:PeerAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

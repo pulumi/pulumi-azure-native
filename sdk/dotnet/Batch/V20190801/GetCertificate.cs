@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20190801
 {
     [Obsolete(@"Version 2019-08-01 will be removed in v2 of the provider.
-azure-native:batch/v20190801:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20220601:Certificate to guarantee forwards compatibility.")]
+azure-native:batch/v20190801:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20220601:Certificate to guarantee forwards compatibility.")]
     public static class GetCertificate
     {
         /// <summary>

@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get tag associated with the API.
  */
-/** @deprecated azure-native:apimanagement/v20180101:TagDescription is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20180601preview:TagDescription to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20180101:TagDescription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20180601preview:TagDescription to guarantee forwards compatibility. */
 export function getTagDescription(args: GetTagDescriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTagDescriptionResult> {
-    pulumi.log.warn("getTagDescription is deprecated: azure-native:apimanagement/v20180101:TagDescription is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20180601preview:TagDescription to guarantee forwards compatibility.")
+    pulumi.log.warn("getTagDescription is deprecated: azure-native:apimanagement/v20180101:TagDescription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20180601preview:TagDescription to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20180101:getTagDescription", {
@@ -75,7 +75,7 @@ export interface GetTagDescriptionResult {
 /**
  * Get tag associated with the API.
  */
-/** @deprecated azure-native:apimanagement/v20180101:TagDescription is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20180601preview:TagDescription to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20180101:TagDescription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20180601preview:TagDescription to guarantee forwards compatibility. */
 export function getTagDescriptionOutput(args: GetTagDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagDescriptionResult> {
     return pulumi.output(args).apply((a: any) => getTagDescription(a, opts))
 }

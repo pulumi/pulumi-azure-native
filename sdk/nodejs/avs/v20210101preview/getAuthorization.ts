@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * ExpressRoute Circuit Authorization
  */
-/** @deprecated azure-native:avs/v20210101preview:Authorization is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Authorization to guarantee forwards compatibility. */
+/** @deprecated azure-native:avs/v20210101preview:Authorization is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Authorization to guarantee forwards compatibility. */
 export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationResult> {
-    pulumi.log.warn("getAuthorization is deprecated: azure-native:avs/v20210101preview:Authorization is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Authorization to guarantee forwards compatibility.")
+    pulumi.log.warn("getAuthorization is deprecated: azure-native:avs/v20210101preview:Authorization is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Authorization to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20210101preview:getAuthorization", {
@@ -66,7 +66,7 @@ export interface GetAuthorizationResult {
 /**
  * ExpressRoute Circuit Authorization
  */
-/** @deprecated azure-native:avs/v20210101preview:Authorization is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Authorization to guarantee forwards compatibility. */
+/** @deprecated azure-native:avs/v20210101preview:Authorization is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Authorization to guarantee forwards compatibility. */
 export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationResult> {
     return pulumi.output(args).apply((a: any) => getAuthorization(a, opts))
 }

@@ -17,7 +17,7 @@ __all__ = [
     'get_ou_container_output',
 ]
 
-warnings.warn("""azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Please upgrade to azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetOuContainerResult:
@@ -227,7 +227,7 @@ def get_ou_container(domain_service_name: Optional[str] = None,
     :param str ou_container_name: The name of the OuContainer.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_ou_container is deprecated: azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Please upgrade to azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_ou_container is deprecated: azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['domainServiceName'] = domain_service_name
     __args__['ouContainerName'] = ou_container_name
@@ -266,5 +266,5 @@ def get_ou_container_output(domain_service_name: Optional[pulumi.Input[str]] = N
     :param str ou_container_name: The name of the OuContainer.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_ou_container is deprecated: azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Please upgrade to azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_ou_container is deprecated: azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.""")
     ...

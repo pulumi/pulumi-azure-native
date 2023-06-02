@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210210
     /// <summary>
     /// Fabric definition.
     /// </summary>
-    [Obsolete(@"azure-native:recoveryservices/v20210210:ReplicationFabric is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationFabric to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:recoveryservices/v20210210:ReplicationFabric is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationFabric to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20210210:ReplicationFabric")]
     public partial class ReplicationFabric : global::Pulumi.CustomResource
     {

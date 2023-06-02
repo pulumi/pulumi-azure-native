@@ -16,7 +16,7 @@ __all__ = [
     'get_role_assignment_output',
 ]
 
-warnings.warn("""azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRoleAssignmentResult:
@@ -226,7 +226,7 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
     :param str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
     :param str tenant_id: Tenant ID for cross-tenant request
     """
-    pulumi.log.warn("""get_role_assignment is deprecated: azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_role_assignment is deprecated: azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['roleAssignmentName'] = role_assignment_name
     __args__['scope'] = scope
@@ -265,5 +265,5 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]]
     :param str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
     :param str tenant_id: Tenant ID for cross-tenant request
     """
-    pulumi.log.warn("""get_role_assignment is deprecated: azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_role_assignment is deprecated: azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility.""")
     ...

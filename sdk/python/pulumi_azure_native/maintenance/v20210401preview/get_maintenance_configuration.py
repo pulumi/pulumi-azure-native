@@ -17,7 +17,7 @@ __all__ = [
     'get_maintenance_configuration_output',
 ]
 
-warnings.warn("""azure-native:maintenance/v20210401preview:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:maintenance/v20210401preview:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetMaintenanceConfigurationResult:
@@ -237,7 +237,7 @@ def get_maintenance_configuration(resource_group_name: Optional[str] = None,
     :param str resource_group_name: Resource Group Name
     :param str resource_name: Maintenance Configuration Name
     """
-    pulumi.log.warn("""get_maintenance_configuration is deprecated: azure-native:maintenance/v20210401preview:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_maintenance_configuration is deprecated: azure-native:maintenance/v20210401preview:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -274,5 +274,5 @@ def get_maintenance_configuration_output(resource_group_name: Optional[pulumi.In
     :param str resource_group_name: Resource Group Name
     :param str resource_name: Maintenance Configuration Name
     """
-    pulumi.log.warn("""get_maintenance_configuration is deprecated: azure-native:maintenance/v20210401preview:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_maintenance_configuration is deprecated: azure-native:maintenance/v20210401preview:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""")
     ...

@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * HybridConnection authorizationRule for a HybridConnection by name.
  */
 /** @deprecated Version 2016-07-01 will be removed in v2 of the provider.
-azure-native:relay/v20160701:HybridConnectionAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20170401:HybridConnectionAuthorizationRule to guarantee forwards compatibility. */
+azure-native:relay/v20160701:HybridConnectionAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20170401:HybridConnectionAuthorizationRule to guarantee forwards compatibility. */
 export function getHybridConnectionAuthorizationRule(args: GetHybridConnectionAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionAuthorizationRuleResult> {
-    pulumi.log.warn("getHybridConnectionAuthorizationRule is deprecated: Version 2016-07-01 will be removed in v2 of the provider.\nazure-native:relay/v20160701:HybridConnectionAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20170401:HybridConnectionAuthorizationRule to guarantee forwards compatibility.")
+    pulumi.log.warn("getHybridConnectionAuthorizationRule is deprecated: Version 2016-07-01 will be removed in v2 of the provider.\nazure-native:relay/v20160701:HybridConnectionAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20170401:HybridConnectionAuthorizationRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay/v20160701:getHybridConnectionAuthorizationRule", {
@@ -65,7 +65,7 @@ export interface GetHybridConnectionAuthorizationRuleResult {
  * HybridConnection authorizationRule for a HybridConnection by name.
  */
 /** @deprecated Version 2016-07-01 will be removed in v2 of the provider.
-azure-native:relay/v20160701:HybridConnectionAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20170401:HybridConnectionAuthorizationRule to guarantee forwards compatibility. */
+azure-native:relay/v20160701:HybridConnectionAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20170401:HybridConnectionAuthorizationRule to guarantee forwards compatibility. */
 export function getHybridConnectionAuthorizationRuleOutput(args: GetHybridConnectionAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getHybridConnectionAuthorizationRule(a, opts))
 }

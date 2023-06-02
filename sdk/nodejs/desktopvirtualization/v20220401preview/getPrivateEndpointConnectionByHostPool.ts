@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a private endpoint connection.
  */
-/** @deprecated azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility. */
+/** @deprecated azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionByHostPool(args: GetPrivateEndpointConnectionByHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionByHostPoolResult> {
-    pulumi.log.warn("getPrivateEndpointConnectionByHostPool is deprecated: azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.")
+    pulumi.log.warn("getPrivateEndpointConnectionByHostPool is deprecated: azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20220401preview:getPrivateEndpointConnectionByHostPool", {
@@ -73,7 +73,7 @@ export interface GetPrivateEndpointConnectionByHostPoolResult {
 /**
  * Get a private endpoint connection.
  */
-/** @deprecated azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility. */
+/** @deprecated azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionByHostPoolOutput(args: GetPrivateEndpointConnectionByHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionByHostPoolResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionByHostPool(a, opts))
 }

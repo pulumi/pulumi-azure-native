@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets information about the specified data manager resource.
  */
 /** @deprecated Version 2016-06-01 will be removed in v2 of the provider.
-azure-native:hybriddata/v20160601:DataManager is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataManager to guarantee forwards compatibility. */
+azure-native:hybriddata/v20160601:DataManager is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:DataManager to guarantee forwards compatibility. */
 export function getDataManager(args: GetDataManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataManagerResult> {
-    pulumi.log.warn("getDataManager is deprecated: Version 2016-06-01 will be removed in v2 of the provider.\nazure-native:hybriddata/v20160601:DataManager is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataManager to guarantee forwards compatibility.")
+    pulumi.log.warn("getDataManager is deprecated: Version 2016-06-01 will be removed in v2 of the provider.\nazure-native:hybriddata/v20160601:DataManager is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:DataManager to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybriddata/v20160601:getDataManager", {
@@ -73,7 +73,7 @@ export interface GetDataManagerResult {
  * Gets information about the specified data manager resource.
  */
 /** @deprecated Version 2016-06-01 will be removed in v2 of the provider.
-azure-native:hybriddata/v20160601:DataManager is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataManager to guarantee forwards compatibility. */
+azure-native:hybriddata/v20160601:DataManager is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:DataManager to guarantee forwards compatibility. */
 export function getDataManagerOutput(args: GetDataManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataManagerResult> {
     return pulumi.output(args).apply((a: any) => getDataManager(a, opts))
 }

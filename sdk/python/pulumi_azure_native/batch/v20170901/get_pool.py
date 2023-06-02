@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:batch/v20170901:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20200501:Pool to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:batch/v20170901:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20200501:Pool to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPoolResult:
@@ -368,7 +368,7 @@ def get_pool(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
     pulumi.log.warn("""get_pool is deprecated: Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:batch/v20170901:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20200501:Pool to guarantee forwards compatibility.""")
+azure-native:batch/v20170901:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20200501:Pool to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['poolName'] = pool_name
@@ -421,5 +421,5 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
     pulumi.log.warn("""get_pool is deprecated: Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:batch/v20170901:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20200501:Pool to guarantee forwards compatibility.""")
+azure-native:batch/v20170901:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20200501:Pool to guarantee forwards compatibility.""")
     ...

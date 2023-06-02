@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Search.V20200801Preview
     /// <summary>
     /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
     /// </summary>
-    [Obsolete(@"azure-native:search/v20200801preview:SharedPrivateLinkResource is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:search/v20200801preview:SharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:search/v20200801preview:SharedPrivateLinkResource")]
     public partial class SharedPrivateLinkResource : global::Pulumi.CustomResource
     {

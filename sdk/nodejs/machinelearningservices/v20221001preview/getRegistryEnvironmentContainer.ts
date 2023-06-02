@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Azure Resource Manager resource envelope.
  */
-/** @deprecated azure-native:machinelearningservices/v20221001preview:RegistryEnvironmentContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentContainer to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:RegistryEnvironmentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentContainer to guarantee forwards compatibility. */
 export function getRegistryEnvironmentContainer(args: GetRegistryEnvironmentContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryEnvironmentContainerResult> {
-    pulumi.log.warn("getRegistryEnvironmentContainer is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryEnvironmentContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentContainer to guarantee forwards compatibility.")
+    pulumi.log.warn("getRegistryEnvironmentContainer is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryEnvironmentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentContainer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001preview:getRegistryEnvironmentContainer", {
@@ -65,7 +65,7 @@ export interface GetRegistryEnvironmentContainerResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-/** @deprecated azure-native:machinelearningservices/v20221001preview:RegistryEnvironmentContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentContainer to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:RegistryEnvironmentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentContainer to guarantee forwards compatibility. */
 export function getRegistryEnvironmentContainerOutput(args: GetRegistryEnvironmentContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryEnvironmentContainerResult> {
     return pulumi.output(args).apply((a: any) => getRegistryEnvironmentContainer(a, opts))
 }

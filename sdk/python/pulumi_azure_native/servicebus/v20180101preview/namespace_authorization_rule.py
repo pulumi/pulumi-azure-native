@@ -81,11 +81,11 @@ class NamespaceAuthorizationRuleArgs:
         pulumi.set(self, "authorization_rule_name", value)
 
 
-warnings.warn("""azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class NamespaceAuthorizationRule(pulumi.CustomResource):
-    warnings.warn("""azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -135,7 +135,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
                  __props__=None):
-        pulumi.log.warn("""NamespaceAuthorizationRule is deprecated: azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule to guarantee forwards compatibility.""")
+        pulumi.log.warn("""NamespaceAuthorizationRule is deprecated: azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

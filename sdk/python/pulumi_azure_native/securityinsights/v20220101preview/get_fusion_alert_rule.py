@@ -17,7 +17,7 @@ __all__ = [
     'get_fusion_alert_rule_output',
 ]
 
-warnings.warn("""azure-native:securityinsights/v20220101preview:FusionAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:FusionAlertRule to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:securityinsights/v20220101preview:FusionAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:FusionAlertRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetFusionAlertRuleResult:
@@ -240,7 +240,7 @@ def get_fusion_alert_rule(resource_group_name: Optional[str] = None,
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_fusion_alert_rule is deprecated: azure-native:securityinsights/v20220101preview:FusionAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:FusionAlertRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_fusion_alert_rule is deprecated: azure-native:securityinsights/v20220101preview:FusionAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:FusionAlertRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleId'] = rule_id
@@ -280,5 +280,5 @@ def get_fusion_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_fusion_alert_rule is deprecated: azure-native:securityinsights/v20220101preview:FusionAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:FusionAlertRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_fusion_alert_rule is deprecated: azure-native:securityinsights/v20220101preview:FusionAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:FusionAlertRule to guarantee forwards compatibility.""")
     ...

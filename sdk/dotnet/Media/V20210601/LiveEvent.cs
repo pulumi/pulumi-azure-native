@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Media.V20210601
     /// <summary>
     /// The live event.
     /// </summary>
-    [Obsolete(@"azure-native:media/v20210601:LiveEvent is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:LiveEvent to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:media/v20210601:LiveEvent is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20221101:LiveEvent to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:media/v20210601:LiveEvent")]
     public partial class LiveEvent : global::Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20220214
     /// <summary>
     /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
     /// </summary>
-    [Obsolete(@"azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate")]
     public partial class VirtualMachineImageTemplate : global::Pulumi.CustomResource
     {

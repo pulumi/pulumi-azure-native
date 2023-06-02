@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
     /// <summary>
     /// A database resource.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20220201preview:Database is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:Database to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20220201preview:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:Database to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20220201preview:Database")]
     public partial class Database : global::Pulumi.CustomResource
     {

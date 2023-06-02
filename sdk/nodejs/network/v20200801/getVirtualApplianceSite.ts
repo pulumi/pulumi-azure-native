@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Virtual Appliance Site.
  */
-/** @deprecated azure-native:network/v20200801:VirtualApplianceSite is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualApplianceSite to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20200801:VirtualApplianceSite is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualApplianceSite to guarantee forwards compatibility. */
 export function getVirtualApplianceSite(args: GetVirtualApplianceSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualApplianceSiteResult> {
-    pulumi.log.warn("getVirtualApplianceSite is deprecated: azure-native:network/v20200801:VirtualApplianceSite is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualApplianceSite to guarantee forwards compatibility.")
+    pulumi.log.warn("getVirtualApplianceSite is deprecated: azure-native:network/v20200801:VirtualApplianceSite is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualApplianceSite to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200801:getVirtualApplianceSite", {
@@ -73,7 +73,7 @@ export interface GetVirtualApplianceSiteResult {
 /**
  * Gets the specified Virtual Appliance Site.
  */
-/** @deprecated azure-native:network/v20200801:VirtualApplianceSite is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualApplianceSite to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20200801:VirtualApplianceSite is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualApplianceSite to guarantee forwards compatibility. */
 export function getVirtualApplianceSiteOutput(args: GetVirtualApplianceSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualApplianceSiteResult> {
     return pulumi.output(args).apply((a: any) => getVirtualApplianceSite(a, opts))
 }

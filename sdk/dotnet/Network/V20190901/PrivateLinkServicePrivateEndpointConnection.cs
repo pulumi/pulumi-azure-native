@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20190901
     /// <summary>
     /// PrivateEndpointConnection resource.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20190901:PrivateLinkServicePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:PrivateLinkServicePrivateEndpointConnection to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20190901:PrivateLinkServicePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:PrivateLinkServicePrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20190901:PrivateLinkServicePrivateEndpointConnection")]
     public partial class PrivateLinkServicePrivateEndpointConnection : global::Pulumi.CustomResource
     {

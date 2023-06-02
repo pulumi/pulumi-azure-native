@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataMigration.V20180715Preview
 {
-    [Obsolete(@"azure-native:datamigration/v20180715preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20210630:Service to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:datamigration/v20180715preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20210630:Service to guarantee forwards compatibility.")]
     public static class GetService
     {
         /// <summary>

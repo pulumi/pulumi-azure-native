@@ -7,9 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-/** @deprecated azure-native:machinelearningservices/v20220501:OnlineDeployment is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:OnlineDeployment to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20220501:OnlineDeployment is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:OnlineDeployment to guarantee forwards compatibility. */
 export function getOnlineDeployment(args: GetOnlineDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineDeploymentResult> {
-    pulumi.log.warn("getOnlineDeployment is deprecated: azure-native:machinelearningservices/v20220501:OnlineDeployment is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:OnlineDeployment to guarantee forwards compatibility.")
+    pulumi.log.warn("getOnlineDeployment is deprecated: azure-native:machinelearningservices/v20220501:OnlineDeployment is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:OnlineDeployment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220501:getOnlineDeployment", {
@@ -81,7 +81,7 @@ export interface GetOnlineDeploymentResult {
      */
     readonly type: string;
 }
-/** @deprecated azure-native:machinelearningservices/v20220501:OnlineDeployment is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:OnlineDeployment to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20220501:OnlineDeployment is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:OnlineDeployment to guarantee forwards compatibility. */
 export function getOnlineDeploymentOutput(args: GetOnlineDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getOnlineDeployment(a, opts))
 }

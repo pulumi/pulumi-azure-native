@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2017-11-15 will be removed in v2 of the provider.
-azure-native:devices/v20171115:DpsCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:devices/v20171115:DpsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDpsCertificateResult:
@@ -109,7 +109,7 @@ def get_dps_certificate(certificate_name: Optional[str] = None,
     :param str resource_group_name: Resource group identifier.
     """
     pulumi.log.warn("""get_dps_certificate is deprecated: Version 2017-11-15 will be removed in v2 of the provider.
-azure-native:devices/v20171115:DpsCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility.""")
+azure-native:devices/v20171115:DpsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['certificateName'] = certificate_name
     __args__['provisioningServiceName'] = provisioning_service_name
@@ -139,5 +139,5 @@ def get_dps_certificate_output(certificate_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: Resource group identifier.
     """
     pulumi.log.warn("""get_dps_certificate is deprecated: Version 2017-11-15 will be removed in v2 of the provider.
-azure-native:devices/v20171115:DpsCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility.""")
+azure-native:devices/v20171115:DpsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility.""")
     ...

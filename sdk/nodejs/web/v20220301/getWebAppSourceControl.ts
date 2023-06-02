@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Description for Gets the source control configuration of an app.
  */
-/** @deprecated azure-native:web/v20220301:WebAppSourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSourceControl to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20220301:WebAppSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSourceControl to guarantee forwards compatibility. */
 export function getWebAppSourceControl(args: GetWebAppSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlResult> {
-    pulumi.log.warn("getWebAppSourceControl is deprecated: azure-native:web/v20220301:WebAppSourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSourceControl to guarantee forwards compatibility.")
+    pulumi.log.warn("getWebAppSourceControl is deprecated: azure-native:web/v20220301:WebAppSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSourceControl to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220301:getWebAppSourceControl", {
@@ -84,7 +84,7 @@ export interface GetWebAppSourceControlResult {
 /**
  * Description for Gets the source control configuration of an app.
  */
-/** @deprecated azure-native:web/v20220301:WebAppSourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSourceControl to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20220301:WebAppSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSourceControl to guarantee forwards compatibility. */
 export function getWebAppSourceControlOutput(args: GetWebAppSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSourceControlResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSourceControl(a, opts))
 }

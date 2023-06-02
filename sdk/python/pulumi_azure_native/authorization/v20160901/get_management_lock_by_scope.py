@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.
-azure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetManagementLockByScopeResult:
@@ -119,7 +119,7 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
     :param str scope: The scope for the lock. 
     """
     pulumi.log.warn("""get_management_lock_by_scope is deprecated: Version 2016-09-01 will be removed in v2 of the provider.
-azure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.""")
+azure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['lockName'] = lock_name
     __args__['scope'] = scope
@@ -147,5 +147,5 @@ def get_management_lock_by_scope_output(lock_name: Optional[pulumi.Input[str]] =
     :param str scope: The scope for the lock. 
     """
     pulumi.log.warn("""get_management_lock_by_scope is deprecated: Version 2016-09-01 will be removed in v2 of the provider.
-azure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.""")
+azure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.""")
     ...

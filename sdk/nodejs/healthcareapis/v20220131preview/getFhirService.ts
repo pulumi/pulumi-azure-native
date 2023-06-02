@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified FHIR Service.
  */
-/** @deprecated azure-native:healthcareapis/v20220131preview:FhirService is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:FhirService to guarantee forwards compatibility. */
+/** @deprecated azure-native:healthcareapis/v20220131preview:FhirService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:FhirService to guarantee forwards compatibility. */
 export function getFhirService(args: GetFhirServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetFhirServiceResult> {
-    pulumi.log.warn("getFhirService is deprecated: azure-native:healthcareapis/v20220131preview:FhirService is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:FhirService to guarantee forwards compatibility.")
+    pulumi.log.warn("getFhirService is deprecated: azure-native:healthcareapis/v20220131preview:FhirService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:FhirService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20220131preview:getFhirService", {
@@ -125,7 +125,7 @@ export interface GetFhirServiceResult {
 /**
  * Gets the properties of the specified FHIR Service.
  */
-/** @deprecated azure-native:healthcareapis/v20220131preview:FhirService is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:FhirService to guarantee forwards compatibility. */
+/** @deprecated azure-native:healthcareapis/v20220131preview:FhirService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:FhirService to guarantee forwards compatibility. */
 export function getFhirServiceOutput(args: GetFhirServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFhirServiceResult> {
     return pulumi.output(args).apply((a: any) => getFhirService(a, opts))
 }

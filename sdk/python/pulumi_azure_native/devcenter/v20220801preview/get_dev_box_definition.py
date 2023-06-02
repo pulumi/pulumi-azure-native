@@ -17,7 +17,7 @@ __all__ = [
     'get_dev_box_definition_output',
 ]
 
-warnings.warn("""azure-native:devcenter/v20220801preview:DevBoxDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:devcenter/v20220801preview:DevBoxDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDevBoxDefinitionResult:
@@ -203,7 +203,7 @@ def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
     :param str dev_center_name: The name of the devcenter.
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_dev_box_definition is deprecated: azure-native:devcenter/v20220801preview:DevBoxDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_dev_box_definition is deprecated: azure-native:devcenter/v20220801preview:DevBoxDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['devBoxDefinitionName'] = dev_box_definition_name
     __args__['devCenterName'] = dev_center_name
@@ -240,5 +240,5 @@ def get_dev_box_definition_output(dev_box_definition_name: Optional[pulumi.Input
     :param str dev_center_name: The name of the devcenter.
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_dev_box_definition is deprecated: azure-native:devcenter/v20220801preview:DevBoxDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_dev_box_definition is deprecated: azure-native:devcenter/v20220801preview:DevBoxDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility.""")
     ...

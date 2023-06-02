@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources.V20160201
     /// Deployment information.
     /// </summary>
     [Obsolete(@"Version 2016-02-01 will be removed in v2 of the provider.
-azure-native:resources/v20160201:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20160701:Deployment to guarantee forwards compatibility.")]
+azure-native:resources/v20160201:Deployment is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20160701:Deployment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:resources/v20160201:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource
     {

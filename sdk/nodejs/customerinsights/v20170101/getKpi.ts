@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets a KPI in the hub.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
-azure-native:customerinsights/v20170101:Kpi is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Kpi to guarantee forwards compatibility. */
+azure-native:customerinsights/v20170101:Kpi is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:Kpi to guarantee forwards compatibility. */
 export function getKpi(args: GetKpiArgs, opts?: pulumi.InvokeOptions): Promise<GetKpiResult> {
-    pulumi.log.warn("getKpi is deprecated: Version 2017-01-01 will be removed in v2 of the provider.\nazure-native:customerinsights/v20170101:Kpi is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Kpi to guarantee forwards compatibility.")
+    pulumi.log.warn("getKpi is deprecated: Version 2017-01-01 will be removed in v2 of the provider.\nazure-native:customerinsights/v20170101:Kpi is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:Kpi to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170101:getKpi", {
@@ -135,7 +135,7 @@ export interface GetKpiResult {
  * Gets a KPI in the hub.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
-azure-native:customerinsights/v20170101:Kpi is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Kpi to guarantee forwards compatibility. */
+azure-native:customerinsights/v20170101:Kpi is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:Kpi to guarantee forwards compatibility. */
 export function getKpiOutput(args: GetKpiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKpiResult> {
     return pulumi.output(args).apply((a: any) => getKpi(a, opts))
 }

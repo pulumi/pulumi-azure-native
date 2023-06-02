@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified private endpoint connection associated with the workspace.
  */
-/** @deprecated azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:WorkspacePrivateEndpointConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:WorkspacePrivateEndpointConnection to guarantee forwards compatibility. */
 export function getWorkspacePrivateEndpointConnection(args: GetWorkspacePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspacePrivateEndpointConnectionResult> {
-    pulumi.log.warn("getWorkspacePrivateEndpointConnection is deprecated: azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:WorkspacePrivateEndpointConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getWorkspacePrivateEndpointConnection is deprecated: azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:WorkspacePrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20220131preview:getWorkspacePrivateEndpointConnection", {
@@ -73,7 +73,7 @@ export interface GetWorkspacePrivateEndpointConnectionResult {
 /**
  * Gets the specified private endpoint connection associated with the workspace.
  */
-/** @deprecated azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:WorkspacePrivateEndpointConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:WorkspacePrivateEndpointConnection to guarantee forwards compatibility. */
 export function getWorkspacePrivateEndpointConnectionOutput(args: GetWorkspacePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspacePrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWorkspacePrivateEndpointConnection(a, opts))
 }

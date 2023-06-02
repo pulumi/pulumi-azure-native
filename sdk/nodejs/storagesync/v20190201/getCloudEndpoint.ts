@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Get a given CloudEndpoint.
  */
 /** @deprecated Version 2019-02-01 will be removed in v2 of the provider.
-azure-native:storagesync/v20190201:CloudEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility. */
+azure-native:storagesync/v20190201:CloudEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility. */
 export function getCloudEndpoint(args: GetCloudEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEndpointResult> {
-    pulumi.log.warn("getCloudEndpoint is deprecated: Version 2019-02-01 will be removed in v2 of the provider.\nazure-native:storagesync/v20190201:CloudEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.")
+    pulumi.log.warn("getCloudEndpoint is deprecated: Version 2019-02-01 will be removed in v2 of the provider.\nazure-native:storagesync/v20190201:CloudEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagesync/v20190201:getCloudEndpoint", {
@@ -97,7 +97,7 @@ export interface GetCloudEndpointResult {
  * Get a given CloudEndpoint.
  */
 /** @deprecated Version 2019-02-01 will be removed in v2 of the provider.
-azure-native:storagesync/v20190201:CloudEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility. */
+azure-native:storagesync/v20190201:CloudEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility. */
 export function getCloudEndpointOutput(args: GetCloudEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudEndpointResult> {
     return pulumi.output(args).apply((a: any) => getCloudEndpoint(a, opts))
 }

@@ -82,12 +82,12 @@ class MonitoringConfigArgs:
 
 
 warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.
-azure-native:databoxedge/v20200901:MonitoringConfig is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:databoxedge/v20200901:MonitoringConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class MonitoringConfig(pulumi.CustomResource):
     warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.
-azure-native:databoxedge/v20200901:MonitoringConfig is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:databoxedge/v20200901:MonitoringConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -138,7 +138,7 @@ azure-native:databoxedge/v20200901:MonitoringConfig is being removed in the next
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""MonitoringConfig is deprecated: Version 2020-09-01 will be removed in v2 of the provider.
-azure-native:databoxedge/v20200901:MonitoringConfig is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility.""")
+azure-native:databoxedge/v20200901:MonitoringConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

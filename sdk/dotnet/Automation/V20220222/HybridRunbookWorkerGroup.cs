@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Automation.V20220222
     /// <summary>
     /// Definition of hybrid runbook worker group.
     /// </summary>
-    [Obsolete(@"azure-native:automation/v20220222:HybridRunbookWorkerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:HybridRunbookWorkerGroup to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:automation/v20220222:HybridRunbookWorkerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:HybridRunbookWorkerGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automation/v20220222:HybridRunbookWorkerGroup")]
     public partial class HybridRunbookWorkerGroup : global::Pulumi.CustomResource
     {

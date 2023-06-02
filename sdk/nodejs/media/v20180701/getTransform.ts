@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Transform.
  */
-/** @deprecated azure-native:media/v20180701:Transform is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Transform to guarantee forwards compatibility. */
+/** @deprecated azure-native:media/v20180701:Transform is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20220701:Transform to guarantee forwards compatibility. */
 export function getTransform(args: GetTransformArgs, opts?: pulumi.InvokeOptions): Promise<GetTransformResult> {
-    pulumi.log.warn("getTransform is deprecated: azure-native:media/v20180701:Transform is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Transform to guarantee forwards compatibility.")
+    pulumi.log.warn("getTransform is deprecated: azure-native:media/v20180701:Transform is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20220701:Transform to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20180701:getTransform", {
@@ -73,7 +73,7 @@ export interface GetTransformResult {
 /**
  * Gets a Transform.
  */
-/** @deprecated azure-native:media/v20180701:Transform is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Transform to guarantee forwards compatibility. */
+/** @deprecated azure-native:media/v20180701:Transform is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20220701:Transform to guarantee forwards compatibility. */
 export function getTransformOutput(args: GetTransformOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransformResult> {
     return pulumi.output(args).apply((a: any) => getTransform(a, opts))
 }

@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Azure Resource Manager resource envelope.
  *
- * @deprecated azure-native:machinelearningservices/v20220601preview:CodeContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility.
+ * @deprecated azure-native:machinelearningservices/v20220601preview:CodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility.
  */
 export class CodeContainer extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class CodeContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CodeContainer {
-        pulumi.log.warn("CodeContainer is deprecated: azure-native:machinelearningservices/v20220601preview:CodeContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility.")
+        pulumi.log.warn("CodeContainer is deprecated: azure-native:machinelearningservices/v20220601preview:CodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility.")
         return new CodeContainer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,9 +64,9 @@ export class CodeContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:machinelearningservices/v20220601preview:CodeContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility. */
+    /** @deprecated azure-native:machinelearningservices/v20220601preview:CodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility. */
     constructor(name: string, args: CodeContainerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("CodeContainer is deprecated: azure-native:machinelearningservices/v20220601preview:CodeContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility.")
+        pulumi.log.warn("CodeContainer is deprecated: azure-native:machinelearningservices/v20220601preview:CodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

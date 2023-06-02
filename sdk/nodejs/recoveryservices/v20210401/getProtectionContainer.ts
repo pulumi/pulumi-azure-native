@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets details of the specific container registered to your Recovery Services Vault.
  */
-/** @deprecated azure-native:recoveryservices/v20210401:ProtectionContainer is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility. */
+/** @deprecated azure-native:recoveryservices/v20210401:ProtectionContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility. */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
-    pulumi.log.warn("getProtectionContainer is deprecated: azure-native:recoveryservices/v20210401:ProtectionContainer is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility.")
+    pulumi.log.warn("getProtectionContainer is deprecated: azure-native:recoveryservices/v20210401:ProtectionContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20210401:getProtectionContainer", {
@@ -78,7 +78,7 @@ export interface GetProtectionContainerResult {
 /**
  * Gets details of the specific container registered to your Recovery Services Vault.
  */
-/** @deprecated azure-native:recoveryservices/v20210401:ProtectionContainer is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility. */
+/** @deprecated azure-native:recoveryservices/v20210401:ProtectionContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility. */
 export function getProtectionContainerOutput(args: GetProtectionContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionContainerResult> {
     return pulumi.output(args).apply((a: any) => getProtectionContainer(a, opts))
 }

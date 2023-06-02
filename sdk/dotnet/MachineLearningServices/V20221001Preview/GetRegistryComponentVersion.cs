@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20221001Preview
 {
-    [Obsolete(@"azure-native:machinelearningservices/v20221001preview:RegistryComponentVersion is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:RegistryComponentVersion to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:machinelearningservices/v20221001preview:RegistryComponentVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryComponentVersion to guarantee forwards compatibility.")]
     public static class GetRegistryComponentVersion
     {
         /// <summary>

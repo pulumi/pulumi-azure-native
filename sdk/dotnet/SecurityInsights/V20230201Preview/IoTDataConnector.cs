@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201Preview
     /// <summary>
     /// Represents IoT data connector.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20230201preview:IoTDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:IoTDataConnector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20230201preview:IoTDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IoTDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230201preview:IoTDataConnector")]
     public partial class IoTDataConnector : global::Pulumi.CustomResource
     {

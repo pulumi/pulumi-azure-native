@@ -17,7 +17,7 @@ __all__ = [
     'get_anomaly_security_ml_analytics_settings_output',
 ]
 
-warnings.warn("""azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAnomalySecurityMLAnalyticsSettingsResult:
@@ -288,7 +288,7 @@ def get_anomaly_security_ml_analytics_settings(resource_group_name: Optional[str
     :param str settings_resource_name: Security ML Analytics Settings resource name
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_anomaly_security_ml_analytics_settings is deprecated: azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_anomaly_security_ml_analytics_settings is deprecated: azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['settingsResourceName'] = settings_resource_name
@@ -332,5 +332,5 @@ def get_anomaly_security_ml_analytics_settings_output(resource_group_name: Optio
     :param str settings_resource_name: Security ML Analytics Settings resource name
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_anomaly_security_ml_analytics_settings is deprecated: azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_anomaly_security_ml_analytics_settings is deprecated: azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.""")
     ...

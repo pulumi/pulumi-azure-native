@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a ConfigurationPolicyGroup.
  */
-/** @deprecated azure-native:network/v20210801:ConfigurationPolicyGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ConfigurationPolicyGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20210801:ConfigurationPolicyGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ConfigurationPolicyGroup to guarantee forwards compatibility. */
 export function getConfigurationPolicyGroup(args: GetConfigurationPolicyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationPolicyGroupResult> {
-    pulumi.log.warn("getConfigurationPolicyGroup is deprecated: azure-native:network/v20210801:ConfigurationPolicyGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ConfigurationPolicyGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getConfigurationPolicyGroup is deprecated: azure-native:network/v20210801:ConfigurationPolicyGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ConfigurationPolicyGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210801:getConfigurationPolicyGroup", {
@@ -81,7 +81,7 @@ export interface GetConfigurationPolicyGroupResult {
 /**
  * Retrieves the details of a ConfigurationPolicyGroup.
  */
-/** @deprecated azure-native:network/v20210801:ConfigurationPolicyGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ConfigurationPolicyGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20210801:ConfigurationPolicyGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ConfigurationPolicyGroup to guarantee forwards compatibility. */
 export function getConfigurationPolicyGroupOutput(args: GetConfigurationPolicyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationPolicyGroupResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationPolicyGroup(a, opts))
 }

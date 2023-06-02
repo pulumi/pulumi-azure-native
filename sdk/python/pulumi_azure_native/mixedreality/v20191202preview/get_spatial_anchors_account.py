@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-12-02-preview will be removed in v2 of the provider.
-azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount is being removed in the next major version of this provider. Please upgrade to azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSpatialAnchorsAccountResult:
@@ -143,7 +143,7 @@ def get_spatial_anchors_account(account_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure resource group.
     """
     pulumi.log.warn("""get_spatial_anchors_account is deprecated: Version 2019-12-02-preview will be removed in v2 of the provider.
-azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount is being removed in the next major version of this provider. Please upgrade to azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount to guarantee forwards compatibility.""")
+azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -173,5 +173,5 @@ def get_spatial_anchors_account_output(account_name: Optional[pulumi.Input[str]]
     :param str resource_group_name: Name of an Azure resource group.
     """
     pulumi.log.warn("""get_spatial_anchors_account is deprecated: Version 2019-12-02-preview will be removed in v2 of the provider.
-azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount is being removed in the next major version of this provider. Please upgrade to azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount to guarantee forwards compatibility.""")
+azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount to guarantee forwards compatibility.""")
     ...

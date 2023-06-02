@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Get authorizationRule for a WCFRelays by name.
  */
 /** @deprecated Version 2016-07-01 will be removed in v2 of the provider.
-azure-native:relay/v20160701:WCFRelayAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20170401:WCFRelayAuthorizationRule to guarantee forwards compatibility. */
+azure-native:relay/v20160701:WCFRelayAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20170401:WCFRelayAuthorizationRule to guarantee forwards compatibility. */
 export function getWCFRelayAuthorizationRule(args: GetWCFRelayAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayAuthorizationRuleResult> {
-    pulumi.log.warn("getWCFRelayAuthorizationRule is deprecated: Version 2016-07-01 will be removed in v2 of the provider.\nazure-native:relay/v20160701:WCFRelayAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20170401:WCFRelayAuthorizationRule to guarantee forwards compatibility.")
+    pulumi.log.warn("getWCFRelayAuthorizationRule is deprecated: Version 2016-07-01 will be removed in v2 of the provider.\nazure-native:relay/v20160701:WCFRelayAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20170401:WCFRelayAuthorizationRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay/v20160701:getWCFRelayAuthorizationRule", {
@@ -65,7 +65,7 @@ export interface GetWCFRelayAuthorizationRuleResult {
  * Get authorizationRule for a WCFRelays by name.
  */
 /** @deprecated Version 2016-07-01 will be removed in v2 of the provider.
-azure-native:relay/v20160701:WCFRelayAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20170401:WCFRelayAuthorizationRule to guarantee forwards compatibility. */
+azure-native:relay/v20160701:WCFRelayAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20170401:WCFRelayAuthorizationRule to guarantee forwards compatibility. */
 export function getWCFRelayAuthorizationRuleOutput(args: GetWCFRelayAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getWCFRelayAuthorizationRule(a, opts))
 }

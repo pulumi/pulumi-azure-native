@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  */
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider.
-azure-native:storage/v20190601:TableServiceProperties is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:TableServiceProperties to guarantee forwards compatibility. */
+azure-native:storage/v20190601:TableServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:TableServiceProperties to guarantee forwards compatibility. */
 export function getTableServiceProperties(args: GetTableServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetTableServicePropertiesResult> {
-    pulumi.log.warn("getTableServiceProperties is deprecated: Version 2019-06-01 will be removed in v2 of the provider.\nazure-native:storage/v20190601:TableServiceProperties is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:TableServiceProperties to guarantee forwards compatibility.")
+    pulumi.log.warn("getTableServiceProperties is deprecated: Version 2019-06-01 will be removed in v2 of the provider.\nazure-native:storage/v20190601:TableServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:TableServiceProperties to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20190601:getTableServiceProperties", {
@@ -63,7 +63,7 @@ export interface GetTableServicePropertiesResult {
  * Gets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  */
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider.
-azure-native:storage/v20190601:TableServiceProperties is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:TableServiceProperties to guarantee forwards compatibility. */
+azure-native:storage/v20190601:TableServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:TableServiceProperties to guarantee forwards compatibility. */
 export function getTableServicePropertiesOutput(args: GetTableServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableServicePropertiesResult> {
     return pulumi.output(args).apply((a: any) => getTableServiceProperties(a, opts))
 }

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified scope map.
  */
-/** @deprecated azure-native:containerregistry/v20221201:ScopeMap is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ScopeMap to guarantee forwards compatibility. */
+/** @deprecated azure-native:containerregistry/v20221201:ScopeMap is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ScopeMap to guarantee forwards compatibility. */
 export function getScopeMap(args: GetScopeMapArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeMapResult> {
-    pulumi.log.warn("getScopeMap is deprecated: azure-native:containerregistry/v20221201:ScopeMap is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ScopeMap to guarantee forwards compatibility.")
+    pulumi.log.warn("getScopeMap is deprecated: azure-native:containerregistry/v20221201:ScopeMap is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ScopeMap to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20221201:getScopeMap", {
@@ -79,7 +79,7 @@ export interface GetScopeMapResult {
 /**
  * Gets the properties of the specified scope map.
  */
-/** @deprecated azure-native:containerregistry/v20221201:ScopeMap is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ScopeMap to guarantee forwards compatibility. */
+/** @deprecated azure-native:containerregistry/v20221201:ScopeMap is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ScopeMap to guarantee forwards compatibility. */
 export function getScopeMapOutput(args: GetScopeMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeMapResult> {
     return pulumi.output(args).apply((a: any) => getScopeMap(a, opts))
 }

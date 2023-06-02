@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataProtection.V20221101Preview
     /// <summary>
     /// BackupInstance Resource
     /// </summary>
-    [Obsolete(@"azure-native:dataprotection/v20221101preview:BackupInstance is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupInstance to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:dataprotection/v20221101preview:BackupInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupInstance to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dataprotection/v20221101preview:BackupInstance")]
     public partial class BackupInstance : global::Pulumi.CustomResource
     {

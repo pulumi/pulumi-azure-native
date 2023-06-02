@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
  */
 /** @deprecated Version 2015-06-01 will be removed in v2 of the provider.
-azure-native:cdn/v20150601:Origin is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility. */
+azure-native:cdn/v20150601:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility. */
 export function getOrigin(args: GetOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginResult> {
-    pulumi.log.warn("getOrigin is deprecated: Version 2015-06-01 will be removed in v2 of the provider.\nazure-native:cdn/v20150601:Origin is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.")
+    pulumi.log.warn("getOrigin is deprecated: Version 2015-06-01 will be removed in v2 of the provider.\nazure-native:cdn/v20150601:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20150601:getOrigin", {
@@ -81,7 +81,7 @@ export interface GetOriginResult {
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
  */
 /** @deprecated Version 2015-06-01 will be removed in v2 of the provider.
-azure-native:cdn/v20150601:Origin is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility. */
+azure-native:cdn/v20150601:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility. */
 export function getOriginOutput(args: GetOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginResult> {
     return pulumi.output(args).apply((a: any) => getOrigin(a, opts))
 }

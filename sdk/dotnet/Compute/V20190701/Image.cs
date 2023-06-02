@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20190701
     /// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
     /// </summary>
     [Obsolete(@"Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:compute/v20190701:Image is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:Image to guarantee forwards compatibility.")]
+azure-native:compute/v20190701:Image is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:Image to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20190701:Image")]
     public partial class Image : global::Pulumi.CustomResource
     {

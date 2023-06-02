@@ -17,7 +17,7 @@ __all__ = [
     'get_tag_at_scope_output',
 ]
 
-warnings.warn("""azure-native:resources/v20210401:TagAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:TagAtScope to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:resources/v20210401:TagAtScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:TagAtScope to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetTagAtScopeResult:
@@ -91,7 +91,7 @@ def get_tag_at_scope(scope: Optional[str] = None,
 
     :param str scope: The resource scope.
     """
-    pulumi.log.warn("""get_tag_at_scope is deprecated: azure-native:resources/v20210401:TagAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:TagAtScope to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_tag_at_scope is deprecated: azure-native:resources/v20210401:TagAtScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:TagAtScope to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['scope'] = scope
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -113,5 +113,5 @@ def get_tag_at_scope_output(scope: Optional[pulumi.Input[str]] = None,
 
     :param str scope: The resource scope.
     """
-    pulumi.log.warn("""get_tag_at_scope is deprecated: azure-native:resources/v20210401:TagAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:TagAtScope to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_tag_at_scope is deprecated: azure-native:resources/v20210401:TagAtScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:TagAtScope to guarantee forwards compatibility.""")
     ...

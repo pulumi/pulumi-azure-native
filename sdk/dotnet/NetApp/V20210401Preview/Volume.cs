@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401Preview
     /// <summary>
     /// Volume resource
     /// </summary>
-    [Obsolete(@"azure-native:netapp/v20210401preview:Volume is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20211001:Volume to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:netapp/v20210401preview:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20211001:Volume to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:netapp/v20210401preview:Volume")]
     public partial class Volume : global::Pulumi.CustomResource
     {

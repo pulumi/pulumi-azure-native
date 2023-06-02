@@ -158,11 +158,11 @@ class ADLSGen2FileSystemDataSetArgs:
         pulumi.set(self, "data_set_name", value)
 
 
-warnings.warn("""azure-native:datashare/v20200901:ADLSGen2FileSystemDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen2FileSystemDataSet to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:datashare/v20200901:ADLSGen2FileSystemDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen2FileSystemDataSet to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ADLSGen2FileSystemDataSet(pulumi.CustomResource):
-    warnings.warn("""azure-native:datashare/v20200901:ADLSGen2FileSystemDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen2FileSystemDataSet to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:datashare/v20200901:ADLSGen2FileSystemDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen2FileSystemDataSet to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -228,7 +228,7 @@ class ADLSGen2FileSystemDataSet(pulumi.CustomResource):
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ADLSGen2FileSystemDataSet is deprecated: azure-native:datashare/v20200901:ADLSGen2FileSystemDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen2FileSystemDataSet to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ADLSGen2FileSystemDataSet is deprecated: azure-native:datashare/v20200901:ADLSGen2FileSystemDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen2FileSystemDataSet to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

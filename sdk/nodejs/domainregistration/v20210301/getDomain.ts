@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a domain.
  */
-/** @deprecated azure-native:domainregistration/v20210301:Domain is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20220901:Domain to guarantee forwards compatibility. */
+/** @deprecated azure-native:domainregistration/v20210301:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:Domain to guarantee forwards compatibility. */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    pulumi.log.warn("getDomain is deprecated: azure-native:domainregistration/v20210301:Domain is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20220901:Domain to guarantee forwards compatibility.")
+    pulumi.log.warn("getDomain is deprecated: azure-native:domainregistration/v20210301:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:Domain to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:domainregistration/v20210301:getDomain", {
@@ -122,7 +122,7 @@ export interface GetDomainResult {
 /**
  * Get a domain.
  */
-/** @deprecated azure-native:domainregistration/v20210301:Domain is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20220901:Domain to guarantee forwards compatibility. */
+/** @deprecated azure-native:domainregistration/v20210301:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20220901:Domain to guarantee forwards compatibility. */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply((a: any) => getDomain(a, opts))
 }

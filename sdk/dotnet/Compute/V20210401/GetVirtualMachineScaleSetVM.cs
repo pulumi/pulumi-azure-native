@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20210401
 {
-    [Obsolete(@"azure-native:compute/v20210401:VirtualMachineScaleSetVM is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSetVM to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:compute/v20210401:VirtualMachineScaleSetVM is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineScaleSetVM to guarantee forwards compatibility.")]
     public static class GetVirtualMachineScaleSetVM
     {
         /// <summary>

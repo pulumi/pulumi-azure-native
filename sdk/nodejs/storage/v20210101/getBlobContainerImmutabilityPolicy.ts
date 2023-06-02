@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the existing immutability policy along with the corresponding ETag in response headers and body.
  */
-/** @deprecated azure-native:storage/v20210101:BlobContainerImmutabilityPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobContainerImmutabilityPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:storage/v20210101:BlobContainerImmutabilityPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobContainerImmutabilityPolicy to guarantee forwards compatibility. */
 export function getBlobContainerImmutabilityPolicy(args: GetBlobContainerImmutabilityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerImmutabilityPolicyResult> {
-    pulumi.log.warn("getBlobContainerImmutabilityPolicy is deprecated: azure-native:storage/v20210101:BlobContainerImmutabilityPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobContainerImmutabilityPolicy to guarantee forwards compatibility.")
+    pulumi.log.warn("getBlobContainerImmutabilityPolicy is deprecated: azure-native:storage/v20210101:BlobContainerImmutabilityPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobContainerImmutabilityPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20210101:getBlobContainerImmutabilityPolicy", {
@@ -75,7 +75,7 @@ export interface GetBlobContainerImmutabilityPolicyResult {
 /**
  * Gets the existing immutability policy along with the corresponding ETag in response headers and body.
  */
-/** @deprecated azure-native:storage/v20210101:BlobContainerImmutabilityPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobContainerImmutabilityPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:storage/v20210101:BlobContainerImmutabilityPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobContainerImmutabilityPolicy to guarantee forwards compatibility. */
 export function getBlobContainerImmutabilityPolicyOutput(args: GetBlobContainerImmutabilityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerImmutabilityPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBlobContainerImmutabilityPolicy(a, opts))
 }

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220701
     /// <summary>
     /// VpnServerConfigurationPolicyGroup Resource.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20220701:ConfigurationPolicyGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ConfigurationPolicyGroup to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20220701:ConfigurationPolicyGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ConfigurationPolicyGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220701:ConfigurationPolicyGroup")]
     public partial class ConfigurationPolicyGroup : global::Pulumi.CustomResource
     {

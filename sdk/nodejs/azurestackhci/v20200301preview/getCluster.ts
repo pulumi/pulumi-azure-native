@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Get HCI cluster.
  */
 /** @deprecated Version 2020-03-01-preview will be removed in v2 of the provider.
-azure-native:azurestackhci/v20200301preview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20220101:Cluster to guarantee forwards compatibility. */
+azure-native:azurestackhci/v20200301preview:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20220101:Cluster to guarantee forwards compatibility. */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    pulumi.log.warn("getCluster is deprecated: Version 2020-03-01-preview will be removed in v2 of the provider.\nazure-native:azurestackhci/v20200301preview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20220101:Cluster to guarantee forwards compatibility.")
+    pulumi.log.warn("getCluster is deprecated: Version 2020-03-01-preview will be removed in v2 of the provider.\nazure-native:azurestackhci/v20200301preview:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20220101:Cluster to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20200301preview:getCluster", {
@@ -106,7 +106,7 @@ export interface GetClusterResult {
  * Get HCI cluster.
  */
 /** @deprecated Version 2020-03-01-preview will be removed in v2 of the provider.
-azure-native:azurestackhci/v20200301preview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20220101:Cluster to guarantee forwards compatibility. */
+azure-native:azurestackhci/v20200301preview:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20220101:Cluster to guarantee forwards compatibility. */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }

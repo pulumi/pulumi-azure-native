@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20180122
     /// The X509 Certificate.
     /// </summary>
     [Obsolete(@"Version 2018-01-22 will be removed in v2 of the provider.
-azure-native:devices/v20180122:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20200401:Certificate to guarantee forwards compatibility.")]
+azure-native:devices/v20180122:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20200401:Certificate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devices/v20180122:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {

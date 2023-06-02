@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
-    [Obsolete(@"azure-native:machinelearningservices/v20200901preview:ACIService is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:machinelearningservices/v20200901preview:ACIService is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility.")]
     public static class GetACIService
     {
         /// <summary>

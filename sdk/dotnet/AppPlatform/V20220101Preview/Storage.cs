@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
     /// <summary>
     /// Storage resource payload.
     /// </summary>
-    [Obsolete(@"azure-native:appplatform/v20220101preview:Storage is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:appplatform/v20220101preview:Storage is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20220101preview:Storage")]
     public partial class Storage : global::Pulumi.CustomResource
     {

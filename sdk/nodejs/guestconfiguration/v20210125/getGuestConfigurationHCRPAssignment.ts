@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get information about a guest configuration assignment
  */
-/** @deprecated azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment to guarantee forwards compatibility. */
+/** @deprecated azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment to guarantee forwards compatibility. */
 export function getGuestConfigurationHCRPAssignment(args: GetGuestConfigurationHCRPAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationHCRPAssignmentResult> {
-    pulumi.log.warn("getGuestConfigurationHCRPAssignment is deprecated: azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment to guarantee forwards compatibility.")
+    pulumi.log.warn("getGuestConfigurationHCRPAssignment is deprecated: azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:guestconfiguration/v20210125:getGuestConfigurationHCRPAssignment", {
@@ -69,7 +69,7 @@ export interface GetGuestConfigurationHCRPAssignmentResult {
 /**
  * Get information about a guest configuration assignment
  */
-/** @deprecated azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment to guarantee forwards compatibility. */
+/** @deprecated azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment to guarantee forwards compatibility. */
 export function getGuestConfigurationHCRPAssignmentOutput(args: GetGuestConfigurationHCRPAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationHCRPAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getGuestConfigurationHCRPAssignment(a, opts))
 }

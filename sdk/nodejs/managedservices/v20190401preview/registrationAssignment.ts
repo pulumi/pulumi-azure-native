@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * Registration assignment.
  *
  * @deprecated Version 2019-04-01-preview will be removed in v2 of the provider.
-azure-native:managedservices/v20190401preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.
+azure-native:managedservices/v20190401preview:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.
  */
 export class RegistrationAssignment extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class RegistrationAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RegistrationAssignment {
-        pulumi.log.warn("RegistrationAssignment is deprecated: Version 2019-04-01-preview will be removed in v2 of the provider.\nazure-native:managedservices/v20190401preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.")
+        pulumi.log.warn("RegistrationAssignment is deprecated: Version 2019-04-01-preview will be removed in v2 of the provider.\nazure-native:managedservices/v20190401preview:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.")
         return new RegistrationAssignment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -62,9 +62,9 @@ export class RegistrationAssignment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2019-04-01-preview will be removed in v2 of the provider.
-azure-native:managedservices/v20190401preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility. */
+azure-native:managedservices/v20190401preview:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility. */
     constructor(name: string, args: RegistrationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RegistrationAssignment is deprecated: Version 2019-04-01-preview will be removed in v2 of the provider.\nazure-native:managedservices/v20190401preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.")
+        pulumi.log.warn("RegistrationAssignment is deprecated: Version 2019-04-01-preview will be removed in v2 of the provider.\nazure-native:managedservices/v20190401preview:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

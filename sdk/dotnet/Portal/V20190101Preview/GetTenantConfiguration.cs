@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Portal.V20190101Preview
 {
-    [Obsolete(@"azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility.")]
     public static class GetTenantConfiguration
     {
         /// <summary>

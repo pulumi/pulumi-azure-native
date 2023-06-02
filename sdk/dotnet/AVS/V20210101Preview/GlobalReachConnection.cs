@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
     /// <summary>
     /// A global reach connection resource
     /// </summary>
-    [Obsolete(@"azure-native:avs/v20210101preview:GlobalReachConnection is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:GlobalReachConnection to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:avs/v20210101preview:GlobalReachConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:GlobalReachConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20210101preview:GlobalReachConnection")]
     public partial class GlobalReachConnection : global::Pulumi.CustomResource
     {

@@ -17,7 +17,7 @@ __all__ = [
     'get_graph_resource_graph_output',
 ]
 
-warnings.warn("""azure-native:documentdb/v20211115preview:GraphResourceGraph is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:GraphResourceGraph to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:documentdb/v20211115preview:GraphResourceGraph is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:GraphResourceGraph to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetGraphResourceGraphResult:
@@ -137,7 +137,7 @@ def get_graph_resource_graph(account_name: Optional[str] = None,
     :param str graph_name: Cosmos DB graph resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_graph_resource_graph is deprecated: azure-native:documentdb/v20211115preview:GraphResourceGraph is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:GraphResourceGraph to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_graph_resource_graph is deprecated: azure-native:documentdb/v20211115preview:GraphResourceGraph is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:GraphResourceGraph to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['graphName'] = graph_name
@@ -169,5 +169,5 @@ def get_graph_resource_graph_output(account_name: Optional[pulumi.Input[str]] = 
     :param str graph_name: Cosmos DB graph resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_graph_resource_graph is deprecated: azure-native:documentdb/v20211115preview:GraphResourceGraph is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:GraphResourceGraph to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_graph_resource_graph is deprecated: azure-native:documentdb/v20211115preview:GraphResourceGraph is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:GraphResourceGraph to guarantee forwards compatibility.""")
     ...

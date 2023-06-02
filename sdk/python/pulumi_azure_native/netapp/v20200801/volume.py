@@ -361,12 +361,12 @@ class VolumeArgs:
 
 
 warnings.warn("""Version 2020-08-01 will be removed in v2 of the provider.
-azure-native:netapp/v20200801:Volume is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20211001:Volume to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:netapp/v20200801:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20211001:Volume to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Volume(pulumi.CustomResource):
     warnings.warn("""Version 2020-08-01 will be removed in v2 of the provider.
-azure-native:netapp/v20200801:Volume is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20211001:Volume to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:netapp/v20200801:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20211001:Volume to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -467,7 +467,7 @@ azure-native:netapp/v20200801:Volume is being removed in the next major version 
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Volume is deprecated: Version 2020-08-01 will be removed in v2 of the provider.
-azure-native:netapp/v20200801:Volume is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20211001:Volume to guarantee forwards compatibility.""")
+azure-native:netapp/v20200801:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20211001:Volume to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

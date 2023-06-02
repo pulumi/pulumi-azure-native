@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20190401
     /// <summary>
     /// A network interface in a resource group.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20190401:NetworkInterface is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:NetworkInterface to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20190401:NetworkInterface is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:NetworkInterface to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20190401:NetworkInterface")]
     public partial class NetworkInterface : global::Pulumi.CustomResource
     {

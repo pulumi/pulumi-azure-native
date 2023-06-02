@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
     /// <summary>
     /// Email Template details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20210401preview:EmailTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:EmailTemplate to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20210401preview:EmailTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:EmailTemplate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20210401preview:EmailTemplate")]
     public partial class EmailTemplate : global::Pulumi.CustomResource
     {

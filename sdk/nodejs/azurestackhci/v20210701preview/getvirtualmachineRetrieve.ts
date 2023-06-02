@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The virtualmachines resource definition.
  */
-/** @deprecated azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve to guarantee forwards compatibility. */
+/** @deprecated azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve to guarantee forwards compatibility. */
 export function getvirtualmachineRetrieve(args: GetvirtualmachineRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetvirtualmachineRetrieveResult> {
-    pulumi.log.warn("getvirtualmachineRetrieve is deprecated: azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve to guarantee forwards compatibility.")
+    pulumi.log.warn("getvirtualmachineRetrieve is deprecated: azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210701preview:getvirtualmachineRetrieve", {
@@ -94,7 +94,7 @@ export interface GetvirtualmachineRetrieveResult {
 /**
  * The virtualmachines resource definition.
  */
-/** @deprecated azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve to guarantee forwards compatibility. */
+/** @deprecated azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve to guarantee forwards compatibility. */
 export function getvirtualmachineRetrieveOutput(args: GetvirtualmachineRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvirtualmachineRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getvirtualmachineRetrieve(a, opts))
 }

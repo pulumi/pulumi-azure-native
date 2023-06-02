@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute.V20200630
     /// disk access resource.
     /// </summary>
     [Obsolete(@"Version 2020-06-30 will be removed in v2 of the provider.
-azure-native:compute/v20200630:DiskAccess is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:DiskAccess to guarantee forwards compatibility.")]
+azure-native:compute/v20200630:DiskAccess is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:DiskAccess to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20200630:DiskAccess")]
     public partial class DiskAccess : global::Pulumi.CustomResource
     {

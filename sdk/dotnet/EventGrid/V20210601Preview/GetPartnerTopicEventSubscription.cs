@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.EventGrid.V20210601Preview
 {
-    [Obsolete(@"azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:PartnerTopicEventSubscription to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:PartnerTopicEventSubscription to guarantee forwards compatibility.")]
     public static class GetPartnerTopicEventSubscription
     {
         /// <summary>

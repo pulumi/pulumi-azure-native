@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
 {
-    [Obsolete(@"azure-native:databoxedge/v20210601preview:PeriodicTimerEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:PeriodicTimerEventTrigger to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:databoxedge/v20210601preview:PeriodicTimerEventTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:PeriodicTimerEventTrigger to guarantee forwards compatibility.")]
     public static class GetPeriodicTimerEventTrigger
     {
         /// <summary>

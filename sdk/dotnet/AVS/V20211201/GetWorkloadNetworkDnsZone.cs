@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AVS.V20211201
 {
-    [Obsolete(@"azure-native:avs/v20211201:WorkloadNetworkDnsZone is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkDnsZone to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:avs/v20211201:WorkloadNetworkDnsZone is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkDnsZone to guarantee forwards compatibility.")]
     public static class GetWorkloadNetworkDnsZone
     {
         /// <summary>

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified network profile in a specified resource group.
  */
-/** @deprecated azure-native:network/v20191101:NetworkProfile is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NetworkProfile to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20191101:NetworkProfile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkProfile to guarantee forwards compatibility. */
 export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkProfileResult> {
-    pulumi.log.warn("getNetworkProfile is deprecated: azure-native:network/v20191101:NetworkProfile is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NetworkProfile to guarantee forwards compatibility.")
+    pulumi.log.warn("getNetworkProfile is deprecated: azure-native:network/v20191101:NetworkProfile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkProfile to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20191101:getNetworkProfile", {
@@ -85,7 +85,7 @@ export interface GetNetworkProfileResult {
 /**
  * Gets the specified network profile in a specified resource group.
  */
-/** @deprecated azure-native:network/v20191101:NetworkProfile is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NetworkProfile to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20191101:NetworkProfile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkProfile to guarantee forwards compatibility. */
 export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkProfileResult> {
     return pulumi.output(args).apply((a: any) => getNetworkProfile(a, opts))
 }

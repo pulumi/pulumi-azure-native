@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Workloads.V20221101Preview
 {
-    [Obsolete(@"azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility.")]
     public static class GetSapLandscapeMonitor
     {
         /// <summary>

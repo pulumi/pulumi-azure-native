@@ -17,7 +17,7 @@ __all__ = [
     'get_connection_output',
 ]
 
-warnings.warn("""azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Connection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Connection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetConnectionResult:
@@ -143,7 +143,7 @@ def get_connection(automation_account_name: Optional[str] = None,
     :param str connection_name: The name of connection.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_connection is deprecated: azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Connection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_connection is deprecated: azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Connection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['connectionName'] = connection_name
@@ -175,5 +175,5 @@ def get_connection_output(automation_account_name: Optional[pulumi.Input[str]] =
     :param str connection_name: The name of connection.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_connection is deprecated: azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Connection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_connection is deprecated: azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Connection to guarantee forwards compatibility.""")
     ...

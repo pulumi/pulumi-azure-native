@@ -17,7 +17,7 @@ __all__ = [
     'get_runbook_output',
 ]
 
-warnings.warn("""azure-native:automation/v20180630:Runbook is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Runbook to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:automation/v20180630:Runbook is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Runbook to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRunbookResult:
@@ -299,7 +299,7 @@ def get_runbook(automation_account_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure Resource group.
     :param str runbook_name: The runbook name.
     """
-    pulumi.log.warn("""get_runbook is deprecated: azure-native:automation/v20180630:Runbook is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Runbook to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_runbook is deprecated: azure-native:automation/v20180630:Runbook is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Runbook to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -344,5 +344,5 @@ def get_runbook_output(automation_account_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: Name of an Azure Resource group.
     :param str runbook_name: The runbook name.
     """
-    pulumi.log.warn("""get_runbook is deprecated: azure-native:automation/v20180630:Runbook is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Runbook to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_runbook is deprecated: azure-native:automation/v20180630:Runbook is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Runbook to guarantee forwards compatibility.""")
     ...

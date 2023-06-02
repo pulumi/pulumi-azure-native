@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a schedule resource.
  */
-/** @deprecated azure-native:devcenter/v20220801preview:Schedule is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Schedule to guarantee forwards compatibility. */
+/** @deprecated azure-native:devcenter/v20220801preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Schedule to guarantee forwards compatibility. */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
-    pulumi.log.warn("getSchedule is deprecated: azure-native:devcenter/v20220801preview:Schedule is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Schedule to guarantee forwards compatibility.")
+    pulumi.log.warn("getSchedule is deprecated: azure-native:devcenter/v20220801preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Schedule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20220801preview:getSchedule", {
@@ -91,7 +91,7 @@ export interface GetScheduleResult {
 /**
  * Gets a schedule resource.
  */
-/** @deprecated azure-native:devcenter/v20220801preview:Schedule is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Schedule to guarantee forwards compatibility. */
+/** @deprecated azure-native:devcenter/v20220801preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Schedule to guarantee forwards compatibility. */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
     return pulumi.output(args).apply((a: any) => getSchedule(a, opts))
 }

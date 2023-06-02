@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20170701
 {
     [Obsolete(@"Version 2017-07-01 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.")]
+azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.")]
     public static class GetProtectionIntent
     {
         /// <summary>

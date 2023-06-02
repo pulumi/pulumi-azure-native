@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.
-azure-native:customerinsights/v20170101:Hub is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Hub to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:customerinsights/v20170101:Hub is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:Hub to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetHubResult:
@@ -167,7 +167,7 @@ def get_hub(hub_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_hub is deprecated: Version 2017-01-01 will be removed in v2 of the provider.
-azure-native:customerinsights/v20170101:Hub is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Hub to guarantee forwards compatibility.""")
+azure-native:customerinsights/v20170101:Hub is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:Hub to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['resourceGroupName'] = resource_group_name
@@ -199,5 +199,5 @@ def get_hub_output(hub_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_hub is deprecated: Version 2017-01-01 will be removed in v2 of the provider.
-azure-native:customerinsights/v20170101:Hub is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Hub to guarantee forwards compatibility.""")
+azure-native:customerinsights/v20170101:Hub is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:Hub to guarantee forwards compatibility.""")
     ...

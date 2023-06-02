@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
     /// <summary>
     /// The description of the service.
     /// </summary>
-    [Obsolete(@"azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter")]
     public partial class PrivateLinkServicesForM365ComplianceCenter : global::Pulumi.CustomResource
     {

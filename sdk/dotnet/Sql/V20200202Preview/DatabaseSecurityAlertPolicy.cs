@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
     /// <summary>
     /// A database security alert policy.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:DatabaseSecurityAlertPolicy to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:DatabaseSecurityAlertPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy")]
     public partial class DatabaseSecurityAlertPolicy : global::Pulumi.CustomResource
     {

@@ -102,12 +102,12 @@ class RemoteRenderingAccountArgs:
 
 
 warnings.warn("""Version 2019-12-02-preview will be removed in v2 of the provider.
-azure-native:mixedreality/v20191202preview:RemoteRenderingAccount is being removed in the next major version of this provider. Please upgrade to azure-native:mixedreality/v20210301preview:RemoteRenderingAccount to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:mixedreality/v20191202preview:RemoteRenderingAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:mixedreality/v20210301preview:RemoteRenderingAccount to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class RemoteRenderingAccount(pulumi.CustomResource):
     warnings.warn("""Version 2019-12-02-preview will be removed in v2 of the provider.
-azure-native:mixedreality/v20191202preview:RemoteRenderingAccount is being removed in the next major version of this provider. Please upgrade to azure-native:mixedreality/v20210301preview:RemoteRenderingAccount to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:mixedreality/v20191202preview:RemoteRenderingAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:mixedreality/v20210301preview:RemoteRenderingAccount to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -161,7 +161,7 @@ azure-native:mixedreality/v20191202preview:RemoteRenderingAccount is being remov
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""RemoteRenderingAccount is deprecated: Version 2019-12-02-preview will be removed in v2 of the provider.
-azure-native:mixedreality/v20191202preview:RemoteRenderingAccount is being removed in the next major version of this provider. Please upgrade to azure-native:mixedreality/v20210301preview:RemoteRenderingAccount to guarantee forwards compatibility.""")
+azure-native:mixedreality/v20191202preview:RemoteRenderingAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:mixedreality/v20210301preview:RemoteRenderingAccount to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

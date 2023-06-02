@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
 {
     [Obsolete(@"Version 2017-02-28-preview will be removed in v2 of the provider.
-azure-native:timeseriesinsights/v20170228preview:Environment is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20171115:Environment to guarantee forwards compatibility.")]
+azure-native:timeseriesinsights/v20170228preview:Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20171115:Environment to guarantee forwards compatibility.")]
     public static class GetEnvironment
     {
         /// <summary>

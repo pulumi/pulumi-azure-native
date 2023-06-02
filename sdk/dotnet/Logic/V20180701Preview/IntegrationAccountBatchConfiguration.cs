@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
     /// <summary>
     /// The batch configuration resource definition.
     /// </summary>
-    [Obsolete(@"azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountBatchConfiguration to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountBatchConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration")]
     public partial class IntegrationAccountBatchConfiguration : global::Pulumi.CustomResource
     {

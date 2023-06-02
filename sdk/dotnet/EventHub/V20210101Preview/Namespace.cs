@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview
     /// <summary>
     /// Single Namespace item in List or Get Operation
     /// </summary>
-    [Obsolete(@"azure-native:eventhub/v20210101preview:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:eventhub/v20210101preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventhub/v20210101preview:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
     {

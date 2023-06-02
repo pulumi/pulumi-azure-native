@@ -17,7 +17,7 @@ __all__ = [
     'get_application_accelerator_output',
 ]
 
-warnings.warn("""azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetApplicationAcceleratorResult:
@@ -119,7 +119,7 @@ def get_application_accelerator(application_accelerator_name: Optional[str] = No
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
-    pulumi.log.warn("""get_application_accelerator is deprecated: azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_application_accelerator is deprecated: azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['applicationAcceleratorName'] = application_accelerator_name
     __args__['resourceGroupName'] = resource_group_name
@@ -149,5 +149,5 @@ def get_application_accelerator_output(application_accelerator_name: Optional[pu
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
-    pulumi.log.warn("""get_application_accelerator is deprecated: azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_application_accelerator is deprecated: azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.""")
     ...

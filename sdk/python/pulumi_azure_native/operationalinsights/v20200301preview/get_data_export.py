@@ -16,7 +16,7 @@ __all__ = [
     'get_data_export_output',
 ]
 
-warnings.warn("""azure-native:operationalinsights/v20200301preview:DataExport is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:operationalinsights/v20200301preview:DataExport is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDataExportResult:
@@ -166,7 +166,7 @@ def get_data_export(data_export_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_data_export is deprecated: azure-native:operationalinsights/v20200301preview:DataExport is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_data_export is deprecated: azure-native:operationalinsights/v20200301preview:DataExport is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dataExportName'] = data_export_name
     __args__['resourceGroupName'] = resource_group_name
@@ -200,5 +200,5 @@ def get_data_export_output(data_export_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_data_export is deprecated: azure-native:operationalinsights/v20200301preview:DataExport is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_data_export is deprecated: azure-native:operationalinsights/v20200301preview:DataExport is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility.""")
     ...

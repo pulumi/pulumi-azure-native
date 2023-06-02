@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2017-05-15 will be removed in v2 of the provider.
-azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Please upgrade to azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Upgrade to at least azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSupportPlanTypeResult:
@@ -94,7 +94,7 @@ def get_support_plan_type(plan_type_name: Optional[str] = None,
     :param str provider_name: The support plan type. For now the only valid type is "canonical".
     """
     pulumi.log.warn("""get_support_plan_type is deprecated: Version 2017-05-15 will be removed in v2 of the provider.
-azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Please upgrade to azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility.""")
+azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Upgrade to at least azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['planTypeName'] = plan_type_name
     __args__['providerName'] = provider_name
@@ -120,5 +120,5 @@ def get_support_plan_type_output(plan_type_name: Optional[pulumi.Input[str]] = N
     :param str provider_name: The support plan type. For now the only valid type is "canonical".
     """
     pulumi.log.warn("""get_support_plan_type is deprecated: Version 2017-05-15 will be removed in v2 of the provider.
-azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Please upgrade to azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility.""")
+azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Upgrade to at least azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility.""")
     ...

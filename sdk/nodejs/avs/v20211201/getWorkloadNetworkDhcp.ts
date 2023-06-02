@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * NSX DHCP
  */
-/** @deprecated azure-native:avs/v20211201:WorkloadNetworkDhcp is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkDhcp to guarantee forwards compatibility. */
+/** @deprecated azure-native:avs/v20211201:WorkloadNetworkDhcp is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkDhcp to guarantee forwards compatibility. */
 export function getWorkloadNetworkDhcp(args: GetWorkloadNetworkDhcpArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDhcpResult> {
-    pulumi.log.warn("getWorkloadNetworkDhcp is deprecated: azure-native:avs/v20211201:WorkloadNetworkDhcp is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkDhcp to guarantee forwards compatibility.")
+    pulumi.log.warn("getWorkloadNetworkDhcp is deprecated: azure-native:avs/v20211201:WorkloadNetworkDhcp is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkDhcp to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getWorkloadNetworkDhcp", {
@@ -61,7 +61,7 @@ export interface GetWorkloadNetworkDhcpResult {
 /**
  * NSX DHCP
  */
-/** @deprecated azure-native:avs/v20211201:WorkloadNetworkDhcp is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkDhcp to guarantee forwards compatibility. */
+/** @deprecated azure-native:avs/v20211201:WorkloadNetworkDhcp is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkDhcp to guarantee forwards compatibility. */
 export function getWorkloadNetworkDhcpOutput(args: GetWorkloadNetworkDhcpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDhcpResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadNetworkDhcp(a, opts))
 }

@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Shared Private Link Resource
  *
- * @deprecated azure-native:signalrservice/v20220801preview:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource to guarantee forwards compatibility.
+ * @deprecated azure-native:signalrservice/v20220801preview:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource to guarantee forwards compatibility.
  */
 export class SignalRSharedPrivateLinkResource extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class SignalRSharedPrivateLinkResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SignalRSharedPrivateLinkResource {
-        pulumi.log.warn("SignalRSharedPrivateLinkResource is deprecated: azure-native:signalrservice/v20220801preview:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource to guarantee forwards compatibility.")
+        pulumi.log.warn("SignalRSharedPrivateLinkResource is deprecated: azure-native:signalrservice/v20220801preview:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource to guarantee forwards compatibility.")
         return new SignalRSharedPrivateLinkResource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,9 +80,9 @@ export class SignalRSharedPrivateLinkResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:signalrservice/v20220801preview:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource to guarantee forwards compatibility. */
+    /** @deprecated azure-native:signalrservice/v20220801preview:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource to guarantee forwards compatibility. */
     constructor(name: string, args: SignalRSharedPrivateLinkResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SignalRSharedPrivateLinkResource is deprecated: azure-native:signalrservice/v20220801preview:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource to guarantee forwards compatibility.")
+        pulumi.log.warn("SignalRSharedPrivateLinkResource is deprecated: azure-native:signalrservice/v20220801preview:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

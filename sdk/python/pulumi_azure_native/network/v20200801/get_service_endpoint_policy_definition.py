@@ -16,7 +16,7 @@ __all__ = [
     'get_service_endpoint_policy_definition_output',
 ]
 
-warnings.warn("""azure-native:network/v20200801:ServiceEndpointPolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicyDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20200801:ServiceEndpointPolicyDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ServiceEndpointPolicyDefinition to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetServiceEndpointPolicyDefinitionResult:
@@ -130,7 +130,7 @@ def get_service_endpoint_policy_definition(resource_group_name: Optional[str] = 
     :param str service_endpoint_policy_definition_name: The name of the service endpoint policy definition name.
     :param str service_endpoint_policy_name: The name of the service endpoint policy name.
     """
-    pulumi.log.warn("""get_service_endpoint_policy_definition is deprecated: azure-native:network/v20200801:ServiceEndpointPolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicyDefinition to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_service_endpoint_policy_definition is deprecated: azure-native:network/v20200801:ServiceEndpointPolicyDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ServiceEndpointPolicyDefinition to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceEndpointPolicyDefinitionName'] = service_endpoint_policy_definition_name
@@ -161,5 +161,5 @@ def get_service_endpoint_policy_definition_output(resource_group_name: Optional[
     :param str service_endpoint_policy_definition_name: The name of the service endpoint policy definition name.
     :param str service_endpoint_policy_name: The name of the service endpoint policy name.
     """
-    pulumi.log.warn("""get_service_endpoint_policy_definition is deprecated: azure-native:network/v20200801:ServiceEndpointPolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicyDefinition to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_service_endpoint_policy_definition is deprecated: azure-native:network/v20200801:ServiceEndpointPolicyDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ServiceEndpointPolicyDefinition to guarantee forwards compatibility.""")
     ...

@@ -17,7 +17,7 @@ __all__ = [
     'get_certificate_output',
 ]
 
-warnings.warn("""azure-native:app/v20220601preview:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:Certificate to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:app/v20220601preview:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:Certificate to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCertificateResult:
@@ -131,7 +131,7 @@ def get_certificate(certificate_name: Optional[str] = None,
     :param str environment_name: Name of the Managed Environment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_certificate is deprecated: azure-native:app/v20220601preview:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:Certificate to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_certificate is deprecated: azure-native:app/v20220601preview:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:Certificate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['certificateName'] = certificate_name
     __args__['environmentName'] = environment_name
@@ -162,5 +162,5 @@ def get_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
     :param str environment_name: Name of the Managed Environment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_certificate is deprecated: azure-native:app/v20220601preview:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:Certificate to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_certificate is deprecated: azure-native:app/v20220601preview:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:Certificate to guarantee forwards compatibility.""")
     ...

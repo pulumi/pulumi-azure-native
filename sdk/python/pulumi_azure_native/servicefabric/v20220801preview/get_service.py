@@ -17,7 +17,7 @@ __all__ = [
     'get_service_output',
 ]
 
-warnings.warn("""azure-native:servicefabric/v20220801preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20230201preview:Service to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:servicefabric/v20220801preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:Service to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetServiceResult:
@@ -133,7 +133,7 @@ def get_service(application_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the service resource in the format of {applicationName}~{serviceName}.
     """
-    pulumi.log.warn("""get_service is deprecated: azure-native:servicefabric/v20220801preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20230201preview:Service to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_service is deprecated: azure-native:servicefabric/v20220801preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:Service to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['applicationName'] = application_name
     __args__['clusterName'] = cluster_name
@@ -167,5 +167,5 @@ def get_service_output(application_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the service resource in the format of {applicationName}~{serviceName}.
     """
-    pulumi.log.warn("""get_service is deprecated: azure-native:servicefabric/v20220801preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20230201preview:Service to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_service is deprecated: azure-native:servicefabric/v20220801preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:Service to guarantee forwards compatibility.""")
     ...

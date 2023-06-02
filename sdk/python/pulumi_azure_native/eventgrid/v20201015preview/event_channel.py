@@ -151,11 +151,11 @@ class EventChannelArgs:
         pulumi.set(self, "source", value)
 
 
-warnings.warn("""azure-native:eventgrid/v20201015preview:EventChannel is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:eventgrid/v20201015preview:EventChannel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class EventChannel(pulumi.CustomResource):
-    warnings.warn("""azure-native:eventgrid/v20201015preview:EventChannel is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:eventgrid/v20201015preview:EventChannel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -219,7 +219,7 @@ class EventChannel(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['EventChannelSourceArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""EventChannel is deprecated: azure-native:eventgrid/v20201015preview:EventChannel is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.""")
+        pulumi.log.warn("""EventChannel is deprecated: azure-native:eventgrid/v20201015preview:EventChannel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

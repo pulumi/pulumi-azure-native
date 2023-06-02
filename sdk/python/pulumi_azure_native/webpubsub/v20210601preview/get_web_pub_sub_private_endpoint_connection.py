@@ -17,7 +17,7 @@ __all__ = [
     'get_web_pub_sub_private_endpoint_connection_output',
 ]
 
-warnings.warn("""azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetWebPubSubPrivateEndpointConnectionResult:
@@ -131,7 +131,7 @@ def get_web_pub_sub_private_endpoint_connection(private_endpoint_connection_name
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the resource.
     """
-    pulumi.log.warn("""get_web_pub_sub_private_endpoint_connection is deprecated: azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_web_pub_sub_private_endpoint_connection is deprecated: azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -162,5 +162,5 @@ def get_web_pub_sub_private_endpoint_connection_output(private_endpoint_connecti
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the resource.
     """
-    pulumi.log.warn("""get_web_pub_sub_private_endpoint_connection is deprecated: azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_web_pub_sub_private_endpoint_connection is deprecated: azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

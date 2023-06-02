@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Rules Engine Configuration with the specified name within the specified Front Door.
  */
-/** @deprecated azure-native:network/v20200401:RulesEngine is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210601:RulesEngine to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20200401:RulesEngine is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:RulesEngine to guarantee forwards compatibility. */
 export function getRulesEngine(args: GetRulesEngineArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesEngineResult> {
-    pulumi.log.warn("getRulesEngine is deprecated: azure-native:network/v20200401:RulesEngine is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210601:RulesEngine to guarantee forwards compatibility.")
+    pulumi.log.warn("getRulesEngine is deprecated: azure-native:network/v20200401:RulesEngine is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:RulesEngine to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200401:getRulesEngine", {
@@ -65,7 +65,7 @@ export interface GetRulesEngineResult {
 /**
  * Gets a Rules Engine Configuration with the specified name within the specified Front Door.
  */
-/** @deprecated azure-native:network/v20200401:RulesEngine is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210601:RulesEngine to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20200401:RulesEngine is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:RulesEngine to guarantee forwards compatibility. */
 export function getRulesEngineOutput(args: GetRulesEngineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesEngineResult> {
     return pulumi.output(args).apply((a: any) => getRulesEngine(a, opts))
 }

@@ -293,11 +293,11 @@ class FirewallPolicyArgs:
         pulumi.set(self, "transport_security", value)
 
 
-warnings.warn("""azure-native:network/v20210501:FirewallPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20210501:FirewallPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class FirewallPolicy(pulumi.CustomResource):
-    warnings.warn("""azure-native:network/v20210501:FirewallPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:network/v20210501:FirewallPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -386,7 +386,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  threat_intel_whitelist: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelWhitelistArgs']]] = None,
                  transport_security: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyTransportSecurityArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""FirewallPolicy is deprecated: azure-native:network/v20210501:FirewallPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.""")
+        pulumi.log.warn("""FirewallPolicy is deprecated: azure-native:network/v20210501:FirewallPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

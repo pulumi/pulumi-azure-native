@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2018-08-20-preview will be removed in v2 of the provider.
-azure-native:healthcareapis/v20180820preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20200315:Service to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:healthcareapis/v20180820preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20200315:Service to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetServiceResult:
@@ -155,7 +155,7 @@ def get_service(resource_group_name: Optional[str] = None,
     :param str resource_name: The name of the service instance.
     """
     pulumi.log.warn("""get_service is deprecated: Version 2018-08-20-preview will be removed in v2 of the provider.
-azure-native:healthcareapis/v20180820preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20200315:Service to guarantee forwards compatibility.""")
+azure-native:healthcareapis/v20180820preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20200315:Service to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -186,5 +186,5 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_name: The name of the service instance.
     """
     pulumi.log.warn("""get_service is deprecated: Version 2018-08-20-preview will be removed in v2 of the provider.
-azure-native:healthcareapis/v20180820preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20200315:Service to guarantee forwards compatibility.""")
+azure-native:healthcareapis/v20180820preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20200315:Service to guarantee forwards compatibility.""")
     ...

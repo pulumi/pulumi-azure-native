@@ -17,7 +17,7 @@ __all__ = [
     'get_job_output',
 ]
 
-warnings.warn("""azure-native:databox/v20210801preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:databox/v20221201:Job to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:databox/v20210801preview:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:databox/v20221201:Job to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetJobResult:
@@ -299,7 +299,7 @@ def get_job(expand: Optional[str] = None,
     :param str job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The Resource Group Name
     """
-    pulumi.log.warn("""get_job is deprecated: azure-native:databox/v20210801preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:databox/v20221201:Job to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_job is deprecated: azure-native:databox/v20210801preview:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:databox/v20221201:Job to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['jobName'] = job_name
@@ -344,5 +344,5 @@ def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The Resource Group Name
     """
-    pulumi.log.warn("""get_job is deprecated: azure-native:databox/v20210801preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:databox/v20221201:Job to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_job is deprecated: azure-native:databox/v20210801preview:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:databox/v20221201:Job to guarantee forwards compatibility.""")
     ...

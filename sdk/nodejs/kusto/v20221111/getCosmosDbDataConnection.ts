@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a data connection.
  */
-/** @deprecated azure-native:kusto/v20221111:CosmosDbDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:CosmosDbDataConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:kusto/v20221111:CosmosDbDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:CosmosDbDataConnection to guarantee forwards compatibility. */
 export function getCosmosDbDataConnection(args: GetCosmosDbDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetCosmosDbDataConnectionResult> {
-    pulumi.log.warn("getCosmosDbDataConnection is deprecated: azure-native:kusto/v20221111:CosmosDbDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:CosmosDbDataConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getCosmosDbDataConnection is deprecated: azure-native:kusto/v20221111:CosmosDbDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:CosmosDbDataConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20221111:getCosmosDbDataConnection", {
@@ -104,7 +104,7 @@ export interface GetCosmosDbDataConnectionResult {
 /**
  * Returns a data connection.
  */
-/** @deprecated azure-native:kusto/v20221111:CosmosDbDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:CosmosDbDataConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:kusto/v20221111:CosmosDbDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:CosmosDbDataConnection to guarantee forwards compatibility. */
 export function getCosmosDbDataConnectionOutput(args: GetCosmosDbDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCosmosDbDataConnectionResult> {
     return pulumi.output(args).apply((a: any) => getCosmosDbDataConnection(a, opts))
 }

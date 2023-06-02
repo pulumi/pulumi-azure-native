@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a network manager security user configuration rule collection.
  */
-/** @deprecated azure-native:network/v20220201preview:UserRuleCollection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:UserRuleCollection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220201preview:UserRuleCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:UserRuleCollection to guarantee forwards compatibility. */
 export function getUserRuleCollection(args: GetUserRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetUserRuleCollectionResult> {
-    pulumi.log.warn("getUserRuleCollection is deprecated: azure-native:network/v20220201preview:UserRuleCollection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:UserRuleCollection to guarantee forwards compatibility.")
+    pulumi.log.warn("getUserRuleCollection is deprecated: azure-native:network/v20220201preview:UserRuleCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:UserRuleCollection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220201preview:getUserRuleCollection", {
@@ -82,7 +82,7 @@ export interface GetUserRuleCollectionResult {
 /**
  * Gets a network manager security user configuration rule collection.
  */
-/** @deprecated azure-native:network/v20220201preview:UserRuleCollection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:UserRuleCollection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220201preview:UserRuleCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:UserRuleCollection to guarantee forwards compatibility. */
 export function getUserRuleCollectionOutput(args: GetUserRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserRuleCollectionResult> {
     return pulumi.output(args).apply((a: any) => getUserRuleCollection(a, opts))
 }

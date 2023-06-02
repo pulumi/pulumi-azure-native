@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
     /// <summary>
     /// An object that represents a pipeline run for a container registry.
     /// </summary>
-    [Obsolete(@"azure-native:containerregistry/v20210601preview:PipelineRun is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:PipelineRun to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:containerregistry/v20210601preview:PipelineRun is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:PipelineRun to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerregistry/v20210601preview:PipelineRun")]
     public partial class PipelineRun : global::Pulumi.CustomResource
     {

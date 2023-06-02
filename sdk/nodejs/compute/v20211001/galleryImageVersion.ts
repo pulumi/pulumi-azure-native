@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the gallery image version that you want to create or update.
  *
- * @deprecated azure-native:compute/v20211001:GalleryImageVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImageVersion to guarantee forwards compatibility.
+ * @deprecated azure-native:compute/v20211001:GalleryImageVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryImageVersion to guarantee forwards compatibility.
  */
 export class GalleryImageVersion extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class GalleryImageVersion extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GalleryImageVersion {
-        pulumi.log.warn("GalleryImageVersion is deprecated: azure-native:compute/v20211001:GalleryImageVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImageVersion to guarantee forwards compatibility.")
+        pulumi.log.warn("GalleryImageVersion is deprecated: azure-native:compute/v20211001:GalleryImageVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryImageVersion to guarantee forwards compatibility.")
         return new GalleryImageVersion(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,9 +80,9 @@ export class GalleryImageVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:compute/v20211001:GalleryImageVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImageVersion to guarantee forwards compatibility. */
+    /** @deprecated azure-native:compute/v20211001:GalleryImageVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryImageVersion to guarantee forwards compatibility. */
     constructor(name: string, args: GalleryImageVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("GalleryImageVersion is deprecated: azure-native:compute/v20211001:GalleryImageVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImageVersion to guarantee forwards compatibility.")
+        pulumi.log.warn("GalleryImageVersion is deprecated: azure-native:compute/v20211001:GalleryImageVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryImageVersion to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

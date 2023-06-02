@@ -17,7 +17,7 @@ __all__ = [
     'get_packet_core_data_plane_output',
 ]
 
-warnings.warn("""azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPacketCoreDataPlaneResult:
@@ -215,7 +215,7 @@ def get_packet_core_data_plane(packet_core_control_plane_name: Optional[str] = N
     :param str packet_core_data_plane_name: The name of the packet core data plane.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_packet_core_data_plane is deprecated: azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_packet_core_data_plane is deprecated: azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['packetCoreControlPlaneName'] = packet_core_control_plane_name
     __args__['packetCoreDataPlaneName'] = packet_core_data_plane_name
@@ -253,5 +253,5 @@ def get_packet_core_data_plane_output(packet_core_control_plane_name: Optional[p
     :param str packet_core_data_plane_name: The name of the packet core data plane.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_packet_core_data_plane is deprecated: azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_packet_core_data_plane is deprecated: azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane to guarantee forwards compatibility.""")
     ...

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the provider registration details.
  */
-/** @deprecated azure-native:providerhub/v20210501preview:ProviderRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:ProviderRegistration to guarantee forwards compatibility. */
+/** @deprecated azure-native:providerhub/v20210501preview:ProviderRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:ProviderRegistration to guarantee forwards compatibility. */
 export function getProviderRegistration(args: GetProviderRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderRegistrationResult> {
-    pulumi.log.warn("getProviderRegistration is deprecated: azure-native:providerhub/v20210501preview:ProviderRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:ProviderRegistration to guarantee forwards compatibility.")
+    pulumi.log.warn("getProviderRegistration is deprecated: azure-native:providerhub/v20210501preview:ProviderRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:ProviderRegistration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub/v20210501preview:getProviderRegistration", {
@@ -45,7 +45,7 @@ export interface GetProviderRegistrationResult {
 /**
  * Gets the provider registration details.
  */
-/** @deprecated azure-native:providerhub/v20210501preview:ProviderRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:ProviderRegistration to guarantee forwards compatibility. */
+/** @deprecated azure-native:providerhub/v20210501preview:ProviderRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:ProviderRegistration to guarantee forwards compatibility. */
 export function getProviderRegistrationOutput(args: GetProviderRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getProviderRegistration(a, opts))
 }

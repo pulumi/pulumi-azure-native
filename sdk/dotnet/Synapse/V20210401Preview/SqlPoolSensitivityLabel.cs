@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
     /// <summary>
     /// A sensitivity label.
     /// </summary>
-    [Obsolete(@"azure-native:synapse/v20210401preview:SqlPoolSensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:synapse/v20210401preview:SqlPoolSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:synapse/v20210401preview:SqlPoolSensitivityLabel")]
     public partial class SqlPoolSensitivityLabel : global::Pulumi.CustomResource
     {

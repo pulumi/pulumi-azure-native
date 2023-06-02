@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * An ADP Data Pool.
  *
  * @deprecated Version 2020-07-01-preview will be removed in v2 of the provider.
-azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Please upgrade to azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility.
+azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Upgrade to at least azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility.
  */
 export class DataPool extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class DataPool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataPool {
-        pulumi.log.warn("DataPool is deprecated: Version 2020-07-01-preview will be removed in v2 of the provider.\nazure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Please upgrade to azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility.")
+        pulumi.log.warn("DataPool is deprecated: Version 2020-07-01-preview will be removed in v2 of the provider.\nazure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Upgrade to at least azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility.")
         return new DataPool(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,9 +74,9 @@ export class DataPool extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2020-07-01-preview will be removed in v2 of the provider.
-azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Please upgrade to azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility. */
+azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Upgrade to at least azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility. */
     constructor(name: string, args: DataPoolArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DataPool is deprecated: Version 2020-07-01-preview will be removed in v2 of the provider.\nazure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Please upgrade to azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility.")
+        pulumi.log.warn("DataPool is deprecated: Version 2020-07-01-preview will be removed in v2 of the provider.\nazure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Upgrade to at least azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

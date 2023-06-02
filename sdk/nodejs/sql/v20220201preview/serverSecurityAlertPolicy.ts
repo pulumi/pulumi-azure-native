@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * A server security alert policy.
  *
- * @deprecated azure-native:sql/v20220201preview:ServerSecurityAlertPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerSecurityAlertPolicy to guarantee forwards compatibility.
+ * @deprecated azure-native:sql/v20220201preview:ServerSecurityAlertPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerSecurityAlertPolicy to guarantee forwards compatibility.
  */
 export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerSecurityAlertPolicy {
-        pulumi.log.warn("ServerSecurityAlertPolicy is deprecated: azure-native:sql/v20220201preview:ServerSecurityAlertPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerSecurityAlertPolicy to guarantee forwards compatibility.")
+        pulumi.log.warn("ServerSecurityAlertPolicy is deprecated: azure-native:sql/v20220201preview:ServerSecurityAlertPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerSecurityAlertPolicy to guarantee forwards compatibility.")
         return new ServerSecurityAlertPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -92,9 +92,9 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:sql/v20220201preview:ServerSecurityAlertPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerSecurityAlertPolicy to guarantee forwards compatibility. */
+    /** @deprecated azure-native:sql/v20220201preview:ServerSecurityAlertPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerSecurityAlertPolicy to guarantee forwards compatibility. */
     constructor(name: string, args: ServerSecurityAlertPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ServerSecurityAlertPolicy is deprecated: azure-native:sql/v20220201preview:ServerSecurityAlertPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerSecurityAlertPolicy to guarantee forwards compatibility.")
+        pulumi.log.warn("ServerSecurityAlertPolicy is deprecated: azure-native:sql/v20220201preview:ServerSecurityAlertPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerSecurityAlertPolicy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

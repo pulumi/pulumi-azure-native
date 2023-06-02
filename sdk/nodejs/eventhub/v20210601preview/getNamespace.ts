@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the description of the specified namespace.
  */
-/** @deprecated azure-native:eventhub/v20210601preview:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventhub/v20210601preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility. */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
-    pulumi.log.warn("getNamespace is deprecated: azure-native:eventhub/v20210601preview:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility.")
+    pulumi.log.warn("getNamespace is deprecated: azure-native:eventhub/v20210601preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20210601preview:getNamespace", {
@@ -128,7 +128,7 @@ export interface GetNamespaceResult {
 /**
  * Gets the description of the specified namespace.
  */
-/** @deprecated azure-native:eventhub/v20210601preview:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventhub/v20210601preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility. */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getNamespace(a, opts))
 }

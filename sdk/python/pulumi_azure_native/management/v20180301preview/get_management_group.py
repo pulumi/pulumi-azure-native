@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.
-azure-native:management/v20180301preview:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:management/v20180301preview:ManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetManagementGroupResult:
@@ -147,7 +147,7 @@ def get_management_group(expand: Optional[str] = None,
     :param bool recurse: The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
     """
     pulumi.log.warn("""get_management_group is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.
-azure-native:management/v20180301preview:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility.""")
+azure-native:management/v20180301preview:ManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['filter'] = filter
@@ -183,5 +183,5 @@ def get_management_group_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     :param bool recurse: The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
     """
     pulumi.log.warn("""get_management_group is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.
-azure-native:management/v20180301preview:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility.""")
+azure-native:management/v20180301preview:ManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility.""")
     ...

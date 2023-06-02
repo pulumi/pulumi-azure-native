@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the details of a Streaming Policy in the Media Services account
  */
-/** @deprecated azure-native:media/v20180601preview:StreamingPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:StreamingPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:media/v20180601preview:StreamingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:StreamingPolicy to guarantee forwards compatibility. */
 export function getStreamingPolicy(args: GetStreamingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingPolicyResult> {
-    pulumi.log.warn("getStreamingPolicy is deprecated: azure-native:media/v20180601preview:StreamingPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:StreamingPolicy to guarantee forwards compatibility.")
+    pulumi.log.warn("getStreamingPolicy is deprecated: azure-native:media/v20180601preview:StreamingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:StreamingPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20180601preview:getStreamingPolicy", {
@@ -81,7 +81,7 @@ export interface GetStreamingPolicyResult {
 /**
  * Get the details of a Streaming Policy in the Media Services account
  */
-/** @deprecated azure-native:media/v20180601preview:StreamingPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:StreamingPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:media/v20180601preview:StreamingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:StreamingPolicy to guarantee forwards compatibility. */
 export function getStreamingPolicyOutput(args: GetStreamingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getStreamingPolicy(a, opts))
 }

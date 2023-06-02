@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
     /// <summary>
     /// An Azure SQL managed instance administrator.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20210801preview:ManagedInstanceAdministrator is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceAdministrator to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20210801preview:ManagedInstanceAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceAdministrator to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20210801preview:ManagedInstanceAdministrator")]
     public partial class ManagedInstanceAdministrator : global::Pulumi.CustomResource
     {

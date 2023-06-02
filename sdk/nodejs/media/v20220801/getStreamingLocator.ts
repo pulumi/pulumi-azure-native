@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the details of a Streaming Locator in the Media Services account
  */
-/** @deprecated azure-native:media/v20220801:StreamingLocator is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:StreamingLocator to guarantee forwards compatibility. */
+/** @deprecated azure-native:media/v20220801:StreamingLocator is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:StreamingLocator to guarantee forwards compatibility. */
 export function getStreamingLocator(args: GetStreamingLocatorArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingLocatorResult> {
-    pulumi.log.warn("getStreamingLocator is deprecated: azure-native:media/v20220801:StreamingLocator is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:StreamingLocator to guarantee forwards compatibility.")
+    pulumi.log.warn("getStreamingLocator is deprecated: azure-native:media/v20220801:StreamingLocator is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:StreamingLocator to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20220801:getStreamingLocator", {
@@ -101,7 +101,7 @@ export interface GetStreamingLocatorResult {
 /**
  * Get the details of a Streaming Locator in the Media Services account
  */
-/** @deprecated azure-native:media/v20220801:StreamingLocator is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:StreamingLocator to guarantee forwards compatibility. */
+/** @deprecated azure-native:media/v20220801:StreamingLocator is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:StreamingLocator to guarantee forwards compatibility. */
 export function getStreamingLocatorOutput(args: GetStreamingLocatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingLocatorResult> {
     return pulumi.output(args).apply((a: any) => getStreamingLocator(a, opts))
 }

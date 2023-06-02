@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns the description for the specified namespace.
  */
-/** @deprecated azure-native:relay/v20180101preview:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20211101:Namespace to guarantee forwards compatibility. */
+/** @deprecated azure-native:relay/v20180101preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:Namespace to guarantee forwards compatibility. */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
-    pulumi.log.warn("getNamespace is deprecated: azure-native:relay/v20180101preview:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20211101:Namespace to guarantee forwards compatibility.")
+    pulumi.log.warn("getNamespace is deprecated: azure-native:relay/v20180101preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:Namespace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay/v20180101preview:getNamespace", {
@@ -81,7 +81,7 @@ export interface GetNamespaceResult {
 /**
  * Returns the description for the specified namespace.
  */
-/** @deprecated azure-native:relay/v20180101preview:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20211101:Namespace to guarantee forwards compatibility. */
+/** @deprecated azure-native:relay/v20180101preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:Namespace to guarantee forwards compatibility. */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getNamespace(a, opts))
 }

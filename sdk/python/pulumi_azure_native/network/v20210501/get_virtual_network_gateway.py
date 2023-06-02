@@ -17,7 +17,7 @@ __all__ = [
     'get_virtual_network_gateway_output',
 ]
 
-warnings.warn("""azure-native:network/v20210501:VirtualNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualNetworkGateway to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20210501:VirtualNetworkGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualNetworkGateway to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualNetworkGatewayResult:
@@ -369,7 +369,7 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_name: The name of the virtual network gateway.
     """
-    pulumi.log.warn("""get_virtual_network_gateway is deprecated: azure-native:network/v20210501:VirtualNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualNetworkGateway to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_virtual_network_gateway is deprecated: azure-native:network/v20210501:VirtualNetworkGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualNetworkGateway to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name
@@ -417,5 +417,5 @@ def get_virtual_network_gateway_output(resource_group_name: Optional[pulumi.Inpu
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_name: The name of the virtual network gateway.
     """
-    pulumi.log.warn("""get_virtual_network_gateway is deprecated: azure-native:network/v20210501:VirtualNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualNetworkGateway to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_virtual_network_gateway is deprecated: azure-native:network/v20210501:VirtualNetworkGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualNetworkGateway to guarantee forwards compatibility.""")
     ...

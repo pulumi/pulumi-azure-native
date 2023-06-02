@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the details of the management group.
  */
-/** @deprecated azure-native:management/v20201001:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20210401:ManagementGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:management/v20201001:ManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:ManagementGroup to guarantee forwards compatibility. */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
-    pulumi.log.warn("getManagementGroup is deprecated: azure-native:management/v20201001:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20210401:ManagementGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getManagementGroup is deprecated: azure-native:management/v20201001:ManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:ManagementGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:management/v20201001:getManagementGroup", {
@@ -78,7 +78,7 @@ export interface GetManagementGroupResult {
 /**
  * Get the details of the management group.
  */
-/** @deprecated azure-native:management/v20201001:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20210401:ManagementGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:management/v20201001:ManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:ManagementGroup to guarantee forwards compatibility. */
 export function getManagementGroupOutput(args: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroup(a, opts))
 }

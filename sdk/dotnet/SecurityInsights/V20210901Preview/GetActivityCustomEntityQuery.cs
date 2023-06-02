@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
-    [Obsolete(@"azure-native:securityinsights/v20210901preview:ActivityCustomEntityQuery is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:ActivityCustomEntityQuery to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20210901preview:ActivityCustomEntityQuery is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ActivityCustomEntityQuery to guarantee forwards compatibility.")]
     public static class GetActivityCustomEntityQuery
     {
         /// <summary>

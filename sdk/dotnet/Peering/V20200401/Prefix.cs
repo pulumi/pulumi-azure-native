@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering.V20200401
     /// The peering service prefix class.
     /// </summary>
     [Obsolete(@"Version 2020-04-01 will be removed in v2 of the provider.
-azure-native:peering/v20200401:Prefix is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:Prefix to guarantee forwards compatibility.")]
+azure-native:peering/v20200401:Prefix is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:Prefix to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:peering/v20200401:Prefix")]
     public partial class Prefix : global::Pulumi.CustomResource
     {

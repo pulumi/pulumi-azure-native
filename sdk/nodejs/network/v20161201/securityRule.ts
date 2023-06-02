@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * Network security rule.
  *
  * @deprecated Version 2016-12-01 will be removed in v2 of the provider.
-azure-native:network/v20161201:SecurityRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20170301:SecurityRule to guarantee forwards compatibility.
+azure-native:network/v20161201:SecurityRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20170301:SecurityRule to guarantee forwards compatibility.
  */
 export class SecurityRule extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class SecurityRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SecurityRule {
-        pulumi.log.warn("SecurityRule is deprecated: Version 2016-12-01 will be removed in v2 of the provider.\nazure-native:network/v20161201:SecurityRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20170301:SecurityRule to guarantee forwards compatibility.")
+        pulumi.log.warn("SecurityRule is deprecated: Version 2016-12-01 will be removed in v2 of the provider.\nazure-native:network/v20161201:SecurityRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20170301:SecurityRule to guarantee forwards compatibility.")
         return new SecurityRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -98,9 +98,9 @@ export class SecurityRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2016-12-01 will be removed in v2 of the provider.
-azure-native:network/v20161201:SecurityRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20170301:SecurityRule to guarantee forwards compatibility. */
+azure-native:network/v20161201:SecurityRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20170301:SecurityRule to guarantee forwards compatibility. */
     constructor(name: string, args: SecurityRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SecurityRule is deprecated: Version 2016-12-01 will be removed in v2 of the provider.\nazure-native:network/v20161201:SecurityRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20170301:SecurityRule to guarantee forwards compatibility.")
+        pulumi.log.warn("SecurityRule is deprecated: Version 2016-12-01 will be removed in v2 of the provider.\nazure-native:network/v20161201:SecurityRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20170301:SecurityRule to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

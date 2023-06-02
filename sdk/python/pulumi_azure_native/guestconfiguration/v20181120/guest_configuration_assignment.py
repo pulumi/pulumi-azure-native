@@ -117,12 +117,12 @@ class GuestConfigurationAssignmentArgs:
 
 
 warnings.warn("""Version 2018-11-20 will be removed in v2 of the provider.
-azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class GuestConfigurationAssignment(pulumi.CustomResource):
     warnings.warn("""Version 2018-11-20 will be removed in v2 of the provider.
-azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -179,7 +179,7 @@ azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment is being 
                  vm_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""GuestConfigurationAssignment is deprecated: Version 2018-11-20 will be removed in v2 of the provider.
-azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility.""")
+azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

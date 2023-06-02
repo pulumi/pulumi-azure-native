@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20200601
     /// <summary>
     /// P2SVpnGateway Resource.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20200601:P2sVpnGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:P2sVpnGateway to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20200601:P2sVpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:P2sVpnGateway to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20200601:P2sVpnGateway")]
     public partial class P2sVpnGateway : global::Pulumi.CustomResource
     {

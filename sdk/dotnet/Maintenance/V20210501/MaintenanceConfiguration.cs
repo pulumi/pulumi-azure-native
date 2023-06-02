@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Maintenance.V20210501
     /// <summary>
     /// Maintenance configuration record type
     /// </summary>
-    [Obsolete(@"azure-native:maintenance/v20210501:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:maintenance/v20210501:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:maintenance/v20210501:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : global::Pulumi.CustomResource
     {

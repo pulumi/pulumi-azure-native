@@ -17,7 +17,7 @@ __all__ = [
     'get_connection_type_output',
 ]
 
-warnings.warn("""azure-native:automation/v20200113preview:ConnectionType is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:automation/v20200113preview:ConnectionType is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetConnectionTypeResult:
@@ -143,7 +143,7 @@ def get_connection_type(automation_account_name: Optional[str] = None,
     :param str connection_type_name: The name of connection type.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_connection_type is deprecated: azure-native:automation/v20200113preview:ConnectionType is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_connection_type is deprecated: azure-native:automation/v20200113preview:ConnectionType is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['connectionTypeName'] = connection_type_name
@@ -175,5 +175,5 @@ def get_connection_type_output(automation_account_name: Optional[pulumi.Input[st
     :param str connection_type_name: The name of connection type.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_connection_type is deprecated: azure-native:automation/v20200113preview:ConnectionType is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_connection_type is deprecated: azure-native:automation/v20200113preview:ConnectionType is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility.""")
     ...

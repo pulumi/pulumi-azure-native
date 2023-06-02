@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a deployment.
  */
-/** @deprecated azure-native:resources/v20200601:DeploymentAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility. */
+/** @deprecated azure-native:resources/v20200601:DeploymentAtScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility. */
 export function getDeploymentAtScope(args: GetDeploymentAtScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtScopeResult> {
-    pulumi.log.warn("getDeploymentAtScope is deprecated: azure-native:resources/v20200601:DeploymentAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility.")
+    pulumi.log.warn("getDeploymentAtScope is deprecated: azure-native:resources/v20200601:DeploymentAtScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20200601:getDeploymentAtScope", {
@@ -64,7 +64,7 @@ export interface GetDeploymentAtScopeResult {
 /**
  * Gets a deployment.
  */
-/** @deprecated azure-native:resources/v20200601:DeploymentAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility. */
+/** @deprecated azure-native:resources/v20200601:DeploymentAtScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility. */
 export function getDeploymentAtScopeOutput(args: GetDeploymentAtScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtScopeResult> {
     return pulumi.output(args).apply((a: any) => getDeploymentAtScope(a, opts))
 }

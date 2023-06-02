@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache.V20180301
     /// A single Redis item in List or Get Operation.
     /// </summary>
     [Obsolete(@"Version 2018-03-01 will be removed in v2 of the provider.
-azure-native:cache/v20180301:Redis is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20190701:Redis to guarantee forwards compatibility.")]
+azure-native:cache/v20180301:Redis is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20190701:Redis to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cache/v20180301:Redis")]
     public partial class Redis : global::Pulumi.CustomResource
     {

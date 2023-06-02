@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the specified private endpoint connection
  */
-/** @deprecated azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility. */
 export function getWebPubSubPrivateEndpointConnection(args: GetWebPubSubPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getWebPubSubPrivateEndpointConnection is deprecated: azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getWebPubSubPrivateEndpointConnection is deprecated: azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub/v20210601preview:getWebPubSubPrivateEndpointConnection", {
@@ -73,7 +73,7 @@ export interface GetWebPubSubPrivateEndpointConnectionResult {
 /**
  * Get the specified private endpoint connection
  */
-/** @deprecated azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility. */
 export function getWebPubSubPrivateEndpointConnectionOutput(args: GetWebPubSubPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSubPrivateEndpointConnection(a, opts))
 }

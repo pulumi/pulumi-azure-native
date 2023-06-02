@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a Cache.
  */
-/** @deprecated azure-native:storagecache/v20220501:Cache is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20230301preview:Cache to guarantee forwards compatibility. */
+/** @deprecated azure-native:storagecache/v20220501:Cache is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20230301preview:Cache to guarantee forwards compatibility. */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
-    pulumi.log.warn("getCache is deprecated: azure-native:storagecache/v20220501:Cache is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20230301preview:Cache to guarantee forwards compatibility.")
+    pulumi.log.warn("getCache is deprecated: azure-native:storagecache/v20220501:Cache is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20230301preview:Cache to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagecache/v20220501:getCache", {
@@ -128,7 +128,7 @@ export interface GetCacheResult {
 /**
  * Returns a Cache.
  */
-/** @deprecated azure-native:storagecache/v20220501:Cache is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20230301preview:Cache to guarantee forwards compatibility. */
+/** @deprecated azure-native:storagecache/v20220501:Cache is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20230301preview:Cache to guarantee forwards compatibility. */
 export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {
     return pulumi.output(args).apply((a: any) => getCache(a, opts))
 }

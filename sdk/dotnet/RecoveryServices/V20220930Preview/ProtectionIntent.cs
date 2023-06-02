@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220930Preview
     /// <summary>
     /// Base class for backup ProtectionIntent.
     /// </summary>
-    [Obsolete(@"azure-native:recoveryservices/v20220930preview:ProtectionIntent is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:recoveryservices/v20220930preview:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20220930preview:ProtectionIntent")]
     public partial class ProtectionIntent : global::Pulumi.CustomResource
     {

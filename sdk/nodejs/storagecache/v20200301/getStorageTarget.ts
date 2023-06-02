@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Returns a Storage Target from a Cache.
  */
 /** @deprecated Version 2020-03-01 will be removed in v2 of the provider.
-azure-native:storagecache/v20200301:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility. */
+azure-native:storagecache/v20200301:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility. */
 export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTargetResult> {
-    pulumi.log.warn("getStorageTarget is deprecated: Version 2020-03-01 will be removed in v2 of the provider.\nazure-native:storagecache/v20200301:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.")
+    pulumi.log.warn("getStorageTarget is deprecated: Version 2020-03-01 will be removed in v2 of the provider.\nazure-native:storagecache/v20200301:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagecache/v20200301:getStorageTarget", {
@@ -91,7 +91,7 @@ export interface GetStorageTargetResult {
  * Returns a Storage Target from a Cache.
  */
 /** @deprecated Version 2020-03-01 will be removed in v2 of the provider.
-azure-native:storagecache/v20200301:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility. */
+azure-native:storagecache/v20200301:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility. */
 export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTargetResult> {
     return pulumi.output(args).apply((a: any) => getStorageTarget(a, opts))
 }

@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Gets a Traffic Manager endpoint.
  */
 /** @deprecated Version 2015-11-01 will be removed in v2 of the provider.
-azure-native:network/v20151101:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20170301:Endpoint to guarantee forwards compatibility. */
+azure-native:network/v20151101:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20170301:Endpoint to guarantee forwards compatibility. */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
-    pulumi.log.warn("getEndpoint is deprecated: Version 2015-11-01 will be removed in v2 of the provider.\nazure-native:network/v20151101:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20170301:Endpoint to guarantee forwards compatibility.")
+    pulumi.log.warn("getEndpoint is deprecated: Version 2015-11-01 will be removed in v2 of the provider.\nazure-native:network/v20151101:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20170301:Endpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20151101:getEndpoint", {
@@ -93,7 +93,7 @@ export interface GetEndpointResult {
  * Gets a Traffic Manager endpoint.
  */
 /** @deprecated Version 2015-11-01 will be removed in v2 of the provider.
-azure-native:network/v20151101:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20170301:Endpoint to guarantee forwards compatibility. */
+azure-native:network/v20151101:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20170301:Endpoint to guarantee forwards compatibility. */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))
 }

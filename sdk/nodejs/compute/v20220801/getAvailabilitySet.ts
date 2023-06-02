@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about an availability set.
  */
-/** @deprecated azure-native:compute/v20220801:AvailabilitySet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20220801:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility. */
 export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {
-    pulumi.log.warn("getAvailabilitySet is deprecated: azure-native:compute/v20220801:AvailabilitySet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility.")
+    pulumi.log.warn("getAvailabilitySet is deprecated: azure-native:compute/v20220801:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20220801:getAvailabilitySet", {
@@ -84,7 +84,7 @@ export interface GetAvailabilitySetResult {
 /**
  * Retrieves information about an availability set.
  */
-/** @deprecated azure-native:compute/v20220801:AvailabilitySet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20220801:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility. */
 export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
     return pulumi.output(args).apply((a: any) => getAvailabilitySet(a, opts))
 }

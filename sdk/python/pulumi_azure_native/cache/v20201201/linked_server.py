@@ -111,11 +111,11 @@ class LinkedServerArgs:
         pulumi.set(self, "linked_server_name", value)
 
 
-warnings.warn("""azure-native:cache/v20201201:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:cache/v20201201:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class LinkedServer(pulumi.CustomResource):
-    warnings.warn("""azure-native:cache/v20201201:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:cache/v20201201:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -171,7 +171,7 @@ class LinkedServer(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_role: Optional[pulumi.Input['ReplicationRole']] = None,
                  __props__=None):
-        pulumi.log.warn("""LinkedServer is deprecated: azure-native:cache/v20201201:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""")
+        pulumi.log.warn("""LinkedServer is deprecated: azure-native:cache/v20201201:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

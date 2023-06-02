@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     /// <summary>
     /// Mobile network resource.
     /// </summary>
-    [Obsolete(@"azure-native:mobilenetwork/v20220301preview:MobileNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:MobileNetwork to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:mobilenetwork/v20220301preview:MobileNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:MobileNetwork to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220301preview:MobileNetwork")]
     public partial class MobileNetwork : global::Pulumi.CustomResource
     {

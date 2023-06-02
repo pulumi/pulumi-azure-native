@@ -150,12 +150,12 @@ class NamespaceArgs:
 
 
 warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:servicebus/v20140901:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Namespace to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:servicebus/v20140901:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Namespace to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Namespace(pulumi.CustomResource):
     warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:servicebus/v20140901:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Namespace to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:servicebus/v20140901:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Namespace to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -218,7 +218,7 @@ azure-native:servicebus/v20140901:Namespace is being removed in the next major v
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Namespace is deprecated: Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:servicebus/v20140901:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Namespace to guarantee forwards compatibility.""")
+azure-native:servicebus/v20140901:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Namespace to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

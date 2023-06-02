@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing custom domain for a particular static site.
  */
-/** @deprecated azure-native:web/v20210101:StaticSiteCustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteCustomDomain to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20210101:StaticSiteCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteCustomDomain to guarantee forwards compatibility. */
 export function getStaticSiteCustomDomain(args: GetStaticSiteCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteCustomDomainResult> {
-    pulumi.log.warn("getStaticSiteCustomDomain is deprecated: azure-native:web/v20210101:StaticSiteCustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteCustomDomain to guarantee forwards compatibility.")
+    pulumi.log.warn("getStaticSiteCustomDomain is deprecated: azure-native:web/v20210101:StaticSiteCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteCustomDomain to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210101:getStaticSiteCustomDomain", {
@@ -75,7 +75,7 @@ export interface GetStaticSiteCustomDomainResult {
 /**
  * Gets an existing custom domain for a particular static site.
  */
-/** @deprecated azure-native:web/v20210101:StaticSiteCustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteCustomDomain to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20210101:StaticSiteCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteCustomDomain to guarantee forwards compatibility. */
 export function getStaticSiteCustomDomainOutput(args: GetStaticSiteCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getStaticSiteCustomDomain(a, opts))
 }

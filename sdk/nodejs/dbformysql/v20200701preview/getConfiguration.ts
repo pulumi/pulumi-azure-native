@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a configuration of server.
  */
-/** @deprecated azure-native:dbformysql/v20200701preview:Configuration is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20200701privatepreview:Configuration to guarantee forwards compatibility. */
+/** @deprecated azure-native:dbformysql/v20200701preview:Configuration is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20200701privatepreview:Configuration to guarantee forwards compatibility. */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
-    pulumi.log.warn("getConfiguration is deprecated: azure-native:dbformysql/v20200701preview:Configuration is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20200701privatepreview:Configuration to guarantee forwards compatibility.")
+    pulumi.log.warn("getConfiguration is deprecated: azure-native:dbformysql/v20200701preview:Configuration is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20200701privatepreview:Configuration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbformysql/v20200701preview:getConfiguration", {
@@ -90,7 +90,7 @@ export interface GetConfigurationResult {
 /**
  * Gets information about a configuration of server.
  */
-/** @deprecated azure-native:dbformysql/v20200701preview:Configuration is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20200701privatepreview:Configuration to guarantee forwards compatibility. */
+/** @deprecated azure-native:dbformysql/v20200701preview:Configuration is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20200701privatepreview:Configuration to guarantee forwards compatibility. */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))
 }

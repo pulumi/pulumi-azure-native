@@ -17,7 +17,7 @@ __all__ = [
     'get_compute_output',
 ]
 
-warnings.warn("""azure-native:machinelearningservices/v20221001preview:Compute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Compute to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:machinelearningservices/v20221001preview:Compute is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Compute to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetComputeResult:
@@ -155,7 +155,7 @@ def get_compute(compute_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    pulumi.log.warn("""get_compute is deprecated: azure-native:machinelearningservices/v20221001preview:Compute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Compute to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_compute is deprecated: azure-native:machinelearningservices/v20221001preview:Compute is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Compute to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['computeName'] = compute_name
     __args__['resourceGroupName'] = resource_group_name
@@ -188,5 +188,5 @@ def get_compute_output(compute_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    pulumi.log.warn("""get_compute is deprecated: azure-native:machinelearningservices/v20221001preview:Compute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Compute to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_compute is deprecated: azure-native:machinelearningservices/v20221001preview:Compute is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Compute to guarantee forwards compatibility.""")
     ...

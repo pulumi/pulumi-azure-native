@@ -16,7 +16,7 @@ __all__ = [
     'get_managed_database_sensitivity_label_output',
 ]
 
-warnings.warn("""azure-native:sql/v20210801preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:sql/v20210801preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetManagedDatabaseSensitivityLabelResult:
@@ -207,7 +207,7 @@ def get_managed_database_sensitivity_label(column_name: Optional[str] = None,
     :param str sensitivity_label_source: The source of the sensitivity label.
     :param str table_name: The name of the table.
     """
-    pulumi.log.warn("""get_managed_database_sensitivity_label is deprecated: azure-native:sql/v20210801preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_managed_database_sensitivity_label is deprecated: azure-native:sql/v20210801preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['columnName'] = column_name
     __args__['databaseName'] = database_name
@@ -256,5 +256,5 @@ def get_managed_database_sensitivity_label_output(column_name: Optional[pulumi.I
     :param str sensitivity_label_source: The source of the sensitivity label.
     :param str table_name: The name of the table.
     """
-    pulumi.log.warn("""get_managed_database_sensitivity_label is deprecated: azure-native:sql/v20210801preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_managed_database_sensitivity_label is deprecated: azure-native:sql/v20210801preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.""")
     ...

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20210901
     /// <summary>
     /// The Extension object.
     /// </summary>
-    [Obsolete(@"azure-native:kubernetesconfiguration/v20210901:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:kubernetesconfiguration/v20210901:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kubernetesconfiguration/v20210901:Extension")]
     public partial class Extension : global::Pulumi.CustomResource
     {

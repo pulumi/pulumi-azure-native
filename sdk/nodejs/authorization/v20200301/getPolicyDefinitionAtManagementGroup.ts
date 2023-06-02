@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * This operation retrieves the policy definition in the given management group with the given name.
  */
-/** @deprecated azure-native:authorization/v20200301:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20210601:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:authorization/v20200301:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20210601:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility. */
 export function getPolicyDefinitionAtManagementGroup(args: GetPolicyDefinitionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionAtManagementGroupResult> {
-    pulumi.log.warn("getPolicyDefinitionAtManagementGroup is deprecated: azure-native:authorization/v20200301:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20210601:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getPolicyDefinitionAtManagementGroup is deprecated: azure-native:authorization/v20200301:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20210601:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20200301:getPolicyDefinitionAtManagementGroup", {
@@ -80,7 +80,7 @@ export interface GetPolicyDefinitionAtManagementGroupResult {
 /**
  * This operation retrieves the policy definition in the given management group with the given name.
  */
-/** @deprecated azure-native:authorization/v20200301:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20210601:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:authorization/v20200301:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20210601:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility. */
 export function getPolicyDefinitionAtManagementGroupOutput(args: GetPolicyDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionAtManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getPolicyDefinitionAtManagementGroup(a, opts))
 }

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2017-03-01 will be removed in v2 of the provider.
-azure-native:network/v20170301:LoadBalancer is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180601:LoadBalancer to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20170301:LoadBalancer is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180601:LoadBalancer to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetLoadBalancerResult:
@@ -229,7 +229,7 @@ def get_load_balancer(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_load_balancer is deprecated: Version 2017-03-01 will be removed in v2 of the provider.
-azure-native:network/v20170301:LoadBalancer is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180601:LoadBalancer to guarantee forwards compatibility.""")
+azure-native:network/v20170301:LoadBalancer is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180601:LoadBalancer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['loadBalancerName'] = load_balancer_name
@@ -269,5 +269,5 @@ def get_load_balancer_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_load_balancer is deprecated: Version 2017-03-01 will be removed in v2 of the provider.
-azure-native:network/v20170301:LoadBalancer is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180601:LoadBalancer to guarantee forwards compatibility.""")
+azure-native:network/v20170301:LoadBalancer is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180601:LoadBalancer to guarantee forwards compatibility.""")
     ...

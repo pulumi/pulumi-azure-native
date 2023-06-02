@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the sensitivity label of a given column
  */
-/** @deprecated azure-native:sql/v20211101preview:SensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101preview:SensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility. */
 export function getSensitivityLabel(args: GetSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetSensitivityLabelResult> {
-    pulumi.log.warn("getSensitivityLabel is deprecated: azure-native:sql/v20211101preview:SensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility.")
+    pulumi.log.warn("getSensitivityLabel is deprecated: azure-native:sql/v20211101preview:SensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101preview:getSensitivityLabel", {
@@ -111,7 +111,7 @@ export interface GetSensitivityLabelResult {
 /**
  * Gets the sensitivity label of a given column
  */
-/** @deprecated azure-native:sql/v20211101preview:SensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101preview:SensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility. */
 export function getSensitivityLabelOutput(args: GetSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitivityLabelResult> {
     return pulumi.output(args).apply((a: any) => getSensitivityLabel(a, opts))
 }

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
     /// <summary>
     /// Definition of the module type.
     /// </summary>
-    [Obsolete(@"azure-native:automation/v20200113preview:Python2Package is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Python2Package to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:automation/v20200113preview:Python2Package is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Python2Package to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automation/v20200113preview:Python2Package")]
     public partial class Python2Package : global::Pulumi.CustomResource
     {

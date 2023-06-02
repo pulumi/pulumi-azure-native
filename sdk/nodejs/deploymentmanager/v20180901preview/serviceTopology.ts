@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * The resource representation of a service topology.
  *
  * @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
-azure-native:deploymentmanager/v20180901preview:ServiceTopology is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:ServiceTopology to guarantee forwards compatibility.
+azure-native:deploymentmanager/v20180901preview:ServiceTopology is being removed in the next major version of this provider. Upgrade to at least azure-native:deploymentmanager/v20191101preview:ServiceTopology to guarantee forwards compatibility.
  */
 export class ServiceTopology extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class ServiceTopology extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServiceTopology {
-        pulumi.log.warn("ServiceTopology is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.\nazure-native:deploymentmanager/v20180901preview:ServiceTopology is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:ServiceTopology to guarantee forwards compatibility.")
+        pulumi.log.warn("ServiceTopology is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.\nazure-native:deploymentmanager/v20180901preview:ServiceTopology is being removed in the next major version of this provider. Upgrade to at least azure-native:deploymentmanager/v20191101preview:ServiceTopology to guarantee forwards compatibility.")
         return new ServiceTopology(name, undefined as any, { ...opts, id: id });
     }
 
@@ -67,9 +67,9 @@ export class ServiceTopology extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
-azure-native:deploymentmanager/v20180901preview:ServiceTopology is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:ServiceTopology to guarantee forwards compatibility. */
+azure-native:deploymentmanager/v20180901preview:ServiceTopology is being removed in the next major version of this provider. Upgrade to at least azure-native:deploymentmanager/v20191101preview:ServiceTopology to guarantee forwards compatibility. */
     constructor(name: string, args: ServiceTopologyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ServiceTopology is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.\nazure-native:deploymentmanager/v20180901preview:ServiceTopology is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:ServiceTopology to guarantee forwards compatibility.")
+        pulumi.log.warn("ServiceTopology is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.\nazure-native:deploymentmanager/v20180901preview:ServiceTopology is being removed in the next major version of this provider. Upgrade to at least azure-native:deploymentmanager/v20191101preview:ServiceTopology to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

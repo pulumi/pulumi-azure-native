@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a Virtual Hub Bgp Connection.
  */
-/** @deprecated azure-native:network/v20200801:VirtualHubBgpConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualHubBgpConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20200801:VirtualHubBgpConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubBgpConnection to guarantee forwards compatibility. */
 export function getVirtualHubBgpConnection(args: GetVirtualHubBgpConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubBgpConnectionResult> {
-    pulumi.log.warn("getVirtualHubBgpConnection is deprecated: azure-native:network/v20200801:VirtualHubBgpConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualHubBgpConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getVirtualHubBgpConnection is deprecated: azure-native:network/v20200801:VirtualHubBgpConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubBgpConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200801:getVirtualHubBgpConnection", {
@@ -74,7 +74,7 @@ export interface GetVirtualHubBgpConnectionResult {
 /**
  * Retrieves the details of a Virtual Hub Bgp Connection.
  */
-/** @deprecated azure-native:network/v20200801:VirtualHubBgpConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualHubBgpConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20200801:VirtualHubBgpConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubBgpConnection to guarantee forwards compatibility. */
 export function getVirtualHubBgpConnectionOutput(args: GetVirtualHubBgpConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubBgpConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualHubBgpConnection(a, opts))
 }

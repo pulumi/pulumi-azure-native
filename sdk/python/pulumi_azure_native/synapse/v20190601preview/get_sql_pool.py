@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-06-01-preview will be removed in v2 of the provider.
-azure-native:synapse/v20190601preview:SqlPool is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:synapse/v20190601preview:SqlPool is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSqlPoolResult:
@@ -237,7 +237,7 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
     :param str workspace_name: The name of the workspace
     """
     pulumi.log.warn("""get_sql_pool is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.
-azure-native:synapse/v20190601preview:SqlPool is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility.""")
+azure-native:synapse/v20190601preview:SqlPool is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlPoolName'] = sql_pool_name
@@ -277,5 +277,5 @@ def get_sql_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str workspace_name: The name of the workspace
     """
     pulumi.log.warn("""get_sql_pool is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.
-azure-native:synapse/v20190601preview:SqlPool is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility.""")
+azure-native:synapse/v20190601preview:SqlPool is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility.""")
     ...

@@ -17,7 +17,7 @@ __all__ = [
     'get_application_definition_output',
 ]
 
-warnings.warn("""azure-native:solutions/v20200821preview:ApplicationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:solutions/v20200821preview:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetApplicationDefinitionResult:
@@ -309,7 +309,7 @@ def get_application_definition(application_definition_name: Optional[str] = None
     :param str application_definition_name: The name of the managed application definition.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_application_definition is deprecated: azure-native:solutions/v20200821preview:ApplicationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_application_definition is deprecated: azure-native:solutions/v20200821preview:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['applicationDefinitionName'] = application_definition_name
     __args__['resourceGroupName'] = resource_group_name
@@ -352,5 +352,5 @@ def get_application_definition_output(application_definition_name: Optional[pulu
     :param str application_definition_name: The name of the managed application definition.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_application_definition is deprecated: azure-native:solutions/v20200821preview:ApplicationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_application_definition is deprecated: azure-native:solutions/v20200821preview:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.""")
     ...

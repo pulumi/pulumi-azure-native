@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2016-03-19 will be removed in v2 of the provider.
-azure-native:documentdb/v20160319:DatabaseAccountMongoDBCollection is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:documentdb/v20160319:DatabaseAccountMongoDBCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDatabaseAccountMongoDBCollectionResult:
@@ -135,7 +135,7 @@ def get_database_account_mongo_db_collection(account_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure resource group.
     """
     pulumi.log.warn("""get_database_account_mongo_db_collection is deprecated: Version 2016-03-19 will be removed in v2 of the provider.
-azure-native:documentdb/v20160319:DatabaseAccountMongoDBCollection is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection to guarantee forwards compatibility.""")
+azure-native:documentdb/v20160319:DatabaseAccountMongoDBCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['collectionName'] = collection_name
@@ -170,5 +170,5 @@ def get_database_account_mongo_db_collection_output(account_name: Optional[pulum
     :param str resource_group_name: Name of an Azure resource group.
     """
     pulumi.log.warn("""get_database_account_mongo_db_collection is deprecated: Version 2016-03-19 will be removed in v2 of the provider.
-azure-native:documentdb/v20160319:DatabaseAccountMongoDBCollection is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection to guarantee forwards compatibility.""")
+azure-native:documentdb/v20160319:DatabaseAccountMongoDBCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection to guarantee forwards compatibility.""")
     ...

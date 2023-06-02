@@ -292,11 +292,11 @@ class VpnConnectionInitArgs:
         pulumi.set(self, "vpn_link_connections", value)
 
 
-warnings.warn("""azure-native:network/v20191201:VpnConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20191201:VpnConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class VpnConnection(pulumi.CustomResource):
-    warnings.warn("""azure-native:network/v20191201:VpnConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:network/v20191201:VpnConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -385,7 +385,7 @@ class VpnConnection(pulumi.CustomResource):
                  vpn_connection_protocol_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
                  vpn_link_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkConnectionArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""VpnConnection is deprecated: azure-native:network/v20191201:VpnConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility.""")
+        pulumi.log.warn("""VpnConnection is deprecated: azure-native:network/v20191201:VpnConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

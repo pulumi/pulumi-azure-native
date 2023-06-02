@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AppConfiguration.V20210301Preview
 {
-    [Obsolete(@"azure-native:appconfiguration/v20210301preview:KeyValue is being removed in the next major version of this provider. Please upgrade to azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:appconfiguration/v20210301preview:KeyValue is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.")]
     public static class GetKeyValue
     {
         /// <summary>

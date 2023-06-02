@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.
-azure-native:storsimple/v20161001:AccessControlRecord is being removed in the next major version of this provider. Please upgrade to azure-native:storsimple/v20170601:AccessControlRecord to guarantee forwards compatibility.")]
+azure-native:storsimple/v20161001:AccessControlRecord is being removed in the next major version of this provider. Upgrade to at least azure-native:storsimple/v20170601:AccessControlRecord to guarantee forwards compatibility.")]
     public static class GetAccessControlRecord
     {
         /// <summary>

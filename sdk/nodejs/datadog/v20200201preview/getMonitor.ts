@@ -8,9 +8,9 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /** @deprecated Version 2020-02-01-preview will be removed in v2 of the provider.
-azure-native:datadog/v20200201preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:datadog/v20220601:Monitor to guarantee forwards compatibility. */
+azure-native:datadog/v20200201preview:Monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:datadog/v20220601:Monitor to guarantee forwards compatibility. */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
-    pulumi.log.warn("getMonitor is deprecated: Version 2020-02-01-preview will be removed in v2 of the provider.\nazure-native:datadog/v20200201preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:datadog/v20220601:Monitor to guarantee forwards compatibility.")
+    pulumi.log.warn("getMonitor is deprecated: Version 2020-02-01-preview will be removed in v2 of the provider.\nazure-native:datadog/v20200201preview:Monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:datadog/v20220601:Monitor to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datadog/v20200201preview:getMonitor", {
@@ -53,7 +53,7 @@ export interface GetMonitorResult {
     readonly type: string;
 }
 /** @deprecated Version 2020-02-01-preview will be removed in v2 of the provider.
-azure-native:datadog/v20200201preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:datadog/v20220601:Monitor to guarantee forwards compatibility. */
+azure-native:datadog/v20200201preview:Monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:datadog/v20220601:Monitor to guarantee forwards compatibility. */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
     return pulumi.output(args).apply((a: any) => getMonitor(a, opts))
 }

@@ -85,12 +85,12 @@ class PrivateEndpointConnectionArgs:
 
 
 warnings.warn("""Version 2020-03-13 will be removed in v2 of the provider.
-azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class PrivateEndpointConnection(pulumi.CustomResource):
     warnings.warn("""Version 2020-03-13 will be removed in v2 of the provider.
-azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -141,7 +141,7 @@ azure-native:search/v20200313:PrivateEndpointConnection is being removed in the 
                  search_service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""PrivateEndpointConnection is deprecated: Version 2020-03-13 will be removed in v2 of the provider.
-azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.""")
+azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

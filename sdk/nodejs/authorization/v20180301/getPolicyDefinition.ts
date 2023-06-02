@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * This operation retrieves the policy definition in the given subscription with the given name.
  */
-/** @deprecated azure-native:authorization/v20180301:PolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20180501:PolicyDefinition to guarantee forwards compatibility. */
+/** @deprecated azure-native:authorization/v20180301:PolicyDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20180501:PolicyDefinition to guarantee forwards compatibility. */
 export function getPolicyDefinition(args: GetPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionResult> {
-    pulumi.log.warn("getPolicyDefinition is deprecated: azure-native:authorization/v20180301:PolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20180501:PolicyDefinition to guarantee forwards compatibility.")
+    pulumi.log.warn("getPolicyDefinition is deprecated: azure-native:authorization/v20180301:PolicyDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20180501:PolicyDefinition to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20180301:getPolicyDefinition", {
@@ -72,7 +72,7 @@ export interface GetPolicyDefinitionResult {
 /**
  * This operation retrieves the policy definition in the given subscription with the given name.
  */
-/** @deprecated azure-native:authorization/v20180301:PolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20180501:PolicyDefinition to guarantee forwards compatibility. */
+/** @deprecated azure-native:authorization/v20180301:PolicyDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20180501:PolicyDefinition to guarantee forwards compatibility. */
 export function getPolicyDefinitionOutput(args: GetPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getPolicyDefinition(a, opts))
 }

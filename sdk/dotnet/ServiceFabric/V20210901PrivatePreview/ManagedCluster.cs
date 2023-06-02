@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview
     /// <summary>
     /// The manged cluster resource
     /// </summary>
-    [Obsolete(@"azure-native:servicefabric/v20210901privatepreview:ManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20220101:ManagedCluster to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:servicefabric/v20210901privatepreview:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20220101:ManagedCluster to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicefabric/v20210901privatepreview:ManagedCluster")]
     public partial class ManagedCluster : global::Pulumi.CustomResource
     {

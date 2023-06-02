@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
  *
  * @deprecated Version 2018-01-10 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20180110:ReplicationNetworkMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20210301:ReplicationNetworkMapping to guarantee forwards compatibility.
+azure-native:recoveryservices/v20180110:ReplicationNetworkMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationNetworkMapping to guarantee forwards compatibility.
  */
 export class ReplicationNetworkMapping extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReplicationNetworkMapping {
-        pulumi.log.warn("ReplicationNetworkMapping is deprecated: Version 2018-01-10 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20180110:ReplicationNetworkMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20210301:ReplicationNetworkMapping to guarantee forwards compatibility.")
+        pulumi.log.warn("ReplicationNetworkMapping is deprecated: Version 2018-01-10 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20180110:ReplicationNetworkMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationNetworkMapping to guarantee forwards compatibility.")
         return new ReplicationNetworkMapping(name, undefined as any, { ...opts, id: id });
     }
 
@@ -66,9 +66,9 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2018-01-10 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20180110:ReplicationNetworkMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20210301:ReplicationNetworkMapping to guarantee forwards compatibility. */
+azure-native:recoveryservices/v20180110:ReplicationNetworkMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationNetworkMapping to guarantee forwards compatibility. */
     constructor(name: string, args: ReplicationNetworkMappingArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ReplicationNetworkMapping is deprecated: Version 2018-01-10 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20180110:ReplicationNetworkMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20210301:ReplicationNetworkMapping to guarantee forwards compatibility.")
+        pulumi.log.warn("ReplicationNetworkMapping is deprecated: Version 2018-01-10 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20180110:ReplicationNetworkMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationNetworkMapping to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -112,11 +112,11 @@ class BackupShortTermRetentionPolicyArgs:
         pulumi.set(self, "retention_days", value)
 
 
-warnings.warn("""azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class BackupShortTermRetentionPolicy(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -172,7 +172,7 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
                  retention_days: Optional[pulumi.Input[int]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""BackupShortTermRetentionPolicy is deprecated: azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility.""")
+        pulumi.log.warn("""BackupShortTermRetentionPolicy is deprecated: azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

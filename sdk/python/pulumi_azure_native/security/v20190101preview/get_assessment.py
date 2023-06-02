@@ -17,7 +17,7 @@ __all__ = [
     'get_assessment_output',
 ]
 
-warnings.warn("""azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20200101:Assessment to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20200101:Assessment to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAssessmentResult:
@@ -143,7 +143,7 @@ def get_assessment(assessment_name: Optional[str] = None,
     :param str expand: OData expand. Optional.
     :param str resource_id: The identifier of the resource.
     """
-    pulumi.log.warn("""get_assessment is deprecated: azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20200101:Assessment to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_assessment is deprecated: azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20200101:Assessment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['assessmentName'] = assessment_name
     __args__['expand'] = expand
@@ -175,5 +175,5 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
     :param str expand: OData expand. Optional.
     :param str resource_id: The identifier of the resource.
     """
-    pulumi.log.warn("""get_assessment is deprecated: azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20200101:Assessment to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_assessment is deprecated: azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20200101:Assessment to guarantee forwards compatibility.""")
     ...

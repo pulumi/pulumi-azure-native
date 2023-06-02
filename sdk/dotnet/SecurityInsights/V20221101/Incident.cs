@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221101
     /// <summary>
     /// Represents an incident in Azure Security Insights.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20221101:Incident is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201preview:Incident to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20221101:Incident is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201preview:Incident to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20221101:Incident")]
     public partial class Incident : global::Pulumi.CustomResource
     {

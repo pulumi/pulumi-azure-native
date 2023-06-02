@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-06-01-preview will be removed in v2 of the provider.
-azure-native:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSqlResourceSqlUserDefinedFunctionResult:
@@ -134,7 +134,7 @@ def get_sql_resource_sql_user_defined_function(account_name: Optional[str] = Non
     :param str user_defined_function_name: Cosmos DB userDefinedFunction name.
     """
     pulumi.log.warn("""get_sql_resource_sql_user_defined_function is deprecated: Version 2020-06-01-preview will be removed in v2 of the provider.
-azure-native:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility.""")
+azure-native:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name
@@ -172,5 +172,5 @@ def get_sql_resource_sql_user_defined_function_output(account_name: Optional[pul
     :param str user_defined_function_name: Cosmos DB userDefinedFunction name.
     """
     pulumi.log.warn("""get_sql_resource_sql_user_defined_function is deprecated: Version 2020-06-01-preview will be removed in v2 of the provider.
-azure-native:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility.""")
+azure-native:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility.""")
     ...

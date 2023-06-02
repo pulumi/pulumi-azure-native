@@ -115,11 +115,11 @@ class KeyValueArgs:
         pulumi.set(self, "value", value)
 
 
-warnings.warn("""azure-native:appconfiguration/v20210301preview:KeyValue is being removed in the next major version of this provider. Please upgrade to azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:appconfiguration/v20210301preview:KeyValue is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class KeyValue(pulumi.CustomResource):
-    warnings.warn("""azure-native:appconfiguration/v20210301preview:KeyValue is being removed in the next major version of this provider. Please upgrade to azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:appconfiguration/v20210301preview:KeyValue is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -176,7 +176,7 @@ class KeyValue(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""KeyValue is deprecated: azure-native:appconfiguration/v20210301preview:KeyValue is being removed in the next major version of this provider. Please upgrade to azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.""")
+        pulumi.log.warn("""KeyValue is deprecated: azure-native:appconfiguration/v20210301preview:KeyValue is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

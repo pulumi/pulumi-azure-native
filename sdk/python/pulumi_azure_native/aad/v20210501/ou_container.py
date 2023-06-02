@@ -114,11 +114,11 @@ class OuContainerArgs:
         pulumi.set(self, "spn", value)
 
 
-warnings.warn("""azure-native:aad/v20210501:OuContainer is being removed in the next major version of this provider. Please upgrade to azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:aad/v20210501:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class OuContainer(pulumi.CustomResource):
-    warnings.warn("""azure-native:aad/v20210501:OuContainer is being removed in the next major version of this provider. Please upgrade to azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:aad/v20210501:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -174,7 +174,7 @@ class OuContainer(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  spn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""OuContainer is deprecated: azure-native:aad/v20210501:OuContainer is being removed in the next major version of this provider. Please upgrade to azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.""")
+        pulumi.log.warn("""OuContainer is deprecated: azure-native:aad/v20210501:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

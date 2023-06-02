@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a description for the specified topic.
  */
-/** @deprecated azure-native:servicebus/v20210101preview:Topic is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:Topic to guarantee forwards compatibility. */
+/** @deprecated azure-native:servicebus/v20210101preview:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:Topic to guarantee forwards compatibility. */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
-    pulumi.log.warn("getTopic is deprecated: azure-native:servicebus/v20210101preview:Topic is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:Topic to guarantee forwards compatibility.")
+    pulumi.log.warn("getTopic is deprecated: azure-native:servicebus/v20210101preview:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:Topic to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20210101preview:getTopic", {
@@ -125,7 +125,7 @@ export interface GetTopicResult {
 /**
  * Returns a description for the specified topic.
  */
-/** @deprecated azure-native:servicebus/v20210101preview:Topic is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:Topic to guarantee forwards compatibility. */
+/** @deprecated azure-native:servicebus/v20210101preview:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:Topic to guarantee forwards compatibility. */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
     return pulumi.output(args).apply((a: any) => getTopic(a, opts))
 }

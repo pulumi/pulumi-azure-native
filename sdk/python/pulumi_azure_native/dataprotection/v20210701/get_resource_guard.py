@@ -17,7 +17,7 @@ __all__ = [
     'get_resource_guard_output',
 ]
 
-warnings.warn("""azure-native:dataprotection/v20210701:ResourceGuard is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20221101preview:ResourceGuard to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:dataprotection/v20210701:ResourceGuard is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20221101preview:ResourceGuard to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetResourceGuardResult:
@@ -149,7 +149,7 @@ def get_resource_guard(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the backup vault is present.
     :param str resource_guards_name: The name of ResourceGuard
     """
-    pulumi.log.warn("""get_resource_guard is deprecated: azure-native:dataprotection/v20210701:ResourceGuard is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20221101preview:ResourceGuard to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_resource_guard is deprecated: azure-native:dataprotection/v20210701:ResourceGuard is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20221101preview:ResourceGuard to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceGuardsName'] = resource_guards_name
@@ -178,5 +178,5 @@ def get_resource_guard_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group where the backup vault is present.
     :param str resource_guards_name: The name of ResourceGuard
     """
-    pulumi.log.warn("""get_resource_guard is deprecated: azure-native:dataprotection/v20210701:ResourceGuard is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20221101preview:ResourceGuard to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_resource_guard is deprecated: azure-native:dataprotection/v20210701:ResourceGuard is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20221101preview:ResourceGuard to guarantee forwards compatibility.""")
     ...

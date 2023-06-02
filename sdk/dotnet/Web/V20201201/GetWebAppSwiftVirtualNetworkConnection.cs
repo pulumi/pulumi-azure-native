@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Web.V20201201
 {
-    [Obsolete(@"azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility.")]
     public static class GetWebAppSwiftVirtualNetworkConnection
     {
         /// <summary>

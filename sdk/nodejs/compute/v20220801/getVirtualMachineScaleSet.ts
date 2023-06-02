@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Display information about a virtual machine scale set.
  */
-/** @deprecated azure-native:compute/v20220801:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20220801:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility. */
 export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetResult> {
-    pulumi.log.warn("getVirtualMachineScaleSet is deprecated: azure-native:compute/v20220801:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.")
+    pulumi.log.warn("getVirtualMachineScaleSet is deprecated: azure-native:compute/v20220801:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20220801:getVirtualMachineScaleSet", {
@@ -157,7 +157,7 @@ export interface GetVirtualMachineScaleSetResult {
 /**
  * Display information about a virtual machine scale set.
  */
-/** @deprecated azure-native:compute/v20220801:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20220801:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility. */
 export function getVirtualMachineScaleSetOutput(args: GetVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSet(a, opts))
 }

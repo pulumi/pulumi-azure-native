@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the specified virtual network gateway by resource group.
  */
 /** @deprecated Version 2015-06-15 will be removed in v2 of the provider.
-azure-native:network/v20150615:VirtualNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20160601:VirtualNetworkGateway to guarantee forwards compatibility. */
+azure-native:network/v20150615:VirtualNetworkGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20160601:VirtualNetworkGateway to guarantee forwards compatibility. */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
-    pulumi.log.warn("getVirtualNetworkGateway is deprecated: Version 2015-06-15 will be removed in v2 of the provider.\nazure-native:network/v20150615:VirtualNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20160601:VirtualNetworkGateway to guarantee forwards compatibility.")
+    pulumi.log.warn("getVirtualNetworkGateway is deprecated: Version 2015-06-15 will be removed in v2 of the provider.\nazure-native:network/v20150615:VirtualNetworkGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20160601:VirtualNetworkGateway to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20150615:getVirtualNetworkGateway", {
@@ -106,7 +106,7 @@ export interface GetVirtualNetworkGatewayResult {
  * Gets the specified virtual network gateway by resource group.
  */
 /** @deprecated Version 2015-06-15 will be removed in v2 of the provider.
-azure-native:network/v20150615:VirtualNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20160601:VirtualNetworkGateway to guarantee forwards compatibility. */
+azure-native:network/v20150615:VirtualNetworkGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20160601:VirtualNetworkGateway to guarantee forwards compatibility. */
 export function getVirtualNetworkGatewayOutput(args: GetVirtualNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGateway(a, opts))
 }

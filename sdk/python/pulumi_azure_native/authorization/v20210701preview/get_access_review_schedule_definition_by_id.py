@@ -17,7 +17,7 @@ __all__ = [
     'get_access_review_schedule_definition_by_id_output',
 ]
 
-warnings.warn("""azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAccessReviewScheduleDefinitionByIdResult:
@@ -439,7 +439,7 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
 
     :param str schedule_definition_id: The id of the access review schedule definition.
     """
-    pulumi.log.warn("""get_access_review_schedule_definition_by_id is deprecated: azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_access_review_schedule_definition_by_id is deprecated: azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['scheduleDefinitionId'] = schedule_definition_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -490,5 +490,5 @@ def get_access_review_schedule_definition_by_id_output(schedule_definition_id: O
 
     :param str schedule_definition_id: The id of the access review schedule definition.
     """
-    pulumi.log.warn("""get_access_review_schedule_definition_by_id is deprecated: azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_access_review_schedule_definition_by_id is deprecated: azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById to guarantee forwards compatibility.""")
     ...

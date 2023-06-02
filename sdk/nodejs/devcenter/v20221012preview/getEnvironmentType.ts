@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an environment type.
  */
-/** @deprecated azure-native:devcenter/v20221012preview:EnvironmentType is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility. */
+/** @deprecated azure-native:devcenter/v20221012preview:EnvironmentType is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility. */
 export function getEnvironmentType(args: GetEnvironmentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentTypeResult> {
-    pulumi.log.warn("getEnvironmentType is deprecated: azure-native:devcenter/v20221012preview:EnvironmentType is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility.")
+    pulumi.log.warn("getEnvironmentType is deprecated: azure-native:devcenter/v20221012preview:EnvironmentType is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20221012preview:getEnvironmentType", {
@@ -69,7 +69,7 @@ export interface GetEnvironmentTypeResult {
 /**
  * Gets an environment type.
  */
-/** @deprecated azure-native:devcenter/v20221012preview:EnvironmentType is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility. */
+/** @deprecated azure-native:devcenter/v20221012preview:EnvironmentType is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility. */
 export function getEnvironmentTypeOutput(args: GetEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentTypeResult> {
     return pulumi.output(args).apply((a: any) => getEnvironmentType(a, opts))
 }

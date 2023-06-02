@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets information about an existing job.
  */
 /** @deprecated Version 2016-11-01 will be removed in v2 of the provider.
-azure-native:importexport/v20161101:Job is being removed in the next major version of this provider. Please upgrade to azure-native:importexport/v20210101:Job to guarantee forwards compatibility. */
+azure-native:importexport/v20161101:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:importexport/v20210101:Job to guarantee forwards compatibility. */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    pulumi.log.warn("getJob is deprecated: Version 2016-11-01 will be removed in v2 of the provider.\nazure-native:importexport/v20161101:Job is being removed in the next major version of this provider. Please upgrade to azure-native:importexport/v20210101:Job to guarantee forwards compatibility.")
+    pulumi.log.warn("getJob is deprecated: Version 2016-11-01 will be removed in v2 of the provider.\nazure-native:importexport/v20161101:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:importexport/v20210101:Job to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:importexport/v20161101:getJob", {
@@ -74,7 +74,7 @@ export interface GetJobResult {
  * Gets information about an existing job.
  */
 /** @deprecated Version 2016-11-01 will be removed in v2 of the provider.
-azure-native:importexport/v20161101:Job is being removed in the next major version of this provider. Please upgrade to azure-native:importexport/v20210101:Job to guarantee forwards compatibility. */
+azure-native:importexport/v20161101:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:importexport/v20210101:Job to guarantee forwards compatibility. */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))
 }

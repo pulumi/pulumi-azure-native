@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the properties of a Data Pool.
  */
 /** @deprecated Version 2020-07-01-preview will be removed in v2 of the provider.
-azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Please upgrade to azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility. */
+azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Upgrade to at least azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility. */
 export function getDataPool(args: GetDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDataPoolResult> {
-    pulumi.log.warn("getDataPool is deprecated: Version 2020-07-01-preview will be removed in v2 of the provider.\nazure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Please upgrade to azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility.")
+    pulumi.log.warn("getDataPool is deprecated: Version 2020-07-01-preview will be removed in v2 of the provider.\nazure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Upgrade to at least azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:autonomousdevelopmentplatform/v20200701preview:getDataPool", {
@@ -75,7 +75,7 @@ export interface GetDataPoolResult {
  * Gets the properties of a Data Pool.
  */
 /** @deprecated Version 2020-07-01-preview will be removed in v2 of the provider.
-azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Please upgrade to azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility. */
+azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Upgrade to at least azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility. */
 export function getDataPoolOutput(args: GetDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataPoolResult> {
     return pulumi.output(args).apply((a: any) => getDataPool(a, opts))
 }

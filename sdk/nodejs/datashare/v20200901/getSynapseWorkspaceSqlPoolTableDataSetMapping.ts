@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a DataSetMapping in a shareSubscription
  */
-/** @deprecated azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping to guarantee forwards compatibility. */
+/** @deprecated azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping to guarantee forwards compatibility. */
 export function getSynapseWorkspaceSqlPoolTableDataSetMapping(args: GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult> {
-    pulumi.log.warn("getSynapseWorkspaceSqlPoolTableDataSetMapping is deprecated: azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping to guarantee forwards compatibility.")
+    pulumi.log.warn("getSynapseWorkspaceSqlPoolTableDataSetMapping is deprecated: azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20200901:getSynapseWorkspaceSqlPoolTableDataSetMapping", {
@@ -87,7 +87,7 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetMappingResult {
 /**
  * Get a DataSetMapping in a shareSubscription
  */
-/** @deprecated azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping to guarantee forwards compatibility. */
+/** @deprecated azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping to guarantee forwards compatibility. */
 export function getSynapseWorkspaceSqlPoolTableDataSetMappingOutput(args: GetSynapseWorkspaceSqlPoolTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getSynapseWorkspaceSqlPoolTableDataSetMapping(a, opts))
 }

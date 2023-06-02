@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201Preview
     /// <summary>
     /// A SQL Server availability group listener.
     /// </summary>
-    [Obsolete(@"azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener is being removed in the next major version of this provider. Please upgrade to azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener")]
     public partial class AvailabilityGroupListener : global::Pulumi.CustomResource
     {

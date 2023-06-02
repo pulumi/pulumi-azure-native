@@ -17,7 +17,7 @@ __all__ = [
     'get_mobile_network_output',
 ]
 
-warnings.warn("""azure-native:mobilenetwork/v20220301preview:MobileNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:MobileNetwork to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:mobilenetwork/v20220301preview:MobileNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:MobileNetwork to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetMobileNetworkResult:
@@ -225,7 +225,7 @@ def get_mobile_network(mobile_network_name: Optional[str] = None,
     :param str mobile_network_name: The name of the mobile network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_mobile_network is deprecated: azure-native:mobilenetwork/v20220301preview:MobileNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:MobileNetwork to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_mobile_network is deprecated: azure-native:mobilenetwork/v20220301preview:MobileNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:MobileNetwork to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['mobileNetworkName'] = mobile_network_name
     __args__['resourceGroupName'] = resource_group_name
@@ -261,5 +261,5 @@ def get_mobile_network_output(mobile_network_name: Optional[pulumi.Input[str]] =
     :param str mobile_network_name: The name of the mobile network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_mobile_network is deprecated: azure-native:mobilenetwork/v20220301preview:MobileNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:MobileNetwork to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_mobile_network is deprecated: azure-native:mobilenetwork/v20220301preview:MobileNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:MobileNetwork to guarantee forwards compatibility.""")
     ...

@@ -98,12 +98,12 @@ class ContainerArgs:
 
 
 warnings.warn("""Version 2020-05-01-preview will be removed in v2 of the provider.
-azure-native:databoxedge/v20200501preview:Container is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:databoxedge/v20200501preview:Container is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Container(pulumi.CustomResource):
     warnings.warn("""Version 2020-05-01-preview will be removed in v2 of the provider.
-azure-native:databoxedge/v20200501preview:Container is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:databoxedge/v20200501preview:Container is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -157,7 +157,7 @@ azure-native:databoxedge/v20200501preview:Container is being removed in the next
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Container is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.
-azure-native:databoxedge/v20200501preview:Container is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.""")
+azure-native:databoxedge/v20200501preview:Container is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

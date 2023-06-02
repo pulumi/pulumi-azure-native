@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataShare.V20191101
 {
     [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.
-azure-native:datashare/v20191101:ShareSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ShareSubscription to guarantee forwards compatibility.")]
+azure-native:datashare/v20191101:ShareSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ShareSubscription to guarantee forwards compatibility.")]
     public static class GetShareSubscription
     {
         /// <summary>

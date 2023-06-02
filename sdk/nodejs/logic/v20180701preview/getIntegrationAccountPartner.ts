@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an integration account partner.
  */
-/** @deprecated azure-native:logic/v20180701preview:IntegrationAccountPartner is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountPartner to guarantee forwards compatibility. */
+/** @deprecated azure-native:logic/v20180701preview:IntegrationAccountPartner is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountPartner to guarantee forwards compatibility. */
 export function getIntegrationAccountPartner(args: GetIntegrationAccountPartnerArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountPartnerResult> {
-    pulumi.log.warn("getIntegrationAccountPartner is deprecated: azure-native:logic/v20180701preview:IntegrationAccountPartner is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountPartner to guarantee forwards compatibility.")
+    pulumi.log.warn("getIntegrationAccountPartner is deprecated: azure-native:logic/v20180701preview:IntegrationAccountPartner is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountPartner to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20180701preview:getIntegrationAccountPartner", {
@@ -85,7 +85,7 @@ export interface GetIntegrationAccountPartnerResult {
 /**
  * Gets an integration account partner.
  */
-/** @deprecated azure-native:logic/v20180701preview:IntegrationAccountPartner is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountPartner to guarantee forwards compatibility. */
+/** @deprecated azure-native:logic/v20180701preview:IntegrationAccountPartner is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountPartner to guarantee forwards compatibility. */
 export function getIntegrationAccountPartnerOutput(args: GetIntegrationAccountPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountPartnerResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccountPartner(a, opts))
 }

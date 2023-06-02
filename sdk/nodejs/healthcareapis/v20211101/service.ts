@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * The description of the service.
  *
- * @deprecated azure-native:healthcareapis/v20211101:Service is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:Service to guarantee forwards compatibility.
+ * @deprecated azure-native:healthcareapis/v20211101:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Service to guarantee forwards compatibility.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Service extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Service {
-        pulumi.log.warn("Service is deprecated: azure-native:healthcareapis/v20211101:Service is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:Service to guarantee forwards compatibility.")
+        pulumi.log.warn("Service is deprecated: azure-native:healthcareapis/v20211101:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Service to guarantee forwards compatibility.")
         return new Service(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,9 +84,9 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:healthcareapis/v20211101:Service is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:Service to guarantee forwards compatibility. */
+    /** @deprecated azure-native:healthcareapis/v20211101:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Service to guarantee forwards compatibility. */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Service is deprecated: azure-native:healthcareapis/v20211101:Service is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:Service to guarantee forwards compatibility.")
+        pulumi.log.warn("Service is deprecated: azure-native:healthcareapis/v20211101:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Service to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

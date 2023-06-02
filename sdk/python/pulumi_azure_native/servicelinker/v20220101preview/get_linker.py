@@ -17,7 +17,7 @@ __all__ = [
     'get_linker_output',
 ]
 
-warnings.warn("""azure-native:servicelinker/v20220101preview:Linker is being removed in the next major version of this provider. Please upgrade to azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:servicelinker/v20220101preview:Linker is being removed in the next major version of this provider. Upgrade to at least azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetLinkerResult:
@@ -177,7 +177,7 @@ def get_linker(linker_name: Optional[str] = None,
     :param str linker_name: The name Linker resource.
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     """
-    pulumi.log.warn("""get_linker is deprecated: azure-native:servicelinker/v20220101preview:Linker is being removed in the next major version of this provider. Please upgrade to azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_linker is deprecated: azure-native:servicelinker/v20220101preview:Linker is being removed in the next major version of this provider. Upgrade to at least azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['linkerName'] = linker_name
     __args__['resourceUri'] = resource_uri
@@ -209,5 +209,5 @@ def get_linker_output(linker_name: Optional[pulumi.Input[str]] = None,
     :param str linker_name: The name Linker resource.
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     """
-    pulumi.log.warn("""get_linker is deprecated: azure-native:servicelinker/v20220101preview:Linker is being removed in the next major version of this provider. Please upgrade to azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_linker is deprecated: azure-native:servicelinker/v20220101preview:Linker is being removed in the next major version of this provider. Upgrade to at least azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.""")
     ...

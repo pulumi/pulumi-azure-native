@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Storage.V20210601
 {
-    [Obsolete(@"azure-native:storage/v20210601:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:storage/v20210601:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnection
     {
         /// <summary>

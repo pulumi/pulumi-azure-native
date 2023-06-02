@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataShare.V20181101Preview
 {
     [Obsolete(@"Version 2018-11-01-preview will be removed in v2 of the provider.
-azure-native:datashare/v20181101preview:Account is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Account to guarantee forwards compatibility.")]
+azure-native:datashare/v20181101preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:Account to guarantee forwards compatibility.")]
     public static class GetAccount
     {
         /// <summary>

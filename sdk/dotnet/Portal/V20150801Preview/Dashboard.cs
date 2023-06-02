@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Portal.V20150801Preview
     /// The shared dashboard resource definition.
     /// </summary>
     [Obsolete(@"Version 2015-08-01-preview will be removed in v2 of the provider.
-azure-native:portal/v20150801preview:Dashboard is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility.")]
+azure-native:portal/v20150801preview:Dashboard is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:portal/v20150801preview:Dashboard")]
     public partial class Dashboard : global::Pulumi.CustomResource
     {

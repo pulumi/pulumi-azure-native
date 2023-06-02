@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.
-azure-native:domainregistration/v20200601:Domain is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20201001:Domain to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:domainregistration/v20200601:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20201001:Domain to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDomainResult:
@@ -297,7 +297,7 @@ def get_domain(domain_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     pulumi.log.warn("""get_domain is deprecated: Version 2020-06-01 will be removed in v2 of the provider.
-azure-native:domainregistration/v20200601:Domain is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20201001:Domain to guarantee forwards compatibility.""")
+azure-native:domainregistration/v20200601:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20201001:Domain to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['resourceGroupName'] = resource_group_name
@@ -340,5 +340,5 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     pulumi.log.warn("""get_domain is deprecated: Version 2020-06-01 will be removed in v2 of the provider.
-azure-native:domainregistration/v20200601:Domain is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20201001:Domain to guarantee forwards compatibility.""")
+azure-native:domainregistration/v20200601:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20201001:Domain to guarantee forwards compatibility.""")
     ...

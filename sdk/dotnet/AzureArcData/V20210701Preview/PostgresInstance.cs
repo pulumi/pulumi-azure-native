@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210701Preview
     /// <summary>
     /// A Postgres Instance.
     /// </summary>
-    [Obsolete(@"azure-native:azurearcdata/v20210701preview:PostgresInstance is being removed in the next major version of this provider. Please upgrade to azure-native:azurearcdata/v20220615preview:PostgresInstance to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:azurearcdata/v20210701preview:PostgresInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:PostgresInstance to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurearcdata/v20210701preview:PostgresInstance")]
     public partial class PostgresInstance : global::Pulumi.CustomResource
     {

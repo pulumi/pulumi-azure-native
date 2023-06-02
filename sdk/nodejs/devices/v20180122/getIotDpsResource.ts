@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Get the metadata of the provisioning service without SAS keys.
  */
 /** @deprecated Version 2018-01-22 will be removed in v2 of the provider.
-azure-native:devices/v20180122:IotDpsResource is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility. */
+azure-native:devices/v20180122:IotDpsResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility. */
 export function getIotDpsResource(args: GetIotDpsResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourceResult> {
-    pulumi.log.warn("getIotDpsResource is deprecated: Version 2018-01-22 will be removed in v2 of the provider.\nazure-native:devices/v20180122:IotDpsResource is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility.")
+    pulumi.log.warn("getIotDpsResource is deprecated: Version 2018-01-22 will be removed in v2 of the provider.\nazure-native:devices/v20180122:IotDpsResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices/v20180122:getIotDpsResource", {
@@ -74,7 +74,7 @@ export interface GetIotDpsResourceResult {
  * Get the metadata of the provisioning service without SAS keys.
  */
 /** @deprecated Version 2018-01-22 will be removed in v2 of the provider.
-azure-native:devices/v20180122:IotDpsResource is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility. */
+azure-native:devices/v20180122:IotDpsResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility. */
 export function getIotDpsResourceOutput(args: GetIotDpsResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotDpsResourceResult> {
     return pulumi.output(args).apply((a: any) => getIotDpsResource(a, opts))
 }

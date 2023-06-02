@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2016-12-01 will be removed in v2 of the provider.
-azure-native:authorization/v20161201:PolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20180501:PolicyDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:authorization/v20161201:PolicyDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20180501:PolicyDefinition to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPolicyDefinitionResult:
@@ -152,7 +152,7 @@ def get_policy_definition(policy_definition_name: Optional[str] = None,
     :param str policy_definition_name: The name of the policy definition to get.
     """
     pulumi.log.warn("""get_policy_definition is deprecated: Version 2016-12-01 will be removed in v2 of the provider.
-azure-native:authorization/v20161201:PolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20180501:PolicyDefinition to guarantee forwards compatibility.""")
+azure-native:authorization/v20161201:PolicyDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20180501:PolicyDefinition to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['policyDefinitionName'] = policy_definition_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -180,5 +180,5 @@ def get_policy_definition_output(policy_definition_name: Optional[pulumi.Input[s
     :param str policy_definition_name: The name of the policy definition to get.
     """
     pulumi.log.warn("""get_policy_definition is deprecated: Version 2016-12-01 will be removed in v2 of the provider.
-azure-native:authorization/v20161201:PolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20180501:PolicyDefinition to guarantee forwards compatibility.""")
+azure-native:authorization/v20161201:PolicyDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20180501:PolicyDefinition to guarantee forwards compatibility.""")
     ...

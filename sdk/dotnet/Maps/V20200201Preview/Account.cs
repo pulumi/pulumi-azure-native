@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview
     /// <summary>
     /// An Azure resource which represents access to a suite of Maps REST APIs.
     /// </summary>
-    [Obsolete(@"azure-native:maps/v20200201preview:Account is being removed in the next major version of this provider. Please upgrade to azure-native:maps/v20211201preview:Account to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:maps/v20200201preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:maps/v20211201preview:Account to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:maps/v20200201preview:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {

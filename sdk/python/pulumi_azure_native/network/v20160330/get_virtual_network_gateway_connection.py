@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2016-03-30 will be removed in v2 of the provider.
-azure-native:network/v20160330:VirtualNetworkGatewayConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20160601:VirtualNetworkGatewayConnection to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20160330:VirtualNetworkGatewayConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20160601:VirtualNetworkGatewayConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualNetworkGatewayConnectionResult:
@@ -287,7 +287,7 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
     :param str virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
     """
     pulumi.log.warn("""get_virtual_network_gateway_connection is deprecated: Version 2016-03-30 will be removed in v2 of the provider.
-azure-native:network/v20160330:VirtualNetworkGatewayConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20160601:VirtualNetworkGatewayConnection to guarantee forwards compatibility.""")
+azure-native:network/v20160330:VirtualNetworkGatewayConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20160601:VirtualNetworkGatewayConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayConnectionName'] = virtual_network_gateway_connection_name
@@ -329,5 +329,5 @@ def get_virtual_network_gateway_connection_output(resource_group_name: Optional[
     :param str virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
     """
     pulumi.log.warn("""get_virtual_network_gateway_connection is deprecated: Version 2016-03-30 will be removed in v2 of the provider.
-azure-native:network/v20160330:VirtualNetworkGatewayConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20160601:VirtualNetworkGatewayConnection to guarantee forwards compatibility.""")
+azure-native:network/v20160330:VirtualNetworkGatewayConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20160601:VirtualNetworkGatewayConnection to guarantee forwards compatibility.""")
     ...

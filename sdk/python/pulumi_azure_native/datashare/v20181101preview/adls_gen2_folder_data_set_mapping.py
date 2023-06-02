@@ -187,11 +187,11 @@ class ADLSGen2FolderDataSetMappingArgs:
         pulumi.set(self, "data_set_mapping_name", value)
 
 
-warnings.warn("""azure-native:datashare/v20181101preview:ADLSGen2FolderDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:datashare/v20181101preview:ADLSGen2FolderDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ADLSGen2FolderDataSetMapping(pulumi.CustomResource):
-    warnings.warn("""azure-native:datashare/v20181101preview:ADLSGen2FolderDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:datashare/v20181101preview:ADLSGen2FolderDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -263,7 +263,7 @@ class ADLSGen2FolderDataSetMapping(pulumi.CustomResource):
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ADLSGen2FolderDataSetMapping is deprecated: azure-native:datashare/v20181101preview:ADLSGen2FolderDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ADLSGen2FolderDataSetMapping is deprecated: azure-native:datashare/v20181101preview:ADLSGen2FolderDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

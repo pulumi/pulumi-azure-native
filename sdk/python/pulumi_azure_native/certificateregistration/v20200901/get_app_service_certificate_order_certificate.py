@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.
-azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAppServiceCertificateOrderCertificateResult:
@@ -169,7 +169,7 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     pulumi.log.warn("""get_app_service_certificate_order_certificate is deprecated: Version 2020-09-01 will be removed in v2 of the provider.
-azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility.""")
+azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['certificateOrderName'] = certificate_order_name
     __args__['name'] = name
@@ -204,5 +204,5 @@ def get_app_service_certificate_order_certificate_output(certificate_order_name:
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     pulumi.log.warn("""get_app_service_certificate_order_certificate is deprecated: Version 2020-09-01 will be removed in v2 of the provider.
-azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility.""")
+azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility.""")
     ...

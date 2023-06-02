@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2015-08-01-preview will be removed in v2 of the provider.
-azure-native:portal/v20150801preview:Dashboard is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:portal/v20150801preview:Dashboard is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDashboardResult:
@@ -131,7 +131,7 @@ def get_dashboard(dashboard_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_dashboard is deprecated: Version 2015-08-01-preview will be removed in v2 of the provider.
-azure-native:portal/v20150801preview:Dashboard is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility.""")
+azure-native:portal/v20150801preview:Dashboard is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dashboardName'] = dashboard_name
     __args__['resourceGroupName'] = resource_group_name
@@ -160,5 +160,5 @@ def get_dashboard_output(dashboard_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_dashboard is deprecated: Version 2015-08-01-preview will be removed in v2 of the provider.
-azure-native:portal/v20150801preview:Dashboard is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility.""")
+azure-native:portal/v20150801preview:Dashboard is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility.""")
     ...

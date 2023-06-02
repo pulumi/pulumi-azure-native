@@ -17,7 +17,7 @@ __all__ = [
     'get_storage_insight_config_output',
 ]
 
-warnings.warn("""azure-native:operationalinsights/v20200301preview:StorageInsightConfig is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:StorageInsightConfig to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:operationalinsights/v20200301preview:StorageInsightConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:StorageInsightConfig to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetStorageInsightConfigResult:
@@ -155,7 +155,7 @@ def get_storage_insight_config(resource_group_name: Optional[str] = None,
     :param str storage_insight_name: Name of the storageInsightsConfigs resource
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_storage_insight_config is deprecated: azure-native:operationalinsights/v20200301preview:StorageInsightConfig is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:StorageInsightConfig to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_storage_insight_config is deprecated: azure-native:operationalinsights/v20200301preview:StorageInsightConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:StorageInsightConfig to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageInsightName'] = storage_insight_name
@@ -188,5 +188,5 @@ def get_storage_insight_config_output(resource_group_name: Optional[pulumi.Input
     :param str storage_insight_name: Name of the storageInsightsConfigs resource
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_storage_insight_config is deprecated: azure-native:operationalinsights/v20200301preview:StorageInsightConfig is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:StorageInsightConfig to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_storage_insight_config is deprecated: azure-native:operationalinsights/v20200301preview:StorageInsightConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:StorageInsightConfig to guarantee forwards compatibility.""")
     ...

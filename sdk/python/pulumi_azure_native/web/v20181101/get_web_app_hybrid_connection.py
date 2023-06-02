@@ -16,7 +16,7 @@ __all__ = [
     'get_web_app_hybrid_connection_output',
 ]
 
-warnings.warn("""azure-native:web/v20181101:WebAppHybridConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppHybridConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:web/v20181101:WebAppHybridConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppHybridConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetWebAppHybridConnectionResult:
@@ -193,7 +193,7 @@ def get_web_app_hybrid_connection(name: Optional[str] = None,
     :param str relay_name: The relay name for this hybrid connection.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_web_app_hybrid_connection is deprecated: azure-native:web/v20181101:WebAppHybridConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppHybridConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_web_app_hybrid_connection is deprecated: azure-native:web/v20181101:WebAppHybridConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppHybridConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name
@@ -232,5 +232,5 @@ def get_web_app_hybrid_connection_output(name: Optional[pulumi.Input[str]] = Non
     :param str relay_name: The relay name for this hybrid connection.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_web_app_hybrid_connection is deprecated: azure-native:web/v20181101:WebAppHybridConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppHybridConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_web_app_hybrid_connection is deprecated: azure-native:web/v20181101:WebAppHybridConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppHybridConnection to guarantee forwards compatibility.""")
     ...

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview
 {
-    [Obsolete(@"azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByWorkspace is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByWorkspace to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByWorkspace to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnectionByWorkspace
     {
         /// <summary>

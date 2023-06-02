@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get an assembly for an integration account.
  */
-/** @deprecated azure-native:logic/v20160601:IntegrationAccountAssembly is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountAssembly to guarantee forwards compatibility. */
+/** @deprecated azure-native:logic/v20160601:IntegrationAccountAssembly is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountAssembly to guarantee forwards compatibility. */
 export function getIntegrationAccountAssembly(args: GetIntegrationAccountAssemblyArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountAssemblyResult> {
-    pulumi.log.warn("getIntegrationAccountAssembly is deprecated: azure-native:logic/v20160601:IntegrationAccountAssembly is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountAssembly to guarantee forwards compatibility.")
+    pulumi.log.warn("getIntegrationAccountAssembly is deprecated: azure-native:logic/v20160601:IntegrationAccountAssembly is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountAssembly to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20160601:getIntegrationAccountAssembly", {
@@ -69,7 +69,7 @@ export interface GetIntegrationAccountAssemblyResult {
 /**
  * Get an assembly for an integration account.
  */
-/** @deprecated azure-native:logic/v20160601:IntegrationAccountAssembly is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountAssembly to guarantee forwards compatibility. */
+/** @deprecated azure-native:logic/v20160601:IntegrationAccountAssembly is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccountAssembly to guarantee forwards compatibility. */
 export function getIntegrationAccountAssemblyOutput(args: GetIntegrationAccountAssemblyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountAssemblyResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccountAssembly(a, opts))
 }

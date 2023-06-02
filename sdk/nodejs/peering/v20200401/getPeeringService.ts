@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets an existing peering service with the specified name under the given subscription and resource group.
  */
 /** @deprecated Version 2020-04-01 will be removed in v2 of the provider.
-azure-native:peering/v20200401:PeeringService is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeeringService to guarantee forwards compatibility. */
+azure-native:peering/v20200401:PeeringService is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:PeeringService to guarantee forwards compatibility. */
 export function getPeeringService(args: GetPeeringServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringServiceResult> {
-    pulumi.log.warn("getPeeringService is deprecated: Version 2020-04-01 will be removed in v2 of the provider.\nazure-native:peering/v20200401:PeeringService is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeeringService to guarantee forwards compatibility.")
+    pulumi.log.warn("getPeeringService is deprecated: Version 2020-04-01 will be removed in v2 of the provider.\nazure-native:peering/v20200401:PeeringService is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:PeeringService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering/v20200401:getPeeringService", {
@@ -78,7 +78,7 @@ export interface GetPeeringServiceResult {
  * Gets an existing peering service with the specified name under the given subscription and resource group.
  */
 /** @deprecated Version 2020-04-01 will be removed in v2 of the provider.
-azure-native:peering/v20200401:PeeringService is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeeringService to guarantee forwards compatibility. */
+azure-native:peering/v20200401:PeeringService is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:PeeringService to guarantee forwards compatibility. */
 export function getPeeringServiceOutput(args: GetPeeringServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringServiceResult> {
     return pulumi.output(args).apply((a: any) => getPeeringService(a, opts))
 }

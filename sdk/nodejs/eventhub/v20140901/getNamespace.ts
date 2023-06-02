@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the description of the specified namespace.
  */
 /** @deprecated Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:eventhub/v20140901:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20150801:Namespace to guarantee forwards compatibility. */
+azure-native:eventhub/v20140901:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20150801:Namespace to guarantee forwards compatibility. */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
-    pulumi.log.warn("getNamespace is deprecated: Version 2014-09-01 will be removed in v2 of the provider.\nazure-native:eventhub/v20140901:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20150801:Namespace to guarantee forwards compatibility.")
+    pulumi.log.warn("getNamespace is deprecated: Version 2014-09-01 will be removed in v2 of the provider.\nazure-native:eventhub/v20140901:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20150801:Namespace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20140901:getNamespace", {
@@ -94,7 +94,7 @@ export interface GetNamespaceResult {
  * Gets the description of the specified namespace.
  */
 /** @deprecated Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:eventhub/v20140901:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20150801:Namespace to guarantee forwards compatibility. */
+azure-native:eventhub/v20140901:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20150801:Namespace to guarantee forwards compatibility. */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getNamespace(a, opts))
 }

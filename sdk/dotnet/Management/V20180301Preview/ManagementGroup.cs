@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Management.V20180301Preview
     /// The management group details.
     /// </summary>
     [Obsolete(@"Version 2018-03-01-preview will be removed in v2 of the provider.
-azure-native:management/v20180301preview:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility.")]
+azure-native:management/v20180301preview:ManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:management/v20180301preview:ManagementGroup")]
     public partial class ManagementGroup : global::Pulumi.CustomResource
     {

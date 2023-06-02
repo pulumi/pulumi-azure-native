@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the setting from the given scope by name.
  */
-/** @deprecated azure-native:costmanagement/v20221001preview:TagInheritanceSetting is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221005preview:TagInheritanceSetting to guarantee forwards compatibility. */
+/** @deprecated azure-native:costmanagement/v20221001preview:TagInheritanceSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221005preview:TagInheritanceSetting to guarantee forwards compatibility. */
 export function getTagInheritanceSetting(args: GetTagInheritanceSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetTagInheritanceSettingResult> {
-    pulumi.log.warn("getTagInheritanceSetting is deprecated: azure-native:costmanagement/v20221001preview:TagInheritanceSetting is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221005preview:TagInheritanceSetting to guarantee forwards compatibility.")
+    pulumi.log.warn("getTagInheritanceSetting is deprecated: azure-native:costmanagement/v20221001preview:TagInheritanceSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221005preview:TagInheritanceSetting to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20221001preview:getTagInheritanceSetting", {
@@ -65,7 +65,7 @@ export interface GetTagInheritanceSettingResult {
 /**
  * Get the setting from the given scope by name.
  */
-/** @deprecated azure-native:costmanagement/v20221001preview:TagInheritanceSetting is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221005preview:TagInheritanceSetting to guarantee forwards compatibility. */
+/** @deprecated azure-native:costmanagement/v20221001preview:TagInheritanceSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221005preview:TagInheritanceSetting to guarantee forwards compatibility. */
 export function getTagInheritanceSettingOutput(args: GetTagInheritanceSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagInheritanceSettingResult> {
     return pulumi.output(args).apply((a: any) => getTagInheritanceSetting(a, opts))
 }

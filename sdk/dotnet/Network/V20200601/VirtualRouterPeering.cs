@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20200601
     /// <summary>
     /// Virtual Router Peering resource.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20200601:VirtualRouterPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualRouterPeering to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20200601:VirtualRouterPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualRouterPeering to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20200601:VirtualRouterPeering")]
     public partial class VirtualRouterPeering : global::Pulumi.CustomResource
     {

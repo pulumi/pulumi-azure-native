@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Gets the specified rule from a route filter.
  */
 /** @deprecated Version 2017-11-01 will be removed in v2 of the provider.
-azure-native:network/v20171101:RouteFilterRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RouteFilterRule to guarantee forwards compatibility. */
+azure-native:network/v20171101:RouteFilterRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteFilterRule to guarantee forwards compatibility. */
 export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterRuleResult> {
-    pulumi.log.warn("getRouteFilterRule is deprecated: Version 2017-11-01 will be removed in v2 of the provider.\nazure-native:network/v20171101:RouteFilterRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RouteFilterRule to guarantee forwards compatibility.")
+    pulumi.log.warn("getRouteFilterRule is deprecated: Version 2017-11-01 will be removed in v2 of the provider.\nazure-native:network/v20171101:RouteFilterRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteFilterRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20171101:getRouteFilterRule", {
@@ -76,7 +76,7 @@ export interface GetRouteFilterRuleResult {
  * Gets the specified rule from a route filter.
  */
 /** @deprecated Version 2017-11-01 will be removed in v2 of the provider.
-azure-native:network/v20171101:RouteFilterRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RouteFilterRule to guarantee forwards compatibility. */
+azure-native:network/v20171101:RouteFilterRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteFilterRule to guarantee forwards compatibility. */
 export function getRouteFilterRuleOutput(args: GetRouteFilterRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterRuleResult> {
     return pulumi.output(args).apply((a: any) => getRouteFilterRule(a, opts))
 }

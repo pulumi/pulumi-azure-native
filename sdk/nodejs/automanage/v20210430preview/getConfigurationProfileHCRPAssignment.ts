@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get information about a configuration profile assignment
  */
-/** @deprecated azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment to guarantee forwards compatibility. */
+/** @deprecated azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment to guarantee forwards compatibility. */
 export function getConfigurationProfileHCRPAssignment(args: GetConfigurationProfileHCRPAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileHCRPAssignmentResult> {
-    pulumi.log.warn("getConfigurationProfileHCRPAssignment is deprecated: azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment to guarantee forwards compatibility.")
+    pulumi.log.warn("getConfigurationProfileHCRPAssignment is deprecated: azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automanage/v20210430preview:getConfigurationProfileHCRPAssignment", {
@@ -65,7 +65,7 @@ export interface GetConfigurationProfileHCRPAssignmentResult {
 /**
  * Get information about a configuration profile assignment
  */
-/** @deprecated azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment to guarantee forwards compatibility. */
+/** @deprecated azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment to guarantee forwards compatibility. */
 export function getConfigurationProfileHCRPAssignmentOutput(args: GetConfigurationProfileHCRPAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileHCRPAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationProfileHCRPAssignment(a, opts))
 }

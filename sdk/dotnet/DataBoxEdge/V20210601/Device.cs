@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
     /// <summary>
     /// The Data Box Edge/Gateway device.
     /// </summary>
-    [Obsolete(@"azure-native:databoxedge/v20210601:Device is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220401preview:Device to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:databoxedge/v20210601:Device is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20220401preview:Device to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20210601:Device")]
     public partial class Device : global::Pulumi.CustomResource
     {

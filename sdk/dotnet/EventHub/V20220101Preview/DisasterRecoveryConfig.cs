@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
     /// <summary>
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
     /// </summary>
-    [Obsolete(@"azure-native:eventhub/v20220101preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:eventhub/v20220101preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventhub/v20220101preview:DisasterRecoveryConfig")]
     public partial class DisasterRecoveryConfig : global::Pulumi.CustomResource
     {

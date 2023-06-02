@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the notebook workspace for a Cosmos DB account.
  */
-/** @deprecated azure-native:documentdb/v20210515:NotebookWorkspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:NotebookWorkspace to guarantee forwards compatibility. */
+/** @deprecated azure-native:documentdb/v20210515:NotebookWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:NotebookWorkspace to guarantee forwards compatibility. */
 export function getNotebookWorkspace(args: GetNotebookWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNotebookWorkspaceResult> {
-    pulumi.log.warn("getNotebookWorkspace is deprecated: azure-native:documentdb/v20210515:NotebookWorkspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:NotebookWorkspace to guarantee forwards compatibility.")
+    pulumi.log.warn("getNotebookWorkspace is deprecated: azure-native:documentdb/v20210515:NotebookWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:NotebookWorkspace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20210515:getNotebookWorkspace", {
@@ -62,7 +62,7 @@ export interface GetNotebookWorkspaceResult {
 /**
  * Gets the notebook workspace for a Cosmos DB account.
  */
-/** @deprecated azure-native:documentdb/v20210515:NotebookWorkspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:NotebookWorkspace to guarantee forwards compatibility. */
+/** @deprecated azure-native:documentdb/v20210515:NotebookWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:NotebookWorkspace to guarantee forwards compatibility. */
 export function getNotebookWorkspaceOutput(args: GetNotebookWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotebookWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getNotebookWorkspace(a, opts))
 }

@@ -181,11 +181,11 @@ class JobArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:databox/v20210801preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:databox/v20221201:Job to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:databox/v20210801preview:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:databox/v20221201:Job to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Job(pulumi.CustomResource):
-    warnings.warn("""azure-native:databox/v20210801preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:databox/v20221201:Job to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:databox/v20210801preview:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:databox/v20221201:Job to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -253,7 +253,7 @@ class Job(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transfer_type: Optional[pulumi.Input[Union[str, 'TransferType']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Job is deprecated: azure-native:databox/v20210801preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:databox/v20221201:Job to guarantee forwards compatibility.""")
+        pulumi.log.warn("""Job is deprecated: azure-native:databox/v20210801preview:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:databox/v20221201:Job to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

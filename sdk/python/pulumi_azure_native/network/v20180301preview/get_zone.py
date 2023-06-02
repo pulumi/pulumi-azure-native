@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.
-azure-native:network/v20180301preview:Zone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:Zone to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20180301preview:Zone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180501:Zone to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetZoneResult:
@@ -203,7 +203,7 @@ def get_zone(resource_group_name: Optional[str] = None,
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
     pulumi.log.warn("""get_zone is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.
-azure-native:network/v20180301preview:Zone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:Zone to guarantee forwards compatibility.""")
+azure-native:network/v20180301preview:Zone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180501:Zone to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['zoneName'] = zone_name
@@ -238,5 +238,5 @@ def get_zone_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
     pulumi.log.warn("""get_zone is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.
-azure-native:network/v20180301preview:Zone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:Zone to guarantee forwards compatibility.""")
+azure-native:network/v20180301preview:Zone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180501:Zone to guarantee forwards compatibility.""")
     ...

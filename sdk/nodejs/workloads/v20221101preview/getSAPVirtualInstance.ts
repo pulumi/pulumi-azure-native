@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Virtual Instance for SAP solutions resource
  */
-/** @deprecated azure-native:workloads/v20221101preview:SAPVirtualInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility. */
+/** @deprecated azure-native:workloads/v20221101preview:SAPVirtualInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility. */
 export function getSAPVirtualInstance(args: GetSAPVirtualInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPVirtualInstanceResult> {
-    pulumi.log.warn("getSAPVirtualInstance is deprecated: azure-native:workloads/v20221101preview:SAPVirtualInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility.")
+    pulumi.log.warn("getSAPVirtualInstance is deprecated: azure-native:workloads/v20221101preview:SAPVirtualInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20221101preview:getSAPVirtualInstance", {
@@ -104,7 +104,7 @@ export interface GetSAPVirtualInstanceResult {
 /**
  * Gets a Virtual Instance for SAP solutions resource
  */
-/** @deprecated azure-native:workloads/v20221101preview:SAPVirtualInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility. */
+/** @deprecated azure-native:workloads/v20221101preview:SAPVirtualInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility. */
 export function getSAPVirtualInstanceOutput(args: GetSAPVirtualInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPVirtualInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSAPVirtualInstance(a, opts))
 }

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified private endpoint by resource group.
  */
-/** @deprecated azure-native:network/v20190401:PrivateEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210201:PrivateEndpoint to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20190401:PrivateEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210201:PrivateEndpoint to guarantee forwards compatibility. */
 export function getPrivateEndpoint(args: GetPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointResult> {
-    pulumi.log.warn("getPrivateEndpoint is deprecated: azure-native:network/v20190401:PrivateEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210201:PrivateEndpoint to guarantee forwards compatibility.")
+    pulumi.log.warn("getPrivateEndpoint is deprecated: azure-native:network/v20190401:PrivateEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210201:PrivateEndpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190401:getPrivateEndpoint", {
@@ -89,7 +89,7 @@ export interface GetPrivateEndpointResult {
 /**
  * Gets the specified private endpoint by resource group.
  */
-/** @deprecated azure-native:network/v20190401:PrivateEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210201:PrivateEndpoint to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20190401:PrivateEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210201:PrivateEndpoint to guarantee forwards compatibility. */
 export function getPrivateEndpointOutput(args: GetPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpoint(a, opts))
 }

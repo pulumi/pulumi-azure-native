@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
     /// A privateLinkHub
     /// </summary>
     [Obsolete(@"Version 2019-06-01-preview will be removed in v2 of the provider.
-azure-native:synapse/v20190601preview:PrivateLinkHub is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:PrivateLinkHub to guarantee forwards compatibility.")]
+azure-native:synapse/v20190601preview:PrivateLinkHub is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:PrivateLinkHub to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:synapse/v20190601preview:PrivateLinkHub")]
     public partial class PrivateLinkHub : global::Pulumi.CustomResource
     {

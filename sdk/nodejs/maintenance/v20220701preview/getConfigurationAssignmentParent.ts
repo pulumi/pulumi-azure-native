@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get configuration for resource.
  */
-/** @deprecated azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility. */
+/** @deprecated azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility. */
 export function getConfigurationAssignmentParent(args: GetConfigurationAssignmentParentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAssignmentParentResult> {
-    pulumi.log.warn("getConfigurationAssignmentParent is deprecated: azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility.")
+    pulumi.log.warn("getConfigurationAssignmentParent is deprecated: azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maintenance/v20220701preview:getConfigurationAssignmentParent", {
@@ -93,7 +93,7 @@ export interface GetConfigurationAssignmentParentResult {
 /**
  * Get configuration for resource.
  */
-/** @deprecated azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility. */
+/** @deprecated azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility. */
 export function getConfigurationAssignmentParentOutput(args: GetConfigurationAssignmentParentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentParentResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationAssignmentParent(a, opts))
 }

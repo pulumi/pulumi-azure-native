@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-10-20 will be removed in v2 of the provider.
-azure-native:healthbot/v20201020:getbot is being removed in the next major version of this provider. Please upgrade to azure-native:healthbot/v20201020preview:getbot to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:healthbot/v20201020:getbot is being removed in the next major version of this provider. Upgrade to at least azure-native:healthbot/v20201020preview:getbot to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetgetbotResult:
@@ -143,7 +143,7 @@ def getgetbot(resource_group_name: Optional[str] = None,
     :param str resource_name: The name of the Bot resource.
     """
     pulumi.log.warn("""getgetbot is deprecated: Version 2020-10-20 will be removed in v2 of the provider.
-azure-native:healthbot/v20201020:getbot is being removed in the next major version of this provider. Please upgrade to azure-native:healthbot/v20201020preview:getbot to guarantee forwards compatibility.""")
+azure-native:healthbot/v20201020:getbot is being removed in the next major version of this provider. Upgrade to at least azure-native:healthbot/v20201020preview:getbot to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -173,5 +173,5 @@ def getgetbot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_name: The name of the Bot resource.
     """
     pulumi.log.warn("""getgetbot is deprecated: Version 2020-10-20 will be removed in v2 of the provider.
-azure-native:healthbot/v20201020:getbot is being removed in the next major version of this provider. Please upgrade to azure-native:healthbot/v20201020preview:getbot to guarantee forwards compatibility.""")
+azure-native:healthbot/v20201020:getbot is being removed in the next major version of this provider. Upgrade to at least azure-native:healthbot/v20201020preview:getbot to guarantee forwards compatibility.""")
     ...

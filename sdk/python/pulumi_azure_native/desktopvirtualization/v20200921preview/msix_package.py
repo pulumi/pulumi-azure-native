@@ -244,12 +244,12 @@ class MSIXPackageArgs:
 
 
 warnings.warn("""Version 2020-09-21-preview will be removed in v2 of the provider.
-azure-native:desktopvirtualization/v20200921preview:MSIXPackage is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:MSIXPackage to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:desktopvirtualization/v20200921preview:MSIXPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:MSIXPackage to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class MSIXPackage(pulumi.CustomResource):
     warnings.warn("""Version 2020-09-21-preview will be removed in v2 of the provider.
-azure-native:desktopvirtualization/v20200921preview:MSIXPackage is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:MSIXPackage to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:desktopvirtualization/v20200921preview:MSIXPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:MSIXPackage to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -330,7 +330,7 @@ azure-native:desktopvirtualization/v20200921preview:MSIXPackage is being removed
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""MSIXPackage is deprecated: Version 2020-09-21-preview will be removed in v2 of the provider.
-azure-native:desktopvirtualization/v20200921preview:MSIXPackage is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:MSIXPackage to guarantee forwards compatibility.""")
+azure-native:desktopvirtualization/v20200921preview:MSIXPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:MSIXPackage to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

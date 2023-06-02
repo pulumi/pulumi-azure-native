@@ -17,7 +17,7 @@ __all__ = [
     'get_read_write_database_output',
 ]
 
-warnings.warn("""azure-native:kusto/v20220707:ReadWriteDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ReadWriteDatabase to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:kusto/v20220707:ReadWriteDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:ReadWriteDatabase to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetReadWriteDatabaseResult:
@@ -168,7 +168,7 @@ def get_read_write_database(cluster_name: Optional[str] = None,
     :param str database_name: The name of the database in the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
-    pulumi.log.warn("""get_read_write_database is deprecated: azure-native:kusto/v20220707:ReadWriteDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ReadWriteDatabase to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_read_write_database is deprecated: azure-native:kusto/v20220707:ReadWriteDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:ReadWriteDatabase to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['databaseName'] = database_name
@@ -202,5 +202,5 @@ def get_read_write_database_output(cluster_name: Optional[pulumi.Input[str]] = N
     :param str database_name: The name of the database in the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
-    pulumi.log.warn("""get_read_write_database is deprecated: azure-native:kusto/v20220707:ReadWriteDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ReadWriteDatabase to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_read_write_database is deprecated: azure-native:kusto/v20220707:ReadWriteDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:ReadWriteDatabase to guarantee forwards compatibility.""")
     ...

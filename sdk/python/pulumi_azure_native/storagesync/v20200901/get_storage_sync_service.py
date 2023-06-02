@@ -17,7 +17,7 @@ __all__ = [
     'get_storage_sync_service_output',
 ]
 
-warnings.warn("""azure-native:storagesync/v20200901:StorageSyncService is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:StorageSyncService to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:storagesync/v20200901:StorageSyncService is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:StorageSyncService to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetStorageSyncServiceResult:
@@ -201,7 +201,7 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     """
-    pulumi.log.warn("""get_storage_sync_service is deprecated: azure-native:storagesync/v20200901:StorageSyncService is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:StorageSyncService to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_storage_sync_service is deprecated: azure-native:storagesync/v20200901:StorageSyncService is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:StorageSyncService to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageSyncServiceName'] = storage_sync_service_name
@@ -235,5 +235,5 @@ def get_storage_sync_service_output(resource_group_name: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     """
-    pulumi.log.warn("""get_storage_sync_service is deprecated: azure-native:storagesync/v20200901:StorageSyncService is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:StorageSyncService to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_storage_sync_service is deprecated: azure-native:storagesync/v20200901:StorageSyncService is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:StorageSyncService to guarantee forwards compatibility.""")
     ...

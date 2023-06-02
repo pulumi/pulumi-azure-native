@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201
     /// A private endpoint connection
     /// </summary>
     [Obsolete(@"Version 2020-12-01 will be removed in v2 of the provider.
-azure-native:synapse/v20201201:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:PrivateEndpointConnection to guarantee forwards compatibility.")]
+azure-native:synapse/v20201201:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:synapse/v20201201:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

@@ -17,7 +17,7 @@ __all__ = [
     'get_io_t_addon_output',
 ]
 
-warnings.warn("""azure-native:databoxedge/v20200901preview:IoTAddon is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:databoxedge/v20200901preview:IoTAddon is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetIoTAddonResult:
@@ -182,7 +182,7 @@ def get_io_t_addon(addon_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str role_name: The role name.
     """
-    pulumi.log.warn("""get_io_t_addon is deprecated: azure-native:databoxedge/v20200901preview:IoTAddon is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_io_t_addon is deprecated: azure-native:databoxedge/v20200901preview:IoTAddon is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['addonName'] = addon_name
     __args__['deviceName'] = device_name
@@ -220,5 +220,5 @@ def get_io_t_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name.
     :param str role_name: The role name.
     """
-    pulumi.log.warn("""get_io_t_addon is deprecated: azure-native:databoxedge/v20200901preview:IoTAddon is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_io_t_addon is deprecated: azure-native:databoxedge/v20200901preview:IoTAddon is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility.""")
     ...

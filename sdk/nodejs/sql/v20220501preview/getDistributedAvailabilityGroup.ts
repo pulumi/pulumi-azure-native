@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a distributed availability group info.
  */
-/** @deprecated azure-native:sql/v20220501preview:DistributedAvailabilityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:DistributedAvailabilityGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20220501preview:DistributedAvailabilityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:DistributedAvailabilityGroup to guarantee forwards compatibility. */
 export function getDistributedAvailabilityGroup(args: GetDistributedAvailabilityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributedAvailabilityGroupResult> {
-    pulumi.log.warn("getDistributedAvailabilityGroup is deprecated: azure-native:sql/v20220501preview:DistributedAvailabilityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:DistributedAvailabilityGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getDistributedAvailabilityGroup is deprecated: azure-native:sql/v20220501preview:DistributedAvailabilityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:DistributedAvailabilityGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20220501preview:getDistributedAvailabilityGroup", {
@@ -98,7 +98,7 @@ export interface GetDistributedAvailabilityGroupResult {
 /**
  * Gets a distributed availability group info.
  */
-/** @deprecated azure-native:sql/v20220501preview:DistributedAvailabilityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:DistributedAvailabilityGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20220501preview:DistributedAvailabilityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:DistributedAvailabilityGroup to guarantee forwards compatibility. */
 export function getDistributedAvailabilityGroupOutput(args: GetDistributedAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributedAvailabilityGroupResult> {
     return pulumi.output(args).apply((a: any) => getDistributedAvailabilityGroup(a, opts))
 }

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.EventGrid.V20201015Preview
 {
-    [Obsolete(@"azure-native:eventgrid/v20201015preview:Domain is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20211015preview:Domain to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:eventgrid/v20201015preview:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:Domain to guarantee forwards compatibility.")]
     public static class GetDomain
     {
         /// <summary>

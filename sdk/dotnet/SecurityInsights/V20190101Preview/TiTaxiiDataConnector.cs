@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     /// <summary>
     /// Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20190101preview:TiTaxiiDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:TiTaxiiDataConnector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20190101preview:TiTaxiiDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:TiTaxiiDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:TiTaxiiDataConnector")]
     public partial class TiTaxiiDataConnector : global::Pulumi.CustomResource
     {

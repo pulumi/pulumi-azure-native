@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
     /// <summary>
     /// CloudEdgeManagementRole role.
     /// </summary>
-    [Obsolete(@"azure-native:databoxedge/v20210201preview:CloudEdgeManagementRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:CloudEdgeManagementRole to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:databoxedge/v20210201preview:CloudEdgeManagementRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:CloudEdgeManagementRole to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20210201preview:CloudEdgeManagementRole")]
     public partial class CloudEdgeManagementRole : global::Pulumi.CustomResource
     {

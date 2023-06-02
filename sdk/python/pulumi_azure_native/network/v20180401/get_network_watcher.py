@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220501:NetworkWatcher to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20180401:NetworkWatcher is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220501:NetworkWatcher to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetNetworkWatcherResult:
@@ -130,7 +130,7 @@ def get_network_watcher(network_watcher_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_network_watcher is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220501:NetworkWatcher to guarantee forwards compatibility.""")
+azure-native:network/v20180401:NetworkWatcher is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220501:NetworkWatcher to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['networkWatcherName'] = network_watcher_name
     __args__['resourceGroupName'] = resource_group_name
@@ -159,5 +159,5 @@ def get_network_watcher_output(network_watcher_name: Optional[pulumi.Input[str]]
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_network_watcher is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220501:NetworkWatcher to guarantee forwards compatibility.""")
+azure-native:network/v20180401:NetworkWatcher is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220501:NetworkWatcher to guarantee forwards compatibility.""")
     ...

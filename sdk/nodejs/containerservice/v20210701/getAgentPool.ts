@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Agent Pool.
  */
-/** @deprecated azure-native:containerservice/v20210701:AgentPool is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20210801:AgentPool to guarantee forwards compatibility. */
+/** @deprecated azure-native:containerservice/v20210701:AgentPool is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20210801:AgentPool to guarantee forwards compatibility. */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
-    pulumi.log.warn("getAgentPool is deprecated: azure-native:containerservice/v20210701:AgentPool is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20210801:AgentPool to guarantee forwards compatibility.")
+    pulumi.log.warn("getAgentPool is deprecated: azure-native:containerservice/v20210701:AgentPool is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20210801:AgentPool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20210701:getAgentPool", {
@@ -201,7 +201,7 @@ export interface GetAgentPoolResult {
 /**
  * Agent Pool.
  */
-/** @deprecated azure-native:containerservice/v20210701:AgentPool is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20210801:AgentPool to guarantee forwards compatibility. */
+/** @deprecated azure-native:containerservice/v20210701:AgentPool is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20210801:AgentPool to guarantee forwards compatibility. */
 export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
     return pulumi.output(args).apply((a: any) => getAgentPool(a, opts))
 }

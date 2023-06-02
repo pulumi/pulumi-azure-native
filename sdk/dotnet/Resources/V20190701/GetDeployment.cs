@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Resources.V20190701
 {
-    [Obsolete(@"azure-native:resources/v20190701:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:Deployment to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:resources/v20190701:Deployment is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:Deployment to guarantee forwards compatibility.")]
     public static class GetDeployment
     {
         /// <summary>

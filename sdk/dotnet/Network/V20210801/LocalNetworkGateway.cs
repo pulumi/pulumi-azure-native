@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20210801
     /// <summary>
     /// A common class for general resource information.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20210801:LocalNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:LocalNetworkGateway to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20210801:LocalNetworkGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:LocalNetworkGateway to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20210801:LocalNetworkGateway")]
     public partial class LocalNetworkGateway : global::Pulumi.CustomResource
     {

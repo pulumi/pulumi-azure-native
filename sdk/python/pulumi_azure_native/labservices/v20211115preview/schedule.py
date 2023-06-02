@@ -146,11 +146,11 @@ class ScheduleArgs:
         pulumi.set(self, "start_at", value)
 
 
-warnings.warn("""azure-native:labservices/v20211115preview:Schedule is being removed in the next major version of this provider. Please upgrade to azure-native:labservices/v20220801:Schedule to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:labservices/v20211115preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Schedule to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Schedule(pulumi.CustomResource):
-    warnings.warn("""azure-native:labservices/v20211115preview:Schedule is being removed in the next major version of this provider. Please upgrade to azure-native:labservices/v20220801:Schedule to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:labservices/v20211115preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Schedule to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -212,7 +212,7 @@ class Schedule(pulumi.CustomResource):
                  stop_at: Optional[pulumi.Input[str]] = None,
                  time_zone_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Schedule is deprecated: azure-native:labservices/v20211115preview:Schedule is being removed in the next major version of this provider. Please upgrade to azure-native:labservices/v20220801:Schedule to guarantee forwards compatibility.""")
+        pulumi.log.warn("""Schedule is deprecated: azure-native:labservices/v20211115preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Schedule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -17,7 +17,7 @@ __all__ = [
     'get_origin_output',
 ]
 
-warnings.warn("""azure-native:cdn/v20220501preview:Origin is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:cdn/v20220501preview:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetOriginResult:
@@ -265,7 +265,7 @@ def get_origin(endpoint_name: Optional[str] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_origin is deprecated: azure-native:cdn/v20220501preview:Origin is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_origin is deprecated: azure-native:cdn/v20220501preview:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['originName'] = origin_name
@@ -310,5 +310,5 @@ def get_origin_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_origin is deprecated: azure-native:cdn/v20220501preview:Origin is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_origin is deprecated: azure-native:cdn/v20220501preview:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""")
     ...

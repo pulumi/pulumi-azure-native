@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.App.V20220601Preview
     /// <summary>
     /// An environment for Kubernetes cluster specialized for web workloads by Azure App Service
     /// </summary>
-    [Obsolete(@"azure-native:app/v20220601preview:ConnectedEnvironment is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ConnectedEnvironment to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:app/v20220601preview:ConnectedEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ConnectedEnvironment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:app/v20220601preview:ConnectedEnvironment")]
     public partial class ConnectedEnvironment : global::Pulumi.CustomResource
     {

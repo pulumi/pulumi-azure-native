@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
     /// <summary>
     /// Represents Office Microsoft Project data connector.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20221201preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20221201preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20221201preview:Office365ProjectDataConnector")]
     public partial class Office365ProjectDataConnector : global::Pulumi.CustomResource
     {

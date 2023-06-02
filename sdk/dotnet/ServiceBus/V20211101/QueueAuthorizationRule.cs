@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101
     /// <summary>
     /// Description of a namespace authorization rule.
     /// </summary>
-    [Obsolete(@"azure-native:servicebus/v20211101:QueueAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20220101preview:QueueAuthorizationRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:servicebus/v20211101:QueueAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:QueueAuthorizationRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicebus/v20211101:QueueAuthorizationRule")]
     public partial class QueueAuthorizationRule : global::Pulumi.CustomResource
     {

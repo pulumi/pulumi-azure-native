@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20210801
     /// <summary>
     /// ExpressRoutePort Authorization resource definition.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20210801:ExpressRoutePortAuthorization is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRoutePortAuthorization to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20210801:ExpressRoutePortAuthorization is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRoutePortAuthorization to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20210801:ExpressRoutePortAuthorization")]
     public partial class ExpressRoutePortAuthorization : global::Pulumi.CustomResource
     {

@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
  * call the GetItemOperationResult API.
  */
-/** @deprecated azure-native:recoveryservices/v20210301:ProtectionIntent is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility. */
+/** @deprecated azure-native:recoveryservices/v20210301:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility. */
 export function getProtectionIntent(args: GetProtectionIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionIntentResult> {
-    pulumi.log.warn("getProtectionIntent is deprecated: azure-native:recoveryservices/v20210301:ProtectionIntent is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.")
+    pulumi.log.warn("getProtectionIntent is deprecated: azure-native:recoveryservices/v20210301:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20210301:getProtectionIntent", {
@@ -80,7 +80,7 @@ export interface GetProtectionIntentResult {
  * Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
  * call the GetItemOperationResult API.
  */
-/** @deprecated azure-native:recoveryservices/v20210301:ProtectionIntent is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility. */
+/** @deprecated azure-native:recoveryservices/v20210301:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility. */
 export function getProtectionIntentOutput(args: GetProtectionIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionIntentResult> {
     return pulumi.output(args).apply((a: any) => getProtectionIntent(a, opts))
 }

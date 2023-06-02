@@ -17,7 +17,7 @@ __all__ = [
     'get_firewall_rule_output',
 ]
 
-warnings.warn("""azure-native:dbforpostgresql/v20220120preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:dbforpostgresql/v20221108:FirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:dbforpostgresql/v20220120preview:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221108:FirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetFirewallRuleResult:
@@ -119,7 +119,7 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("""get_firewall_rule is deprecated: azure-native:dbforpostgresql/v20220120preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:dbforpostgresql/v20221108:FirewallRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_firewall_rule is deprecated: azure-native:dbforpostgresql/v20220120preview:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221108:FirewallRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['firewallRuleName'] = firewall_rule_name
     __args__['resourceGroupName'] = resource_group_name
@@ -149,5 +149,5 @@ def get_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("""get_firewall_rule is deprecated: azure-native:dbforpostgresql/v20220120preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:dbforpostgresql/v20221108:FirewallRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_firewall_rule is deprecated: azure-native:dbforpostgresql/v20220120preview:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221108:FirewallRule to guarantee forwards compatibility.""")
     ...

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a security assessment on your scanned resource
  */
-/** @deprecated azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20200101:Assessment to guarantee forwards compatibility. */
+/** @deprecated azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20200101:Assessment to guarantee forwards compatibility. */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
-    pulumi.log.warn("getAssessment is deprecated: azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20200101:Assessment to guarantee forwards compatibility.")
+    pulumi.log.warn("getAssessment is deprecated: azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20200101:Assessment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20190101preview:getAssessment", {
@@ -77,7 +77,7 @@ export interface GetAssessmentResult {
 /**
  * Get a security assessment on your scanned resource
  */
-/** @deprecated azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20200101:Assessment to guarantee forwards compatibility. */
+/** @deprecated azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20200101:Assessment to guarantee forwards compatibility. */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
     return pulumi.output(args).apply((a: any) => getAssessment(a, opts))
 }

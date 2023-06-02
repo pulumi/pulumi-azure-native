@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about a gallery image definition.
  */
-/** @deprecated azure-native:compute/v20211001:GalleryImage is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImage to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20211001:GalleryImage is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryImage to guarantee forwards compatibility. */
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
-    pulumi.log.warn("getGalleryImage is deprecated: azure-native:compute/v20211001:GalleryImage is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImage to guarantee forwards compatibility.")
+    pulumi.log.warn("getGalleryImage is deprecated: azure-native:compute/v20211001:GalleryImage is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryImage to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20211001:getGalleryImage", {
@@ -125,7 +125,7 @@ export interface GetGalleryImageResult {
 /**
  * Retrieves information about a gallery image definition.
  */
-/** @deprecated azure-native:compute/v20211001:GalleryImage is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImage to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20211001:GalleryImage is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryImage to guarantee forwards compatibility. */
 export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageResult> {
     return pulumi.output(args).apply((a: any) => getGalleryImage(a, opts))
 }

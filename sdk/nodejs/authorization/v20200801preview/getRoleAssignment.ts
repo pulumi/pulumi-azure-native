@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a role assignment by scope and name.
  */
-/** @deprecated azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility. */
+/** @deprecated azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility. */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
-    pulumi.log.warn("getRoleAssignment is deprecated: azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility.")
+    pulumi.log.warn("getRoleAssignment is deprecated: azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20200801preview:getRoleAssignment", {
@@ -102,7 +102,7 @@ export interface GetRoleAssignmentResult {
 /**
  * Get a role assignment by scope and name.
  */
-/** @deprecated azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility. */
+/** @deprecated azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility. */
 export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getRoleAssignment(a, opts))
 }

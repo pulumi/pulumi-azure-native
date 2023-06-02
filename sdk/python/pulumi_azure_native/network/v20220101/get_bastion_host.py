@@ -17,7 +17,7 @@ __all__ = [
     'get_bastion_host_output',
 ]
 
-warnings.warn("""azure-native:network/v20220101:BastionHost is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:BastionHost to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20220101:BastionHost is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:BastionHost to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetBastionHostResult:
@@ -237,7 +237,7 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
     :param str bastion_host_name: The name of the Bastion Host.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_bastion_host is deprecated: azure-native:network/v20220101:BastionHost is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:BastionHost to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_bastion_host is deprecated: azure-native:network/v20220101:BastionHost is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:BastionHost to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['bastionHostName'] = bastion_host_name
     __args__['resourceGroupName'] = resource_group_name
@@ -274,5 +274,5 @@ def get_bastion_host_output(bastion_host_name: Optional[pulumi.Input[str]] = Non
     :param str bastion_host_name: The name of the Bastion Host.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_bastion_host is deprecated: azure-native:network/v20220101:BastionHost is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:BastionHost to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_bastion_host is deprecated: azure-native:network/v20220101:BastionHost is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:BastionHost to guarantee forwards compatibility.""")
     ...

@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Trigger details.
  *
- * @deprecated azure-native:databoxedge/v20210201:FileEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility.
+ * @deprecated azure-native:databoxedge/v20210201:FileEventTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility.
  */
 export class FileEventTrigger extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class FileEventTrigger extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FileEventTrigger {
-        pulumi.log.warn("FileEventTrigger is deprecated: azure-native:databoxedge/v20210201:FileEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility.")
+        pulumi.log.warn("FileEventTrigger is deprecated: azure-native:databoxedge/v20210201:FileEventTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility.")
         return new FileEventTrigger(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,9 +77,9 @@ export class FileEventTrigger extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:databoxedge/v20210201:FileEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility. */
+    /** @deprecated azure-native:databoxedge/v20210201:FileEventTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility. */
     constructor(name: string, args: FileEventTriggerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("FileEventTrigger is deprecated: azure-native:databoxedge/v20210201:FileEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility.")
+        pulumi.log.warn("FileEventTrigger is deprecated: azure-native:databoxedge/v20210201:FileEventTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

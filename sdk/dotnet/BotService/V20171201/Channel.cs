@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService.V20171201
     /// Bot channel resource definition
     /// </summary>
     [Obsolete(@"Version 2017-12-01 will be removed in v2 of the provider.
-azure-native:botservice/v20171201:Channel is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:Channel to guarantee forwards compatibility.")]
+azure-native:botservice/v20171201:Channel is being removed in the next major version of this provider. Upgrade to at least azure-native:botservice/v20220915:Channel to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:botservice/v20171201:Channel")]
     public partial class Channel : global::Pulumi.CustomResource
     {

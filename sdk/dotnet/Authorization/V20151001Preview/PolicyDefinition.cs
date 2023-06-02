@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization.V20151001Preview
     /// The policy definition.
     /// </summary>
     [Obsolete(@"Version 2015-10-01-preview will be removed in v2 of the provider.
-azure-native:authorization/v20151001preview:PolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20160401:PolicyDefinition to guarantee forwards compatibility.")]
+azure-native:authorization/v20151001preview:PolicyDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20160401:PolicyDefinition to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:authorization/v20151001preview:PolicyDefinition")]
     public partial class PolicyDefinition : global::Pulumi.CustomResource
     {

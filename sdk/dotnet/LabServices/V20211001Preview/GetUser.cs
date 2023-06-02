@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.LabServices.V20211001Preview
 {
-    [Obsolete(@"azure-native:labservices/v20211001preview:User is being removed in the next major version of this provider. Please upgrade to azure-native:labservices/v20220801:User to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:labservices/v20211001preview:User is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:User to guarantee forwards compatibility.")]
     public static class GetUser
     {
         /// <summary>

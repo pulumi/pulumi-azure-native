@@ -212,11 +212,11 @@ class InboundNatRuleInitArgs:
         pulumi.set(self, "protocol", value)
 
 
-warnings.warn("""azure-native:network/v20200701:InboundNatRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20200701:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class InboundNatRule(pulumi.CustomResource):
-    warnings.warn("""azure-native:network/v20200701:InboundNatRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:network/v20200701:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -290,7 +290,7 @@ class InboundNatRule(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[Union[str, 'TransportProtocol']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""InboundNatRule is deprecated: azure-native:network/v20200701:InboundNatRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility.""")
+        pulumi.log.warn("""InboundNatRule is deprecated: azure-native:network/v20200701:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

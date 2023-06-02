@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve an scheduled query rule definition.
  */
-/** @deprecated azure-native:insights/v20220615:ScheduledQueryRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:insights/v20220615:ScheduledQueryRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility. */
 export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRuleResult> {
-    pulumi.log.warn("getScheduledQueryRule is deprecated: azure-native:insights/v20220615:ScheduledQueryRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility.")
+    pulumi.log.warn("getScheduledQueryRule is deprecated: azure-native:insights/v20220615:ScheduledQueryRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20220615:getScheduledQueryRule", {
@@ -144,7 +144,7 @@ export interface GetScheduledQueryRuleResult {
 /**
  * Retrieve an scheduled query rule definition.
  */
-/** @deprecated azure-native:insights/v20220615:ScheduledQueryRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:insights/v20220615:ScheduledQueryRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility. */
 export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRuleResult> {
     return pulumi.output(args).apply((a: any) => getScheduledQueryRule(a, opts))
 }

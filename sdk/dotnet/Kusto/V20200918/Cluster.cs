@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20200918
     /// <summary>
     /// Class representing a Kusto cluster.
     /// </summary>
-    [Obsolete(@"azure-native:kusto/v20200918:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20220707:Cluster to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:kusto/v20200918:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20220707:Cluster to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kusto/v20200918:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {

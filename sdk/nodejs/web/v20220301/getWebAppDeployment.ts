@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Description for Get a deployment by its ID for an app, or a deployment slot.
  */
-/** @deprecated azure-native:web/v20220301:WebAppDeployment is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppDeployment to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20220301:WebAppDeployment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppDeployment to guarantee forwards compatibility. */
 export function getWebAppDeployment(args: GetWebAppDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDeploymentResult> {
-    pulumi.log.warn("getWebAppDeployment is deprecated: azure-native:web/v20220301:WebAppDeployment is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppDeployment to guarantee forwards compatibility.")
+    pulumi.log.warn("getWebAppDeployment is deprecated: azure-native:web/v20220301:WebAppDeployment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppDeployment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220301:getWebAppDeployment", {
@@ -94,7 +94,7 @@ export interface GetWebAppDeploymentResult {
 /**
  * Description for Get a deployment by its ID for an app, or a deployment slot.
  */
-/** @deprecated azure-native:web/v20220301:WebAppDeployment is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppDeployment to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20220301:WebAppDeployment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppDeployment to guarantee forwards compatibility. */
 export function getWebAppDeploymentOutput(args: GetWebAppDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getWebAppDeployment(a, opts))
 }

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2017-10-12 will be removed in v2 of the provider.
-azure-native:cdn/v20171012:CustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:CustomDomain to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:cdn/v20171012:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:CustomDomain to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCustomDomainResult:
@@ -158,7 +158,7 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     pulumi.log.warn("""get_custom_domain is deprecated: Version 2017-10-12 will be removed in v2 of the provider.
-azure-native:cdn/v20171012:CustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:CustomDomain to guarantee forwards compatibility.""")
+azure-native:cdn/v20171012:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:CustomDomain to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['customDomainName'] = custom_domain_name
     __args__['endpointName'] = endpoint_name
@@ -195,5 +195,5 @@ def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     pulumi.log.warn("""get_custom_domain is deprecated: Version 2017-10-12 will be removed in v2 of the provider.
-azure-native:cdn/v20171012:CustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:CustomDomain to guarantee forwards compatibility.""")
+azure-native:cdn/v20171012:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:CustomDomain to guarantee forwards compatibility.""")
     ...

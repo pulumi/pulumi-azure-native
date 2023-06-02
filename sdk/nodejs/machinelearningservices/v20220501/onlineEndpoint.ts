@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * @deprecated azure-native:machinelearningservices/v20220501:OnlineEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:OnlineEndpoint to guarantee forwards compatibility.
+ * @deprecated azure-native:machinelearningservices/v20220501:OnlineEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:OnlineEndpoint to guarantee forwards compatibility.
  */
 export class OnlineEndpoint extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class OnlineEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OnlineEndpoint {
-        pulumi.log.warn("OnlineEndpoint is deprecated: azure-native:machinelearningservices/v20220501:OnlineEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:OnlineEndpoint to guarantee forwards compatibility.")
+        pulumi.log.warn("OnlineEndpoint is deprecated: azure-native:machinelearningservices/v20220501:OnlineEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:OnlineEndpoint to guarantee forwards compatibility.")
         return new OnlineEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
@@ -82,9 +82,9 @@ export class OnlineEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:machinelearningservices/v20220501:OnlineEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:OnlineEndpoint to guarantee forwards compatibility. */
+    /** @deprecated azure-native:machinelearningservices/v20220501:OnlineEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:OnlineEndpoint to guarantee forwards compatibility. */
     constructor(name: string, args: OnlineEndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("OnlineEndpoint is deprecated: azure-native:machinelearningservices/v20220501:OnlineEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:OnlineEndpoint to guarantee forwards compatibility.")
+        pulumi.log.warn("OnlineEndpoint is deprecated: azure-native:machinelearningservices/v20220501:OnlineEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:OnlineEndpoint to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

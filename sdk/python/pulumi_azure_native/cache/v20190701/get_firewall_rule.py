@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:cache/v20190701:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:cache/v20190701:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetFirewallRuleResult:
@@ -108,7 +108,7 @@ def get_firewall_rule(cache_name: Optional[str] = None,
     :param str rule_name: The name of the firewall rule.
     """
     pulumi.log.warn("""get_firewall_rule is deprecated: Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:cache/v20190701:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility.""")
+azure-native:cache/v20190701:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name
@@ -138,5 +138,5 @@ def get_firewall_rule_output(cache_name: Optional[pulumi.Input[str]] = None,
     :param str rule_name: The name of the firewall rule.
     """
     pulumi.log.warn("""get_firewall_rule is deprecated: Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:cache/v20190701:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility.""")
+azure-native:cache/v20190701:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility.""")
     ...

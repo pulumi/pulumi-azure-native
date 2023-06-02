@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets a Kusto cluster.
  */
 /** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider.
-azure-native:kusto/v20170907privatepreview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20220707:Cluster to guarantee forwards compatibility. */
+azure-native:kusto/v20170907privatepreview:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20220707:Cluster to guarantee forwards compatibility. */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    pulumi.log.warn("getCluster is deprecated: Version 2017-09-07-privatepreview will be removed in v2 of the provider.\nazure-native:kusto/v20170907privatepreview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20220707:Cluster to guarantee forwards compatibility.")
+    pulumi.log.warn("getCluster is deprecated: Version 2017-09-07-privatepreview will be removed in v2 of the provider.\nazure-native:kusto/v20170907privatepreview:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20220707:Cluster to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20170907privatepreview:getCluster", {
@@ -90,7 +90,7 @@ export interface GetClusterResult {
  * Gets a Kusto cluster.
  */
 /** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider.
-azure-native:kusto/v20170907privatepreview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20220707:Cluster to guarantee forwards compatibility. */
+azure-native:kusto/v20170907privatepreview:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20220707:Cluster to guarantee forwards compatibility. */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }

@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Peerings in a VirtualNetwork resource
  *
- * @deprecated azure-native:databricks/v20220401preview:vNetPeering is being removed in the next major version of this provider. Please upgrade to azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.
+ * @deprecated azure-native:databricks/v20220401preview:vNetPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.
  */
 export class VNetPeering extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class VNetPeering extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VNetPeering {
-        pulumi.log.warn("VNetPeering is deprecated: azure-native:databricks/v20220401preview:vNetPeering is being removed in the next major version of this provider. Please upgrade to azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.")
+        pulumi.log.warn("VNetPeering is deprecated: azure-native:databricks/v20220401preview:vNetPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.")
         return new VNetPeering(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,9 +96,9 @@ export class VNetPeering extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:databricks/v20220401preview:vNetPeering is being removed in the next major version of this provider. Please upgrade to azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility. */
+    /** @deprecated azure-native:databricks/v20220401preview:vNetPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility. */
     constructor(name: string, args: VNetPeeringArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VNetPeering is deprecated: azure-native:databricks/v20220401preview:vNetPeering is being removed in the next major version of this provider. Please upgrade to azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.")
+        pulumi.log.warn("VNetPeering is deprecated: azure-native:databricks/v20220401preview:vNetPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

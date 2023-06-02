@@ -83,11 +83,11 @@ class PrivateEndpointConnectionsCompArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
-warnings.warn("""azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class PrivateEndpointConnectionsComp(pulumi.CustomResource):
-    warnings.warn("""azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -137,7 +137,7 @@ class PrivateEndpointConnectionsComp(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""PrivateEndpointConnectionsComp is deprecated: azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility.""")
+        pulumi.log.warn("""PrivateEndpointConnectionsComp is deprecated: azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

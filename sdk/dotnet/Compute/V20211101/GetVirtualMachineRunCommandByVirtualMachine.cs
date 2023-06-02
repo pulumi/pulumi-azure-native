@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20211101
 {
-    [Obsolete(@"azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine to guarantee forwards compatibility.")]
     public static class GetVirtualMachineRunCommandByVirtualMachine
     {
         /// <summary>

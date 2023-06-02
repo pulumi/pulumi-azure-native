@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:network/v20170901:RecordSet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:RecordSet to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20170901:RecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180501:RecordSet to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRecordSetResult:
@@ -255,7 +255,7 @@ def get_record_set(record_type: Optional[str] = None,
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
     pulumi.log.warn("""get_record_set is deprecated: Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:network/v20170901:RecordSet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:RecordSet to guarantee forwards compatibility.""")
+azure-native:network/v20170901:RecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180501:RecordSet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['recordType'] = record_type
     __args__['relativeRecordSetName'] = relative_record_set_name
@@ -300,5 +300,5 @@ def get_record_set_output(record_type: Optional[pulumi.Input[str]] = None,
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
     pulumi.log.warn("""get_record_set is deprecated: Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:network/v20170901:RecordSet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:RecordSet to guarantee forwards compatibility.""")
+azure-native:network/v20170901:RecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180501:RecordSet to guarantee forwards compatibility.""")
     ...

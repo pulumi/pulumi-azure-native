@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Lists all galleryimages under the resource group.
  */
-/** @deprecated azure-native:azurestackhci/v20210701preview:galleryimageRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:galleryimageRetrieve to guarantee forwards compatibility. */
+/** @deprecated azure-native:azurestackhci/v20210701preview:galleryimageRetrieve is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20210901preview:galleryimageRetrieve to guarantee forwards compatibility. */
 export function getgalleryimageRetrieve(args: GetgalleryimageRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetgalleryimageRetrieveResult> {
-    pulumi.log.warn("getgalleryimageRetrieve is deprecated: azure-native:azurestackhci/v20210701preview:galleryimageRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:galleryimageRetrieve to guarantee forwards compatibility.")
+    pulumi.log.warn("getgalleryimageRetrieve is deprecated: azure-native:azurestackhci/v20210701preview:galleryimageRetrieve is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20210901preview:galleryimageRetrieve to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210701preview:getgalleryimageRetrieve", {
@@ -92,7 +92,7 @@ export interface GetgalleryimageRetrieveResult {
 /**
  * Lists all galleryimages under the resource group.
  */
-/** @deprecated azure-native:azurestackhci/v20210701preview:galleryimageRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:galleryimageRetrieve to guarantee forwards compatibility. */
+/** @deprecated azure-native:azurestackhci/v20210701preview:galleryimageRetrieve is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20210901preview:galleryimageRetrieve to guarantee forwards compatibility. */
 export function getgalleryimageRetrieveOutput(args: GetgalleryimageRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetgalleryimageRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getgalleryimageRetrieve(a, opts))
 }

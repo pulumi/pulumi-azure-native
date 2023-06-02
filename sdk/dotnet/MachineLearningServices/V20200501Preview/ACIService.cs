@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
     /// <summary>
     /// Machine Learning service object wrapped into ARM resource envelope.
     /// </summary>
-    [Obsolete(@"azure-native:machinelearningservices/v20200501preview:ACIService is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:machinelearningservices/v20200501preview:ACIService is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20210401:ACIService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20200501preview:ACIService")]
     public partial class ACIService : global::Pulumi.CustomResource
     {

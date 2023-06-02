@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-11-01-preview will be removed in v2 of the provider.
-azure-native:servicefabric/v20191101preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:Service to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:servicefabric/v20191101preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210601:Service to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetServiceResult:
@@ -255,7 +255,7 @@ def get_service(application_name: Optional[str] = None,
     :param str service_name: The name of the service resource in the format of {applicationName}~{serviceName}.
     """
     pulumi.log.warn("""get_service is deprecated: Version 2019-11-01-preview will be removed in v2 of the provider.
-azure-native:servicefabric/v20191101preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:Service to guarantee forwards compatibility.""")
+azure-native:servicefabric/v20191101preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210601:Service to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['applicationName'] = application_name
     __args__['clusterName'] = cluster_name
@@ -300,5 +300,5 @@ def get_service_output(application_name: Optional[pulumi.Input[str]] = None,
     :param str service_name: The name of the service resource in the format of {applicationName}~{serviceName}.
     """
     pulumi.log.warn("""get_service is deprecated: Version 2019-11-01-preview will be removed in v2 of the provider.
-azure-native:servicefabric/v20191101preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:Service to guarantee forwards compatibility.""")
+azure-native:servicefabric/v20191101preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210601:Service to guarantee forwards compatibility.""")
     ...

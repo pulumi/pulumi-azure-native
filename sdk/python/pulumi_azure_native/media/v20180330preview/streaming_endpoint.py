@@ -275,11 +275,11 @@ class StreamingEndpointArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:media/v20180330preview:StreamingEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20180601preview:StreamingEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:media/v20180330preview:StreamingEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20180601preview:StreamingEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class StreamingEndpoint(pulumi.CustomResource):
-    warnings.warn("""azure-native:media/v20180330preview:StreamingEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20180601preview:StreamingEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:media/v20180330preview:StreamingEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20180601preview:StreamingEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -365,7 +365,7 @@ class StreamingEndpoint(pulumi.CustomResource):
                  streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""StreamingEndpoint is deprecated: azure-native:media/v20180330preview:StreamingEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20180601preview:StreamingEndpoint to guarantee forwards compatibility.""")
+        pulumi.log.warn("""StreamingEndpoint is deprecated: azure-native:media/v20180330preview:StreamingEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20180601preview:StreamingEndpoint to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -16,7 +16,7 @@ __all__ = [
     'get_my_workbook_output',
 ]
 
-warnings.warn("""azure-native:insights/v20150501:MyWorkbook is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20210308:MyWorkbook to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:insights/v20150501:MyWorkbook is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210308:MyWorkbook to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetMyWorkbookResult:
@@ -200,7 +200,7 @@ def get_my_workbook(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
-    pulumi.log.warn("""get_my_workbook is deprecated: azure-native:insights/v20150501:MyWorkbook is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20210308:MyWorkbook to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_my_workbook is deprecated: azure-native:insights/v20150501:MyWorkbook is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210308:MyWorkbook to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -234,5 +234,5 @@ def get_my_workbook_output(resource_group_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
-    pulumi.log.warn("""get_my_workbook is deprecated: azure-native:insights/v20150501:MyWorkbook is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20210308:MyWorkbook to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_my_workbook is deprecated: azure-native:insights/v20150501:MyWorkbook is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210308:MyWorkbook to guarantee forwards compatibility.""")
     ...

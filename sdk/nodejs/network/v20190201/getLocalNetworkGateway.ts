@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified local network gateway in a resource group.
  */
-/** @deprecated azure-native:network/v20190201:LocalNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:LocalNetworkGateway to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20190201:LocalNetworkGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190801:LocalNetworkGateway to guarantee forwards compatibility. */
 export function getLocalNetworkGateway(args: GetLocalNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNetworkGatewayResult> {
-    pulumi.log.warn("getLocalNetworkGateway is deprecated: azure-native:network/v20190201:LocalNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:LocalNetworkGateway to guarantee forwards compatibility.")
+    pulumi.log.warn("getLocalNetworkGateway is deprecated: azure-native:network/v20190201:LocalNetworkGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190801:LocalNetworkGateway to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190201:getLocalNetworkGateway", {
@@ -84,7 +84,7 @@ export interface GetLocalNetworkGatewayResult {
 /**
  * Gets the specified local network gateway in a resource group.
  */
-/** @deprecated azure-native:network/v20190201:LocalNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:LocalNetworkGateway to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20190201:LocalNetworkGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190801:LocalNetworkGateway to guarantee forwards compatibility. */
 export function getLocalNetworkGatewayOutput(args: GetLocalNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNetworkGatewayResult> {
     return pulumi.output(args).apply((a: any) => getLocalNetworkGateway(a, opts))
 }

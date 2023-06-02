@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2015-03-01-preview will be removed in v2 of the provider.
-azure-native:hdinsight/v20150301preview:Application is being removed in the next major version of this provider. Please upgrade to azure-native:hdinsight/v20210601:Application to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:hdinsight/v20150301preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20210601:Application to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetApplicationResult:
@@ -121,7 +121,7 @@ def get_application(application_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_application is deprecated: Version 2015-03-01-preview will be removed in v2 of the provider.
-azure-native:hdinsight/v20150301preview:Application is being removed in the next major version of this provider. Please upgrade to azure-native:hdinsight/v20210601:Application to guarantee forwards compatibility.""")
+azure-native:hdinsight/v20150301preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20210601:Application to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['applicationName'] = application_name
     __args__['clusterName'] = cluster_name
@@ -152,5 +152,5 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_application is deprecated: Version 2015-03-01-preview will be removed in v2 of the provider.
-azure-native:hdinsight/v20150301preview:Application is being removed in the next major version of this provider. Please upgrade to azure-native:hdinsight/v20210601:Application to guarantee forwards compatibility.""")
+azure-native:hdinsight/v20150301preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20210601:Application to guarantee forwards compatibility.""")
     ...

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified DDoS protection plan.
  */
-/** @deprecated azure-native:network/v20181101:DdosProtectionPlan is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220501:DdosProtectionPlan to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20181101:DdosProtectionPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220501:DdosProtectionPlan to guarantee forwards compatibility. */
 export function getDdosProtectionPlan(args: GetDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosProtectionPlanResult> {
-    pulumi.log.warn("getDdosProtectionPlan is deprecated: azure-native:network/v20181101:DdosProtectionPlan is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220501:DdosProtectionPlan to guarantee forwards compatibility.")
+    pulumi.log.warn("getDdosProtectionPlan is deprecated: azure-native:network/v20181101:DdosProtectionPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220501:DdosProtectionPlan to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20181101:getDdosProtectionPlan", {
@@ -76,7 +76,7 @@ export interface GetDdosProtectionPlanResult {
 /**
  * Gets information about the specified DDoS protection plan.
  */
-/** @deprecated azure-native:network/v20181101:DdosProtectionPlan is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220501:DdosProtectionPlan to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20181101:DdosProtectionPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220501:DdosProtectionPlan to guarantee forwards compatibility. */
 export function getDdosProtectionPlanOutput(args: GetDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosProtectionPlanResult> {
     return pulumi.output(args).apply((a: any) => getDdosProtectionPlan(a, opts))
 }

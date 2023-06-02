@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2015-11-06 will be removed in v2 of the provider.
-azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase to guarantee forwards compatibility. */
+azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase to guarantee forwards compatibility. */
 export function getDatabaseAccountMongoDBDatabase(args: GetDatabaseAccountMongoDBDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountMongoDBDatabaseResult> {
-    pulumi.log.warn("getDatabaseAccountMongoDBDatabase is deprecated: Version 2015-11-06 will be removed in v2 of the provider.\nazure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase to guarantee forwards compatibility.")
+    pulumi.log.warn("getDatabaseAccountMongoDBDatabase is deprecated: Version 2015-11-06 will be removed in v2 of the provider.\nazure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20151106:getDatabaseAccountMongoDBDatabase", {
@@ -64,7 +64,7 @@ export interface GetDatabaseAccountMongoDBDatabaseResult {
  * Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2015-11-06 will be removed in v2 of the provider.
-azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase to guarantee forwards compatibility. */
+azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase to guarantee forwards compatibility. */
 export function getDatabaseAccountMongoDBDatabaseOutput(args: GetDatabaseAccountMongoDBDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountMongoDBDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccountMongoDBDatabase(a, opts))
 }

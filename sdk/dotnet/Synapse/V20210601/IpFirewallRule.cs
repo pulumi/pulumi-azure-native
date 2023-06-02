@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
     /// <summary>
     /// IP firewall rule
     /// </summary>
-    [Obsolete(@"azure-native:synapse/v20210601:IpFirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:IpFirewallRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:synapse/v20210601:IpFirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:IpFirewallRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:synapse/v20210601:IpFirewallRule")]
     public partial class IpFirewallRule : global::Pulumi.CustomResource
     {

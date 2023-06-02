@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
-/** @deprecated azure-native:securityinsights/v20220801preview:Dynamics365DataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20220801preview:Dynamics365DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility. */
 export function getDynamics365DataConnector(args: GetDynamics365DataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDynamics365DataConnectorResult> {
-    pulumi.log.warn("getDynamics365DataConnector is deprecated: azure-native:securityinsights/v20220801preview:Dynamics365DataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility.")
+    pulumi.log.warn("getDynamics365DataConnector is deprecated: azure-native:securityinsights/v20220801preview:Dynamics365DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220801preview:getDynamics365DataConnector", {
@@ -78,7 +78,7 @@ export interface GetDynamics365DataConnectorResult {
 /**
  * Gets a data connector.
  */
-/** @deprecated azure-native:securityinsights/v20220801preview:Dynamics365DataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20220801preview:Dynamics365DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility. */
 export function getDynamics365DataConnectorOutput(args: GetDynamics365DataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDynamics365DataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getDynamics365DataConnector(a, opts))
 }

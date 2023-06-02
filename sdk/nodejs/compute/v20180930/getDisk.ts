@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets information about a disk.
  */
 /** @deprecated Version 2018-09-30 will be removed in v2 of the provider.
-azure-native:compute/v20180930:Disk is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20190701:Disk to guarantee forwards compatibility. */
+azure-native:compute/v20180930:Disk is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20190701:Disk to guarantee forwards compatibility. */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
-    pulumi.log.warn("getDisk is deprecated: Version 2018-09-30 will be removed in v2 of the provider.\nazure-native:compute/v20180930:Disk is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20190701:Disk to guarantee forwards compatibility.")
+    pulumi.log.warn("getDisk is deprecated: Version 2018-09-30 will be removed in v2 of the provider.\nazure-native:compute/v20180930:Disk is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20190701:Disk to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20180930:getDisk", {
@@ -114,7 +114,7 @@ export interface GetDiskResult {
  * Gets information about a disk.
  */
 /** @deprecated Version 2018-09-30 will be removed in v2 of the provider.
-azure-native:compute/v20180930:Disk is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20190701:Disk to guarantee forwards compatibility. */
+azure-native:compute/v20180930:Disk is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20190701:Disk to guarantee forwards compatibility. */
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
     return pulumi.output(args).apply((a: any) => getDisk(a, opts))
 }

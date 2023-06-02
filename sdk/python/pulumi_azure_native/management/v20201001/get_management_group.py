@@ -17,7 +17,7 @@ __all__ = [
     'get_management_group_output',
 ]
 
-warnings.warn("""azure-native:management/v20201001:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20210401:ManagementGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:management/v20201001:ManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:ManagementGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetManagementGroupResult:
@@ -133,7 +133,7 @@ def get_management_group(expand: Optional[str] = None,
     :param str group_id: Management Group ID.
     :param bool recurse: The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
     """
-    pulumi.log.warn("""get_management_group is deprecated: azure-native:management/v20201001:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20210401:ManagementGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_management_group is deprecated: azure-native:management/v20201001:ManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:ManagementGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['filter'] = filter
@@ -167,5 +167,5 @@ def get_management_group_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     :param str group_id: Management Group ID.
     :param bool recurse: The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
     """
-    pulumi.log.warn("""get_management_group is deprecated: azure-native:management/v20201001:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20210401:ManagementGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_management_group is deprecated: azure-native:management/v20201001:ManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:ManagementGroup to guarantee forwards compatibility.""")
     ...

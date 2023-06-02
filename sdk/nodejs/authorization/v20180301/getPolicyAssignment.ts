@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * This operation retrieves a single policy assignment, given its name and the scope it was created at.
  */
-/** @deprecated azure-native:authorization/v20180301:PolicyAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20190601:PolicyAssignment to guarantee forwards compatibility. */
+/** @deprecated azure-native:authorization/v20180301:PolicyAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20190601:PolicyAssignment to guarantee forwards compatibility. */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
-    pulumi.log.warn("getPolicyAssignment is deprecated: azure-native:authorization/v20180301:PolicyAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20190601:PolicyAssignment to guarantee forwards compatibility.")
+    pulumi.log.warn("getPolicyAssignment is deprecated: azure-native:authorization/v20180301:PolicyAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20190601:PolicyAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20180301:getPolicyAssignment", {
@@ -84,7 +84,7 @@ export interface GetPolicyAssignmentResult {
 /**
  * This operation retrieves a single policy assignment, given its name and the scope it was created at.
  */
-/** @deprecated azure-native:authorization/v20180301:PolicyAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20190601:PolicyAssignment to guarantee forwards compatibility. */
+/** @deprecated azure-native:authorization/v20180301:PolicyAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20190601:PolicyAssignment to guarantee forwards compatibility. */
 export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getPolicyAssignment(a, opts))
 }

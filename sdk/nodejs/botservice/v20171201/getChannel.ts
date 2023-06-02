@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Returns a BotService Channel registration specified by the parameters.
  */
 /** @deprecated Version 2017-12-01 will be removed in v2 of the provider.
-azure-native:botservice/v20171201:Channel is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:Channel to guarantee forwards compatibility. */
+azure-native:botservice/v20171201:Channel is being removed in the next major version of this provider. Upgrade to at least azure-native:botservice/v20220915:Channel to guarantee forwards compatibility. */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
-    pulumi.log.warn("getChannel is deprecated: Version 2017-12-01 will be removed in v2 of the provider.\nazure-native:botservice/v20171201:Channel is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:Channel to guarantee forwards compatibility.")
+    pulumi.log.warn("getChannel is deprecated: Version 2017-12-01 will be removed in v2 of the provider.\nazure-native:botservice/v20171201:Channel is being removed in the next major version of this provider. Upgrade to at least azure-native:botservice/v20220915:Channel to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice/v20171201:getChannel", {
@@ -83,7 +83,7 @@ export interface GetChannelResult {
  * Returns a BotService Channel registration specified by the parameters.
  */
 /** @deprecated Version 2017-12-01 will be removed in v2 of the provider.
-azure-native:botservice/v20171201:Channel is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:Channel to guarantee forwards compatibility. */
+azure-native:botservice/v20171201:Channel is being removed in the next major version of this provider. Upgrade to at least azure-native:botservice/v20220915:Channel to guarantee forwards compatibility. */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
     return pulumi.output(args).apply((a: any) => getChannel(a, opts))
 }

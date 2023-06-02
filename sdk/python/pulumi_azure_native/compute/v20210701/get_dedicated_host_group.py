@@ -17,7 +17,7 @@ __all__ = [
     'get_dedicated_host_group_output',
 ]
 
-warnings.warn("""azure-native:compute/v20210701:DedicatedHostGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:compute/v20210701:DedicatedHostGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDedicatedHostGroupResult:
@@ -167,7 +167,7 @@ def get_dedicated_host_group(expand: Optional[str] = None,
     :param str host_group_name: The name of the dedicated host group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_dedicated_host_group is deprecated: azure-native:compute/v20210701:DedicatedHostGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_dedicated_host_group is deprecated: azure-native:compute/v20210701:DedicatedHostGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['hostGroupName'] = host_group_name
@@ -201,5 +201,5 @@ def get_dedicated_host_group_output(expand: Optional[pulumi.Input[Optional[str]]
     :param str host_group_name: The name of the dedicated host group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_dedicated_host_group is deprecated: azure-native:compute/v20210701:DedicatedHostGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_dedicated_host_group is deprecated: azure-native:compute/v20210701:DedicatedHostGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.""")
     ...

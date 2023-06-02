@@ -351,11 +351,11 @@ class AuthorizationServerArgs:
         pulumi.set(self, "use_in_test_console", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220401preview:AuthorizationServer is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:AuthorizationServer to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:apimanagement/v20220401preview:AuthorizationServer is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationServer to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class AuthorizationServer(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220401preview:AuthorizationServer is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:AuthorizationServer to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:apimanagement/v20220401preview:AuthorizationServer is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationServer to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -456,7 +456,7 @@ class AuthorizationServer(pulumi.CustomResource):
                  use_in_api_documentation: Optional[pulumi.Input[bool]] = None,
                  use_in_test_console: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
-        pulumi.log.warn("""AuthorizationServer is deprecated: azure-native:apimanagement/v20220401preview:AuthorizationServer is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:AuthorizationServer to guarantee forwards compatibility.""")
+        pulumi.log.warn("""AuthorizationServer is deprecated: azure-native:apimanagement/v20220401preview:AuthorizationServer is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationServer to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

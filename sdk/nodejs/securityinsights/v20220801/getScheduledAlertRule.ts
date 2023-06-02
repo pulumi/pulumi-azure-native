@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the alert rule.
  */
-/** @deprecated azure-native:securityinsights/v20220801:ScheduledAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:ScheduledAlertRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20220801:ScheduledAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ScheduledAlertRule to guarantee forwards compatibility. */
 export function getScheduledAlertRule(args: GetScheduledAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledAlertRuleResult> {
-    pulumi.log.warn("getScheduledAlertRule is deprecated: azure-native:securityinsights/v20220801:ScheduledAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:ScheduledAlertRule to guarantee forwards compatibility.")
+    pulumi.log.warn("getScheduledAlertRule is deprecated: azure-native:securityinsights/v20220801:ScheduledAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ScheduledAlertRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220801:getScheduledAlertRule", {
@@ -154,7 +154,7 @@ export interface GetScheduledAlertRuleResult {
 /**
  * Gets the alert rule.
  */
-/** @deprecated azure-native:securityinsights/v20220801:ScheduledAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:ScheduledAlertRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20220801:ScheduledAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ScheduledAlertRule to guarantee forwards compatibility. */
 export function getScheduledAlertRuleOutput(args: GetScheduledAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getScheduledAlertRule(a, opts))
 }

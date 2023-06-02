@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
 {
-    [Obsolete(@"azure-native:mobilenetwork/v20220301preview:DataNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:DataNetwork to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:mobilenetwork/v20220301preview:DataNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:DataNetwork to guarantee forwards compatibility.")]
     public static class GetDataNetwork
     {
         /// <summary>

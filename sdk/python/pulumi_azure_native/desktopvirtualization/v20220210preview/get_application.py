@@ -17,7 +17,7 @@ __all__ = [
     'get_application_output',
 ]
 
-warnings.warn("""azure-native:desktopvirtualization/v20220210preview:Application is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:Application to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:desktopvirtualization/v20220210preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:Application to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetApplicationResult:
@@ -263,7 +263,7 @@ def get_application(application_group_name: Optional[str] = None,
     :param str application_name: The name of the application within the specified application group
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_application is deprecated: azure-native:desktopvirtualization/v20220210preview:Application is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:Application to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_application is deprecated: azure-native:desktopvirtualization/v20220210preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:Application to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['applicationGroupName'] = application_group_name
     __args__['applicationName'] = application_name
@@ -305,5 +305,5 @@ def get_application_output(application_group_name: Optional[pulumi.Input[str]] =
     :param str application_name: The name of the application within the specified application group
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_application is deprecated: azure-native:desktopvirtualization/v20220210preview:Application is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:Application to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_application is deprecated: azure-native:desktopvirtualization/v20220210preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:Application to guarantee forwards compatibility.""")
     ...

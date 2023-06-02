@@ -16,7 +16,7 @@ __all__ = [
     'get_io_t_hub_event_source_output',
 ]
 
-warnings.warn("""azure-native:timeseriesinsights/v20171115:IoTHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:timeseriesinsights/v20171115:IoTHubEventSource is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetIoTHubEventSourceResult:
@@ -203,7 +203,7 @@ def get_io_t_hub_event_source(environment_name: Optional[str] = None,
     :param str event_source_name: The name of the Time Series Insights event source associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_io_t_hub_event_source is deprecated: azure-native:timeseriesinsights/v20171115:IoTHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_io_t_hub_event_source is deprecated: azure-native:timeseriesinsights/v20171115:IoTHubEventSource is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['eventSourceName'] = event_source_name
@@ -240,5 +240,5 @@ def get_io_t_hub_event_source_output(environment_name: Optional[pulumi.Input[str
     :param str event_source_name: The name of the Time Series Insights event source associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_io_t_hub_event_source is deprecated: azure-native:timeseriesinsights/v20171115:IoTHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_io_t_hub_event_source is deprecated: azure-native:timeseriesinsights/v20171115:IoTHubEventSource is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource to guarantee forwards compatibility.""")
     ...

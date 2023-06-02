@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ImportExport.V20161101
 {
     [Obsolete(@"Version 2016-11-01 will be removed in v2 of the provider.
-azure-native:importexport/v20161101:Job is being removed in the next major version of this provider. Please upgrade to azure-native:importexport/v20210101:Job to guarantee forwards compatibility.")]
+azure-native:importexport/v20161101:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:importexport/v20210101:Job to guarantee forwards compatibility.")]
     public static class GetJob
     {
         /// <summary>

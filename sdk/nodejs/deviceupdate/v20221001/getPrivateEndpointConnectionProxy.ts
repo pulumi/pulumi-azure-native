@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
  */
-/** @deprecated azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy to guarantee forwards compatibility. */
+/** @deprecated azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionProxy(args: GetPrivateEndpointConnectionProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionProxyResult> {
-    pulumi.log.warn("getPrivateEndpointConnectionProxy is deprecated: azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy to guarantee forwards compatibility.")
+    pulumi.log.warn("getPrivateEndpointConnectionProxy is deprecated: azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deviceupdate/v20221001:getPrivateEndpointConnectionProxy", {
@@ -77,7 +77,7 @@ export interface GetPrivateEndpointConnectionProxyResult {
 /**
  * (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
  */
-/** @deprecated azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy to guarantee forwards compatibility. */
+/** @deprecated azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionProxyOutput(args: GetPrivateEndpointConnectionProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionProxyResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionProxy(a, opts))
 }

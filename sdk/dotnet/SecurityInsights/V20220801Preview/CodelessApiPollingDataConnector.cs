@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
     /// <summary>
     /// Represents Codeless API Polling data connector.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20220801preview:CodelessApiPollingDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:CodelessApiPollingDataConnector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20220801preview:CodelessApiPollingDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:CodelessApiPollingDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20220801preview:CodelessApiPollingDataConnector")]
     public partial class CodelessApiPollingDataConnector : global::Pulumi.CustomResource
     {

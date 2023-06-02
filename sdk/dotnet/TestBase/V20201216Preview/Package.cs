@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
     /// The Test Base Package resource.
     /// </summary>
     [Obsolete(@"Version 2020-12-16-preview will be removed in v2 of the provider.
-azure-native:testbase/v20201216preview:Package is being removed in the next major version of this provider. Please upgrade to azure-native:testbase/v20220401preview:Package to guarantee forwards compatibility.")]
+azure-native:testbase/v20201216preview:Package is being removed in the next major version of this provider. Upgrade to at least azure-native:testbase/v20220401preview:Package to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:testbase/v20201216preview:Package")]
     public partial class Package : global::Pulumi.CustomResource
     {

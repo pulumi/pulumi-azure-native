@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an image.
  */
-/** @deprecated azure-native:compute/v20210701:Image is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:Image to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20210701:Image is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:Image to guarantee forwards compatibility. */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
-    pulumi.log.warn("getImage is deprecated: azure-native:compute/v20210701:Image is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:Image to guarantee forwards compatibility.")
+    pulumi.log.warn("getImage is deprecated: azure-native:compute/v20210701:Image is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:Image to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20210701:getImage", {
@@ -85,7 +85,7 @@ export interface GetImageResult {
 /**
  * Gets an image.
  */
-/** @deprecated azure-native:compute/v20210701:Image is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:Image to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20210701:Image is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:Image to guarantee forwards compatibility. */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
     return pulumi.output(args).apply((a: any) => getImage(a, opts))
 }

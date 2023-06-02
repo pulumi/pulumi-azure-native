@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve the source control identified by source control name.
  */
-/** @deprecated azure-native:automation/v20170515preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:SourceControl to guarantee forwards compatibility. */
+/** @deprecated azure-native:automation/v20170515preview:SourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:SourceControl to guarantee forwards compatibility. */
 export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlResult> {
-    pulumi.log.warn("getSourceControl is deprecated: azure-native:automation/v20170515preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:SourceControl to guarantee forwards compatibility.")
+    pulumi.log.warn("getSourceControl is deprecated: azure-native:automation/v20170515preview:SourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:SourceControl to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20170515preview:getSourceControl", {
@@ -90,7 +90,7 @@ export interface GetSourceControlResult {
 /**
  * Retrieve the source control identified by source control name.
  */
-/** @deprecated azure-native:automation/v20170515preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:SourceControl to guarantee forwards compatibility. */
+/** @deprecated azure-native:automation/v20170515preview:SourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:SourceControl to guarantee forwards compatibility. */
 export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlResult> {
     return pulumi.output(args).apply((a: any) => getSourceControl(a, opts))
 }

@@ -116,11 +116,11 @@ class NetworkInterfaceTapConfigurationArgs:
         pulumi.set(self, "virtual_network_tap", value)
 
 
-warnings.warn("""azure-native:network/v20210201:NetworkInterfaceTapConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NetworkInterfaceTapConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20210201:NetworkInterfaceTapConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkInterfaceTapConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
-    warnings.warn("""azure-native:network/v20210201:NetworkInterfaceTapConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NetworkInterfaceTapConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:network/v20210201:NetworkInterfaceTapConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkInterfaceTapConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -176,7 +176,7 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
                  tap_configuration_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_tap: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkTapArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""NetworkInterfaceTapConfiguration is deprecated: azure-native:network/v20210201:NetworkInterfaceTapConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NetworkInterfaceTapConfiguration to guarantee forwards compatibility.""")
+        pulumi.log.warn("""NetworkInterfaceTapConfiguration is deprecated: azure-native:network/v20210201:NetworkInterfaceTapConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NetworkInterfaceTapConfiguration to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

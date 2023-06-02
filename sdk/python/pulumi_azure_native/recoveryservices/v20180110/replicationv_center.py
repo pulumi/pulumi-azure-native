@@ -99,12 +99,12 @@ class ReplicationvCenterArgs:
 
 
 warnings.warn("""Version 2018-01-10 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ReplicationvCenter(pulumi.CustomResource):
     warnings.warn("""Version 2018-01-10 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -158,7 +158,7 @@ azure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in t
                  v_center_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""ReplicationvCenter is deprecated: Version 2018-01-10 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.""")
+azure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

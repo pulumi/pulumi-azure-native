@@ -51,12 +51,12 @@ class SupportPlanTypeArgs:
 
 
 warnings.warn("""Version 2017-05-15 will be removed in v2 of the provider.
-azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Please upgrade to azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Upgrade to at least azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class SupportPlanType(pulumi.CustomResource):
     warnings.warn("""Version 2017-05-15 will be removed in v2 of the provider.
-azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Please upgrade to azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Upgrade to at least azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -101,7 +101,7 @@ azure-native:addons/v20170515:SupportPlanType is being removed in the next major
                  provider_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""SupportPlanType is deprecated: Version 2017-05-15 will be removed in v2 of the provider.
-azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Please upgrade to azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility.""")
+azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Upgrade to at least azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

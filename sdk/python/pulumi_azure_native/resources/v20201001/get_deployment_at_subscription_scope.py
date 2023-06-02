@@ -17,7 +17,7 @@ __all__ = [
     'get_deployment_at_subscription_scope_output',
 ]
 
-warnings.warn("""azure-native:resources/v20201001:DeploymentAtSubscriptionScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtSubscriptionScope to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:resources/v20201001:DeploymentAtSubscriptionScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtSubscriptionScope to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDeploymentAtSubscriptionScopeResult:
@@ -115,7 +115,7 @@ def get_deployment_at_subscription_scope(deployment_name: Optional[str] = None,
 
     :param str deployment_name: The name of the deployment.
     """
-    pulumi.log.warn("""get_deployment_at_subscription_scope is deprecated: azure-native:resources/v20201001:DeploymentAtSubscriptionScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtSubscriptionScope to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_deployment_at_subscription_scope is deprecated: azure-native:resources/v20201001:DeploymentAtSubscriptionScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtSubscriptionScope to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -139,5 +139,5 @@ def get_deployment_at_subscription_scope_output(deployment_name: Optional[pulumi
 
     :param str deployment_name: The name of the deployment.
     """
-    pulumi.log.warn("""get_deployment_at_subscription_scope is deprecated: azure-native:resources/v20201001:DeploymentAtSubscriptionScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtSubscriptionScope to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_deployment_at_subscription_scope is deprecated: azure-native:resources/v20201001:DeploymentAtSubscriptionScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtSubscriptionScope to guarantee forwards compatibility.""")
     ...

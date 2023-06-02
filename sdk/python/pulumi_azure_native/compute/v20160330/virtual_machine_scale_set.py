@@ -166,12 +166,12 @@ class VirtualMachineScaleSetArgs:
 
 
 warnings.warn("""Version 2016-03-30 will be removed in v2 of the provider.
-azure-native:compute/v20160330:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20160430preview:VirtualMachineScaleSet to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:compute/v20160330:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20160430preview:VirtualMachineScaleSet to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class VirtualMachineScaleSet(pulumi.CustomResource):
     warnings.warn("""Version 2016-03-30 will be removed in v2 of the provider.
-azure-native:compute/v20160330:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20160430preview:VirtualMachineScaleSet to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:compute/v20160330:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20160430preview:VirtualMachineScaleSet to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -237,7 +237,7 @@ azure-native:compute/v20160330:VirtualMachineScaleSet is being removed in the ne
                  virtual_machine_profile: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMProfileArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""VirtualMachineScaleSet is deprecated: Version 2016-03-30 will be removed in v2 of the provider.
-azure-native:compute/v20160330:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20160430preview:VirtualMachineScaleSet to guarantee forwards compatibility.""")
+azure-native:compute/v20160330:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20160430preview:VirtualMachineScaleSet to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

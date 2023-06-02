@@ -17,7 +17,7 @@ __all__ = [
     'get_pool_output',
 ]
 
-warnings.warn("""azure-native:devcenter/v20220801preview:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Pool to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:devcenter/v20220801preview:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Pool to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPoolResult:
@@ -179,7 +179,7 @@ def get_pool(pool_name: Optional[str] = None,
     :param str project_name: The name of the project.
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_pool is deprecated: azure-native:devcenter/v20220801preview:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Pool to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_pool is deprecated: azure-native:devcenter/v20220801preview:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Pool to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['poolName'] = pool_name
     __args__['projectName'] = project_name
@@ -214,5 +214,5 @@ def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: The name of the project.
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_pool is deprecated: azure-native:devcenter/v20220801preview:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Pool to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_pool is deprecated: azure-native:devcenter/v20220801preview:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Pool to guarantee forwards compatibility.""")
     ...

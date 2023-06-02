@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets information about the specified certificate.
  */
 /** @deprecated Version 2019-08-01 will be removed in v2 of the provider.
-azure-native:batch/v20190801:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20220601:Certificate to guarantee forwards compatibility. */
+azure-native:batch/v20190801:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20220601:Certificate to guarantee forwards compatibility. */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-    pulumi.log.warn("getCertificate is deprecated: Version 2019-08-01 will be removed in v2 of the provider.\nazure-native:batch/v20190801:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20220601:Certificate to guarantee forwards compatibility.")
+    pulumi.log.warn("getCertificate is deprecated: Version 2019-08-01 will be removed in v2 of the provider.\nazure-native:batch/v20190801:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20220601:Certificate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:batch/v20190801:getCertificate", {
@@ -90,7 +90,7 @@ export interface GetCertificateResult {
  * Gets information about the specified certificate.
  */
 /** @deprecated Version 2019-08-01 will be removed in v2 of the provider.
-azure-native:batch/v20190801:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20220601:Certificate to guarantee forwards compatibility. */
+azure-native:batch/v20190801:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20220601:Certificate to guarantee forwards compatibility. */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }

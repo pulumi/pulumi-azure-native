@@ -211,12 +211,12 @@ class ContainerServiceArgs:
 
 
 warnings.warn("""Version 2016-09-30 will be removed in v2 of the provider.
-azure-native:containerservice/v20160930:ContainerService is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:containerservice/v20160930:ContainerService is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ContainerService(pulumi.CustomResource):
     warnings.warn("""Version 2016-09-30 will be removed in v2 of the provider.
-azure-native:containerservice/v20160930:ContainerService is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:containerservice/v20160930:ContainerService is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -291,7 +291,7 @@ azure-native:containerservice/v20160930:ContainerService is being removed in the
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceWindowsProfileArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""ContainerService is deprecated: Version 2016-09-30 will be removed in v2 of the provider.
-azure-native:containerservice/v20160930:ContainerService is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility.""")
+azure-native:containerservice/v20160930:ContainerService is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the collector policy in a specified Traffic Collector
  */
-/** @deprecated azure-native:networkfunction/v20220801:CollectorPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20221101:CollectorPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:networkfunction/v20220801:CollectorPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:networkfunction/v20221101:CollectorPolicy to guarantee forwards compatibility. */
 export function getCollectorPolicy(args: GetCollectorPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetCollectorPolicyResult> {
-    pulumi.log.warn("getCollectorPolicy is deprecated: azure-native:networkfunction/v20220801:CollectorPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20221101:CollectorPolicy to guarantee forwards compatibility.")
+    pulumi.log.warn("getCollectorPolicy is deprecated: azure-native:networkfunction/v20220801:CollectorPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:networkfunction/v20221101:CollectorPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkfunction/v20220801:getCollectorPolicy", {
@@ -85,7 +85,7 @@ export interface GetCollectorPolicyResult {
 /**
  * Gets the collector policy in a specified Traffic Collector
  */
-/** @deprecated azure-native:networkfunction/v20220801:CollectorPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20221101:CollectorPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:networkfunction/v20220801:CollectorPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:networkfunction/v20221101:CollectorPolicy to guarantee forwards compatibility. */
 export function getCollectorPolicyOutput(args: GetCollectorPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollectorPolicyResult> {
     return pulumi.output(args).apply((a: any) => getCollectorPolicy(a, opts))
 }

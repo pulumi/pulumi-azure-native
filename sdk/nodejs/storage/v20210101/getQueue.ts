@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the queue with the specified queue name, under the specified account if it exists.
  */
-/** @deprecated azure-native:storage/v20210101:Queue is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Queue to guarantee forwards compatibility. */
+/** @deprecated azure-native:storage/v20210101:Queue is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:Queue to guarantee forwards compatibility. */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
-    pulumi.log.warn("getQueue is deprecated: azure-native:storage/v20210101:Queue is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Queue to guarantee forwards compatibility.")
+    pulumi.log.warn("getQueue is deprecated: azure-native:storage/v20210101:Queue is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:Queue to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20210101:getQueue", {
@@ -59,7 +59,7 @@ export interface GetQueueResult {
 /**
  * Gets the queue with the specified queue name, under the specified account if it exists.
  */
-/** @deprecated azure-native:storage/v20210101:Queue is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Queue to guarantee forwards compatibility. */
+/** @deprecated azure-native:storage/v20210101:Queue is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:Queue to guarantee forwards compatibility. */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
     return pulumi.output(args).apply((a: any) => getQueue(a, opts))
 }

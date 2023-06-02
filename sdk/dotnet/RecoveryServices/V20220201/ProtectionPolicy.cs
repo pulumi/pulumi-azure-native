@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201
     /// <summary>
     /// Base class for backup policy. Workload-specific backup policies are derived from this class.
     /// </summary>
-    [Obsolete(@"azure-native:recoveryservices/v20220201:ProtectionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionPolicy to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:recoveryservices/v20220201:ProtectionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20220201:ProtectionPolicy")]
     public partial class ProtectionPolicy : global::Pulumi.CustomResource
     {

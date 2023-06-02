@@ -17,7 +17,7 @@ __all__ = [
     'get_bot_connection_output',
 ]
 
-warnings.warn("""azure-native:botservice/v20210501preview:BotConnection is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:BotConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:botservice/v20210501preview:BotConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:botservice/v20220915:BotConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetBotConnectionResult:
@@ -167,7 +167,7 @@ def get_bot_connection(connection_name: Optional[str] = None,
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
     :param str resource_name: The name of the Bot resource.
     """
-    pulumi.log.warn("""get_bot_connection is deprecated: azure-native:botservice/v20210501preview:BotConnection is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:BotConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_bot_connection is deprecated: azure-native:botservice/v20210501preview:BotConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:botservice/v20220915:BotConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -201,5 +201,5 @@ def get_bot_connection_output(connection_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
     :param str resource_name: The name of the Bot resource.
     """
-    pulumi.log.warn("""get_bot_connection is deprecated: azure-native:botservice/v20210501preview:BotConnection is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:BotConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_bot_connection is deprecated: azure-native:botservice/v20210501preview:BotConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:botservice/v20220915:BotConnection to guarantee forwards compatibility.""")
     ...

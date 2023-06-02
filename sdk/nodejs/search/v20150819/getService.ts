@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the Search service with the given name in the given resource group.
  */
 /** @deprecated Version 2015-08-19 will be removed in v2 of the provider.
-azure-native:search/v20150819:Service is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20210401preview:Service to guarantee forwards compatibility. */
+azure-native:search/v20150819:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20210401preview:Service to guarantee forwards compatibility. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    pulumi.log.warn("getService is deprecated: Version 2015-08-19 will be removed in v2 of the provider.\nazure-native:search/v20150819:Service is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20210401preview:Service to guarantee forwards compatibility.")
+    pulumi.log.warn("getService is deprecated: Version 2015-08-19 will be removed in v2 of the provider.\nazure-native:search/v20150819:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20210401preview:Service to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:search/v20150819:getService", {
@@ -94,7 +94,7 @@ export interface GetServiceResult {
  * Gets the Search service with the given name in the given resource group.
  */
 /** @deprecated Version 2015-08-19 will be removed in v2 of the provider.
-azure-native:search/v20150819:Service is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20210401preview:Service to guarantee forwards compatibility. */
+azure-native:search/v20150819:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20210401preview:Service to guarantee forwards compatibility. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))
 }

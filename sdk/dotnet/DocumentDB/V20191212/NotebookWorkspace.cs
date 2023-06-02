@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20191212
     /// A notebook workspace resource
     /// </summary>
     [Obsolete(@"Version 2019-12-12 will be removed in v2 of the provider.
-azure-native:documentdb/v20191212:NotebookWorkspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:NotebookWorkspace to guarantee forwards compatibility.")]
+azure-native:documentdb/v20191212:NotebookWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:NotebookWorkspace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20191212:NotebookWorkspace")]
     public partial class NotebookWorkspace : global::Pulumi.CustomResource
     {

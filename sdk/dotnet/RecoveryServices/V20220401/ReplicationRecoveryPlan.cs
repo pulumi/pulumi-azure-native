@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401
     /// <summary>
     /// Recovery plan details.
     /// </summary>
-    [Obsolete(@"azure-native:recoveryservices/v20220401:ReplicationRecoveryPlan is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationRecoveryPlan to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:recoveryservices/v20220401:ReplicationRecoveryPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationRecoveryPlan to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20220401:ReplicationRecoveryPlan")]
     public partial class ReplicationRecoveryPlan : global::Pulumi.CustomResource
     {

@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets a Test Base CustomerEvent.
  */
 /** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider.
-azure-native:testbase/v20201216preview:CustomerEvent is being removed in the next major version of this provider. Please upgrade to azure-native:testbase/v20220401preview:CustomerEvent to guarantee forwards compatibility. */
+azure-native:testbase/v20201216preview:CustomerEvent is being removed in the next major version of this provider. Upgrade to at least azure-native:testbase/v20220401preview:CustomerEvent to guarantee forwards compatibility. */
 export function getCustomerEvent(args: GetCustomerEventArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerEventResult> {
-    pulumi.log.warn("getCustomerEvent is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.\nazure-native:testbase/v20201216preview:CustomerEvent is being removed in the next major version of this provider. Please upgrade to azure-native:testbase/v20220401preview:CustomerEvent to guarantee forwards compatibility.")
+    pulumi.log.warn("getCustomerEvent is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.\nazure-native:testbase/v20201216preview:CustomerEvent is being removed in the next major version of this provider. Upgrade to at least azure-native:testbase/v20220401preview:CustomerEvent to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20201216preview:getCustomerEvent", {
@@ -71,7 +71,7 @@ export interface GetCustomerEventResult {
  * Gets a Test Base CustomerEvent.
  */
 /** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider.
-azure-native:testbase/v20201216preview:CustomerEvent is being removed in the next major version of this provider. Please upgrade to azure-native:testbase/v20220401preview:CustomerEvent to guarantee forwards compatibility. */
+azure-native:testbase/v20201216preview:CustomerEvent is being removed in the next major version of this provider. Upgrade to at least azure-native:testbase/v20220401preview:CustomerEvent to guarantee forwards compatibility. */
 export function getCustomerEventOutput(args: GetCustomerEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerEventResult> {
     return pulumi.output(args).apply((a: any) => getCustomerEvent(a, opts))
 }

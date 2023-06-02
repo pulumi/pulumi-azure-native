@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20190601
     /// Properties of the table, including Id, resource name, resource type.
     /// </summary>
     [Obsolete(@"Version 2019-06-01 will be removed in v2 of the provider.
-azure-native:storage/v20190601:Table is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Table to guarantee forwards compatibility.")]
+azure-native:storage/v20190601:Table is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:Table to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storage/v20190601:Table")]
     public partial class Table : global::Pulumi.CustomResource
     {

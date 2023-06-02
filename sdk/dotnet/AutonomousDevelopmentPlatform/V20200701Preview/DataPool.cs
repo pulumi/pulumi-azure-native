@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
     /// An ADP Data Pool.
     /// </summary>
     [Obsolete(@"Version 2020-07-01-preview will be removed in v2 of the provider.
-azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Please upgrade to azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility.")]
+azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Upgrade to at least azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool")]
     public partial class DataPool : global::Pulumi.CustomResource
     {

@@ -17,7 +17,7 @@ __all__ = [
     'get_replication_output',
 ]
 
-warnings.warn("""azure-native:containerregistry/v20171001:Replication is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:Replication to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:containerregistry/v20171001:Replication is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Replication to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetReplicationResult:
@@ -131,7 +131,7 @@ def get_replication(registry_name: Optional[str] = None,
     :param str replication_name: The name of the replication.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
-    pulumi.log.warn("""get_replication is deprecated: azure-native:containerregistry/v20171001:Replication is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:Replication to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_replication is deprecated: azure-native:containerregistry/v20171001:Replication is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Replication to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['replicationName'] = replication_name
@@ -162,5 +162,5 @@ def get_replication_output(registry_name: Optional[pulumi.Input[str]] = None,
     :param str replication_name: The name of the replication.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
-    pulumi.log.warn("""get_replication is deprecated: azure-native:containerregistry/v20171001:Replication is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:Replication to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_replication is deprecated: azure-native:containerregistry/v20171001:Replication is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Replication to guarantee forwards compatibility.""")
     ...

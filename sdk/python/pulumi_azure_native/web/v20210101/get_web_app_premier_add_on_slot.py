@@ -16,7 +16,7 @@ __all__ = [
     'get_web_app_premier_add_on_slot_output',
 ]
 
-warnings.warn("""azure-native:web/v20210101:WebAppPremierAddOnSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppPremierAddOnSlot to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:web/v20210101:WebAppPremierAddOnSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppPremierAddOnSlot to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetWebAppPremierAddOnSlotResult:
@@ -180,7 +180,7 @@ def get_web_app_premier_add_on_slot(name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get the named add-on for the production slot.
     """
-    pulumi.log.warn("""get_web_app_premier_add_on_slot is deprecated: azure-native:web/v20210101:WebAppPremierAddOnSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppPremierAddOnSlot to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_web_app_premier_add_on_slot is deprecated: azure-native:web/v20210101:WebAppPremierAddOnSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppPremierAddOnSlot to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['premierAddOnName'] = premier_add_on_name
@@ -218,5 +218,5 @@ def get_web_app_premier_add_on_slot_output(name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get the named add-on for the production slot.
     """
-    pulumi.log.warn("""get_web_app_premier_add_on_slot is deprecated: azure-native:web/v20210101:WebAppPremierAddOnSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppPremierAddOnSlot to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_web_app_premier_add_on_slot is deprecated: azure-native:web/v20210101:WebAppPremierAddOnSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppPremierAddOnSlot to guarantee forwards compatibility.""")
     ...

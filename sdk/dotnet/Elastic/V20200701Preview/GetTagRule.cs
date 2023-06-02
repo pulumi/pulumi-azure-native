@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Elastic.V20200701Preview
 {
-    [Obsolete(@"azure-native:elastic/v20200701preview:TagRule is being removed in the next major version of this provider. Please upgrade to azure-native:elastic/v20220901preview:TagRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:elastic/v20200701preview:TagRule is being removed in the next major version of this provider. Upgrade to at least azure-native:elastic/v20220901preview:TagRule to guarantee forwards compatibility.")]
     public static class GetTagRule
     {
         /// <summary>

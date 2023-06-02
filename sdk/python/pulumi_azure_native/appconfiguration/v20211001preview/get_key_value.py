@@ -16,7 +16,7 @@ __all__ = [
     'get_key_value_output',
 ]
 
-warnings.warn("""azure-native:appconfiguration/v20211001preview:KeyValue is being removed in the next major version of this provider. Please upgrade to azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:appconfiguration/v20211001preview:KeyValue is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetKeyValueResult:
@@ -182,7 +182,7 @@ def get_key_value(config_store_name: Optional[str] = None,
     :param str key_value_name: Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
-    pulumi.log.warn("""get_key_value is deprecated: azure-native:appconfiguration/v20211001preview:KeyValue is being removed in the next major version of this provider. Please upgrade to azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_key_value is deprecated: azure-native:appconfiguration/v20211001preview:KeyValue is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['configStoreName'] = config_store_name
     __args__['keyValueName'] = key_value_name
@@ -217,5 +217,5 @@ def get_key_value_output(config_store_name: Optional[pulumi.Input[str]] = None,
     :param str key_value_name: Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
-    pulumi.log.warn("""get_key_value is deprecated: azure-native:appconfiguration/v20211001preview:KeyValue is being removed in the next major version of this provider. Please upgrade to azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_key_value is deprecated: azure-native:appconfiguration/v20211001preview:KeyValue is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.""")
     ...

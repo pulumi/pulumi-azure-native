@@ -228,11 +228,11 @@ class MaintenanceConfigurationArgs:
         pulumi.set(self, "visibility", value)
 
 
-warnings.warn("""azure-native:maintenance/v20210501:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:maintenance/v20210501:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class MaintenanceConfiguration(pulumi.CustomResource):
-    warnings.warn("""azure-native:maintenance/v20210501:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:maintenance/v20210501:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -309,7 +309,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  time_zone: Optional[pulumi.Input[str]] = None,
                  visibility: Optional[pulumi.Input[Union[str, 'Visibility']]] = None,
                  __props__=None):
-        pulumi.log.warn("""MaintenanceConfiguration is deprecated: azure-native:maintenance/v20210501:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""")
+        pulumi.log.warn("""MaintenanceConfiguration is deprecated: azure-native:maintenance/v20210501:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

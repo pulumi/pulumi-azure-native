@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the tenant configuration.
  */
-/** @deprecated azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility. */
 export function getTenantConfiguration(args: GetTenantConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantConfigurationResult> {
-    pulumi.log.warn("getTenantConfiguration is deprecated: azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility.")
+    pulumi.log.warn("getTenantConfiguration is deprecated: azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portal/v20190101preview:getTenantConfiguration", {
@@ -48,7 +48,7 @@ export interface GetTenantConfigurationResult {
 /**
  * Gets the tenant configuration.
  */
-/** @deprecated azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility. */
 export function getTenantConfigurationOutput(args: GetTenantConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getTenantConfiguration(a, opts))
 }

@@ -16,7 +16,7 @@ __all__ = [
     'get_private_zone_output',
 ]
 
-warnings.warn("""azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPrivateZoneResult:
@@ -200,7 +200,7 @@ def get_private_zone(private_zone_name: Optional[str] = None,
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_private_zone is deprecated: azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_zone is deprecated: azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateZoneName'] = private_zone_name
     __args__['resourceGroupName'] = resource_group_name
@@ -234,5 +234,5 @@ def get_private_zone_output(private_zone_name: Optional[pulumi.Input[str]] = Non
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_private_zone is deprecated: azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_zone is deprecated: azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility.""")
     ...

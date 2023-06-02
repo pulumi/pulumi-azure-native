@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-12-16-preview will be removed in v2 of the provider.
-azure-native:testbase/v20201216preview:FavoriteProcess is being removed in the next major version of this provider. Please upgrade to azure-native:testbase/v20220401preview:FavoriteProcess to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:testbase/v20201216preview:FavoriteProcess is being removed in the next major version of this provider. Upgrade to at least azure-native:testbase/v20220401preview:FavoriteProcess to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetFavoriteProcessResult:
@@ -111,7 +111,7 @@ def get_favorite_process(favorite_process_resource_name: Optional[str] = None,
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     pulumi.log.warn("""get_favorite_process is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.
-azure-native:testbase/v20201216preview:FavoriteProcess is being removed in the next major version of this provider. Please upgrade to azure-native:testbase/v20220401preview:FavoriteProcess to guarantee forwards compatibility.""")
+azure-native:testbase/v20201216preview:FavoriteProcess is being removed in the next major version of this provider. Upgrade to at least azure-native:testbase/v20220401preview:FavoriteProcess to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['favoriteProcessResourceName'] = favorite_process_resource_name
     __args__['packageName'] = package_name
@@ -144,5 +144,5 @@ def get_favorite_process_output(favorite_process_resource_name: Optional[pulumi.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     pulumi.log.warn("""get_favorite_process is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.
-azure-native:testbase/v20201216preview:FavoriteProcess is being removed in the next major version of this provider. Please upgrade to azure-native:testbase/v20220401preview:FavoriteProcess to guarantee forwards compatibility.""")
+azure-native:testbase/v20201216preview:FavoriteProcess is being removed in the next major version of this provider. Upgrade to at least azure-native:testbase/v20220401preview:FavoriteProcess to guarantee forwards compatibility.""")
     ...

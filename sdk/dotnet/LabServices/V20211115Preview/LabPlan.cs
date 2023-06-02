@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
     /// <summary>
     /// Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
     /// </summary>
-    [Obsolete(@"azure-native:labservices/v20211115preview:LabPlan is being removed in the next major version of this provider. Please upgrade to azure-native:labservices/v20220801:LabPlan to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:labservices/v20211115preview:LabPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:LabPlan to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:labservices/v20211115preview:LabPlan")]
     public partial class LabPlan : global::Pulumi.CustomResource
     {

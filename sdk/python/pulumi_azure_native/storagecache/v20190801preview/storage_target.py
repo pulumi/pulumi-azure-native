@@ -165,12 +165,12 @@ class StorageTargetArgs:
 
 
 warnings.warn("""Version 2019-08-01-preview will be removed in v2 of the provider.
-azure-native:storagecache/v20190801preview:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20191101:StorageTarget to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:storagecache/v20190801preview:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20191101:StorageTarget to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class StorageTarget(pulumi.CustomResource):
     warnings.warn("""Version 2019-08-01-preview will be removed in v2 of the provider.
-azure-native:storagecache/v20190801preview:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20191101:StorageTarget to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:storagecache/v20190801preview:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20191101:StorageTarget to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -236,7 +236,7 @@ azure-native:storagecache/v20190801preview:StorageTarget is being removed in the
                  unknown: Optional[pulumi.Input[pulumi.InputType['UnknownTargetArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""StorageTarget is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.
-azure-native:storagecache/v20190801preview:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20191101:StorageTarget to guarantee forwards compatibility.""")
+azure-native:storagecache/v20190801preview:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20191101:StorageTarget to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview
     /// <summary>
     /// Definition of the source control.
     /// </summary>
-    [Obsolete(@"azure-native:automation/v20170515preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:SourceControl to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:automation/v20170515preview:SourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:SourceControl to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automation/v20170515preview:SourceControl")]
     public partial class SourceControl : global::Pulumi.CustomResource
     {

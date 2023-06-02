@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Resources.V20201001
     /// <summary>
     /// Wrapper resource for tags API requests and responses.
     /// </summary>
-    [Obsolete(@"azure-native:resources/v20201001:TagAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:TagAtScope to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:resources/v20201001:TagAtScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:TagAtScope to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:resources/v20201001:TagAtScope")]
     public partial class TagAtScope : global::Pulumi.CustomResource
     {

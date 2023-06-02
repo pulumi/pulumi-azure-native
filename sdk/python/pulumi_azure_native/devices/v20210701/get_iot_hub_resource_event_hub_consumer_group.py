@@ -16,7 +16,7 @@ __all__ = [
     'get_iot_hub_resource_event_hub_consumer_group_output',
 ]
 
-warnings.warn("""azure-native:devices/v20210701:IotHubResourceEventHubConsumerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:devices/v20210701:IotHubResourceEventHubConsumerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetIotHubResourceEventHubConsumerGroupResult:
@@ -108,7 +108,7 @@ def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name: Optio
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
-    pulumi.log.warn("""get_iot_hub_resource_event_hub_consumer_group is deprecated: azure-native:devices/v20210701:IotHubResourceEventHubConsumerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_iot_hub_resource_event_hub_consumer_group is deprecated: azure-native:devices/v20210701:IotHubResourceEventHubConsumerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['eventHubEndpointName'] = event_hub_endpoint_name
     __args__['name'] = name
@@ -140,5 +140,5 @@ def get_iot_hub_resource_event_hub_consumer_group_output(event_hub_endpoint_name
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
-    pulumi.log.warn("""get_iot_hub_resource_event_hub_consumer_group is deprecated: azure-native:devices/v20210701:IotHubResourceEventHubConsumerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_iot_hub_resource_event_hub_consumer_group is deprecated: azure-native:devices/v20210701:IotHubResourceEventHubConsumerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup to guarantee forwards compatibility.""")
     ...

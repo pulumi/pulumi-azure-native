@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a given registered server.
  */
-/** @deprecated azure-native:storagesync/v20200901:RegisteredServer is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility. */
+/** @deprecated azure-native:storagesync/v20200901:RegisteredServer is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility. */
 export function getRegisteredServer(args: GetRegisteredServerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredServerResult> {
-    pulumi.log.warn("getRegisteredServer is deprecated: azure-native:storagesync/v20200901:RegisteredServer is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility.")
+    pulumi.log.warn("getRegisteredServer is deprecated: azure-native:storagesync/v20200901:RegisteredServer is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagesync/v20200901:getRegisteredServer", {
@@ -153,7 +153,7 @@ export interface GetRegisteredServerResult {
 /**
  * Get a given registered server.
  */
-/** @deprecated azure-native:storagesync/v20200901:RegisteredServer is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility. */
+/** @deprecated azure-native:storagesync/v20200901:RegisteredServer is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility. */
 export function getRegisteredServerOutput(args: GetRegisteredServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredServerResult> {
     return pulumi.output(args).apply((a: any) => getRegisteredServer(a, opts))
 }

@@ -17,7 +17,7 @@ __all__ = [
     'get_disk_pool_output',
 ]
 
-warnings.warn("""azure-native:storagepool/v20210401preview:DiskPool is being removed in the next major version of this provider. Please upgrade to azure-native:storagepool/v20210801:DiskPool to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:storagepool/v20210401preview:DiskPool is being removed in the next major version of this provider. Upgrade to at least azure-native:storagepool/v20210801:DiskPool to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDiskPoolResult:
@@ -201,7 +201,7 @@ def get_disk_pool(disk_pool_name: Optional[str] = None,
     :param str disk_pool_name: The name of the Disk Pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_disk_pool is deprecated: azure-native:storagepool/v20210401preview:DiskPool is being removed in the next major version of this provider. Please upgrade to azure-native:storagepool/v20210801:DiskPool to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_disk_pool is deprecated: azure-native:storagepool/v20210401preview:DiskPool is being removed in the next major version of this provider. Upgrade to at least azure-native:storagepool/v20210801:DiskPool to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['diskPoolName'] = disk_pool_name
     __args__['resourceGroupName'] = resource_group_name
@@ -235,5 +235,5 @@ def get_disk_pool_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
     :param str disk_pool_name: The name of the Disk Pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_disk_pool is deprecated: azure-native:storagepool/v20210401preview:DiskPool is being removed in the next major version of this provider. Please upgrade to azure-native:storagepool/v20210801:DiskPool to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_disk_pool is deprecated: azure-native:storagepool/v20210401preview:DiskPool is being removed in the next major version of this provider. Upgrade to at least azure-native:storagepool/v20210801:DiskPool to guarantee forwards compatibility.""")
     ...

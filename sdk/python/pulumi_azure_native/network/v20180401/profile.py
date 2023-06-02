@@ -246,12 +246,12 @@ class ProfileArgs:
 
 
 warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:Profile to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20180401:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:Profile to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Profile(pulumi.CustomResource):
     warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:Profile to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20180401:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:Profile to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -332,7 +332,7 @@ azure-native:network/v20180401:Profile is being removed in the next major versio
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Profile is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:Profile to guarantee forwards compatibility.""")
+azure-native:network/v20180401:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:Profile to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

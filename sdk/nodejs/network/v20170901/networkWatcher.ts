@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Network watcher in a resource group.
  *
  * @deprecated Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:network/v20170901:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180101:NetworkWatcher to guarantee forwards compatibility.
+azure-native:network/v20170901:NetworkWatcher is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180101:NetworkWatcher to guarantee forwards compatibility.
  */
 export class NetworkWatcher extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NetworkWatcher {
-        pulumi.log.warn("NetworkWatcher is deprecated: Version 2017-09-01 will be removed in v2 of the provider.\nazure-native:network/v20170901:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180101:NetworkWatcher to guarantee forwards compatibility.")
+        pulumi.log.warn("NetworkWatcher is deprecated: Version 2017-09-01 will be removed in v2 of the provider.\nazure-native:network/v20170901:NetworkWatcher is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180101:NetworkWatcher to guarantee forwards compatibility.")
         return new NetworkWatcher(name, undefined as any, { ...opts, id: id });
     }
 
@@ -71,9 +71,9 @@ export class NetworkWatcher extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:network/v20170901:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180101:NetworkWatcher to guarantee forwards compatibility. */
+azure-native:network/v20170901:NetworkWatcher is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180101:NetworkWatcher to guarantee forwards compatibility. */
     constructor(name: string, args: NetworkWatcherArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("NetworkWatcher is deprecated: Version 2017-09-01 will be removed in v2 of the provider.\nazure-native:network/v20170901:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180101:NetworkWatcher to guarantee forwards compatibility.")
+        pulumi.log.warn("NetworkWatcher is deprecated: Version 2017-09-01 will be removed in v2 of the provider.\nazure-native:network/v20170901:NetworkWatcher is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180101:NetworkWatcher to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

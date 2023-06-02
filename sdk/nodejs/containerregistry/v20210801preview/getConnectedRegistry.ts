@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the connected registry.
  */
-/** @deprecated azure-native:containerregistry/v20210801preview:ConnectedRegistry is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ConnectedRegistry to guarantee forwards compatibility. */
+/** @deprecated azure-native:containerregistry/v20210801preview:ConnectedRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ConnectedRegistry to guarantee forwards compatibility. */
 export function getConnectedRegistry(args: GetConnectedRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedRegistryResult> {
-    pulumi.log.warn("getConnectedRegistry is deprecated: azure-native:containerregistry/v20210801preview:ConnectedRegistry is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ConnectedRegistry to guarantee forwards compatibility.")
+    pulumi.log.warn("getConnectedRegistry is deprecated: azure-native:containerregistry/v20210801preview:ConnectedRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ConnectedRegistry to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20210801preview:getConnectedRegistry", {
@@ -109,7 +109,7 @@ export interface GetConnectedRegistryResult {
 /**
  * Gets the properties of the connected registry.
  */
-/** @deprecated azure-native:containerregistry/v20210801preview:ConnectedRegistry is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ConnectedRegistry to guarantee forwards compatibility. */
+/** @deprecated azure-native:containerregistry/v20210801preview:ConnectedRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ConnectedRegistry to guarantee forwards compatibility. */
 export function getConnectedRegistryOutput(args: GetConnectedRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedRegistryResult> {
     return pulumi.output(args).apply((a: any) => getConnectedRegistry(a, opts))
 }

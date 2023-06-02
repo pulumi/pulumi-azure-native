@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a workload group
  */
-/** @deprecated azure-native:sql/v20190601preview:WorkloadGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:WorkloadGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20190601preview:WorkloadGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:WorkloadGroup to guarantee forwards compatibility. */
 export function getWorkloadGroup(args: GetWorkloadGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadGroupResult> {
-    pulumi.log.warn("getWorkloadGroup is deprecated: azure-native:sql/v20190601preview:WorkloadGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:WorkloadGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getWorkloadGroup is deprecated: azure-native:sql/v20190601preview:WorkloadGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:WorkloadGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20190601preview:getWorkloadGroup", {
@@ -83,7 +83,7 @@ export interface GetWorkloadGroupResult {
 /**
  * Gets a workload group
  */
-/** @deprecated azure-native:sql/v20190601preview:WorkloadGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:WorkloadGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20190601preview:WorkloadGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:WorkloadGroup to guarantee forwards compatibility. */
 export function getWorkloadGroupOutput(args: GetWorkloadGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadGroupResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadGroup(a, opts))
 }

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the specified storage classification mapping.
  */
-/** @deprecated azure-native:recoveryservices/v20211001:ReplicationStorageClassificationMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationStorageClassificationMapping to guarantee forwards compatibility. */
+/** @deprecated azure-native:recoveryservices/v20211001:ReplicationStorageClassificationMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationStorageClassificationMapping to guarantee forwards compatibility. */
 export function getReplicationStorageClassificationMapping(args: GetReplicationStorageClassificationMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationStorageClassificationMappingResult> {
-    pulumi.log.warn("getReplicationStorageClassificationMapping is deprecated: azure-native:recoveryservices/v20211001:ReplicationStorageClassificationMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationStorageClassificationMapping to guarantee forwards compatibility.")
+    pulumi.log.warn("getReplicationStorageClassificationMapping is deprecated: azure-native:recoveryservices/v20211001:ReplicationStorageClassificationMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationStorageClassificationMapping to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20211001:getReplicationStorageClassificationMapping", {
@@ -75,7 +75,7 @@ export interface GetReplicationStorageClassificationMappingResult {
 /**
  * Gets the details of the specified storage classification mapping.
  */
-/** @deprecated azure-native:recoveryservices/v20211001:ReplicationStorageClassificationMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationStorageClassificationMapping to guarantee forwards compatibility. */
+/** @deprecated azure-native:recoveryservices/v20211001:ReplicationStorageClassificationMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationStorageClassificationMapping to guarantee forwards compatibility. */
 export function getReplicationStorageClassificationMappingOutput(args: GetReplicationStorageClassificationMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationStorageClassificationMappingResult> {
     return pulumi.output(args).apply((a: any) => getReplicationStorageClassificationMapping(a, opts))
 }

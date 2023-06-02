@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an extended database's blob auditing policy.
  */
-/** @deprecated azure-native:sql/v20210201preview:ExtendedDatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ExtendedDatabaseBlobAuditingPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20210201preview:ExtendedDatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ExtendedDatabaseBlobAuditingPolicy to guarantee forwards compatibility. */
 export function getExtendedDatabaseBlobAuditingPolicy(args: GetExtendedDatabaseBlobAuditingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetExtendedDatabaseBlobAuditingPolicyResult> {
-    pulumi.log.warn("getExtendedDatabaseBlobAuditingPolicy is deprecated: azure-native:sql/v20210201preview:ExtendedDatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ExtendedDatabaseBlobAuditingPolicy to guarantee forwards compatibility.")
+    pulumi.log.warn("getExtendedDatabaseBlobAuditingPolicy is deprecated: azure-native:sql/v20210201preview:ExtendedDatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ExtendedDatabaseBlobAuditingPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20210201preview:getExtendedDatabaseBlobAuditingPolicy", {
@@ -166,7 +166,7 @@ export interface GetExtendedDatabaseBlobAuditingPolicyResult {
 /**
  * Gets an extended database's blob auditing policy.
  */
-/** @deprecated azure-native:sql/v20210201preview:ExtendedDatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ExtendedDatabaseBlobAuditingPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20210201preview:ExtendedDatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ExtendedDatabaseBlobAuditingPolicy to guarantee forwards compatibility. */
 export function getExtendedDatabaseBlobAuditingPolicyOutput(args: GetExtendedDatabaseBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtendedDatabaseBlobAuditingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getExtendedDatabaseBlobAuditingPolicy(a, opts))
 }

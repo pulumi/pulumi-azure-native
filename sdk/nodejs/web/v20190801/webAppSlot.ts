@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * A web app, a mobile app backend, or an API app.
  *
- * @deprecated azure-native:web/v20190801:WebAppSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSlot to guarantee forwards compatibility.
+ * @deprecated azure-native:web/v20190801:WebAppSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppSlot to guarantee forwards compatibility.
  */
 export class WebAppSlot extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class WebAppSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppSlot {
-        pulumi.log.warn("WebAppSlot is deprecated: azure-native:web/v20190801:WebAppSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSlot to guarantee forwards compatibility.")
+        pulumi.log.warn("WebAppSlot is deprecated: azure-native:web/v20190801:WebAppSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppSlot to guarantee forwards compatibility.")
         return new WebAppSlot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -216,9 +216,9 @@ export class WebAppSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:web/v20190801:WebAppSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSlot to guarantee forwards compatibility. */
+    /** @deprecated azure-native:web/v20190801:WebAppSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppSlot to guarantee forwards compatibility. */
     constructor(name: string, args: WebAppSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WebAppSlot is deprecated: azure-native:web/v20190801:WebAppSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSlot to guarantee forwards compatibility.")
+        pulumi.log.warn("WebAppSlot is deprecated: azure-native:web/v20190801:WebAppSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppSlot to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

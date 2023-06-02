@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Automation.V20151031
 {
-    [Obsolete(@"azure-native:automation/v20151031:Variable is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Variable to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:automation/v20151031:Variable is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Variable to guarantee forwards compatibility.")]
     public static class GetVariable
     {
         /// <summary>

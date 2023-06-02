@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets private store collection
  */
-/** @deprecated azure-native:marketplace/v20220901:PrivateStoreCollection is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility. */
+/** @deprecated azure-native:marketplace/v20220901:PrivateStoreCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility. */
 export function getPrivateStoreCollection(args: GetPrivateStoreCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreCollectionResult> {
-    pulumi.log.warn("getPrivateStoreCollection is deprecated: azure-native:marketplace/v20220901:PrivateStoreCollection is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility.")
+    pulumi.log.warn("getPrivateStoreCollection is deprecated: azure-native:marketplace/v20220901:PrivateStoreCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:marketplace/v20220901:getPrivateStoreCollection", {
@@ -96,7 +96,7 @@ export interface GetPrivateStoreCollectionResult {
 /**
  * Gets private store collection
  */
-/** @deprecated azure-native:marketplace/v20220901:PrivateStoreCollection is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility. */
+/** @deprecated azure-native:marketplace/v20220901:PrivateStoreCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility. */
 export function getPrivateStoreCollectionOutput(args: GetPrivateStoreCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreCollectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateStoreCollection(a, opts))
 }

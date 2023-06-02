@@ -228,11 +228,11 @@ class P2sVpnServerConfigurationArgs:
         pulumi.set(self, "vpn_protocols", value)
 
 
-warnings.warn("""azure-native:network/v20190401:P2sVpnServerConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20190401:P2sVpnServerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class P2sVpnServerConfiguration(pulumi.CustomResource):
-    warnings.warn("""azure-native:network/v20190401:P2sVpnServerConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:network/v20190401:P2sVpnServerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -309,7 +309,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
                  vpn_client_ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
                  vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""P2sVpnServerConfiguration is deprecated: azure-native:network/v20190401:P2sVpnServerConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility.""")
+        pulumi.log.warn("""P2sVpnServerConfiguration is deprecated: azure-native:network/v20190401:P2sVpnServerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001
     /// <summary>
     /// Azure Resource Manager resource envelope.
     /// </summary>
-    [Obsolete(@"azure-native:machinelearningservices/v20221001:Schedule is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Schedule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:machinelearningservices/v20221001:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Schedule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20221001:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource
     {

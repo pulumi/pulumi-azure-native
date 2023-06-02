@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20140401
 {
     [Obsolete(@"Version 2014-04-01 will be removed in v2 of the provider.
-azure-native:insights/v20140401:AlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20160301:AlertRule to guarantee forwards compatibility.")]
+azure-native:insights/v20140401:AlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20160301:AlertRule to guarantee forwards compatibility.")]
     public static class GetAlertRule
     {
         /// <summary>

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Private DNS zone.
  *
- * @deprecated azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility.
+ * @deprecated azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility.
  */
 export class PrivateZone extends pulumi.CustomResource {
     /**
@@ -19,7 +19,7 @@ export class PrivateZone extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateZone {
-        pulumi.log.warn("PrivateZone is deprecated: azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility.")
+        pulumi.log.warn("PrivateZone is deprecated: azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility.")
         return new PrivateZone(name, undefined as any, { ...opts, id: id });
     }
 
@@ -93,9 +93,9 @@ export class PrivateZone extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility. */
+    /** @deprecated azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateZoneArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PrivateZone is deprecated: azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility.")
+        pulumi.log.warn("PrivateZone is deprecated: azure-native:network/v20180901:PrivateZone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200601:PrivateZone to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

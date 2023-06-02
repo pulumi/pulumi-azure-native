@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve a Prometheus rule group definition.
  */
-/** @deprecated azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup is being removed in the next major version of this provider. Please upgrade to azure-native:alertsmanagement/v20230301:PrometheusRuleGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20230301:PrometheusRuleGroup to guarantee forwards compatibility. */
 export function getPrometheusRuleGroup(args: GetPrometheusRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPrometheusRuleGroupResult> {
-    pulumi.log.warn("getPrometheusRuleGroup is deprecated: azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup is being removed in the next major version of this provider. Please upgrade to azure-native:alertsmanagement/v20230301:PrometheusRuleGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getPrometheusRuleGroup is deprecated: azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20230301:PrometheusRuleGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:alertsmanagement/v20210722preview:getPrometheusRuleGroup", {
@@ -88,7 +88,7 @@ export interface GetPrometheusRuleGroupResult {
 /**
  * Retrieve a Prometheus rule group definition.
  */
-/** @deprecated azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup is being removed in the next major version of this provider. Please upgrade to azure-native:alertsmanagement/v20230301:PrometheusRuleGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20230301:PrometheusRuleGroup to guarantee forwards compatibility. */
 export function getPrometheusRuleGroupOutput(args: GetPrometheusRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrometheusRuleGroupResult> {
     return pulumi.output(args).apply((a: any) => getPrometheusRuleGroup(a, opts))
 }

@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Value object for saved search results.
  *
- * @deprecated azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility.
+ * @deprecated azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility.
  */
 export class SavedSearch extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class SavedSearch extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SavedSearch {
-        pulumi.log.warn("SavedSearch is deprecated: azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility.")
+        pulumi.log.warn("SavedSearch is deprecated: azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility.")
         return new SavedSearch(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,9 +88,9 @@ export class SavedSearch extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility. */
+    /** @deprecated azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility. */
     constructor(name: string, args: SavedSearchArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SavedSearch is deprecated: azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility.")
+        pulumi.log.warn("SavedSearch is deprecated: azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

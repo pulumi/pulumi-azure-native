@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
 {
-    [Obsolete(@"azure-native:securityinsights/v20220601preview:MLBehaviorAnalyticsAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:MLBehaviorAnalyticsAlertRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20220601preview:MLBehaviorAnalyticsAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MLBehaviorAnalyticsAlertRule to guarantee forwards compatibility.")]
     public static class GetMLBehaviorAnalyticsAlertRule
     {
         /// <summary>

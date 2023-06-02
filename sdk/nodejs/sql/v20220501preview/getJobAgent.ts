@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a job agent.
  */
-/** @deprecated azure-native:sql/v20220501preview:JobAgent is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:JobAgent to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20220501preview:JobAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:JobAgent to guarantee forwards compatibility. */
 export function getJobAgent(args: GetJobAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetJobAgentResult> {
-    pulumi.log.warn("getJobAgent is deprecated: azure-native:sql/v20220501preview:JobAgent is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:JobAgent to guarantee forwards compatibility.")
+    pulumi.log.warn("getJobAgent is deprecated: azure-native:sql/v20220501preview:JobAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:JobAgent to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20220501preview:getJobAgent", {
@@ -77,7 +77,7 @@ export interface GetJobAgentResult {
 /**
  * Gets a job agent.
  */
-/** @deprecated azure-native:sql/v20220501preview:JobAgent is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:JobAgent to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20220501preview:JobAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:JobAgent to guarantee forwards compatibility. */
 export function getJobAgentOutput(args: GetJobAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobAgentResult> {
     return pulumi.output(args).apply((a: any) => getJobAgent(a, opts))
 }

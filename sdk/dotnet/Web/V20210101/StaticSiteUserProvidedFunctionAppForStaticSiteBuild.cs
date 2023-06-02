@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Web.V20210101
     /// <summary>
     /// Static Site User Provided Function App ARM resource.
     /// </summary>
-    [Obsolete(@"azure-native:web/v20210101:StaticSiteUserProvidedFunctionAppForStaticSiteBuild is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSiteBuild to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:web/v20210101:StaticSiteUserProvidedFunctionAppForStaticSiteBuild is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSiteBuild to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20210101:StaticSiteUserProvidedFunctionAppForStaticSiteBuild")]
     public partial class StaticSiteUserProvidedFunctionAppForStaticSiteBuild : global::Pulumi.CustomResource
     {

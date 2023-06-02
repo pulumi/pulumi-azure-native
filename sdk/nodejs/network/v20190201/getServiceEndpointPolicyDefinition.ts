@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the specified service endpoint policy definitions from service endpoint policy.
  */
-/** @deprecated azure-native:network/v20190201:ServiceEndpointPolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicyDefinition to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20190201:ServiceEndpointPolicyDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ServiceEndpointPolicyDefinition to guarantee forwards compatibility. */
 export function getServiceEndpointPolicyDefinition(args: GetServiceEndpointPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointPolicyDefinitionResult> {
-    pulumi.log.warn("getServiceEndpointPolicyDefinition is deprecated: azure-native:network/v20190201:ServiceEndpointPolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicyDefinition to guarantee forwards compatibility.")
+    pulumi.log.warn("getServiceEndpointPolicyDefinition is deprecated: azure-native:network/v20190201:ServiceEndpointPolicyDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ServiceEndpointPolicyDefinition to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190201:getServiceEndpointPolicyDefinition", {
@@ -70,7 +70,7 @@ export interface GetServiceEndpointPolicyDefinitionResult {
 /**
  * Get the specified service endpoint policy definitions from service endpoint policy.
  */
-/** @deprecated azure-native:network/v20190201:ServiceEndpointPolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicyDefinition to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20190201:ServiceEndpointPolicyDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ServiceEndpointPolicyDefinition to guarantee forwards compatibility. */
 export function getServiceEndpointPolicyDefinitionOutput(args: GetServiceEndpointPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointPolicyDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getServiceEndpointPolicyDefinition(a, opts))
 }

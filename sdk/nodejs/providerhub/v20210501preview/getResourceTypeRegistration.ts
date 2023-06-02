@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a resource type details in the given subscription and provider.
  */
-/** @deprecated azure-native:providerhub/v20210501preview:ResourceTypeRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:ResourceTypeRegistration to guarantee forwards compatibility. */
+/** @deprecated azure-native:providerhub/v20210501preview:ResourceTypeRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:ResourceTypeRegistration to guarantee forwards compatibility. */
 export function getResourceTypeRegistration(args: GetResourceTypeRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceTypeRegistrationResult> {
-    pulumi.log.warn("getResourceTypeRegistration is deprecated: azure-native:providerhub/v20210501preview:ResourceTypeRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:ResourceTypeRegistration to guarantee forwards compatibility.")
+    pulumi.log.warn("getResourceTypeRegistration is deprecated: azure-native:providerhub/v20210501preview:ResourceTypeRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:ResourceTypeRegistration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub/v20210501preview:getResourceTypeRegistration", {
@@ -50,7 +50,7 @@ export interface GetResourceTypeRegistrationResult {
 /**
  * Gets a resource type details in the given subscription and provider.
  */
-/** @deprecated azure-native:providerhub/v20210501preview:ResourceTypeRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:ResourceTypeRegistration to guarantee forwards compatibility. */
+/** @deprecated azure-native:providerhub/v20210501preview:ResourceTypeRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:ResourceTypeRegistration to guarantee forwards compatibility. */
 export function getResourceTypeRegistrationOutput(args: GetResourceTypeRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceTypeRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getResourceTypeRegistration(a, opts))
 }

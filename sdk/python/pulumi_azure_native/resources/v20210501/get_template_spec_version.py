@@ -17,7 +17,7 @@ __all__ = [
     'get_template_spec_version_output',
 ]
 
-warnings.warn("""azure-native:resources/v20210501:TemplateSpecVersion is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpecVersion to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:resources/v20210501:TemplateSpecVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220201:TemplateSpecVersion to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetTemplateSpecVersionResult:
@@ -179,7 +179,7 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
     :param str template_spec_name: Name of the Template Spec.
     :param str template_spec_version: The version of the Template Spec.
     """
-    pulumi.log.warn("""get_template_spec_version is deprecated: azure-native:resources/v20210501:TemplateSpecVersion is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpecVersion to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_template_spec_version is deprecated: azure-native:resources/v20210501:TemplateSpecVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220201:TemplateSpecVersion to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['templateSpecName'] = template_spec_name
@@ -214,5 +214,5 @@ def get_template_spec_version_output(resource_group_name: Optional[pulumi.Input[
     :param str template_spec_name: Name of the Template Spec.
     :param str template_spec_version: The version of the Template Spec.
     """
-    pulumi.log.warn("""get_template_spec_version is deprecated: azure-native:resources/v20210501:TemplateSpecVersion is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpecVersion to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_template_spec_version is deprecated: azure-native:resources/v20210501:TemplateSpecVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220201:TemplateSpecVersion to guarantee forwards compatibility.""")
     ...

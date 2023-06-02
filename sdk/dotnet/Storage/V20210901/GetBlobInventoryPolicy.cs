@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Storage.V20210901
 {
-    [Obsolete(@"azure-native:storage/v20210901:BlobInventoryPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:storage/v20210901:BlobInventoryPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility.")]
     public static class GetBlobInventoryPolicy
     {
         /// <summary>

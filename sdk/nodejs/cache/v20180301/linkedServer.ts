@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * Response to put/get linked server (with properties) for Redis cache.
  *
  * @deprecated Version 2018-03-01 will be removed in v2 of the provider.
-azure-native:cache/v20180301:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.
+azure-native:cache/v20180301:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.
  */
 export class LinkedServer extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class LinkedServer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LinkedServer {
-        pulumi.log.warn("LinkedServer is deprecated: Version 2018-03-01 will be removed in v2 of the provider.\nazure-native:cache/v20180301:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.")
+        pulumi.log.warn("LinkedServer is deprecated: Version 2018-03-01 will be removed in v2 of the provider.\nazure-native:cache/v20180301:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.")
         return new LinkedServer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,9 +74,9 @@ export class LinkedServer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2018-03-01 will be removed in v2 of the provider.
-azure-native:cache/v20180301:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility. */
+azure-native:cache/v20180301:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility. */
     constructor(name: string, args: LinkedServerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("LinkedServer is deprecated: Version 2018-03-01 will be removed in v2 of the provider.\nazure-native:cache/v20180301:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.")
+        pulumi.log.warn("LinkedServer is deprecated: Version 2018-03-01 will be removed in v2 of the provider.\nazure-native:cache/v20180301:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

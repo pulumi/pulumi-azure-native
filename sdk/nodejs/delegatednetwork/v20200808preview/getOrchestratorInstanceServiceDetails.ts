@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets details about the orchestrator instance.
  */
 /** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider.
-azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails is being removed in the next major version of this provider. Please upgrade to azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails to guarantee forwards compatibility. */
+azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails is being removed in the next major version of this provider. Upgrade to at least azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails to guarantee forwards compatibility. */
 export function getOrchestratorInstanceServiceDetails(args: GetOrchestratorInstanceServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrchestratorInstanceServiceDetailsResult> {
-    pulumi.log.warn("getOrchestratorInstanceServiceDetails is deprecated: Version 2020-08-08-preview will be removed in v2 of the provider.\nazure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails is being removed in the next major version of this provider. Please upgrade to azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails to guarantee forwards compatibility.")
+    pulumi.log.warn("getOrchestratorInstanceServiceDetails is deprecated: Version 2020-08-08-preview will be removed in v2 of the provider.\nazure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails is being removed in the next major version of this provider. Upgrade to at least azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:delegatednetwork/v20200808preview:getOrchestratorInstanceServiceDetails", {
@@ -98,7 +98,7 @@ export interface GetOrchestratorInstanceServiceDetailsResult {
  * Gets details about the orchestrator instance.
  */
 /** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider.
-azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails is being removed in the next major version of this provider. Please upgrade to azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails to guarantee forwards compatibility. */
+azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails is being removed in the next major version of this provider. Upgrade to at least azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails to guarantee forwards compatibility. */
 export function getOrchestratorInstanceServiceDetailsOutput(args: GetOrchestratorInstanceServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrchestratorInstanceServiceDetailsResult> {
     return pulumi.output(args).apply((a: any) => getOrchestratorInstanceServiceDetails(a, opts))
 }

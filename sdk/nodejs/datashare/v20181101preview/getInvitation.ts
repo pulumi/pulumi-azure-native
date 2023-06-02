@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Get an invitation in a share
  */
 /** @deprecated Version 2018-11-01-preview will be removed in v2 of the provider.
-azure-native:datashare/v20181101preview:Invitation is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Invitation to guarantee forwards compatibility. */
+azure-native:datashare/v20181101preview:Invitation is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:Invitation to guarantee forwards compatibility. */
 export function getInvitation(args: GetInvitationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvitationResult> {
-    pulumi.log.warn("getInvitation is deprecated: Version 2018-11-01-preview will be removed in v2 of the provider.\nazure-native:datashare/v20181101preview:Invitation is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Invitation to guarantee forwards compatibility.")
+    pulumi.log.warn("getInvitation is deprecated: Version 2018-11-01-preview will be removed in v2 of the provider.\nazure-native:datashare/v20181101preview:Invitation is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:Invitation to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20181101preview:getInvitation", {
@@ -99,7 +99,7 @@ export interface GetInvitationResult {
  * Get an invitation in a share
  */
 /** @deprecated Version 2018-11-01-preview will be removed in v2 of the provider.
-azure-native:datashare/v20181101preview:Invitation is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Invitation to guarantee forwards compatibility. */
+azure-native:datashare/v20181101preview:Invitation is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:Invitation to guarantee forwards compatibility. */
 export function getInvitationOutput(args: GetInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvitationResult> {
     return pulumi.output(args).apply((a: any) => getInvitation(a, opts))
 }

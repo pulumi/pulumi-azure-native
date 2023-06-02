@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview
     /// The HDInsight cluster application
     /// </summary>
     [Obsolete(@"Version 2015-03-01-preview will be removed in v2 of the provider.
-azure-native:hdinsight/v20150301preview:Application is being removed in the next major version of this provider. Please upgrade to azure-native:hdinsight/v20210601:Application to guarantee forwards compatibility.")]
+azure-native:hdinsight/v20150301preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20210601:Application to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hdinsight/v20150301preview:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {

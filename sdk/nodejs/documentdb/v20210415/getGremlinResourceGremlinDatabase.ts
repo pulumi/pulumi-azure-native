@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated azure-native:documentdb/v20210415:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility. */
+/** @deprecated azure-native:documentdb/v20210415:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility. */
 export function getGremlinResourceGremlinDatabase(args: GetGremlinResourceGremlinDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetGremlinResourceGremlinDatabaseResult> {
-    pulumi.log.warn("getGremlinResourceGremlinDatabase is deprecated: azure-native:documentdb/v20210415:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility.")
+    pulumi.log.warn("getGremlinResourceGremlinDatabase is deprecated: azure-native:documentdb/v20210415:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20210415:getGremlinResourceGremlinDatabase", {
@@ -67,7 +67,7 @@ export interface GetGremlinResourceGremlinDatabaseResult {
 /**
  * Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated azure-native:documentdb/v20210415:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility. */
+/** @deprecated azure-native:documentdb/v20210415:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility. */
 export function getGremlinResourceGremlinDatabaseOutput(args: GetGremlinResourceGremlinDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGremlinResourceGremlinDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getGremlinResourceGremlinDatabase(a, opts))
 }

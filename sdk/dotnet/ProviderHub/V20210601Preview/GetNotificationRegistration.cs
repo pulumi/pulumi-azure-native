@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
 {
-    [Obsolete(@"azure-native:providerhub/v20210601preview:NotificationRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:NotificationRegistration to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:providerhub/v20210601preview:NotificationRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:NotificationRegistration to guarantee forwards compatibility.")]
     public static class GetNotificationRegistration
     {
         /// <summary>

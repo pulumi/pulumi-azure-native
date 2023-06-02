@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20200501
     /// <summary>
     /// FirewallPolicy Resource.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20200501:FirewallPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20200501:FirewallPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20200501:FirewallPolicy")]
     public partial class FirewallPolicy : global::Pulumi.CustomResource
     {

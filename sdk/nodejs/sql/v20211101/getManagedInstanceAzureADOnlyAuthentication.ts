@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a specific Azure Active Directory only authentication property.
  */
-/** @deprecated azure-native:sql/v20211101:ManagedInstanceAzureADOnlyAuthentication is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceAzureADOnlyAuthentication to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101:ManagedInstanceAzureADOnlyAuthentication is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceAzureADOnlyAuthentication to guarantee forwards compatibility. */
 export function getManagedInstanceAzureADOnlyAuthentication(args: GetManagedInstanceAzureADOnlyAuthenticationArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceAzureADOnlyAuthenticationResult> {
-    pulumi.log.warn("getManagedInstanceAzureADOnlyAuthentication is deprecated: azure-native:sql/v20211101:ManagedInstanceAzureADOnlyAuthentication is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceAzureADOnlyAuthentication to guarantee forwards compatibility.")
+    pulumi.log.warn("getManagedInstanceAzureADOnlyAuthentication is deprecated: azure-native:sql/v20211101:ManagedInstanceAzureADOnlyAuthentication is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceAzureADOnlyAuthentication to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getManagedInstanceAzureADOnlyAuthentication", {
@@ -58,7 +58,7 @@ export interface GetManagedInstanceAzureADOnlyAuthenticationResult {
 /**
  * Gets a specific Azure Active Directory only authentication property.
  */
-/** @deprecated azure-native:sql/v20211101:ManagedInstanceAzureADOnlyAuthentication is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceAzureADOnlyAuthentication to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101:ManagedInstanceAzureADOnlyAuthentication is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceAzureADOnlyAuthentication to guarantee forwards compatibility. */
 export function getManagedInstanceAzureADOnlyAuthenticationOutput(args: GetManagedInstanceAzureADOnlyAuthenticationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceAzureADOnlyAuthenticationResult> {
     return pulumi.output(args).apply((a: any) => getManagedInstanceAzureADOnlyAuthentication(a, opts))
 }

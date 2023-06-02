@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Media.V20211101
     /// <summary>
     /// A Media Services account.
     /// </summary>
-    [Obsolete(@"azure-native:media/v20211101:MediaService is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:MediaService to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:media/v20211101:MediaService is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:MediaService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:media/v20211101:MediaService")]
     public partial class MediaService : global::Pulumi.CustomResource
     {

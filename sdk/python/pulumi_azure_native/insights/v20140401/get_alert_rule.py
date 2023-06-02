@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2014-04-01 will be removed in v2 of the provider.
-azure-native:insights/v20140401:AlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20160301:AlertRule to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:insights/v20140401:AlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20160301:AlertRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAlertRuleResult:
@@ -191,7 +191,7 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
     :param str rule_name: The name of the rule.
     """
     pulumi.log.warn("""get_alert_rule is deprecated: Version 2014-04-01 will be removed in v2 of the provider.
-azure-native:insights/v20140401:AlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20160301:AlertRule to guarantee forwards compatibility.""")
+azure-native:insights/v20140401:AlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20160301:AlertRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name
@@ -225,5 +225,5 @@ def get_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     :param str rule_name: The name of the rule.
     """
     pulumi.log.warn("""get_alert_rule is deprecated: Version 2014-04-01 will be removed in v2 of the provider.
-azure-native:insights/v20140401:AlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20160301:AlertRule to guarantee forwards compatibility.""")
+azure-native:insights/v20140401:AlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20160301:AlertRule to guarantee forwards compatibility.""")
     ...

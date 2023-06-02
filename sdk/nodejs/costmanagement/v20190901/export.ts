@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * A export resource.
  *
- * @deprecated azure-native:costmanagement/v20190901:Export is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20191001:Export to guarantee forwards compatibility.
+ * @deprecated azure-native:costmanagement/v20190901:Export is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20191001:Export to guarantee forwards compatibility.
  */
 export class Export extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Export extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Export {
-        pulumi.log.warn("Export is deprecated: azure-native:costmanagement/v20190901:Export is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20191001:Export to guarantee forwards compatibility.")
+        pulumi.log.warn("Export is deprecated: azure-native:costmanagement/v20190901:Export is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20191001:Export to guarantee forwards compatibility.")
         return new Export(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,9 +76,9 @@ export class Export extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:costmanagement/v20190901:Export is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20191001:Export to guarantee forwards compatibility. */
+    /** @deprecated azure-native:costmanagement/v20190901:Export is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20191001:Export to guarantee forwards compatibility. */
     constructor(name: string, args: ExportArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Export is deprecated: azure-native:costmanagement/v20190901:Export is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20191001:Export to guarantee forwards compatibility.")
+        pulumi.log.warn("Export is deprecated: azure-native:costmanagement/v20190901:Export is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20191001:Export to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

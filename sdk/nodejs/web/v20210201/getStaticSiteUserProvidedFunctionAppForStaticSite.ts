@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the user provided function app registered with a static site
  */
-/** @deprecated azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite to guarantee forwards compatibility. */
 export function getStaticSiteUserProvidedFunctionAppForStaticSite(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> {
-    pulumi.log.warn("getStaticSiteUserProvidedFunctionAppForStaticSite is deprecated: azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite to guarantee forwards compatibility.")
+    pulumi.log.warn("getStaticSiteUserProvidedFunctionAppForStaticSite is deprecated: azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210201:getStaticSiteUserProvidedFunctionAppForStaticSite", {
@@ -70,7 +70,7 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteResult {
 /**
  * Gets the details of the user provided function app registered with a static site
  */
-/** @deprecated azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite to guarantee forwards compatibility. */
 export function getStaticSiteUserProvidedFunctionAppForStaticSiteOutput(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> {
     return pulumi.output(args).apply((a: any) => getStaticSiteUserProvidedFunctionAppForStaticSite(a, opts))
 }

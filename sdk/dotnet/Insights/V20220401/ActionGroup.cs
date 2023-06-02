@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Insights.V20220401
     /// <summary>
     /// An action group resource.
     /// </summary>
-    [Obsolete(@"azure-native:insights/v20220401:ActionGroup is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20230101:ActionGroup to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:insights/v20220401:ActionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20230101:ActionGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:insights/v20220401:ActionGroup")]
     public partial class ActionGroup : global::Pulumi.CustomResource
     {

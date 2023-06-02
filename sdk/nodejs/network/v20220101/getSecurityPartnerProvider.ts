@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Security Partner Provider.
  */
-/** @deprecated azure-native:network/v20220101:SecurityPartnerProvider is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:SecurityPartnerProvider to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220101:SecurityPartnerProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:SecurityPartnerProvider to guarantee forwards compatibility. */
 export function getSecurityPartnerProvider(args: GetSecurityPartnerProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPartnerProviderResult> {
-    pulumi.log.warn("getSecurityPartnerProvider is deprecated: azure-native:network/v20220101:SecurityPartnerProvider is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:SecurityPartnerProvider to guarantee forwards compatibility.")
+    pulumi.log.warn("getSecurityPartnerProvider is deprecated: azure-native:network/v20220101:SecurityPartnerProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:SecurityPartnerProvider to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220101:getSecurityPartnerProvider", {
@@ -80,7 +80,7 @@ export interface GetSecurityPartnerProviderResult {
 /**
  * Gets the specified Security Partner Provider.
  */
-/** @deprecated azure-native:network/v20220101:SecurityPartnerProvider is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:SecurityPartnerProvider to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220101:SecurityPartnerProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:SecurityPartnerProvider to guarantee forwards compatibility. */
 export function getSecurityPartnerProviderOutput(args: GetSecurityPartnerProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPartnerProviderResult> {
     return pulumi.output(args).apply((a: any) => getSecurityPartnerProvider(a, opts))
 }

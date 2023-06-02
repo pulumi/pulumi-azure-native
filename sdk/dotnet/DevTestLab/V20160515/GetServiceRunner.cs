@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
     [Obsolete(@"Version 2016-05-15 will be removed in v2 of the provider.
-azure-native:devtestlab/v20160515:ServiceRunner is being removed in the next major version of this provider. Please upgrade to azure-native:devtestlab/v20180915:ServiceRunner to guarantee forwards compatibility.")]
+azure-native:devtestlab/v20160515:ServiceRunner is being removed in the next major version of this provider. Upgrade to at least azure-native:devtestlab/v20180915:ServiceRunner to guarantee forwards compatibility.")]
     public static class GetServiceRunner
     {
         /// <summary>

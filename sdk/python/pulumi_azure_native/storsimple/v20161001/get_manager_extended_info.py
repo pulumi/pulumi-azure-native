@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.
-azure-native:storsimple/v20161001:ManagerExtendedInfo is being removed in the next major version of this provider. Please upgrade to azure-native:storsimple/v20170601:ManagerExtendedInfo to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:storsimple/v20161001:ManagerExtendedInfo is being removed in the next major version of this provider. Upgrade to at least azure-native:storsimple/v20170601:ManagerExtendedInfo to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetManagerExtendedInfoResult:
@@ -166,7 +166,7 @@ def get_manager_extended_info(manager_name: Optional[str] = None,
     :param str resource_group_name: The resource group name
     """
     pulumi.log.warn("""get_manager_extended_info is deprecated: Version 2016-10-01 will be removed in v2 of the provider.
-azure-native:storsimple/v20161001:ManagerExtendedInfo is being removed in the next major version of this provider. Please upgrade to azure-native:storsimple/v20170601:ManagerExtendedInfo to guarantee forwards compatibility.""")
+azure-native:storsimple/v20161001:ManagerExtendedInfo is being removed in the next major version of this provider. Upgrade to at least azure-native:storsimple/v20170601:ManagerExtendedInfo to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name
@@ -198,5 +198,5 @@ def get_manager_extended_info_output(manager_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The resource group name
     """
     pulumi.log.warn("""get_manager_extended_info is deprecated: Version 2016-10-01 will be removed in v2 of the provider.
-azure-native:storsimple/v20161001:ManagerExtendedInfo is being removed in the next major version of this provider. Please upgrade to azure-native:storsimple/v20170601:ManagerExtendedInfo to guarantee forwards compatibility.""")
+azure-native:storsimple/v20161001:ManagerExtendedInfo is being removed in the next major version of this provider. Upgrade to at least azure-native:storsimple/v20170601:ManagerExtendedInfo to guarantee forwards compatibility.""")
     ...

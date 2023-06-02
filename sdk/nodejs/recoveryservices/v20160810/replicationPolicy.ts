@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * Protection profile details.
  *
  * @deprecated Version 2016-08-10 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20160810:ReplicationPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationPolicy to guarantee forwards compatibility.
+azure-native:recoveryservices/v20160810:ReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationPolicy to guarantee forwards compatibility.
  */
 export class ReplicationPolicy extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class ReplicationPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReplicationPolicy {
-        pulumi.log.warn("ReplicationPolicy is deprecated: Version 2016-08-10 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20160810:ReplicationPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationPolicy to guarantee forwards compatibility.")
+        pulumi.log.warn("ReplicationPolicy is deprecated: Version 2016-08-10 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20160810:ReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationPolicy to guarantee forwards compatibility.")
         return new ReplicationPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -66,9 +66,9 @@ export class ReplicationPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2016-08-10 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20160810:ReplicationPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationPolicy to guarantee forwards compatibility. */
+azure-native:recoveryservices/v20160810:ReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationPolicy to guarantee forwards compatibility. */
     constructor(name: string, args: ReplicationPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ReplicationPolicy is deprecated: Version 2016-08-10 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20160810:ReplicationPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationPolicy to guarantee forwards compatibility.")
+        pulumi.log.warn("ReplicationPolicy is deprecated: Version 2016-08-10 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20160810:ReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationPolicy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

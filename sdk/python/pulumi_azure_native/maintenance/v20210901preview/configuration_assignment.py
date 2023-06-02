@@ -144,11 +144,11 @@ class ConfigurationAssignmentArgs:
         pulumi.set(self, "resource_id", value)
 
 
-warnings.warn("""azure-native:maintenance/v20210901preview:ConfigurationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:ConfigurationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:maintenance/v20210901preview:ConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:ConfigurationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ConfigurationAssignment(pulumi.CustomResource):
-    warnings.warn("""azure-native:maintenance/v20210901preview:ConfigurationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:ConfigurationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:maintenance/v20210901preview:ConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:ConfigurationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -210,7 +210,7 @@ class ConfigurationAssignment(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ConfigurationAssignment is deprecated: azure-native:maintenance/v20210901preview:ConfigurationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:ConfigurationAssignment to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ConfigurationAssignment is deprecated: azure-native:maintenance/v20210901preview:ConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:ConfigurationAssignment to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

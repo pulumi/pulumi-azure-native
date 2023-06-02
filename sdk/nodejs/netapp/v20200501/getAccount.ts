@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Get the NetApp account
  */
 /** @deprecated Version 2020-05-01 will be removed in v2 of the provider.
-azure-native:netapp/v20200501:Account is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220501:Account to guarantee forwards compatibility. */
+azure-native:netapp/v20200501:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220501:Account to guarantee forwards compatibility. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    pulumi.log.warn("getAccount is deprecated: Version 2020-05-01 will be removed in v2 of the provider.\nazure-native:netapp/v20200501:Account is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220501:Account to guarantee forwards compatibility.")
+    pulumi.log.warn("getAccount is deprecated: Version 2020-05-01 will be removed in v2 of the provider.\nazure-native:netapp/v20200501:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220501:Account to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20200501:getAccount", {
@@ -70,7 +70,7 @@ export interface GetAccountResult {
  * Get the NetApp account
  */
 /** @deprecated Version 2020-05-01 will be removed in v2 of the provider.
-azure-native:netapp/v20200501:Account is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220501:Account to guarantee forwards compatibility. */
+azure-native:netapp/v20200501:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220501:Account to guarantee forwards compatibility. */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }

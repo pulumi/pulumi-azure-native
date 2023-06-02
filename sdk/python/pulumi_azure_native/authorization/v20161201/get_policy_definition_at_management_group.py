@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2016-12-01 will be removed in v2 of the provider.
-azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPolicyDefinitionAtManagementGroupResult:
@@ -154,7 +154,7 @@ def get_policy_definition_at_management_group(management_group_id: Optional[str]
     :param str policy_definition_name: The name of the policy definition to get.
     """
     pulumi.log.warn("""get_policy_definition_at_management_group is deprecated: Version 2016-12-01 will be removed in v2 of the provider.
-azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility.""")
+azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['policyDefinitionName'] = policy_definition_name
@@ -185,5 +185,5 @@ def get_policy_definition_at_management_group_output(management_group_id: Option
     :param str policy_definition_name: The name of the policy definition to get.
     """
     pulumi.log.warn("""get_policy_definition_at_management_group is deprecated: Version 2016-12-01 will be removed in v2 of the provider.
-azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility.""")
+azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility.""")
     ...

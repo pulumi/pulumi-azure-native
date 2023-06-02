@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20190322
 {
     [Obsolete(@"Version 2019-03-22 will be removed in v2 of the provider.
-azure-native:devices/v20190322:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20200401:Certificate to guarantee forwards compatibility.")]
+azure-native:devices/v20190322:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20200401:Certificate to guarantee forwards compatibility.")]
     public static class GetCertificate
     {
         /// <summary>

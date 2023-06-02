@@ -148,12 +148,12 @@ class ServiceArgs:
 
 
 warnings.warn("""Version 2018-03-15-preview will be removed in v2 of the provider.
-azure-native:datamigration/v20180315preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20210630:Service to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:datamigration/v20180315preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20210630:Service to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Service(pulumi.CustomResource):
     warnings.warn("""Version 2018-03-15-preview will be removed in v2 of the provider.
-azure-native:datamigration/v20180315preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20210630:Service to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:datamigration/v20180315preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20210630:Service to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -216,7 +216,7 @@ azure-native:datamigration/v20180315preview:Service is being removed in the next
                  virtual_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Service is deprecated: Version 2018-03-15-preview will be removed in v2 of the provider.
-azure-native:datamigration/v20180315preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20210630:Service to guarantee forwards compatibility.""")
+azure-native:datamigration/v20180315preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20210630:Service to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

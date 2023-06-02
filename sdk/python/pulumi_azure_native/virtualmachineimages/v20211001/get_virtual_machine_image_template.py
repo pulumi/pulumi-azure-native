@@ -17,7 +17,7 @@ __all__ = [
     'get_virtual_machine_image_template_output',
 ]
 
-warnings.warn("""azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualMachineImageTemplateResult:
@@ -225,7 +225,7 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
     :param str image_template_name: The name of the image Template
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_virtual_machine_image_template is deprecated: azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_virtual_machine_image_template is deprecated: azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['imageTemplateName'] = image_template_name
     __args__['resourceGroupName'] = resource_group_name
@@ -261,5 +261,5 @@ def get_virtual_machine_image_template_output(image_template_name: Optional[pulu
     :param str image_template_name: The name of the image Template
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_virtual_machine_image_template is deprecated: azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_virtual_machine_image_template is deprecated: azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.""")
     ...

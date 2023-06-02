@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:solutions/v20170901:Application is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20171201:Application to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:solutions/v20170901:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20171201:Application to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetApplicationResult:
@@ -239,7 +239,7 @@ def get_application(application_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     pulumi.log.warn("""get_application is deprecated: Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:solutions/v20170901:Application is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20171201:Application to guarantee forwards compatibility.""")
+azure-native:solutions/v20170901:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20171201:Application to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['applicationName'] = application_name
     __args__['resourceGroupName'] = resource_group_name
@@ -277,5 +277,5 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     pulumi.log.warn("""get_application is deprecated: Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:solutions/v20170901:Application is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20171201:Application to guarantee forwards compatibility.""")
+azure-native:solutions/v20170901:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20171201:Application to guarantee forwards compatibility.""")
     ...

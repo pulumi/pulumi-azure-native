@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * The policy assignment.
  *
  * @deprecated Version 2015-10-01-preview will be removed in v2 of the provider.
-azure-native:authorization/v20151001preview:PolicyAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20160401:PolicyAssignment to guarantee forwards compatibility.
+azure-native:authorization/v20151001preview:PolicyAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20160401:PolicyAssignment to guarantee forwards compatibility.
  */
 export class PolicyAssignment extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PolicyAssignment {
-        pulumi.log.warn("PolicyAssignment is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.\nazure-native:authorization/v20151001preview:PolicyAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20160401:PolicyAssignment to guarantee forwards compatibility.")
+        pulumi.log.warn("PolicyAssignment is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.\nazure-native:authorization/v20151001preview:PolicyAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20160401:PolicyAssignment to guarantee forwards compatibility.")
         return new PolicyAssignment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -67,9 +67,9 @@ export class PolicyAssignment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider.
-azure-native:authorization/v20151001preview:PolicyAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20160401:PolicyAssignment to guarantee forwards compatibility. */
+azure-native:authorization/v20151001preview:PolicyAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20160401:PolicyAssignment to guarantee forwards compatibility. */
     constructor(name: string, args: PolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PolicyAssignment is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.\nazure-native:authorization/v20151001preview:PolicyAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20160401:PolicyAssignment to guarantee forwards compatibility.")
+        pulumi.log.warn("PolicyAssignment is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.\nazure-native:authorization/v20151001preview:PolicyAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20160401:PolicyAssignment to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

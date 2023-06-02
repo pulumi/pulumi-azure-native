@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
     /// Description of a Namespace AuthorizationRules.
     /// </summary>
     [Obsolete(@"Version 2016-07-01 will be removed in v2 of the provider.
-azure-native:relay/v20160701:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20170401:NamespaceAuthorizationRule to guarantee forwards compatibility.")]
+azure-native:relay/v20160701:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20170401:NamespaceAuthorizationRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:relay/v20160701:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource
     {

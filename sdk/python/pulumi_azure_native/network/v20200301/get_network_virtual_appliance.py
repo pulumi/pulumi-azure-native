@@ -17,7 +17,7 @@ __all__ = [
     'get_network_virtual_appliance_output',
 ]
 
-warnings.warn("""azure-native:network/v20200301:NetworkVirtualAppliance is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401:NetworkVirtualAppliance to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20200301:NetworkVirtualAppliance is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:NetworkVirtualAppliance to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetNetworkVirtualApplianceResult:
@@ -215,7 +215,7 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
     :param str network_virtual_appliance_name: The name of Network Virtual Appliance.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_network_virtual_appliance is deprecated: azure-native:network/v20200301:NetworkVirtualAppliance is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401:NetworkVirtualAppliance to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_network_virtual_appliance is deprecated: azure-native:network/v20200301:NetworkVirtualAppliance is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:NetworkVirtualAppliance to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['networkVirtualApplianceName'] = network_virtual_appliance_name
@@ -253,5 +253,5 @@ def get_network_virtual_appliance_output(expand: Optional[pulumi.Input[Optional[
     :param str network_virtual_appliance_name: The name of Network Virtual Appliance.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_network_virtual_appliance is deprecated: azure-native:network/v20200301:NetworkVirtualAppliance is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401:NetworkVirtualAppliance to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_network_virtual_appliance is deprecated: azure-native:network/v20200301:NetworkVirtualAppliance is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401:NetworkVirtualAppliance to guarantee forwards compatibility.""")
     ...

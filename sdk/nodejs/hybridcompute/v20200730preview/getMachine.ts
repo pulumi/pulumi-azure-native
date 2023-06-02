@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Retrieves information about the model view or the instance view of a hybrid machine.
  */
 /** @deprecated Version 2020-07-30-preview will be removed in v2 of the provider.
-azure-native:hybridcompute/v20200730preview:Machine is being removed in the next major version of this provider. Please upgrade to azure-native:hybridcompute/v20200802:Machine to guarantee forwards compatibility. */
+azure-native:hybridcompute/v20200730preview:Machine is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20200802:Machine to guarantee forwards compatibility. */
 export function getMachine(args: GetMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineResult> {
-    pulumi.log.warn("getMachine is deprecated: Version 2020-07-30-preview will be removed in v2 of the provider.\nazure-native:hybridcompute/v20200730preview:Machine is being removed in the next major version of this provider. Please upgrade to azure-native:hybridcompute/v20200802:Machine to guarantee forwards compatibility.")
+    pulumi.log.warn("getMachine is deprecated: Version 2020-07-30-preview will be removed in v2 of the provider.\nazure-native:hybridcompute/v20200730preview:Machine is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20200802:Machine to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcompute/v20200730preview:getMachine", {
@@ -144,7 +144,7 @@ export interface GetMachineResult {
  * Retrieves information about the model view or the instance view of a hybrid machine.
  */
 /** @deprecated Version 2020-07-30-preview will be removed in v2 of the provider.
-azure-native:hybridcompute/v20200730preview:Machine is being removed in the next major version of this provider. Please upgrade to azure-native:hybridcompute/v20200802:Machine to guarantee forwards compatibility. */
+azure-native:hybridcompute/v20200730preview:Machine is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20200802:Machine to guarantee forwards compatibility. */
 export function getMachineOutput(args: GetMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineResult> {
     return pulumi.output(args).apply((a: any) => getMachine(a, opts))
 }

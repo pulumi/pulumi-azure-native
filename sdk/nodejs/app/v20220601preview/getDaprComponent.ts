@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Dapr Component.
  */
-/** @deprecated azure-native:app/v20220601preview:DaprComponent is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:DaprComponent to guarantee forwards compatibility. */
+/** @deprecated azure-native:app/v20220601preview:DaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:DaprComponent to guarantee forwards compatibility. */
 export function getDaprComponent(args: GetDaprComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetDaprComponentResult> {
-    pulumi.log.warn("getDaprComponent is deprecated: azure-native:app/v20220601preview:DaprComponent is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:DaprComponent to guarantee forwards compatibility.")
+    pulumi.log.warn("getDaprComponent is deprecated: azure-native:app/v20220601preview:DaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:DaprComponent to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20220601preview:getDaprComponent", {
@@ -93,7 +93,7 @@ export interface GetDaprComponentResult {
 /**
  * Dapr Component.
  */
-/** @deprecated azure-native:app/v20220601preview:DaprComponent is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:DaprComponent to guarantee forwards compatibility. */
+/** @deprecated azure-native:app/v20220601preview:DaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:DaprComponent to guarantee forwards compatibility. */
 export function getDaprComponentOutput(args: GetDaprComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDaprComponentResult> {
     return pulumi.output(args).apply((a: any) => getDaprComponent(a, opts))
 }

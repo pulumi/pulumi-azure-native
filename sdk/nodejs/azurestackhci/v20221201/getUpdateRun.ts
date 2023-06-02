@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the Update run for a specified update
  */
-/** @deprecated azure-native:azurestackhci/v20221201:UpdateRun is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20230201:UpdateRun to guarantee forwards compatibility. */
+/** @deprecated azure-native:azurestackhci/v20221201:UpdateRun is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:UpdateRun to guarantee forwards compatibility. */
 export function getUpdateRun(args: GetUpdateRunArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateRunResult> {
-    pulumi.log.warn("getUpdateRun is deprecated: azure-native:azurestackhci/v20221201:UpdateRun is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20230201:UpdateRun to guarantee forwards compatibility.")
+    pulumi.log.warn("getUpdateRun is deprecated: azure-native:azurestackhci/v20221201:UpdateRun is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:UpdateRun to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20221201:getUpdateRun", {
@@ -118,7 +118,7 @@ export interface GetUpdateRunResult {
 /**
  * Get the Update run for a specified update
  */
-/** @deprecated azure-native:azurestackhci/v20221201:UpdateRun is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20230201:UpdateRun to guarantee forwards compatibility. */
+/** @deprecated azure-native:azurestackhci/v20221201:UpdateRun is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:UpdateRun to guarantee forwards compatibility. */
 export function getUpdateRunOutput(args: GetUpdateRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateRunResult> {
     return pulumi.output(args).apply((a: any) => getUpdateRun(a, opts))
 }

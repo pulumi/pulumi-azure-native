@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a project environment type.
  */
-/** @deprecated azure-native:devcenter/v20220801preview:ProjectEnvironmentType is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:ProjectEnvironmentType to guarantee forwards compatibility. */
+/** @deprecated azure-native:devcenter/v20220801preview:ProjectEnvironmentType is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:ProjectEnvironmentType to guarantee forwards compatibility. */
 export function getProjectEnvironmentType(args: GetProjectEnvironmentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectEnvironmentTypeResult> {
-    pulumi.log.warn("getProjectEnvironmentType is deprecated: azure-native:devcenter/v20220801preview:ProjectEnvironmentType is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:ProjectEnvironmentType to guarantee forwards compatibility.")
+    pulumi.log.warn("getProjectEnvironmentType is deprecated: azure-native:devcenter/v20220801preview:ProjectEnvironmentType is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:ProjectEnvironmentType to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20220801preview:getProjectEnvironmentType", {
@@ -93,7 +93,7 @@ export interface GetProjectEnvironmentTypeResult {
 /**
  * Gets a project environment type.
  */
-/** @deprecated azure-native:devcenter/v20220801preview:ProjectEnvironmentType is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:ProjectEnvironmentType to guarantee forwards compatibility. */
+/** @deprecated azure-native:devcenter/v20220801preview:ProjectEnvironmentType is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:ProjectEnvironmentType to guarantee forwards compatibility. */
 export function getProjectEnvironmentTypeOutput(args: GetProjectEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectEnvironmentTypeResult> {
     return pulumi.output(args).apply((a: any) => getProjectEnvironmentType(a, opts))
 }

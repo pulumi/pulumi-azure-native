@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Gets a SQL Server registration.
  */
 /** @deprecated Version 2017-03-01-preview will be removed in v2 of the provider.
-azure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility. */
+azure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility. */
 export function getSqlServerRegistration(args: GetSqlServerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerRegistrationResult> {
-    pulumi.log.warn("getSqlServerRegistration is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.\nazure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility.")
+    pulumi.log.warn("getSqlServerRegistration is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.\nazure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredata/v20170301preview:getSqlServerRegistration", {
@@ -71,7 +71,7 @@ export interface GetSqlServerRegistrationResult {
  * Gets a SQL Server registration.
  */
 /** @deprecated Version 2017-03-01-preview will be removed in v2 of the provider.
-azure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility. */
+azure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility. */
 export function getSqlServerRegistrationOutput(args: GetSqlServerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getSqlServerRegistration(a, opts))
 }

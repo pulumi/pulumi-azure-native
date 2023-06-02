@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-12-16-preview will be removed in v2 of the provider.
-azure-native:testbase/v20201216preview:CustomerEvent is being removed in the next major version of this provider. Please upgrade to azure-native:testbase/v20220401preview:CustomerEvent to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:testbase/v20201216preview:CustomerEvent is being removed in the next major version of this provider. Upgrade to at least azure-native:testbase/v20220401preview:CustomerEvent to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCustomerEventResult:
@@ -121,7 +121,7 @@ def get_customer_event(customer_event_name: Optional[str] = None,
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     pulumi.log.warn("""get_customer_event is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.
-azure-native:testbase/v20201216preview:CustomerEvent is being removed in the next major version of this provider. Please upgrade to azure-native:testbase/v20220401preview:CustomerEvent to guarantee forwards compatibility.""")
+azure-native:testbase/v20201216preview:CustomerEvent is being removed in the next major version of this provider. Upgrade to at least azure-native:testbase/v20220401preview:CustomerEvent to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['customerEventName'] = customer_event_name
     __args__['resourceGroupName'] = resource_group_name
@@ -152,5 +152,5 @@ def get_customer_event_output(customer_event_name: Optional[pulumi.Input[str]] =
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     pulumi.log.warn("""get_customer_event is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.
-azure-native:testbase/v20201216preview:CustomerEvent is being removed in the next major version of this provider. Please upgrade to azure-native:testbase/v20220401preview:CustomerEvent to guarantee forwards compatibility.""")
+azure-native:testbase/v20201216preview:CustomerEvent is being removed in the next major version of this provider. Upgrade to at least azure-native:testbase/v20220401preview:CustomerEvent to guarantee forwards compatibility.""")
     ...

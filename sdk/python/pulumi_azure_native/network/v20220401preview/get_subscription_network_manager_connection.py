@@ -17,7 +17,7 @@ __all__ = [
     'get_subscription_network_manager_connection_output',
 ]
 
-warnings.warn("""azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:SubscriptionNetworkManagerConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:SubscriptionNetworkManagerConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSubscriptionNetworkManagerConnectionResult:
@@ -127,7 +127,7 @@ def get_subscription_network_manager_connection(network_manager_connection_name:
 
     :param str network_manager_connection_name: Name for the network manager connection.
     """
-    pulumi.log.warn("""get_subscription_network_manager_connection is deprecated: azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:SubscriptionNetworkManagerConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_subscription_network_manager_connection is deprecated: azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:SubscriptionNetworkManagerConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['networkManagerConnectionName'] = network_manager_connection_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -152,5 +152,5 @@ def get_subscription_network_manager_connection_output(network_manager_connectio
 
     :param str network_manager_connection_name: Name for the network manager connection.
     """
-    pulumi.log.warn("""get_subscription_network_manager_connection is deprecated: azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:SubscriptionNetworkManagerConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_subscription_network_manager_connection is deprecated: azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:SubscriptionNetworkManagerConnection to guarantee forwards compatibility.""")
     ...

@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
  *
- * @deprecated azure-native:securityinsights/v20221101preview:TiTaxiiDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:TiTaxiiDataConnector to guarantee forwards compatibility.
+ * @deprecated azure-native:securityinsights/v20221101preview:TiTaxiiDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:TiTaxiiDataConnector to guarantee forwards compatibility.
  */
 export class TiTaxiiDataConnector extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class TiTaxiiDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TiTaxiiDataConnector {
-        pulumi.log.warn("TiTaxiiDataConnector is deprecated: azure-native:securityinsights/v20221101preview:TiTaxiiDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:TiTaxiiDataConnector to guarantee forwards compatibility.")
+        pulumi.log.warn("TiTaxiiDataConnector is deprecated: azure-native:securityinsights/v20221101preview:TiTaxiiDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:TiTaxiiDataConnector to guarantee forwards compatibility.")
         return new TiTaxiiDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -109,9 +109,9 @@ export class TiTaxiiDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:securityinsights/v20221101preview:TiTaxiiDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:TiTaxiiDataConnector to guarantee forwards compatibility. */
+    /** @deprecated azure-native:securityinsights/v20221101preview:TiTaxiiDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:TiTaxiiDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: TiTaxiiDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("TiTaxiiDataConnector is deprecated: azure-native:securityinsights/v20221101preview:TiTaxiiDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:TiTaxiiDataConnector to guarantee forwards compatibility.")
+        pulumi.log.warn("TiTaxiiDataConnector is deprecated: azure-native:securityinsights/v20221101preview:TiTaxiiDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:TiTaxiiDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

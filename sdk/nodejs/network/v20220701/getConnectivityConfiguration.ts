@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
  */
-/** @deprecated azure-native:network/v20220701:ConnectivityConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ConnectivityConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220701:ConnectivityConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ConnectivityConfiguration to guarantee forwards compatibility. */
 export function getConnectivityConfiguration(args: GetConnectivityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectivityConfigurationResult> {
-    pulumi.log.warn("getConnectivityConfiguration is deprecated: azure-native:network/v20220701:ConnectivityConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ConnectivityConfiguration to guarantee forwards compatibility.")
+    pulumi.log.warn("getConnectivityConfiguration is deprecated: azure-native:network/v20220701:ConnectivityConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ConnectivityConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220701:getConnectivityConfiguration", {
@@ -93,7 +93,7 @@ export interface GetConnectivityConfigurationResult {
 /**
  * Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
  */
-/** @deprecated azure-native:network/v20220701:ConnectivityConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ConnectivityConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220701:ConnectivityConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ConnectivityConfiguration to guarantee forwards compatibility. */
 export function getConnectivityConfigurationOutput(args: GetConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectivityConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConnectivityConfiguration(a, opts))
 }

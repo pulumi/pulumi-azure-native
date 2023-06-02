@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2018-06-01-preview will be removed in v2 of the provider.
-azure-native:managedservices/v20180601preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:managedservices/v20180601preview:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRegistrationAssignmentResult:
@@ -97,7 +97,7 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
     :param str scope: Scope of the resource.
     """
     pulumi.log.warn("""get_registration_assignment is deprecated: Version 2018-06-01-preview will be removed in v2 of the provider.
-azure-native:managedservices/v20180601preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.""")
+azure-native:managedservices/v20180601preview:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expandRegistrationDefinition'] = expand_registration_definition
     __args__['registrationAssignmentId'] = registration_assignment_id
@@ -126,5 +126,5 @@ def get_registration_assignment_output(expand_registration_definition: Optional[
     :param str scope: Scope of the resource.
     """
     pulumi.log.warn("""get_registration_assignment is deprecated: Version 2018-06-01-preview will be removed in v2 of the provider.
-azure-native:managedservices/v20180601preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.""")
+azure-native:managedservices/v20180601preview:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.""")
     ...

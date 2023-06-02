@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2018-03-15-preview will be removed in v2 of the provider.
-azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetProjectResult:
@@ -193,7 +193,7 @@ def get_project(group_name: Optional[str] = None,
     :param str service_name: Name of the service
     """
     pulumi.log.warn("""get_project is deprecated: Version 2018-03-15-preview will be removed in v2 of the provider.
-azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility.""")
+azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['groupName'] = group_name
     __args__['projectName'] = project_name
@@ -230,5 +230,5 @@ def get_project_output(group_name: Optional[pulumi.Input[str]] = None,
     :param str service_name: Name of the service
     """
     pulumi.log.warn("""get_project is deprecated: Version 2018-03-15-preview will be removed in v2 of the provider.
-azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility.""")
+azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility.""")
     ...

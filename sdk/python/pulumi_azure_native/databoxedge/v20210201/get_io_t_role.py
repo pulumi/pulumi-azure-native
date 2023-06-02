@@ -17,7 +17,7 @@ __all__ = [
     'get_io_t_role_output',
 ]
 
-warnings.warn("""azure-native:databoxedge/v20210201:IoTRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:IoTRole to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:databoxedge/v20210201:IoTRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:IoTRole to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetIoTRoleResult:
@@ -204,7 +204,7 @@ def get_io_t_role(device_name: Optional[str] = None,
     :param str name: The role name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_io_t_role is deprecated: azure-native:databoxedge/v20210201:IoTRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:IoTRole to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_io_t_role is deprecated: azure-native:databoxedge/v20210201:IoTRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:IoTRole to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name
@@ -241,5 +241,5 @@ def get_io_t_role_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str name: The role name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_io_t_role is deprecated: azure-native:databoxedge/v20210201:IoTRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:IoTRole to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_io_t_role is deprecated: azure-native:databoxedge/v20210201:IoTRole is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:IoTRole to guarantee forwards compatibility.""")
     ...

@@ -17,7 +17,7 @@ __all__ = [
     'get_hub_route_table_output',
 ]
 
-warnings.warn("""azure-native:network/v20210501:HubRouteTable is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:HubRouteTable to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20210501:HubRouteTable is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:HubRouteTable to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetHubRouteTableResult:
@@ -155,7 +155,7 @@ def get_hub_route_table(resource_group_name: Optional[str] = None,
     :param str route_table_name: The name of the RouteTable.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
-    pulumi.log.warn("""get_hub_route_table is deprecated: azure-native:network/v20210501:HubRouteTable is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:HubRouteTable to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_hub_route_table is deprecated: azure-native:network/v20210501:HubRouteTable is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:HubRouteTable to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeTableName'] = route_table_name
@@ -188,5 +188,5 @@ def get_hub_route_table_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str route_table_name: The name of the RouteTable.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
-    pulumi.log.warn("""get_hub_route_table is deprecated: azure-native:network/v20210501:HubRouteTable is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:HubRouteTable to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_hub_route_table is deprecated: azure-native:network/v20210501:HubRouteTable is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:HubRouteTable to guarantee forwards compatibility.""")
     ...

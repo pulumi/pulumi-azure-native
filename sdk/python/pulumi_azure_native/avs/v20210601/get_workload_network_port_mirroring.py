@@ -16,7 +16,7 @@ __all__ = [
     'get_workload_network_port_mirroring_output',
 ]
 
-warnings.warn("""azure-native:avs/v20210601:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:avs/v20210601:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetWorkloadNetworkPortMirroringResult:
@@ -166,7 +166,7 @@ def get_workload_network_port_mirroring(port_mirroring_id: Optional[str] = None,
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_workload_network_port_mirroring is deprecated: azure-native:avs/v20210601:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_workload_network_port_mirroring is deprecated: azure-native:avs/v20210601:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['portMirroringId'] = port_mirroring_id
     __args__['privateCloudName'] = private_cloud_name
@@ -200,5 +200,5 @@ def get_workload_network_port_mirroring_output(port_mirroring_id: Optional[pulum
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_workload_network_port_mirroring is deprecated: azure-native:avs/v20210601:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_workload_network_port_mirroring is deprecated: azure-native:avs/v20210601:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility.""")
     ...

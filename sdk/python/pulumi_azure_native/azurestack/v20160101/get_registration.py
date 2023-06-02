@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2016-01-01 will be removed in v2 of the provider.
-azure-native:azurestack/v20160101:Registration is being removed in the next major version of this provider. Please upgrade to azure-native:azurestack/v20200601preview:Registration to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:azurestack/v20160101:Registration is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestack/v20200601preview:Registration to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRegistrationResult:
@@ -154,7 +154,7 @@ def get_registration(registration_name: Optional[str] = None,
     :param str resource_group: Name of the resource group.
     """
     pulumi.log.warn("""get_registration is deprecated: Version 2016-01-01 will be removed in v2 of the provider.
-azure-native:azurestack/v20160101:Registration is being removed in the next major version of this provider. Please upgrade to azure-native:azurestack/v20200601preview:Registration to guarantee forwards compatibility.""")
+azure-native:azurestack/v20160101:Registration is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestack/v20200601preview:Registration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['registrationName'] = registration_name
     __args__['resourceGroup'] = resource_group
@@ -185,5 +185,5 @@ def get_registration_output(registration_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group: Name of the resource group.
     """
     pulumi.log.warn("""get_registration is deprecated: Version 2016-01-01 will be removed in v2 of the provider.
-azure-native:azurestack/v20160101:Registration is being removed in the next major version of this provider. Please upgrade to azure-native:azurestack/v20200601preview:Registration to guarantee forwards compatibility.""")
+azure-native:azurestack/v20160101:Registration is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestack/v20200601preview:Registration to guarantee forwards compatibility.""")
     ...

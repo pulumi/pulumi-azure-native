@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the properties of an connectedEnvironment.
  */
-/** @deprecated azure-native:app/v20220601preview:ConnectedEnvironment is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ConnectedEnvironment to guarantee forwards compatibility. */
+/** @deprecated azure-native:app/v20220601preview:ConnectedEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ConnectedEnvironment to guarantee forwards compatibility. */
 export function getConnectedEnvironment(args: GetConnectedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedEnvironmentResult> {
-    pulumi.log.warn("getConnectedEnvironment is deprecated: azure-native:app/v20220601preview:ConnectedEnvironment is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ConnectedEnvironment to guarantee forwards compatibility.")
+    pulumi.log.warn("getConnectedEnvironment is deprecated: azure-native:app/v20220601preview:ConnectedEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ConnectedEnvironment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20220601preview:getConnectedEnvironment", {
@@ -92,7 +92,7 @@ export interface GetConnectedEnvironmentResult {
 /**
  * Get the properties of an connectedEnvironment.
  */
-/** @deprecated azure-native:app/v20220601preview:ConnectedEnvironment is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ConnectedEnvironment to guarantee forwards compatibility. */
+/** @deprecated azure-native:app/v20220601preview:ConnectedEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ConnectedEnvironment to guarantee forwards compatibility. */
 export function getConnectedEnvironmentOutput(args: GetConnectedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getConnectedEnvironment(a, opts))
 }

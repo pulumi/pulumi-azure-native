@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:cache/v20190701:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:cache/v20190701:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetLinkedServerResult:
@@ -132,7 +132,7 @@ def get_linked_server(linked_server_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_linked_server is deprecated: Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:cache/v20190701:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""")
+azure-native:cache/v20190701:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['linkedServerName'] = linked_server_name
     __args__['name'] = name
@@ -164,5 +164,5 @@ def get_linked_server_output(linked_server_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_linked_server is deprecated: Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:cache/v20190701:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""")
+azure-native:cache/v20190701:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""")
     ...

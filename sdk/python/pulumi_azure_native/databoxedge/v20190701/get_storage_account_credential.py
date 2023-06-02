@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:databoxedge/v20190701:StorageAccountCredential is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:StorageAccountCredential to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:databoxedge/v20190701:StorageAccountCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:StorageAccountCredential to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetStorageAccountCredentialResult:
@@ -181,7 +181,7 @@ def get_storage_account_credential(device_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     """
     pulumi.log.warn("""get_storage_account_credential is deprecated: Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:databoxedge/v20190701:StorageAccountCredential is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:StorageAccountCredential to guarantee forwards compatibility.""")
+azure-native:databoxedge/v20190701:StorageAccountCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:StorageAccountCredential to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name
@@ -217,5 +217,5 @@ def get_storage_account_credential_output(device_name: Optional[pulumi.Input[str
     :param str resource_group_name: The resource group name.
     """
     pulumi.log.warn("""get_storage_account_credential is deprecated: Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:databoxedge/v20190701:StorageAccountCredential is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:StorageAccountCredential to guarantee forwards compatibility.""")
+azure-native:databoxedge/v20190701:StorageAccountCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:StorageAccountCredential to guarantee forwards compatibility.""")
     ...

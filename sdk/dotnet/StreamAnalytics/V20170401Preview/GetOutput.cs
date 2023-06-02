@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
 {
-    [Obsolete(@"azure-native:streamanalytics/v20170401preview:Output is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:streamanalytics/v20170401preview:Output is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.")]
     public static class GetOutput
     {
         /// <summary>

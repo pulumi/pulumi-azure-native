@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
     /// Address Resource.
     /// </summary>
     [Obsolete(@"Version 2020-12-01-preview will be removed in v2 of the provider.
-azure-native:edgeorder/v20201201preview:AddressByName is being removed in the next major version of this provider. Please upgrade to azure-native:edgeorder/v20211201:AddressByName to guarantee forwards compatibility.")]
+azure-native:edgeorder/v20201201preview:AddressByName is being removed in the next major version of this provider. Upgrade to at least azure-native:edgeorder/v20211201:AddressByName to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:edgeorder/v20201201preview:AddressByName")]
     public partial class AddressByName : global::Pulumi.CustomResource
     {

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * NSX Segment
  */
-/** @deprecated azure-native:avs/v20211201:WorkloadNetworkSegment is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkSegment to guarantee forwards compatibility. */
+/** @deprecated azure-native:avs/v20211201:WorkloadNetworkSegment is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkSegment to guarantee forwards compatibility. */
 export function getWorkloadNetworkSegment(args: GetWorkloadNetworkSegmentArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkSegmentResult> {
-    pulumi.log.warn("getWorkloadNetworkSegment is deprecated: azure-native:avs/v20211201:WorkloadNetworkSegment is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkSegment to guarantee forwards compatibility.")
+    pulumi.log.warn("getWorkloadNetworkSegment is deprecated: azure-native:avs/v20211201:WorkloadNetworkSegment is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkSegment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getWorkloadNetworkSegment", {
@@ -85,7 +85,7 @@ export interface GetWorkloadNetworkSegmentResult {
 /**
  * NSX Segment
  */
-/** @deprecated azure-native:avs/v20211201:WorkloadNetworkSegment is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkSegment to guarantee forwards compatibility. */
+/** @deprecated azure-native:avs/v20211201:WorkloadNetworkSegment is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkSegment to guarantee forwards compatibility. */
 export function getWorkloadNetworkSegmentOutput(args: GetWorkloadNetworkSegmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkSegmentResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadNetworkSegment(a, opts))
 }

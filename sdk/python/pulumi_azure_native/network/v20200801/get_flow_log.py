@@ -17,7 +17,7 @@ __all__ = [
     'get_flow_log_output',
 ]
 
-warnings.warn("""azure-native:network/v20200801:FlowLog is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:FlowLog to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20200801:FlowLog is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:FlowLog to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetFlowLogResult:
@@ -215,7 +215,7 @@ def get_flow_log(flow_log_name: Optional[str] = None,
     :param str network_watcher_name: The name of the network watcher.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_flow_log is deprecated: azure-native:network/v20200801:FlowLog is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:FlowLog to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_flow_log is deprecated: azure-native:network/v20200801:FlowLog is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:FlowLog to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['flowLogName'] = flow_log_name
     __args__['networkWatcherName'] = network_watcher_name
@@ -253,5 +253,5 @@ def get_flow_log_output(flow_log_name: Optional[pulumi.Input[str]] = None,
     :param str network_watcher_name: The name of the network watcher.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_flow_log is deprecated: azure-native:network/v20200801:FlowLog is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:FlowLog to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_flow_log is deprecated: azure-native:network/v20200801:FlowLog is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:FlowLog to guarantee forwards compatibility.""")
     ...

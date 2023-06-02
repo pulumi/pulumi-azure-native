@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a scaling plan.
  */
-/** @deprecated azure-native:desktopvirtualization/v20220909:ScalingPlan is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:ScalingPlan to guarantee forwards compatibility. */
+/** @deprecated azure-native:desktopvirtualization/v20220909:ScalingPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlan to guarantee forwards compatibility. */
 export function getScalingPlan(args: GetScalingPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanResult> {
-    pulumi.log.warn("getScalingPlan is deprecated: azure-native:desktopvirtualization/v20220909:ScalingPlan is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:ScalingPlan to guarantee forwards compatibility.")
+    pulumi.log.warn("getScalingPlan is deprecated: azure-native:desktopvirtualization/v20220909:ScalingPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlan to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20220909:getScalingPlan", {
@@ -111,7 +111,7 @@ export interface GetScalingPlanResult {
 /**
  * Get a scaling plan.
  */
-/** @deprecated azure-native:desktopvirtualization/v20220909:ScalingPlan is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:ScalingPlan to guarantee forwards compatibility. */
+/** @deprecated azure-native:desktopvirtualization/v20220909:ScalingPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlan to guarantee forwards compatibility. */
 export function getScalingPlanOutput(args: GetScalingPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanResult> {
     return pulumi.output(args).apply((a: any) => getScalingPlan(a, opts))
 }

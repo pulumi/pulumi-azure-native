@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220120Preview
     /// <summary>
     /// Represents a server firewall rule.
     /// </summary>
-    [Obsolete(@"azure-native:dbforpostgresql/v20220120preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:dbforpostgresql/v20221108:FirewallRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:dbforpostgresql/v20220120preview:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221108:FirewallRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20220120preview:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource
     {

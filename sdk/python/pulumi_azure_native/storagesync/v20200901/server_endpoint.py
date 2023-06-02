@@ -268,11 +268,11 @@ class ServerEndpointArgs:
         pulumi.set(self, "volume_free_space_percent", value)
 
 
-warnings.warn("""azure-native:storagesync/v20200901:ServerEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:ServerEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:storagesync/v20200901:ServerEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:ServerEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ServerEndpoint(pulumi.CustomResource):
-    warnings.warn("""azure-native:storagesync/v20200901:ServerEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:ServerEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:storagesync/v20200901:ServerEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:ServerEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -355,7 +355,7 @@ class ServerEndpoint(pulumi.CustomResource):
                  tier_files_older_than_days: Optional[pulumi.Input[int]] = None,
                  volume_free_space_percent: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""ServerEndpoint is deprecated: azure-native:storagesync/v20200901:ServerEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:ServerEndpoint to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ServerEndpoint is deprecated: azure-native:storagesync/v20200901:ServerEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:ServerEndpoint to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

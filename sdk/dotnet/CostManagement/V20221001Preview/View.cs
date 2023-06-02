@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.CostManagement.V20221001Preview
     /// <summary>
     /// States and configurations of Cost Analysis.
     /// </summary>
-    [Obsolete(@"azure-native:costmanagement/v20221001preview:View is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221005preview:View to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:costmanagement/v20221001preview:View is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221005preview:View to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:costmanagement/v20221001preview:View")]
     public partial class View : global::Pulumi.CustomResource
     {

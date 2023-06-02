@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-10-01 will be removed in v2 of the provider.
-azure-native:storagesync/v20191001:CloudEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:storagesync/v20191001:CloudEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCloudEndpointResult:
@@ -194,7 +194,7 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
     :param str sync_group_name: Name of Sync Group resource.
     """
     pulumi.log.warn("""get_cloud_endpoint is deprecated: Version 2019-10-01 will be removed in v2 of the provider.
-azure-native:storagesync/v20191001:CloudEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.""")
+azure-native:storagesync/v20191001:CloudEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['cloudEndpointName'] = cloud_endpoint_name
     __args__['resourceGroupName'] = resource_group_name
@@ -234,5 +234,5 @@ def get_cloud_endpoint_output(cloud_endpoint_name: Optional[pulumi.Input[str]] =
     :param str sync_group_name: Name of Sync Group resource.
     """
     pulumi.log.warn("""get_cloud_endpoint is deprecated: Version 2019-10-01 will be removed in v2 of the provider.
-azure-native:storagesync/v20191001:CloudEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.""")
+azure-native:storagesync/v20191001:CloudEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.""")
     ...

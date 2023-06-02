@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Gets a workspace key
  */
 /** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider.
-azure-native:synapse/v20190601preview:Key is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:Key to guarantee forwards compatibility. */
+azure-native:synapse/v20190601preview:Key is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:Key to guarantee forwards compatibility. */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
-    pulumi.log.warn("getKey is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.\nazure-native:synapse/v20190601preview:Key is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:Key to guarantee forwards compatibility.")
+    pulumi.log.warn("getKey is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.\nazure-native:synapse/v20190601preview:Key is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:Key to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20190601preview:getKey", {
@@ -64,7 +64,7 @@ export interface GetKeyResult {
  * Gets a workspace key
  */
 /** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider.
-azure-native:synapse/v20190601preview:Key is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:Key to guarantee forwards compatibility. */
+azure-native:synapse/v20190601preview:Key is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:Key to guarantee forwards compatibility. */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
     return pulumi.output(args).apply((a: any) => getKey(a, opts))
 }

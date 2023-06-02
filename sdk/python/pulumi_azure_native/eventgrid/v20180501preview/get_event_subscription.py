@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2018-05-01-preview will be removed in v2 of the provider.
-azure-native:eventgrid/v20180501preview:EventSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:eventgrid/v20180501preview:EventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetEventSubscriptionResult:
@@ -179,7 +179,7 @@ def get_event_subscription(event_subscription_name: Optional[str] = None,
     :param str scope: The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
     """
     pulumi.log.warn("""get_event_subscription is deprecated: Version 2018-05-01-preview will be removed in v2 of the provider.
-azure-native:eventgrid/v20180501preview:EventSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility.""")
+azure-native:eventgrid/v20180501preview:EventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['eventSubscriptionName'] = event_subscription_name
     __args__['scope'] = scope
@@ -212,5 +212,5 @@ def get_event_subscription_output(event_subscription_name: Optional[pulumi.Input
     :param str scope: The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
     """
     pulumi.log.warn("""get_event_subscription is deprecated: Version 2018-05-01-preview will be removed in v2 of the provider.
-azure-native:eventgrid/v20180501preview:EventSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility.""")
+azure-native:eventgrid/v20180501preview:EventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility.""")
     ...

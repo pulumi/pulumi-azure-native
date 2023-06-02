@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20180901
     /// <summary>
     /// Describes a link to virtual network for a Private DNS zone.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20180901:VirtualNetworkLink is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401preview:VirtualNetworkLink to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20180901:VirtualNetworkLink is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20200401preview:VirtualNetworkLink to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20180901:VirtualNetworkLink")]
     public partial class VirtualNetworkLink : global::Pulumi.CustomResource
     {

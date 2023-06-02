@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets an order item.
  */
 /** @deprecated Version 2020-12-01-preview will be removed in v2 of the provider.
-azure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Please upgrade to azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility. */
+azure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Upgrade to at least azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility. */
 export function getOrderItemByName(args: GetOrderItemByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderItemByNameResult> {
-    pulumi.log.warn("getOrderItemByName is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.\nazure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Please upgrade to azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility.")
+    pulumi.log.warn("getOrderItemByName is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.\nazure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Upgrade to at least azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:edgeorder/v20201201preview:getOrderItemByName", {
@@ -87,7 +87,7 @@ export interface GetOrderItemByNameResult {
  * Gets an order item.
  */
 /** @deprecated Version 2020-12-01-preview will be removed in v2 of the provider.
-azure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Please upgrade to azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility. */
+azure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Upgrade to at least azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility. */
 export function getOrderItemByNameOutput(args: GetOrderItemByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderItemByNameResult> {
     return pulumi.output(args).apply((a: any) => getOrderItemByName(a, opts))
 }

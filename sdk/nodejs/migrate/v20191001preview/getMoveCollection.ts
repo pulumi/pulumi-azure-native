@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the move collection.
  */
-/** @deprecated azure-native:migrate/v20191001preview:MoveCollection is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20220801:MoveCollection to guarantee forwards compatibility. */
+/** @deprecated azure-native:migrate/v20191001preview:MoveCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20220801:MoveCollection to guarantee forwards compatibility. */
 export function getMoveCollection(args: GetMoveCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMoveCollectionResult> {
-    pulumi.log.warn("getMoveCollection is deprecated: azure-native:migrate/v20191001preview:MoveCollection is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20220801:MoveCollection to guarantee forwards compatibility.")
+    pulumi.log.warn("getMoveCollection is deprecated: azure-native:migrate/v20191001preview:MoveCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20220801:MoveCollection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20191001preview:getMoveCollection", {
@@ -72,7 +72,7 @@ export interface GetMoveCollectionResult {
 /**
  * Gets the move collection.
  */
-/** @deprecated azure-native:migrate/v20191001preview:MoveCollection is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20220801:MoveCollection to guarantee forwards compatibility. */
+/** @deprecated azure-native:migrate/v20191001preview:MoveCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20220801:MoveCollection to guarantee forwards compatibility. */
 export function getMoveCollectionOutput(args: GetMoveCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveCollectionResult> {
     return pulumi.output(args).apply((a: any) => getMoveCollection(a, opts))
 }

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:VirtualHub is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180701:VirtualHub to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20180401:VirtualHub is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VirtualHub to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualHubResult:
@@ -167,7 +167,7 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
     :param str virtual_hub_name: The name of the VirtualHub.
     """
     pulumi.log.warn("""get_virtual_hub is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:VirtualHub is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180701:VirtualHub to guarantee forwards compatibility.""")
+azure-native:network/v20180401:VirtualHub is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VirtualHub to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualHubName'] = virtual_hub_name
@@ -199,5 +199,5 @@ def get_virtual_hub_output(resource_group_name: Optional[pulumi.Input[str]] = No
     :param str virtual_hub_name: The name of the VirtualHub.
     """
     pulumi.log.warn("""get_virtual_hub is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:VirtualHub is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180701:VirtualHub to guarantee forwards compatibility.""")
+azure-native:network/v20180401:VirtualHub is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20180701:VirtualHub to guarantee forwards compatibility.""")
     ...

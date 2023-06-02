@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Linker of source and target resource
  *
- * @deprecated azure-native:servicelinker/v20220501:Linker is being removed in the next major version of this provider. Please upgrade to azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.
+ * @deprecated azure-native:servicelinker/v20220501:Linker is being removed in the next major version of this provider. Upgrade to at least azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.
  */
 export class Linker extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Linker extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Linker {
-        pulumi.log.warn("Linker is deprecated: azure-native:servicelinker/v20220501:Linker is being removed in the next major version of this provider. Please upgrade to azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.")
+        pulumi.log.warn("Linker is deprecated: azure-native:servicelinker/v20220501:Linker is being removed in the next major version of this provider. Upgrade to at least azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.")
         return new Linker(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,9 +88,9 @@ export class Linker extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:servicelinker/v20220501:Linker is being removed in the next major version of this provider. Please upgrade to azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility. */
+    /** @deprecated azure-native:servicelinker/v20220501:Linker is being removed in the next major version of this provider. Upgrade to at least azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility. */
     constructor(name: string, args: LinkerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Linker is deprecated: azure-native:servicelinker/v20220501:Linker is being removed in the next major version of this provider. Please upgrade to azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.")
+        pulumi.log.warn("Linker is deprecated: azure-native:servicelinker/v20220501:Linker is being removed in the next major version of this provider. Upgrade to at least azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

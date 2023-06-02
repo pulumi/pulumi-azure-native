@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Get ownership identifier for domain
  */
 /** @deprecated Version 2020-06-01 will be removed in v2 of the provider.
-azure-native:domainregistration/v20200601:DomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20201001:DomainOwnershipIdentifier to guarantee forwards compatibility. */
+azure-native:domainregistration/v20200601:DomainOwnershipIdentifier is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20201001:DomainOwnershipIdentifier to guarantee forwards compatibility. */
 export function getDomainOwnershipIdentifier(args: GetDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainOwnershipIdentifierResult> {
-    pulumi.log.warn("getDomainOwnershipIdentifier is deprecated: Version 2020-06-01 will be removed in v2 of the provider.\nazure-native:domainregistration/v20200601:DomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20201001:DomainOwnershipIdentifier to guarantee forwards compatibility.")
+    pulumi.log.warn("getDomainOwnershipIdentifier is deprecated: Version 2020-06-01 will be removed in v2 of the provider.\nazure-native:domainregistration/v20200601:DomainOwnershipIdentifier is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20201001:DomainOwnershipIdentifier to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:domainregistration/v20200601:getDomainOwnershipIdentifier", {
@@ -64,7 +64,7 @@ export interface GetDomainOwnershipIdentifierResult {
  * Get ownership identifier for domain
  */
 /** @deprecated Version 2020-06-01 will be removed in v2 of the provider.
-azure-native:domainregistration/v20200601:DomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20201001:DomainOwnershipIdentifier to guarantee forwards compatibility. */
+azure-native:domainregistration/v20200601:DomainOwnershipIdentifier is being removed in the next major version of this provider. Upgrade to at least azure-native:domainregistration/v20201001:DomainOwnershipIdentifier to guarantee forwards compatibility. */
 export function getDomainOwnershipIdentifierOutput(args: GetDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainOwnershipIdentifierResult> {
     return pulumi.output(args).apply((a: any) => getDomainOwnershipIdentifier(a, opts))
 }

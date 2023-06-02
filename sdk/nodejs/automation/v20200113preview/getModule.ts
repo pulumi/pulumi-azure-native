@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve the module identified by module name.
  */
-/** @deprecated azure-native:automation/v20200113preview:Module is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Module to guarantee forwards compatibility. */
+/** @deprecated azure-native:automation/v20200113preview:Module is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Module to guarantee forwards compatibility. */
 export function getModule(args: GetModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetModuleResult> {
-    pulumi.log.warn("getModule is deprecated: azure-native:automation/v20200113preview:Module is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Module to guarantee forwards compatibility.")
+    pulumi.log.warn("getModule is deprecated: azure-native:automation/v20200113preview:Module is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Module to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20200113preview:getModule", {
@@ -113,7 +113,7 @@ export interface GetModuleResult {
 /**
  * Retrieve the module identified by module name.
  */
-/** @deprecated azure-native:automation/v20200113preview:Module is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Module to guarantee forwards compatibility. */
+/** @deprecated azure-native:automation/v20200113preview:Module is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Module to guarantee forwards compatibility. */
 export function getModuleOutput(args: GetModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModuleResult> {
     return pulumi.output(args).apply((a: any) => getModule(a, opts))
 }

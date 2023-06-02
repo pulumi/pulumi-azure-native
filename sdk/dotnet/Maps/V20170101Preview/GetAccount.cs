@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Maps.V20170101Preview
 {
     [Obsolete(@"Version 2017-01-01-preview will be removed in v2 of the provider.
-azure-native:maps/v20170101preview:Account is being removed in the next major version of this provider. Please upgrade to azure-native:maps/v20180501:Account to guarantee forwards compatibility.")]
+azure-native:maps/v20170101preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:maps/v20180501:Account to guarantee forwards compatibility.")]
     public static class GetAccount
     {
         /// <summary>

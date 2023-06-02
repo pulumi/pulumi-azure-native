@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified interface endpoint by resource group.
  */
-/** @deprecated azure-native:network/v20181201:InterfaceEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190201:InterfaceEndpoint to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20181201:InterfaceEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190201:InterfaceEndpoint to guarantee forwards compatibility. */
 export function getInterfaceEndpoint(args: GetInterfaceEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetInterfaceEndpointResult> {
-    pulumi.log.warn("getInterfaceEndpoint is deprecated: azure-native:network/v20181201:InterfaceEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190201:InterfaceEndpoint to guarantee forwards compatibility.")
+    pulumi.log.warn("getInterfaceEndpoint is deprecated: azure-native:network/v20181201:InterfaceEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190201:InterfaceEndpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20181201:getInterfaceEndpoint", {
@@ -93,7 +93,7 @@ export interface GetInterfaceEndpointResult {
 /**
  * Gets the specified interface endpoint by resource group.
  */
-/** @deprecated azure-native:network/v20181201:InterfaceEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190201:InterfaceEndpoint to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20181201:InterfaceEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190201:InterfaceEndpoint to guarantee forwards compatibility. */
 export function getInterfaceEndpointOutput(args: GetInterfaceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInterfaceEndpointResult> {
     return pulumi.output(args).apply((a: any) => getInterfaceEndpoint(a, opts))
 }

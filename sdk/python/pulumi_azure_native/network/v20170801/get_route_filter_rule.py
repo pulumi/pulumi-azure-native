@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2017-08-01 will be removed in v2 of the provider.
-azure-native:network/v20170801:RouteFilterRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20171001:RouteFilterRule to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20170801:RouteFilterRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20171001:RouteFilterRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRouteFilterRuleResult:
@@ -156,7 +156,7 @@ def get_route_filter_rule(resource_group_name: Optional[str] = None,
     :param str rule_name: The name of the rule.
     """
     pulumi.log.warn("""get_route_filter_rule is deprecated: Version 2017-08-01 will be removed in v2 of the provider.
-azure-native:network/v20170801:RouteFilterRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20171001:RouteFilterRule to guarantee forwards compatibility.""")
+azure-native:network/v20170801:RouteFilterRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20171001:RouteFilterRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeFilterName'] = route_filter_name
@@ -190,5 +190,5 @@ def get_route_filter_rule_output(resource_group_name: Optional[pulumi.Input[str]
     :param str rule_name: The name of the rule.
     """
     pulumi.log.warn("""get_route_filter_rule is deprecated: Version 2017-08-01 will be removed in v2 of the provider.
-azure-native:network/v20170801:RouteFilterRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20171001:RouteFilterRule to guarantee forwards compatibility.""")
+azure-native:network/v20170801:RouteFilterRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20171001:RouteFilterRule to guarantee forwards compatibility.""")
     ...

@@ -17,7 +17,7 @@ __all__ = [
     'get_sub_account_output',
 ]
 
-warnings.warn("""azure-native:logz/v20201001preview:SubAccount is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:SubAccount to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:logz/v20201001preview:SubAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:logz/v20220101preview:SubAccount to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSubAccountResult:
@@ -130,7 +130,7 @@ def get_sub_account(monitor_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sub_account_name: Sub Account resource name
     """
-    pulumi.log.warn("""get_sub_account is deprecated: azure-native:logz/v20201001preview:SubAccount is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:SubAccount to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_sub_account is deprecated: azure-native:logz/v20201001preview:SubAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:logz/v20220101preview:SubAccount to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
@@ -161,5 +161,5 @@ def get_sub_account_output(monitor_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sub_account_name: Sub Account resource name
     """
-    pulumi.log.warn("""get_sub_account is deprecated: azure-native:logz/v20201001preview:SubAccount is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:SubAccount to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_sub_account is deprecated: azure-native:logz/v20201001preview:SubAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:logz/v20220101preview:SubAccount to guarantee forwards compatibility.""")
     ...

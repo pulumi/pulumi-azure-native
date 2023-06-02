@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Azure Resource Manager resource envelope.
  */
-/** @deprecated azure-native:machinelearningservices/v20220601preview:EnvironmentContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:EnvironmentContainer to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20220601preview:EnvironmentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:EnvironmentContainer to guarantee forwards compatibility. */
 export function getEnvironmentContainer(args: GetEnvironmentContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentContainerResult> {
-    pulumi.log.warn("getEnvironmentContainer is deprecated: azure-native:machinelearningservices/v20220601preview:EnvironmentContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:EnvironmentContainer to guarantee forwards compatibility.")
+    pulumi.log.warn("getEnvironmentContainer is deprecated: azure-native:machinelearningservices/v20220601preview:EnvironmentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:EnvironmentContainer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220601preview:getEnvironmentContainer", {
@@ -65,7 +65,7 @@ export interface GetEnvironmentContainerResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-/** @deprecated azure-native:machinelearningservices/v20220601preview:EnvironmentContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:EnvironmentContainer to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20220601preview:EnvironmentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:EnvironmentContainer to guarantee forwards compatibility. */
 export function getEnvironmentContainerOutput(args: GetEnvironmentContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentContainerResult> {
     return pulumi.output(args).apply((a: any) => getEnvironmentContainer(a, opts))
 }

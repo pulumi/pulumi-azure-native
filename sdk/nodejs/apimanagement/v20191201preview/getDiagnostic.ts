@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the Diagnostic specified by its identifier.
  */
-/** @deprecated azure-native:apimanagement/v20191201preview:Diagnostic is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Diagnostic to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20191201preview:Diagnostic is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Diagnostic to guarantee forwards compatibility. */
 export function getDiagnostic(args: GetDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticResult> {
-    pulumi.log.warn("getDiagnostic is deprecated: azure-native:apimanagement/v20191201preview:Diagnostic is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Diagnostic to guarantee forwards compatibility.")
+    pulumi.log.warn("getDiagnostic is deprecated: azure-native:apimanagement/v20191201preview:Diagnostic is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Diagnostic to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201preview:getDiagnostic", {
@@ -89,7 +89,7 @@ export interface GetDiagnosticResult {
 /**
  * Gets the details of the Diagnostic specified by its identifier.
  */
-/** @deprecated azure-native:apimanagement/v20191201preview:Diagnostic is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Diagnostic to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20191201preview:Diagnostic is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Diagnostic to guarantee forwards compatibility. */
 export function getDiagnosticOutput(args: GetDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticResult> {
     return pulumi.output(args).apply((a: any) => getDiagnostic(a, opts))
 }

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a specified connection created by this subscription.
  */
-/** @deprecated azure-native:network/v20220501:SubscriptionNetworkManagerConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:SubscriptionNetworkManagerConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220501:SubscriptionNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:SubscriptionNetworkManagerConnection to guarantee forwards compatibility. */
 export function getSubscriptionNetworkManagerConnection(args: GetSubscriptionNetworkManagerConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionNetworkManagerConnectionResult> {
-    pulumi.log.warn("getSubscriptionNetworkManagerConnection is deprecated: azure-native:network/v20220501:SubscriptionNetworkManagerConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:SubscriptionNetworkManagerConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getSubscriptionNetworkManagerConnection is deprecated: azure-native:network/v20220501:SubscriptionNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:SubscriptionNetworkManagerConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220501:getSubscriptionNetworkManagerConnection", {
@@ -63,7 +63,7 @@ export interface GetSubscriptionNetworkManagerConnectionResult {
 /**
  * Get a specified connection created by this subscription.
  */
-/** @deprecated azure-native:network/v20220501:SubscriptionNetworkManagerConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:SubscriptionNetworkManagerConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220501:SubscriptionNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:SubscriptionNetworkManagerConnection to guarantee forwards compatibility. */
 export function getSubscriptionNetworkManagerConnectionOutput(args: GetSubscriptionNetworkManagerConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionNetworkManagerConnectionResult> {
     return pulumi.output(args).apply((a: any) => getSubscriptionNetworkManagerConnection(a, opts))
 }

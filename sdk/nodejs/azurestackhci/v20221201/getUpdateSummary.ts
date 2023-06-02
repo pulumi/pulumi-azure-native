@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get all Update summaries under the HCI cluster
  */
-/** @deprecated azure-native:azurestackhci/v20221201:UpdateSummary is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20230201:UpdateSummary to guarantee forwards compatibility. */
+/** @deprecated azure-native:azurestackhci/v20221201:UpdateSummary is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:UpdateSummary to guarantee forwards compatibility. */
 export function getUpdateSummary(args: GetUpdateSummaryArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateSummaryResult> {
-    pulumi.log.warn("getUpdateSummary is deprecated: azure-native:azurestackhci/v20221201:UpdateSummary is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20230201:UpdateSummary to guarantee forwards compatibility.")
+    pulumi.log.warn("getUpdateSummary is deprecated: azure-native:azurestackhci/v20221201:UpdateSummary is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:UpdateSummary to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20221201:getUpdateSummary", {
@@ -92,7 +92,7 @@ export interface GetUpdateSummaryResult {
 /**
  * Get all Update summaries under the HCI cluster
  */
-/** @deprecated azure-native:azurestackhci/v20221201:UpdateSummary is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20230201:UpdateSummary to guarantee forwards compatibility. */
+/** @deprecated azure-native:azurestackhci/v20221201:UpdateSummary is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:UpdateSummary to guarantee forwards compatibility. */
 export function getUpdateSummaryOutput(args: GetUpdateSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateSummaryResult> {
     return pulumi.output(args).apply((a: any) => getUpdateSummary(a, opts))
 }

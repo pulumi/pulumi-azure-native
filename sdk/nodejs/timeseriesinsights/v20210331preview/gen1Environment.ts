@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
  *
- * @deprecated azure-native:timeseriesinsights/v20210331preview:Gen1Environment is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:Gen1Environment to guarantee forwards compatibility.
+ * @deprecated azure-native:timeseriesinsights/v20210331preview:Gen1Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:Gen1Environment to guarantee forwards compatibility.
  */
 export class Gen1Environment extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Gen1Environment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Gen1Environment {
-        pulumi.log.warn("Gen1Environment is deprecated: azure-native:timeseriesinsights/v20210331preview:Gen1Environment is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:Gen1Environment to guarantee forwards compatibility.")
+        pulumi.log.warn("Gen1Environment is deprecated: azure-native:timeseriesinsights/v20210331preview:Gen1Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:Gen1Environment to guarantee forwards compatibility.")
         return new Gen1Environment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -105,9 +105,9 @@ export class Gen1Environment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:timeseriesinsights/v20210331preview:Gen1Environment is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:Gen1Environment to guarantee forwards compatibility. */
+    /** @deprecated azure-native:timeseriesinsights/v20210331preview:Gen1Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:Gen1Environment to guarantee forwards compatibility. */
     constructor(name: string, args: Gen1EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Gen1Environment is deprecated: azure-native:timeseriesinsights/v20210331preview:Gen1Environment is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:Gen1Environment to guarantee forwards compatibility.")
+        pulumi.log.warn("Gen1Environment is deprecated: azure-native:timeseriesinsights/v20210331preview:Gen1Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:Gen1Environment to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2015-06-01 will be removed in v2 of the provider.
-azure-native:keyvault/v20150601:Vault is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:keyvault/v20150601:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVaultResult:
@@ -119,7 +119,7 @@ def get_vault(resource_group_name: Optional[str] = None,
     :param str vault_name: The name of the vault.
     """
     pulumi.log.warn("""get_vault is deprecated: Version 2015-06-01 will be removed in v2 of the provider.
-azure-native:keyvault/v20150601:Vault is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.""")
+azure-native:keyvault/v20150601:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name
@@ -147,5 +147,5 @@ def get_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str vault_name: The name of the vault.
     """
     pulumi.log.warn("""get_vault is deprecated: Version 2015-06-01 will be removed in v2 of the provider.
-azure-native:keyvault/v20150601:Vault is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.""")
+azure-native:keyvault/v20150601:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.""")
     ...

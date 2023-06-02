@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20161001
     /// Resource information with extended details.
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.
-azure-native:keyvault/v20161001:Vault is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.")]
+azure-native:keyvault/v20161001:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:keyvault/v20161001:Vault")]
     public partial class Vault : global::Pulumi.CustomResource
     {

@@ -17,7 +17,7 @@ __all__ = [
     'get_scheduled_action_by_scope_output',
 ]
 
-warnings.warn("""azure-native:costmanagement/v20220601preview:ScheduledActionByScope is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221001:ScheduledActionByScope to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:costmanagement/v20220601preview:ScheduledActionByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221001:ScheduledActionByScope to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetScheduledActionByScopeResult:
@@ -201,7 +201,7 @@ def get_scheduled_action_by_scope(name: Optional[str] = None,
     :param str name: Scheduled action name.
     :param str scope: The scope associated with scheduled action operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope. Note: Insight Alerts are only available on subscription scope.
     """
-    pulumi.log.warn("""get_scheduled_action_by_scope is deprecated: azure-native:costmanagement/v20220601preview:ScheduledActionByScope is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221001:ScheduledActionByScope to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_scheduled_action_by_scope is deprecated: azure-native:costmanagement/v20220601preview:ScheduledActionByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221001:ScheduledActionByScope to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['scope'] = scope
@@ -235,5 +235,5 @@ def get_scheduled_action_by_scope_output(name: Optional[pulumi.Input[str]] = Non
     :param str name: Scheduled action name.
     :param str scope: The scope associated with scheduled action operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope. Note: Insight Alerts are only available on subscription scope.
     """
-    pulumi.log.warn("""get_scheduled_action_by_scope is deprecated: azure-native:costmanagement/v20220601preview:ScheduledActionByScope is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221001:ScheduledActionByScope to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_scheduled_action_by_scope is deprecated: azure-native:costmanagement/v20220601preview:ScheduledActionByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221001:ScheduledActionByScope to guarantee forwards compatibility.""")
     ...

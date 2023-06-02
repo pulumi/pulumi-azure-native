@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * The Private Endpoint Connection resource.
  *
- * @deprecated azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.
+ * @deprecated azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.
  */
 export class PrivateEndpointConnectionByHostPool extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class PrivateEndpointConnectionByHostPool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpointConnectionByHostPool {
-        pulumi.log.warn("PrivateEndpointConnectionByHostPool is deprecated: azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.")
+        pulumi.log.warn("PrivateEndpointConnectionByHostPool is deprecated: azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.")
         return new PrivateEndpointConnectionByHostPool(name, undefined as any, { ...opts, id: id });
     }
 
@@ -72,9 +72,9 @@ export class PrivateEndpointConnectionByHostPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility. */
+    /** @deprecated azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateEndpointConnectionByHostPoolArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PrivateEndpointConnectionByHostPool is deprecated: azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.")
+        pulumi.log.warn("PrivateEndpointConnectionByHostPool is deprecated: azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

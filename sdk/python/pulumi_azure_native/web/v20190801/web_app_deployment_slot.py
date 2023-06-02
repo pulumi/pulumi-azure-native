@@ -240,11 +240,11 @@ class WebAppDeploymentSlotArgs:
         pulumi.set(self, "status", value)
 
 
-warnings.warn("""azure-native:web/v20190801:WebAppDeploymentSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppDeploymentSlot to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:web/v20190801:WebAppDeploymentSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppDeploymentSlot to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class WebAppDeploymentSlot(pulumi.CustomResource):
-    warnings.warn("""azure-native:web/v20190801:WebAppDeploymentSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppDeploymentSlot to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:web/v20190801:WebAppDeploymentSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppDeploymentSlot to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -324,7 +324,7 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
                  start_time: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""WebAppDeploymentSlot is deprecated: azure-native:web/v20190801:WebAppDeploymentSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppDeploymentSlot to guarantee forwards compatibility.""")
+        pulumi.log.warn("""WebAppDeploymentSlot is deprecated: azure-native:web/v20190801:WebAppDeploymentSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppDeploymentSlot to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

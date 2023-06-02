@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualMachineScaleSetVMExtensionResult:
@@ -209,7 +209,7 @@ def get_virtual_machine_scale_set_vm_extension(expand: Optional[str] = None,
     :param str vm_scale_set_name: The name of the VM scale set.
     """
     pulumi.log.warn("""get_virtual_machine_scale_set_vm_extension is deprecated: Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension to guarantee forwards compatibility.""")
+azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['instanceId'] = instance_id
@@ -253,5 +253,5 @@ def get_virtual_machine_scale_set_vm_extension_output(expand: Optional[pulumi.In
     :param str vm_scale_set_name: The name of the VM scale set.
     """
     pulumi.log.warn("""get_virtual_machine_scale_set_vm_extension is deprecated: Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension to guarantee forwards compatibility.""")
+azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension to guarantee forwards compatibility.""")
     ...

@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Definition of hybrid runbook worker group.
  *
- * @deprecated azure-native:automation/v20220222:HybridRunbookWorkerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:HybridRunbookWorkerGroup to guarantee forwards compatibility.
+ * @deprecated azure-native:automation/v20220222:HybridRunbookWorkerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:HybridRunbookWorkerGroup to guarantee forwards compatibility.
  */
 export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): HybridRunbookWorkerGroup {
-        pulumi.log.warn("HybridRunbookWorkerGroup is deprecated: azure-native:automation/v20220222:HybridRunbookWorkerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:HybridRunbookWorkerGroup to guarantee forwards compatibility.")
+        pulumi.log.warn("HybridRunbookWorkerGroup is deprecated: azure-native:automation/v20220222:HybridRunbookWorkerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:HybridRunbookWorkerGroup to guarantee forwards compatibility.")
         return new HybridRunbookWorkerGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,9 +68,9 @@ export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:automation/v20220222:HybridRunbookWorkerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:HybridRunbookWorkerGroup to guarantee forwards compatibility. */
+    /** @deprecated azure-native:automation/v20220222:HybridRunbookWorkerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:HybridRunbookWorkerGroup to guarantee forwards compatibility. */
     constructor(name: string, args: HybridRunbookWorkerGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("HybridRunbookWorkerGroup is deprecated: azure-native:automation/v20220222:HybridRunbookWorkerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:HybridRunbookWorkerGroup to guarantee forwards compatibility.")
+        pulumi.log.warn("HybridRunbookWorkerGroup is deprecated: azure-native:automation/v20220222:HybridRunbookWorkerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:HybridRunbookWorkerGroup to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

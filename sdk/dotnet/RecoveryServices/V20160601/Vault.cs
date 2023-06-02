@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160601
     /// Resource information, as returned by the resource provider.
     /// </summary>
     [Obsolete(@"Version 2016-06-01 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20160601:Vault is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20200202:Vault to guarantee forwards compatibility.")]
+azure-native:recoveryservices/v20160601:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20200202:Vault to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20160601:Vault")]
     public partial class Vault : global::Pulumi.CustomResource
     {

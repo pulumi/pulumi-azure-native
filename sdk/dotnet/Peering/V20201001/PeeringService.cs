@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering.V20201001
     /// Peering Service
     /// </summary>
     [Obsolete(@"Version 2020-10-01 will be removed in v2 of the provider.
-azure-native:peering/v20201001:PeeringService is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeeringService to guarantee forwards compatibility.")]
+azure-native:peering/v20201001:PeeringService is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:PeeringService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:peering/v20201001:PeeringService")]
     public partial class PeeringService : global::Pulumi.CustomResource
     {

@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
  */
-/** @deprecated azure-native:eventhub/v20180101preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventhub/v20180101preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility. */
 export function getDisasterRecoveryConfig(args: GetDisasterRecoveryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigResult> {
-    pulumi.log.warn("getDisasterRecoveryConfig is deprecated: azure-native:eventhub/v20180101preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility.")
+    pulumi.log.warn("getDisasterRecoveryConfig is deprecated: azure-native:eventhub/v20180101preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20180101preview:getDisasterRecoveryConfig", {
@@ -74,7 +74,7 @@ export interface GetDisasterRecoveryConfigResult {
 /**
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
  */
-/** @deprecated azure-native:eventhub/v20180101preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventhub/v20180101preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility. */
 export function getDisasterRecoveryConfigOutput(args: GetDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDisasterRecoveryConfigResult> {
     return pulumi.output(args).apply((a: any) => getDisasterRecoveryConfig(a, opts))
 }

@@ -16,7 +16,7 @@ __all__ = [
     'get_web_app_instance_function_slot_output',
 ]
 
-warnings.warn("""azure-native:web/v20181101:WebAppInstanceFunctionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppInstanceFunctionSlot to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:web/v20181101:WebAppInstanceFunctionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppInstanceFunctionSlot to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetWebAppInstanceFunctionSlotResult:
@@ -204,7 +204,7 @@ def get_web_app_instance_function_slot(function_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API deletes a deployment for the production slot.
     """
-    pulumi.log.warn("""get_web_app_instance_function_slot is deprecated: azure-native:web/v20181101:WebAppInstanceFunctionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppInstanceFunctionSlot to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_web_app_instance_function_slot is deprecated: azure-native:web/v20181101:WebAppInstanceFunctionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppInstanceFunctionSlot to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['name'] = name
@@ -244,5 +244,5 @@ def get_web_app_instance_function_slot_output(function_name: Optional[pulumi.Inp
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API deletes a deployment for the production slot.
     """
-    pulumi.log.warn("""get_web_app_instance_function_slot is deprecated: azure-native:web/v20181101:WebAppInstanceFunctionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppInstanceFunctionSlot to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_web_app_instance_function_slot is deprecated: azure-native:web/v20181101:WebAppInstanceFunctionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppInstanceFunctionSlot to guarantee forwards compatibility.""")
     ...

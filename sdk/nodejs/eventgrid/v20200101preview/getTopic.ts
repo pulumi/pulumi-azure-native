@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Get properties of a topic
  */
 /** @deprecated Version 2020-01-01-preview will be removed in v2 of the provider.
-azure-native:eventgrid/v20200101preview:Topic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20200401preview:Topic to guarantee forwards compatibility. */
+azure-native:eventgrid/v20200101preview:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20200401preview:Topic to guarantee forwards compatibility. */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
-    pulumi.log.warn("getTopic is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.\nazure-native:eventgrid/v20200101preview:Topic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20200401preview:Topic to guarantee forwards compatibility.")
+    pulumi.log.warn("getTopic is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.\nazure-native:eventgrid/v20200101preview:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20200401preview:Topic to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20200101preview:getTopic", {
@@ -82,7 +82,7 @@ export interface GetTopicResult {
  * Get properties of a topic
  */
 /** @deprecated Version 2020-01-01-preview will be removed in v2 of the provider.
-azure-native:eventgrid/v20200101preview:Topic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20200401preview:Topic to guarantee forwards compatibility. */
+azure-native:eventgrid/v20200101preview:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20200401preview:Topic to guarantee forwards compatibility. */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
     return pulumi.output(args).apply((a: any) => getTopic(a, opts))
 }

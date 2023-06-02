@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the Service Registry and its properties.
  */
-/** @deprecated azure-native:appplatform/v20221201:ServiceRegistry is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ServiceRegistry to guarantee forwards compatibility. */
+/** @deprecated azure-native:appplatform/v20221201:ServiceRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ServiceRegistry to guarantee forwards compatibility. */
 export function getServiceRegistry(args: GetServiceRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceRegistryResult> {
-    pulumi.log.warn("getServiceRegistry is deprecated: azure-native:appplatform/v20221201:ServiceRegistry is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ServiceRegistry to guarantee forwards compatibility.")
+    pulumi.log.warn("getServiceRegistry is deprecated: azure-native:appplatform/v20221201:ServiceRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ServiceRegistry to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20221201:getServiceRegistry", {
@@ -65,7 +65,7 @@ export interface GetServiceRegistryResult {
 /**
  * Get the Service Registry and its properties.
  */
-/** @deprecated azure-native:appplatform/v20221201:ServiceRegistry is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ServiceRegistry to guarantee forwards compatibility. */
+/** @deprecated azure-native:appplatform/v20221201:ServiceRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ServiceRegistry to guarantee forwards compatibility. */
 export function getServiceRegistryOutput(args: GetServiceRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceRegistryResult> {
     return pulumi.output(args).apply((a: any) => getServiceRegistry(a, opts))
 }

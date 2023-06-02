@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-04-15 will be removed in v2 of the provider.
-azure-native:cdn/v20200415:Origin is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:cdn/v20200415:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetOriginResult:
@@ -254,7 +254,7 @@ def get_origin(endpoint_name: Optional[str] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     pulumi.log.warn("""get_origin is deprecated: Version 2020-04-15 will be removed in v2 of the provider.
-azure-native:cdn/v20200415:Origin is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""")
+azure-native:cdn/v20200415:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['originName'] = origin_name
@@ -299,5 +299,5 @@ def get_origin_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     pulumi.log.warn("""get_origin is deprecated: Version 2020-04-15 will be removed in v2 of the provider.
-azure-native:cdn/v20200415:Origin is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""")
+azure-native:cdn/v20200415:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.""")
     ...

@@ -17,7 +17,7 @@ __all__ = [
     'get_private_link_service_output',
 ]
 
-warnings.warn("""azure-native:network/v20200601:PrivateLinkService is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210201:PrivateLinkService to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20200601:PrivateLinkService is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210201:PrivateLinkService to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPrivateLinkServiceResult:
@@ -239,7 +239,7 @@ def get_private_link_service(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the private link service.
     """
-    pulumi.log.warn("""get_private_link_service is deprecated: azure-native:network/v20200601:PrivateLinkService is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210201:PrivateLinkService to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_link_service is deprecated: azure-native:network/v20200601:PrivateLinkService is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210201:PrivateLinkService to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -279,5 +279,5 @@ def get_private_link_service_output(expand: Optional[pulumi.Input[Optional[str]]
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the private link service.
     """
-    pulumi.log.warn("""get_private_link_service is deprecated: azure-native:network/v20200601:PrivateLinkService is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210201:PrivateLinkService to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_link_service is deprecated: azure-native:network/v20200601:PrivateLinkService is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210201:PrivateLinkService to guarantee forwards compatibility.""")
     ...

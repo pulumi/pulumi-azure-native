@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets a connector mapping in the connector.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
-azure-native:customerinsights/v20170101:ConnectorMapping is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:ConnectorMapping to guarantee forwards compatibility. */
+azure-native:customerinsights/v20170101:ConnectorMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:ConnectorMapping to guarantee forwards compatibility. */
 export function getConnectorMapping(args: GetConnectorMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorMappingResult> {
-    pulumi.log.warn("getConnectorMapping is deprecated: Version 2017-01-01 will be removed in v2 of the provider.\nazure-native:customerinsights/v20170101:ConnectorMapping is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:ConnectorMapping to guarantee forwards compatibility.")
+    pulumi.log.warn("getConnectorMapping is deprecated: Version 2017-01-01 will be removed in v2 of the provider.\nazure-native:customerinsights/v20170101:ConnectorMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:ConnectorMapping to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170101:getConnectorMapping", {
@@ -124,7 +124,7 @@ export interface GetConnectorMappingResult {
  * Gets a connector mapping in the connector.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
-azure-native:customerinsights/v20170101:ConnectorMapping is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:ConnectorMapping to guarantee forwards compatibility. */
+azure-native:customerinsights/v20170101:ConnectorMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:customerinsights/v20170426:ConnectorMapping to guarantee forwards compatibility. */
 export function getConnectorMappingOutput(args: GetConnectorMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorMappingResult> {
     return pulumi.output(args).apply((a: any) => getConnectorMapping(a, opts))
 }

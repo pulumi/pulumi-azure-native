@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the details of a registered vCenter server(Add vCenter server.)
  */
 /** @deprecated Version 2018-01-10 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility. */
+azure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility. */
 export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationvCenterResult> {
-    pulumi.log.warn("getReplicationvCenter is deprecated: Version 2018-01-10 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.")
+    pulumi.log.warn("getReplicationvCenter is deprecated: Version 2018-01-10 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20180110:getReplicationvCenter", {
@@ -72,7 +72,7 @@ export interface GetReplicationvCenterResult {
  * Gets the details of a registered vCenter server(Add vCenter server.)
  */
 /** @deprecated Version 2018-01-10 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility. */
+azure-native:recoveryservices/v20180110:ReplicationvCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility. */
 export function getReplicationvCenterOutput(args: GetReplicationvCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationvCenterResult> {
     return pulumi.output(args).apply((a: any) => getReplicationvCenter(a, opts))
 }

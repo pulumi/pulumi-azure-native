@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Retrieves information about a gallery Application Definition.
  */
 /** @deprecated Version 2019-12-01 will be removed in v2 of the provider.
-azure-native:compute/v20191201:GalleryApplication is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryApplication to guarantee forwards compatibility. */
+azure-native:compute/v20191201:GalleryApplication is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryApplication to guarantee forwards compatibility. */
 export function getGalleryApplication(args: GetGalleryApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationResult> {
-    pulumi.log.warn("getGalleryApplication is deprecated: Version 2019-12-01 will be removed in v2 of the provider.\nazure-native:compute/v20191201:GalleryApplication is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryApplication to guarantee forwards compatibility.")
+    pulumi.log.warn("getGalleryApplication is deprecated: Version 2019-12-01 will be removed in v2 of the provider.\nazure-native:compute/v20191201:GalleryApplication is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryApplication to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20191201:getGalleryApplication", {
@@ -88,7 +88,7 @@ export interface GetGalleryApplicationResult {
  * Retrieves information about a gallery Application Definition.
  */
 /** @deprecated Version 2019-12-01 will be removed in v2 of the provider.
-azure-native:compute/v20191201:GalleryApplication is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryApplication to guarantee forwards compatibility. */
+azure-native:compute/v20191201:GalleryApplication is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220303:GalleryApplication to guarantee forwards compatibility. */
 export function getGalleryApplicationOutput(args: GetGalleryApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationResult> {
     return pulumi.output(args).apply((a: any) => getGalleryApplication(a, opts))
 }

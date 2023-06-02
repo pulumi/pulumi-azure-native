@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Sql pool's workload group.
  */
-/** @deprecated azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup to guarantee forwards compatibility. */
 export function getSqlPoolWorkloadGroup(args: GetSqlPoolWorkloadGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadGroupResult> {
-    pulumi.log.warn("getSqlPoolWorkloadGroup is deprecated: azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getSqlPoolWorkloadGroup is deprecated: azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210401preview:getSqlPoolWorkloadGroup", {
@@ -83,7 +83,7 @@ export interface GetSqlPoolWorkloadGroupResult {
 /**
  * Get a Sql pool's workload group.
  */
-/** @deprecated azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup to guarantee forwards compatibility. */
 export function getSqlPoolWorkloadGroupOutput(args: GetSqlPoolWorkloadGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolWorkloadGroupResult> {
     return pulumi.output(args).apply((a: any) => getSqlPoolWorkloadGroup(a, opts))
 }

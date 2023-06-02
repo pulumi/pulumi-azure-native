@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified mobile network.
  */
-/** @deprecated azure-native:mobilenetwork/v20220301preview:MobileNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:MobileNetwork to guarantee forwards compatibility. */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:MobileNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:MobileNetwork to guarantee forwards compatibility. */
 export function getMobileNetwork(args: GetMobileNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetMobileNetworkResult> {
-    pulumi.log.warn("getMobileNetwork is deprecated: azure-native:mobilenetwork/v20220301preview:MobileNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:MobileNetwork to guarantee forwards compatibility.")
+    pulumi.log.warn("getMobileNetwork is deprecated: azure-native:mobilenetwork/v20220301preview:MobileNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:MobileNetwork to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220301preview:getMobileNetwork", {
@@ -100,7 +100,7 @@ export interface GetMobileNetworkResult {
 /**
  * Gets information about the specified mobile network.
  */
-/** @deprecated azure-native:mobilenetwork/v20220301preview:MobileNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:MobileNetwork to guarantee forwards compatibility. */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:MobileNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:MobileNetwork to guarantee forwards compatibility. */
 export function getMobileNetworkOutput(args: GetMobileNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMobileNetworkResult> {
     return pulumi.output(args).apply((a: any) => getMobileNetwork(a, opts))
 }

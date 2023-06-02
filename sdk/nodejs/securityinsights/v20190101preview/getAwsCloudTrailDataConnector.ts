@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
-/** @deprecated azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector to guarantee forwards compatibility. */
 export function getAwsCloudTrailDataConnector(args: GetAwsCloudTrailDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsCloudTrailDataConnectorResult> {
-    pulumi.log.warn("getAwsCloudTrailDataConnector is deprecated: azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector to guarantee forwards compatibility.")
+    pulumi.log.warn("getAwsCloudTrailDataConnector is deprecated: azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getAwsCloudTrailDataConnector", {
@@ -79,7 +79,7 @@ export interface GetAwsCloudTrailDataConnectorResult {
 /**
  * Gets a data connector.
  */
-/** @deprecated azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector to guarantee forwards compatibility. */
 export function getAwsCloudTrailDataConnectorOutput(args: GetAwsCloudTrailDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsCloudTrailDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getAwsCloudTrailDataConnector(a, opts))
 }

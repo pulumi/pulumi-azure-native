@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
 {
-    [Obsolete(@"azure-native:machinelearningservices/v20220601preview:BatchDeployment is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:BatchDeployment to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:machinelearningservices/v20220601preview:BatchDeployment is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:BatchDeployment to guarantee forwards compatibility.")]
     public static class GetBatchDeployment
     {
         public static Task<GetBatchDeploymentResult> InvokeAsync(GetBatchDeploymentArgs args, InvokeOptions? options = null)

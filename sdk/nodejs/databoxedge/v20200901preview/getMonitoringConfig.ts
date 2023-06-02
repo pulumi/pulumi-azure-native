@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * The metric setting details for the role
  */
 /** @deprecated Version 2020-09-01-preview will be removed in v2 of the provider.
-azure-native:databoxedge/v20200901preview:MonitoringConfig is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility. */
+azure-native:databoxedge/v20200901preview:MonitoringConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility. */
 export function getMonitoringConfig(args: GetMonitoringConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringConfigResult> {
-    pulumi.log.warn("getMonitoringConfig is deprecated: Version 2020-09-01-preview will be removed in v2 of the provider.\nazure-native:databoxedge/v20200901preview:MonitoringConfig is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility.")
+    pulumi.log.warn("getMonitoringConfig is deprecated: Version 2020-09-01-preview will be removed in v2 of the provider.\nazure-native:databoxedge/v20200901preview:MonitoringConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20200901preview:getMonitoringConfig", {
@@ -63,7 +63,7 @@ export interface GetMonitoringConfigResult {
  * The metric setting details for the role
  */
 /** @deprecated Version 2020-09-01-preview will be removed in v2 of the provider.
-azure-native:databoxedge/v20200901preview:MonitoringConfig is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility. */
+azure-native:databoxedge/v20200901preview:MonitoringConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility. */
 export function getMonitoringConfigOutput(args: GetMonitoringConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringConfigResult> {
     return pulumi.output(args).apply((a: any) => getMonitoringConfig(a, opts))
 }

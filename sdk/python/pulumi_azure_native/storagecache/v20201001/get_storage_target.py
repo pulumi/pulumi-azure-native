@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-10-01 will be removed in v2 of the provider.
-azure-native:storagecache/v20201001:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:storagecache/v20201001:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetStorageTargetResult:
@@ -181,7 +181,7 @@ def get_storage_target(cache_name: Optional[str] = None,
     :param str storage_target_name: Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     """
     pulumi.log.warn("""get_storage_target is deprecated: Version 2020-10-01 will be removed in v2 of the provider.
-azure-native:storagecache/v20201001:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.""")
+azure-native:storagecache/v20201001:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name
@@ -217,5 +217,5 @@ def get_storage_target_output(cache_name: Optional[pulumi.Input[str]] = None,
     :param str storage_target_name: Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     """
     pulumi.log.warn("""get_storage_target is deprecated: Version 2020-10-01 will be removed in v2 of the provider.
-azure-native:storagecache/v20201001:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.""")
+azure-native:storagecache/v20201001:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.""")
     ...

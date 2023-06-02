@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a managed instance key.
  */
-/** @deprecated azure-native:sql/v20211101:ManagedInstanceKey is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceKey to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101:ManagedInstanceKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceKey to guarantee forwards compatibility. */
 export function getManagedInstanceKey(args: GetManagedInstanceKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceKeyResult> {
-    pulumi.log.warn("getManagedInstanceKey is deprecated: azure-native:sql/v20211101:ManagedInstanceKey is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceKey to guarantee forwards compatibility.")
+    pulumi.log.warn("getManagedInstanceKey is deprecated: azure-native:sql/v20211101:ManagedInstanceKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceKey to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getManagedInstanceKey", {
@@ -70,7 +70,7 @@ export interface GetManagedInstanceKeyResult {
 /**
  * Gets a managed instance key.
  */
-/** @deprecated azure-native:sql/v20211101:ManagedInstanceKey is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceKey to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101:ManagedInstanceKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceKey to guarantee forwards compatibility. */
 export function getManagedInstanceKeyOutput(args: GetManagedInstanceKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceKeyResult> {
     return pulumi.output(args).apply((a: any) => getManagedInstanceKey(a, opts))
 }

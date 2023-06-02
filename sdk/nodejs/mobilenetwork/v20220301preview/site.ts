@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Site resource.
  *
- * @deprecated azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.
+ * @deprecated azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.
  */
 export class Site extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Site extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Site {
-        pulumi.log.warn("Site is deprecated: azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.")
+        pulumi.log.warn("Site is deprecated: azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.")
         return new Site(name, undefined as any, { ...opts, id: id });
     }
 
@@ -100,9 +100,9 @@ export class Site extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility. */
+    /** @deprecated azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility. */
     constructor(name: string, args: SiteArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Site is deprecated: azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.")
+        pulumi.log.warn("Site is deprecated: azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

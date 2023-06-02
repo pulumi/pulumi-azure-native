@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.
-azure-native:compute/v20200601:VirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:compute/v20200601:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualMachineResult:
@@ -397,7 +397,7 @@ def get_virtual_machine(expand: Optional[str] = None,
     :param str vm_name: The name of the virtual machine.
     """
     pulumi.log.warn("""get_virtual_machine is deprecated: Version 2020-06-01 will be removed in v2 of the provider.
-azure-native:compute/v20200601:VirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility.""")
+azure-native:compute/v20200601:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -451,5 +451,5 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str vm_name: The name of the virtual machine.
     """
     pulumi.log.warn("""get_virtual_machine is deprecated: Version 2020-06-01 will be removed in v2 of the provider.
-azure-native:compute/v20200601:VirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility.""")
+azure-native:compute/v20200601:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility.""")
     ...

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
 {
-    [Obsolete(@"azure-native:azurestackhci/v20210701preview:virtualnetworkRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:azurestackhci/v20210701preview:virtualnetworkRetrieve is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve to guarantee forwards compatibility.")]
     public static class GetvirtualnetworkRetrieve
     {
         /// <summary>

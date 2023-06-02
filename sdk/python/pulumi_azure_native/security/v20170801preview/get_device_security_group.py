@@ -17,7 +17,7 @@ __all__ = [
     'get_device_security_group_output',
 ]
 
-warnings.warn("""azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDeviceSecurityGroupResult:
@@ -129,7 +129,7 @@ def get_device_security_group(device_security_group_name: Optional[str] = None,
     :param str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
     :param str resource_id: The identifier of the resource.
     """
-    pulumi.log.warn("""get_device_security_group is deprecated: azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_device_security_group is deprecated: azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['deviceSecurityGroupName'] = device_security_group_name
     __args__['resourceId'] = resource_id
@@ -157,5 +157,5 @@ def get_device_security_group_output(device_security_group_name: Optional[pulumi
     :param str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
     :param str resource_id: The identifier of the resource.
     """
-    pulumi.log.warn("""get_device_security_group is deprecated: azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_device_security_group is deprecated: azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility.""")
     ...

@@ -17,7 +17,7 @@ __all__ = [
     'get_disk_encryption_set_output',
 ]
 
-warnings.warn("""azure-native:compute/v20210401:DiskEncryptionSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:DiskEncryptionSet to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:compute/v20210401:DiskEncryptionSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:DiskEncryptionSet to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDiskEncryptionSetResult:
@@ -201,7 +201,7 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
     :param str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_disk_encryption_set is deprecated: azure-native:compute/v20210401:DiskEncryptionSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:DiskEncryptionSet to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_disk_encryption_set is deprecated: azure-native:compute/v20210401:DiskEncryptionSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:DiskEncryptionSet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['diskEncryptionSetName'] = disk_encryption_set_name
     __args__['resourceGroupName'] = resource_group_name
@@ -235,5 +235,5 @@ def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Inp
     :param str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_disk_encryption_set is deprecated: azure-native:compute/v20210401:DiskEncryptionSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:DiskEncryptionSet to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_disk_encryption_set is deprecated: azure-native:compute/v20210401:DiskEncryptionSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:DiskEncryptionSet to guarantee forwards compatibility.""")
     ...

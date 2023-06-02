@@ -81,11 +81,11 @@ class LinkedStorageAccountArgs:
         pulumi.set(self, "storage_account_ids", value)
 
 
-warnings.warn("""azure-native:operationalinsights/v20190801preview:LinkedStorageAccount is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:LinkedStorageAccount to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:operationalinsights/v20190801preview:LinkedStorageAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:LinkedStorageAccount to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class LinkedStorageAccount(pulumi.CustomResource):
-    warnings.warn("""azure-native:operationalinsights/v20190801preview:LinkedStorageAccount is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:LinkedStorageAccount to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:operationalinsights/v20190801preview:LinkedStorageAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:LinkedStorageAccount to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -135,7 +135,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
                  storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""LinkedStorageAccount is deprecated: azure-native:operationalinsights/v20190801preview:LinkedStorageAccount is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:LinkedStorageAccount to guarantee forwards compatibility.""")
+        pulumi.log.warn("""LinkedStorageAccount is deprecated: azure-native:operationalinsights/v20190801preview:LinkedStorageAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:LinkedStorageAccount to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

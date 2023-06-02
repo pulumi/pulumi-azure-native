@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Web.V20220301
 {
-    [Obsolete(@"azure-native:web/v20220301:WebAppDomainOwnershipIdentifierSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppDomainOwnershipIdentifierSlot to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:web/v20220301:WebAppDomainOwnershipIdentifierSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppDomainOwnershipIdentifierSlot to guarantee forwards compatibility.")]
     public static class GetWebAppDomainOwnershipIdentifierSlot
     {
         /// <summary>

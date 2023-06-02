@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
     /// <summary>
     /// The Advanced Threat Protection resource.
     /// </summary>
-    [Obsolete(@"azure-native:security/v20170801preview:AdvancedThreatProtection is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190101:AdvancedThreatProtection to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:security/v20170801preview:AdvancedThreatProtection is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20190101:AdvancedThreatProtection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:security/v20170801preview:AdvancedThreatProtection")]
     public partial class AdvancedThreatProtection : global::Pulumi.CustomResource
     {

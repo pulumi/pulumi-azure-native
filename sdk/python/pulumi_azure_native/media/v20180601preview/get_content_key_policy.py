@@ -17,7 +17,7 @@ __all__ = [
     'get_content_key_policy_output',
 ]
 
-warnings.warn("""azure-native:media/v20180601preview:ContentKeyPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:ContentKeyPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:media/v20180601preview:ContentKeyPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:ContentKeyPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetContentKeyPolicyResult:
@@ -143,7 +143,7 @@ def get_content_key_policy(account_name: Optional[str] = None,
     :param str content_key_policy_name: The Content Key Policy name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_content_key_policy is deprecated: azure-native:media/v20180601preview:ContentKeyPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:ContentKeyPolicy to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_content_key_policy is deprecated: azure-native:media/v20180601preview:ContentKeyPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:ContentKeyPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['contentKeyPolicyName'] = content_key_policy_name
@@ -175,5 +175,5 @@ def get_content_key_policy_output(account_name: Optional[pulumi.Input[str]] = No
     :param str content_key_policy_name: The Content Key Policy name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_content_key_policy is deprecated: azure-native:media/v20180601preview:ContentKeyPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:ContentKeyPolicy to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_content_key_policy is deprecated: azure-native:media/v20180601preview:ContentKeyPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:ContentKeyPolicy to guarantee forwards compatibility.""")
     ...

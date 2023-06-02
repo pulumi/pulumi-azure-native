@@ -17,7 +17,7 @@ __all__ = [
     'get_admin_rule_output',
 ]
 
-warnings.warn("""azure-native:network/v20220701:AdminRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:AdminRule to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20220701:AdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:AdminRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAdminRuleResult:
@@ -244,7 +244,7 @@ def get_admin_rule(configuration_name: Optional[str] = None,
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.
     :param str rule_name: The name of the rule.
     """
-    pulumi.log.warn("""get_admin_rule is deprecated: azure-native:network/v20220701:AdminRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:AdminRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_admin_rule is deprecated: azure-native:network/v20220701:AdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:AdminRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['configurationName'] = configuration_name
     __args__['networkManagerName'] = network_manager_name
@@ -290,5 +290,5 @@ def get_admin_rule_output(configuration_name: Optional[pulumi.Input[str]] = None
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.
     :param str rule_name: The name of the rule.
     """
-    pulumi.log.warn("""get_admin_rule is deprecated: azure-native:network/v20220701:AdminRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:AdminRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_admin_rule is deprecated: azure-native:network/v20220701:AdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:AdminRule to guarantee forwards compatibility.""")
     ...

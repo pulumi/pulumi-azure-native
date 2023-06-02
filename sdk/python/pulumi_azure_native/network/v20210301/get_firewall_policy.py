@@ -17,7 +17,7 @@ __all__ = [
     'get_firewall_policy_output',
 ]
 
-warnings.warn("""azure-native:network/v20210301:FirewallPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20210301:FirewallPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetFirewallPolicyResult:
@@ -311,7 +311,7 @@ def get_firewall_policy(expand: Optional[str] = None,
     :param str firewall_policy_name: The name of the Firewall Policy.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_firewall_policy is deprecated: azure-native:network/v20210301:FirewallPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_firewall_policy is deprecated: azure-native:network/v20210301:FirewallPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['firewallPolicyName'] = firewall_policy_name
@@ -357,5 +357,5 @@ def get_firewall_policy_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str firewall_policy_name: The name of the Firewall Policy.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_firewall_policy is deprecated: azure-native:network/v20210301:FirewallPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_firewall_policy is deprecated: azure-native:network/v20210301:FirewallPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.""")
     ...

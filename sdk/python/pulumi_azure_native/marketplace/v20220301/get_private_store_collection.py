@@ -17,7 +17,7 @@ __all__ = [
     'get_private_store_collection_output',
 ]
 
-warnings.warn("""azure-native:marketplace/v20220301:PrivateStoreCollection is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:marketplace/v20220301:PrivateStoreCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPrivateStoreCollectionResult:
@@ -201,7 +201,7 @@ def get_private_store_collection(collection_id: Optional[str] = None,
     :param str collection_id: The collection ID
     :param str private_store_id: The store ID - must use the tenant ID
     """
-    pulumi.log.warn("""get_private_store_collection is deprecated: azure-native:marketplace/v20220301:PrivateStoreCollection is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_store_collection is deprecated: azure-native:marketplace/v20220301:PrivateStoreCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['collectionId'] = collection_id
     __args__['privateStoreId'] = private_store_id
@@ -235,5 +235,5 @@ def get_private_store_collection_output(collection_id: Optional[pulumi.Input[str
     :param str collection_id: The collection ID
     :param str private_store_id: The store ID - must use the tenant ID
     """
-    pulumi.log.warn("""get_private_store_collection is deprecated: azure-native:marketplace/v20220301:PrivateStoreCollection is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_store_collection is deprecated: azure-native:marketplace/v20220301:PrivateStoreCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility.""")
     ...

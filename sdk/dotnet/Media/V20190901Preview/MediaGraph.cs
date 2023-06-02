@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Media.V20190901Preview
     /// <summary>
     /// The Media Graph.
     /// </summary>
-    [Obsolete(@"azure-native:media/v20190901preview:MediaGraph is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20200201preview:MediaGraph to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:media/v20190901preview:MediaGraph is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20200201preview:MediaGraph to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:media/v20190901preview:MediaGraph")]
     public partial class MediaGraph : global::Pulumi.CustomResource
     {

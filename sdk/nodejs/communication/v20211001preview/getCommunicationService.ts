@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the CommunicationService and its properties.
  */
-/** @deprecated azure-native:communication/v20211001preview:CommunicationService is being removed in the next major version of this provider. Please upgrade to azure-native:communication/v20230331:CommunicationService to guarantee forwards compatibility. */
+/** @deprecated azure-native:communication/v20211001preview:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230331:CommunicationService to guarantee forwards compatibility. */
 export function getCommunicationService(args: GetCommunicationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationServiceResult> {
-    pulumi.log.warn("getCommunicationService is deprecated: azure-native:communication/v20211001preview:CommunicationService is being removed in the next major version of this provider. Please upgrade to azure-native:communication/v20230331:CommunicationService to guarantee forwards compatibility.")
+    pulumi.log.warn("getCommunicationService is deprecated: azure-native:communication/v20211001preview:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230331:CommunicationService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:communication/v20211001preview:getCommunicationService", {
@@ -92,7 +92,7 @@ export interface GetCommunicationServiceResult {
 /**
  * Get the CommunicationService and its properties.
  */
-/** @deprecated azure-native:communication/v20211001preview:CommunicationService is being removed in the next major version of this provider. Please upgrade to azure-native:communication/v20230331:CommunicationService to guarantee forwards compatibility. */
+/** @deprecated azure-native:communication/v20211001preview:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230331:CommunicationService to guarantee forwards compatibility. */
 export function getCommunicationServiceOutput(args: GetCommunicationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationServiceResult> {
     return pulumi.output(args).apply((a: any) => getCommunicationService(a, opts))
 }

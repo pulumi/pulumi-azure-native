@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20220415Preview
     /// <summary>
     /// LoadTest details
     /// </summary>
-    [Obsolete(@"azure-native:loadtestservice/v20220415preview:LoadTest is being removed in the next major version of this provider. Please upgrade to azure-native:loadtestservice/v20221201:LoadTest to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:loadtestservice/v20220415preview:LoadTest is being removed in the next major version of this provider. Upgrade to at least azure-native:loadtestservice/v20221201:LoadTest to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:loadtestservice/v20220415preview:LoadTest")]
     public partial class LoadTest : global::Pulumi.CustomResource
     {

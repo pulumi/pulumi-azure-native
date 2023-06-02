@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified sim policy.
  */
-/** @deprecated azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility. */
 export function getSimPolicy(args: GetSimPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSimPolicyResult> {
-    pulumi.log.warn("getSimPolicy is deprecated: azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility.")
+    pulumi.log.warn("getSimPolicy is deprecated: azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220301preview:getSimPolicy", {
@@ -117,7 +117,7 @@ export interface GetSimPolicyResult {
 /**
  * Gets information about the specified sim policy.
  */
-/** @deprecated azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility. */
 export function getSimPolicyOutput(args: GetSimPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSimPolicy(a, opts))
 }

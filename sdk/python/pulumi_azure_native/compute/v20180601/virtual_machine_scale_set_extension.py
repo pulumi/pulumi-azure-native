@@ -210,12 +210,12 @@ class VirtualMachineScaleSetExtensionInitArgs:
 
 
 warnings.warn("""Version 2018-06-01 will be removed in v2 of the provider.
-azure-native:compute/v20180601:VirtualMachineScaleSetExtension is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20211101:VirtualMachineScaleSetExtension to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:compute/v20180601:VirtualMachineScaleSetExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineScaleSetExtension to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class VirtualMachineScaleSetExtension(pulumi.CustomResource):
     warnings.warn("""Version 2018-06-01 will be removed in v2 of the provider.
-azure-native:compute/v20180601:VirtualMachineScaleSetExtension is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20211101:VirtualMachineScaleSetExtension to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:compute/v20180601:VirtualMachineScaleSetExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineScaleSetExtension to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -290,7 +290,7 @@ azure-native:compute/v20180601:VirtualMachineScaleSetExtension is being removed 
                  vmss_extension_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""VirtualMachineScaleSetExtension is deprecated: Version 2018-06-01 will be removed in v2 of the provider.
-azure-native:compute/v20180601:VirtualMachineScaleSetExtension is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20211101:VirtualMachineScaleSetExtension to guarantee forwards compatibility.""")
+azure-native:compute/v20180601:VirtualMachineScaleSetExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20211101:VirtualMachineScaleSetExtension to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

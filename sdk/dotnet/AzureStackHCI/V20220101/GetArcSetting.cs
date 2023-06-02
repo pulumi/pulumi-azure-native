@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20220101
 {
-    [Obsolete(@"azure-native:azurestackhci/v20220101:ArcSetting is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20221001:ArcSetting to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:azurestackhci/v20220101:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221001:ArcSetting to guarantee forwards compatibility.")]
     public static class GetArcSetting
     {
         /// <summary>

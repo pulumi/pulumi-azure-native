@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the resource and its properties.
  */
-/** @deprecated azure-native:webpubsub/v20220801preview:WebPubSub is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSub to guarantee forwards compatibility. */
+/** @deprecated azure-native:webpubsub/v20220801preview:WebPubSub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSub to guarantee forwards compatibility. */
 export function getWebPubSub(args: GetWebPubSubArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubResult> {
-    pulumi.log.warn("getWebPubSub is deprecated: azure-native:webpubsub/v20220801preview:WebPubSub is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSub to guarantee forwards compatibility.")
+    pulumi.log.warn("getWebPubSub is deprecated: azure-native:webpubsub/v20220801preview:WebPubSub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSub to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub/v20220801preview:getWebPubSub", {
@@ -142,7 +142,7 @@ export interface GetWebPubSubResult {
 /**
  * Get the resource and its properties.
  */
-/** @deprecated azure-native:webpubsub/v20220801preview:WebPubSub is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSub to guarantee forwards compatibility. */
+/** @deprecated azure-native:webpubsub/v20220801preview:WebPubSub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSub to guarantee forwards compatibility. */
 export function getWebPubSubOutput(args: GetWebPubSubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSub(a, opts))
 }

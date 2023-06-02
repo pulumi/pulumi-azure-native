@@ -17,7 +17,7 @@ __all__ = [
     'get_sap_landscape_monitor_output',
 ]
 
-warnings.warn("""azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSapLandscapeMonitorResult:
@@ -129,7 +129,7 @@ def get_sap_landscape_monitor(monitor_name: Optional[str] = None,
     :param str monitor_name: Name of the SAP monitor resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_sap_landscape_monitor is deprecated: azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_sap_landscape_monitor is deprecated: azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
@@ -157,5 +157,5 @@ def get_sap_landscape_monitor_output(monitor_name: Optional[pulumi.Input[str]] =
     :param str monitor_name: Name of the SAP monitor resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_sap_landscape_monitor is deprecated: azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_sap_landscape_monitor is deprecated: azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility.""")
     ...

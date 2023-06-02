@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221001Preview
     /// <summary>
     /// Represents Amazon Web Services S3 data connector.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20221001preview:AwsS3DataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AwsS3DataConnector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20221001preview:AwsS3DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AwsS3DataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20221001preview:AwsS3DataConnector")]
     public partial class AwsS3DataConnector : global::Pulumi.CustomResource
     {

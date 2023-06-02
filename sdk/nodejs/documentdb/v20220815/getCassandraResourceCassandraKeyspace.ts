@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated azure-native:documentdb/v20220815:CassandraResourceCassandraKeyspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:CassandraResourceCassandraKeyspace to guarantee forwards compatibility. */
+/** @deprecated azure-native:documentdb/v20220815:CassandraResourceCassandraKeyspace is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:CassandraResourceCassandraKeyspace to guarantee forwards compatibility. */
 export function getCassandraResourceCassandraKeyspace(args: GetCassandraResourceCassandraKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraKeyspaceResult> {
-    pulumi.log.warn("getCassandraResourceCassandraKeyspace is deprecated: azure-native:documentdb/v20220815:CassandraResourceCassandraKeyspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:CassandraResourceCassandraKeyspace to guarantee forwards compatibility.")
+    pulumi.log.warn("getCassandraResourceCassandraKeyspace is deprecated: azure-native:documentdb/v20220815:CassandraResourceCassandraKeyspace is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:CassandraResourceCassandraKeyspace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20220815:getCassandraResourceCassandraKeyspace", {
@@ -67,7 +67,7 @@ export interface GetCassandraResourceCassandraKeyspaceResult {
 /**
  * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated azure-native:documentdb/v20220815:CassandraResourceCassandraKeyspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:CassandraResourceCassandraKeyspace to guarantee forwards compatibility. */
+/** @deprecated azure-native:documentdb/v20220815:CassandraResourceCassandraKeyspace is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:CassandraResourceCassandraKeyspace to guarantee forwards compatibility. */
 export function getCassandraResourceCassandraKeyspaceOutput(args: GetCassandraResourceCassandraKeyspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraKeyspaceResult> {
     return pulumi.output(args).apply((a: any) => getCassandraResourceCassandraKeyspace(a, opts))
 }

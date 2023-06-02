@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.V20201102Preview
 {
     [Obsolete(@"Version 2020-11-02-preview will be removed in v2 of the provider.
-azure-native:desktopvirtualization/v20201102preview:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20201110preview:Workspace to guarantee forwards compatibility.")]
+azure-native:desktopvirtualization/v20201102preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20201110preview:Workspace to guarantee forwards compatibility.")]
     public static class GetWorkspace
     {
         /// <summary>

@@ -16,7 +16,7 @@ __all__ = [
     'get_logger_output',
 ]
 
-warnings.warn("""azure-native:apimanagement/v20200601preview:Logger is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Logger to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:apimanagement/v20200601preview:Logger is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Logger to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetLoggerResult:
@@ -143,7 +143,7 @@ def get_logger(logger_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("""get_logger is deprecated: azure-native:apimanagement/v20200601preview:Logger is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Logger to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_logger is deprecated: azure-native:apimanagement/v20200601preview:Logger is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Logger to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['loggerId'] = logger_id
     __args__['resourceGroupName'] = resource_group_name
@@ -175,5 +175,5 @@ def get_logger_output(logger_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("""get_logger is deprecated: azure-native:apimanagement/v20200601preview:Logger is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Logger to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_logger is deprecated: azure-native:apimanagement/v20200601preview:Logger is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Logger to guarantee forwards compatibility.""")
     ...

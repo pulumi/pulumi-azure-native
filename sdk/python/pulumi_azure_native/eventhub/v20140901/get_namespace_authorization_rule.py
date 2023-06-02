@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:eventhub/v20140901:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20150801:NamespaceAuthorizationRule to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:eventhub/v20140901:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20150801:NamespaceAuthorizationRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetNamespaceAuthorizationRuleResult:
@@ -108,7 +108,7 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[str] = No
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
     pulumi.log.warn("""get_namespace_authorization_rule is deprecated: Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:eventhub/v20140901:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20150801:NamespaceAuthorizationRule to guarantee forwards compatibility.""")
+azure-native:eventhub/v20140901:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20150801:NamespaceAuthorizationRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name
@@ -138,5 +138,5 @@ def get_namespace_authorization_rule_output(authorization_rule_name: Optional[pu
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
     pulumi.log.warn("""get_namespace_authorization_rule is deprecated: Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:eventhub/v20140901:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20150801:NamespaceAuthorizationRule to guarantee forwards compatibility.""")
+azure-native:eventhub/v20140901:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20150801:NamespaceAuthorizationRule to guarantee forwards compatibility.""")
     ...

@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Retrieves information about an availability set.
  */
 /** @deprecated Version 2015-06-15 will be removed in v2 of the provider.
-azure-native:compute/v20150615:AvailabilitySet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20160430preview:AvailabilitySet to guarantee forwards compatibility. */
+azure-native:compute/v20150615:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20160430preview:AvailabilitySet to guarantee forwards compatibility. */
 export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {
-    pulumi.log.warn("getAvailabilitySet is deprecated: Version 2015-06-15 will be removed in v2 of the provider.\nazure-native:compute/v20150615:AvailabilitySet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20160430preview:AvailabilitySet to guarantee forwards compatibility.")
+    pulumi.log.warn("getAvailabilitySet is deprecated: Version 2015-06-15 will be removed in v2 of the provider.\nazure-native:compute/v20150615:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20160430preview:AvailabilitySet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20150615:getAvailabilitySet", {
@@ -78,7 +78,7 @@ export interface GetAvailabilitySetResult {
  * Retrieves information about an availability set.
  */
 /** @deprecated Version 2015-06-15 will be removed in v2 of the provider.
-azure-native:compute/v20150615:AvailabilitySet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20160430preview:AvailabilitySet to guarantee forwards compatibility. */
+azure-native:compute/v20150615:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20160430preview:AvailabilitySet to guarantee forwards compatibility. */
 export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
     return pulumi.output(args).apply((a: any) => getAvailabilitySet(a, opts))
 }

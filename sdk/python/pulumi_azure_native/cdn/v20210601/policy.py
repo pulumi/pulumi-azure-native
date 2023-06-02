@@ -164,11 +164,11 @@ class PolicyArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:cdn/v20210601:Policy is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Policy to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:cdn/v20210601:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Policy to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Policy(pulumi.CustomResource):
-    warnings.warn("""azure-native:cdn/v20210601:Policy is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Policy to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:cdn/v20210601:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Policy to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -233,7 +233,7 @@ class Policy(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Policy is deprecated: azure-native:cdn/v20210601:Policy is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Policy to guarantee forwards compatibility.""")
+        pulumi.log.warn("""Policy is deprecated: azure-native:cdn/v20210601:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Policy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

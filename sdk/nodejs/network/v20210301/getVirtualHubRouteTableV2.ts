@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a VirtualHubRouteTableV2.
  */
-/** @deprecated azure-native:network/v20210301:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualHubRouteTableV2 to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20210301:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubRouteTableV2 to guarantee forwards compatibility. */
 export function getVirtualHubRouteTableV2(args: GetVirtualHubRouteTableV2Args, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubRouteTableV2Result> {
-    pulumi.log.warn("getVirtualHubRouteTableV2 is deprecated: azure-native:network/v20210301:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualHubRouteTableV2 to guarantee forwards compatibility.")
+    pulumi.log.warn("getVirtualHubRouteTableV2 is deprecated: azure-native:network/v20210301:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubRouteTableV2 to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210301:getVirtualHubRouteTableV2", {
@@ -69,7 +69,7 @@ export interface GetVirtualHubRouteTableV2Result {
 /**
  * Retrieves the details of a VirtualHubRouteTableV2.
  */
-/** @deprecated azure-native:network/v20210301:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualHubRouteTableV2 to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20210301:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubRouteTableV2 to guarantee forwards compatibility. */
 export function getVirtualHubRouteTableV2Output(args: GetVirtualHubRouteTableV2OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubRouteTableV2Result> {
     return pulumi.output(args).apply((a: any) => getVirtualHubRouteTableV2(a, opts))
 }

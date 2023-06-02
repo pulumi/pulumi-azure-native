@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20200701
 {
-    [Obsolete(@"azure-native:network/v20200701:FirewallPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20200701:FirewallPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210801:FirewallPolicy to guarantee forwards compatibility.")]
     public static class GetFirewallPolicy
     {
         /// <summary>

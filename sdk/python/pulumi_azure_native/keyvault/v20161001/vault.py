@@ -101,12 +101,12 @@ class VaultArgs:
 
 
 warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.
-azure-native:keyvault/v20161001:Vault is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:keyvault/v20161001:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Vault(pulumi.CustomResource):
     warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.
-azure-native:keyvault/v20161001:Vault is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:keyvault/v20161001:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -160,7 +160,7 @@ azure-native:keyvault/v20161001:Vault is being removed in the next major version
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Vault is deprecated: Version 2016-10-01 will be removed in v2 of the provider.
-azure-native:keyvault/v20161001:Vault is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.""")
+azure-native:keyvault/v20161001:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20180214preview:Vault to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

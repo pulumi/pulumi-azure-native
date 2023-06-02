@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Implements virtual machine GET method.
  */
-/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine to guarantee forwards compatibility. */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine to guarantee forwards compatibility. */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
-    pulumi.log.warn("getVirtualMachine is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine to guarantee forwards compatibility.")
+    pulumi.log.warn("getVirtualMachine is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220110preview:getVirtualMachine", {
@@ -169,7 +169,7 @@ export interface GetVirtualMachineResult {
 /**
  * Implements virtual machine GET method.
  */
-/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine to guarantee forwards compatibility. */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine to guarantee forwards compatibility. */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))
 }

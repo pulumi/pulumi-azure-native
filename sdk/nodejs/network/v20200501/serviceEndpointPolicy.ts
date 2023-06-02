@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Service End point policy resource.
  *
- * @deprecated azure-native:network/v20200501:ServiceEndpointPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility.
+ * @deprecated azure-native:network/v20200501:ServiceEndpointPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility.
  */
 export class ServiceEndpointPolicy extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServiceEndpointPolicy {
-        pulumi.log.warn("ServiceEndpointPolicy is deprecated: azure-native:network/v20200501:ServiceEndpointPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility.")
+        pulumi.log.warn("ServiceEndpointPolicy is deprecated: azure-native:network/v20200501:ServiceEndpointPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility.")
         return new ServiceEndpointPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,9 +84,9 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:network/v20200501:ServiceEndpointPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility. */
+    /** @deprecated azure-native:network/v20200501:ServiceEndpointPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility. */
     constructor(name: string, args: ServiceEndpointPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ServiceEndpointPolicy is deprecated: azure-native:network/v20200501:ServiceEndpointPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility.")
+        pulumi.log.warn("ServiceEndpointPolicy is deprecated: azure-native:network/v20200501:ServiceEndpointPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

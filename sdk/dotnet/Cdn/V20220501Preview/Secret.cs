@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Cdn.V20220501Preview
     /// <summary>
     /// Friendly Secret name mapping to the any Secret or secret related information.
     /// </summary>
-    [Obsolete(@"azure-native:cdn/v20220501preview:Secret is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Secret to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:cdn/v20220501preview:Secret is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Secret to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20220501preview:Secret")]
     public partial class Secret : global::Pulumi.CustomResource
     {

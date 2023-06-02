@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a StreamingEndpoint.
  */
-/** @deprecated azure-native:media/v20180330preview:StreamingEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20180601preview:StreamingEndpoint to guarantee forwards compatibility. */
+/** @deprecated azure-native:media/v20180330preview:StreamingEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20180601preview:StreamingEndpoint to guarantee forwards compatibility. */
 export function getStreamingEndpoint(args: GetStreamingEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingEndpointResult> {
-    pulumi.log.warn("getStreamingEndpoint is deprecated: azure-native:media/v20180330preview:StreamingEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20180601preview:StreamingEndpoint to guarantee forwards compatibility.")
+    pulumi.log.warn("getStreamingEndpoint is deprecated: azure-native:media/v20180330preview:StreamingEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20180601preview:StreamingEndpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20180330preview:getStreamingEndpoint", {
@@ -129,7 +129,7 @@ export interface GetStreamingEndpointResult {
 /**
  * Gets a StreamingEndpoint.
  */
-/** @deprecated azure-native:media/v20180330preview:StreamingEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20180601preview:StreamingEndpoint to guarantee forwards compatibility. */
+/** @deprecated azure-native:media/v20180330preview:StreamingEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20180601preview:StreamingEndpoint to guarantee forwards compatibility. */
 export function getStreamingEndpointOutput(args: GetStreamingEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingEndpointResult> {
     return pulumi.output(args).apply((a: any) => getStreamingEndpoint(a, opts))
 }

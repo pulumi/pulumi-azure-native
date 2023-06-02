@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get details of the specified snapshot
  */
-/** @deprecated azure-native:netapp/v20210801:Snapshot is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Snapshot to guarantee forwards compatibility. */
+/** @deprecated azure-native:netapp/v20210801:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Snapshot to guarantee forwards compatibility. */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-    pulumi.log.warn("getSnapshot is deprecated: azure-native:netapp/v20210801:Snapshot is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Snapshot to guarantee forwards compatibility.")
+    pulumi.log.warn("getSnapshot is deprecated: azure-native:netapp/v20210801:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Snapshot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20210801:getSnapshot", {
@@ -80,7 +80,7 @@ export interface GetSnapshotResult {
 /**
  * Get details of the specified snapshot
  */
-/** @deprecated azure-native:netapp/v20210801:Snapshot is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Snapshot to guarantee forwards compatibility. */
+/** @deprecated azure-native:netapp/v20210801:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Snapshot to guarantee forwards compatibility. */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
 }

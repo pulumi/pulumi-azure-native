@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the specified private endpoint connection associated with the configuration store.
  */
 /** @deprecated Version 2019-11-01-preview will be removed in v2 of the provider.
-azure-native:appconfiguration/v20191101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:appconfiguration/v20230301:PrivateEndpointConnection to guarantee forwards compatibility. */
+azure-native:appconfiguration/v20191101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getPrivateEndpointConnection is deprecated: Version 2019-11-01-preview will be removed in v2 of the provider.\nazure-native:appconfiguration/v20191101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:appconfiguration/v20230301:PrivateEndpointConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getPrivateEndpointConnection is deprecated: Version 2019-11-01-preview will be removed in v2 of the provider.\nazure-native:appconfiguration/v20191101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:PrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appconfiguration/v20191101preview:getPrivateEndpointConnection", {
@@ -71,7 +71,7 @@ export interface GetPrivateEndpointConnectionResult {
  * Gets the specified private endpoint connection associated with the configuration store.
  */
 /** @deprecated Version 2019-11-01-preview will be removed in v2 of the provider.
-azure-native:appconfiguration/v20191101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:appconfiguration/v20230301:PrivateEndpointConnection to guarantee forwards compatibility. */
+azure-native:appconfiguration/v20191101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
 }

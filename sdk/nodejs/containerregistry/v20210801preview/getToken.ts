@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified token.
  */
-/** @deprecated azure-native:containerregistry/v20210801preview:Token is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:Token to guarantee forwards compatibility. */
+/** @deprecated azure-native:containerregistry/v20210801preview:Token is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Token to guarantee forwards compatibility. */
 export function getToken(args: GetTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetTokenResult> {
-    pulumi.log.warn("getToken is deprecated: azure-native:containerregistry/v20210801preview:Token is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:Token to guarantee forwards compatibility.")
+    pulumi.log.warn("getToken is deprecated: azure-native:containerregistry/v20210801preview:Token is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Token to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20210801preview:getToken", {
@@ -81,7 +81,7 @@ export interface GetTokenResult {
 /**
  * Gets the properties of the specified token.
  */
-/** @deprecated azure-native:containerregistry/v20210801preview:Token is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:Token to guarantee forwards compatibility. */
+/** @deprecated azure-native:containerregistry/v20210801preview:Token is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Token to guarantee forwards compatibility. */
 export function getTokenOutput(args: GetTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTokenResult> {
     return pulumi.output(args).apply((a: any) => getToken(a, opts))
 }

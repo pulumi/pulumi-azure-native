@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-08-01 will be removed in v2 of the provider.
-azure-native:batch/v20190801:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20220601:Certificate to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:batch/v20190801:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20220601:Certificate to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCertificateResult:
@@ -196,7 +196,7 @@ def get_certificate(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
     pulumi.log.warn("""get_certificate is deprecated: Version 2019-08-01 will be removed in v2 of the provider.
-azure-native:batch/v20190801:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20220601:Certificate to guarantee forwards compatibility.""")
+azure-native:batch/v20190801:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20220601:Certificate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['certificateName'] = certificate_name
@@ -234,5 +234,5 @@ def get_certificate_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
     pulumi.log.warn("""get_certificate is deprecated: Version 2019-08-01 will be removed in v2 of the provider.
-azure-native:batch/v20190801:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20220601:Certificate to guarantee forwards compatibility.""")
+azure-native:batch/v20190801:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20220601:Certificate to guarantee forwards compatibility.""")
     ...

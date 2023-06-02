@@ -97,11 +97,11 @@ class RegistryCodeVersionArgs:
         pulumi.set(self, "version", value)
 
 
-warnings.warn("""azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class RegistryCodeVersion(pulumi.CustomResource):
-    warnings.warn("""azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -154,7 +154,7 @@ class RegistryCodeVersion(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""RegistryCodeVersion is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion to guarantee forwards compatibility.""")
+        pulumi.log.warn("""RegistryCodeVersion is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

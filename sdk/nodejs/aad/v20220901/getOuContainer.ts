@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get OuContainer in DomainService instance.
  */
-/** @deprecated azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Please upgrade to azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility. */
+/** @deprecated azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility. */
 export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetOuContainerResult> {
-    pulumi.log.warn("getOuContainer is deprecated: azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Please upgrade to azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.")
+    pulumi.log.warn("getOuContainer is deprecated: azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:aad/v20220901:getOuContainer", {
@@ -105,7 +105,7 @@ export interface GetOuContainerResult {
 /**
  * Get OuContainer in DomainService instance.
  */
-/** @deprecated azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Please upgrade to azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility. */
+/** @deprecated azure-native:aad/v20220901:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility. */
 export function getOuContainerOutput(args: GetOuContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOuContainerResult> {
     return pulumi.output(args).apply((a: any) => getOuContainer(a, opts))
 }

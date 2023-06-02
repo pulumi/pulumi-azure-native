@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20221111
     /// <summary>
     /// Class representing a read only following database.
     /// </summary>
-    [Obsolete(@"azure-native:kusto/v20221111:ReadOnlyFollowingDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ReadOnlyFollowingDatabase to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:kusto/v20221111:ReadOnlyFollowingDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:ReadOnlyFollowingDatabase to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kusto/v20221111:ReadOnlyFollowingDatabase")]
     public partial class ReadOnlyFollowingDatabase : global::Pulumi.CustomResource
     {

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a DSCP Configuration.
  */
-/** @deprecated azure-native:network/v20220101:DscpConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:DscpConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220101:DscpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:DscpConfiguration to guarantee forwards compatibility. */
 export function getDscpConfiguration(args: GetDscpConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscpConfigurationResult> {
-    pulumi.log.warn("getDscpConfiguration is deprecated: azure-native:network/v20220101:DscpConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:DscpConfiguration to guarantee forwards compatibility.")
+    pulumi.log.warn("getDscpConfiguration is deprecated: azure-native:network/v20220101:DscpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:DscpConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220101:getDscpConfiguration", {
@@ -108,7 +108,7 @@ export interface GetDscpConfigurationResult {
 /**
  * Gets a DSCP Configuration.
  */
-/** @deprecated azure-native:network/v20220101:DscpConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:DscpConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220101:DscpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:DscpConfiguration to guarantee forwards compatibility. */
 export function getDscpConfigurationOutput(args: GetDscpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscpConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getDscpConfiguration(a, opts))
 }

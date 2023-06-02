@@ -17,7 +17,7 @@ __all__ = [
     'get_registry_output',
 ]
 
-warnings.warn("""azure-native:machinelearningservices/v20221001preview:Registry is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Registry to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:machinelearningservices/v20221001preview:Registry is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Registry to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRegistryResult:
@@ -161,7 +161,7 @@ def get_registry(registry_name: Optional[str] = None,
     :param str registry_name: Name of registry. This is case-insensitive
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_registry is deprecated: azure-native:machinelearningservices/v20221001preview:Registry is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Registry to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_registry is deprecated: azure-native:machinelearningservices/v20221001preview:Registry is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Registry to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
@@ -191,5 +191,5 @@ def get_registry_output(registry_name: Optional[pulumi.Input[str]] = None,
     :param str registry_name: Name of registry. This is case-insensitive
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_registry is deprecated: azure-native:machinelearningservices/v20221001preview:Registry is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Registry to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_registry is deprecated: azure-native:machinelearningservices/v20221001preview:Registry is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Registry to guarantee forwards compatibility.""")
     ...

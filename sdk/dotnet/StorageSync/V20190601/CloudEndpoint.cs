@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageSync.V20190601
     /// Cloud Endpoint object.
     /// </summary>
     [Obsolete(@"Version 2019-06-01 will be removed in v2 of the provider.
-azure-native:storagesync/v20190601:CloudEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.")]
+azure-native:storagesync/v20190601:CloudEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storagesync/v20190601:CloudEndpoint")]
     public partial class CloudEndpoint : global::Pulumi.CustomResource
     {

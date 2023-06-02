@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
     /// <summary>
     /// Peerings in a VirtualNetwork resource
     /// </summary>
-    [Obsolete(@"azure-native:databricks/v20210401preview:vNetPeering is being removed in the next major version of this provider. Please upgrade to azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:databricks/v20210401preview:vNetPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databricks/v20210401preview:vNetPeering")]
     public partial class VNetPeering : global::Pulumi.CustomResource
     {

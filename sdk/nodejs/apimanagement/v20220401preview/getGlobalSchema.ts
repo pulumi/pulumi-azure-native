@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the Schema specified by its identifier.
  */
-/** @deprecated azure-native:apimanagement/v20220401preview:GlobalSchema is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GlobalSchema to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20220401preview:GlobalSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GlobalSchema to guarantee forwards compatibility. */
 export function getGlobalSchema(args: GetGlobalSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalSchemaResult> {
-    pulumi.log.warn("getGlobalSchema is deprecated: azure-native:apimanagement/v20220401preview:GlobalSchema is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GlobalSchema to guarantee forwards compatibility.")
+    pulumi.log.warn("getGlobalSchema is deprecated: azure-native:apimanagement/v20220401preview:GlobalSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GlobalSchema to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220401preview:getGlobalSchema", {
@@ -66,7 +66,7 @@ export interface GetGlobalSchemaResult {
 /**
  * Gets the details of the Schema specified by its identifier.
  */
-/** @deprecated azure-native:apimanagement/v20220401preview:GlobalSchema is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GlobalSchema to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20220401preview:GlobalSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GlobalSchema to guarantee forwards compatibility. */
 export function getGlobalSchemaOutput(args: GetGlobalSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalSchemaResult> {
     return pulumi.output(args).apply((a: any) => getGlobalSchema(a, opts))
 }

@@ -16,7 +16,7 @@ __all__ = [
     'get_distributed_availability_group_output',
 ]
 
-warnings.warn("""azure-native:sql/v20211101preview:DistributedAvailabilityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:DistributedAvailabilityGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:sql/v20211101preview:DistributedAvailabilityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:DistributedAvailabilityGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDistributedAvailabilityGroupResult:
@@ -202,7 +202,7 @@ def get_distributed_availability_group(distributed_availability_group_name: Opti
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
-    pulumi.log.warn("""get_distributed_availability_group is deprecated: azure-native:sql/v20211101preview:DistributedAvailabilityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:DistributedAvailabilityGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_distributed_availability_group is deprecated: azure-native:sql/v20211101preview:DistributedAvailabilityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:DistributedAvailabilityGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['distributedAvailabilityGroupName'] = distributed_availability_group_name
     __args__['managedInstanceName'] = managed_instance_name
@@ -239,5 +239,5 @@ def get_distributed_availability_group_output(distributed_availability_group_nam
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
-    pulumi.log.warn("""get_distributed_availability_group is deprecated: azure-native:sql/v20211101preview:DistributedAvailabilityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:DistributedAvailabilityGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_distributed_availability_group is deprecated: azure-native:sql/v20211101preview:DistributedAvailabilityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:DistributedAvailabilityGroup to guarantee forwards compatibility.""")
     ...

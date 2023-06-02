@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified service.
  */
-/** @deprecated azure-native:mobilenetwork/v20220301preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Service to guarantee forwards compatibility. */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Service to guarantee forwards compatibility. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    pulumi.log.warn("getService is deprecated: azure-native:mobilenetwork/v20220301preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Service to guarantee forwards compatibility.")
+    pulumi.log.warn("getService is deprecated: azure-native:mobilenetwork/v20220301preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Service to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220301preview:getService", {
@@ -109,7 +109,7 @@ export interface GetServiceResult {
 /**
  * Gets information about the specified service.
  */
-/** @deprecated azure-native:mobilenetwork/v20220301preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Service to guarantee forwards compatibility. */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Service to guarantee forwards compatibility. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))
 }

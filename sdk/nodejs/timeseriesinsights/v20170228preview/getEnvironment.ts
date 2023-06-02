@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the environment with the specified name in the specified subscription and resource group.
  */
 /** @deprecated Version 2017-02-28-preview will be removed in v2 of the provider.
-azure-native:timeseriesinsights/v20170228preview:Environment is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20171115:Environment to guarantee forwards compatibility. */
+azure-native:timeseriesinsights/v20170228preview:Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20171115:Environment to guarantee forwards compatibility. */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-    pulumi.log.warn("getEnvironment is deprecated: Version 2017-02-28-preview will be removed in v2 of the provider.\nazure-native:timeseriesinsights/v20170228preview:Environment is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20171115:Environment to guarantee forwards compatibility.")
+    pulumi.log.warn("getEnvironment is deprecated: Version 2017-02-28-preview will be removed in v2 of the provider.\nazure-native:timeseriesinsights/v20170228preview:Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20171115:Environment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20170228preview:getEnvironment", {
@@ -90,7 +90,7 @@ export interface GetEnvironmentResult {
  * Gets the environment with the specified name in the specified subscription and resource group.
  */
 /** @deprecated Version 2017-02-28-preview will be removed in v2 of the provider.
-azure-native:timeseriesinsights/v20170228preview:Environment is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20171115:Environment to guarantee forwards compatibility. */
+azure-native:timeseriesinsights/v20170228preview:Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20171115:Environment to guarantee forwards compatibility. */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))
 }

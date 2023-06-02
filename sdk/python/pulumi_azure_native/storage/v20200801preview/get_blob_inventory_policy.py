@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-08-01-preview will be removed in v2 of the provider.
-azure-native:storage/v20200801preview:BlobInventoryPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:storage/v20200801preview:BlobInventoryPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetBlobInventoryPolicyResult:
@@ -121,7 +121,7 @@ def get_blob_inventory_policy(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
     pulumi.log.warn("""get_blob_inventory_policy is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.
-azure-native:storage/v20200801preview:BlobInventoryPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility.""")
+azure-native:storage/v20200801preview:BlobInventoryPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['blobInventoryPolicyName'] = blob_inventory_policy_name
@@ -152,5 +152,5 @@ def get_blob_inventory_policy_output(account_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
     pulumi.log.warn("""get_blob_inventory_policy is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.
-azure-native:storage/v20200801preview:BlobInventoryPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility.""")
+azure-native:storage/v20200801preview:BlobInventoryPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility.""")
     ...

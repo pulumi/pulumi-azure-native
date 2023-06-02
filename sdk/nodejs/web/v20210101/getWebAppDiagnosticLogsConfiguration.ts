@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the logging configuration of an app.
  */
-/** @deprecated azure-native:web/v20210101:WebAppDiagnosticLogsConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppDiagnosticLogsConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20210101:WebAppDiagnosticLogsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppDiagnosticLogsConfiguration to guarantee forwards compatibility. */
 export function getWebAppDiagnosticLogsConfiguration(args: GetWebAppDiagnosticLogsConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDiagnosticLogsConfigurationResult> {
-    pulumi.log.warn("getWebAppDiagnosticLogsConfiguration is deprecated: azure-native:web/v20210101:WebAppDiagnosticLogsConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppDiagnosticLogsConfiguration to guarantee forwards compatibility.")
+    pulumi.log.warn("getWebAppDiagnosticLogsConfiguration is deprecated: azure-native:web/v20210101:WebAppDiagnosticLogsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppDiagnosticLogsConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210101:getWebAppDiagnosticLogsConfiguration", {
@@ -72,7 +72,7 @@ export interface GetWebAppDiagnosticLogsConfigurationResult {
 /**
  * Gets the logging configuration of an app.
  */
-/** @deprecated azure-native:web/v20210101:WebAppDiagnosticLogsConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppDiagnosticLogsConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20210101:WebAppDiagnosticLogsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppDiagnosticLogsConfiguration to guarantee forwards compatibility. */
 export function getWebAppDiagnosticLogsConfigurationOutput(args: GetWebAppDiagnosticLogsConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDiagnosticLogsConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getWebAppDiagnosticLogsConfiguration(a, opts))
 }

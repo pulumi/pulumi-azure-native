@@ -17,7 +17,7 @@ __all__ = [
     'get_inventory_item_output',
 ]
 
-warnings.warn("""azure-native:connectedvmwarevsphere/v20220110preview:InventoryItem is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:InventoryItem to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:connectedvmwarevsphere/v20220110preview:InventoryItem is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:InventoryItem to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetInventoryItemResult:
@@ -167,7 +167,7 @@ def get_inventory_item(inventory_item_name: Optional[str] = None,
     :param str resource_group_name: The Resource Group Name.
     :param str vcenter_name: Name of the vCenter.
     """
-    pulumi.log.warn("""get_inventory_item is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:InventoryItem is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:InventoryItem to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_inventory_item is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:InventoryItem is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:InventoryItem to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['inventoryItemName'] = inventory_item_name
     __args__['resourceGroupName'] = resource_group_name
@@ -201,5 +201,5 @@ def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The Resource Group Name.
     :param str vcenter_name: Name of the vCenter.
     """
-    pulumi.log.warn("""get_inventory_item is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:InventoryItem is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:InventoryItem to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_inventory_item is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:InventoryItem is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:InventoryItem to guarantee forwards compatibility.""")
     ...

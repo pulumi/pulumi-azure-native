@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The operation to get the restore point.
  */
-/** @deprecated azure-native:compute/v20220301:RestorePoint is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:RestorePoint to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20220301:RestorePoint is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:RestorePoint to guarantee forwards compatibility. */
 export function getRestorePoint(args: GetRestorePointArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorePointResult> {
-    pulumi.log.warn("getRestorePoint is deprecated: azure-native:compute/v20220301:RestorePoint is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:RestorePoint to guarantee forwards compatibility.")
+    pulumi.log.warn("getRestorePoint is deprecated: azure-native:compute/v20220301:RestorePoint is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:RestorePoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20220301:getRestorePoint", {
@@ -90,7 +90,7 @@ export interface GetRestorePointResult {
 /**
  * The operation to get the restore point.
  */
-/** @deprecated azure-native:compute/v20220301:RestorePoint is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:RestorePoint to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20220301:RestorePoint is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:RestorePoint to guarantee forwards compatibility. */
 export function getRestorePointOutput(args: GetRestorePointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorePointResult> {
     return pulumi.output(args).apply((a: any) => getRestorePoint(a, opts))
 }

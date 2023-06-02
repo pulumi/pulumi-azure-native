@@ -17,7 +17,7 @@ __all__ = [
     'get_security_connector_output',
 ]
 
-warnings.warn("""azure-native:security/v20220501preview:SecurityConnector is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20220801preview:SecurityConnector to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:security/v20220501preview:SecurityConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20220801preview:SecurityConnector to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSecurityConnectorResult:
@@ -201,7 +201,7 @@ def get_security_connector(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str security_connector_name: The security connector name.
     """
-    pulumi.log.warn("""get_security_connector is deprecated: azure-native:security/v20220501preview:SecurityConnector is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20220801preview:SecurityConnector to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_security_connector is deprecated: azure-native:security/v20220501preview:SecurityConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20220801preview:SecurityConnector to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['securityConnectorName'] = security_connector_name
@@ -235,5 +235,5 @@ def get_security_connector_output(resource_group_name: Optional[pulumi.Input[str
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str security_connector_name: The security connector name.
     """
-    pulumi.log.warn("""get_security_connector is deprecated: azure-native:security/v20220501preview:SecurityConnector is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20220801preview:SecurityConnector to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_security_connector is deprecated: azure-native:security/v20220501preview:SecurityConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20220801preview:SecurityConnector to guarantee forwards compatibility.""")
     ...

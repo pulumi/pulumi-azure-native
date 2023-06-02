@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
     /// <summary>
     /// Security assessment on a resource
     /// </summary>
-    [Obsolete(@"azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20200101:Assessment to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:security/v20190101preview:Assessment is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20200101:Assessment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:security/v20190101preview:Assessment")]
     public partial class Assessment : global::Pulumi.CustomResource
     {

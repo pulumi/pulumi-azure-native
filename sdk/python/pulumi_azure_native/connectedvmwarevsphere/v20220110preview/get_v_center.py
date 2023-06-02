@@ -17,7 +17,7 @@ __all__ = [
     'get_v_center_output',
 ]
 
-warnings.warn("""azure-native:connectedvmwarevsphere/v20220110preview:VCenter is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VCenter to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:connectedvmwarevsphere/v20220110preview:VCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VCenter to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVCenterResult:
@@ -261,7 +261,7 @@ def get_v_center(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The Resource Group Name.
     :param str vcenter_name: Name of the vCenter.
     """
-    pulumi.log.warn("""get_v_center is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VCenter is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VCenter to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_v_center is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VCenter to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vcenterName'] = vcenter_name
@@ -300,5 +300,5 @@ def get_v_center_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The Resource Group Name.
     :param str vcenter_name: Name of the vCenter.
     """
-    pulumi.log.warn("""get_v_center is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VCenter is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VCenter to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_v_center is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VCenter to guarantee forwards compatibility.""")
     ...

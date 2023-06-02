@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Get a particular backup of the volume
  */
 /** @deprecated Version 2020-05-01 will be removed in v2 of the provider.
-azure-native:netapp/v20200501:Backup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Backup to guarantee forwards compatibility. */
+azure-native:netapp/v20200501:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Backup to guarantee forwards compatibility. */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
-    pulumi.log.warn("getBackup is deprecated: Version 2020-05-01 will be removed in v2 of the provider.\nazure-native:netapp/v20200501:Backup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Backup to guarantee forwards compatibility.")
+    pulumi.log.warn("getBackup is deprecated: Version 2020-05-01 will be removed in v2 of the provider.\nazure-native:netapp/v20200501:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Backup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20200501:getBackup", {
@@ -90,7 +90,7 @@ export interface GetBackupResult {
  * Get a particular backup of the volume
  */
 /** @deprecated Version 2020-05-01 will be removed in v2 of the provider.
-azure-native:netapp/v20200501:Backup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Backup to guarantee forwards compatibility. */
+azure-native:netapp/v20200501:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Backup to guarantee forwards compatibility. */
 export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupResult> {
     return pulumi.output(args).apply((a: any) => getBackup(a, opts))
 }

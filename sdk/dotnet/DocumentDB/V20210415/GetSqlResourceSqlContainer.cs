@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210415
 {
-    [Obsolete(@"azure-native:documentdb/v20210415:SqlResourceSqlContainer is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlContainer to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:documentdb/v20210415:SqlResourceSqlContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlContainer to guarantee forwards compatibility.")]
     public static class GetSqlResourceSqlContainer
     {
         /// <summary>

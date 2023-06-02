@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets an integration runtime.
  */
 /** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider.
-azure-native:datafactory/v20170901preview:IntegrationRuntime is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:IntegrationRuntime to guarantee forwards compatibility. */
+azure-native:datafactory/v20170901preview:IntegrationRuntime is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:IntegrationRuntime to guarantee forwards compatibility. */
 export function getIntegrationRuntime(args: GetIntegrationRuntimeArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeResult> {
-    pulumi.log.warn("getIntegrationRuntime is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.\nazure-native:datafactory/v20170901preview:IntegrationRuntime is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:IntegrationRuntime to guarantee forwards compatibility.")
+    pulumi.log.warn("getIntegrationRuntime is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.\nazure-native:datafactory/v20170901preview:IntegrationRuntime is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:IntegrationRuntime to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20170901preview:getIntegrationRuntime", {
@@ -67,7 +67,7 @@ export interface GetIntegrationRuntimeResult {
  * Gets an integration runtime.
  */
 /** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider.
-azure-native:datafactory/v20170901preview:IntegrationRuntime is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:IntegrationRuntime to guarantee forwards compatibility. */
+azure-native:datafactory/v20170901preview:IntegrationRuntime is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:IntegrationRuntime to guarantee forwards compatibility. */
 export function getIntegrationRuntimeOutput(args: GetIntegrationRuntimeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationRuntime(a, opts))
 }

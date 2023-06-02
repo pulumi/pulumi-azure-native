@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
     /// <summary>
     /// Sku sub resource.
     /// </summary>
-    [Obsolete(@"azure-native:hybridnetwork/v20210501:VendorSkus is being removed in the next major version of this provider. Please upgrade to azure-native:hybridnetwork/v20220101preview:VendorSkus to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:hybridnetwork/v20210501:VendorSkus is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:VendorSkus to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hybridnetwork/v20210501:VendorSkus")]
     public partial class VendorSkus : global::Pulumi.CustomResource
     {

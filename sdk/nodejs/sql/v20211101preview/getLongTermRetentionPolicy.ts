@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a database's long term retention policy.
  */
-/** @deprecated azure-native:sql/v20211101preview:LongTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:LongTermRetentionPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101preview:LongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:LongTermRetentionPolicy to guarantee forwards compatibility. */
 export function getLongTermRetentionPolicy(args: GetLongTermRetentionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetLongTermRetentionPolicyResult> {
-    pulumi.log.warn("getLongTermRetentionPolicy is deprecated: azure-native:sql/v20211101preview:LongTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:LongTermRetentionPolicy to guarantee forwards compatibility.")
+    pulumi.log.warn("getLongTermRetentionPolicy is deprecated: azure-native:sql/v20211101preview:LongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:LongTermRetentionPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101preview:getLongTermRetentionPolicy", {
@@ -75,7 +75,7 @@ export interface GetLongTermRetentionPolicyResult {
 /**
  * Gets a database's long term retention policy.
  */
-/** @deprecated azure-native:sql/v20211101preview:LongTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:LongTermRetentionPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101preview:LongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:LongTermRetentionPolicy to guarantee forwards compatibility. */
 export function getLongTermRetentionPolicyOutput(args: GetLongTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLongTermRetentionPolicyResult> {
     return pulumi.output(args).apply((a: any) => getLongTermRetentionPolicy(a, opts))
 }

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
-/** @deprecated azure-native:securityinsights/v20220101preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20220101preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility. */
 export function getOffice365ProjectDataConnector(args: GetOffice365ProjectDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOffice365ProjectDataConnectorResult> {
-    pulumi.log.warn("getOffice365ProjectDataConnector is deprecated: azure-native:securityinsights/v20220101preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility.")
+    pulumi.log.warn("getOffice365ProjectDataConnector is deprecated: azure-native:securityinsights/v20220101preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220101preview:getOffice365ProjectDataConnector", {
@@ -78,7 +78,7 @@ export interface GetOffice365ProjectDataConnectorResult {
 /**
  * Gets a data connector.
  */
-/** @deprecated azure-native:securityinsights/v20220101preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20220101preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility. */
 export function getOffice365ProjectDataConnectorOutput(args: GetOffice365ProjectDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOffice365ProjectDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getOffice365ProjectDataConnector(a, opts))
 }

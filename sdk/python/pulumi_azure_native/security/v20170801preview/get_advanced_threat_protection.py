@@ -16,7 +16,7 @@ __all__ = [
     'get_advanced_threat_protection_output',
 ]
 
-warnings.warn("""azure-native:security/v20170801preview:AdvancedThreatProtection is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190101:AdvancedThreatProtection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:security/v20170801preview:AdvancedThreatProtection is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20190101:AdvancedThreatProtection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAdvancedThreatProtectionResult:
@@ -92,7 +92,7 @@ def get_advanced_threat_protection(resource_id: Optional[str] = None,
     :param str resource_id: The identifier of the resource.
     :param str setting_name: Advanced Threat Protection setting name.
     """
-    pulumi.log.warn("""get_advanced_threat_protection is deprecated: azure-native:security/v20170801preview:AdvancedThreatProtection is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190101:AdvancedThreatProtection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_advanced_threat_protection is deprecated: azure-native:security/v20170801preview:AdvancedThreatProtection is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20190101:AdvancedThreatProtection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceId'] = resource_id
     __args__['settingName'] = setting_name
@@ -117,5 +117,5 @@ def get_advanced_threat_protection_output(resource_id: Optional[pulumi.Input[str
     :param str resource_id: The identifier of the resource.
     :param str setting_name: Advanced Threat Protection setting name.
     """
-    pulumi.log.warn("""get_advanced_threat_protection is deprecated: azure-native:security/v20170801preview:AdvancedThreatProtection is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190101:AdvancedThreatProtection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_advanced_threat_protection is deprecated: azure-native:security/v20170801preview:AdvancedThreatProtection is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20190101:AdvancedThreatProtection to guarantee forwards compatibility.""")
     ...

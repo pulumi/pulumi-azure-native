@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * Information about managed application definition.
  *
  * @deprecated Version 2018-06-01 will be removed in v2 of the provider.
-azure-native:solutions/v20180601:ApplicationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.
+azure-native:solutions/v20180601:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.
  */
 export class ApplicationDefinition extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationDefinition {
-        pulumi.log.warn("ApplicationDefinition is deprecated: Version 2018-06-01 will be removed in v2 of the provider.\nazure-native:solutions/v20180601:ApplicationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.")
+        pulumi.log.warn("ApplicationDefinition is deprecated: Version 2018-06-01 will be removed in v2 of the provider.\nazure-native:solutions/v20180601:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.")
         return new ApplicationDefinition(name, undefined as any, { ...opts, id: id });
     }
 
@@ -114,9 +114,9 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2018-06-01 will be removed in v2 of the provider.
-azure-native:solutions/v20180601:ApplicationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility. */
+azure-native:solutions/v20180601:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility. */
     constructor(name: string, args: ApplicationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApplicationDefinition is deprecated: Version 2018-06-01 will be removed in v2 of the provider.\nazure-native:solutions/v20180601:ApplicationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.")
+        pulumi.log.warn("ApplicationDefinition is deprecated: Version 2018-06-01 will be removed in v2 of the provider.\nazure-native:solutions/v20180601:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

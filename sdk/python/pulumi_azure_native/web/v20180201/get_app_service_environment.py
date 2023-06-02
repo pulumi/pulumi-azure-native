@@ -17,7 +17,7 @@ __all__ = [
     'get_app_service_environment_output',
 ]
 
-warnings.warn("""azure-native:web/v20180201:AppServiceEnvironment is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20190801:AppServiceEnvironment to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:web/v20180201:AppServiceEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20190801:AppServiceEnvironment to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAppServiceEnvironmentResult:
@@ -563,7 +563,7 @@ def get_app_service_environment(name: Optional[str] = None,
     :param str name: Name of the App Service Environment.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_app_service_environment is deprecated: azure-native:web/v20180201:AppServiceEnvironment is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20190801:AppServiceEnvironment to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_app_service_environment is deprecated: azure-native:web/v20180201:AppServiceEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20190801:AppServiceEnvironment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -627,5 +627,5 @@ def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the App Service Environment.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_app_service_environment is deprecated: azure-native:web/v20180201:AppServiceEnvironment is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20190801:AppServiceEnvironment to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_app_service_environment is deprecated: azure-native:web/v20180201:AppServiceEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20190801:AppServiceEnvironment to guarantee forwards compatibility.""")
     ...

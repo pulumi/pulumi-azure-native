@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets details about the specified function.
  */
-/** @deprecated azure-native:streamanalytics/v20170401preview:Function is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Function to guarantee forwards compatibility. */
+/** @deprecated azure-native:streamanalytics/v20170401preview:Function is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Function to guarantee forwards compatibility. */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
-    pulumi.log.warn("getFunction is deprecated: azure-native:streamanalytics/v20170401preview:Function is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Function to guarantee forwards compatibility.")
+    pulumi.log.warn("getFunction is deprecated: azure-native:streamanalytics/v20170401preview:Function is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Function to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:streamanalytics/v20170401preview:getFunction", {
@@ -61,7 +61,7 @@ export interface GetFunctionResult {
 /**
  * Gets details about the specified function.
  */
-/** @deprecated azure-native:streamanalytics/v20170401preview:Function is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Function to guarantee forwards compatibility. */
+/** @deprecated azure-native:streamanalytics/v20170401preview:Function is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Function to guarantee forwards compatibility. */
 export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
     return pulumi.output(args).apply((a: any) => getFunction(a, opts))
 }

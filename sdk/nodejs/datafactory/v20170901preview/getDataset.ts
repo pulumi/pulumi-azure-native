@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets a dataset.
  */
 /** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider.
-azure-native:datafactory/v20170901preview:Dataset is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:Dataset to guarantee forwards compatibility. */
+azure-native:datafactory/v20170901preview:Dataset is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:Dataset to guarantee forwards compatibility. */
 export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
-    pulumi.log.warn("getDataset is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.\nazure-native:datafactory/v20170901preview:Dataset is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:Dataset to guarantee forwards compatibility.")
+    pulumi.log.warn("getDataset is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.\nazure-native:datafactory/v20170901preview:Dataset is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:Dataset to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20170901preview:getDataset", {
@@ -67,7 +67,7 @@ export interface GetDatasetResult {
  * Gets a dataset.
  */
 /** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider.
-azure-native:datafactory/v20170901preview:Dataset is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:Dataset to guarantee forwards compatibility. */
+azure-native:datafactory/v20170901preview:Dataset is being removed in the next major version of this provider. Upgrade to at least azure-native:datafactory/v20180601:Dataset to guarantee forwards compatibility. */
 export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
     return pulumi.output(args).apply((a: any) => getDataset(a, opts))
 }

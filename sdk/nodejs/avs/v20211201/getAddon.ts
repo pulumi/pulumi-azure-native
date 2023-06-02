@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * An addon resource
  */
-/** @deprecated azure-native:avs/v20211201:Addon is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Addon to guarantee forwards compatibility. */
+/** @deprecated azure-native:avs/v20211201:Addon is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Addon to guarantee forwards compatibility. */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
-    pulumi.log.warn("getAddon is deprecated: azure-native:avs/v20211201:Addon is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Addon to guarantee forwards compatibility.")
+    pulumi.log.warn("getAddon is deprecated: azure-native:avs/v20211201:Addon is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Addon to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getAddon", {
@@ -61,7 +61,7 @@ export interface GetAddonResult {
 /**
  * An addon resource
  */
-/** @deprecated azure-native:avs/v20211201:Addon is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Addon to guarantee forwards compatibility. */
+/** @deprecated azure-native:avs/v20211201:Addon is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Addon to guarantee forwards compatibility. */
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
     return pulumi.output(args).apply((a: any) => getAddon(a, opts))
 }

@@ -98,11 +98,11 @@ class SshPublicKeyInitArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:compute/v20220301:SshPublicKey is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:compute/v20220301:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class SshPublicKey(pulumi.CustomResource):
-    warnings.warn("""azure-native:compute/v20220301:SshPublicKey is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:compute/v20220301:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -155,7 +155,7 @@ class SshPublicKey(pulumi.CustomResource):
                  ssh_public_key_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""SshPublicKey is deprecated: azure-native:compute/v20220301:SshPublicKey is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""")
+        pulumi.log.warn("""SshPublicKey is deprecated: azure-native:compute/v20220301:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

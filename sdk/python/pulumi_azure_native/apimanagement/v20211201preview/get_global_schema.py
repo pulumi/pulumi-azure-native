@@ -16,7 +16,7 @@ __all__ = [
     'get_global_schema_output',
 ]
 
-warnings.warn("""azure-native:apimanagement/v20211201preview:GlobalSchema is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GlobalSchema to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:apimanagement/v20211201preview:GlobalSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GlobalSchema to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetGlobalSchemaResult:
@@ -118,7 +118,7 @@ def get_global_schema(resource_group_name: Optional[str] = None,
     :param str schema_id: Schema id identifier. Must be unique in the current API Management service instance.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("""get_global_schema is deprecated: azure-native:apimanagement/v20211201preview:GlobalSchema is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GlobalSchema to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_global_schema is deprecated: azure-native:apimanagement/v20211201preview:GlobalSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GlobalSchema to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['schemaId'] = schema_id
@@ -148,5 +148,5 @@ def get_global_schema_output(resource_group_name: Optional[pulumi.Input[str]] = 
     :param str schema_id: Schema id identifier. Must be unique in the current API Management service instance.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("""get_global_schema is deprecated: azure-native:apimanagement/v20211201preview:GlobalSchema is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GlobalSchema to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_global_schema is deprecated: azure-native:apimanagement/v20211201preview:GlobalSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GlobalSchema to guarantee forwards compatibility.""")
     ...

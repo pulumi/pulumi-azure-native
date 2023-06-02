@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Returns the properties of the specified access control record name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider.
-azure-native:storsimple/v20161001:AccessControlRecord is being removed in the next major version of this provider. Please upgrade to azure-native:storsimple/v20170601:AccessControlRecord to guarantee forwards compatibility. */
+azure-native:storsimple/v20161001:AccessControlRecord is being removed in the next major version of this provider. Upgrade to at least azure-native:storsimple/v20170601:AccessControlRecord to guarantee forwards compatibility. */
 export function getAccessControlRecord(args: GetAccessControlRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessControlRecordResult> {
-    pulumi.log.warn("getAccessControlRecord is deprecated: Version 2016-10-01 will be removed in v2 of the provider.\nazure-native:storsimple/v20161001:AccessControlRecord is being removed in the next major version of this provider. Please upgrade to azure-native:storsimple/v20170601:AccessControlRecord to guarantee forwards compatibility.")
+    pulumi.log.warn("getAccessControlRecord is deprecated: Version 2016-10-01 will be removed in v2 of the provider.\nazure-native:storsimple/v20161001:AccessControlRecord is being removed in the next major version of this provider. Upgrade to at least azure-native:storsimple/v20170601:AccessControlRecord to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getAccessControlRecord", {
@@ -60,7 +60,7 @@ export interface GetAccessControlRecordResult {
  * Returns the properties of the specified access control record name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider.
-azure-native:storsimple/v20161001:AccessControlRecord is being removed in the next major version of this provider. Please upgrade to azure-native:storsimple/v20170601:AccessControlRecord to guarantee forwards compatibility. */
+azure-native:storsimple/v20161001:AccessControlRecord is being removed in the next major version of this provider. Upgrade to at least azure-native:storsimple/v20170601:AccessControlRecord to guarantee forwards compatibility. */
 export function getAccessControlRecordOutput(args: GetAccessControlRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessControlRecordResult> {
     return pulumi.output(args).apply((a: any) => getAccessControlRecord(a, opts))
 }

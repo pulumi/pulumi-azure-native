@@ -113,11 +113,11 @@ class SynapseWorkspaceSqlPoolTableDataSetArgs:
         pulumi.set(self, "data_set_name", value)
 
 
-warnings.warn("""azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class SynapseWorkspaceSqlPoolTableDataSet(pulumi.CustomResource):
-    warnings.warn("""azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -174,7 +174,7 @@ class SynapseWorkspaceSqlPoolTableDataSet(pulumi.CustomResource):
                  share_name: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_sql_pool_table_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SynapseWorkspaceSqlPoolTableDataSet is deprecated: azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility.""")
+        pulumi.log.warn("""SynapseWorkspaceSqlPoolTableDataSet is deprecated: azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

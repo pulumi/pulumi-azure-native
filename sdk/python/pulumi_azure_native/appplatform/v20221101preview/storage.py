@@ -83,11 +83,11 @@ class StorageArgs:
         pulumi.set(self, "storage_name", value)
 
 
-warnings.warn("""azure-native:appplatform/v20221101preview:Storage is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:appplatform/v20221101preview:Storage is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Storage(pulumi.CustomResource):
-    warnings.warn("""azure-native:appplatform/v20221101preview:Storage is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:appplatform/v20221101preview:Storage is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -137,7 +137,7 @@ class Storage(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  storage_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Storage is deprecated: azure-native:appplatform/v20221101preview:Storage is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility.""")
+        pulumi.log.warn("""Storage is deprecated: azure-native:appplatform/v20221101preview:Storage is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

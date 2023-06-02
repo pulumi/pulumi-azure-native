@@ -17,7 +17,7 @@ __all__ = [
     'get_managed_cluster_output',
 ]
 
-warnings.warn("""azure-native:servicefabric/v20210501:ManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20220101:ManagedCluster to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:servicefabric/v20210501:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20220101:ManagedCluster to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetManagedClusterResult:
@@ -429,7 +429,7 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_managed_cluster is deprecated: azure-native:servicefabric/v20210501:ManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20220101:ManagedCluster to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_managed_cluster is deprecated: azure-native:servicefabric/v20210501:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20220101:ManagedCluster to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
@@ -482,5 +482,5 @@ def get_managed_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_managed_cluster is deprecated: azure-native:servicefabric/v20210501:ManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20220101:ManagedCluster to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_managed_cluster is deprecated: azure-native:servicefabric/v20210501:ManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20220101:ManagedCluster to guarantee forwards compatibility.""")
     ...

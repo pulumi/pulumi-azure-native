@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2015-11-06 will be removed in v2 of the provider.
-azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDatabaseAccountMongoDBDatabaseResult:
@@ -108,7 +108,7 @@ def get_database_account_mongo_db_database(account_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure resource group.
     """
     pulumi.log.warn("""get_database_account_mongo_db_database is deprecated: Version 2015-11-06 will be removed in v2 of the provider.
-azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase to guarantee forwards compatibility.""")
+azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['databaseName'] = database_name
@@ -138,5 +138,5 @@ def get_database_account_mongo_db_database_output(account_name: Optional[pulumi.
     :param str resource_group_name: Name of an Azure resource group.
     """
     pulumi.log.warn("""get_database_account_mongo_db_database is deprecated: Version 2015-11-06 will be removed in v2 of the provider.
-azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase to guarantee forwards compatibility.""")
+azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase to guarantee forwards compatibility.""")
     ...

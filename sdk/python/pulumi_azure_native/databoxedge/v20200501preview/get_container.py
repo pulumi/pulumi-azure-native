@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-05-01-preview will be removed in v2 of the provider.
-azure-native:databoxedge/v20200501preview:Container is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:databoxedge/v20200501preview:Container is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetContainerResult:
@@ -135,7 +135,7 @@ def get_container(container_name: Optional[str] = None,
     :param str storage_account_name: The Storage Account Name
     """
     pulumi.log.warn("""get_container is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.
-azure-native:databoxedge/v20200501preview:Container is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.""")
+azure-native:databoxedge/v20200501preview:Container is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['containerName'] = container_name
     __args__['deviceName'] = device_name
@@ -170,5 +170,5 @@ def get_container_output(container_name: Optional[pulumi.Input[str]] = None,
     :param str storage_account_name: The Storage Account Name
     """
     pulumi.log.warn("""get_container is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.
-azure-native:databoxedge/v20200501preview:Container is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.""")
+azure-native:databoxedge/v20200501preview:Container is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.""")
     ...

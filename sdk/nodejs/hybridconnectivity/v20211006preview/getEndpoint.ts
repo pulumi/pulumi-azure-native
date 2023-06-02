@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the endpoint to the resource.
  */
-/** @deprecated azure-native:hybridconnectivity/v20211006preview:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:hybridconnectivity/v20220501preview:Endpoint to guarantee forwards compatibility. */
+/** @deprecated azure-native:hybridconnectivity/v20211006preview:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridconnectivity/v20220501preview:Endpoint to guarantee forwards compatibility. */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
-    pulumi.log.warn("getEndpoint is deprecated: azure-native:hybridconnectivity/v20211006preview:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:hybridconnectivity/v20220501preview:Endpoint to guarantee forwards compatibility.")
+    pulumi.log.warn("getEndpoint is deprecated: azure-native:hybridconnectivity/v20211006preview:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridconnectivity/v20220501preview:Endpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridconnectivity/v20211006preview:getEndpoint", {
@@ -78,7 +78,7 @@ export interface GetEndpointResult {
 /**
  * Gets the endpoint to the resource.
  */
-/** @deprecated azure-native:hybridconnectivity/v20211006preview:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:hybridconnectivity/v20220501preview:Endpoint to guarantee forwards compatibility. */
+/** @deprecated azure-native:hybridconnectivity/v20211006preview:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridconnectivity/v20220501preview:Endpoint to guarantee forwards compatibility. */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))
 }

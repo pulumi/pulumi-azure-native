@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the details of the private endpoint connection to the Search service in the given resource group.
  */
 /** @deprecated Version 2020-03-13 will be removed in v2 of the provider.
-azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility. */
+azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getPrivateEndpointConnection is deprecated: Version 2020-03-13 will be removed in v2 of the provider.\nazure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getPrivateEndpointConnection is deprecated: Version 2020-03-13 will be removed in v2 of the provider.\nazure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:search/v20200313:getPrivateEndpointConnection", {
@@ -63,7 +63,7 @@ export interface GetPrivateEndpointConnectionResult {
  * Gets the details of the private endpoint connection to the Search service in the given resource group.
  */
 /** @deprecated Version 2020-03-13 will be removed in v2 of the provider.
-azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility. */
+azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
 }

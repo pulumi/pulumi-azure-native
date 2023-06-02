@@ -179,12 +179,12 @@ class ProjectArgs:
 
 
 warnings.warn("""Version 2018-03-15-preview will be removed in v2 of the provider.
-azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Project(pulumi.CustomResource):
     warnings.warn("""Version 2018-03-15-preview will be removed in v2 of the provider.
-azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -253,7 +253,7 @@ azure-native:datamigration/v20180315preview:Project is being removed in the next
                  target_platform: Optional[pulumi.Input[Union[str, 'ProjectTargetPlatform']]] = None,
                  __props__=None):
         pulumi.log.warn("""Project is deprecated: Version 2018-03-15-preview will be removed in v2 of the provider.
-azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility.""")
+azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

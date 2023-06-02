@@ -17,7 +17,7 @@ __all__ = [
     'get_capacity_reservation_output',
 ]
 
-warnings.warn("""azure-native:compute/v20211101:CapacityReservation is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:CapacityReservation to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:compute/v20211101:CapacityReservation is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:CapacityReservation to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCapacityReservationResult:
@@ -205,7 +205,7 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[str] = No
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_capacity_reservation is deprecated: azure-native:compute/v20211101:CapacityReservation is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:CapacityReservation to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_capacity_reservation is deprecated: azure-native:compute/v20211101:CapacityReservation is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:CapacityReservation to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['capacityReservationGroupName'] = capacity_reservation_group_name
     __args__['capacityReservationName'] = capacity_reservation_name
@@ -245,5 +245,5 @@ def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pu
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_capacity_reservation is deprecated: azure-native:compute/v20211101:CapacityReservation is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:CapacityReservation to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_capacity_reservation is deprecated: azure-native:compute/v20211101:CapacityReservation is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:CapacityReservation to guarantee forwards compatibility.""")
     ...

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Media.V20210601
     /// <summary>
     /// A Streaming Policy resource
     /// </summary>
-    [Obsolete(@"azure-native:media/v20210601:StreamingPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:StreamingPolicy to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:media/v20210601:StreamingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:StreamingPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:media/v20210601:StreamingPolicy")]
     public partial class StreamingPolicy : global::Pulumi.CustomResource
     {

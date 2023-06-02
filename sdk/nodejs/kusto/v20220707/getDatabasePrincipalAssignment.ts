@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Kusto cluster database principalAssignment.
  */
-/** @deprecated azure-native:kusto/v20220707:DatabasePrincipalAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:DatabasePrincipalAssignment to guarantee forwards compatibility. */
+/** @deprecated azure-native:kusto/v20220707:DatabasePrincipalAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:DatabasePrincipalAssignment to guarantee forwards compatibility. */
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
-    pulumi.log.warn("getDatabasePrincipalAssignment is deprecated: azure-native:kusto/v20220707:DatabasePrincipalAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:DatabasePrincipalAssignment to guarantee forwards compatibility.")
+    pulumi.log.warn("getDatabasePrincipalAssignment is deprecated: azure-native:kusto/v20220707:DatabasePrincipalAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:DatabasePrincipalAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20220707:getDatabasePrincipalAssignment", {
@@ -91,7 +91,7 @@ export interface GetDatabasePrincipalAssignmentResult {
 /**
  * Gets a Kusto cluster database principalAssignment.
  */
-/** @deprecated azure-native:kusto/v20220707:DatabasePrincipalAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:DatabasePrincipalAssignment to guarantee forwards compatibility. */
+/** @deprecated azure-native:kusto/v20220707:DatabasePrincipalAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:DatabasePrincipalAssignment to guarantee forwards compatibility. */
 export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getDatabasePrincipalAssignment(a, opts))
 }

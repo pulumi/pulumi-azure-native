@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get information about a configuration profile version
  */
-/** @deprecated azure-native:automanage/v20210430preview:ConfigurationProfilesVersion is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfilesVersion to guarantee forwards compatibility. */
+/** @deprecated azure-native:automanage/v20210430preview:ConfigurationProfilesVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfilesVersion to guarantee forwards compatibility. */
 export function getConfigurationProfilesVersion(args: GetConfigurationProfilesVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfilesVersionResult> {
-    pulumi.log.warn("getConfigurationProfilesVersion is deprecated: azure-native:automanage/v20210430preview:ConfigurationProfilesVersion is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfilesVersion to guarantee forwards compatibility.")
+    pulumi.log.warn("getConfigurationProfilesVersion is deprecated: azure-native:automanage/v20210430preview:ConfigurationProfilesVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfilesVersion to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automanage/v20210430preview:getConfigurationProfilesVersion", {
@@ -73,7 +73,7 @@ export interface GetConfigurationProfilesVersionResult {
 /**
  * Get information about a configuration profile version
  */
-/** @deprecated azure-native:automanage/v20210430preview:ConfigurationProfilesVersion is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfilesVersion to guarantee forwards compatibility. */
+/** @deprecated azure-native:automanage/v20210430preview:ConfigurationProfilesVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfilesVersion to guarantee forwards compatibility. */
 export function getConfigurationProfilesVersionOutput(args: GetConfigurationProfilesVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfilesVersionResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationProfilesVersion(a, opts))
 }

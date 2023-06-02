@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20210410PrivatePreview
 {
-    [Obsolete(@"azure-native:dbforpostgresql/v20210410privatepreview:Configuration is being removed in the next major version of this provider. Please upgrade to azure-native:dbforpostgresql/v20221201:Configuration to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:dbforpostgresql/v20210410privatepreview:Configuration is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221201:Configuration to guarantee forwards compatibility.")]
     public static class GetConfiguration
     {
         /// <summary>

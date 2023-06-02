@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
     /// <summary>
     /// Represents threat intelligence data connector.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20200101:TIDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:TIDataConnector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20200101:TIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:TIDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20200101:TIDataConnector")]
     public partial class TIDataConnector : global::Pulumi.CustomResource
     {

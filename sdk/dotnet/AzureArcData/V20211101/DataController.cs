@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101
     /// <summary>
     /// Data controller resource
     /// </summary>
-    [Obsolete(@"azure-native:azurearcdata/v20211101:DataController is being removed in the next major version of this provider. Please upgrade to azure-native:azurearcdata/v20220615preview:DataController to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:azurearcdata/v20211101:DataController is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:DataController to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurearcdata/v20211101:DataController")]
     public partial class DataController : global::Pulumi.CustomResource
     {

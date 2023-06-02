@@ -16,7 +16,7 @@ __all__ = [
     'get_tenant_configuration_output',
 ]
 
-warnings.warn("""azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetTenantConfigurationResult:
@@ -90,7 +90,7 @@ def get_tenant_configuration(configuration_name: Optional[str] = None,
 
     :param str configuration_name: The configuration name. Value must be 'default'
     """
-    pulumi.log.warn("""get_tenant_configuration is deprecated: azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_tenant_configuration is deprecated: azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['configurationName'] = configuration_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -112,5 +112,5 @@ def get_tenant_configuration_output(configuration_name: Optional[pulumi.Input[st
 
     :param str configuration_name: The configuration name. Value must be 'default'
     """
-    pulumi.log.warn("""get_tenant_configuration is deprecated: azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_tenant_configuration is deprecated: azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility.""")
     ...

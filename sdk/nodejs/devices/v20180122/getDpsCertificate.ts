@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Get the certificate from the provisioning service.
  */
 /** @deprecated Version 2018-01-22 will be removed in v2 of the provider.
-azure-native:devices/v20180122:DpsCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility. */
+azure-native:devices/v20180122:DpsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility. */
 export function getDpsCertificate(args: GetDpsCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsCertificateResult> {
-    pulumi.log.warn("getDpsCertificate is deprecated: Version 2018-01-22 will be removed in v2 of the provider.\nazure-native:devices/v20180122:DpsCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility.")
+    pulumi.log.warn("getDpsCertificate is deprecated: Version 2018-01-22 will be removed in v2 of the provider.\nazure-native:devices/v20180122:DpsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices/v20180122:getDpsCertificate", {
@@ -67,7 +67,7 @@ export interface GetDpsCertificateResult {
  * Get the certificate from the provisioning service.
  */
 /** @deprecated Version 2018-01-22 will be removed in v2 of the provider.
-azure-native:devices/v20180122:DpsCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility. */
+azure-native:devices/v20180122:DpsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility. */
 export function getDpsCertificateOutput(args: GetDpsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsCertificateResult> {
     return pulumi.output(args).apply((a: any) => getDpsCertificate(a, opts))
 }

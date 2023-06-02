@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Device Update instance details.
  *
- * @deprecated azure-native:deviceupdate/v20220401preview:Instance is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:Instance to guarantee forwards compatibility.
+ * @deprecated azure-native:deviceupdate/v20220401preview:Instance is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20221201preview:Instance to guarantee forwards compatibility.
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Instance extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Instance {
-        pulumi.log.warn("Instance is deprecated: azure-native:deviceupdate/v20220401preview:Instance is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:Instance to guarantee forwards compatibility.")
+        pulumi.log.warn("Instance is deprecated: azure-native:deviceupdate/v20220401preview:Instance is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20221201preview:Instance to guarantee forwards compatibility.")
         return new Instance(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,9 +88,9 @@ export class Instance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:deviceupdate/v20220401preview:Instance is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:Instance to guarantee forwards compatibility. */
+    /** @deprecated azure-native:deviceupdate/v20220401preview:Instance is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20221201preview:Instance to guarantee forwards compatibility. */
     constructor(name: string, args: InstanceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Instance is deprecated: azure-native:deviceupdate/v20220401preview:Instance is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:Instance to guarantee forwards compatibility.")
+        pulumi.log.warn("Instance is deprecated: azure-native:deviceupdate/v20220401preview:Instance is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20221201preview:Instance to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

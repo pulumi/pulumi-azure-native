@@ -17,7 +17,7 @@ __all__ = [
     'get_digital_twin_output',
 ]
 
-warnings.warn("""azure-native:digitaltwins/v20221031:DigitalTwin is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:digitaltwins/v20221031:DigitalTwin is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDigitalTwinResult:
@@ -201,7 +201,7 @@ def get_digital_twin(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param str resource_name: The name of the DigitalTwinsInstance.
     """
-    pulumi.log.warn("""get_digital_twin is deprecated: azure-native:digitaltwins/v20221031:DigitalTwin is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_digital_twin is deprecated: azure-native:digitaltwins/v20221031:DigitalTwin is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -235,5 +235,5 @@ def get_digital_twin_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param str resource_name: The name of the DigitalTwinsInstance.
     """
-    pulumi.log.warn("""get_digital_twin is deprecated: azure-native:digitaltwins/v20221031:DigitalTwin is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_digital_twin is deprecated: azure-native:digitaltwins/v20221031:DigitalTwin is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.""")
     ...

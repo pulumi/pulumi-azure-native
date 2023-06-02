@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve the connection identified by connection name.
  */
-/** @deprecated azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Connection to guarantee forwards compatibility. */
+/** @deprecated azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Connection to guarantee forwards compatibility. */
 export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
-    pulumi.log.warn("getConnection is deprecated: azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Connection to guarantee forwards compatibility.")
+    pulumi.log.warn("getConnection is deprecated: azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Connection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20200113preview:getConnection", {
@@ -77,7 +77,7 @@ export interface GetConnectionResult {
 /**
  * Retrieve the connection identified by connection name.
  */
-/** @deprecated azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Connection to guarantee forwards compatibility. */
+/** @deprecated azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Connection to guarantee forwards compatibility. */
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
     return pulumi.output(args).apply((a: any) => getConnection(a, opts))
 }

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Site Extension Information.
  *
- * @deprecated azure-native:web/v20220301:WebAppSiteExtension is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSiteExtension to guarantee forwards compatibility.
+ * @deprecated azure-native:web/v20220301:WebAppSiteExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSiteExtension to guarantee forwards compatibility.
  */
 export class WebAppSiteExtension extends pulumi.CustomResource {
     /**
@@ -19,7 +19,7 @@ export class WebAppSiteExtension extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppSiteExtension {
-        pulumi.log.warn("WebAppSiteExtension is deprecated: azure-native:web/v20220301:WebAppSiteExtension is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSiteExtension to guarantee forwards compatibility.")
+        pulumi.log.warn("WebAppSiteExtension is deprecated: azure-native:web/v20220301:WebAppSiteExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSiteExtension to guarantee forwards compatibility.")
         return new WebAppSiteExtension(name, undefined as any, { ...opts, id: id });
     }
 
@@ -134,9 +134,9 @@ export class WebAppSiteExtension extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:web/v20220301:WebAppSiteExtension is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSiteExtension to guarantee forwards compatibility. */
+    /** @deprecated azure-native:web/v20220301:WebAppSiteExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSiteExtension to guarantee forwards compatibility. */
     constructor(name: string, args: WebAppSiteExtensionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WebAppSiteExtension is deprecated: azure-native:web/v20220301:WebAppSiteExtension is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSiteExtension to guarantee forwards compatibility.")
+        pulumi.log.warn("WebAppSiteExtension is deprecated: azure-native:web/v20220301:WebAppSiteExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSiteExtension to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

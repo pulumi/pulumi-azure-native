@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets details about the specified Analysis Services server.
  */
 /** @deprecated Version 2017-07-14 will be removed in v2 of the provider.
-azure-native:analysisservices/v20170714:ServerDetails is being removed in the next major version of this provider. Please upgrade to azure-native:analysisservices/v20170801beta:ServerDetails to guarantee forwards compatibility. */
+azure-native:analysisservices/v20170714:ServerDetails is being removed in the next major version of this provider. Upgrade to at least azure-native:analysisservices/v20170801beta:ServerDetails to guarantee forwards compatibility. */
 export function getServerDetails(args: GetServerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetServerDetailsResult> {
-    pulumi.log.warn("getServerDetails is deprecated: Version 2017-07-14 will be removed in v2 of the provider.\nazure-native:analysisservices/v20170714:ServerDetails is being removed in the next major version of this provider. Please upgrade to azure-native:analysisservices/v20170801beta:ServerDetails to guarantee forwards compatibility.")
+    pulumi.log.warn("getServerDetails is deprecated: Version 2017-07-14 will be removed in v2 of the provider.\nazure-native:analysisservices/v20170714:ServerDetails is being removed in the next major version of this provider. Upgrade to at least azure-native:analysisservices/v20170801beta:ServerDetails to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:analysisservices/v20170714:getServerDetails", {
@@ -98,7 +98,7 @@ export interface GetServerDetailsResult {
  * Gets details about the specified Analysis Services server.
  */
 /** @deprecated Version 2017-07-14 will be removed in v2 of the provider.
-azure-native:analysisservices/v20170714:ServerDetails is being removed in the next major version of this provider. Please upgrade to azure-native:analysisservices/v20170801beta:ServerDetails to guarantee forwards compatibility. */
+azure-native:analysisservices/v20170714:ServerDetails is being removed in the next major version of this provider. Upgrade to at least azure-native:analysisservices/v20170801beta:ServerDetails to guarantee forwards compatibility. */
 export function getServerDetailsOutput(args: GetServerDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerDetailsResult> {
     return pulumi.output(args).apply((a: any) => getServerDetails(a, opts))
 }

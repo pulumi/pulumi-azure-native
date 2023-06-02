@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * OpenShift Managed cluster.
  *
- * @deprecated azure-native:containerservice/v20190930preview:OpenShiftManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility.
+ * @deprecated azure-native:containerservice/v20190930preview:OpenShiftManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility.
  */
 export class OpenShiftManagedCluster extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OpenShiftManagedCluster {
-        pulumi.log.warn("OpenShiftManagedCluster is deprecated: azure-native:containerservice/v20190930preview:OpenShiftManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility.")
+        pulumi.log.warn("OpenShiftManagedCluster is deprecated: azure-native:containerservice/v20190930preview:OpenShiftManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility.")
         return new OpenShiftManagedCluster(name, undefined as any, { ...opts, id: id });
     }
 
@@ -112,9 +112,9 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:containerservice/v20190930preview:OpenShiftManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility. */
+    /** @deprecated azure-native:containerservice/v20190930preview:OpenShiftManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility. */
     constructor(name: string, args: OpenShiftManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("OpenShiftManagedCluster is deprecated: azure-native:containerservice/v20190930preview:OpenShiftManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility.")
+        pulumi.log.warn("OpenShiftManagedCluster is deprecated: azure-native:containerservice/v20190930preview:OpenShiftManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

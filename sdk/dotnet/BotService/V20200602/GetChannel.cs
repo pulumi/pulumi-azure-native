@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.BotService.V20200602
 {
-    [Obsolete(@"azure-native:botservice/v20200602:Channel is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:Channel to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:botservice/v20200602:Channel is being removed in the next major version of this provider. Upgrade to at least azure-native:botservice/v20220915:Channel to guarantee forwards compatibility.")]
     public static class GetChannel
     {
         /// <summary>

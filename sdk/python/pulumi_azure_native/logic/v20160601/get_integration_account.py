@@ -17,7 +17,7 @@ __all__ = [
     'get_integration_account_output',
 ]
 
-warnings.warn("""azure-native:logic/v20160601:IntegrationAccount is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccount to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:logic/v20160601:IntegrationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccount to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetIntegrationAccountResult:
@@ -117,7 +117,7 @@ def get_integration_account(integration_account_name: Optional[str] = None,
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_integration_account is deprecated: azure-native:logic/v20160601:IntegrationAccount is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccount to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_integration_account is deprecated: azure-native:logic/v20160601:IntegrationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccount to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -144,5 +144,5 @@ def get_integration_account_output(integration_account_name: Optional[pulumi.Inp
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_integration_account is deprecated: azure-native:logic/v20160601:IntegrationAccount is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccount to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_integration_account is deprecated: azure-native:logic/v20160601:IntegrationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccount to guarantee forwards compatibility.""")
     ...

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:servicebus/v20140901:Queue is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Queue to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:servicebus/v20140901:Queue is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Queue to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetQueueResult:
@@ -361,7 +361,7 @@ def get_queue(namespace_name: Optional[str] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     pulumi.log.warn("""get_queue is deprecated: Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:servicebus/v20140901:Queue is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Queue to guarantee forwards compatibility.""")
+azure-native:servicebus/v20140901:Queue is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Queue to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['queueName'] = queue_name
@@ -412,5 +412,5 @@ def get_queue_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     pulumi.log.warn("""get_queue is deprecated: Version 2014-09-01 will be removed in v2 of the provider.
-azure-native:servicebus/v20140901:Queue is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Queue to guarantee forwards compatibility.""")
+azure-native:servicebus/v20140901:Queue is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20150801:Queue to guarantee forwards compatibility.""")
     ...

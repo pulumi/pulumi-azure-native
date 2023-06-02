@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a named add-on of an app.
  */
-/** @deprecated azure-native:web/v20210301:WebAppPremierAddOn is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppPremierAddOn to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20210301:WebAppPremierAddOn is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppPremierAddOn to guarantee forwards compatibility. */
 export function getWebAppPremierAddOn(args: GetWebAppPremierAddOnArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPremierAddOnResult> {
-    pulumi.log.warn("getWebAppPremierAddOn is deprecated: azure-native:web/v20210301:WebAppPremierAddOn is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppPremierAddOn to guarantee forwards compatibility.")
+    pulumi.log.warn("getWebAppPremierAddOn is deprecated: azure-native:web/v20210301:WebAppPremierAddOn is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppPremierAddOn to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210301:getWebAppPremierAddOn", {
@@ -86,7 +86,7 @@ export interface GetWebAppPremierAddOnResult {
 /**
  * Gets a named add-on of an app.
  */
-/** @deprecated azure-native:web/v20210301:WebAppPremierAddOn is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppPremierAddOn to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20210301:WebAppPremierAddOn is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppPremierAddOn to guarantee forwards compatibility. */
 export function getWebAppPremierAddOnOutput(args: GetWebAppPremierAddOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPremierAddOnResult> {
     return pulumi.output(args).apply((a: any) => getWebAppPremierAddOn(a, opts))
 }

@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
  *
  * @deprecated Version 2017-03-31 will be removed in v2 of the provider.
-azure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Please upgrade to azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.
+azure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.
  */
 export class Suppression extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class Suppression extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Suppression {
-        pulumi.log.warn("Suppression is deprecated: Version 2017-03-31 will be removed in v2 of the provider.\nazure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Please upgrade to azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.")
+        pulumi.log.warn("Suppression is deprecated: Version 2017-03-31 will be removed in v2 of the provider.\nazure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.")
         return new Suppression(name, undefined as any, { ...opts, id: id });
     }
 
@@ -63,9 +63,9 @@ export class Suppression extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2017-03-31 will be removed in v2 of the provider.
-azure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Please upgrade to azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility. */
+azure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility. */
     constructor(name: string, args: SuppressionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Suppression is deprecated: Version 2017-03-31 will be removed in v2 of the provider.\nazure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Please upgrade to azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.")
+        pulumi.log.warn("Suppression is deprecated: Version 2017-03-31 will be removed in v2 of the provider.\nazure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

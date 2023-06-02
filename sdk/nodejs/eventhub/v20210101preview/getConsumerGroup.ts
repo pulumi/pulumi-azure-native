@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a description for the specified consumer group.
  */
-/** @deprecated azure-native:eventhub/v20210101preview:ConsumerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:ConsumerGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventhub/v20210101preview:ConsumerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:ConsumerGroup to guarantee forwards compatibility. */
 export function getConsumerGroup(args: GetConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumerGroupResult> {
-    pulumi.log.warn("getConsumerGroup is deprecated: azure-native:eventhub/v20210101preview:ConsumerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:ConsumerGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getConsumerGroup is deprecated: azure-native:eventhub/v20210101preview:ConsumerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:ConsumerGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20210101preview:getConsumerGroup", {
@@ -78,7 +78,7 @@ export interface GetConsumerGroupResult {
 /**
  * Gets a description for the specified consumer group.
  */
-/** @deprecated azure-native:eventhub/v20210101preview:ConsumerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:ConsumerGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventhub/v20210101preview:ConsumerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:ConsumerGroup to guarantee forwards compatibility. */
 export function getConsumerGroupOutput(args: GetConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsumerGroupResult> {
     return pulumi.output(args).apply((a: any) => getConsumerGroup(a, opts))
 }

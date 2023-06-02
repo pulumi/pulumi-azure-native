@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-05-01 will be removed in v2 of the provider.
-azure-native:netapp/v20200501:SnapshotPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:netapp/v20200501:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSnapshotPolicyResult:
@@ -181,7 +181,7 @@ def get_snapshot_policy(account_name: Optional[str] = None,
     :param str snapshot_policy_name: The name of the snapshot policy
     """
     pulumi.log.warn("""get_snapshot_policy is deprecated: Version 2020-05-01 will be removed in v2 of the provider.
-azure-native:netapp/v20200501:SnapshotPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""")
+azure-native:netapp/v20200501:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -217,5 +217,5 @@ def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str snapshot_policy_name: The name of the snapshot policy
     """
     pulumi.log.warn("""get_snapshot_policy is deprecated: Version 2020-05-01 will be removed in v2 of the provider.
-azure-native:netapp/v20200501:SnapshotPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""")
+azure-native:netapp/v20200501:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""")
     ...

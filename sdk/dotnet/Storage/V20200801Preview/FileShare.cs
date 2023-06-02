@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
     /// Properties of the file share, including Id, resource name, resource type, Etag.
     /// </summary>
     [Obsolete(@"Version 2020-08-01-preview will be removed in v2 of the provider.
-azure-native:storage/v20200801preview:FileShare is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:FileShare to guarantee forwards compatibility.")]
+azure-native:storage/v20200801preview:FileShare is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileShare to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storage/v20200801preview:FileShare")]
     public partial class FileShare : global::Pulumi.CustomResource
     {

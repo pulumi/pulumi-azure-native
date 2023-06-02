@@ -17,7 +17,7 @@ __all__ = [
     'get_virtual_machine_output',
 ]
 
-warnings.warn("""azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualMachineResult:
@@ -430,7 +430,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The Resource Group Name.
     :param str virtual_machine_name: Name of the virtual machine resource.
     """
-    pulumi.log.warn("""get_virtual_machine is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_virtual_machine is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualMachineName'] = virtual_machine_name
@@ -483,5 +483,5 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The Resource Group Name.
     :param str virtual_machine_name: Name of the virtual machine resource.
     """
-    pulumi.log.warn("""get_virtual_machine is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_virtual_machine is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine to guarantee forwards compatibility.""")
     ...

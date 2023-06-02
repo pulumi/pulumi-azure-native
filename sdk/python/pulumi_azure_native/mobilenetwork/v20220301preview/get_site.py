@@ -17,7 +17,7 @@ __all__ = [
     'get_site_output',
 ]
 
-warnings.warn("""azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSiteResult:
@@ -215,7 +215,7 @@ def get_site(mobile_network_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str site_name: The name of the mobile network site.
     """
-    pulumi.log.warn("""get_site is deprecated: azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_site is deprecated: azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['mobileNetworkName'] = mobile_network_name
     __args__['resourceGroupName'] = resource_group_name
@@ -253,5 +253,5 @@ def get_site_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str site_name: The name of the mobile network site.
     """
-    pulumi.log.warn("""get_site is deprecated: azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_site is deprecated: azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.""")
     ...

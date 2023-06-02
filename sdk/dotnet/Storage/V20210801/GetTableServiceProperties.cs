@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Storage.V20210801
 {
-    [Obsolete(@"azure-native:storage/v20210801:TableServiceProperties is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:TableServiceProperties to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:storage/v20210801:TableServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:TableServiceProperties to guarantee forwards compatibility.")]
     public static class GetTableServiceProperties
     {
         /// <summary>

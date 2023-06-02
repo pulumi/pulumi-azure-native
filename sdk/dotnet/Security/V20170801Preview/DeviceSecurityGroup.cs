@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
     /// <summary>
     /// The device security group resource
     /// </summary>
-    [Obsolete(@"azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:security/v20170801preview:DeviceSecurityGroup")]
     public partial class DeviceSecurityGroup : global::Pulumi.CustomResource
     {

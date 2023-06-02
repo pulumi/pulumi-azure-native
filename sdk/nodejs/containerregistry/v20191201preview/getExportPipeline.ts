@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the export pipeline.
  */
-/** @deprecated azure-native:containerregistry/v20191201preview:ExportPipeline is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ExportPipeline to guarantee forwards compatibility. */
+/** @deprecated azure-native:containerregistry/v20191201preview:ExportPipeline is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ExportPipeline to guarantee forwards compatibility. */
 export function getExportPipeline(args: GetExportPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetExportPipelineResult> {
-    pulumi.log.warn("getExportPipeline is deprecated: azure-native:containerregistry/v20191201preview:ExportPipeline is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ExportPipeline to guarantee forwards compatibility.")
+    pulumi.log.warn("getExportPipeline is deprecated: azure-native:containerregistry/v20191201preview:ExportPipeline is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ExportPipeline to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20191201preview:getExportPipeline", {
@@ -81,7 +81,7 @@ export interface GetExportPipelineResult {
 /**
  * Gets the properties of the export pipeline.
  */
-/** @deprecated azure-native:containerregistry/v20191201preview:ExportPipeline is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ExportPipeline to guarantee forwards compatibility. */
+/** @deprecated azure-native:containerregistry/v20191201preview:ExportPipeline is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ExportPipeline to guarantee forwards compatibility. */
 export function getExportPipelineOutput(args: GetExportPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportPipelineResult> {
     return pulumi.output(args).apply((a: any) => getExportPipeline(a, opts))
 }

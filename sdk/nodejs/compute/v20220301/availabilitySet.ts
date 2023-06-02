@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
  *
- * @deprecated azure-native:compute/v20220301:AvailabilitySet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility.
+ * @deprecated azure-native:compute/v20220301:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility.
  */
 export class AvailabilitySet extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AvailabilitySet {
-        pulumi.log.warn("AvailabilitySet is deprecated: azure-native:compute/v20220301:AvailabilitySet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility.")
+        pulumi.log.warn("AvailabilitySet is deprecated: azure-native:compute/v20220301:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility.")
         return new AvailabilitySet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,9 +88,9 @@ export class AvailabilitySet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:compute/v20220301:AvailabilitySet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility. */
+    /** @deprecated azure-native:compute/v20220301:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility. */
     constructor(name: string, args: AvailabilitySetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("AvailabilitySet is deprecated: azure-native:compute/v20220301:AvailabilitySet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility.")
+        pulumi.log.warn("AvailabilitySet is deprecated: azure-native:compute/v20220301:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

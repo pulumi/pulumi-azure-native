@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DevCenter.V20221012Preview
 {
-    [Obsolete(@"azure-native:devcenter/v20221012preview:EnvironmentType is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:devcenter/v20221012preview:EnvironmentType is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility.")]
     public static class GetEnvironmentType
     {
         /// <summary>

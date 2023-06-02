@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * A SQL server registration.
  *
  * @deprecated Version 2017-03-01-preview will be removed in v2 of the provider.
-azure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility.
+azure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility.
  */
 export class SqlServerRegistration extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class SqlServerRegistration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlServerRegistration {
-        pulumi.log.warn("SqlServerRegistration is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.\nazure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility.")
+        pulumi.log.warn("SqlServerRegistration is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.\nazure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility.")
         return new SqlServerRegistration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -75,9 +75,9 @@ export class SqlServerRegistration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2017-03-01-preview will be removed in v2 of the provider.
-azure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility. */
+azure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility. */
     constructor(name: string, args: SqlServerRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SqlServerRegistration is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.\nazure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility.")
+        pulumi.log.warn("SqlServerRegistration is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.\nazure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

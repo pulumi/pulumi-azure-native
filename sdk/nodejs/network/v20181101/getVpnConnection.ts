@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a vpn connection.
  */
-/** @deprecated azure-native:network/v20181101:VpnConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20181101:VpnConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility. */
 export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnConnectionResult> {
-    pulumi.log.warn("getVpnConnection is deprecated: azure-native:network/v20181101:VpnConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getVpnConnection is deprecated: azure-native:network/v20181101:VpnConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20181101:getVpnConnection", {
@@ -109,7 +109,7 @@ export interface GetVpnConnectionResult {
 /**
  * Retrieves the details of a vpn connection.
  */
-/** @deprecated azure-native:network/v20181101:VpnConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20181101:VpnConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility. */
 export function getVpnConnectionOutput(args: GetVpnConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVpnConnection(a, opts))
 }

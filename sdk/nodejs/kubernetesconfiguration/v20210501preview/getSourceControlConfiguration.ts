@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets details of the Source Control Configuration.
  */
-/** @deprecated azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility. */
 export function getSourceControlConfiguration(args: GetSourceControlConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlConfigurationResult> {
-    pulumi.log.warn("getSourceControlConfiguration is deprecated: azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility.")
+    pulumi.log.warn("getSourceControlConfiguration is deprecated: azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetesconfiguration/v20210501preview:getSourceControlConfiguration", {
@@ -123,7 +123,7 @@ export interface GetSourceControlConfigurationResult {
 /**
  * Gets details of the Source Control Configuration.
  */
-/** @deprecated azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility. */
 export function getSourceControlConfigurationOutput(args: GetSourceControlConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getSourceControlConfiguration(a, opts))
 }

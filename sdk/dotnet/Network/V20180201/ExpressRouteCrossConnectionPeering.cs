@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180201
     /// Peering in an ExpressRoute Cross Connection resource.
     /// </summary>
     [Obsolete(@"Version 2018-02-01 will be removed in v2 of the provider.
-azure-native:network/v20180201:ExpressRouteCrossConnectionPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:ExpressRouteCrossConnectionPeering to guarantee forwards compatibility.")]
+azure-native:network/v20180201:ExpressRouteCrossConnectionPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190801:ExpressRouteCrossConnectionPeering to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20180201:ExpressRouteCrossConnectionPeering")]
     public partial class ExpressRouteCrossConnectionPeering : global::Pulumi.CustomResource
     {

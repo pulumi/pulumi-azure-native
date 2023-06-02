@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Media.V20180601Preview
 {
-    [Obsolete(@"azure-native:media/v20180601preview:Transform is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Transform to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:media/v20180601preview:Transform is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20220701:Transform to guarantee forwards compatibility.")]
     public static class GetTransform
     {
         /// <summary>

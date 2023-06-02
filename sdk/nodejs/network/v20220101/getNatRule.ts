@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a nat ruleGet.
  */
-/** @deprecated azure-native:network/v20220101:NatRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NatRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220101:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NatRule to guarantee forwards compatibility. */
 export function getNatRule(args: GetNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNatRuleResult> {
-    pulumi.log.warn("getNatRule is deprecated: azure-native:network/v20220101:NatRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NatRule to guarantee forwards compatibility.")
+    pulumi.log.warn("getNatRule is deprecated: azure-native:network/v20220101:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NatRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220101:getNatRule", {
@@ -89,7 +89,7 @@ export interface GetNatRuleResult {
 /**
  * Retrieves the details of a nat ruleGet.
  */
-/** @deprecated azure-native:network/v20220101:NatRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NatRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220101:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NatRule to guarantee forwards compatibility. */
 export function getNatRuleOutput(args: GetNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatRuleResult> {
     return pulumi.output(args).apply((a: any) => getNatRule(a, opts))
 }

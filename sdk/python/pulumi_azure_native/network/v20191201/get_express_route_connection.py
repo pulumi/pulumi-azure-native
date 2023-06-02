@@ -17,7 +17,7 @@ __all__ = [
     'get_express_route_connection_output',
 ]
 
-warnings.warn("""azure-native:network/v20191201:ExpressRouteConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20191201:ExpressRouteConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetExpressRouteConnectionResult:
@@ -131,7 +131,7 @@ def get_express_route_connection(connection_name: Optional[str] = None,
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_express_route_connection is deprecated: azure-native:network/v20191201:ExpressRouteConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_express_route_connection is deprecated: azure-native:network/v20191201:ExpressRouteConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['expressRouteGatewayName'] = express_route_gateway_name
@@ -162,5 +162,5 @@ def get_express_route_connection_output(connection_name: Optional[pulumi.Input[s
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_express_route_connection is deprecated: azure-native:network/v20191201:ExpressRouteConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_express_route_connection is deprecated: azure-native:network/v20191201:ExpressRouteConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteConnection to guarantee forwards compatibility.""")
     ...

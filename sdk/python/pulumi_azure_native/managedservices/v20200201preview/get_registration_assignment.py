@@ -17,7 +17,7 @@ __all__ = [
     'get_registration_assignment_output',
 ]
 
-warnings.warn("""azure-native:managedservices/v20200201preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:managedservices/v20200201preview:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRegistrationAssignmentResult:
@@ -95,7 +95,7 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
     :param str registration_assignment_id: The GUID of the registration assignment.
     :param str scope: The scope of the resource.
     """
-    pulumi.log.warn("""get_registration_assignment is deprecated: azure-native:managedservices/v20200201preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_registration_assignment is deprecated: azure-native:managedservices/v20200201preview:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expandRegistrationDefinition'] = expand_registration_definition
     __args__['registrationAssignmentId'] = registration_assignment_id
@@ -123,5 +123,5 @@ def get_registration_assignment_output(expand_registration_definition: Optional[
     :param str registration_assignment_id: The GUID of the registration assignment.
     :param str scope: The scope of the resource.
     """
-    pulumi.log.warn("""get_registration_assignment is deprecated: azure-native:managedservices/v20200201preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_registration_assignment is deprecated: azure-native:managedservices/v20200201preview:RegistrationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.""")
     ...

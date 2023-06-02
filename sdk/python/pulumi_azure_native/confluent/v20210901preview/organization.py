@@ -114,11 +114,11 @@ class OrganizationArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:confluent/v20210901preview:Organization is being removed in the next major version of this provider. Please upgrade to azure-native:confluent/v20211201:Organization to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:confluent/v20210901preview:Organization is being removed in the next major version of this provider. Upgrade to at least azure-native:confluent/v20211201:Organization to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Organization(pulumi.CustomResource):
-    warnings.warn("""azure-native:confluent/v20210901preview:Organization is being removed in the next major version of this provider. Please upgrade to azure-native:confluent/v20211201:Organization to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:confluent/v20210901preview:Organization is being removed in the next major version of this provider. Upgrade to at least azure-native:confluent/v20211201:Organization to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -174,7 +174,7 @@ class Organization(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_detail: Optional[pulumi.Input[pulumi.InputType['UserDetailArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Organization is deprecated: azure-native:confluent/v20210901preview:Organization is being removed in the next major version of this provider. Please upgrade to azure-native:confluent/v20211201:Organization to guarantee forwards compatibility.""")
+        pulumi.log.warn("""Organization is deprecated: azure-native:confluent/v20210901preview:Organization is being removed in the next major version of this provider. Upgrade to at least azure-native:confluent/v20211201:Organization to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -213,12 +213,12 @@ class VirtualNetworkPeeringInitArgs:
 
 
 warnings.warn("""Version 2017-03-01 will be removed in v2 of the provider.
-azure-native:network/v20170301:VirtualNetworkPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20170301:VirtualNetworkPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class VirtualNetworkPeering(pulumi.CustomResource):
     warnings.warn("""Version 2017-03-01 will be removed in v2 of the provider.
-azure-native:network/v20170301:VirtualNetworkPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20170301:VirtualNetworkPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -293,7 +293,7 @@ azure-native:network/v20170301:VirtualNetworkPeering is being removed in the nex
                  virtual_network_peering_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""VirtualNetworkPeering is deprecated: Version 2017-03-01 will be removed in v2 of the provider.
-azure-native:network/v20170301:VirtualNetworkPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility.""")
+azure-native:network/v20170301:VirtualNetworkPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

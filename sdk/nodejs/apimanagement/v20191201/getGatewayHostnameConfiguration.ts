@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the Gateway hostname configuration specified by its identifier.
  */
-/** @deprecated azure-native:apimanagement/v20191201:GatewayHostnameConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GatewayHostnameConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20191201:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GatewayHostnameConfiguration to guarantee forwards compatibility. */
 export function getGatewayHostnameConfiguration(args: GetGatewayHostnameConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayHostnameConfigurationResult> {
-    pulumi.log.warn("getGatewayHostnameConfiguration is deprecated: azure-native:apimanagement/v20191201:GatewayHostnameConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GatewayHostnameConfiguration to guarantee forwards compatibility.")
+    pulumi.log.warn("getGatewayHostnameConfiguration is deprecated: azure-native:apimanagement/v20191201:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GatewayHostnameConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201:getGatewayHostnameConfiguration", {
@@ -71,7 +71,7 @@ export interface GetGatewayHostnameConfigurationResult {
 /**
  * Gets the details of the Gateway hostname configuration specified by its identifier.
  */
-/** @deprecated azure-native:apimanagement/v20191201:GatewayHostnameConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GatewayHostnameConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20191201:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GatewayHostnameConfiguration to guarantee forwards compatibility. */
 export function getGatewayHostnameConfigurationOutput(args: GetGatewayHostnameConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayHostnameConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getGatewayHostnameConfiguration(a, opts))
 }

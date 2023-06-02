@@ -16,7 +16,7 @@ __all__ = [
     'get_hcx_enterprise_site_output',
 ]
 
-warnings.warn("""azure-native:avs/v20210601:HcxEnterpriseSite is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:HcxEnterpriseSite to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:avs/v20210601:HcxEnterpriseSite is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:HcxEnterpriseSite to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetHcxEnterpriseSiteResult:
@@ -106,7 +106,7 @@ def get_hcx_enterprise_site(hcx_enterprise_site_name: Optional[str] = None,
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_hcx_enterprise_site is deprecated: azure-native:avs/v20210601:HcxEnterpriseSite is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:HcxEnterpriseSite to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_hcx_enterprise_site is deprecated: azure-native:avs/v20210601:HcxEnterpriseSite is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:HcxEnterpriseSite to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['hcxEnterpriseSiteName'] = hcx_enterprise_site_name
     __args__['privateCloudName'] = private_cloud_name
@@ -135,5 +135,5 @@ def get_hcx_enterprise_site_output(hcx_enterprise_site_name: Optional[pulumi.Inp
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_hcx_enterprise_site is deprecated: azure-native:avs/v20210601:HcxEnterpriseSite is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:HcxEnterpriseSite to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_hcx_enterprise_site is deprecated: azure-native:avs/v20210601:HcxEnterpriseSite is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:HcxEnterpriseSite to guarantee forwards compatibility.""")
     ...

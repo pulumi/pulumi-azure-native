@@ -146,12 +146,12 @@ class AppServiceCertificateOrderCertificateArgs:
 
 
 warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.
-azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
     warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.
-azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -214,7 +214,7 @@ azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertifi
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""AppServiceCertificateOrderCertificate is deprecated: Version 2020-06-01 will be removed in v2 of the provider.
-azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility.""")
+azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

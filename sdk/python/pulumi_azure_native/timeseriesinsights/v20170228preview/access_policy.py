@@ -115,12 +115,12 @@ class AccessPolicyArgs:
 
 
 warnings.warn("""Version 2017-02-28-preview will be removed in v2 of the provider.
-azure-native:timeseriesinsights/v20170228preview:AccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20171115:AccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:timeseriesinsights/v20170228preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20171115:AccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class AccessPolicy(pulumi.CustomResource):
     warnings.warn("""Version 2017-02-28-preview will be removed in v2 of the provider.
-azure-native:timeseriesinsights/v20170228preview:AccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20171115:AccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:timeseriesinsights/v20170228preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20171115:AccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -177,7 +177,7 @@ azure-native:timeseriesinsights/v20170228preview:AccessPolicy is being removed i
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPolicyRole']]]] = None,
                  __props__=None):
         pulumi.log.warn("""AccessPolicy is deprecated: Version 2017-02-28-preview will be removed in v2 of the provider.
-azure-native:timeseriesinsights/v20170228preview:AccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20171115:AccessPolicy to guarantee forwards compatibility.""")
+azure-native:timeseriesinsights/v20170228preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20171115:AccessPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

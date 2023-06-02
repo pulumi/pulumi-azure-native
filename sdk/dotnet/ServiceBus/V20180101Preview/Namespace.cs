@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
     /// <summary>
     /// Description of a namespace resource.
     /// </summary>
-    [Obsolete(@"azure-native:servicebus/v20180101preview:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:Namespace to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:servicebus/v20180101preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:Namespace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicebus/v20180101preview:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
     {

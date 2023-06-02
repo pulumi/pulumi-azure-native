@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20221201
     /// <summary>
     /// An object that represents a replication for a container registry.
     /// </summary>
-    [Obsolete(@"azure-native:containerregistry/v20221201:Replication is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:Replication to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:containerregistry/v20221201:Replication is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Replication to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerregistry/v20221201:Replication")]
     public partial class Replication : global::Pulumi.CustomResource
     {

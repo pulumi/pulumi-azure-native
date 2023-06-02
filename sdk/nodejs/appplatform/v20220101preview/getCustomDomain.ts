@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the custom domain of one lifecycle application.
  */
-/** @deprecated azure-native:appplatform/v20220101preview:CustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:CustomDomain to guarantee forwards compatibility. */
+/** @deprecated azure-native:appplatform/v20220101preview:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:CustomDomain to guarantee forwards compatibility. */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
-    pulumi.log.warn("getCustomDomain is deprecated: azure-native:appplatform/v20220101preview:CustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:CustomDomain to guarantee forwards compatibility.")
+    pulumi.log.warn("getCustomDomain is deprecated: azure-native:appplatform/v20220101preview:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:CustomDomain to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220101preview:getCustomDomain", {
@@ -70,7 +70,7 @@ export interface GetCustomDomainResult {
 /**
  * Get the custom domain of one lifecycle application.
  */
-/** @deprecated azure-native:appplatform/v20220101preview:CustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:CustomDomain to guarantee forwards compatibility. */
+/** @deprecated azure-native:appplatform/v20220101preview:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:CustomDomain to guarantee forwards compatibility. */
 export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getCustomDomain(a, opts))
 }

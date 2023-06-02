@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
  */
-/** @deprecated azure-native:cdn/v20220501preview:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Profile to guarantee forwards compatibility. */
+/** @deprecated azure-native:cdn/v20220501preview:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Profile to guarantee forwards compatibility. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    pulumi.log.warn("getProfile is deprecated: azure-native:cdn/v20220501preview:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Profile to guarantee forwards compatibility.")
+    pulumi.log.warn("getProfile is deprecated: azure-native:cdn/v20220501preview:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Profile to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20220501preview:getProfile", {
@@ -92,7 +92,7 @@ export interface GetProfileResult {
 /**
  * Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
  */
-/** @deprecated azure-native:cdn/v20220501preview:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Profile to guarantee forwards compatibility. */
+/** @deprecated azure-native:cdn/v20220501preview:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Profile to guarantee forwards compatibility. */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
     return pulumi.output(args).apply((a: any) => getProfile(a, opts))
 }

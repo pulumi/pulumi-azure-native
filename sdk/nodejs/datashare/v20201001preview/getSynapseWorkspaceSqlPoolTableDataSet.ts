@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a DataSet in a share
  */
-/** @deprecated azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility. */
+/** @deprecated azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility. */
 export function getSynapseWorkspaceSqlPoolTableDataSet(args: GetSynapseWorkspaceSqlPoolTableDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSynapseWorkspaceSqlPoolTableDataSetResult> {
-    pulumi.log.warn("getSynapseWorkspaceSqlPoolTableDataSet is deprecated: azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility.")
+    pulumi.log.warn("getSynapseWorkspaceSqlPoolTableDataSet is deprecated: azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:getSynapseWorkspaceSqlPoolTableDataSet", {
@@ -79,7 +79,7 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetResult {
 /**
  * Get a DataSet in a share
  */
-/** @deprecated azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility. */
+/** @deprecated azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet to guarantee forwards compatibility. */
 export function getSynapseWorkspaceSqlPoolTableDataSetOutput(args: GetSynapseWorkspaceSqlPoolTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSynapseWorkspaceSqlPoolTableDataSetResult> {
     return pulumi.output(args).apply((a: any) => getSynapseWorkspaceSqlPoolTableDataSet(a, opts))
 }

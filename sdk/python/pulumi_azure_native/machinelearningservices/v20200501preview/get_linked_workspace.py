@@ -17,7 +17,7 @@ __all__ = [
     'get_linked_workspace_output',
 ]
 
-warnings.warn("""azure-native:machinelearningservices/v20200501preview:LinkedWorkspace is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20200515preview:LinkedWorkspace to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:machinelearningservices/v20200501preview:LinkedWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20200515preview:LinkedWorkspace to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetLinkedWorkspaceResult:
@@ -95,7 +95,7 @@ def get_linked_workspace(link_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    pulumi.log.warn("""get_linked_workspace is deprecated: azure-native:machinelearningservices/v20200501preview:LinkedWorkspace is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20200515preview:LinkedWorkspace to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_linked_workspace is deprecated: azure-native:machinelearningservices/v20200501preview:LinkedWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20200515preview:LinkedWorkspace to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['linkName'] = link_name
     __args__['resourceGroupName'] = resource_group_name
@@ -123,5 +123,5 @@ def get_linked_workspace_output(link_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    pulumi.log.warn("""get_linked_workspace is deprecated: azure-native:machinelearningservices/v20200501preview:LinkedWorkspace is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20200515preview:LinkedWorkspace to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_linked_workspace is deprecated: azure-native:machinelearningservices/v20200501preview:LinkedWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20200515preview:LinkedWorkspace to guarantee forwards compatibility.""")
     ...

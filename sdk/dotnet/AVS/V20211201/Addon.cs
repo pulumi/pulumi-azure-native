@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
     /// <summary>
     /// An addon resource
     /// </summary>
-    [Obsolete(@"azure-native:avs/v20211201:Addon is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Addon to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:avs/v20211201:Addon is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:Addon to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20211201:Addon")]
     public partial class Addon : global::Pulumi.CustomResource
     {

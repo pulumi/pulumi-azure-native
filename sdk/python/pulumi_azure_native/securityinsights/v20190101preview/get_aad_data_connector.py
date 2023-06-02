@@ -17,7 +17,7 @@ __all__ = [
     'get_aad_data_connector_output',
 ]
 
-warnings.warn("""azure-native:securityinsights/v20190101preview:AADDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:AADDataConnector to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:securityinsights/v20190101preview:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AADDataConnector to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAADDataConnectorResult:
@@ -134,7 +134,7 @@ def get_aad_data_connector(data_connector_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_aad_data_connector is deprecated: azure-native:securityinsights/v20190101preview:AADDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:AADDataConnector to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_aad_data_connector is deprecated: azure-native:securityinsights/v20190101preview:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AADDataConnector to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dataConnectorId'] = data_connector_id
     __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
@@ -168,5 +168,5 @@ def get_aad_data_connector_output(data_connector_id: Optional[pulumi.Input[str]]
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_aad_data_connector is deprecated: azure-native:securityinsights/v20190101preview:AADDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:AADDataConnector to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_aad_data_connector is deprecated: azure-native:securityinsights/v20190101preview:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:AADDataConnector to guarantee forwards compatibility.""")
     ...

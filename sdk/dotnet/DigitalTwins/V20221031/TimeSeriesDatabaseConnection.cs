@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20221031
     /// <summary>
     /// Describes a time series database connection resource.
     /// </summary>
-    [Obsolete(@"azure-native:digitaltwins/v20221031:TimeSeriesDatabaseConnection is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:TimeSeriesDatabaseConnection to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:digitaltwins/v20221031:TimeSeriesDatabaseConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:TimeSeriesDatabaseConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:digitaltwins/v20221031:TimeSeriesDatabaseConnection")]
     public partial class TimeSeriesDatabaseConnection : global::Pulumi.CustomResource
     {

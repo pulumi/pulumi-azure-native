@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns an attached database configuration.
  */
-/** @deprecated azure-native:kusto/v20200215:AttachedDatabaseConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:AttachedDatabaseConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:kusto/v20200215:AttachedDatabaseConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:AttachedDatabaseConfiguration to guarantee forwards compatibility. */
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
-    pulumi.log.warn("getAttachedDatabaseConfiguration is deprecated: azure-native:kusto/v20200215:AttachedDatabaseConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:AttachedDatabaseConfiguration to guarantee forwards compatibility.")
+    pulumi.log.warn("getAttachedDatabaseConfiguration is deprecated: azure-native:kusto/v20200215:AttachedDatabaseConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:AttachedDatabaseConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20200215:getAttachedDatabaseConfiguration", {
@@ -78,7 +78,7 @@ export interface GetAttachedDatabaseConfigurationResult {
 /**
  * Returns an attached database configuration.
  */
-/** @deprecated azure-native:kusto/v20200215:AttachedDatabaseConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:AttachedDatabaseConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:kusto/v20200215:AttachedDatabaseConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:AttachedDatabaseConfiguration to guarantee forwards compatibility. */
 export function getAttachedDatabaseConfigurationOutput(args: GetAttachedDatabaseConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedDatabaseConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getAttachedDatabaseConfiguration(a, opts))
 }

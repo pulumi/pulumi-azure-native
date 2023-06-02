@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview
     /// <summary>
     /// A task resource
     /// </summary>
-    [Obsolete(@"azure-native:datamigration/v20180715preview:ServiceTask is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20220330preview:ServiceTask to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:datamigration/v20180715preview:ServiceTask is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:ServiceTask to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datamigration/v20180715preview:ServiceTask")]
     public partial class ServiceTask : global::Pulumi.CustomResource
     {

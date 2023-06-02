@@ -17,7 +17,7 @@ __all__ = [
     'get_express_route_circuit_connection_output',
 ]
 
-warnings.warn("""azure-native:network/v20200601:ExpressRouteCircuitConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteCircuitConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20200601:ExpressRouteCircuitConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteCircuitConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetExpressRouteCircuitConnectionResult:
@@ -181,7 +181,7 @@ def get_express_route_circuit_connection(circuit_name: Optional[str] = None,
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_express_route_circuit_connection is deprecated: azure-native:network/v20200601:ExpressRouteCircuitConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteCircuitConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_express_route_circuit_connection is deprecated: azure-native:network/v20200601:ExpressRouteCircuitConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteCircuitConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['circuitName'] = circuit_name
     __args__['connectionName'] = connection_name
@@ -219,5 +219,5 @@ def get_express_route_circuit_connection_output(circuit_name: Optional[pulumi.In
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_express_route_circuit_connection is deprecated: azure-native:network/v20200601:ExpressRouteCircuitConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteCircuitConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_express_route_circuit_connection is deprecated: azure-native:network/v20200601:ExpressRouteCircuitConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteCircuitConnection to guarantee forwards compatibility.""")
     ...

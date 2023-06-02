@@ -227,12 +227,12 @@ class JobDefinitionArgs:
 
 
 warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.
-azure-native:hybriddata/v20160601:JobDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:JobDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:hybriddata/v20160601:JobDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:JobDefinition to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class JobDefinition(pulumi.CustomResource):
     warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.
-azure-native:hybriddata/v20160601:JobDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:JobDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:hybriddata/v20160601:JobDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:JobDefinition to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -310,7 +310,7 @@ azure-native:hybriddata/v20160601:JobDefinition is being removed in the next maj
                  user_confirmation: Optional[pulumi.Input['UserConfirmation']] = None,
                  __props__=None):
         pulumi.log.warn("""JobDefinition is deprecated: Version 2016-06-01 will be removed in v2 of the provider.
-azure-native:hybriddata/v20160601:JobDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:JobDefinition to guarantee forwards compatibility.""")
+azure-native:hybriddata/v20160601:JobDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:hybriddata/v20190601:JobDefinition to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

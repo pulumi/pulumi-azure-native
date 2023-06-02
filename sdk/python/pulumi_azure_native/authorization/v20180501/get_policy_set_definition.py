@@ -17,7 +17,7 @@ __all__ = [
     'get_policy_set_definition_output',
 ]
 
-warnings.warn("""azure-native:authorization/v20180501:PolicySetDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20190601:PolicySetDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:authorization/v20180501:PolicySetDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20190601:PolicySetDefinition to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPolicySetDefinitionResult:
@@ -151,7 +151,7 @@ def get_policy_set_definition(policy_set_definition_name: Optional[str] = None,
 
     :param str policy_set_definition_name: The name of the policy set definition to get.
     """
-    pulumi.log.warn("""get_policy_set_definition is deprecated: azure-native:authorization/v20180501:PolicySetDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20190601:PolicySetDefinition to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_policy_set_definition is deprecated: azure-native:authorization/v20180501:PolicySetDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20190601:PolicySetDefinition to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['policySetDefinitionName'] = policy_set_definition_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -178,5 +178,5 @@ def get_policy_set_definition_output(policy_set_definition_name: Optional[pulumi
 
     :param str policy_set_definition_name: The name of the policy set definition to get.
     """
-    pulumi.log.warn("""get_policy_set_definition is deprecated: azure-native:authorization/v20180501:PolicySetDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20190601:PolicySetDefinition to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_policy_set_definition is deprecated: azure-native:authorization/v20180501:PolicySetDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20190601:PolicySetDefinition to guarantee forwards compatibility.""")
     ...

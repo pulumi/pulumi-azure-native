@@ -16,7 +16,7 @@ __all__ = [
     'get_anomalies_output',
 ]
 
-warnings.warn("""azure-native:securityinsights/v20190101preview:Anomalies is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:Anomalies to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:securityinsights/v20190101preview:Anomalies is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:Anomalies to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAnomaliesResult:
@@ -121,7 +121,7 @@ def get_anomalies(operational_insights_resource_provider: Optional[str] = None,
     :param str settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_anomalies is deprecated: azure-native:securityinsights/v20190101preview:Anomalies is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:Anomalies to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_anomalies is deprecated: azure-native:securityinsights/v20190101preview:Anomalies is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:Anomalies to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
@@ -154,5 +154,5 @@ def get_anomalies_output(operational_insights_resource_provider: Optional[pulumi
     :param str settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_anomalies is deprecated: azure-native:securityinsights/v20190101preview:Anomalies is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:Anomalies to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_anomalies is deprecated: azure-native:securityinsights/v20190101preview:Anomalies is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:Anomalies to guarantee forwards compatibility.""")
     ...

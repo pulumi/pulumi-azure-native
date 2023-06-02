@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Returns an Event Hub connection.
  */
 /** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider.
-azure-native:kusto/v20170907privatepreview:EventHubConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20180907preview:EventHubConnection to guarantee forwards compatibility. */
+azure-native:kusto/v20170907privatepreview:EventHubConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20180907preview:EventHubConnection to guarantee forwards compatibility. */
 export function getEventHubConnection(args: GetEventHubConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubConnectionResult> {
-    pulumi.log.warn("getEventHubConnection is deprecated: Version 2017-09-07-privatepreview will be removed in v2 of the provider.\nazure-native:kusto/v20170907privatepreview:EventHubConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20180907preview:EventHubConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getEventHubConnection is deprecated: Version 2017-09-07-privatepreview will be removed in v2 of the provider.\nazure-native:kusto/v20170907privatepreview:EventHubConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20180907preview:EventHubConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20170907privatepreview:getEventHubConnection", {
@@ -85,7 +85,7 @@ export interface GetEventHubConnectionResult {
  * Returns an Event Hub connection.
  */
 /** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider.
-azure-native:kusto/v20170907privatepreview:EventHubConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20180907preview:EventHubConnection to guarantee forwards compatibility. */
+azure-native:kusto/v20170907privatepreview:EventHubConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20180907preview:EventHubConnection to guarantee forwards compatibility. */
 export function getEventHubConnectionOutput(args: GetEventHubConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubConnectionResult> {
     return pulumi.output(args).apply((a: any) => getEventHubConnection(a, opts))
 }

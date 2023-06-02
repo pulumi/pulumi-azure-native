@@ -17,7 +17,7 @@ __all__ = [
     'get_jit_request_output',
 ]
 
-warnings.warn("""azure-native:solutions/v20210201preview:JitRequest is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:JitRequest to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:solutions/v20210201preview:JitRequest is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:JitRequest to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetJitRequestResult:
@@ -213,7 +213,7 @@ def get_jit_request(jit_request_name: Optional[str] = None,
     :param str jit_request_name: The name of the JIT request.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_jit_request is deprecated: azure-native:solutions/v20210201preview:JitRequest is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:JitRequest to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_jit_request is deprecated: azure-native:solutions/v20210201preview:JitRequest is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:JitRequest to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['jitRequestName'] = jit_request_name
     __args__['resourceGroupName'] = resource_group_name
@@ -248,5 +248,5 @@ def get_jit_request_output(jit_request_name: Optional[pulumi.Input[str]] = None,
     :param str jit_request_name: The name of the JIT request.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_jit_request is deprecated: azure-native:solutions/v20210201preview:JitRequest is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:JitRequest to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_jit_request is deprecated: azure-native:solutions/v20210201preview:JitRequest is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:JitRequest to guarantee forwards compatibility.""")
     ...

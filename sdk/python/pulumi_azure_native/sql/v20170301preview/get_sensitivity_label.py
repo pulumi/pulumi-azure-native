@@ -16,7 +16,7 @@ __all__ = [
     'get_sensitivity_label_output',
 ]
 
-warnings.warn("""azure-native:sql/v20170301preview:SensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:sql/v20170301preview:SensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSensitivityLabelResult:
@@ -159,7 +159,7 @@ def get_sensitivity_label(column_name: Optional[str] = None,
     :param str server_name: The name of the server.
     :param str table_name: The name of the table.
     """
-    pulumi.log.warn("""get_sensitivity_label is deprecated: azure-native:sql/v20170301preview:SensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_sensitivity_label is deprecated: azure-native:sql/v20170301preview:SensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['columnName'] = column_name
     __args__['databaseName'] = database_name
@@ -204,5 +204,5 @@ def get_sensitivity_label_output(column_name: Optional[pulumi.Input[str]] = None
     :param str server_name: The name of the server.
     :param str table_name: The name of the table.
     """
-    pulumi.log.warn("""get_sensitivity_label is deprecated: azure-native:sql/v20170301preview:SensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_sensitivity_label is deprecated: azure-native:sql/v20170301preview:SensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility.""")
     ...

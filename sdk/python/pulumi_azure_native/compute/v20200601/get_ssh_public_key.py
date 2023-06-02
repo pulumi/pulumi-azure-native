@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.
-azure-native:compute/v20200601:SshPublicKey is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:compute/v20200601:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSshPublicKeyResult:
@@ -118,7 +118,7 @@ def get_ssh_public_key(resource_group_name: Optional[str] = None,
     :param str ssh_public_key_name: The name of the SSH public key.
     """
     pulumi.log.warn("""get_ssh_public_key is deprecated: Version 2020-06-01 will be removed in v2 of the provider.
-azure-native:compute/v20200601:SshPublicKey is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""")
+azure-native:compute/v20200601:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sshPublicKeyName'] = ssh_public_key_name
@@ -146,5 +146,5 @@ def get_ssh_public_key_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str ssh_public_key_name: The name of the SSH public key.
     """
     pulumi.log.warn("""get_ssh_public_key is deprecated: Version 2020-06-01 will be removed in v2 of the provider.
-azure-native:compute/v20200601:SshPublicKey is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""")
+azure-native:compute/v20200601:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""")
     ...

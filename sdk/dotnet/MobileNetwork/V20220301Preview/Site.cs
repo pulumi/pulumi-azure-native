@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     /// <summary>
     /// Site resource.
     /// </summary>
-    [Obsolete(@"azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:mobilenetwork/v20220301preview:Site is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:Site to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220301preview:Site")]
     public partial class Site : global::Pulumi.CustomResource
     {

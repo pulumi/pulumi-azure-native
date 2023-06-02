@@ -16,7 +16,7 @@ __all__ = [
     'get_tag_output',
 ]
 
-warnings.warn("""azure-native:apimanagement/v20210101preview:Tag is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Tag to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:apimanagement/v20210101preview:Tag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Tag to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetTagResult:
@@ -94,7 +94,7 @@ def get_tag(resource_group_name: Optional[str] = None,
     :param str service_name: The name of the API Management service.
     :param str tag_id: Tag identifier. Must be unique in the current API Management service instance.
     """
-    pulumi.log.warn("""get_tag is deprecated: azure-native:apimanagement/v20210101preview:Tag is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Tag to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_tag is deprecated: azure-native:apimanagement/v20210101preview:Tag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Tag to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
@@ -122,5 +122,5 @@ def get_tag_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str service_name: The name of the API Management service.
     :param str tag_id: Tag identifier. Must be unique in the current API Management service instance.
     """
-    pulumi.log.warn("""get_tag is deprecated: azure-native:apimanagement/v20210101preview:Tag is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Tag to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_tag is deprecated: azure-native:apimanagement/v20210101preview:Tag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Tag to guarantee forwards compatibility.""")
     ...

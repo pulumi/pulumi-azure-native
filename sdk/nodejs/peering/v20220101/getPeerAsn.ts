@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the peer ASN with the specified name under the given subscription.
  */
-/** @deprecated azure-native:peering/v20220101:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility. */
+/** @deprecated azure-native:peering/v20220101:PeerAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility. */
 export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetPeerAsnResult> {
-    pulumi.log.warn("getPeerAsn is deprecated: azure-native:peering/v20220101:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility.")
+    pulumi.log.warn("getPeerAsn is deprecated: azure-native:peering/v20220101:PeerAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering/v20220101:getPeerAsn", {
@@ -67,7 +67,7 @@ export interface GetPeerAsnResult {
 /**
  * Gets the peer ASN with the specified name under the given subscription.
  */
-/** @deprecated azure-native:peering/v20220101:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility. */
+/** @deprecated azure-native:peering/v20220101:PeerAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility. */
 export function getPeerAsnOutput(args: GetPeerAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeerAsnResult> {
     return pulumi.output(args).apply((a: any) => getPeerAsn(a, opts))
 }

@@ -97,11 +97,11 @@ class SignalRCustomDomainArgs:
         pulumi.set(self, "name", value)
 
 
-warnings.warn("""azure-native:signalrservice/v20220801preview:SignalRCustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalRCustomDomain to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:signalrservice/v20220801preview:SignalRCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRCustomDomain to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class SignalRCustomDomain(pulumi.CustomResource):
-    warnings.warn("""azure-native:signalrservice/v20220801preview:SignalRCustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalRCustomDomain to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:signalrservice/v20220801preview:SignalRCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRCustomDomain to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -154,7 +154,7 @@ class SignalRCustomDomain(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SignalRCustomDomain is deprecated: azure-native:signalrservice/v20220801preview:SignalRCustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalRCustomDomain to guarantee forwards compatibility.""")
+        pulumi.log.warn("""SignalRCustomDomain is deprecated: azure-native:signalrservice/v20220801preview:SignalRCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRCustomDomain to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

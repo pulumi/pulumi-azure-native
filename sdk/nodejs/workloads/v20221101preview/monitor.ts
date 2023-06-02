@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * SAP monitor info on Azure (ARM properties and SAP monitor properties)
  *
- * @deprecated azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:monitor to guarantee forwards compatibility.
+ * @deprecated azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:monitor to guarantee forwards compatibility.
  */
 export class Monitor extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Monitor extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Monitor {
-        pulumi.log.warn("Monitor is deprecated: azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:monitor to guarantee forwards compatibility.")
+        pulumi.log.warn("Monitor is deprecated: azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:monitor to guarantee forwards compatibility.")
         return new Monitor(name, undefined as any, { ...opts, id: id });
     }
 
@@ -112,9 +112,9 @@ export class Monitor extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:monitor to guarantee forwards compatibility. */
+    /** @deprecated azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:monitor to guarantee forwards compatibility. */
     constructor(name: string, args: MonitorArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Monitor is deprecated: azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:monitor to guarantee forwards compatibility.")
+        pulumi.log.warn("Monitor is deprecated: azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:monitor to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

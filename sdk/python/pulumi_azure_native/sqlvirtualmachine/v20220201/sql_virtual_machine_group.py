@@ -133,11 +133,11 @@ class SqlVirtualMachineGroupArgs:
         pulumi.set(self, "wsfc_domain_profile", value)
 
 
-warnings.warn("""azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class SqlVirtualMachineGroup(pulumi.CustomResource):
-    warnings.warn("""azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -196,7 +196,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wsfc_domain_profile: Optional[pulumi.Input[pulumi.InputType['WsfcDomainProfileArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""SqlVirtualMachineGroup is deprecated: azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup to guarantee forwards compatibility.""")
+        pulumi.log.warn("""SqlVirtualMachineGroup is deprecated: azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an AuthorizationRule for a Namespace by rule name.
  */
-/** @deprecated azure-native:eventhub/v20210601preview:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:NamespaceAuthorizationRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventhub/v20210601preview:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:NamespaceAuthorizationRule to guarantee forwards compatibility. */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
-    pulumi.log.warn("getNamespaceAuthorizationRule is deprecated: azure-native:eventhub/v20210601preview:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:NamespaceAuthorizationRule to guarantee forwards compatibility.")
+    pulumi.log.warn("getNamespaceAuthorizationRule is deprecated: azure-native:eventhub/v20210601preview:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:NamespaceAuthorizationRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20210601preview:getNamespaceAuthorizationRule", {
@@ -65,7 +65,7 @@ export interface GetNamespaceAuthorizationRuleResult {
 /**
  * Gets an AuthorizationRule for a Namespace by rule name.
  */
-/** @deprecated azure-native:eventhub/v20210601preview:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:NamespaceAuthorizationRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventhub/v20210601preview:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:NamespaceAuthorizationRule to guarantee forwards compatibility. */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))
 }

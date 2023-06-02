@@ -17,7 +17,7 @@ __all__ = [
     'get_namespace_output',
 ]
 
-warnings.warn("""azure-native:eventhub/v20180101preview:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:eventhub/v20180101preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetNamespaceResult:
@@ -273,7 +273,7 @@ def get_namespace(namespace_name: Optional[str] = None,
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("""get_namespace is deprecated: azure-native:eventhub/v20180101preview:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_namespace is deprecated: azure-native:eventhub/v20180101preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
@@ -313,5 +313,5 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("""get_namespace is deprecated: azure-native:eventhub/v20180101preview:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_namespace is deprecated: azure-native:eventhub/v20180101preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility.""")
     ...

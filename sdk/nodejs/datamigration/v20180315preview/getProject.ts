@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
  */
 /** @deprecated Version 2018-03-15-preview will be removed in v2 of the provider.
-azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility. */
+azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility. */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
-    pulumi.log.warn("getProject is deprecated: Version 2018-03-15-preview will be removed in v2 of the provider.\nazure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility.")
+    pulumi.log.warn("getProject is deprecated: Version 2018-03-15-preview will be removed in v2 of the provider.\nazure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20180315preview:getProject", {
@@ -95,7 +95,7 @@ export interface GetProjectResult {
  * The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
  */
 /** @deprecated Version 2018-03-15-preview will be removed in v2 of the provider.
-azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility. */
+azure-native:datamigration/v20180315preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20180331preview:Project to guarantee forwards compatibility. */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
     return pulumi.output(args).apply((a: any) => getProject(a, opts))
 }

@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * Public IP address resource.
  *
  * @deprecated Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:PublicIPAddress is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:PublicIPAddress to guarantee forwards compatibility.
+azure-native:network/v20180401:PublicIPAddress is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:PublicIPAddress to guarantee forwards compatibility.
  */
 export class PublicIPAddress extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PublicIPAddress {
-        pulumi.log.warn("PublicIPAddress is deprecated: Version 2018-04-01 will be removed in v2 of the provider.\nazure-native:network/v20180401:PublicIPAddress is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:PublicIPAddress to guarantee forwards compatibility.")
+        pulumi.log.warn("PublicIPAddress is deprecated: Version 2018-04-01 will be removed in v2 of the provider.\nazure-native:network/v20180401:PublicIPAddress is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:PublicIPAddress to guarantee forwards compatibility.")
         return new PublicIPAddress(name, undefined as any, { ...opts, id: id });
     }
 
@@ -114,9 +114,9 @@ export class PublicIPAddress extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:network/v20180401:PublicIPAddress is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:PublicIPAddress to guarantee forwards compatibility. */
+azure-native:network/v20180401:PublicIPAddress is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:PublicIPAddress to guarantee forwards compatibility. */
     constructor(name: string, args: PublicIPAddressArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PublicIPAddress is deprecated: Version 2018-04-01 will be removed in v2 of the provider.\nazure-native:network/v20180401:PublicIPAddress is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:PublicIPAddress to guarantee forwards compatibility.")
+        pulumi.log.warn("PublicIPAddress is deprecated: Version 2018-04-01 will be removed in v2 of the provider.\nazure-native:network/v20180401:PublicIPAddress is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:PublicIPAddress to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn.V20170402
     /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
     /// </summary>
     [Obsolete(@"Version 2017-04-02 will be removed in v2 of the provider.
-azure-native:cdn/v20170402:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Endpoint to guarantee forwards compatibility.")]
+azure-native:cdn/v20170402:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Endpoint to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20170402:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource
     {

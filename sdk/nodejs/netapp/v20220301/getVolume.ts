@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the details of the specified volume
  */
-/** @deprecated azure-native:netapp/v20220301:Volume is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Volume to guarantee forwards compatibility. */
+/** @deprecated azure-native:netapp/v20220301:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Volume to guarantee forwards compatibility. */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
-    pulumi.log.warn("getVolume is deprecated: azure-native:netapp/v20220301:Volume is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Volume to guarantee forwards compatibility.")
+    pulumi.log.warn("getVolume is deprecated: azure-native:netapp/v20220301:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Volume to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20220301:getVolume", {
@@ -255,7 +255,7 @@ export interface GetVolumeResult {
 /**
  * Get the details of the specified volume
  */
-/** @deprecated azure-native:netapp/v20220301:Volume is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Volume to guarantee forwards compatibility. */
+/** @deprecated azure-native:netapp/v20220301:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Volume to guarantee forwards compatibility. */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     return pulumi.output(args).apply((a: any) => getVolume(a, opts))
 }

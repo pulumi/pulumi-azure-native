@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a resource belonging to a resource group.
  */
-/** @deprecated azure-native:dataprotection/v20210701:BackupVault is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility. */
+/** @deprecated azure-native:dataprotection/v20210701:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility. */
 export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
-    pulumi.log.warn("getBackupVault is deprecated: azure-native:dataprotection/v20210701:BackupVault is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility.")
+    pulumi.log.warn("getBackupVault is deprecated: azure-native:dataprotection/v20210701:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dataprotection/v20210701:getBackupVault", {
@@ -76,7 +76,7 @@ export interface GetBackupVaultResult {
 /**
  * Returns a resource belonging to a resource group.
  */
-/** @deprecated azure-native:dataprotection/v20210701:BackupVault is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility. */
+/** @deprecated azure-native:dataprotection/v20210701:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility. */
 export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupVaultResult> {
     return pulumi.output(args).apply((a: any) => getBackupVault(a, opts))
 }

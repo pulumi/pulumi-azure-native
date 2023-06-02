@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a RoutingIntent.
  */
-/** @deprecated azure-native:network/v20220501:RoutingIntent is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RoutingIntent to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220501:RoutingIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RoutingIntent to guarantee forwards compatibility. */
 export function getRoutingIntent(args: GetRoutingIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingIntentResult> {
-    pulumi.log.warn("getRoutingIntent is deprecated: azure-native:network/v20220501:RoutingIntent is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RoutingIntent to guarantee forwards compatibility.")
+    pulumi.log.warn("getRoutingIntent is deprecated: azure-native:network/v20220501:RoutingIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RoutingIntent to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220501:getRoutingIntent", {
@@ -69,7 +69,7 @@ export interface GetRoutingIntentResult {
 /**
  * Retrieves the details of a RoutingIntent.
  */
-/** @deprecated azure-native:network/v20220501:RoutingIntent is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RoutingIntent to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220501:RoutingIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RoutingIntent to guarantee forwards compatibility. */
 export function getRoutingIntentOutput(args: GetRoutingIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingIntentResult> {
     return pulumi.output(args).apply((a: any) => getRoutingIntent(a, opts))
 }

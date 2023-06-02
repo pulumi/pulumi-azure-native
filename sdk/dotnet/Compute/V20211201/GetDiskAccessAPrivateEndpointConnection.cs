@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20211201
 {
-    [Obsolete(@"azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetDiskAccessAPrivateEndpointConnection
     {
         /// <summary>

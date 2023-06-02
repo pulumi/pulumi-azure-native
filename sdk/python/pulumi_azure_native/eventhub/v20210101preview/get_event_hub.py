@@ -17,7 +17,7 @@ __all__ = [
     'get_event_hub_output',
 ]
 
-warnings.warn("""azure-native:eventhub/v20210101preview:EventHub is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:EventHub to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:eventhub/v20210101preview:EventHub is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:EventHub to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetEventHubResult:
@@ -179,7 +179,7 @@ def get_event_hub(event_hub_name: Optional[str] = None,
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("""get_event_hub is deprecated: azure-native:eventhub/v20210101preview:EventHub is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:EventHub to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_event_hub is deprecated: azure-native:eventhub/v20210101preview:EventHub is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:EventHub to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['eventHubName'] = event_hub_name
     __args__['namespaceName'] = namespace_name
@@ -214,5 +214,5 @@ def get_event_hub_output(event_hub_name: Optional[pulumi.Input[str]] = None,
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("""get_event_hub is deprecated: azure-native:eventhub/v20210101preview:EventHub is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:EventHub to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_event_hub is deprecated: azure-native:eventhub/v20210101preview:EventHub is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:EventHub to guarantee forwards compatibility.""")
     ...

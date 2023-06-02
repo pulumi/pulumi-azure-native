@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.VideoIndexer.V20211027Preview
     /// <summary>
     /// An Azure Video Analyzer for Media account.
     /// </summary>
-    [Obsolete(@"azure-native:videoindexer/v20211027preview:Account is being removed in the next major version of this provider. Please upgrade to azure-native:videoindexer/v20220801:Account to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:videoindexer/v20211027preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:videoindexer/v20220801:Account to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:videoindexer/v20211027preview:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {

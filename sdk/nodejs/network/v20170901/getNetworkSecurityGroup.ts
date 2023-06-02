@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the specified network security group.
  */
 /** @deprecated Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:network/v20170901:NetworkSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility. */
+azure-native:network/v20170901:NetworkSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility. */
 export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityGroupResult> {
-    pulumi.log.warn("getNetworkSecurityGroup is deprecated: Version 2017-09-01 will be removed in v2 of the provider.\nazure-native:network/v20170901:NetworkSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getNetworkSecurityGroup is deprecated: Version 2017-09-01 will be removed in v2 of the provider.\nazure-native:network/v20170901:NetworkSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20170901:getNetworkSecurityGroup", {
@@ -95,7 +95,7 @@ export interface GetNetworkSecurityGroupResult {
  * Gets the specified network security group.
  */
 /** @deprecated Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:network/v20170901:NetworkSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility. */
+azure-native:network/v20170901:NetworkSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility. */
 export function getNetworkSecurityGroupOutput(args: GetNetworkSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityGroupResult> {
     return pulumi.output(args).apply((a: any) => getNetworkSecurityGroup(a, opts))
 }

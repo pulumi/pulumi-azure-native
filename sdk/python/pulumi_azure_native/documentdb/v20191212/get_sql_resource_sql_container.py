@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-12-12 will be removed in v2 of the provider.
-azure-native:documentdb/v20191212:SqlResourceSqlContainer is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlContainer to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:documentdb/v20191212:SqlResourceSqlContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlContainer to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSqlResourceSqlContainerResult:
@@ -120,7 +120,7 @@ def get_sql_resource_sql_container(account_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure resource group.
     """
     pulumi.log.warn("""get_sql_resource_sql_container is deprecated: Version 2019-12-12 will be removed in v2 of the provider.
-azure-native:documentdb/v20191212:SqlResourceSqlContainer is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlContainer to guarantee forwards compatibility.""")
+azure-native:documentdb/v20191212:SqlResourceSqlContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlContainer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name
@@ -154,5 +154,5 @@ def get_sql_resource_sql_container_output(account_name: Optional[pulumi.Input[st
     :param str resource_group_name: Name of an Azure resource group.
     """
     pulumi.log.warn("""get_sql_resource_sql_container is deprecated: Version 2019-12-12 will be removed in v2 of the provider.
-azure-native:documentdb/v20191212:SqlResourceSqlContainer is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlContainer to guarantee forwards compatibility.""")
+azure-native:documentdb/v20191212:SqlResourceSqlContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlContainer to guarantee forwards compatibility.""")
     ...

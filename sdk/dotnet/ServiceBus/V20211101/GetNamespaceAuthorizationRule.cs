@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceBus.V20211101
 {
-    [Obsolete(@"azure-native:servicebus/v20211101:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:servicebus/v20211101:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule to guarantee forwards compatibility.")]
     public static class GetNamespaceAuthorizationRule
     {
         /// <summary>

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     /// <summary>
     /// A profile is a logical grouping of endpoints that share the same settings.
     /// </summary>
-    [Obsolete(@"azure-native:cdn/v20210601:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Profile to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:cdn/v20210601:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Profile to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20210601:Profile")]
     public partial class Profile : global::Pulumi.CustomResource
     {

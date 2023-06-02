@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901
 {
-    [Obsolete(@"azure-native:databoxedge/v20200901:IoTAddon is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:databoxedge/v20200901:IoTAddon is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility.")]
     public static class GetIoTAddon
     {
         /// <summary>

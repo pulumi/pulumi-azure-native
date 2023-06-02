@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
 {
-    [Obsolete(@"azure-native:securityinsights/v20211001preview:SentinelOnboardingState is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SentinelOnboardingState to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20211001preview:SentinelOnboardingState is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:SentinelOnboardingState to guarantee forwards compatibility.")]
     public static class GetSentinelOnboardingState
     {
         /// <summary>

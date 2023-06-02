@@ -16,7 +16,7 @@ __all__ = [
     'get_web_app_swift_virtual_network_connection_output',
 ]
 
-warnings.warn("""azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetWebAppSwiftVirtualNetworkConnectionResult:
@@ -116,7 +116,7 @@ def get_web_app_swift_virtual_network_connection(name: Optional[str] = None,
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_web_app_swift_virtual_network_connection is deprecated: azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_web_app_swift_virtual_network_connection is deprecated: azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -143,5 +143,5 @@ def get_web_app_swift_virtual_network_connection_output(name: Optional[pulumi.In
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_web_app_swift_virtual_network_connection is deprecated: azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_web_app_swift_virtual_network_connection is deprecated: azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility.""")
     ...

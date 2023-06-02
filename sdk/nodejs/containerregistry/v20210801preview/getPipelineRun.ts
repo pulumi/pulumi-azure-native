@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the detailed information for a given pipeline run.
  */
-/** @deprecated azure-native:containerregistry/v20210801preview:PipelineRun is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:PipelineRun to guarantee forwards compatibility. */
+/** @deprecated azure-native:containerregistry/v20210801preview:PipelineRun is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:PipelineRun to guarantee forwards compatibility. */
 export function getPipelineRun(args: GetPipelineRunArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineRunResult> {
-    pulumi.log.warn("getPipelineRun is deprecated: azure-native:containerregistry/v20210801preview:PipelineRun is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:PipelineRun to guarantee forwards compatibility.")
+    pulumi.log.warn("getPipelineRun is deprecated: azure-native:containerregistry/v20210801preview:PipelineRun is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:PipelineRun to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20210801preview:getPipelineRun", {
@@ -77,7 +77,7 @@ export interface GetPipelineRunResult {
 /**
  * Gets the detailed information for a given pipeline run.
  */
-/** @deprecated azure-native:containerregistry/v20210801preview:PipelineRun is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:PipelineRun to guarantee forwards compatibility. */
+/** @deprecated azure-native:containerregistry/v20210801preview:PipelineRun is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:PipelineRun to guarantee forwards compatibility. */
 export function getPipelineRunOutput(args: GetPipelineRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineRunResult> {
     return pulumi.output(args).apply((a: any) => getPipelineRun(a, opts))
 }

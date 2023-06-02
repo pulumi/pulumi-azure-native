@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2017-11-01 will be removed in v2 of the provider.
-azure-native:network/v20171101:NetworkSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20171101:NetworkSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetNetworkSecurityGroupResult:
@@ -193,7 +193,7 @@ def get_network_security_group(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_network_security_group is deprecated: Version 2017-11-01 will be removed in v2 of the provider.
-azure-native:network/v20171101:NetworkSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility.""")
+azure-native:network/v20171101:NetworkSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['networkSecurityGroupName'] = network_security_group_name
@@ -230,5 +230,5 @@ def get_network_security_group_output(expand: Optional[pulumi.Input[Optional[str
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_network_security_group is deprecated: Version 2017-11-01 will be removed in v2 of the provider.
-azure-native:network/v20171101:NetworkSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility.""")
+azure-native:network/v20171101:NetworkSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility.""")
     ...

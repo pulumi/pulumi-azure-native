@@ -116,11 +116,11 @@ class MachineExtensionArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:hybridcompute/v20220310:MachineExtension is being removed in the next major version of this provider. Please upgrade to azure-native:hybridcompute/v20220510preview:MachineExtension to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:hybridcompute/v20220310:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20220510preview:MachineExtension to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class MachineExtension(pulumi.CustomResource):
-    warnings.warn("""azure-native:hybridcompute/v20220310:MachineExtension is being removed in the next major version of this provider. Please upgrade to azure-native:hybridcompute/v20220510preview:MachineExtension to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:hybridcompute/v20220310:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20220510preview:MachineExtension to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -176,7 +176,7 @@ class MachineExtension(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""MachineExtension is deprecated: azure-native:hybridcompute/v20220310:MachineExtension is being removed in the next major version of this provider. Please upgrade to azure-native:hybridcompute/v20220510preview:MachineExtension to guarantee forwards compatibility.""")
+        pulumi.log.warn("""MachineExtension is deprecated: azure-native:hybridcompute/v20220310:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20220510preview:MachineExtension to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

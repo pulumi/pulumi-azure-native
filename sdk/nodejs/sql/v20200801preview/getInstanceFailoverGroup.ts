@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a failover group.
  */
-/** @deprecated azure-native:sql/v20200801preview:InstanceFailoverGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:InstanceFailoverGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20200801preview:InstanceFailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:InstanceFailoverGroup to guarantee forwards compatibility. */
 export function getInstanceFailoverGroup(args: GetInstanceFailoverGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceFailoverGroupResult> {
-    pulumi.log.warn("getInstanceFailoverGroup is deprecated: azure-native:sql/v20200801preview:InstanceFailoverGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:InstanceFailoverGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getInstanceFailoverGroup is deprecated: azure-native:sql/v20200801preview:InstanceFailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:InstanceFailoverGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20200801preview:getInstanceFailoverGroup", {
@@ -81,7 +81,7 @@ export interface GetInstanceFailoverGroupResult {
 /**
  * Gets a failover group.
  */
-/** @deprecated azure-native:sql/v20200801preview:InstanceFailoverGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:InstanceFailoverGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20200801preview:InstanceFailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:InstanceFailoverGroup to guarantee forwards compatibility. */
 export function getInstanceFailoverGroupOutput(args: GetInstanceFailoverGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceFailoverGroupResult> {
     return pulumi.output(args).apply((a: any) => getInstanceFailoverGroup(a, opts))
 }

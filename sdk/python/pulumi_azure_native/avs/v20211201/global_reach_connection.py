@@ -113,11 +113,11 @@ class GlobalReachConnectionArgs:
         pulumi.set(self, "peer_express_route_circuit", value)
 
 
-warnings.warn("""azure-native:avs/v20211201:GlobalReachConnection is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:GlobalReachConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:avs/v20211201:GlobalReachConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:GlobalReachConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class GlobalReachConnection(pulumi.CustomResource):
-    warnings.warn("""azure-native:avs/v20211201:GlobalReachConnection is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:GlobalReachConnection to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:avs/v20211201:GlobalReachConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:GlobalReachConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -173,7 +173,7 @@ class GlobalReachConnection(pulumi.CustomResource):
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""GlobalReachConnection is deprecated: azure-native:avs/v20211201:GlobalReachConnection is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:GlobalReachConnection to guarantee forwards compatibility.""")
+        pulumi.log.warn("""GlobalReachConnection is deprecated: azure-native:avs/v20211201:GlobalReachConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:GlobalReachConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated azure-native:documentdb/v20210415:TableResourceTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:TableResourceTable to guarantee forwards compatibility. */
+/** @deprecated azure-native:documentdb/v20210415:TableResourceTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:TableResourceTable to guarantee forwards compatibility. */
 export function getTableResourceTable(args: GetTableResourceTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResourceTableResult> {
-    pulumi.log.warn("getTableResourceTable is deprecated: azure-native:documentdb/v20210415:TableResourceTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:TableResourceTable to guarantee forwards compatibility.")
+    pulumi.log.warn("getTableResourceTable is deprecated: azure-native:documentdb/v20210415:TableResourceTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:TableResourceTable to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20210415:getTableResourceTable", {
@@ -67,7 +67,7 @@ export interface GetTableResourceTableResult {
 /**
  * Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated azure-native:documentdb/v20210415:TableResourceTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:TableResourceTable to guarantee forwards compatibility. */
+/** @deprecated azure-native:documentdb/v20210415:TableResourceTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:TableResourceTable to guarantee forwards compatibility. */
 export function getTableResourceTableOutput(args: GetTableResourceTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResourceTableResult> {
     return pulumi.output(args).apply((a: any) => getTableResourceTable(a, opts))
 }

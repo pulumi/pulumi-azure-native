@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the managed application definition.
  */
 /** @deprecated Version 2018-02-01 will be removed in v2 of the provider.
-azure-native:solutions/v20180201:ApplicationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility. */
+azure-native:solutions/v20180201:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility. */
 export function getApplicationDefinition(args: GetApplicationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationDefinitionResult> {
-    pulumi.log.warn("getApplicationDefinition is deprecated: Version 2018-02-01 will be removed in v2 of the provider.\nazure-native:solutions/v20180201:ApplicationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.")
+    pulumi.log.warn("getApplicationDefinition is deprecated: Version 2018-02-01 will be removed in v2 of the provider.\nazure-native:solutions/v20180201:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:solutions/v20180201:getApplicationDefinition", {
@@ -110,7 +110,7 @@ export interface GetApplicationDefinitionResult {
  * Gets the managed application definition.
  */
 /** @deprecated Version 2018-02-01 will be removed in v2 of the provider.
-azure-native:solutions/v20180201:ApplicationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility. */
+azure-native:solutions/v20180201:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility. */
 export function getApplicationDefinitionOutput(args: GetApplicationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getApplicationDefinition(a, opts))
 }

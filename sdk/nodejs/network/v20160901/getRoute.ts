@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Gets the specified route from a route table.
  */
 /** @deprecated Version 2016-09-01 will be removed in v2 of the provider.
-azure-native:network/v20160901:Route is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:Route to guarantee forwards compatibility. */
+azure-native:network/v20160901:Route is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:Route to guarantee forwards compatibility. */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
-    pulumi.log.warn("getRoute is deprecated: Version 2016-09-01 will be removed in v2 of the provider.\nazure-native:network/v20160901:Route is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:Route to guarantee forwards compatibility.")
+    pulumi.log.warn("getRoute is deprecated: Version 2016-09-01 will be removed in v2 of the provider.\nazure-native:network/v20160901:Route is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:Route to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20160901:getRoute", {
@@ -72,7 +72,7 @@ export interface GetRouteResult {
  * Gets the specified route from a route table.
  */
 /** @deprecated Version 2016-09-01 will be removed in v2 of the provider.
-azure-native:network/v20160901:Route is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:Route to guarantee forwards compatibility. */
+azure-native:network/v20160901:Route is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20190601:Route to guarantee forwards compatibility. */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
     return pulumi.output(args).apply((a: any) => getRoute(a, opts))
 }

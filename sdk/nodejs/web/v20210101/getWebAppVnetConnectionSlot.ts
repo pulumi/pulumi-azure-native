@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a virtual network the app (or deployment slot) is connected to by name.
  */
-/** @deprecated azure-native:web/v20210101:WebAppVnetConnectionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppVnetConnectionSlot to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20210101:WebAppVnetConnectionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppVnetConnectionSlot to guarantee forwards compatibility. */
 export function getWebAppVnetConnectionSlot(args: GetWebAppVnetConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionSlotResult> {
-    pulumi.log.warn("getWebAppVnetConnectionSlot is deprecated: azure-native:web/v20210101:WebAppVnetConnectionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppVnetConnectionSlot to guarantee forwards compatibility.")
+    pulumi.log.warn("getWebAppVnetConnectionSlot is deprecated: azure-native:web/v20210101:WebAppVnetConnectionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppVnetConnectionSlot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210101:getWebAppVnetConnectionSlot", {
@@ -95,7 +95,7 @@ export interface GetWebAppVnetConnectionSlotResult {
 /**
  * Gets a virtual network the app (or deployment slot) is connected to by name.
  */
-/** @deprecated azure-native:web/v20210101:WebAppVnetConnectionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppVnetConnectionSlot to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20210101:WebAppVnetConnectionSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppVnetConnectionSlot to guarantee forwards compatibility. */
 export function getWebAppVnetConnectionSlotOutput(args: GetWebAppVnetConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppVnetConnectionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppVnetConnectionSlot(a, opts))
 }

@@ -16,7 +16,7 @@ __all__ = [
     'get_workload_network_vm_group_output',
 ]
 
-warnings.warn("""azure-native:avs/v20210101preview:WorkloadNetworkVMGroup is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkVMGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:avs/v20210101preview:WorkloadNetworkVMGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkVMGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetWorkloadNetworkVMGroupResult:
@@ -142,7 +142,7 @@ def get_workload_network_vm_group(private_cloud_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vm_group_id: NSX VM Group identifier. Generally the same as the VM Group's display name
     """
-    pulumi.log.warn("""get_workload_network_vm_group is deprecated: azure-native:avs/v20210101preview:WorkloadNetworkVMGroup is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkVMGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_workload_network_vm_group is deprecated: azure-native:avs/v20210101preview:WorkloadNetworkVMGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkVMGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
@@ -174,5 +174,5 @@ def get_workload_network_vm_group_output(private_cloud_name: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vm_group_id: NSX VM Group identifier. Generally the same as the VM Group's display name
     """
-    pulumi.log.warn("""get_workload_network_vm_group is deprecated: azure-native:avs/v20210101preview:WorkloadNetworkVMGroup is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkVMGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_workload_network_vm_group is deprecated: azure-native:avs/v20210101preview:WorkloadNetworkVMGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkVMGroup to guarantee forwards compatibility.""")
     ...

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
  */
-/** @deprecated azure-native:servicefabric/v20210501:Application is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:Application to guarantee forwards compatibility. */
+/** @deprecated azure-native:servicefabric/v20210501:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210601:Application to guarantee forwards compatibility. */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    pulumi.log.warn("getApplication is deprecated: azure-native:servicefabric/v20210501:Application is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:Application to guarantee forwards compatibility.")
+    pulumi.log.warn("getApplication is deprecated: azure-native:servicefabric/v20210501:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210601:Application to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20210501:getApplication", {
@@ -94,7 +94,7 @@ export interface GetApplicationResult {
 /**
  * Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
  */
-/** @deprecated azure-native:servicefabric/v20210501:Application is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:Application to guarantee forwards compatibility. */
+/** @deprecated azure-native:servicefabric/v20210501:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210601:Application to guarantee forwards compatibility. */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }

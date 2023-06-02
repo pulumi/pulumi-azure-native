@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
     /// Represents an instance of a DNC controller.
     /// </summary>
     [Obsolete(@"Version 2020-08-08-preview will be removed in v2 of the provider.
-azure-native:delegatednetwork/v20200808preview:ControllerDetails is being removed in the next major version of this provider. Please upgrade to azure-native:delegatednetwork/v20210315:ControllerDetails to guarantee forwards compatibility.")]
+azure-native:delegatednetwork/v20200808preview:ControllerDetails is being removed in the next major version of this provider. Upgrade to at least azure-native:delegatednetwork/v20210315:ControllerDetails to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:delegatednetwork/v20200808preview:ControllerDetails")]
     public partial class ControllerDetails : global::Pulumi.CustomResource
     {

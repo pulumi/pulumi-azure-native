@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a file import.
  */
-/** @deprecated azure-native:securityinsights/v20220901preview:FileImport is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:FileImport to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20220901preview:FileImport is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:FileImport to guarantee forwards compatibility. */
 export function getFileImport(args: GetFileImportArgs, opts?: pulumi.InvokeOptions): Promise<GetFileImportResult> {
-    pulumi.log.warn("getFileImport is deprecated: azure-native:securityinsights/v20220901preview:FileImport is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:FileImport to guarantee forwards compatibility.")
+    pulumi.log.warn("getFileImport is deprecated: azure-native:securityinsights/v20220901preview:FileImport is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:FileImport to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220901preview:getFileImport", {
@@ -113,7 +113,7 @@ export interface GetFileImportResult {
 /**
  * Gets a file import.
  */
-/** @deprecated azure-native:securityinsights/v20220901preview:FileImport is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:FileImport to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20220901preview:FileImport is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:FileImport to guarantee forwards compatibility. */
 export function getFileImportOutput(args: GetFileImportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileImportResult> {
     return pulumi.output(args).apply((a: any) => getFileImport(a, opts))
 }

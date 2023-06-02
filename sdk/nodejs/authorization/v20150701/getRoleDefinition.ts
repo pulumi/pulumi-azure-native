@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Get role definition by name (GUID).
  */
 /** @deprecated Version 2015-07-01 will be removed in v2 of the provider.
-azure-native:authorization/v20150701:RoleDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20220401:RoleDefinition to guarantee forwards compatibility. */
+azure-native:authorization/v20150701:RoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220401:RoleDefinition to guarantee forwards compatibility. */
 export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
-    pulumi.log.warn("getRoleDefinition is deprecated: Version 2015-07-01 will be removed in v2 of the provider.\nazure-native:authorization/v20150701:RoleDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20220401:RoleDefinition to guarantee forwards compatibility.")
+    pulumi.log.warn("getRoleDefinition is deprecated: Version 2015-07-01 will be removed in v2 of the provider.\nazure-native:authorization/v20150701:RoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220401:RoleDefinition to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20150701:getRoleDefinition", {
@@ -74,7 +74,7 @@ export interface GetRoleDefinitionResult {
  * Get role definition by name (GUID).
  */
 /** @deprecated Version 2015-07-01 will be removed in v2 of the provider.
-azure-native:authorization/v20150701:RoleDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20220401:RoleDefinition to guarantee forwards compatibility. */
+azure-native:authorization/v20150701:RoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220401:RoleDefinition to guarantee forwards compatibility. */
 export function getRoleDefinitionOutput(args: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getRoleDefinition(a, opts))
 }

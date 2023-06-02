@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Kusto cluster database script.
  */
-/** @deprecated azure-native:kusto/v20221111:Script is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:Script to guarantee forwards compatibility. */
+/** @deprecated azure-native:kusto/v20221111:Script is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:Script to guarantee forwards compatibility. */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
-    pulumi.log.warn("getScript is deprecated: azure-native:kusto/v20221111:Script is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:Script to guarantee forwards compatibility.")
+    pulumi.log.warn("getScript is deprecated: azure-native:kusto/v20221111:Script is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:Script to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20221111:getScript", {
@@ -82,7 +82,7 @@ export interface GetScriptResult {
 /**
  * Gets a Kusto cluster database script.
  */
-/** @deprecated azure-native:kusto/v20221111:Script is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:Script to guarantee forwards compatibility. */
+/** @deprecated azure-native:kusto/v20221111:Script is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:Script to guarantee forwards compatibility. */
 export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptResult> {
     return pulumi.output(args).apply((a: any) => getScript(a, opts))
 }

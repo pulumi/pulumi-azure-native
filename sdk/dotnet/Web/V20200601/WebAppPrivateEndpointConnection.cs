@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Web.V20200601
     /// <summary>
     /// Private Endpoint Connection ARM resource.
     /// </summary>
-    [Obsolete(@"azure-native:web/v20200601:WebAppPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppPrivateEndpointConnection to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:web/v20200601:WebAppPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppPrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20200601:WebAppPrivateEndpointConnection")]
     public partial class WebAppPrivateEndpointConnection : global::Pulumi.CustomResource
     {

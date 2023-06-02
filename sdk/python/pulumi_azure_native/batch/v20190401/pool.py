@@ -289,12 +289,12 @@ class PoolArgs:
 
 
 warnings.warn("""Version 2019-04-01 will be removed in v2 of the provider.
-azure-native:batch/v20190401:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20200501:Pool to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:batch/v20190401:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20200501:Pool to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Pool(pulumi.CustomResource):
     warnings.warn("""Version 2019-04-01 will be removed in v2 of the provider.
-azure-native:batch/v20190401:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20200501:Pool to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:batch/v20190401:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20200501:Pool to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -383,7 +383,7 @@ azure-native:batch/v20190401:Pool is being removed in the next major version of 
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Pool is deprecated: Version 2019-04-01 will be removed in v2 of the provider.
-azure-native:batch/v20190401:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20200501:Pool to guarantee forwards compatibility.""")
+azure-native:batch/v20190401:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20200501:Pool to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

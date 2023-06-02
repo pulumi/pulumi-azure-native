@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2018-11-01-preview will be removed in v2 of the provider.
-azure-native:datashare/v20181101preview:Share is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Share to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:datashare/v20181101preview:Share is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:Share to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetShareResult:
@@ -168,7 +168,7 @@ def get_share(account_name: Optional[str] = None,
     :param str share_name: The name of the share to retrieve.
     """
     pulumi.log.warn("""get_share is deprecated: Version 2018-11-01-preview will be removed in v2 of the provider.
-azure-native:datashare/v20181101preview:Share is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Share to guarantee forwards compatibility.""")
+azure-native:datashare/v20181101preview:Share is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:Share to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -203,5 +203,5 @@ def get_share_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str share_name: The name of the share to retrieve.
     """
     pulumi.log.warn("""get_share is deprecated: Version 2018-11-01-preview will be removed in v2 of the provider.
-azure-native:datashare/v20181101preview:Share is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Share to guarantee forwards compatibility.""")
+azure-native:datashare/v20181101preview:Share is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:Share to guarantee forwards compatibility.""")
     ...

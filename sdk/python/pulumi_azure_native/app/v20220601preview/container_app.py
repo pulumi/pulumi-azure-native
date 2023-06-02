@@ -197,11 +197,11 @@ class ContainerAppArgs:
         pulumi.set(self, "workload_profile_type", value)
 
 
-warnings.warn("""azure-native:app/v20220601preview:ContainerApp is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ContainerApp to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:app/v20220601preview:ContainerApp is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerApp to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ContainerApp(pulumi.CustomResource):
-    warnings.warn("""azure-native:app/v20220601preview:ContainerApp is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ContainerApp to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:app/v20220601preview:ContainerApp is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerApp to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -272,7 +272,7 @@ class ContainerApp(pulumi.CustomResource):
                  template: Optional[pulumi.Input[pulumi.InputType['TemplateArgs']]] = None,
                  workload_profile_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ContainerApp is deprecated: azure-native:app/v20220601preview:ContainerApp is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ContainerApp to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ContainerApp is deprecated: azure-native:app/v20220601preview:ContainerApp is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerApp to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

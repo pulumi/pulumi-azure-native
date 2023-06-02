@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Get the project with the specified name.
  */
 /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider.
-azure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20180202:Project to guarantee forwards compatibility. */
+azure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Project to guarantee forwards compatibility. */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
-    pulumi.log.warn("getProject is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.\nazure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20180202:Project to guarantee forwards compatibility.")
+    pulumi.log.warn("getProject is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.\nazure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Project to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20171111preview:getProject", {
@@ -95,7 +95,7 @@ export interface GetProjectResult {
  * Get the project with the specified name.
  */
 /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider.
-azure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20180202:Project to guarantee forwards compatibility. */
+azure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20180202:Project to guarantee forwards compatibility. */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
     return pulumi.output(args).apply((a: any) => getProject(a, opts))
 }

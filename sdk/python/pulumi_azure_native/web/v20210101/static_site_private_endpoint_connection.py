@@ -99,11 +99,11 @@ class StaticSitePrivateEndpointConnectionArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-warnings.warn("""azure-native:web/v20210101:StaticSitePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSitePrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:web/v20210101:StaticSitePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSitePrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class StaticSitePrivateEndpointConnection(pulumi.CustomResource):
-    warnings.warn("""azure-native:web/v20210101:StaticSitePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSitePrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:web/v20210101:StaticSitePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSitePrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -156,7 +156,7 @@ class StaticSitePrivateEndpointConnection(pulumi.CustomResource):
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""StaticSitePrivateEndpointConnection is deprecated: azure-native:web/v20210101:StaticSitePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSitePrivateEndpointConnection to guarantee forwards compatibility.""")
+        pulumi.log.warn("""StaticSitePrivateEndpointConnection is deprecated: azure-native:web/v20210101:StaticSitePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSitePrivateEndpointConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

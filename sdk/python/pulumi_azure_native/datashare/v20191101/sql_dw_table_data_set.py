@@ -157,11 +157,11 @@ class SqlDWTableDataSetArgs:
         pulumi.set(self, "data_set_name", value)
 
 
-warnings.warn("""azure-native:datashare/v20191101:SqlDWTableDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SqlDWTableDataSet to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:datashare/v20191101:SqlDWTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SqlDWTableDataSet to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class SqlDWTableDataSet(pulumi.CustomResource):
-    warnings.warn("""azure-native:datashare/v20191101:SqlDWTableDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SqlDWTableDataSet to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:datashare/v20191101:SqlDWTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SqlDWTableDataSet to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -227,7 +227,7 @@ class SqlDWTableDataSet(pulumi.CustomResource):
                  sql_server_resource_id: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SqlDWTableDataSet is deprecated: azure-native:datashare/v20191101:SqlDWTableDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SqlDWTableDataSet to guarantee forwards compatibility.""")
+        pulumi.log.warn("""SqlDWTableDataSet is deprecated: azure-native:datashare/v20191101:SqlDWTableDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:SqlDWTableDataSet to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

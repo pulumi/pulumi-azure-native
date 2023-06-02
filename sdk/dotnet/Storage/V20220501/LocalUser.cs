@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Storage.V20220501
     /// <summary>
     /// The local user associated with the storage accounts.
     /// </summary>
-    [Obsolete(@"azure-native:storage/v20220501:LocalUser is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:LocalUser to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:storage/v20220501:LocalUser is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:LocalUser to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storage/v20220501:LocalUser")]
     public partial class LocalUser : global::Pulumi.CustomResource
     {

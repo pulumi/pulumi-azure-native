@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20220501
 {
-    [Obsolete(@"azure-native:machinelearningservices/v20220501:EnvironmentContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:EnvironmentContainer to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:machinelearningservices/v20220501:EnvironmentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:EnvironmentContainer to guarantee forwards compatibility.")]
     public static class GetEnvironmentContainer
     {
         /// <summary>

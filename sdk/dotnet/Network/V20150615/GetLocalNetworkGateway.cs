@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20150615
 {
     [Obsolete(@"Version 2015-06-15 will be removed in v2 of the provider.
-azure-native:network/v20150615:LocalNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20160601:LocalNetworkGateway to guarantee forwards compatibility.")]
+azure-native:network/v20150615:LocalNetworkGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20160601:LocalNetworkGateway to guarantee forwards compatibility.")]
     public static class GetLocalNetworkGateway
     {
         /// <summary>

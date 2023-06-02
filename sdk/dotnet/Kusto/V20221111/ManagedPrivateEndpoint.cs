@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20221111
     /// <summary>
     /// Class representing a managed private endpoint.
     /// </summary>
-    [Obsolete(@"azure-native:kusto/v20221111:ManagedPrivateEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ManagedPrivateEndpoint to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:kusto/v20221111:ManagedPrivateEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:ManagedPrivateEndpoint to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kusto/v20221111:ManagedPrivateEndpoint")]
     public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource
     {

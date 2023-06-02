@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Implements host GET method.
  */
-/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:Host is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:Host to guarantee forwards compatibility. */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:Host is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:Host to guarantee forwards compatibility. */
 export function getHost(args: GetHostArgs, opts?: pulumi.InvokeOptions): Promise<GetHostResult> {
-    pulumi.log.warn("getHost is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:Host is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:Host to guarantee forwards compatibility.")
+    pulumi.log.warn("getHost is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:Host is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:Host to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220110preview:getHost", {
@@ -104,7 +104,7 @@ export interface GetHostResult {
 /**
  * Implements host GET method.
  */
-/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:Host is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:Host to guarantee forwards compatibility. */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:Host is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:Host to guarantee forwards compatibility. */
 export function getHostOutput(args: GetHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostResult> {
     return pulumi.output(args).apply((a: any) => getHost(a, opts))
 }

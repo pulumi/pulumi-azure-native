@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets Kubernetes Cluster Extension.
  */
-/** @deprecated azure-native:kubernetesconfiguration/v20210901:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility. */
+/** @deprecated azure-native:kubernetesconfiguration/v20210901:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility. */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
-    pulumi.log.warn("getExtension is deprecated: azure-native:kubernetesconfiguration/v20210901:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility.")
+    pulumi.log.warn("getExtension is deprecated: azure-native:kubernetesconfiguration/v20210901:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetesconfiguration/v20210901:getExtension", {
@@ -127,7 +127,7 @@ export interface GetExtensionResult {
 /**
  * Gets Kubernetes Cluster Extension.
  */
-/** @deprecated azure-native:kubernetesconfiguration/v20210901:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility. */
+/** @deprecated azure-native:kubernetesconfiguration/v20210901:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility. */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getExtension(a, opts))
 }

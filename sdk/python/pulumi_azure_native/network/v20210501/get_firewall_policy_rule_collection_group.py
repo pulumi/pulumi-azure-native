@@ -17,7 +17,7 @@ __all__ = [
     'get_firewall_policy_rule_collection_group_output',
 ]
 
-warnings.warn("""azure-native:network/v20210501:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20210501:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetFirewallPolicyRuleCollectionGroupResult:
@@ -131,7 +131,7 @@ def get_firewall_policy_rule_collection_group(firewall_policy_name: Optional[str
     :param str resource_group_name: The name of the resource group.
     :param str rule_collection_group_name: The name of the FirewallPolicyRuleCollectionGroup.
     """
-    pulumi.log.warn("""get_firewall_policy_rule_collection_group is deprecated: azure-native:network/v20210501:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_firewall_policy_rule_collection_group is deprecated: azure-native:network/v20210501:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['firewallPolicyName'] = firewall_policy_name
     __args__['resourceGroupName'] = resource_group_name
@@ -162,5 +162,5 @@ def get_firewall_policy_rule_collection_group_output(firewall_policy_name: Optio
     :param str resource_group_name: The name of the resource group.
     :param str rule_collection_group_name: The name of the FirewallPolicyRuleCollectionGroup.
     """
-    pulumi.log.warn("""get_firewall_policy_rule_collection_group is deprecated: azure-native:network/v20210501:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_firewall_policy_rule_collection_group is deprecated: azure-native:network/v20210501:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility.""")
     ...

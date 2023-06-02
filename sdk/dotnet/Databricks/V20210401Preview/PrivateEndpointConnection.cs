@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
     /// <summary>
     /// The private endpoint connection of a workspace
     /// </summary>
-    [Obsolete(@"azure-native:databricks/v20210401preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:databricks/v20230201:PrivateEndpointConnection to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:databricks/v20210401preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databricks/v20210401preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

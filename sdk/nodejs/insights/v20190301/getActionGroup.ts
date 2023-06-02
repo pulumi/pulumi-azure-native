@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get an action group.
  */
-/** @deprecated azure-native:insights/v20190301:ActionGroup is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20230101:ActionGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:insights/v20190301:ActionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20230101:ActionGroup to guarantee forwards compatibility. */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
-    pulumi.log.warn("getActionGroup is deprecated: azure-native:insights/v20190301:ActionGroup is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20230101:ActionGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getActionGroup is deprecated: azure-native:insights/v20190301:ActionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20230101:ActionGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20190301:getActionGroup", {
@@ -108,7 +108,7 @@ export interface GetActionGroupResult {
 /**
  * Get an action group.
  */
-/** @deprecated azure-native:insights/v20190301:ActionGroup is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20230101:ActionGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:insights/v20190301:ActionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20230101:ActionGroup to guarantee forwards compatibility. */
 export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionGroupResult> {
     return pulumi.output(args).apply((a: any) => getActionGroup(a, opts))
 }

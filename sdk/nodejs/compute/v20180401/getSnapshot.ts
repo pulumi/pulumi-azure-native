@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets information about a snapshot.
  */
 /** @deprecated Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:compute/v20180401:Snapshot is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20180601:Snapshot to guarantee forwards compatibility. */
+azure-native:compute/v20180401:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20180601:Snapshot to guarantee forwards compatibility. */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-    pulumi.log.warn("getSnapshot is deprecated: Version 2018-04-01 will be removed in v2 of the provider.\nazure-native:compute/v20180401:Snapshot is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20180601:Snapshot to guarantee forwards compatibility.")
+    pulumi.log.warn("getSnapshot is deprecated: Version 2018-04-01 will be removed in v2 of the provider.\nazure-native:compute/v20180401:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20180601:Snapshot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20180401:getSnapshot", {
@@ -94,7 +94,7 @@ export interface GetSnapshotResult {
  * Gets information about a snapshot.
  */
 /** @deprecated Version 2018-04-01 will be removed in v2 of the provider.
-azure-native:compute/v20180401:Snapshot is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20180601:Snapshot to guarantee forwards compatibility. */
+azure-native:compute/v20180401:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20180601:Snapshot to guarantee forwards compatibility. */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
 }

@@ -95,11 +95,11 @@ class SkusNestedResourceTypeFirstArgs:
         pulumi.set(self, "sku", value)
 
 
-warnings.warn("""azure-native:providerhub/v20210501preview:SkusNestedResourceTypeFirst is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:SkusNestedResourceTypeFirst to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:providerhub/v20210501preview:SkusNestedResourceTypeFirst is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:SkusNestedResourceTypeFirst to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class SkusNestedResourceTypeFirst(pulumi.CustomResource):
-    warnings.warn("""azure-native:providerhub/v20210501preview:SkusNestedResourceTypeFirst is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:SkusNestedResourceTypeFirst to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:providerhub/v20210501preview:SkusNestedResourceTypeFirst is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:SkusNestedResourceTypeFirst to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -149,7 +149,7 @@ class SkusNestedResourceTypeFirst(pulumi.CustomResource):
                  resource_type: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SkusNestedResourceTypeFirst is deprecated: azure-native:providerhub/v20210501preview:SkusNestedResourceTypeFirst is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:SkusNestedResourceTypeFirst to guarantee forwards compatibility.""")
+        pulumi.log.warn("""SkusNestedResourceTypeFirst is deprecated: azure-native:providerhub/v20210501preview:SkusNestedResourceTypeFirst is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:SkusNestedResourceTypeFirst to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

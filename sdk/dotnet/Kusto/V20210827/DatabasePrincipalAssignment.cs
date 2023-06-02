@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20210827
     /// <summary>
     /// Class representing a database principal assignment.
     /// </summary>
-    [Obsolete(@"azure-native:kusto/v20210827:DatabasePrincipalAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:DatabasePrincipalAssignment to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:kusto/v20210827:DatabasePrincipalAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:DatabasePrincipalAssignment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kusto/v20210827:DatabasePrincipalAssignment")]
     public partial class DatabasePrincipalAssignment : global::Pulumi.CustomResource
     {

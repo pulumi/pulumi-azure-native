@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a snapshot.
  */
-/** @deprecated azure-native:compute/v20210801:Snapshot is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:Snapshot to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20210801:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:Snapshot to guarantee forwards compatibility. */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-    pulumi.log.warn("getSnapshot is deprecated: azure-native:compute/v20210801:Snapshot is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:Snapshot to guarantee forwards compatibility.")
+    pulumi.log.warn("getSnapshot is deprecated: azure-native:compute/v20210801:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:Snapshot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20210801:getSnapshot", {
@@ -152,7 +152,7 @@ export interface GetSnapshotResult {
 /**
  * Gets information about a snapshot.
  */
-/** @deprecated azure-native:compute/v20210801:Snapshot is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:Snapshot to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20210801:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:Snapshot to guarantee forwards compatibility. */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
 }

@@ -7,9 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-/** @deprecated azure-native:machinelearningservices/v20220501:BatchDeployment is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:BatchDeployment to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20220501:BatchDeployment is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:BatchDeployment to guarantee forwards compatibility. */
 export function getBatchDeployment(args: GetBatchDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchDeploymentResult> {
-    pulumi.log.warn("getBatchDeployment is deprecated: azure-native:machinelearningservices/v20220501:BatchDeployment is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:BatchDeployment to guarantee forwards compatibility.")
+    pulumi.log.warn("getBatchDeployment is deprecated: azure-native:machinelearningservices/v20220501:BatchDeployment is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:BatchDeployment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220501:getBatchDeployment", {
@@ -81,7 +81,7 @@ export interface GetBatchDeploymentResult {
      */
     readonly type: string;
 }
-/** @deprecated azure-native:machinelearningservices/v20220501:BatchDeployment is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:BatchDeployment to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20220501:BatchDeployment is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:BatchDeployment to guarantee forwards compatibility. */
 export function getBatchDeploymentOutput(args: GetBatchDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getBatchDeployment(a, opts))
 }

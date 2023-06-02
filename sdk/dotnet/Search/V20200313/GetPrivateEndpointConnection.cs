@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20200313
 {
     [Obsolete(@"Version 2020-03-13 will be removed in v2 of the provider.
-azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.")]
+azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnection
     {
         /// <summary>

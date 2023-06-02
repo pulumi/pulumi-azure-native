@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve the credential identified by credential name.
  */
-/** @deprecated azure-native:automation/v20151031:Credential is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Credential to guarantee forwards compatibility. */
+/** @deprecated azure-native:automation/v20151031:Credential is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Credential to guarantee forwards compatibility. */
 export function getCredential(args: GetCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialResult> {
-    pulumi.log.warn("getCredential is deprecated: azure-native:automation/v20151031:Credential is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Credential to guarantee forwards compatibility.")
+    pulumi.log.warn("getCredential is deprecated: azure-native:automation/v20151031:Credential is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Credential to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20151031:getCredential", {
@@ -70,7 +70,7 @@ export interface GetCredentialResult {
 /**
  * Retrieve the credential identified by credential name.
  */
-/** @deprecated azure-native:automation/v20151031:Credential is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Credential to guarantee forwards compatibility. */
+/** @deprecated azure-native:automation/v20151031:Credential is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Credential to guarantee forwards compatibility. */
 export function getCredentialOutput(args: GetCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialResult> {
     return pulumi.output(args).apply((a: any) => getCredential(a, opts))
 }

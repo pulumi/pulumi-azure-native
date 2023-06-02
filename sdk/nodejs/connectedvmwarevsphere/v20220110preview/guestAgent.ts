@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Defines the GuestAgent.
  *
- * @deprecated azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility.
+ * @deprecated azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility.
  */
 export class GuestAgent extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class GuestAgent extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GuestAgent {
-        pulumi.log.warn("GuestAgent is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility.")
+        pulumi.log.warn("GuestAgent is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility.")
         return new GuestAgent(name, undefined as any, { ...opts, id: id });
     }
 
@@ -92,9 +92,9 @@ export class GuestAgent extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility. */
+    /** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility. */
     constructor(name: string, args: GuestAgentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("GuestAgent is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility.")
+        pulumi.log.warn("GuestAgent is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get details of the specified volume group
  */
-/** @deprecated azure-native:netapp/v20210801:VolumeGroup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20211001:VolumeGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:netapp/v20210801:VolumeGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20211001:VolumeGroup to guarantee forwards compatibility. */
 export function getVolumeGroup(args: GetVolumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupResult> {
-    pulumi.log.warn("getVolumeGroup is deprecated: azure-native:netapp/v20210801:VolumeGroup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20211001:VolumeGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getVolumeGroup is deprecated: azure-native:netapp/v20210801:VolumeGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20211001:VolumeGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20210801:getVolumeGroup", {
@@ -77,7 +77,7 @@ export interface GetVolumeGroupResult {
 /**
  * Get details of the specified volume group
  */
-/** @deprecated azure-native:netapp/v20210801:VolumeGroup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20211001:VolumeGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:netapp/v20210801:VolumeGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20211001:VolumeGroup to guarantee forwards compatibility. */
 export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupResult> {
     return pulumi.output(args).apply((a: any) => getVolumeGroup(a, opts))
 }

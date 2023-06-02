@@ -17,7 +17,7 @@ __all__ = [
     'get_appliance_output',
 ]
 
-warnings.warn("""azure-native:resourceconnector/v20220415preview:Appliance is being removed in the next major version of this provider. Please upgrade to azure-native:resourceconnector/v20221027:Appliance to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:resourceconnector/v20220415preview:Appliance is being removed in the next major version of this provider. Upgrade to at least azure-native:resourceconnector/v20221027:Appliance to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetApplianceResult:
@@ -201,7 +201,7 @@ def get_appliance(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: Appliances name.
     """
-    pulumi.log.warn("""get_appliance is deprecated: azure-native:resourceconnector/v20220415preview:Appliance is being removed in the next major version of this provider. Please upgrade to azure-native:resourceconnector/v20221027:Appliance to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_appliance is deprecated: azure-native:resourceconnector/v20220415preview:Appliance is being removed in the next major version of this provider. Upgrade to at least azure-native:resourceconnector/v20221027:Appliance to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -235,5 +235,5 @@ def get_appliance_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: Appliances name.
     """
-    pulumi.log.warn("""get_appliance is deprecated: azure-native:resourceconnector/v20220415preview:Appliance is being removed in the next major version of this provider. Please upgrade to azure-native:resourceconnector/v20221027:Appliance to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_appliance is deprecated: azure-native:resourceconnector/v20220415preview:Appliance is being removed in the next major version of this provider. Upgrade to at least azure-native:resourceconnector/v20221027:Appliance to guarantee forwards compatibility.""")
     ...

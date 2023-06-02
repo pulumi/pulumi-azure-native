@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Get a management lock by scope.
  */
 /** @deprecated Version 2016-09-01 will be removed in v2 of the provider.
-azure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility. */
+azure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility. */
 export function getManagementLockByScope(args: GetManagementLockByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockByScopeResult> {
-    pulumi.log.warn("getManagementLockByScope is deprecated: Version 2016-09-01 will be removed in v2 of the provider.\nazure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.")
+    pulumi.log.warn("getManagementLockByScope is deprecated: Version 2016-09-01 will be removed in v2 of the provider.\nazure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20160901:getManagementLockByScope", {
@@ -66,7 +66,7 @@ export interface GetManagementLockByScopeResult {
  * Get a management lock by scope.
  */
 /** @deprecated Version 2016-09-01 will be removed in v2 of the provider.
-azure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility. */
+azure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility. */
 export function getManagementLockByScopeOutput(args: GetManagementLockByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockByScopeResult> {
     return pulumi.output(args).apply((a: any) => getManagementLockByScope(a, opts))
 }

@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Represents the response of a service unit resource.
  */
 /** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
-azure-native:deploymentmanager/v20180901preview:ServiceUnit is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:ServiceUnit to guarantee forwards compatibility. */
+azure-native:deploymentmanager/v20180901preview:ServiceUnit is being removed in the next major version of this provider. Upgrade to at least azure-native:deploymentmanager/v20191101preview:ServiceUnit to guarantee forwards compatibility. */
 export function getServiceUnit(args: GetServiceUnitArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceUnitResult> {
-    pulumi.log.warn("getServiceUnit is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.\nazure-native:deploymentmanager/v20180901preview:ServiceUnit is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:ServiceUnit to guarantee forwards compatibility.")
+    pulumi.log.warn("getServiceUnit is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.\nazure-native:deploymentmanager/v20180901preview:ServiceUnit is being removed in the next major version of this provider. Upgrade to at least azure-native:deploymentmanager/v20191101preview:ServiceUnit to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deploymentmanager/v20180901preview:getServiceUnit", {
@@ -84,7 +84,7 @@ export interface GetServiceUnitResult {
  * Represents the response of a service unit resource.
  */
 /** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
-azure-native:deploymentmanager/v20180901preview:ServiceUnit is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:ServiceUnit to guarantee forwards compatibility. */
+azure-native:deploymentmanager/v20180901preview:ServiceUnit is being removed in the next major version of this provider. Upgrade to at least azure-native:deploymentmanager/v20191101preview:ServiceUnit to guarantee forwards compatibility. */
 export function getServiceUnitOutput(args: GetServiceUnitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceUnitResult> {
     return pulumi.output(args).apply((a: any) => getServiceUnit(a, opts))
 }

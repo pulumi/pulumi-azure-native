@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
     /// Represents the response of a service unit resource.
     /// </summary>
     [Obsolete(@"Version 2018-09-01-preview will be removed in v2 of the provider.
-azure-native:deploymentmanager/v20180901preview:ServiceUnit is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:ServiceUnit to guarantee forwards compatibility.")]
+azure-native:deploymentmanager/v20180901preview:ServiceUnit is being removed in the next major version of this provider. Upgrade to at least azure-native:deploymentmanager/v20191101preview:ServiceUnit to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:deploymentmanager/v20180901preview:ServiceUnit")]
     public partial class ServiceUnit : global::Pulumi.CustomResource
     {

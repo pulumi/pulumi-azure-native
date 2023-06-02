@@ -262,11 +262,11 @@ class ExtensionArgs:
         pulumi.set(self, "version", value)
 
 
-warnings.warn("""azure-native:kubernetesconfiguration/v20211101preview:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:kubernetesconfiguration/v20211101preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Extension(pulumi.CustomResource):
-    warnings.warn("""azure-native:kubernetesconfiguration/v20211101preview:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:kubernetesconfiguration/v20211101preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -349,7 +349,7 @@ class Extension(pulumi.CustomResource):
                  statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionStatusArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Extension is deprecated: azure-native:kubernetesconfiguration/v20211101preview:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility.""")
+        pulumi.log.warn("""Extension is deprecated: azure-native:kubernetesconfiguration/v20211101preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

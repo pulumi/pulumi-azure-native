@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
     /// <summary>
     /// Represents Amazon Web Services CloudTrail data connector.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20211001preview:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20211001preview:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20211001preview:AwsCloudTrailDataConnector")]
     public partial class AwsCloudTrailDataConnector : global::Pulumi.CustomResource
     {

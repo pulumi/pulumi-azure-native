@@ -114,12 +114,12 @@ class ObjectReplicationPolicyArgs:
 
 
 warnings.warn("""Version 2020-08-01-preview will be removed in v2 of the provider.
-azure-native:storage/v20200801preview:ObjectReplicationPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:storage/v20200801preview:ObjectReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ObjectReplicationPolicy(pulumi.CustomResource):
     warnings.warn("""Version 2020-08-01-preview will be removed in v2 of the provider.
-azure-native:storage/v20200801preview:ObjectReplicationPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:storage/v20200801preview:ObjectReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -176,7 +176,7 @@ azure-native:storage/v20200801preview:ObjectReplicationPolicy is being removed i
                  source_account: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""ObjectReplicationPolicy is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.
-azure-native:storage/v20200801preview:ObjectReplicationPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility.""")
+azure-native:storage/v20200801preview:ObjectReplicationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:ObjectReplicationPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

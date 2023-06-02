@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Get a given StorageSyncService.
  */
 /** @deprecated Version 2019-02-01 will be removed in v2 of the provider.
-azure-native:storagesync/v20190201:StorageSyncService is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20191001:StorageSyncService to guarantee forwards compatibility. */
+azure-native:storagesync/v20190201:StorageSyncService is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20191001:StorageSyncService to guarantee forwards compatibility. */
 export function getStorageSyncService(args: GetStorageSyncServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSyncServiceResult> {
-    pulumi.log.warn("getStorageSyncService is deprecated: Version 2019-02-01 will be removed in v2 of the provider.\nazure-native:storagesync/v20190201:StorageSyncService is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20191001:StorageSyncService to guarantee forwards compatibility.")
+    pulumi.log.warn("getStorageSyncService is deprecated: Version 2019-02-01 will be removed in v2 of the provider.\nazure-native:storagesync/v20190201:StorageSyncService is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20191001:StorageSyncService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagesync/v20190201:getStorageSyncService", {
@@ -67,7 +67,7 @@ export interface GetStorageSyncServiceResult {
  * Get a given StorageSyncService.
  */
 /** @deprecated Version 2019-02-01 will be removed in v2 of the provider.
-azure-native:storagesync/v20190201:StorageSyncService is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20191001:StorageSyncService to guarantee forwards compatibility. */
+azure-native:storagesync/v20190201:StorageSyncService is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20191001:StorageSyncService to guarantee forwards compatibility. */
 export function getStorageSyncServiceOutput(args: GetStorageSyncServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSyncServiceResult> {
     return pulumi.output(args).apply((a: any) => getStorageSyncService(a, opts))
 }

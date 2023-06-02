@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing origin group within a profile.
  */
-/** @deprecated azure-native:cdn/v20210601:AFDOriginGroup is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:cdn/v20210601:AFDOriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility. */
 export function getAFDOriginGroup(args: GetAFDOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginGroupResult> {
-    pulumi.log.warn("getAFDOriginGroup is deprecated: azure-native:cdn/v20210601:AFDOriginGroup is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getAFDOriginGroup is deprecated: azure-native:cdn/v20210601:AFDOriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20210601:getAFDOriginGroup", {
@@ -86,7 +86,7 @@ export interface GetAFDOriginGroupResult {
 /**
  * Gets an existing origin group within a profile.
  */
-/** @deprecated azure-native:cdn/v20210601:AFDOriginGroup is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:cdn/v20210601:AFDOriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility. */
 export function getAFDOriginGroupOutput(args: GetAFDOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDOriginGroupResult> {
     return pulumi.output(args).apply((a: any) => getAFDOriginGroup(a, opts))
 }

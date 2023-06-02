@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified saved search for a given workspace.
  */
-/** @deprecated azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility. */
+/** @deprecated azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility. */
 export function getSavedSearch(args: GetSavedSearchArgs, opts?: pulumi.InvokeOptions): Promise<GetSavedSearchResult> {
-    pulumi.log.warn("getSavedSearch is deprecated: azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility.")
+    pulumi.log.warn("getSavedSearch is deprecated: azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20200301preview:getSavedSearch", {
@@ -89,7 +89,7 @@ export interface GetSavedSearchResult {
 /**
  * Gets the specified saved search for a given workspace.
  */
-/** @deprecated azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility. */
+/** @deprecated azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility. */
 export function getSavedSearchOutput(args: GetSavedSearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSavedSearchResult> {
     return pulumi.output(args).apply((a: any) => getSavedSearch(a, opts))
 }

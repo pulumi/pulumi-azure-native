@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an integration account.
  */
-/** @deprecated azure-native:logic/v20160601:IntegrationAccount is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccount to guarantee forwards compatibility. */
+/** @deprecated azure-native:logic/v20160601:IntegrationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccount to guarantee forwards compatibility. */
 export function getIntegrationAccount(args: GetIntegrationAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountResult> {
-    pulumi.log.warn("getIntegrationAccount is deprecated: azure-native:logic/v20160601:IntegrationAccount is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccount to guarantee forwards compatibility.")
+    pulumi.log.warn("getIntegrationAccount is deprecated: azure-native:logic/v20160601:IntegrationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccount to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20160601:getIntegrationAccount", {
@@ -64,7 +64,7 @@ export interface GetIntegrationAccountResult {
 /**
  * Gets an integration account.
  */
-/** @deprecated azure-native:logic/v20160601:IntegrationAccount is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccount to guarantee forwards compatibility. */
+/** @deprecated azure-native:logic/v20160601:IntegrationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:logic/v20190501:IntegrationAccount to guarantee forwards compatibility. */
 export function getIntegrationAccountOutput(args: GetIntegrationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccount(a, opts))
 }

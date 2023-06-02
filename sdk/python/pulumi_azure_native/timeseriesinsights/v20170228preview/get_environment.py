@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2017-02-28-preview will be removed in v2 of the provider.
-azure-native:timeseriesinsights/v20170228preview:Environment is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20171115:Environment to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:timeseriesinsights/v20170228preview:Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20171115:Environment to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetEnvironmentResult:
@@ -191,7 +191,7 @@ def get_environment(environment_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure Resource group.
     """
     pulumi.log.warn("""get_environment is deprecated: Version 2017-02-28-preview will be removed in v2 of the provider.
-azure-native:timeseriesinsights/v20170228preview:Environment is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20171115:Environment to guarantee forwards compatibility.""")
+azure-native:timeseriesinsights/v20170228preview:Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20171115:Environment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['resourceGroupName'] = resource_group_name
@@ -225,5 +225,5 @@ def get_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of an Azure Resource group.
     """
     pulumi.log.warn("""get_environment is deprecated: Version 2017-02-28-preview will be removed in v2 of the provider.
-azure-native:timeseriesinsights/v20170228preview:Environment is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20171115:Environment to guarantee forwards compatibility.""")
+azure-native:timeseriesinsights/v20170228preview:Environment is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20171115:Environment to guarantee forwards compatibility.""")
     ...

@@ -149,11 +149,11 @@ class DiskEncryptionSetArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:compute/v20210401:DiskEncryptionSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:DiskEncryptionSet to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:compute/v20210401:DiskEncryptionSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:DiskEncryptionSet to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class DiskEncryptionSet(pulumi.CustomResource):
-    warnings.warn("""azure-native:compute/v20210401:DiskEncryptionSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:DiskEncryptionSet to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:compute/v20210401:DiskEncryptionSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:DiskEncryptionSet to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -215,7 +215,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  rotation_to_latest_key_version_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""DiskEncryptionSet is deprecated: azure-native:compute/v20210401:DiskEncryptionSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:DiskEncryptionSet to guarantee forwards compatibility.""")
+        pulumi.log.warn("""DiskEncryptionSet is deprecated: azure-native:compute/v20210401:DiskEncryptionSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:DiskEncryptionSet to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

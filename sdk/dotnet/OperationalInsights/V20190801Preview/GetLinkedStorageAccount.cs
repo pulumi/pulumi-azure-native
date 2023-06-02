@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
 {
-    [Obsolete(@"azure-native:operationalinsights/v20190801preview:LinkedStorageAccount is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:LinkedStorageAccount to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:operationalinsights/v20190801preview:LinkedStorageAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20200801:LinkedStorageAccount to guarantee forwards compatibility.")]
     public static class GetLinkedStorageAccount
     {
         /// <summary>

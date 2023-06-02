@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-04-01 will be removed in v2 of the provider.
-azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSqlResourceSqlStoredProcedureResult:
@@ -122,7 +122,7 @@ def get_sql_resource_sql_stored_procedure(account_name: Optional[str] = None,
     :param str stored_procedure_name: Cosmos DB storedProcedure name.
     """
     pulumi.log.warn("""get_sql_resource_sql_stored_procedure is deprecated: Version 2020-04-01 will be removed in v2 of the provider.
-azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility.""")
+azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name
@@ -159,5 +159,5 @@ def get_sql_resource_sql_stored_procedure_output(account_name: Optional[pulumi.I
     :param str stored_procedure_name: Cosmos DB storedProcedure name.
     """
     pulumi.log.warn("""get_sql_resource_sql_stored_procedure is deprecated: Version 2020-04-01 will be removed in v2 of the provider.
-azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility.""")
+azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility.""")
     ...

@@ -16,7 +16,7 @@ __all__ = [
     'get_virtual_network_rule_output',
 ]
 
-warnings.warn("""azure-native:sql/v20211101:VirtualNetworkRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:VirtualNetworkRule to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:sql/v20211101:VirtualNetworkRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:VirtualNetworkRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualNetworkRuleResult:
@@ -118,7 +118,7 @@ def get_virtual_network_rule(resource_group_name: Optional[str] = None,
     :param str server_name: The name of the server.
     :param str virtual_network_rule_name: The name of the virtual network rule.
     """
-    pulumi.log.warn("""get_virtual_network_rule is deprecated: azure-native:sql/v20211101:VirtualNetworkRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:VirtualNetworkRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_virtual_network_rule is deprecated: azure-native:sql/v20211101:VirtualNetworkRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:VirtualNetworkRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
@@ -148,5 +148,5 @@ def get_virtual_network_rule_output(resource_group_name: Optional[pulumi.Input[s
     :param str server_name: The name of the server.
     :param str virtual_network_rule_name: The name of the virtual network rule.
     """
-    pulumi.log.warn("""get_virtual_network_rule is deprecated: azure-native:sql/v20211101:VirtualNetworkRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:VirtualNetworkRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_virtual_network_rule is deprecated: azure-native:sql/v20211101:VirtualNetworkRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:VirtualNetworkRule to guarantee forwards compatibility.""")
     ...

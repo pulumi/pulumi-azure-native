@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the named public certificate for an app (or deployment slot, if specified).
  */
-/** @deprecated azure-native:web/v20160801:WebAppPublicCertificateSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppPublicCertificateSlot to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20160801:WebAppPublicCertificateSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppPublicCertificateSlot to guarantee forwards compatibility. */
 export function getWebAppPublicCertificateSlot(args: GetWebAppPublicCertificateSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPublicCertificateSlotResult> {
-    pulumi.log.warn("getWebAppPublicCertificateSlot is deprecated: azure-native:web/v20160801:WebAppPublicCertificateSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppPublicCertificateSlot to guarantee forwards compatibility.")
+    pulumi.log.warn("getWebAppPublicCertificateSlot is deprecated: azure-native:web/v20160801:WebAppPublicCertificateSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppPublicCertificateSlot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20160801:getWebAppPublicCertificateSlot", {
@@ -75,7 +75,7 @@ export interface GetWebAppPublicCertificateSlotResult {
 /**
  * Get the named public certificate for an app (or deployment slot, if specified).
  */
-/** @deprecated azure-native:web/v20160801:WebAppPublicCertificateSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppPublicCertificateSlot to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20160801:WebAppPublicCertificateSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppPublicCertificateSlot to guarantee forwards compatibility. */
 export function getWebAppPublicCertificateSlotOutput(args: GetWebAppPublicCertificateSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPublicCertificateSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppPublicCertificateSlot(a, opts))
 }

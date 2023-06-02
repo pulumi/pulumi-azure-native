@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
     /// <summary>
     /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
     /// </summary>
-    [Obsolete(@"azure-native:media/v20180601preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Job to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:media/v20180601preview:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20220701:Job to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:media/v20180601preview:Job")]
     public partial class Job : global::Pulumi.CustomResource
     {

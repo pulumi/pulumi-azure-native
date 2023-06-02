@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20161002
 {
     [Obsolete(@"Version 2016-10-02 will be removed in v2 of the provider.
-azure-native:cdn/v20161002:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20200901:Profile to guarantee forwards compatibility.")]
+azure-native:cdn/v20161002:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20200901:Profile to guarantee forwards compatibility.")]
     public static class GetProfile
     {
         /// <summary>

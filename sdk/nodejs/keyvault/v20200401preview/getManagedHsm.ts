@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified managed HSM Pool.
  */
-/** @deprecated azure-native:keyvault/v20200401preview:ManagedHsm is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:ManagedHsm to guarantee forwards compatibility. */
+/** @deprecated azure-native:keyvault/v20200401preview:ManagedHsm is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:ManagedHsm to guarantee forwards compatibility. */
 export function getManagedHsm(args: GetManagedHsmArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHsmResult> {
-    pulumi.log.warn("getManagedHsm is deprecated: azure-native:keyvault/v20200401preview:ManagedHsm is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:ManagedHsm to guarantee forwards compatibility.")
+    pulumi.log.warn("getManagedHsm is deprecated: azure-native:keyvault/v20200401preview:ManagedHsm is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:ManagedHsm to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:keyvault/v20200401preview:getManagedHsm", {
@@ -68,7 +68,7 @@ export interface GetManagedHsmResult {
 /**
  * Gets the specified managed HSM Pool.
  */
-/** @deprecated azure-native:keyvault/v20200401preview:ManagedHsm is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:ManagedHsm to guarantee forwards compatibility. */
+/** @deprecated azure-native:keyvault/v20200401preview:ManagedHsm is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:ManagedHsm to guarantee forwards compatibility. */
 export function getManagedHsmOutput(args: GetManagedHsmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHsmResult> {
     return pulumi.output(args).apply((a: any) => getManagedHsm(a, opts))
 }

@@ -131,11 +131,11 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
-warnings.warn("""azure-native:documentdb/v20210415:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:documentdb/v20210415:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class PrivateEndpointConnection(pulumi.CustomResource):
-    warnings.warn("""azure-native:documentdb/v20210415:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:documentdb/v20210415:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -194,7 +194,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""PrivateEndpointConnection is deprecated: azure-native:documentdb/v20210415:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:PrivateEndpointConnection to guarantee forwards compatibility.""")
+        pulumi.log.warn("""PrivateEndpointConnection is deprecated: azure-native:documentdb/v20210415:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:PrivateEndpointConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

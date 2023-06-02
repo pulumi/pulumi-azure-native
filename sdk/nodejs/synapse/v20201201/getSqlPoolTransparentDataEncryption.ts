@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Get a SQL pool's transparent data encryption configuration.
  */
 /** @deprecated Version 2020-12-01 will be removed in v2 of the provider.
-azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption to guarantee forwards compatibility. */
+azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption to guarantee forwards compatibility. */
 export function getSqlPoolTransparentDataEncryption(args: GetSqlPoolTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolTransparentDataEncryptionResult> {
-    pulumi.log.warn("getSqlPoolTransparentDataEncryption is deprecated: Version 2020-12-01 will be removed in v2 of the provider.\nazure-native:synapse/v20201201:SqlPoolTransparentDataEncryption is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption to guarantee forwards compatibility.")
+    pulumi.log.warn("getSqlPoolTransparentDataEncryption is deprecated: Version 2020-12-01 will be removed in v2 of the provider.\nazure-native:synapse/v20201201:SqlPoolTransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20201201:getSqlPoolTransparentDataEncryption", {
@@ -69,7 +69,7 @@ export interface GetSqlPoolTransparentDataEncryptionResult {
  * Get a SQL pool's transparent data encryption configuration.
  */
 /** @deprecated Version 2020-12-01 will be removed in v2 of the provider.
-azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption to guarantee forwards compatibility. */
+azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption to guarantee forwards compatibility. */
 export function getSqlPoolTransparentDataEncryptionOutput(args: GetSqlPoolTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolTransparentDataEncryptionResult> {
     return pulumi.output(args).apply((a: any) => getSqlPoolTransparentDataEncryption(a, opts))
 }

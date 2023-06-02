@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Logz.V20201001Preview
 {
-    [Obsolete(@"azure-native:logz/v20201001preview:SubAccount is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:SubAccount to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:logz/v20201001preview:SubAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:logz/v20220101preview:SubAccount to guarantee forwards compatibility.")]
     public static class GetSubAccount
     {
         public static Task<GetSubAccountResult> InvokeAsync(GetSubAccountArgs args, InvokeOptions? options = null)

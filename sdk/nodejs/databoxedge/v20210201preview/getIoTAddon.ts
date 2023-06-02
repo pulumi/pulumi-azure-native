@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a specific addon by name.
  */
-/** @deprecated azure-native:databoxedge/v20210201preview:IoTAddon is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility. */
+/** @deprecated azure-native:databoxedge/v20210201preview:IoTAddon is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility. */
 export function getIoTAddon(args: GetIoTAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTAddonResult> {
-    pulumi.log.warn("getIoTAddon is deprecated: azure-native:databoxedge/v20210201preview:IoTAddon is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility.")
+    pulumi.log.warn("getIoTAddon is deprecated: azure-native:databoxedge/v20210201preview:IoTAddon is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210201preview:getIoTAddon", {
@@ -95,7 +95,7 @@ export interface GetIoTAddonResult {
 /**
  * Gets a specific addon by name.
  */
-/** @deprecated azure-native:databoxedge/v20210201preview:IoTAddon is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility. */
+/** @deprecated azure-native:databoxedge/v20210201preview:IoTAddon is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility. */
 export function getIoTAddonOutput(args: GetIoTAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTAddonResult> {
     return pulumi.output(args).apply((a: any) => getIoTAddon(a, opts))
 }

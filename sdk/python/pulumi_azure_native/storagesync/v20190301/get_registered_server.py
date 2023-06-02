@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-03-01 will be removed in v2 of the provider.
-azure-native:storagesync/v20190301:RegisteredServer is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:storagesync/v20190301:RegisteredServer is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRegisteredServerResult:
@@ -312,7 +312,7 @@ def get_registered_server(resource_group_name: Optional[str] = None,
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     """
     pulumi.log.warn("""get_registered_server is deprecated: Version 2019-03-01 will be removed in v2 of the provider.
-azure-native:storagesync/v20190301:RegisteredServer is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility.""")
+azure-native:storagesync/v20190301:RegisteredServer is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverId'] = server_id
@@ -359,5 +359,5 @@ def get_registered_server_output(resource_group_name: Optional[pulumi.Input[str]
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     """
     pulumi.log.warn("""get_registered_server is deprecated: Version 2019-03-01 will be removed in v2 of the provider.
-azure-native:storagesync/v20190301:RegisteredServer is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility.""")
+azure-native:storagesync/v20190301:RegisteredServer is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility.""")
     ...

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceLinker.V20220101Preview
 {
-    [Obsolete(@"azure-native:servicelinker/v20220101preview:Linker is being removed in the next major version of this provider. Please upgrade to azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:servicelinker/v20220101preview:Linker is being removed in the next major version of this provider. Upgrade to at least azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.")]
     public static class GetLinker
     {
         /// <summary>

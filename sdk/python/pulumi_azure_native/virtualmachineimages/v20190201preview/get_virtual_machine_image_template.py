@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-02-01-preview will be removed in v2 of the provider.
-azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualMachineImageTemplateResult:
@@ -176,7 +176,7 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_virtual_machine_image_template is deprecated: Version 2019-02-01-preview will be removed in v2 of the provider.
-azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate to guarantee forwards compatibility.""")
+azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['imageTemplateName'] = image_template_name
     __args__['resourceGroupName'] = resource_group_name
@@ -209,5 +209,5 @@ def get_virtual_machine_image_template_output(image_template_name: Optional[pulu
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_virtual_machine_image_template is deprecated: Version 2019-02-01-preview will be removed in v2 of the provider.
-azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate to guarantee forwards compatibility.""")
+azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate to guarantee forwards compatibility.""")
     ...

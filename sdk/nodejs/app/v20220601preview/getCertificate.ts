@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
  */
-/** @deprecated azure-native:app/v20220601preview:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:Certificate to guarantee forwards compatibility. */
+/** @deprecated azure-native:app/v20220601preview:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:Certificate to guarantee forwards compatibility. */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-    pulumi.log.warn("getCertificate is deprecated: azure-native:app/v20220601preview:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:Certificate to guarantee forwards compatibility.")
+    pulumi.log.warn("getCertificate is deprecated: azure-native:app/v20220601preview:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:Certificate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20220601preview:getCertificate", {
@@ -73,7 +73,7 @@ export interface GetCertificateResult {
 /**
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
  */
-/** @deprecated azure-native:app/v20220601preview:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:Certificate to guarantee forwards compatibility. */
+/** @deprecated azure-native:app/v20220601preview:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:Certificate to guarantee forwards compatibility. */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }

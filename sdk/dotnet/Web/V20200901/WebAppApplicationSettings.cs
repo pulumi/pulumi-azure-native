@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Web.V20200901
     /// <summary>
     /// String dictionary resource.
     /// </summary>
-    [Obsolete(@"azure-native:web/v20200901:WebAppApplicationSettings is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppApplicationSettings to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:web/v20200901:WebAppApplicationSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppApplicationSettings to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20200901:WebAppApplicationSettings")]
     public partial class WebAppApplicationSettings : global::Pulumi.CustomResource
     {

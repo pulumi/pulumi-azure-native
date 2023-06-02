@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
  */
-/** @deprecated azure-native:datamigration/v20211030preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20220330preview:Service to guarantee forwards compatibility. */
+/** @deprecated azure-native:datamigration/v20211030preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:Service to guarantee forwards compatibility. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    pulumi.log.warn("getService is deprecated: azure-native:datamigration/v20211030preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20220330preview:Service to guarantee forwards compatibility.")
+    pulumi.log.warn("getService is deprecated: azure-native:datamigration/v20211030preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:Service to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20211030preview:getService", {
@@ -82,7 +82,7 @@ export interface GetServiceResult {
 /**
  * The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
  */
-/** @deprecated azure-native:datamigration/v20211030preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20220330preview:Service to guarantee forwards compatibility. */
+/** @deprecated azure-native:datamigration/v20211030preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:Service to guarantee forwards compatibility. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))
 }

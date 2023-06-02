@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a DataSet in a share
  */
-/** @deprecated azure-native:datashare/v20200901:KustoClusterDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoClusterDataSet to guarantee forwards compatibility. */
+/** @deprecated azure-native:datashare/v20200901:KustoClusterDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:KustoClusterDataSet to guarantee forwards compatibility. */
 export function getKustoClusterDataSet(args: GetKustoClusterDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoClusterDataSetResult> {
-    pulumi.log.warn("getKustoClusterDataSet is deprecated: azure-native:datashare/v20200901:KustoClusterDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoClusterDataSet to guarantee forwards compatibility.")
+    pulumi.log.warn("getKustoClusterDataSet is deprecated: azure-native:datashare/v20200901:KustoClusterDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:KustoClusterDataSet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20200901:getKustoClusterDataSet", {
@@ -87,7 +87,7 @@ export interface GetKustoClusterDataSetResult {
 /**
  * Get a DataSet in a share
  */
-/** @deprecated azure-native:datashare/v20200901:KustoClusterDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoClusterDataSet to guarantee forwards compatibility. */
+/** @deprecated azure-native:datashare/v20200901:KustoClusterDataSet is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:KustoClusterDataSet to guarantee forwards compatibility. */
 export function getKustoClusterDataSetOutput(args: GetKustoClusterDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoClusterDataSetResult> {
     return pulumi.output(args).apply((a: any) => getKustoClusterDataSet(a, opts))
 }

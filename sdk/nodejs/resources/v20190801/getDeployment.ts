@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a deployment.
  */
-/** @deprecated azure-native:resources/v20190801:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:Deployment to guarantee forwards compatibility. */
+/** @deprecated azure-native:resources/v20190801:Deployment is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:Deployment to guarantee forwards compatibility. */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
-    pulumi.log.warn("getDeployment is deprecated: azure-native:resources/v20190801:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:Deployment to guarantee forwards compatibility.")
+    pulumi.log.warn("getDeployment is deprecated: azure-native:resources/v20190801:Deployment is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:Deployment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20190801:getDeployment", {
@@ -60,7 +60,7 @@ export interface GetDeploymentResult {
 /**
  * Gets a deployment.
  */
-/** @deprecated azure-native:resources/v20190801:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:Deployment to guarantee forwards compatibility. */
+/** @deprecated azure-native:resources/v20190801:Deployment is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:Deployment to guarantee forwards compatibility. */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getDeployment(a, opts))
 }

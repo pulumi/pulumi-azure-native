@@ -128,11 +128,11 @@ class ScheduledSynchronizationSettingArgs:
         pulumi.set(self, "synchronization_setting_name", value)
 
 
-warnings.warn("""azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ScheduledSynchronizationSetting to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ScheduledSynchronizationSetting to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ScheduledSynchronizationSetting(pulumi.CustomResource):
-    warnings.warn("""azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ScheduledSynchronizationSetting to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ScheduledSynchronizationSetting to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -192,7 +192,7 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
                  synchronization_setting_name: Optional[pulumi.Input[str]] = None,
                  synchronization_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ScheduledSynchronizationSetting is deprecated: azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ScheduledSynchronizationSetting to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ScheduledSynchronizationSetting is deprecated: azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:ScheduledSynchronizationSetting to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

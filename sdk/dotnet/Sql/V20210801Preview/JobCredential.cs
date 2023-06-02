@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
     /// <summary>
     /// A stored credential that can be used by a job to connect to target databases.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20210801preview:JobCredential is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:JobCredential to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20210801preview:JobCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:JobCredential to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20210801preview:JobCredential")]
     public partial class JobCredential : global::Pulumi.CustomResource
     {

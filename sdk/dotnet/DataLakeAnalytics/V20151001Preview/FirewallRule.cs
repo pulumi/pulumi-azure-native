@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
     /// Data Lake Analytics firewall rule information.
     /// </summary>
     [Obsolete(@"Version 2015-10-01-preview will be removed in v2 of the provider.
-azure-native:datalakeanalytics/v20151001preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:datalakeanalytics/v20191101preview:FirewallRule to guarantee forwards compatibility.")]
+azure-native:datalakeanalytics/v20151001preview:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:datalakeanalytics/v20191101preview:FirewallRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datalakeanalytics/v20151001preview:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource
     {

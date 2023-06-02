@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the budget for the scope by budget name.
  */
-/** @deprecated azure-native:consumption/v20211001:Budget is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20220901:Budget to guarantee forwards compatibility. */
+/** @deprecated azure-native:consumption/v20211001:Budget is being removed in the next major version of this provider. Upgrade to at least azure-native:consumption/v20220901:Budget to guarantee forwards compatibility. */
 export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
-    pulumi.log.warn("getBudget is deprecated: azure-native:consumption/v20211001:Budget is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20220901:Budget to guarantee forwards compatibility.")
+    pulumi.log.warn("getBudget is deprecated: azure-native:consumption/v20211001:Budget is being removed in the next major version of this provider. Upgrade to at least azure-native:consumption/v20220901:Budget to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:consumption/v20211001:getBudget", {
@@ -88,7 +88,7 @@ export interface GetBudgetResult {
 /**
  * Gets the budget for the scope by budget name.
  */
-/** @deprecated azure-native:consumption/v20211001:Budget is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20220901:Budget to guarantee forwards compatibility. */
+/** @deprecated azure-native:consumption/v20211001:Budget is being removed in the next major version of this provider. Upgrade to at least azure-native:consumption/v20220901:Budget to guarantee forwards compatibility. */
 export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResult> {
     return pulumi.output(args).apply((a: any) => getBudget(a, opts))
 }

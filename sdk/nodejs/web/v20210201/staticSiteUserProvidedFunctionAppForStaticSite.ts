@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Static Site User Provided Function App ARM resource.
  *
- * @deprecated azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite to guarantee forwards compatibility.
+ * @deprecated azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite to guarantee forwards compatibility.
  */
 export class StaticSiteUserProvidedFunctionAppForStaticSite extends pulumi.CustomResource {
     /**
@@ -19,7 +19,7 @@ export class StaticSiteUserProvidedFunctionAppForStaticSite extends pulumi.Custo
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StaticSiteUserProvidedFunctionAppForStaticSite {
-        pulumi.log.warn("StaticSiteUserProvidedFunctionAppForStaticSite is deprecated: azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite to guarantee forwards compatibility.")
+        pulumi.log.warn("StaticSiteUserProvidedFunctionAppForStaticSite is deprecated: azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite to guarantee forwards compatibility.")
         return new StaticSiteUserProvidedFunctionAppForStaticSite(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,9 +69,9 @@ export class StaticSiteUserProvidedFunctionAppForStaticSite extends pulumi.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite to guarantee forwards compatibility. */
+    /** @deprecated azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite to guarantee forwards compatibility. */
     constructor(name: string, args: StaticSiteUserProvidedFunctionAppForStaticSiteArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("StaticSiteUserProvidedFunctionAppForStaticSite is deprecated: azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite to guarantee forwards compatibility.")
+        pulumi.log.warn("StaticSiteUserProvidedFunctionAppForStaticSite is deprecated: azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

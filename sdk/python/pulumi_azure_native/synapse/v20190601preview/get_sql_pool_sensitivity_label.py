@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-06-01-preview will be removed in v2 of the provider.
-azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSqlPoolSensitivityLabelResult:
@@ -209,7 +209,7 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
     :param str workspace_name: The name of the workspace
     """
     pulumi.log.warn("""get_sql_pool_sensitivity_label is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.
-azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel to guarantee forwards compatibility.""")
+azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['columnName'] = column_name
     __args__['resourceGroupName'] = resource_group_name
@@ -259,5 +259,5 @@ def get_sql_pool_sensitivity_label_output(column_name: Optional[pulumi.Input[str
     :param str workspace_name: The name of the workspace
     """
     pulumi.log.warn("""get_sql_pool_sensitivity_label is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.
-azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel to guarantee forwards compatibility.""")
+azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel to guarantee forwards compatibility.""")
     ...

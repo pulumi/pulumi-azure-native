@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified private endpoint connection associated with the service.
  */
-/** @deprecated azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsSec is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsSec to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsSec is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsSec to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionsSec(args: GetPrivateEndpointConnectionsSecArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionsSecResult> {
-    pulumi.log.warn("getPrivateEndpointConnectionsSec is deprecated: azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsSec is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsSec to guarantee forwards compatibility.")
+    pulumi.log.warn("getPrivateEndpointConnectionsSec is deprecated: azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsSec is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsSec to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210111:getPrivateEndpointConnectionsSec", {
@@ -73,7 +73,7 @@ export interface GetPrivateEndpointConnectionsSecResult {
 /**
  * Gets the specified private endpoint connection associated with the service.
  */
-/** @deprecated azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsSec is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsSec to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsSec is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsSec to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionsSecOutput(args: GetPrivateEndpointConnectionsSecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsSecResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionsSec(a, opts))
 }

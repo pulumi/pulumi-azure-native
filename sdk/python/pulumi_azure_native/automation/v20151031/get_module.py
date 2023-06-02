@@ -17,7 +17,7 @@ __all__ = [
     'get_module_output',
 ]
 
-warnings.warn("""azure-native:automation/v20151031:Module is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Module to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:automation/v20151031:Module is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Module to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetModuleResult:
@@ -251,7 +251,7 @@ def get_module(automation_account_name: Optional[str] = None,
     :param str module_name: The module name.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_module is deprecated: azure-native:automation/v20151031:Module is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Module to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_module is deprecated: azure-native:automation/v20151031:Module is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Module to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['moduleName'] = module_name
@@ -292,5 +292,5 @@ def get_module_output(automation_account_name: Optional[pulumi.Input[str]] = Non
     :param str module_name: The module name.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_module is deprecated: azure-native:automation/v20151031:Module is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Module to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_module is deprecated: azure-native:automation/v20151031:Module is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Module to guarantee forwards compatibility.""")
     ...

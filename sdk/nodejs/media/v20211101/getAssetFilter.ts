@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the details of an Asset Filter associated with the specified Asset.
  */
-/** @deprecated azure-native:media/v20211101:AssetFilter is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:AssetFilter to guarantee forwards compatibility. */
+/** @deprecated azure-native:media/v20211101:AssetFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:AssetFilter to guarantee forwards compatibility. */
 export function getAssetFilter(args: GetAssetFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetFilterResult> {
-    pulumi.log.warn("getAssetFilter is deprecated: azure-native:media/v20211101:AssetFilter is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:AssetFilter to guarantee forwards compatibility.")
+    pulumi.log.warn("getAssetFilter is deprecated: azure-native:media/v20211101:AssetFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:AssetFilter to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20211101:getAssetFilter", {
@@ -78,7 +78,7 @@ export interface GetAssetFilterResult {
 /**
  * Get the details of an Asset Filter associated with the specified Asset.
  */
-/** @deprecated azure-native:media/v20211101:AssetFilter is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:AssetFilter to guarantee forwards compatibility. */
+/** @deprecated azure-native:media/v20211101:AssetFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:AssetFilter to guarantee forwards compatibility. */
 export function getAssetFilterOutput(args: GetAssetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetFilterResult> {
     return pulumi.output(args).apply((a: any) => getAssetFilter(a, opts))
 }

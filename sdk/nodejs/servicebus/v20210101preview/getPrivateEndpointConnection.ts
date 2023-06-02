@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a description for the specified Private Endpoint Connection.
  */
-/** @deprecated azure-native:servicebus/v20210101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:servicebus/v20210101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getPrivateEndpointConnection is deprecated: azure-native:servicebus/v20210101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getPrivateEndpointConnection is deprecated: azure-native:servicebus/v20210101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20210101preview:getPrivateEndpointConnection", {
@@ -73,7 +73,7 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * Gets a description for the specified Private Endpoint Connection.
  */
-/** @deprecated azure-native:servicebus/v20210101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:servicebus/v20210101preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
 }

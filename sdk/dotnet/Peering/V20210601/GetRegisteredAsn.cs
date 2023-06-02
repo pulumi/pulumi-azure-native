@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Peering.V20210601
 {
-    [Obsolete(@"azure-native:peering/v20210601:RegisteredAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:RegisteredAsn to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:peering/v20210601:RegisteredAsn is being removed in the next major version of this provider. Upgrade to at least azure-native:peering/v20221001:RegisteredAsn to guarantee forwards compatibility.")]
     public static class GetRegisteredAsn
     {
         /// <summary>

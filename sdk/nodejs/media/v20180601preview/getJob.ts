@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Job.
  */
-/** @deprecated azure-native:media/v20180601preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Job to guarantee forwards compatibility. */
+/** @deprecated azure-native:media/v20180601preview:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20220701:Job to guarantee forwards compatibility. */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    pulumi.log.warn("getJob is deprecated: azure-native:media/v20180601preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Job to guarantee forwards compatibility.")
+    pulumi.log.warn("getJob is deprecated: azure-native:media/v20180601preview:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20220701:Job to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20180601preview:getJob", {
@@ -94,7 +94,7 @@ export interface GetJobResult {
 /**
  * Gets a Job.
  */
-/** @deprecated azure-native:media/v20180601preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Job to guarantee forwards compatibility. */
+/** @deprecated azure-native:media/v20180601preview:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20220701:Job to guarantee forwards compatibility. */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))
 }

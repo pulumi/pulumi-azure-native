@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Solutions.V20200821Preview
     /// <summary>
     /// Information about managed application.
     /// </summary>
-    [Obsolete(@"azure-native:solutions/v20200821preview:Application is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:Application to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:solutions/v20200821preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:Application to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:solutions/v20200821preview:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {

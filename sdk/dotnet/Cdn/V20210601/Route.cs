@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     /// <summary>
     /// Friendly Routes name mapping to the any Routes or secret related information.
     /// </summary>
-    [Obsolete(@"azure-native:cdn/v20210601:Route is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Route to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:cdn/v20210601:Route is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Route to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20210601:Route")]
     public partial class Route : global::Pulumi.CustomResource
     {

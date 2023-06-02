@@ -17,7 +17,7 @@ __all__ = [
     'get_event_grid_data_connection_output',
 ]
 
-warnings.warn("""azure-native:synapse/v20210401preview:EventGridDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:EventGridDataConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:synapse/v20210401preview:EventGridDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:EventGridDataConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetEventGridDataConnectionResult:
@@ -232,7 +232,7 @@ def get_event_grid_data_connection(data_connection_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
-    pulumi.log.warn("""get_event_grid_data_connection is deprecated: azure-native:synapse/v20210401preview:EventGridDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:EventGridDataConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_event_grid_data_connection is deprecated: azure-native:synapse/v20210401preview:EventGridDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:EventGridDataConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dataConnectionName'] = data_connection_name
     __args__['databaseName'] = database_name
@@ -277,5 +277,5 @@ def get_event_grid_data_connection_output(data_connection_name: Optional[pulumi.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
-    pulumi.log.warn("""get_event_grid_data_connection is deprecated: azure-native:synapse/v20210401preview:EventGridDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:EventGridDataConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_event_grid_data_connection is deprecated: azure-native:synapse/v20210401preview:EventGridDataConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:EventGridDataConnection to guarantee forwards compatibility.""")
     ...

@@ -99,12 +99,12 @@ class ApplicationSecurityGroupInitArgs:
 
 
 warnings.warn("""Version 2017-11-01 will be removed in v2 of the provider.
-azure-native:network/v20171101:ApplicationSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ApplicationSecurityGroup to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20171101:ApplicationSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationSecurityGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ApplicationSecurityGroup(pulumi.CustomResource):
     warnings.warn("""Version 2017-11-01 will be removed in v2 of the provider.
-azure-native:network/v20171101:ApplicationSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ApplicationSecurityGroup to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:network/v20171101:ApplicationSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationSecurityGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -158,7 +158,7 @@ azure-native:network/v20171101:ApplicationSecurityGroup is being removed in the 
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""ApplicationSecurityGroup is deprecated: Version 2017-11-01 will be removed in v2 of the provider.
-azure-native:network/v20171101:ApplicationSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ApplicationSecurityGroup to guarantee forwards compatibility.""")
+azure-native:network/v20171101:ApplicationSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationSecurityGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

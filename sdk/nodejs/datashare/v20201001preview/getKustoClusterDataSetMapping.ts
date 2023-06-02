@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a DataSetMapping in a shareSubscription
  */
-/** @deprecated azure-native:datashare/v20201001preview:KustoClusterDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoClusterDataSetMapping to guarantee forwards compatibility. */
+/** @deprecated azure-native:datashare/v20201001preview:KustoClusterDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:KustoClusterDataSetMapping to guarantee forwards compatibility. */
 export function getKustoClusterDataSetMapping(args: GetKustoClusterDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoClusterDataSetMappingResult> {
-    pulumi.log.warn("getKustoClusterDataSetMapping is deprecated: azure-native:datashare/v20201001preview:KustoClusterDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoClusterDataSetMapping to guarantee forwards compatibility.")
+    pulumi.log.warn("getKustoClusterDataSetMapping is deprecated: azure-native:datashare/v20201001preview:KustoClusterDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:KustoClusterDataSetMapping to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:getKustoClusterDataSetMapping", {
@@ -91,7 +91,7 @@ export interface GetKustoClusterDataSetMappingResult {
 /**
  * Get a DataSetMapping in a shareSubscription
  */
-/** @deprecated azure-native:datashare/v20201001preview:KustoClusterDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoClusterDataSetMapping to guarantee forwards compatibility. */
+/** @deprecated azure-native:datashare/v20201001preview:KustoClusterDataSetMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:KustoClusterDataSetMapping to guarantee forwards compatibility. */
 export function getKustoClusterDataSetMappingOutput(args: GetKustoClusterDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoClusterDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getKustoClusterDataSetMapping(a, opts))
 }

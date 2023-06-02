@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2017-08-21-preview will be removed in v2 of the provider.
-azure-native:devices/v20170821preview:IotDpsResource is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:devices/v20170821preview:IotDpsResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetIotDpsResourceResult:
@@ -140,7 +140,7 @@ def get_iot_dps_resource(provisioning_service_name: Optional[str] = None,
     :param str resource_group_name: Resource group name.
     """
     pulumi.log.warn("""get_iot_dps_resource is deprecated: Version 2017-08-21-preview will be removed in v2 of the provider.
-azure-native:devices/v20170821preview:IotDpsResource is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility.""")
+azure-native:devices/v20170821preview:IotDpsResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['provisioningServiceName'] = provisioning_service_name
     __args__['resourceGroupName'] = resource_group_name
@@ -170,5 +170,5 @@ def get_iot_dps_resource_output(provisioning_service_name: Optional[pulumi.Input
     :param str resource_group_name: Resource group name.
     """
     pulumi.log.warn("""get_iot_dps_resource is deprecated: Version 2017-08-21-preview will be removed in v2 of the provider.
-azure-native:devices/v20170821preview:IotDpsResource is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility.""")
+azure-native:devices/v20170821preview:IotDpsResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility.""")
     ...

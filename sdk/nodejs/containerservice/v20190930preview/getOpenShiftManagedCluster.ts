@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the managed OpenShift cluster with a specified resource group and name.
  */
-/** @deprecated azure-native:containerservice/v20190930preview:OpenShiftManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility. */
+/** @deprecated azure-native:containerservice/v20190930preview:OpenShiftManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility. */
 export function getOpenShiftManagedCluster(args: GetOpenShiftManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftManagedClusterResult> {
-    pulumi.log.warn("getOpenShiftManagedCluster is deprecated: azure-native:containerservice/v20190930preview:OpenShiftManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility.")
+    pulumi.log.warn("getOpenShiftManagedCluster is deprecated: azure-native:containerservice/v20190930preview:OpenShiftManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20190930preview:getOpenShiftManagedCluster", {
@@ -108,7 +108,7 @@ export interface GetOpenShiftManagedClusterResult {
 /**
  * Gets the details of the managed OpenShift cluster with a specified resource group and name.
  */
-/** @deprecated azure-native:containerservice/v20190930preview:OpenShiftManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility. */
+/** @deprecated azure-native:containerservice/v20190930preview:OpenShiftManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility. */
 export function getOpenShiftManagedClusterOutput(args: GetOpenShiftManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftManagedClusterResult> {
     return pulumi.output(args).apply((a: any) => getOpenShiftManagedCluster(a, opts))
 }

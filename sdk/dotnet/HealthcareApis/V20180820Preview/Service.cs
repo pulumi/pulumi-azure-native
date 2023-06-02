@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20180820Preview
     /// The description of the service.
     /// </summary>
     [Obsolete(@"Version 2018-08-20-preview will be removed in v2 of the provider.
-azure-native:healthcareapis/v20180820preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20200315:Service to guarantee forwards compatibility.")]
+azure-native:healthcareapis/v20180820preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20200315:Service to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20180820preview:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {

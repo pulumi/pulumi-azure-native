@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Get SQL pool properties
  */
 /** @deprecated Version 2020-12-01 will be removed in v2 of the provider.
-azure-native:synapse/v20201201:SqlPool is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility. */
+azure-native:synapse/v20201201:SqlPool is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility. */
 export function getSqlPool(args: GetSqlPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolResult> {
-    pulumi.log.warn("getSqlPool is deprecated: Version 2020-12-01 will be removed in v2 of the provider.\nazure-native:synapse/v20201201:SqlPool is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility.")
+    pulumi.log.warn("getSqlPool is deprecated: Version 2020-12-01 will be removed in v2 of the provider.\nazure-native:synapse/v20201201:SqlPool is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20201201:getSqlPool", {
@@ -119,7 +119,7 @@ export interface GetSqlPoolResult {
  * Get SQL pool properties
  */
 /** @deprecated Version 2020-12-01 will be removed in v2 of the provider.
-azure-native:synapse/v20201201:SqlPool is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility. */
+azure-native:synapse/v20201201:SqlPool is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility. */
 export function getSqlPoolOutput(args: GetSqlPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolResult> {
     return pulumi.output(args).apply((a: any) => getSqlPool(a, opts))
 }

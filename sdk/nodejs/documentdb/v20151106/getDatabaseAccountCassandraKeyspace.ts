@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2015-11-06 will be removed in v2 of the provider.
-azure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace to guarantee forwards compatibility. */
+azure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace to guarantee forwards compatibility. */
 export function getDatabaseAccountCassandraKeyspace(args: GetDatabaseAccountCassandraKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountCassandraKeyspaceResult> {
-    pulumi.log.warn("getDatabaseAccountCassandraKeyspace is deprecated: Version 2015-11-06 will be removed in v2 of the provider.\nazure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace to guarantee forwards compatibility.")
+    pulumi.log.warn("getDatabaseAccountCassandraKeyspace is deprecated: Version 2015-11-06 will be removed in v2 of the provider.\nazure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20151106:getDatabaseAccountCassandraKeyspace", {
@@ -64,7 +64,7 @@ export interface GetDatabaseAccountCassandraKeyspaceResult {
  * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2015-11-06 will be removed in v2 of the provider.
-azure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace to guarantee forwards compatibility. */
+azure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace to guarantee forwards compatibility. */
 export function getDatabaseAccountCassandraKeyspaceOutput(args: GetDatabaseAccountCassandraKeyspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountCassandraKeyspaceResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccountCassandraKeyspace(a, opts))
 }

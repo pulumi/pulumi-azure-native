@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     /// <summary>
     /// Settings with single toggle.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20190101preview:Ueba is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:Ueba to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20190101preview:Ueba is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:Ueba to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:Ueba")]
     public partial class Ueba : global::Pulumi.CustomResource
     {

@@ -17,7 +17,7 @@ __all__ = [
     'get_fluid_relay_server_output',
 ]
 
-warnings.warn("""azure-native:fluidrelay/v20220215:FluidRelayServer is being removed in the next major version of this provider. Please upgrade to azure-native:fluidrelay/v20220601:FluidRelayServer to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:fluidrelay/v20220215:FluidRelayServer is being removed in the next major version of this provider. Upgrade to at least azure-native:fluidrelay/v20220601:FluidRelayServer to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetFluidRelayServerResult:
@@ -165,7 +165,7 @@ def get_fluid_relay_server(fluid_relay_server_name: Optional[str] = None,
     :param str fluid_relay_server_name: The Fluid Relay server resource name.
     :param str resource_group: The resource group containing the resource.
     """
-    pulumi.log.warn("""get_fluid_relay_server is deprecated: azure-native:fluidrelay/v20220215:FluidRelayServer is being removed in the next major version of this provider. Please upgrade to azure-native:fluidrelay/v20220601:FluidRelayServer to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_fluid_relay_server is deprecated: azure-native:fluidrelay/v20220215:FluidRelayServer is being removed in the next major version of this provider. Upgrade to at least azure-native:fluidrelay/v20220601:FluidRelayServer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['fluidRelayServerName'] = fluid_relay_server_name
     __args__['resourceGroup'] = resource_group
@@ -196,5 +196,5 @@ def get_fluid_relay_server_output(fluid_relay_server_name: Optional[pulumi.Input
     :param str fluid_relay_server_name: The Fluid Relay server resource name.
     :param str resource_group: The resource group containing the resource.
     """
-    pulumi.log.warn("""get_fluid_relay_server is deprecated: azure-native:fluidrelay/v20220215:FluidRelayServer is being removed in the next major version of this provider. Please upgrade to azure-native:fluidrelay/v20220601:FluidRelayServer to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_fluid_relay_server is deprecated: azure-native:fluidrelay/v20220215:FluidRelayServer is being removed in the next major version of this provider. Upgrade to at least azure-native:fluidrelay/v20220601:FluidRelayServer to guarantee forwards compatibility.""")
     ...

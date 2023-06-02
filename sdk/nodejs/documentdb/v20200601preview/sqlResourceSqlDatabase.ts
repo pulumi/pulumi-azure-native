@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB SQL database.
  *
  * @deprecated Version 2020-06-01-preview will be removed in v2 of the provider.
-azure-native:documentdb/v20200601preview:SqlResourceSqlDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase to guarantee forwards compatibility.
+azure-native:documentdb/v20200601preview:SqlResourceSqlDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase to guarantee forwards compatibility.
  */
 export class SqlResourceSqlDatabase extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class SqlResourceSqlDatabase extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlResourceSqlDatabase {
-        pulumi.log.warn("SqlResourceSqlDatabase is deprecated: Version 2020-06-01-preview will be removed in v2 of the provider.\nazure-native:documentdb/v20200601preview:SqlResourceSqlDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase to guarantee forwards compatibility.")
+        pulumi.log.warn("SqlResourceSqlDatabase is deprecated: Version 2020-06-01-preview will be removed in v2 of the provider.\nazure-native:documentdb/v20200601preview:SqlResourceSqlDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase to guarantee forwards compatibility.")
         return new SqlResourceSqlDatabase(name, undefined as any, { ...opts, id: id });
     }
 
@@ -72,9 +72,9 @@ export class SqlResourceSqlDatabase extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2020-06-01-preview will be removed in v2 of the provider.
-azure-native:documentdb/v20200601preview:SqlResourceSqlDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase to guarantee forwards compatibility. */
+azure-native:documentdb/v20200601preview:SqlResourceSqlDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase to guarantee forwards compatibility. */
     constructor(name: string, args: SqlResourceSqlDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SqlResourceSqlDatabase is deprecated: Version 2020-06-01-preview will be removed in v2 of the provider.\nazure-native:documentdb/v20200601preview:SqlResourceSqlDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase to guarantee forwards compatibility.")
+        pulumi.log.warn("SqlResourceSqlDatabase is deprecated: Version 2020-06-01-preview will be removed in v2 of the provider.\nazure-native:documentdb/v20200601preview:SqlResourceSqlDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

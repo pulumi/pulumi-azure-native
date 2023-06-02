@@ -17,7 +17,7 @@ __all__ = [
     'get_queue_service_properties_output',
 ]
 
-warnings.warn("""azure-native:storage/v20210801:QueueServiceProperties is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:QueueServiceProperties to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:storage/v20210801:QueueServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:QueueServiceProperties to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetQueueServicePropertiesResult:
@@ -95,7 +95,7 @@ def get_queue_service_properties(account_name: Optional[str] = None,
     :param str queue_service_name: The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_queue_service_properties is deprecated: azure-native:storage/v20210801:QueueServiceProperties is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:QueueServiceProperties to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_queue_service_properties is deprecated: azure-native:storage/v20210801:QueueServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:QueueServiceProperties to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['queueServiceName'] = queue_service_name
@@ -123,5 +123,5 @@ def get_queue_service_properties_output(account_name: Optional[pulumi.Input[str]
     :param str queue_service_name: The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_queue_service_properties is deprecated: azure-native:storage/v20210801:QueueServiceProperties is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:QueueServiceProperties to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_queue_service_properties is deprecated: azure-native:storage/v20210801:QueueServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:QueueServiceProperties to guarantee forwards compatibility.""")
     ...

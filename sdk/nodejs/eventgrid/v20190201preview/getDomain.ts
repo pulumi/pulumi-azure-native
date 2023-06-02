@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Get properties of a domain
  */
 /** @deprecated Version 2019-02-01-preview will be removed in v2 of the provider.
-azure-native:eventgrid/v20190201preview:Domain is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20200401preview:Domain to guarantee forwards compatibility. */
+azure-native:eventgrid/v20190201preview:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20200401preview:Domain to guarantee forwards compatibility. */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    pulumi.log.warn("getDomain is deprecated: Version 2019-02-01-preview will be removed in v2 of the provider.\nazure-native:eventgrid/v20190201preview:Domain is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20200401preview:Domain to guarantee forwards compatibility.")
+    pulumi.log.warn("getDomain is deprecated: Version 2019-02-01-preview will be removed in v2 of the provider.\nazure-native:eventgrid/v20190201preview:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20200401preview:Domain to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20190201preview:getDomain", {
@@ -78,7 +78,7 @@ export interface GetDomainResult {
  * Get properties of a domain
  */
 /** @deprecated Version 2019-02-01-preview will be removed in v2 of the provider.
-azure-native:eventgrid/v20190201preview:Domain is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20200401preview:Domain to guarantee forwards compatibility. */
+azure-native:eventgrid/v20190201preview:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20200401preview:Domain to guarantee forwards compatibility. */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply((a: any) => getDomain(a, opts))
 }

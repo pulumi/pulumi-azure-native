@@ -17,7 +17,7 @@ __all__ = [
     'get_deployment_at_scope_output',
 ]
 
-warnings.warn("""azure-native:resources/v20201001:DeploymentAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:resources/v20201001:DeploymentAtScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDeploymentAtScopeResult:
@@ -117,7 +117,7 @@ def get_deployment_at_scope(deployment_name: Optional[str] = None,
     :param str deployment_name: The name of the deployment.
     :param str scope: The resource scope.
     """
-    pulumi.log.warn("""get_deployment_at_scope is deprecated: azure-native:resources/v20201001:DeploymentAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_deployment_at_scope is deprecated: azure-native:resources/v20201001:DeploymentAtScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
     __args__['scope'] = scope
@@ -144,5 +144,5 @@ def get_deployment_at_scope_output(deployment_name: Optional[pulumi.Input[str]] 
     :param str deployment_name: The name of the deployment.
     :param str scope: The resource scope.
     """
-    pulumi.log.warn("""get_deployment_at_scope is deprecated: azure-native:resources/v20201001:DeploymentAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_deployment_at_scope is deprecated: azure-native:resources/v20201001:DeploymentAtScope is being removed in the next major version of this provider. Upgrade to at least azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility.""")
     ...

@@ -17,7 +17,7 @@ __all__ = [
     'get_capacity_reservation_group_output',
 ]
 
-warnings.warn("""azure-native:compute/v20220301:CapacityReservationGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:CapacityReservationGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:compute/v20220301:CapacityReservationGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:CapacityReservationGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCapacityReservationGroupResult:
@@ -155,7 +155,7 @@ def get_capacity_reservation_group(capacity_reservation_group_name: Optional[str
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the capacity reservations under the capacity reservation group which is a snapshot of the runtime properties of a capacity reservation that is managed by the platform and can change outside of control plane operations.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_capacity_reservation_group is deprecated: azure-native:compute/v20220301:CapacityReservationGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:CapacityReservationGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_capacity_reservation_group is deprecated: azure-native:compute/v20220301:CapacityReservationGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:CapacityReservationGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['capacityReservationGroupName'] = capacity_reservation_group_name
     __args__['expand'] = expand
@@ -188,5 +188,5 @@ def get_capacity_reservation_group_output(capacity_reservation_group_name: Optio
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the capacity reservations under the capacity reservation group which is a snapshot of the runtime properties of a capacity reservation that is managed by the platform and can change outside of control plane operations.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_capacity_reservation_group is deprecated: azure-native:compute/v20220301:CapacityReservationGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:CapacityReservationGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_capacity_reservation_group is deprecated: azure-native:compute/v20220301:CapacityReservationGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:CapacityReservationGroup to guarantee forwards compatibility.""")
     ...

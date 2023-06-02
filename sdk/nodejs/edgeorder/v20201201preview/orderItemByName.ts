@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * Represents order item contract
  *
  * @deprecated Version 2020-12-01-preview will be removed in v2 of the provider.
-azure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Please upgrade to azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility.
+azure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Upgrade to at least azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility.
  */
 export class OrderItemByName extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class OrderItemByName extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OrderItemByName {
-        pulumi.log.warn("OrderItemByName is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.\nazure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Please upgrade to azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility.")
+        pulumi.log.warn("OrderItemByName is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.\nazure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Upgrade to at least azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility.")
         return new OrderItemByName(name, undefined as any, { ...opts, id: id });
     }
 
@@ -86,9 +86,9 @@ export class OrderItemByName extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2020-12-01-preview will be removed in v2 of the provider.
-azure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Please upgrade to azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility. */
+azure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Upgrade to at least azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility. */
     constructor(name: string, args: OrderItemByNameArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("OrderItemByName is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.\nazure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Please upgrade to azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility.")
+        pulumi.log.warn("OrderItemByName is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.\nazure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Upgrade to at least azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

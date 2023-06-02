@@ -142,11 +142,11 @@ class DatabasePrincipalAssignmentArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-warnings.warn("""azure-native:kusto/v20220707:DatabasePrincipalAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:DatabasePrincipalAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:kusto/v20220707:DatabasePrincipalAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:DatabasePrincipalAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class DatabasePrincipalAssignment(pulumi.CustomResource):
-    warnings.warn("""azure-native:kusto/v20220707:DatabasePrincipalAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:DatabasePrincipalAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:kusto/v20220707:DatabasePrincipalAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:DatabasePrincipalAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -208,7 +208,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
                  role: Optional[pulumi.Input[Union[str, 'DatabasePrincipalRole']]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DatabasePrincipalAssignment is deprecated: azure-native:kusto/v20220707:DatabasePrincipalAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:DatabasePrincipalAssignment to guarantee forwards compatibility.""")
+        pulumi.log.warn("""DatabasePrincipalAssignment is deprecated: azure-native:kusto/v20220707:DatabasePrincipalAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:kusto/v20221229:DatabasePrincipalAssignment to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

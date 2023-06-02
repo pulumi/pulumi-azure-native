@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns the properties of a lab resource.
  */
-/** @deprecated azure-native:labservices/v20211001preview:Lab is being removed in the next major version of this provider. Please upgrade to azure-native:labservices/v20220801:Lab to guarantee forwards compatibility. */
+/** @deprecated azure-native:labservices/v20211001preview:Lab is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Lab to guarantee forwards compatibility. */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
-    pulumi.log.warn("getLab is deprecated: azure-native:labservices/v20211001preview:Lab is being removed in the next major version of this provider. Please upgrade to azure-native:labservices/v20220801:Lab to guarantee forwards compatibility.")
+    pulumi.log.warn("getLab is deprecated: azure-native:labservices/v20211001preview:Lab is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Lab to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices/v20211001preview:getLab", {
@@ -108,7 +108,7 @@ export interface GetLabResult {
 /**
  * Returns the properties of a lab resource.
  */
-/** @deprecated azure-native:labservices/v20211001preview:Lab is being removed in the next major version of this provider. Please upgrade to azure-native:labservices/v20220801:Lab to guarantee forwards compatibility. */
+/** @deprecated azure-native:labservices/v20211001preview:Lab is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Lab to guarantee forwards compatibility. */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
     return pulumi.output(args).apply((a: any) => getLab(a, opts))
 }

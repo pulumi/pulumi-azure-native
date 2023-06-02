@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview
     /// <summary>
     /// Deployment resource payload
     /// </summary>
-    [Obsolete(@"azure-native:appplatform/v20210901preview:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Deployment to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:appplatform/v20210901preview:Deployment is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Deployment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20210901preview:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource
     {

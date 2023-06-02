@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Web.V20160801
 {
-    [Obsolete(@"azure-native:web/v20160801:WebAppSourceControlSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSourceControlSlot to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:web/v20160801:WebAppSourceControlSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20201001:WebAppSourceControlSlot to guarantee forwards compatibility.")]
     public static class GetWebAppSourceControlSlot
     {
         /// <summary>

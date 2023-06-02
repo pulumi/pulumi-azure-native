@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of an event subscription.
  */
-/** @deprecated azure-native:eventgrid/v20211015preview:EventSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventgrid/v20211015preview:EventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility. */
 export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
-    pulumi.log.warn("getEventSubscription is deprecated: azure-native:eventgrid/v20211015preview:EventSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility.")
+    pulumi.log.warn("getEventSubscription is deprecated: azure-native:eventgrid/v20211015preview:EventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20211015preview:getEventSubscription", {
@@ -104,7 +104,7 @@ export interface GetEventSubscriptionResult {
 /**
  * Get properties of an event subscription.
  */
-/** @deprecated azure-native:eventgrid/v20211015preview:EventSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventgrid/v20211015preview:EventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility. */
 export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getEventSubscription(a, opts))
 }

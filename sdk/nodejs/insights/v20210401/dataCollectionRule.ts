@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Definition of ARM tracked top level resource.
  *
- * @deprecated azure-native:insights/v20210401:DataCollectionRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility.
+ * @deprecated azure-native:insights/v20210401:DataCollectionRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility.
  */
 export class DataCollectionRule extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class DataCollectionRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataCollectionRule {
-        pulumi.log.warn("DataCollectionRule is deprecated: azure-native:insights/v20210401:DataCollectionRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility.")
+        pulumi.log.warn("DataCollectionRule is deprecated: azure-native:insights/v20210401:DataCollectionRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility.")
         return new DataCollectionRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -101,9 +101,9 @@ export class DataCollectionRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:insights/v20210401:DataCollectionRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility. */
+    /** @deprecated azure-native:insights/v20210401:DataCollectionRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility. */
     constructor(name: string, args: DataCollectionRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DataCollectionRule is deprecated: azure-native:insights/v20210401:DataCollectionRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility.")
+        pulumi.log.warn("DataCollectionRule is deprecated: azure-native:insights/v20210401:DataCollectionRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

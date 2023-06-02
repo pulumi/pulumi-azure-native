@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Marketplace.V20210601
 {
-    [Obsolete(@"azure-native:marketplace/v20210601:PrivateStoreCollectionOffer is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollectionOffer to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:marketplace/v20210601:PrivateStoreCollectionOffer is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollectionOffer to guarantee forwards compatibility.")]
     public static class GetPrivateStoreCollectionOffer
     {
         /// <summary>

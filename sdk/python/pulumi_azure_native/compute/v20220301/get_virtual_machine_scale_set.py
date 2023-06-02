@@ -17,7 +17,7 @@ __all__ = [
     'get_virtual_machine_scale_set_output',
 ]
 
-warnings.warn("""azure-native:compute/v20220301:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:compute/v20220301:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualMachineScaleSetResult:
@@ -371,7 +371,7 @@ def get_virtual_machine_scale_set(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str vm_scale_set_name: The name of the VM scale set.
     """
-    pulumi.log.warn("""get_virtual_machine_scale_set is deprecated: azure-native:compute/v20220301:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_virtual_machine_scale_set is deprecated: azure-native:compute/v20220301:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -422,5 +422,5 @@ def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[
     :param str resource_group_name: The name of the resource group.
     :param str vm_scale_set_name: The name of the VM scale set.
     """
-    pulumi.log.warn("""get_virtual_machine_scale_set is deprecated: azure-native:compute/v20220301:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_virtual_machine_scale_set is deprecated: azure-native:compute/v20220301:VirtualMachineScaleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.""")
     ...

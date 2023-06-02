@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets a job.
  */
 /** @deprecated Version 2016-01-01 will be removed in v2 of the provider.
-azure-native:scheduler/v20160101:Job is being removed in the next major version of this provider. Please upgrade to azure-native:scheduler/v20160301:Job to guarantee forwards compatibility. */
+azure-native:scheduler/v20160101:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:scheduler/v20160301:Job to guarantee forwards compatibility. */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    pulumi.log.warn("getJob is deprecated: Version 2016-01-01 will be removed in v2 of the provider.\nazure-native:scheduler/v20160101:Job is being removed in the next major version of this provider. Please upgrade to azure-native:scheduler/v20160301:Job to guarantee forwards compatibility.")
+    pulumi.log.warn("getJob is deprecated: Version 2016-01-01 will be removed in v2 of the provider.\nazure-native:scheduler/v20160101:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:scheduler/v20160301:Job to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scheduler/v20160101:getJob", {
@@ -60,7 +60,7 @@ export interface GetJobResult {
  * Gets a job.
  */
 /** @deprecated Version 2016-01-01 will be removed in v2 of the provider.
-azure-native:scheduler/v20160101:Job is being removed in the next major version of this provider. Please upgrade to azure-native:scheduler/v20160301:Job to guarantee forwards compatibility. */
+azure-native:scheduler/v20160101:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:scheduler/v20160301:Job to guarantee forwards compatibility. */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))
 }

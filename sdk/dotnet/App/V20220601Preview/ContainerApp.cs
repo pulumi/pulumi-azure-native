@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.App.V20220601Preview
     /// <summary>
     /// Container App.
     /// </summary>
-    [Obsolete(@"azure-native:app/v20220601preview:ContainerApp is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ContainerApp to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:app/v20220601preview:ContainerApp is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerApp to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:app/v20220601preview:ContainerApp")]
     public partial class ContainerApp : global::Pulumi.CustomResource
     {

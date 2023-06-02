@@ -148,11 +148,11 @@ class PrivateStoreCollectionOfferArgs:
         pulumi.set(self, "update_suppressed_due_idempotence", value)
 
 
-warnings.warn("""azure-native:marketplace/v20220901:PrivateStoreCollectionOffer is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollectionOffer to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:marketplace/v20220901:PrivateStoreCollectionOffer is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollectionOffer to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class PrivateStoreCollectionOffer(pulumi.CustomResource):
-    warnings.warn("""azure-native:marketplace/v20220901:PrivateStoreCollectionOffer is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollectionOffer to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:marketplace/v20220901:PrivateStoreCollectionOffer is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollectionOffer to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -214,7 +214,7 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
                  specific_plan_ids_limitation: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  update_suppressed_due_idempotence: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
-        pulumi.log.warn("""PrivateStoreCollectionOffer is deprecated: azure-native:marketplace/v20220901:PrivateStoreCollectionOffer is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollectionOffer to guarantee forwards compatibility.""")
+        pulumi.log.warn("""PrivateStoreCollectionOffer is deprecated: azure-native:marketplace/v20220901:PrivateStoreCollectionOffer is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollectionOffer to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

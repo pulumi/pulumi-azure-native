@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
  */
-/** @deprecated azure-native:databoxedge/v20210601preview:Share is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:Share to guarantee forwards compatibility. */
+/** @deprecated azure-native:databoxedge/v20210601preview:Share is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Share to guarantee forwards compatibility. */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
-    pulumi.log.warn("getShare is deprecated: azure-native:databoxedge/v20210601preview:Share is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:Share to guarantee forwards compatibility.")
+    pulumi.log.warn("getShare is deprecated: azure-native:databoxedge/v20210601preview:Share is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Share to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210601preview:getShare", {
@@ -101,7 +101,7 @@ export interface GetShareResult {
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
  */
-/** @deprecated azure-native:databoxedge/v20210601preview:Share is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:Share to guarantee forwards compatibility. */
+/** @deprecated azure-native:databoxedge/v20210601preview:Share is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:Share to guarantee forwards compatibility. */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
     return pulumi.output(args).apply((a: any) => getShare(a, opts))
 }

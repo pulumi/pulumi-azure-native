@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the specified private endpoint connection associated with the storage account.
  */
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider.
-azure-native:storage/v20190601:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:PrivateEndpointConnection to guarantee forwards compatibility. */
+azure-native:storage/v20190601:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getPrivateEndpointConnection is deprecated: Version 2019-06-01 will be removed in v2 of the provider.\nazure-native:storage/v20190601:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getPrivateEndpointConnection is deprecated: Version 2019-06-01 will be removed in v2 of the provider.\nazure-native:storage/v20190601:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20190601:getPrivateEndpointConnection", {
@@ -71,7 +71,7 @@ export interface GetPrivateEndpointConnectionResult {
  * Gets the specified private endpoint connection associated with the storage account.
  */
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider.
-azure-native:storage/v20190601:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:PrivateEndpointConnection to guarantee forwards compatibility. */
+azure-native:storage/v20190601:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
 }

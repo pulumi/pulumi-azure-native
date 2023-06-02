@@ -17,7 +17,7 @@ __all__ = [
     'get_sim_policy_output',
 ]
 
-warnings.warn("""azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSimPolicyResult:
@@ -263,7 +263,7 @@ def get_sim_policy(mobile_network_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sim_policy_name: The name of the SIM policy.
     """
-    pulumi.log.warn("""get_sim_policy is deprecated: azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_sim_policy is deprecated: azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['mobileNetworkName'] = mobile_network_name
     __args__['resourceGroupName'] = resource_group_name
@@ -305,5 +305,5 @@ def get_sim_policy_output(mobile_network_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sim_policy_name: The name of the SIM policy.
     """
-    pulumi.log.warn("""get_sim_policy is deprecated: azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_sim_policy is deprecated: azure-native:mobilenetwork/v20220301preview:SimPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:mobilenetwork/v20220401preview:SimPolicy to guarantee forwards compatibility.""")
     ...

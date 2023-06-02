@@ -17,7 +17,7 @@ __all__ = [
     'get_mhsm_private_endpoint_connection_output',
 ]
 
-warnings.warn("""azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetMHSMPrivateEndpointConnectionResult:
@@ -179,7 +179,7 @@ def get_mhsm_private_endpoint_connection(name: Optional[str] = None,
     :param str private_endpoint_connection_name: Name of the private endpoint connection associated with the managed hsm pool.
     :param str resource_group_name: Name of the resource group that contains the managed HSM pool.
     """
-    pulumi.log.warn("""get_mhsm_private_endpoint_connection is deprecated: azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_mhsm_private_endpoint_connection is deprecated: azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
@@ -214,5 +214,5 @@ def get_mhsm_private_endpoint_connection_output(name: Optional[pulumi.Input[str]
     :param str private_endpoint_connection_name: Name of the private endpoint connection associated with the managed hsm pool.
     :param str resource_group_name: Name of the resource group that contains the managed HSM pool.
     """
-    pulumi.log.warn("""get_mhsm_private_endpoint_connection is deprecated: azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_mhsm_private_endpoint_connection is deprecated: azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

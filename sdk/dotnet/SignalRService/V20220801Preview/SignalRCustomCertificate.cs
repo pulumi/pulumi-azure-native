@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SignalRService.V20220801Preview
     /// <summary>
     /// A custom certificate.
     /// </summary>
-    [Obsolete(@"azure-native:signalrservice/v20220801preview:SignalRCustomCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalRCustomCertificate to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:signalrservice/v20220801preview:SignalRCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRCustomCertificate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:signalrservice/v20220801preview:SignalRCustomCertificate")]
     public partial class SignalRCustomCertificate : global::Pulumi.CustomResource
     {

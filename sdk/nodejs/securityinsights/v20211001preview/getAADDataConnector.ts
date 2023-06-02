@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
-/** @deprecated azure-native:securityinsights/v20211001preview:AADDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:AADDataConnector to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20211001preview:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:AADDataConnector to guarantee forwards compatibility. */
 export function getAADDataConnector(args: GetAADDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAADDataConnectorResult> {
-    pulumi.log.warn("getAADDataConnector is deprecated: azure-native:securityinsights/v20211001preview:AADDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:AADDataConnector to guarantee forwards compatibility.")
+    pulumi.log.warn("getAADDataConnector is deprecated: azure-native:securityinsights/v20211001preview:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:AADDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20211001preview:getAADDataConnector", {
@@ -78,7 +78,7 @@ export interface GetAADDataConnectorResult {
 /**
  * Gets a data connector.
  */
-/** @deprecated azure-native:securityinsights/v20211001preview:AADDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:AADDataConnector to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20211001preview:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201:AADDataConnector to guarantee forwards compatibility. */
 export function getAADDataConnectorOutput(args: GetAADDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAADDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getAADDataConnector(a, opts))
 }

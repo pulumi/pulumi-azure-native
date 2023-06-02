@@ -17,7 +17,7 @@ __all__ = [
     'get_private_endpoint_connection_output',
 ]
 
-warnings.warn("""azure-native:containerservice/v20210501:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20230102preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:containerservice/v20210501:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
@@ -119,7 +119,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:containerservice/v20210501:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20230102preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:containerservice/v20210501:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -149,5 +149,5 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:containerservice/v20210501:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20230102preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:containerservice/v20210501:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

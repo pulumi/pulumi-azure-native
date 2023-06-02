@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the names of app settings and connection strings that stick to the slot (not swapped).
  */
-/** @deprecated azure-native:web/v20210101:WebAppSlotConfigurationNames is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSlotConfigurationNames to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20210101:WebAppSlotConfigurationNames is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSlotConfigurationNames to guarantee forwards compatibility. */
 export function getWebAppSlotConfigurationNames(args: GetWebAppSlotConfigurationNamesArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSlotConfigurationNamesResult> {
-    pulumi.log.warn("getWebAppSlotConfigurationNames is deprecated: azure-native:web/v20210101:WebAppSlotConfigurationNames is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSlotConfigurationNames to guarantee forwards compatibility.")
+    pulumi.log.warn("getWebAppSlotConfigurationNames is deprecated: azure-native:web/v20210101:WebAppSlotConfigurationNames is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSlotConfigurationNames to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210101:getWebAppSlotConfigurationNames", {
@@ -65,7 +65,7 @@ export interface GetWebAppSlotConfigurationNamesResult {
 /**
  * Gets the names of app settings and connection strings that stick to the slot (not swapped).
  */
-/** @deprecated azure-native:web/v20210101:WebAppSlotConfigurationNames is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSlotConfigurationNames to guarantee forwards compatibility. */
+/** @deprecated azure-native:web/v20210101:WebAppSlotConfigurationNames is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppSlotConfigurationNames to guarantee forwards compatibility. */
 export function getWebAppSlotConfigurationNamesOutput(args: GetWebAppSlotConfigurationNamesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSlotConfigurationNamesResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSlotConfigurationNames(a, opts))
 }
