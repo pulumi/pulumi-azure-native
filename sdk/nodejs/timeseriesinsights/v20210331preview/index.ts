@@ -5,20 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { EventHubEventSourceArgs } from "./eventHubEventSource";
-export type EventHubEventSource = import("./eventHubEventSource").EventHubEventSource;
-export const EventHubEventSource: typeof import("./eventHubEventSource").EventHubEventSource = null as any;
-utilities.lazyLoad(exports, ["EventHubEventSource"], () => require("./eventHubEventSource"));
-
-export { Gen1EnvironmentArgs } from "./gen1Environment";
-export type Gen1Environment = import("./gen1Environment").Gen1Environment;
-export const Gen1Environment: typeof import("./gen1Environment").Gen1Environment = null as any;
-utilities.lazyLoad(exports, ["Gen1Environment"], () => require("./gen1Environment"));
-
 export { Gen2EnvironmentArgs } from "./gen2Environment";
 export type Gen2Environment = import("./gen2Environment").Gen2Environment;
 export const Gen2Environment: typeof import("./gen2Environment").Gen2Environment = null as any;
 utilities.lazyLoad(exports, ["Gen2Environment"], () => require("./gen2Environment"));
+
+export { GetAccessPolicyArgs, GetAccessPolicyResult, GetAccessPolicyOutputArgs } from "./getAccessPolicy";
+export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy = null as any;
+export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPolicy","getAccessPolicyOutput"], () => require("./getAccessPolicy"));
 
 export { GetEventHubEventSourceArgs, GetEventHubEventSourceResult, GetEventHubEventSourceOutputArgs } from "./getEventHubEventSource";
 export const getEventHubEventSource: typeof import("./getEventHubEventSource").getEventHubEventSource = null as any;
@@ -45,10 +40,10 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
-export { IoTHubEventSourceArgs } from "./ioTHubEventSource";
-export type IoTHubEventSource = import("./ioTHubEventSource").IoTHubEventSource;
-export const IoTHubEventSource: typeof import("./ioTHubEventSource").IoTHubEventSource = null as any;
-utilities.lazyLoad(exports, ["IoTHubEventSource"], () => require("./ioTHubEventSource"));
+export { GetReferenceDataSetArgs, GetReferenceDataSetResult, GetReferenceDataSetOutputArgs } from "./getReferenceDataSet";
+export const getReferenceDataSet: typeof import("./getReferenceDataSet").getReferenceDataSet = null as any;
+export const getReferenceDataSetOutput: typeof import("./getReferenceDataSet").getReferenceDataSetOutput = null as any;
+utilities.lazyLoad(exports, ["getReferenceDataSet","getReferenceDataSetOutput"], () => require("./getReferenceDataSet"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
@@ -63,14 +58,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:timeseriesinsights/v20210331preview:EventHubEventSource":
-                return new EventHubEventSource(name, <any>undefined, { urn })
-            case "azure-native:timeseriesinsights/v20210331preview:Gen1Environment":
-                return new Gen1Environment(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20210331preview:Gen2Environment":
                 return new Gen2Environment(name, <any>undefined, { urn })
-            case "azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource":
-                return new IoTHubEventSource(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20210331preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:

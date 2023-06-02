@@ -6,9 +6,21 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_admin_rule import *
+from .get_admin_rule_collection import *
+from .get_connectivity_configuration import *
+from .get_default_admin_rule import *
+from .get_default_user_rule import *
+from .get_management_group_network_manager_connection import *
+from .get_network_group import *
+from .get_network_manager import *
 from .get_scope_connection import *
+from .get_security_admin_configuration import *
+from .get_security_user_configuration import *
 from .get_static_member import *
 from .get_subscription_network_manager_connection import *
+from .get_user_rule import *
+from .get_user_rule_collection import *
 from .list_active_connectivity_configurations import *
 from .list_active_security_admin_rules import *
 from .list_active_security_user_rules import *

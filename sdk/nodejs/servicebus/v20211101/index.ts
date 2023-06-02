@@ -4,6 +4,66 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetDisasterRecoveryConfigArgs, GetDisasterRecoveryConfigResult, GetDisasterRecoveryConfigOutputArgs } from "./getDisasterRecoveryConfig";
+export const getDisasterRecoveryConfig: typeof import("./getDisasterRecoveryConfig").getDisasterRecoveryConfig = null as any;
+export const getDisasterRecoveryConfigOutput: typeof import("./getDisasterRecoveryConfig").getDisasterRecoveryConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getDisasterRecoveryConfig","getDisasterRecoveryConfigOutput"], () => require("./getDisasterRecoveryConfig"));
+
+export { GetMigrationConfigArgs, GetMigrationConfigResult, GetMigrationConfigOutputArgs } from "./getMigrationConfig";
+export const getMigrationConfig: typeof import("./getMigrationConfig").getMigrationConfig = null as any;
+export const getMigrationConfigOutput: typeof import("./getMigrationConfig").getMigrationConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getMigrationConfig","getMigrationConfigOutput"], () => require("./getMigrationConfig"));
+
+export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
+export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
+export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
+
+export { GetNamespaceAuthorizationRuleArgs, GetNamespaceAuthorizationRuleResult, GetNamespaceAuthorizationRuleOutputArgs } from "./getNamespaceAuthorizationRule";
+export const getNamespaceAuthorizationRule: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRule = null as any;
+export const getNamespaceAuthorizationRuleOutput: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
+
+export { GetNamespaceNetworkRuleSetArgs, GetNamespaceNetworkRuleSetResult, GetNamespaceNetworkRuleSetOutputArgs } from "./getNamespaceNetworkRuleSet";
+export const getNamespaceNetworkRuleSet: typeof import("./getNamespaceNetworkRuleSet").getNamespaceNetworkRuleSet = null as any;
+export const getNamespaceNetworkRuleSetOutput: typeof import("./getNamespaceNetworkRuleSet").getNamespaceNetworkRuleSetOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespaceNetworkRuleSet","getNamespaceNetworkRuleSetOutput"], () => require("./getNamespaceNetworkRuleSet"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
+export const getQueue: typeof import("./getQueue").getQueue = null as any;
+export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
+utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
+
+export { GetQueueAuthorizationRuleArgs, GetQueueAuthorizationRuleResult, GetQueueAuthorizationRuleOutputArgs } from "./getQueueAuthorizationRule";
+export const getQueueAuthorizationRule: typeof import("./getQueueAuthorizationRule").getQueueAuthorizationRule = null as any;
+export const getQueueAuthorizationRuleOutput: typeof import("./getQueueAuthorizationRule").getQueueAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getQueueAuthorizationRule","getQueueAuthorizationRuleOutput"], () => require("./getQueueAuthorizationRule"));
+
+export { GetRuleArgs, GetRuleResult, GetRuleOutputArgs } from "./getRule";
+export const getRule: typeof import("./getRule").getRule = null as any;
+export const getRuleOutput: typeof import("./getRule").getRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getRule","getRuleOutput"], () => require("./getRule"));
+
+export { GetSubscriptionArgs, GetSubscriptionResult, GetSubscriptionOutputArgs } from "./getSubscription";
+export const getSubscription: typeof import("./getSubscription").getSubscription = null as any;
+export const getSubscriptionOutput: typeof import("./getSubscription").getSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscription","getSubscriptionOutput"], () => require("./getSubscription"));
+
+export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
+export const getTopic: typeof import("./getTopic").getTopic = null as any;
+export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
+utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
+
+export { GetTopicAuthorizationRuleArgs, GetTopicAuthorizationRuleResult, GetTopicAuthorizationRuleOutputArgs } from "./getTopicAuthorizationRule";
+export const getTopicAuthorizationRule: typeof import("./getTopicAuthorizationRule").getTopicAuthorizationRule = null as any;
+export const getTopicAuthorizationRuleOutput: typeof import("./getTopicAuthorizationRule").getTopicAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getTopicAuthorizationRule","getTopicAuthorizationRuleOutput"], () => require("./getTopicAuthorizationRule"));
+
 export { ListDisasterRecoveryConfigKeysArgs, ListDisasterRecoveryConfigKeysResult, ListDisasterRecoveryConfigKeysOutputArgs } from "./listDisasterRecoveryConfigKeys";
 export const listDisasterRecoveryConfigKeys: typeof import("./listDisasterRecoveryConfigKeys").listDisasterRecoveryConfigKeys = null as any;
 export const listDisasterRecoveryConfigKeysOutput: typeof import("./listDisasterRecoveryConfigKeys").listDisasterRecoveryConfigKeysOutput = null as any;
@@ -24,3 +84,6 @@ export const listTopicKeys: typeof import("./listTopicKeys").listTopicKeys = nul
 export const listTopicKeysOutput: typeof import("./listTopicKeys").listTopicKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listTopicKeys","listTopicKeysOutput"], () => require("./listTopicKeys"));
 
+
+// Export enums:
+export * from "../../types/enums/servicebus/v20211101";

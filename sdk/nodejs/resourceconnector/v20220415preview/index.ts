@@ -4,6 +4,11 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetApplianceArgs, GetApplianceResult, GetApplianceOutputArgs } from "./getAppliance";
+export const getAppliance: typeof import("./getAppliance").getAppliance = null as any;
+export const getApplianceOutput: typeof import("./getAppliance").getApplianceOutput = null as any;
+utilities.lazyLoad(exports, ["getAppliance","getApplianceOutput"], () => require("./getAppliance"));
+
 export { ListApplianceClusterCustomerUserCredentialArgs, ListApplianceClusterCustomerUserCredentialResult, ListApplianceClusterCustomerUserCredentialOutputArgs } from "./listApplianceClusterCustomerUserCredential";
 export const listApplianceClusterCustomerUserCredential: typeof import("./listApplianceClusterCustomerUserCredential").listApplianceClusterCustomerUserCredential = null as any;
 export const listApplianceClusterCustomerUserCredentialOutput: typeof import("./listApplianceClusterCustomerUserCredential").listApplianceClusterCustomerUserCredentialOutput = null as any;
@@ -14,3 +19,6 @@ export const listApplianceClusterUserCredential: typeof import("./listApplianceC
 export const listApplianceClusterUserCredentialOutput: typeof import("./listApplianceClusterUserCredential").listApplianceClusterUserCredentialOutput = null as any;
 utilities.lazyLoad(exports, ["listApplianceClusterUserCredential","listApplianceClusterUserCredentialOutput"], () => require("./listApplianceClusterUserCredential"));
 
+
+// Export enums:
+export * from "../../types/enums/resourceconnector/v20220415preview";

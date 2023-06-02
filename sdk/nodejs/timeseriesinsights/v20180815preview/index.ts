@@ -5,10 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { EventHubEventSourceArgs } from "./eventHubEventSource";
-export type EventHubEventSource = import("./eventHubEventSource").EventHubEventSource;
-export const EventHubEventSource: typeof import("./eventHubEventSource").EventHubEventSource = null as any;
-utilities.lazyLoad(exports, ["EventHubEventSource"], () => require("./eventHubEventSource"));
+export { GetAccessPolicyArgs, GetAccessPolicyResult, GetAccessPolicyOutputArgs } from "./getAccessPolicy";
+export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy = null as any;
+export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPolicy","getAccessPolicyOutput"], () => require("./getAccessPolicy"));
 
 export { GetEventHubEventSourceArgs, GetEventHubEventSourceResult, GetEventHubEventSourceOutputArgs } from "./getEventHubEventSource";
 export const getEventHubEventSource: typeof import("./getEventHubEventSource").getEventHubEventSource = null as any;
@@ -25,15 +25,15 @@ export const getLongTermEnvironment: typeof import("./getLongTermEnvironment").g
 export const getLongTermEnvironmentOutput: typeof import("./getLongTermEnvironment").getLongTermEnvironmentOutput = null as any;
 utilities.lazyLoad(exports, ["getLongTermEnvironment","getLongTermEnvironmentOutput"], () => require("./getLongTermEnvironment"));
 
+export { GetReferenceDataSetArgs, GetReferenceDataSetResult, GetReferenceDataSetOutputArgs } from "./getReferenceDataSet";
+export const getReferenceDataSet: typeof import("./getReferenceDataSet").getReferenceDataSet = null as any;
+export const getReferenceDataSetOutput: typeof import("./getReferenceDataSet").getReferenceDataSetOutput = null as any;
+utilities.lazyLoad(exports, ["getReferenceDataSet","getReferenceDataSetOutput"], () => require("./getReferenceDataSet"));
+
 export { GetStandardEnvironmentArgs, GetStandardEnvironmentResult, GetStandardEnvironmentOutputArgs } from "./getStandardEnvironment";
 export const getStandardEnvironment: typeof import("./getStandardEnvironment").getStandardEnvironment = null as any;
 export const getStandardEnvironmentOutput: typeof import("./getStandardEnvironment").getStandardEnvironmentOutput = null as any;
 utilities.lazyLoad(exports, ["getStandardEnvironment","getStandardEnvironmentOutput"], () => require("./getStandardEnvironment"));
-
-export { IoTHubEventSourceArgs } from "./ioTHubEventSource";
-export type IoTHubEventSource = import("./ioTHubEventSource").IoTHubEventSource;
-export const IoTHubEventSource: typeof import("./ioTHubEventSource").IoTHubEventSource = null as any;
-utilities.lazyLoad(exports, ["IoTHubEventSource"], () => require("./ioTHubEventSource"));
 
 export { LongTermEnvironmentArgs } from "./longTermEnvironment";
 export type LongTermEnvironment = import("./longTermEnvironment").LongTermEnvironment;
@@ -53,10 +53,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:timeseriesinsights/v20180815preview:EventHubEventSource":
-                return new EventHubEventSource(name, <any>undefined, { urn })
-            case "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource":
-                return new IoTHubEventSource(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20180815preview:LongTermEnvironment":
                 return new LongTermEnvironment(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20180815preview:StandardEnvironment":

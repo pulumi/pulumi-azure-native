@@ -2,6 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AccessRights = {
+    Manage: "Manage",
+    Send: "Send",
+    Listen: "Listen",
+} as const;
+
+export type AccessRights = (typeof AccessRights)[keyof typeof AccessRights];
+
 export const ClusterSkuName = {
     Dedicated: "Dedicated",
 } as const;
@@ -10,6 +18,26 @@ export const ClusterSkuName = {
  * Name of this SKU.
  */
 export type ClusterSkuName = (typeof ClusterSkuName)[keyof typeof ClusterSkuName];
+
+export const DefaultAction = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * Default Action for Network Rule Set
+ */
+export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
+
+export const EncodingCaptureDescription = {
+    Avro: "Avro",
+    AvroDeflate: "AvroDeflate",
+} as const;
+
+/**
+ * Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+ */
+export type EncodingCaptureDescription = (typeof EncodingCaptureDescription)[keyof typeof EncodingCaptureDescription];
 
 export const EndPointProvisioningState = {
     Creating: "Creating",
@@ -25,6 +53,23 @@ export const EndPointProvisioningState = {
  */
 export type EndPointProvisioningState = (typeof EndPointProvisioningState)[keyof typeof EndPointProvisioningState];
 
+export const EntityStatus = {
+    Active: "Active",
+    Disabled: "Disabled",
+    Restoring: "Restoring",
+    SendDisabled: "SendDisabled",
+    ReceiveDisabled: "ReceiveDisabled",
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Renaming: "Renaming",
+    Unknown: "Unknown",
+} as const;
+
+/**
+ * Enumerates the possible values for the status of the Event Hub.
+ */
+export type EntityStatus = (typeof EntityStatus)[keyof typeof EntityStatus];
+
 export const IPAction = {
     Accept: "Accept",
     Reject: "Reject",
@@ -34,6 +79,33 @@ export const IPAction = {
  * The IP Filter Action
  */
 export type IPAction = (typeof IPAction)[keyof typeof IPAction];
+
+export const IdentityType = {
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+export const KeySource = {
+    Microsoft_KeyVault: "Microsoft.KeyVault",
+} as const;
+
+/**
+ * Enumerates the possible value of keySource for Encryption
+ */
+export type KeySource = (typeof KeySource)[keyof typeof KeySource];
+
+export const NetworkRuleIPAction = {
+    Allow: "Allow",
+} as const;
+
+/**
+ * The IP Filter Action
+ */
+export type NetworkRuleIPAction = (typeof NetworkRuleIPAction)[keyof typeof NetworkRuleIPAction];
 
 export const PrivateLinkConnectionStatus = {
     Pending: "Pending",
@@ -46,3 +118,23 @@ export const PrivateLinkConnectionStatus = {
  * Status of the connection.
  */
 export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
+
+export const SkuName = {
+    Basic: "Basic",
+    Standard: "Standard",
+} as const;
+
+/**
+ * Name of this SKU.
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const SkuTier = {
+    Basic: "Basic",
+    Standard: "Standard",
+} as const;
+
+/**
+ * The billing tier of this particular SKU.
+ */
+export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];

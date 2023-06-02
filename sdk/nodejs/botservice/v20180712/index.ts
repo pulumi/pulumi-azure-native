@@ -10,6 +10,21 @@ export type EnterpriseChannel = import("./enterpriseChannel").EnterpriseChannel;
 export const EnterpriseChannel: typeof import("./enterpriseChannel").EnterpriseChannel = null as any;
 utilities.lazyLoad(exports, ["EnterpriseChannel"], () => require("./enterpriseChannel"));
 
+export { GetBotArgs, GetBotResult, GetBotOutputArgs } from "./getBot";
+export const getBot: typeof import("./getBot").getBot = null as any;
+export const getBotOutput: typeof import("./getBot").getBotOutput = null as any;
+utilities.lazyLoad(exports, ["getBot","getBotOutput"], () => require("./getBot"));
+
+export { GetBotConnectionArgs, GetBotConnectionResult, GetBotConnectionOutputArgs } from "./getBotConnection";
+export const getBotConnection: typeof import("./getBotConnection").getBotConnection = null as any;
+export const getBotConnectionOutput: typeof import("./getBotConnection").getBotConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getBotConnection","getBotConnectionOutput"], () => require("./getBotConnection"));
+
+export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getChannel";
+export const getChannel: typeof import("./getChannel").getChannel = null as any;
+export const getChannelOutput: typeof import("./getChannel").getChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
+
 export { GetEnterpriseChannelArgs, GetEnterpriseChannelResult, GetEnterpriseChannelOutputArgs } from "./getEnterpriseChannel";
 export const getEnterpriseChannel: typeof import("./getEnterpriseChannel").getEnterpriseChannel = null as any;
 export const getEnterpriseChannelOutput: typeof import("./getEnterpriseChannel").getEnterpriseChannelOutput = null as any;

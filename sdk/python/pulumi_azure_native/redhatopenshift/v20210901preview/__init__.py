@@ -5,5 +5,8 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .get_open_shift_cluster import *
 from .list_open_shift_cluster_admin_credentials import *
 from .list_open_shift_cluster_credentials import *
+from . import outputs

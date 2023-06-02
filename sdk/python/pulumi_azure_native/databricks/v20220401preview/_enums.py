@@ -5,9 +5,20 @@
 from enum import Enum
 
 __all__ = [
+    'EncryptionKeySource',
     'IdentityType',
+    'KeySource',
     'PrivateLinkServiceConnectionStatus',
+    'PublicNetworkAccess',
+    'RequiredNsgRules',
 ]
+
+
+class EncryptionKeySource(str, Enum):
+    """
+    The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+    """
+    MICROSOFT_KEYVAULT = "Microsoft.Keyvault"
 
 
 class IdentityType(str, Enum):
@@ -18,6 +29,14 @@ class IdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+class KeySource(str, Enum):
+    """
+    The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
+    """
+    DEFAULT = "Default"
+    MICROSOFT_KEYVAULT = "Microsoft.Keyvault"
+
+
 class PrivateLinkServiceConnectionStatus(str, Enum):
     """
     The status of a private endpoint connection
@@ -26,3 +45,20 @@ class PrivateLinkServiceConnectionStatus(str, Enum):
     APPROVED = "Approved"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class RequiredNsgRules(str, Enum):
+    """
+    Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+    """
+    ALL_RULES = "AllRules"
+    NO_AZURE_DATABRICKS_RULES = "NoAzureDatabricksRules"
+    NO_AZURE_SERVICE_RULES = "NoAzureServiceRules"

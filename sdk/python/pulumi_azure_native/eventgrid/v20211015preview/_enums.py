@@ -26,9 +26,12 @@ __all__ = [
     'PartnerEndpointType',
     'PartnerRegistrationVisibilityState',
     'PartnerTopicActivationState',
+    'PartnerTopicRoutingMode',
+    'PersistedConnectionStatus',
     'PublicNetworkAccess',
     'ReadinessState',
     'ResourceKind',
+    'ResourceProvisioningState',
     'Sku',
 ]
 
@@ -236,6 +239,25 @@ class PartnerTopicActivationState(str, Enum):
     DEACTIVATED = "Deactivated"
 
 
+class PartnerTopicRoutingMode(str, Enum):
+    """
+    This determines if events published to this partner namespace should use the source attribute in the event payload
+    or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+    """
+    SOURCE_EVENT_ATTRIBUTE = "SourceEventAttribute"
+    CHANNEL_NAME_HEADER = "ChannelNameHeader"
+
+
+class PersistedConnectionStatus(str, Enum):
+    """
+    Status of the connection.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+    DISCONNECTED = "Disconnected"
+
+
 class PublicNetworkAccess(str, Enum):
     """
     This determines if traffic is allowed over public network. By default it is enabled. 
@@ -259,6 +281,18 @@ class ResourceKind(str, Enum):
     """
     AZURE = "Azure"
     AZURE_ARC = "AzureArc"
+
+
+class ResourceProvisioningState(str, Enum):
+    """
+    Provisioning state of the Private Endpoint Connection.
+    """
+    CREATING = "Creating"
+    UPDATING = "Updating"
+    DELETING = "Deleting"
+    SUCCEEDED = "Succeeded"
+    CANCELED = "Canceled"
+    FAILED = "Failed"
 
 
 class Sku(str, Enum):

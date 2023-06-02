@@ -35,3 +35,14 @@ export const AccessReviewResult = {
  * Represents a reviewer's decision for a given review
  */
 export type AccessReviewResult = (typeof AccessReviewResult)[keyof typeof AccessReviewResult];
+
+export const DefaultDecisionType = {
+    Approve: "Approve",
+    Deny: "Deny",
+    Recommendation: "Recommendation",
+} as const;
+
+/**
+ * This specifies the behavior for the autoReview feature when an access review completes.
+ */
+export type DefaultDecisionType = (typeof DefaultDecisionType)[keyof typeof DefaultDecisionType];

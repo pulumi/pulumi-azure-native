@@ -12,18 +12,383 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AccountEncryptionResponse',
+    'ActiveDirectoryResponse',
+    'DailyScheduleResponse',
     'ExportPolicyRuleResponse',
+    'HourlyScheduleResponse',
+    'LdapSearchScopeOptResponse',
+    'MonthlyScheduleResponse',
     'MountTargetPropertiesResponse',
     'PlacementKeyValuePairsResponse',
     'ReplicationObjectResponse',
     'SystemDataResponse',
     'VolumeBackupPropertiesResponse',
+    'VolumeBackupsResponse',
     'VolumeGroupMetaDataResponse',
     'VolumeGroupVolumePropertiesResponse',
     'VolumePropertiesResponseDataProtection',
     'VolumePropertiesResponseExportPolicy',
     'VolumeSnapshotPropertiesResponse',
+    'WeeklyScheduleResponse',
 ]
+
+@pulumi.output_type
+class AccountEncryptionResponse(dict):
+    """
+    Encryption settings
+    """
+    def __init__(__self__, *,
+                 key_source: Optional[str] = None):
+        """
+        Encryption settings
+        :param str key_source: Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+        """
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[str]:
+        """
+        Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+        """
+        return pulumi.get(self, "key_source")
+
+
+@pulumi.output_type
+class ActiveDirectoryResponse(dict):
+    """
+    Active Directory
+    """
+    def __init__(__self__, *,
+                 status: str,
+                 status_details: str,
+                 active_directory_id: Optional[str] = None,
+                 ad_name: Optional[str] = None,
+                 administrators: Optional[Sequence[str]] = None,
+                 aes_encryption: Optional[bool] = None,
+                 allow_local_nfs_users_with_ldap: Optional[bool] = None,
+                 backup_operators: Optional[Sequence[str]] = None,
+                 dns: Optional[str] = None,
+                 domain: Optional[str] = None,
+                 encrypt_dc_connections: Optional[bool] = None,
+                 kdc_ip: Optional[str] = None,
+                 ldap_over_tls: Optional[bool] = None,
+                 ldap_search_scope: Optional['outputs.LdapSearchScopeOptResponse'] = None,
+                 ldap_signing: Optional[bool] = None,
+                 organizational_unit: Optional[str] = None,
+                 password: Optional[str] = None,
+                 security_operators: Optional[Sequence[str]] = None,
+                 server_root_ca_certificate: Optional[str] = None,
+                 site: Optional[str] = None,
+                 smb_server_name: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        Active Directory
+        :param str status: Status of the Active Directory
+        :param str status_details: Any details in regards to the Status of the Active Directory
+        :param str active_directory_id: Id of the Active Directory
+        :param str ad_name: Name of the active directory machine. This optional parameter is used only while creating kerberos volume
+        :param Sequence[str] administrators: Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+        :param bool aes_encryption: If enabled, AES encryption will be enabled for SMB communication.
+        :param bool allow_local_nfs_users_with_ldap:  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
+        :param Sequence[str] backup_operators: Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+        :param str dns: Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
+        :param str domain: Name of the Active Directory domain
+        :param bool encrypt_dc_connections: If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
+        :param str kdc_ip: kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
+        :param bool ldap_over_tls: Specifies whether or not the LDAP traffic needs to be secured via TLS.
+        :param 'LdapSearchScopeOptResponse' ldap_search_scope: LDAP Search scope options
+        :param bool ldap_signing: Specifies whether or not the LDAP traffic needs to be signed.
+        :param str organizational_unit: The Organizational Unit (OU) within the Windows Active Directory
+        :param str password: Plain text password of Active Directory domain administrator, value is masked in the response
+        :param Sequence[str] security_operators: Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+        :param str server_root_ca_certificate: When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
+        :param str site: The Active Directory site the service will limit Domain Controller discovery to
+        :param str smb_server_name: NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+        :param str username: A domain user account with permission to create machine accounts
+        """
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_details", status_details)
+        if active_directory_id is not None:
+            pulumi.set(__self__, "active_directory_id", active_directory_id)
+        if ad_name is not None:
+            pulumi.set(__self__, "ad_name", ad_name)
+        if administrators is not None:
+            pulumi.set(__self__, "administrators", administrators)
+        if aes_encryption is not None:
+            pulumi.set(__self__, "aes_encryption", aes_encryption)
+        if allow_local_nfs_users_with_ldap is not None:
+            pulumi.set(__self__, "allow_local_nfs_users_with_ldap", allow_local_nfs_users_with_ldap)
+        if backup_operators is not None:
+            pulumi.set(__self__, "backup_operators", backup_operators)
+        if dns is not None:
+            pulumi.set(__self__, "dns", dns)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if encrypt_dc_connections is not None:
+            pulumi.set(__self__, "encrypt_dc_connections", encrypt_dc_connections)
+        if kdc_ip is not None:
+            pulumi.set(__self__, "kdc_ip", kdc_ip)
+        if ldap_over_tls is not None:
+            pulumi.set(__self__, "ldap_over_tls", ldap_over_tls)
+        if ldap_search_scope is not None:
+            pulumi.set(__self__, "ldap_search_scope", ldap_search_scope)
+        if ldap_signing is not None:
+            pulumi.set(__self__, "ldap_signing", ldap_signing)
+        if organizational_unit is None:
+            organizational_unit = 'CN=Computers'
+        if organizational_unit is not None:
+            pulumi.set(__self__, "organizational_unit", organizational_unit)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if security_operators is not None:
+            pulumi.set(__self__, "security_operators", security_operators)
+        if server_root_ca_certificate is not None:
+            pulumi.set(__self__, "server_root_ca_certificate", server_root_ca_certificate)
+        if site is not None:
+            pulumi.set(__self__, "site", site)
+        if smb_server_name is not None:
+            pulumi.set(__self__, "smb_server_name", smb_server_name)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the Active Directory
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusDetails")
+    def status_details(self) -> str:
+        """
+        Any details in regards to the Status of the Active Directory
+        """
+        return pulumi.get(self, "status_details")
+
+    @property
+    @pulumi.getter(name="activeDirectoryId")
+    def active_directory_id(self) -> Optional[str]:
+        """
+        Id of the Active Directory
+        """
+        return pulumi.get(self, "active_directory_id")
+
+    @property
+    @pulumi.getter(name="adName")
+    def ad_name(self) -> Optional[str]:
+        """
+        Name of the active directory machine. This optional parameter is used only while creating kerberos volume
+        """
+        return pulumi.get(self, "ad_name")
+
+    @property
+    @pulumi.getter
+    def administrators(self) -> Optional[Sequence[str]]:
+        """
+        Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+        """
+        return pulumi.get(self, "administrators")
+
+    @property
+    @pulumi.getter(name="aesEncryption")
+    def aes_encryption(self) -> Optional[bool]:
+        """
+        If enabled, AES encryption will be enabled for SMB communication.
+        """
+        return pulumi.get(self, "aes_encryption")
+
+    @property
+    @pulumi.getter(name="allowLocalNfsUsersWithLdap")
+    def allow_local_nfs_users_with_ldap(self) -> Optional[bool]:
+        """
+         If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
+        """
+        return pulumi.get(self, "allow_local_nfs_users_with_ldap")
+
+    @property
+    @pulumi.getter(name="backupOperators")
+    def backup_operators(self) -> Optional[Sequence[str]]:
+        """
+        Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+        """
+        return pulumi.get(self, "backup_operators")
+
+    @property
+    @pulumi.getter
+    def dns(self) -> Optional[str]:
+        """
+        Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
+        """
+        return pulumi.get(self, "dns")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[str]:
+        """
+        Name of the Active Directory domain
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="encryptDCConnections")
+    def encrypt_dc_connections(self) -> Optional[bool]:
+        """
+        If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
+        """
+        return pulumi.get(self, "encrypt_dc_connections")
+
+    @property
+    @pulumi.getter(name="kdcIP")
+    def kdc_ip(self) -> Optional[str]:
+        """
+        kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
+        """
+        return pulumi.get(self, "kdc_ip")
+
+    @property
+    @pulumi.getter(name="ldapOverTLS")
+    def ldap_over_tls(self) -> Optional[bool]:
+        """
+        Specifies whether or not the LDAP traffic needs to be secured via TLS.
+        """
+        return pulumi.get(self, "ldap_over_tls")
+
+    @property
+    @pulumi.getter(name="ldapSearchScope")
+    def ldap_search_scope(self) -> Optional['outputs.LdapSearchScopeOptResponse']:
+        """
+        LDAP Search scope options
+        """
+        return pulumi.get(self, "ldap_search_scope")
+
+    @property
+    @pulumi.getter(name="ldapSigning")
+    def ldap_signing(self) -> Optional[bool]:
+        """
+        Specifies whether or not the LDAP traffic needs to be signed.
+        """
+        return pulumi.get(self, "ldap_signing")
+
+    @property
+    @pulumi.getter(name="organizationalUnit")
+    def organizational_unit(self) -> Optional[str]:
+        """
+        The Organizational Unit (OU) within the Windows Active Directory
+        """
+        return pulumi.get(self, "organizational_unit")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Plain text password of Active Directory domain administrator, value is masked in the response
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="securityOperators")
+    def security_operators(self) -> Optional[Sequence[str]]:
+        """
+        Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+        """
+        return pulumi.get(self, "security_operators")
+
+    @property
+    @pulumi.getter(name="serverRootCACertificate")
+    def server_root_ca_certificate(self) -> Optional[str]:
+        """
+        When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
+        """
+        return pulumi.get(self, "server_root_ca_certificate")
+
+    @property
+    @pulumi.getter
+    def site(self) -> Optional[str]:
+        """
+        The Active Directory site the service will limit Domain Controller discovery to
+        """
+        return pulumi.get(self, "site")
+
+    @property
+    @pulumi.getter(name="smbServerName")
+    def smb_server_name(self) -> Optional[str]:
+        """
+        NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+        """
+        return pulumi.get(self, "smb_server_name")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        A domain user account with permission to create machine accounts
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class DailyScheduleResponse(dict):
+    """
+    Daily Schedule properties
+    """
+    def __init__(__self__, *,
+                 hour: Optional[int] = None,
+                 minute: Optional[int] = None,
+                 snapshots_to_keep: Optional[int] = None,
+                 used_bytes: Optional[float] = None):
+        """
+        Daily Schedule properties
+        :param int hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param int minute: Indicates which minute snapshot should be taken
+        :param int snapshots_to_keep: Daily snapshot count to keep
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        """
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+        if used_bytes is not None:
+            pulumi.set(__self__, "used_bytes", used_bytes)
+
+    @property
+    @pulumi.getter
+    def hour(self) -> Optional[int]:
+        """
+        Indicates which hour in UTC timezone a snapshot should be taken
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> Optional[int]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[int]:
+        """
+        Daily snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> Optional[float]:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
+
 
 @pulumi.output_type
 class ExportPolicyRuleResponse(dict):
@@ -269,6 +634,171 @@ class ExportPolicyRuleResponse(dict):
         Read and write access
         """
         return pulumi.get(self, "unix_read_write")
+
+
+@pulumi.output_type
+class HourlyScheduleResponse(dict):
+    """
+    Hourly Schedule properties
+    """
+    def __init__(__self__, *,
+                 minute: Optional[int] = None,
+                 snapshots_to_keep: Optional[int] = None,
+                 used_bytes: Optional[float] = None):
+        """
+        Hourly Schedule properties
+        :param int minute: Indicates which minute snapshot should be taken
+        :param int snapshots_to_keep: Hourly snapshot count to keep
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        """
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+        if used_bytes is not None:
+            pulumi.set(__self__, "used_bytes", used_bytes)
+
+    @property
+    @pulumi.getter
+    def minute(self) -> Optional[int]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[int]:
+        """
+        Hourly snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> Optional[float]:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
+
+
+@pulumi.output_type
+class LdapSearchScopeOptResponse(dict):
+    """
+    LDAP search scope 
+    """
+    def __init__(__self__, *,
+                 group_dn: Optional[str] = None,
+                 group_membership_filter: Optional[str] = None,
+                 user_dn: Optional[str] = None):
+        """
+        LDAP search scope 
+        :param str group_dn: This specifies the group DN, which overrides the base DN for group lookups.
+        :param str group_membership_filter: This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+        :param str user_dn: This specifies the user DN, which overrides the base DN for user lookups.
+        """
+        if group_dn is not None:
+            pulumi.set(__self__, "group_dn", group_dn)
+        if group_membership_filter is not None:
+            pulumi.set(__self__, "group_membership_filter", group_membership_filter)
+        if user_dn is not None:
+            pulumi.set(__self__, "user_dn", user_dn)
+
+    @property
+    @pulumi.getter(name="groupDN")
+    def group_dn(self) -> Optional[str]:
+        """
+        This specifies the group DN, which overrides the base DN for group lookups.
+        """
+        return pulumi.get(self, "group_dn")
+
+    @property
+    @pulumi.getter(name="groupMembershipFilter")
+    def group_membership_filter(self) -> Optional[str]:
+        """
+        This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+        """
+        return pulumi.get(self, "group_membership_filter")
+
+    @property
+    @pulumi.getter(name="userDN")
+    def user_dn(self) -> Optional[str]:
+        """
+        This specifies the user DN, which overrides the base DN for user lookups.
+        """
+        return pulumi.get(self, "user_dn")
+
+
+@pulumi.output_type
+class MonthlyScheduleResponse(dict):
+    """
+    Monthly Schedule properties
+    """
+    def __init__(__self__, *,
+                 days_of_month: Optional[str] = None,
+                 hour: Optional[int] = None,
+                 minute: Optional[int] = None,
+                 snapshots_to_keep: Optional[int] = None,
+                 used_bytes: Optional[float] = None):
+        """
+        Monthly Schedule properties
+        :param str days_of_month: Indicates which days of the month snapshot should be taken. A comma delimited string.
+        :param int hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param int minute: Indicates which minute snapshot should be taken
+        :param int snapshots_to_keep: Monthly snapshot count to keep
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        """
+        if days_of_month is not None:
+            pulumi.set(__self__, "days_of_month", days_of_month)
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+        if used_bytes is not None:
+            pulumi.set(__self__, "used_bytes", used_bytes)
+
+    @property
+    @pulumi.getter(name="daysOfMonth")
+    def days_of_month(self) -> Optional[str]:
+        """
+        Indicates which days of the month snapshot should be taken. A comma delimited string.
+        """
+        return pulumi.get(self, "days_of_month")
+
+    @property
+    @pulumi.getter
+    def hour(self) -> Optional[int]:
+        """
+        Indicates which hour in UTC timezone a snapshot should be taken
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> Optional[int]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[int]:
+        """
+        Monthly snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> Optional[float]:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
 
 
 @pulumi.output_type
@@ -668,6 +1198,53 @@ class VolumeBackupPropertiesResponse(dict):
         Vault Resource ID
         """
         return pulumi.get(self, "vault_id")
+
+
+@pulumi.output_type
+class VolumeBackupsResponse(dict):
+    """
+    Volume details using the backup policy
+    """
+    def __init__(__self__, *,
+                 backups_count: Optional[int] = None,
+                 policy_enabled: Optional[bool] = None,
+                 volume_name: Optional[str] = None):
+        """
+        Volume details using the backup policy
+        :param int backups_count: Total count of backups for volume
+        :param bool policy_enabled: Policy enabled
+        :param str volume_name: Volume name
+        """
+        if backups_count is not None:
+            pulumi.set(__self__, "backups_count", backups_count)
+        if policy_enabled is not None:
+            pulumi.set(__self__, "policy_enabled", policy_enabled)
+        if volume_name is not None:
+            pulumi.set(__self__, "volume_name", volume_name)
+
+    @property
+    @pulumi.getter(name="backupsCount")
+    def backups_count(self) -> Optional[int]:
+        """
+        Total count of backups for volume
+        """
+        return pulumi.get(self, "backups_count")
+
+    @property
+    @pulumi.getter(name="policyEnabled")
+    def policy_enabled(self) -> Optional[bool]:
+        """
+        Policy enabled
+        """
+        return pulumi.get(self, "policy_enabled")
+
+    @property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> Optional[str]:
+        """
+        Volume name
+        """
+        return pulumi.get(self, "volume_name")
 
 
 @pulumi.output_type
@@ -1560,5 +2137,76 @@ class VolumeSnapshotPropertiesResponse(dict):
         Snapshot Policy ResourceId
         """
         return pulumi.get(self, "snapshot_policy_id")
+
+
+@pulumi.output_type
+class WeeklyScheduleResponse(dict):
+    """
+    Weekly Schedule properties, make a snapshot every week at a specific day or days
+    """
+    def __init__(__self__, *,
+                 day: Optional[str] = None,
+                 hour: Optional[int] = None,
+                 minute: Optional[int] = None,
+                 snapshots_to_keep: Optional[int] = None,
+                 used_bytes: Optional[float] = None):
+        """
+        Weekly Schedule properties, make a snapshot every week at a specific day or days
+        :param str day: Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
+        :param int hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param int minute: Indicates which minute snapshot should be taken
+        :param int snapshots_to_keep: Weekly snapshot count to keep
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        """
+        if day is not None:
+            pulumi.set(__self__, "day", day)
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+        if used_bytes is not None:
+            pulumi.set(__self__, "used_bytes", used_bytes)
+
+    @property
+    @pulumi.getter
+    def day(self) -> Optional[str]:
+        """
+        Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
+        """
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter
+    def hour(self) -> Optional[int]:
+        """
+        Indicates which hour in UTC timezone a snapshot should be taken
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> Optional[int]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[int]:
+        """
+        Weekly snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> Optional[float]:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
 
 

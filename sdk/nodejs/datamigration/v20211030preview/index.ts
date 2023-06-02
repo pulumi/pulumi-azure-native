@@ -5,15 +5,35 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetFileArgs, GetFileResult, GetFileOutputArgs } from "./getFile";
+export const getFile: typeof import("./getFile").getFile = null as any;
+export const getFileOutput: typeof import("./getFile").getFileOutput = null as any;
+utilities.lazyLoad(exports, ["getFile","getFileOutput"], () => require("./getFile"));
+
 export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
 export const getProject: typeof import("./getProject").getProject = null as any;
 export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
 utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
 
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+
+export { GetServiceTaskArgs, GetServiceTaskResult, GetServiceTaskOutputArgs } from "./getServiceTask";
+export const getServiceTask: typeof import("./getServiceTask").getServiceTask = null as any;
+export const getServiceTaskOutput: typeof import("./getServiceTask").getServiceTaskOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceTask","getServiceTaskOutput"], () => require("./getServiceTask"));
+
 export { GetSqlMigrationServiceArgs, GetSqlMigrationServiceResult, GetSqlMigrationServiceOutputArgs } from "./getSqlMigrationService";
 export const getSqlMigrationService: typeof import("./getSqlMigrationService").getSqlMigrationService = null as any;
 export const getSqlMigrationServiceOutput: typeof import("./getSqlMigrationService").getSqlMigrationServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlMigrationService","getSqlMigrationServiceOutput"], () => require("./getSqlMigrationService"));
+
+export { GetTaskArgs, GetTaskResult, GetTaskOutputArgs } from "./getTask";
+export const getTask: typeof import("./getTask").getTask = null as any;
+export const getTaskOutput: typeof import("./getTask").getTaskOutput = null as any;
+utilities.lazyLoad(exports, ["getTask","getTaskOutput"], () => require("./getTask"));
 
 export { ListSqlMigrationServiceAuthKeysArgs, ListSqlMigrationServiceAuthKeysResult, ListSqlMigrationServiceAuthKeysOutputArgs } from "./listSqlMigrationServiceAuthKeys";
 export const listSqlMigrationServiceAuthKeys: typeof import("./listSqlMigrationServiceAuthKeys").listSqlMigrationServiceAuthKeys = null as any;

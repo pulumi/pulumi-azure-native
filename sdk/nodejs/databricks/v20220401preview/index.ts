@@ -20,10 +20,25 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
+export { GetVNetPeeringArgs, GetVNetPeeringResult, GetVNetPeeringOutputArgs } from "./getVNetPeering";
+export const getVNetPeering: typeof import("./getVNetPeering").getVNetPeering = null as any;
+export const getVNetPeeringOutput: typeof import("./getVNetPeering").getVNetPeeringOutput = null as any;
+utilities.lazyLoad(exports, ["getVNetPeering","getVNetPeeringOutput"], () => require("./getVNetPeering"));
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
+export { VNetPeeringArgs } from "./vnetPeering";
+export type VNetPeering = import("./vnetPeering").VNetPeering;
+export const VNetPeering: typeof import("./vnetPeering").VNetPeering = null as any;
+utilities.lazyLoad(exports, ["VNetPeering"], () => require("./vnetPeering"));
 
 
 // Export enums:
@@ -37,6 +52,8 @@ const _module = {
                 return new AccessConnector(name, <any>undefined, { urn })
             case "azure-native:databricks/v20220401preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:databricks/v20220401preview:VNetPeering":
+                return new VNetPeering(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

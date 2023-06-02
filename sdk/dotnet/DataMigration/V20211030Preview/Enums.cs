@@ -42,6 +42,132 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
     }
 
     /// <summary>
+    /// Backup Mode to specify whether to use existing backup or create new backup.
+    /// </summary>
+    [EnumType]
+    public readonly struct BackupMode : IEquatable<BackupMode>
+    {
+        private readonly string _value;
+
+        private BackupMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupMode CreateBackup { get; } = new BackupMode("CreateBackup");
+        public static BackupMode ExistingBackup { get; } = new BackupMode("ExistingBackup");
+
+        public static bool operator ==(BackupMode left, BackupMode right) => left.Equals(right);
+        public static bool operator !=(BackupMode left, BackupMode right) => !left.Equals(right);
+
+        public static explicit operator string(BackupMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupMode other && Equals(other);
+        public bool Equals(BackupMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describes how changes will be replicated from the source to the target. The default is OneTime.
+    /// </summary>
+    [EnumType]
+    public readonly struct MongoDbReplication : IEquatable<MongoDbReplication>
+    {
+        private readonly string _value;
+
+        private MongoDbReplication(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MongoDbReplication Disabled { get; } = new MongoDbReplication("Disabled");
+        public static MongoDbReplication OneTime { get; } = new MongoDbReplication("OneTime");
+        public static MongoDbReplication Continuous { get; } = new MongoDbReplication("Continuous");
+
+        public static bool operator ==(MongoDbReplication left, MongoDbReplication right) => left.Equals(right);
+        public static bool operator !=(MongoDbReplication left, MongoDbReplication right) => !left.Equals(right);
+
+        public static explicit operator string(MongoDbReplication value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MongoDbReplication other && Equals(other);
+        public bool Equals(MongoDbReplication other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The field ordering
+    /// </summary>
+    [EnumType]
+    public readonly struct MongoDbShardKeyOrder : IEquatable<MongoDbShardKeyOrder>
+    {
+        private readonly string _value;
+
+        private MongoDbShardKeyOrder(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MongoDbShardKeyOrder Forward { get; } = new MongoDbShardKeyOrder("Forward");
+        public static MongoDbShardKeyOrder Reverse { get; } = new MongoDbShardKeyOrder("Reverse");
+        public static MongoDbShardKeyOrder Hashed { get; } = new MongoDbShardKeyOrder("Hashed");
+
+        public static bool operator ==(MongoDbShardKeyOrder left, MongoDbShardKeyOrder right) => left.Equals(right);
+        public static bool operator !=(MongoDbShardKeyOrder left, MongoDbShardKeyOrder right) => !left.Equals(right);
+
+        public static explicit operator string(MongoDbShardKeyOrder value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MongoDbShardKeyOrder other && Equals(other);
+        public bool Equals(MongoDbShardKeyOrder other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Target Platform for the migration
+    /// </summary>
+    [EnumType]
+    public readonly struct MySqlTargetPlatformType : IEquatable<MySqlTargetPlatformType>
+    {
+        private readonly string _value;
+
+        private MySqlTargetPlatformType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MySqlTargetPlatformType SqlServer { get; } = new MySqlTargetPlatformType("SqlServer");
+        public static MySqlTargetPlatformType AzureDbForMySQL { get; } = new MySqlTargetPlatformType("AzureDbForMySQL");
+
+        public static bool operator ==(MySqlTargetPlatformType left, MySqlTargetPlatformType right) => left.Equals(right);
+        public static bool operator !=(MySqlTargetPlatformType left, MySqlTargetPlatformType right) => !left.Equals(right);
+
+        public static explicit operator string(MySqlTargetPlatformType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MySqlTargetPlatformType other && Equals(other);
+        public bool Equals(MySqlTargetPlatformType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Source platform for the project
     /// </summary>
     [EnumType]
@@ -111,6 +237,39 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
     }
 
     /// <summary>
+    /// Permission group for validations
+    /// </summary>
+    [EnumType]
+    public readonly struct ServerLevelPermissionsGroup : IEquatable<ServerLevelPermissionsGroup>
+    {
+        private readonly string _value;
+
+        private ServerLevelPermissionsGroup(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerLevelPermissionsGroup Default { get; } = new ServerLevelPermissionsGroup("Default");
+        public static ServerLevelPermissionsGroup MigrationFromSqlServerToAzureDB { get; } = new ServerLevelPermissionsGroup("MigrationFromSqlServerToAzureDB");
+        public static ServerLevelPermissionsGroup MigrationFromSqlServerToAzureMI { get; } = new ServerLevelPermissionsGroup("MigrationFromSqlServerToAzureMI");
+        public static ServerLevelPermissionsGroup MigrationFromMySQLToAzureDBForMySQL { get; } = new ServerLevelPermissionsGroup("MigrationFromMySQLToAzureDBForMySQL");
+
+        public static bool operator ==(ServerLevelPermissionsGroup left, ServerLevelPermissionsGroup right) => left.Equals(right);
+        public static bool operator !=(ServerLevelPermissionsGroup left, ServerLevelPermissionsGroup right) => !left.Equals(right);
+
+        public static explicit operator string(ServerLevelPermissionsGroup value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerLevelPermissionsGroup other && Equals(other);
+        public bool Equals(ServerLevelPermissionsGroup other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Server platform type for connection
     /// </summary>
     [EnumType]
@@ -133,6 +292,134 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SqlSourcePlatform other && Equals(other);
         public bool Equals(SqlSourcePlatform other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The overwrite option for the SSIS project migration
+    /// </summary>
+    [EnumType]
+    public readonly struct SsisMigrationOverwriteOption : IEquatable<SsisMigrationOverwriteOption>
+    {
+        private readonly string _value;
+
+        private SsisMigrationOverwriteOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SsisMigrationOverwriteOption Ignore { get; } = new SsisMigrationOverwriteOption("Ignore");
+        public static SsisMigrationOverwriteOption Overwrite { get; } = new SsisMigrationOverwriteOption("Overwrite");
+
+        public static bool operator ==(SsisMigrationOverwriteOption left, SsisMigrationOverwriteOption right) => left.Equals(right);
+        public static bool operator !=(SsisMigrationOverwriteOption left, SsisMigrationOverwriteOption right) => !left.Equals(right);
+
+        public static explicit operator string(SsisMigrationOverwriteOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SsisMigrationOverwriteOption other && Equals(other);
+        public bool Equals(SsisMigrationOverwriteOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The SSIS store type of source, only SSIS catalog is supported now in DMS
+    /// </summary>
+    [EnumType]
+    public readonly struct SsisStoreType : IEquatable<SsisStoreType>
+    {
+        private readonly string _value;
+
+        private SsisStoreType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SsisStoreType SsisCatalog { get; } = new SsisStoreType("SsisCatalog");
+
+        public static bool operator ==(SsisStoreType left, SsisStoreType right) => left.Equals(right);
+        public static bool operator !=(SsisStoreType left, SsisStoreType right) => !left.Equals(right);
+
+        public static explicit operator string(SsisStoreType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SsisStoreType other && Equals(other);
+        public bool Equals(SsisStoreType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Task type.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskType : IEquatable<TaskType>
+    {
+        private readonly string _value;
+
+        private TaskType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskType Connect_MongoDb { get; } = new TaskType("Connect.MongoDb");
+        public static TaskType ConnectToSource_SqlServer { get; } = new TaskType("ConnectToSource.SqlServer");
+        public static TaskType ConnectToSource_SqlServer_Sync { get; } = new TaskType("ConnectToSource.SqlServer.Sync");
+        public static TaskType ConnectToSource_PostgreSql_Sync { get; } = new TaskType("ConnectToSource.PostgreSql.Sync");
+        public static TaskType ConnectToSource_MySql { get; } = new TaskType("ConnectToSource.MySql");
+        public static TaskType ConnectToSource_Oracle_Sync { get; } = new TaskType("ConnectToSource.Oracle.Sync");
+        public static TaskType ConnectToTarget_SqlDb { get; } = new TaskType("ConnectToTarget.SqlDb");
+        public static TaskType ConnectToTarget_SqlDb_Sync { get; } = new TaskType("ConnectToTarget.SqlDb.Sync");
+        public static TaskType ConnectToTarget_AzureDbForPostgreSql_Sync { get; } = new TaskType("ConnectToTarget.AzureDbForPostgreSql.Sync");
+        public static TaskType ConnectToTarget_Oracle_AzureDbForPostgreSql_Sync { get; } = new TaskType("ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync");
+        public static TaskType ConnectToTarget_AzureSqlDbMI { get; } = new TaskType("ConnectToTarget.AzureSqlDbMI");
+        public static TaskType ConnectToTarget_AzureSqlDbMI_Sync_LRS { get; } = new TaskType("ConnectToTarget.AzureSqlDbMI.Sync.LRS");
+        public static TaskType ConnectToTarget_AzureDbForMySql { get; } = new TaskType("ConnectToTarget.AzureDbForMySql");
+        public static TaskType GetUserTables_Sql { get; } = new TaskType("GetUserTables.Sql");
+        public static TaskType GetUserTables_AzureSqlDb_Sync { get; } = new TaskType("GetUserTables.AzureSqlDb.Sync");
+        public static TaskType GetUserTablesOracle { get; } = new TaskType("GetUserTablesOracle");
+        public static TaskType GetUserTablesPostgreSql { get; } = new TaskType("GetUserTablesPostgreSql");
+        public static TaskType GetUserTablesMySql { get; } = new TaskType("GetUserTablesMySql");
+        public static TaskType Migrate_MongoDb { get; } = new TaskType("Migrate.MongoDb");
+        public static TaskType Migrate_SqlServer_AzureSqlDbMI { get; } = new TaskType("Migrate.SqlServer.AzureSqlDbMI");
+        public static TaskType Migrate_SqlServer_AzureSqlDbMI_Sync_LRS { get; } = new TaskType("Migrate.SqlServer.AzureSqlDbMI.Sync.LRS");
+        public static TaskType Migrate_SqlServer_SqlDb { get; } = new TaskType("Migrate.SqlServer.SqlDb");
+        public static TaskType Migrate_SqlServer_AzureSqlDb_Sync { get; } = new TaskType("Migrate.SqlServer.AzureSqlDb.Sync");
+        public static TaskType Migrate_MySql_AzureDbForMySql_Sync { get; } = new TaskType("Migrate.MySql.AzureDbForMySql.Sync");
+        public static TaskType Migrate_MySql_AzureDbForMySql { get; } = new TaskType("Migrate.MySql.AzureDbForMySql");
+        public static TaskType Migrate_PostgreSql_AzureDbForPostgreSql_SyncV2 { get; } = new TaskType("Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2");
+        public static TaskType Migrate_Oracle_AzureDbForPostgreSql_Sync { get; } = new TaskType("Migrate.Oracle.AzureDbForPostgreSql.Sync");
+        public static TaskType ValidateMigrationInput_SqlServer_SqlDb_Sync { get; } = new TaskType("ValidateMigrationInput.SqlServer.SqlDb.Sync");
+        public static TaskType ValidateMigrationInput_SqlServer_AzureSqlDbMI { get; } = new TaskType("ValidateMigrationInput.SqlServer.AzureSqlDbMI");
+        public static TaskType ValidateMigrationInput_SqlServer_AzureSqlDbMI_Sync_LRS { get; } = new TaskType("ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS");
+        public static TaskType Validate_MongoDb { get; } = new TaskType("Validate.MongoDb");
+        public static TaskType Validate_Oracle_AzureDbPostgreSql_Sync { get; } = new TaskType("Validate.Oracle.AzureDbPostgreSql.Sync");
+        public static TaskType GetTDECertificates_Sql { get; } = new TaskType("GetTDECertificates.Sql");
+        public static TaskType Migrate_Ssis { get; } = new TaskType("Migrate.Ssis");
+        public static TaskType Service_Check_OCI { get; } = new TaskType("Service.Check.OCI");
+        public static TaskType Service_Upload_OCI { get; } = new TaskType("Service.Upload.OCI");
+        public static TaskType Service_Install_OCI { get; } = new TaskType("Service.Install.OCI");
+        public static TaskType MigrateSchemaSqlServerSqlDb { get; } = new TaskType("MigrateSchemaSqlServerSqlDb");
+
+        public static bool operator ==(TaskType left, TaskType right) => left.Equals(right);
+        public static bool operator !=(TaskType left, TaskType right) => !left.Equals(right);
+
+        public static explicit operator string(TaskType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskType other && Equals(other);
+        public bool Equals(TaskType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

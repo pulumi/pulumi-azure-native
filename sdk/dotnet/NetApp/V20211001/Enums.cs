@@ -143,6 +143,43 @@ namespace Pulumi.AzureNative.NetApp.V20211001
     }
 
     /// <summary>
+    /// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+    /// </summary>
+    [EnumType]
+    public readonly struct EncryptionType : IEquatable<EncryptionType>
+    {
+        private readonly string _value;
+
+        private EncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// EncryptionType Single, volumes will use single encryption at rest
+        /// </summary>
+        public static EncryptionType Single { get; } = new EncryptionType("Single");
+        /// <summary>
+        /// EncryptionType Double, volumes will use double encryption at rest
+        /// </summary>
+        public static EncryptionType Double { get; } = new EncryptionType("Double");
+
+        public static bool operator ==(EncryptionType left, EncryptionType right) => left.Equals(right);
+        public static bool operator !=(EncryptionType left, EncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionType other && Equals(other);
+        public bool Equals(EncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the local volume is the source or destination for the Volume Replication
     /// </summary>
     [EnumType]
@@ -203,6 +240,43 @@ namespace Pulumi.AzureNative.NetApp.V20211001
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NetworkFeatures other && Equals(other);
         public bool Equals(NetworkFeatures other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The qos type of the pool
+    /// </summary>
+    [EnumType]
+    public readonly struct QosType : IEquatable<QosType>
+    {
+        private readonly string _value;
+
+        private QosType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// qos type Auto
+        /// </summary>
+        public static QosType Auto { get; } = new QosType("Auto");
+        /// <summary>
+        /// qos type Manual
+        /// </summary>
+        public static QosType Manual { get; } = new QosType("Manual");
+
+        public static bool operator ==(QosType left, QosType right) => left.Equals(right);
+        public static bool operator !=(QosType left, QosType right) => !left.Equals(right);
+
+        public static explicit operator string(QosType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is QosType other && Equals(other);
+        public bool Equals(QosType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

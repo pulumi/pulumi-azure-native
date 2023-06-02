@@ -6,10 +6,18 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_connector import *
+from .get_connector_mapping import *
+from .get_hub import *
 from .get_image_upload_url_for_data import *
 from .get_image_upload_url_for_entity_type import *
+from .get_kpi import *
 from .get_link import *
+from .get_profile import *
+from .get_relationship import *
 from .get_relationship_link import *
+from .get_role_assignment import *
+from .get_view import *
 from .link import *
 from .relationship_link import *
 from ._inputs import *

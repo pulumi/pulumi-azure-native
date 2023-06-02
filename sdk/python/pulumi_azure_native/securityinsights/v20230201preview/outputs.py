@@ -14,16 +14,30 @@ from ._enums import *
 __all__ = [
     'ActivityEntityQueriesPropertiesResponseQueryDefinitions',
     'ActivityTimelineItemResponse',
+    'AddIncidentTaskActionPropertiesResponse',
     'AlertDetailsOverrideResponse',
     'AlertPropertyMappingResponse',
     'AlertsDataTypeOfDataConnectorResponse',
     'AnomalyTimelineItemResponse',
+    'AutomationRuleAddIncidentTaskActionResponse',
+    'AutomationRuleBooleanConditionResponse',
+    'AutomationRuleModifyPropertiesActionResponse',
+    'AutomationRulePropertyArrayChangedValuesConditionResponse',
+    'AutomationRulePropertyArrayValuesConditionResponse',
+    'AutomationRulePropertyValuesChangedConditionResponse',
+    'AutomationRulePropertyValuesConditionResponse',
+    'AutomationRuleRunPlaybookActionResponse',
+    'AutomationRuleTriggeringLogicResponse',
     'AvailabilityResponse',
     'AwsCloudTrailDataConnectorDataTypesResponse',
     'AwsCloudTrailDataConnectorDataTypesResponseLogs',
     'AwsS3DataConnectorDataTypesResponse',
     'AwsS3DataConnectorDataTypesResponseLogs',
+    'AzureDevOpsResourceInfoResponse',
+    'BookmarkEntityMappingsResponse',
     'BookmarkTimelineItemResponse',
+    'BooleanConditionPropertiesResponse',
+    'ClientInfoResponse',
     'CodelessConnectorPollingAuthPropertiesResponse',
     'CodelessConnectorPollingConfigPropertiesResponse',
     'CodelessConnectorPollingPagingPropertiesResponse',
@@ -35,14 +49,19 @@ __all__ = [
     'CodelessUiConnectorConfigPropertiesResponseGraphQueries',
     'CodelessUiConnectorConfigPropertiesResponseInstructionSteps',
     'CodelessUiConnectorConfigPropertiesResponseSampleQueries',
+    'ContentPathMapResponse',
     'DataConnectorDataTypeCommonResponse',
+    'DeploymentInfoResponse',
+    'DeploymentResponse',
     'Dynamics365DataConnectorDataTypesResponse',
     'Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities',
+    'EntityFieldMappingResponse',
     'EntityInsightItemResponse',
     'EntityInsightItemResponseQueryTimeInterval',
     'EntityMappingResponse',
     'EventGroupingSettingsResponse',
     'FieldMappingResponse',
+    'FileMetadataResponse',
     'FusionScenarioExclusionPatternResponse',
     'FusionSourceSettingsResponse',
     'FusionSourceSubTypeSettingResponse',
@@ -50,11 +69,14 @@ __all__ = [
     'FusionSubTypeSeverityFiltersItemResponse',
     'GetInsightsErrorKindResponse',
     'GetInsightsResultsMetadataResponse',
+    'GitHubResourceInfoResponse',
     'GroupingConfigurationResponse',
     'IncidentAdditionalDataResponse',
     'IncidentConfigurationResponse',
+    'IncidentInfoResponse',
     'IncidentLabelResponse',
     'IncidentOwnerInfoResponse',
+    'IncidentPropertiesActionResponse',
     'InsightsTableResultResponse',
     'InsightsTableResultResponseColumns',
     'InstructionStepsResponseInstructions',
@@ -84,7 +106,14 @@ __all__ = [
     'PermissionsResponse',
     'PermissionsResponseCustoms',
     'PermissionsResponseResourceProvider',
+    'PlaybookActionPropertiesResponse',
+    'PropertyArrayChangedConditionPropertiesResponse',
+    'PropertyArrayConditionPropertiesResponse',
+    'PropertyChangedConditionPropertiesResponse',
+    'PropertyConditionPropertiesResponse',
     'RepoResponse',
+    'RepositoryResourceInfoResponse',
+    'RepositoryResponse',
     'RequiredPermissionsResponse',
     'SecurityAlertTimelineItemResponse',
     'SecurityMLAnalyticsSettingsDataSourceResponse',
@@ -99,6 +128,9 @@ __all__ = [
     'TimelineErrorResponse',
     'TimelineResultsMetadataResponse',
     'UserInfoResponse',
+    'ValidationErrorResponse',
+    'WatchlistUserInfoResponse',
+    'WebhookResponse',
 ]
 
 @pulumi.output_type
@@ -226,35 +258,40 @@ class ActivityTimelineItemResponse(dict):
 
 
 @pulumi.output_type
+class AddIncidentTaskActionPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 title: str,
+                 description: Optional[str] = None):
+        """
+        :param str title: The title of the task.
+        :param str description: The description of the task.
+        """
+        pulumi.set(__self__, "title", title)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        The title of the task.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the task.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
 class AlertDetailsOverrideResponse(dict):
     """
     Settings for how to dynamically override alert static details
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "alertDescriptionFormat":
-            suggest = "alert_description_format"
-        elif key == "alertDisplayNameFormat":
-            suggest = "alert_display_name_format"
-        elif key == "alertDynamicProperties":
-            suggest = "alert_dynamic_properties"
-        elif key == "alertSeverityColumnName":
-            suggest = "alert_severity_column_name"
-        elif key == "alertTacticsColumnName":
-            suggest = "alert_tactics_column_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AlertDetailsOverrideResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AlertDetailsOverrideResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AlertDetailsOverrideResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  alert_description_format: Optional[str] = None,
                  alert_display_name_format: Optional[str] = None,
@@ -326,23 +363,6 @@ class AlertPropertyMappingResponse(dict):
     """
     A single alert property mapping to override
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "alertProperty":
-            suggest = "alert_property"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AlertPropertyMappingResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AlertPropertyMappingResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AlertPropertyMappingResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  alert_property: Optional[str] = None,
                  value: Optional[str] = None):
@@ -547,27 +567,330 @@ class AnomalyTimelineItemResponse(dict):
 
 
 @pulumi.output_type
+class AutomationRuleAddIncidentTaskActionResponse(dict):
+    """
+    Describes an automation rule action to add a task to an incident
+    """
+    def __init__(__self__, *,
+                 action_type: str,
+                 order: int,
+                 action_configuration: Optional['outputs.AddIncidentTaskActionPropertiesResponse'] = None):
+        """
+        Describes an automation rule action to add a task to an incident
+        :param str action_type: The type of the automation rule action.
+               Expected value is 'AddIncidentTask'.
+        """
+        pulumi.set(__self__, "action_type", 'AddIncidentTask')
+        pulumi.set(__self__, "order", order)
+        if action_configuration is not None:
+            pulumi.set(__self__, "action_configuration", action_configuration)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+        The type of the automation rule action.
+        Expected value is 'AddIncidentTask'.
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter
+    def order(self) -> int:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> Optional['outputs.AddIncidentTaskActionPropertiesResponse']:
+        return pulumi.get(self, "action_configuration")
+
+
+@pulumi.output_type
+class AutomationRuleBooleanConditionResponse(dict):
+    def __init__(__self__, *,
+                 inner_conditions: Optional[Sequence[Any]] = None,
+                 operator: Optional[str] = None):
+        if inner_conditions is not None:
+            pulumi.set(__self__, "inner_conditions", inner_conditions)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="innerConditions")
+    def inner_conditions(self) -> Optional[Sequence[Any]]:
+        return pulumi.get(self, "inner_conditions")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class AutomationRuleModifyPropertiesActionResponse(dict):
+    """
+    Describes an automation rule action to modify an object's properties
+    """
+    def __init__(__self__, *,
+                 action_type: str,
+                 order: int,
+                 action_configuration: Optional['outputs.IncidentPropertiesActionResponse'] = None):
+        """
+        Describes an automation rule action to modify an object's properties
+        :param str action_type: The type of the automation rule action.
+               Expected value is 'ModifyProperties'.
+        """
+        pulumi.set(__self__, "action_type", 'ModifyProperties')
+        pulumi.set(__self__, "order", order)
+        if action_configuration is not None:
+            pulumi.set(__self__, "action_configuration", action_configuration)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+        The type of the automation rule action.
+        Expected value is 'ModifyProperties'.
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter
+    def order(self) -> int:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> Optional['outputs.IncidentPropertiesActionResponse']:
+        return pulumi.get(self, "action_configuration")
+
+
+@pulumi.output_type
+class AutomationRulePropertyArrayChangedValuesConditionResponse(dict):
+    def __init__(__self__, *,
+                 array_type: Optional[str] = None,
+                 change_type: Optional[str] = None):
+        if array_type is not None:
+            pulumi.set(__self__, "array_type", array_type)
+        if change_type is not None:
+            pulumi.set(__self__, "change_type", change_type)
+
+    @property
+    @pulumi.getter(name="arrayType")
+    def array_type(self) -> Optional[str]:
+        return pulumi.get(self, "array_type")
+
+    @property
+    @pulumi.getter(name="changeType")
+    def change_type(self) -> Optional[str]:
+        return pulumi.get(self, "change_type")
+
+
+@pulumi.output_type
+class AutomationRulePropertyArrayValuesConditionResponse(dict):
+    def __init__(__self__, *,
+                 array_condition_type: Optional[str] = None,
+                 array_type: Optional[str] = None,
+                 item_conditions: Optional[Sequence[Any]] = None):
+        if array_condition_type is not None:
+            pulumi.set(__self__, "array_condition_type", array_condition_type)
+        if array_type is not None:
+            pulumi.set(__self__, "array_type", array_type)
+        if item_conditions is not None:
+            pulumi.set(__self__, "item_conditions", item_conditions)
+
+    @property
+    @pulumi.getter(name="arrayConditionType")
+    def array_condition_type(self) -> Optional[str]:
+        return pulumi.get(self, "array_condition_type")
+
+    @property
+    @pulumi.getter(name="arrayType")
+    def array_type(self) -> Optional[str]:
+        return pulumi.get(self, "array_type")
+
+    @property
+    @pulumi.getter(name="itemConditions")
+    def item_conditions(self) -> Optional[Sequence[Any]]:
+        return pulumi.get(self, "item_conditions")
+
+
+@pulumi.output_type
+class AutomationRulePropertyValuesChangedConditionResponse(dict):
+    def __init__(__self__, *,
+                 change_type: Optional[str] = None,
+                 operator: Optional[str] = None,
+                 property_name: Optional[str] = None,
+                 property_values: Optional[Sequence[str]] = None):
+        if change_type is not None:
+            pulumi.set(__self__, "change_type", change_type)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if property_name is not None:
+            pulumi.set(__self__, "property_name", property_name)
+        if property_values is not None:
+            pulumi.set(__self__, "property_values", property_values)
+
+    @property
+    @pulumi.getter(name="changeType")
+    def change_type(self) -> Optional[str]:
+        return pulumi.get(self, "change_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> Optional[str]:
+        return pulumi.get(self, "property_name")
+
+    @property
+    @pulumi.getter(name="propertyValues")
+    def property_values(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "property_values")
+
+
+@pulumi.output_type
+class AutomationRulePropertyValuesConditionResponse(dict):
+    def __init__(__self__, *,
+                 operator: Optional[str] = None,
+                 property_name: Optional[str] = None,
+                 property_values: Optional[Sequence[str]] = None):
+        """
+        :param str property_name: The property to evaluate in an automation rule property condition.
+        """
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if property_name is not None:
+            pulumi.set(__self__, "property_name", property_name)
+        if property_values is not None:
+            pulumi.set(__self__, "property_values", property_values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> Optional[str]:
+        """
+        The property to evaluate in an automation rule property condition.
+        """
+        return pulumi.get(self, "property_name")
+
+    @property
+    @pulumi.getter(name="propertyValues")
+    def property_values(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "property_values")
+
+
+@pulumi.output_type
+class AutomationRuleRunPlaybookActionResponse(dict):
+    """
+    Describes an automation rule action to run a playbook
+    """
+    def __init__(__self__, *,
+                 action_type: str,
+                 order: int,
+                 action_configuration: Optional['outputs.PlaybookActionPropertiesResponse'] = None):
+        """
+        Describes an automation rule action to run a playbook
+        :param str action_type: The type of the automation rule action.
+               Expected value is 'RunPlaybook'.
+        """
+        pulumi.set(__self__, "action_type", 'RunPlaybook')
+        pulumi.set(__self__, "order", order)
+        if action_configuration is not None:
+            pulumi.set(__self__, "action_configuration", action_configuration)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+        The type of the automation rule action.
+        Expected value is 'RunPlaybook'.
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter
+    def order(self) -> int:
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> Optional['outputs.PlaybookActionPropertiesResponse']:
+        return pulumi.get(self, "action_configuration")
+
+
+@pulumi.output_type
+class AutomationRuleTriggeringLogicResponse(dict):
+    """
+    Describes automation rule triggering logic.
+    """
+    def __init__(__self__, *,
+                 is_enabled: bool,
+                 triggers_on: str,
+                 triggers_when: str,
+                 conditions: Optional[Sequence[Any]] = None,
+                 expiration_time_utc: Optional[str] = None):
+        """
+        Describes automation rule triggering logic.
+        :param bool is_enabled: Determines whether the automation rule is enabled or disabled.
+        :param Sequence[Union['BooleanConditionPropertiesResponse', 'PropertyArrayChangedConditionPropertiesResponse', 'PropertyArrayConditionPropertiesResponse', 'PropertyChangedConditionPropertiesResponse', 'PropertyConditionPropertiesResponse']] conditions: The conditions to evaluate to determine if the automation rule should be triggered on a given object.
+        :param str expiration_time_utc: Determines when the automation rule should automatically expire and be disabled.
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "triggers_on", triggers_on)
+        pulumi.set(__self__, "triggers_when", triggers_when)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if expiration_time_utc is not None:
+            pulumi.set(__self__, "expiration_time_utc", expiration_time_utc)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        Determines whether the automation rule is enabled or disabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="triggersOn")
+    def triggers_on(self) -> str:
+        return pulumi.get(self, "triggers_on")
+
+    @property
+    @pulumi.getter(name="triggersWhen")
+    def triggers_when(self) -> str:
+        return pulumi.get(self, "triggers_when")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence[Any]]:
+        """
+        The conditions to evaluate to determine if the automation rule should be triggered on a given object.
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter(name="expirationTimeUtc")
+    def expiration_time_utc(self) -> Optional[str]:
+        """
+        Determines when the automation rule should automatically expire and be disabled.
+        """
+        return pulumi.get(self, "expiration_time_utc")
+
+
+@pulumi.output_type
 class AvailabilityResponse(dict):
     """
     Connector Availability Status
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isPreview":
-            suggest = "is_preview"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AvailabilityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AvailabilityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AvailabilityResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  is_preview: Optional[bool] = None,
                  status: Optional[int] = None):
@@ -684,6 +1007,76 @@ class AwsS3DataConnectorDataTypesResponseLogs(dict):
         Describe whether this data type connection is enabled or not.
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class AzureDevOpsResourceInfoResponse(dict):
+    """
+    Resources created in Azure DevOps repository.
+    """
+    def __init__(__self__, *,
+                 pipeline_id: Optional[str] = None,
+                 service_connection_id: Optional[str] = None):
+        """
+        Resources created in Azure DevOps repository.
+        :param str pipeline_id: Id of the pipeline created for the source-control.
+        :param str service_connection_id: Id of the service-connection created for the source-control.
+        """
+        if pipeline_id is not None:
+            pulumi.set(__self__, "pipeline_id", pipeline_id)
+        if service_connection_id is not None:
+            pulumi.set(__self__, "service_connection_id", service_connection_id)
+
+    @property
+    @pulumi.getter(name="pipelineId")
+    def pipeline_id(self) -> Optional[str]:
+        """
+        Id of the pipeline created for the source-control.
+        """
+        return pulumi.get(self, "pipeline_id")
+
+    @property
+    @pulumi.getter(name="serviceConnectionId")
+    def service_connection_id(self) -> Optional[str]:
+        """
+        Id of the service-connection created for the source-control.
+        """
+        return pulumi.get(self, "service_connection_id")
+
+
+@pulumi.output_type
+class BookmarkEntityMappingsResponse(dict):
+    """
+    Describes the entity mappings of a single entity
+    """
+    def __init__(__self__, *,
+                 entity_type: Optional[str] = None,
+                 field_mappings: Optional[Sequence['outputs.EntityFieldMappingResponse']] = None):
+        """
+        Describes the entity mappings of a single entity
+        :param str entity_type: The entity type
+        :param Sequence['EntityFieldMappingResponse'] field_mappings: Array of fields mapping for that entity type
+        """
+        if entity_type is not None:
+            pulumi.set(__self__, "entity_type", entity_type)
+        if field_mappings is not None:
+            pulumi.set(__self__, "field_mappings", field_mappings)
+
+    @property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> Optional[str]:
+        """
+        The entity type
+        """
+        return pulumi.get(self, "entity_type")
+
+    @property
+    @pulumi.getter(name="fieldMappings")
+    def field_mappings(self) -> Optional[Sequence['outputs.EntityFieldMappingResponse']]:
+        """
+        Array of fields mapping for that entity type
+        """
+        return pulumi.get(self, "field_mappings")
 
 
 @pulumi.output_type
@@ -806,49 +1199,101 @@ class BookmarkTimelineItemResponse(dict):
 
 
 @pulumi.output_type
+class BooleanConditionPropertiesResponse(dict):
+    """
+    Describes an automation rule condition that applies a boolean operator (e.g AND, OR) to conditions
+    """
+    def __init__(__self__, *,
+                 condition_type: str,
+                 condition_properties: Optional['outputs.AutomationRuleBooleanConditionResponse'] = None):
+        """
+        Describes an automation rule condition that applies a boolean operator (e.g AND, OR) to conditions
+        :param str condition_type: 
+               Expected value is 'Boolean'.
+        """
+        pulumi.set(__self__, "condition_type", 'Boolean')
+        if condition_properties is not None:
+            pulumi.set(__self__, "condition_properties", condition_properties)
+
+    @property
+    @pulumi.getter(name="conditionType")
+    def condition_type(self) -> str:
+        """
+
+        Expected value is 'Boolean'.
+        """
+        return pulumi.get(self, "condition_type")
+
+    @property
+    @pulumi.getter(name="conditionProperties")
+    def condition_properties(self) -> Optional['outputs.AutomationRuleBooleanConditionResponse']:
+        return pulumi.get(self, "condition_properties")
+
+
+@pulumi.output_type
+class ClientInfoResponse(dict):
+    """
+    Information on the client (user or application) that made some action
+    """
+    def __init__(__self__, *,
+                 email: Optional[str] = None,
+                 name: Optional[str] = None,
+                 object_id: Optional[str] = None,
+                 user_principal_name: Optional[str] = None):
+        """
+        Information on the client (user or application) that made some action
+        :param str email: The email of the client.
+        :param str name: The name of the client.
+        :param str object_id: The object id of the client.
+        :param str user_principal_name: The user principal name of the client.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_principal_name is not None:
+            pulumi.set(__self__, "user_principal_name", user_principal_name)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        The email of the client.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the client.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object id of the client.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="userPrincipalName")
+    def user_principal_name(self) -> Optional[str]:
+        """
+        The user principal name of the client.
+        """
+        return pulumi.get(self, "user_principal_name")
+
+
+@pulumi.output_type
 class CodelessConnectorPollingAuthPropertiesResponse(dict):
     """
     Describe the authentication properties needed to successfully authenticate with the server
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "authType":
-            suggest = "auth_type"
-        elif key == "apiKeyIdentifier":
-            suggest = "api_key_identifier"
-        elif key == "apiKeyName":
-            suggest = "api_key_name"
-        elif key == "authorizationEndpoint":
-            suggest = "authorization_endpoint"
-        elif key == "authorizationEndpointQueryParameters":
-            suggest = "authorization_endpoint_query_parameters"
-        elif key == "flowName":
-            suggest = "flow_name"
-        elif key == "isApiKeyInPostPayload":
-            suggest = "is_api_key_in_post_payload"
-        elif key == "isClientSecretInHeader":
-            suggest = "is_client_secret_in_header"
-        elif key == "redirectionEndpoint":
-            suggest = "redirection_endpoint"
-        elif key == "tokenEndpoint":
-            suggest = "token_endpoint"
-        elif key == "tokenEndpointHeaders":
-            suggest = "token_endpoint_headers"
-        elif key == "tokenEndpointQueryParameters":
-            suggest = "token_endpoint_query_parameters"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CodelessConnectorPollingAuthPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CodelessConnectorPollingAuthPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CodelessConnectorPollingAuthPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  auth_type: str,
                  api_key_identifier: Optional[str] = None,
@@ -1015,23 +1460,6 @@ class CodelessConnectorPollingConfigPropertiesResponse(dict):
     """
     Config to describe the polling config for API poller connector
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isActive":
-            suggest = "is_active"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CodelessConnectorPollingConfigPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CodelessConnectorPollingConfigPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CodelessConnectorPollingConfigPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  auth: 'outputs.CodelessConnectorPollingAuthPropertiesResponse',
                  request: 'outputs.CodelessConnectorPollingRequestPropertiesResponse',
@@ -1101,39 +1529,6 @@ class CodelessConnectorPollingPagingPropertiesResponse(dict):
     """
     Describe the properties needed to make a pagination call
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "pagingType":
-            suggest = "paging_type"
-        elif key == "nextPageParaName":
-            suggest = "next_page_para_name"
-        elif key == "nextPageTokenJsonPath":
-            suggest = "next_page_token_json_path"
-        elif key == "pageCountAttributePath":
-            suggest = "page_count_attribute_path"
-        elif key == "pageSize":
-            suggest = "page_size"
-        elif key == "pageSizeParaName":
-            suggest = "page_size_para_name"
-        elif key == "pageTimeStampAttributePath":
-            suggest = "page_time_stamp_attribute_path"
-        elif key == "pageTotalCountAttributePath":
-            suggest = "page_total_count_attribute_path"
-        elif key == "searchTheLatestTimeStampFromEventsList":
-            suggest = "search_the_latest_time_stamp_from_events_list"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CodelessConnectorPollingPagingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CodelessConnectorPollingPagingPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CodelessConnectorPollingPagingPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  paging_type: str,
                  next_page_para_name: Optional[str] = None,
@@ -1252,43 +1647,6 @@ class CodelessConnectorPollingRequestPropertiesResponse(dict):
     """
     Describe the request properties needed to successfully pull from the server
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "apiEndpoint":
-            suggest = "api_endpoint"
-        elif key == "httpMethod":
-            suggest = "http_method"
-        elif key == "queryTimeFormat":
-            suggest = "query_time_format"
-        elif key == "queryWindowInMin":
-            suggest = "query_window_in_min"
-        elif key == "endTimeAttributeName":
-            suggest = "end_time_attribute_name"
-        elif key == "queryParameters":
-            suggest = "query_parameters"
-        elif key == "queryParametersTemplate":
-            suggest = "query_parameters_template"
-        elif key == "rateLimitQps":
-            suggest = "rate_limit_qps"
-        elif key == "retryCount":
-            suggest = "retry_count"
-        elif key == "startTimeAttributeName":
-            suggest = "start_time_attribute_name"
-        elif key == "timeoutInSeconds":
-            suggest = "timeout_in_seconds"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CodelessConnectorPollingRequestPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CodelessConnectorPollingRequestPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CodelessConnectorPollingRequestPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  api_endpoint: str,
                  http_method: str,
@@ -1440,29 +1798,6 @@ class CodelessConnectorPollingResponsePropertiesResponse(dict):
     """
     Describes the response from the external server
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "eventsJsonPaths":
-            suggest = "events_json_paths"
-        elif key == "isGzipCompressed":
-            suggest = "is_gzip_compressed"
-        elif key == "successStatusJsonPath":
-            suggest = "success_status_json_path"
-        elif key == "successStatusValue":
-            suggest = "success_status_value"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CodelessConnectorPollingResponsePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CodelessConnectorPollingResponsePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CodelessConnectorPollingResponsePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  events_json_paths: Sequence[str],
                  is_gzip_compressed: Optional[bool] = None,
@@ -1521,37 +1856,6 @@ class CodelessUiConnectorConfigPropertiesResponse(dict):
     """
     Config to describe the instructions blade
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "connectivityCriteria":
-            suggest = "connectivity_criteria"
-        elif key == "dataTypes":
-            suggest = "data_types"
-        elif key == "descriptionMarkdown":
-            suggest = "description_markdown"
-        elif key == "graphQueries":
-            suggest = "graph_queries"
-        elif key == "graphQueriesTableName":
-            suggest = "graph_queries_table_name"
-        elif key == "instructionSteps":
-            suggest = "instruction_steps"
-        elif key == "sampleQueries":
-            suggest = "sample_queries"
-        elif key == "customImage":
-            suggest = "custom_image"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CodelessUiConnectorConfigPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CodelessUiConnectorConfigPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CodelessUiConnectorConfigPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  availability: 'outputs.AvailabilityResponse',
                  connectivity_criteria: Sequence['outputs.CodelessUiConnectorConfigPropertiesResponseConnectivityCriteria'],
@@ -1724,23 +2028,6 @@ class CodelessUiConnectorConfigPropertiesResponseConnectivityCriteria(dict):
 
 @pulumi.output_type
 class CodelessUiConnectorConfigPropertiesResponseDataTypes(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lastDataReceivedQuery":
-            suggest = "last_data_received_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CodelessUiConnectorConfigPropertiesResponseDataTypes. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CodelessUiConnectorConfigPropertiesResponseDataTypes.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CodelessUiConnectorConfigPropertiesResponseDataTypes.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  last_data_received_query: Optional[str] = None,
                  name: Optional[str] = None):
@@ -1772,25 +2059,6 @@ class CodelessUiConnectorConfigPropertiesResponseDataTypes(dict):
 
 @pulumi.output_type
 class CodelessUiConnectorConfigPropertiesResponseGraphQueries(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "baseQuery":
-            suggest = "base_query"
-        elif key == "metricName":
-            suggest = "metric_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CodelessUiConnectorConfigPropertiesResponseGraphQueries. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CodelessUiConnectorConfigPropertiesResponseGraphQueries.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CodelessUiConnectorConfigPropertiesResponseGraphQueries.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  base_query: Optional[str] = None,
                  legend: Optional[str] = None,
@@ -1907,6 +2175,41 @@ class CodelessUiConnectorConfigPropertiesResponseSampleQueries(dict):
 
 
 @pulumi.output_type
+class ContentPathMapResponse(dict):
+    """
+    The mapping of content type to a repo path.
+    """
+    def __init__(__self__, *,
+                 content_type: Optional[str] = None,
+                 path: Optional[str] = None):
+        """
+        The mapping of content type to a repo path.
+        :param str content_type: Content type.
+        :param str path: The path to the content.
+        """
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        Content type.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path to the content.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
 class DataConnectorDataTypeCommonResponse(dict):
     """
     Common field for data type in data connectors.
@@ -1929,27 +2232,128 @@ class DataConnectorDataTypeCommonResponse(dict):
 
 
 @pulumi.output_type
+class DeploymentInfoResponse(dict):
+    """
+    Information regarding a deployment.
+    """
+    def __init__(__self__, *,
+                 deployment: Optional['outputs.DeploymentResponse'] = None,
+                 deployment_fetch_status: Optional[str] = None,
+                 message: Optional[str] = None):
+        """
+        Information regarding a deployment.
+        :param 'DeploymentResponse' deployment: Deployment information.
+        :param str deployment_fetch_status: Status while fetching the last deployment.
+        :param str message: Additional details about the deployment that can be shown to the user.
+        """
+        if deployment is not None:
+            pulumi.set(__self__, "deployment", deployment)
+        if deployment_fetch_status is not None:
+            pulumi.set(__self__, "deployment_fetch_status", deployment_fetch_status)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def deployment(self) -> Optional['outputs.DeploymentResponse']:
+        """
+        Deployment information.
+        """
+        return pulumi.get(self, "deployment")
+
+    @property
+    @pulumi.getter(name="deploymentFetchStatus")
+    def deployment_fetch_status(self) -> Optional[str]:
+        """
+        Status while fetching the last deployment.
+        """
+        return pulumi.get(self, "deployment_fetch_status")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Additional details about the deployment that can be shown to the user.
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class DeploymentResponse(dict):
+    """
+    Description about a deployment.
+    """
+    def __init__(__self__, *,
+                 deployment_id: Optional[str] = None,
+                 deployment_logs_url: Optional[str] = None,
+                 deployment_result: Optional[str] = None,
+                 deployment_state: Optional[str] = None,
+                 deployment_time: Optional[str] = None):
+        """
+        Description about a deployment.
+        :param str deployment_id: Deployment identifier.
+        :param str deployment_logs_url: Url to access repository action logs.
+        :param str deployment_result: The outcome of the deployment.
+        :param str deployment_state: Current status of the deployment.
+        :param str deployment_time: The time when the deployment finished.
+        """
+        if deployment_id is not None:
+            pulumi.set(__self__, "deployment_id", deployment_id)
+        if deployment_logs_url is not None:
+            pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
+        if deployment_result is not None:
+            pulumi.set(__self__, "deployment_result", deployment_result)
+        if deployment_state is not None:
+            pulumi.set(__self__, "deployment_state", deployment_state)
+        if deployment_time is not None:
+            pulumi.set(__self__, "deployment_time", deployment_time)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[str]:
+        """
+        Deployment identifier.
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @property
+    @pulumi.getter(name="deploymentLogsUrl")
+    def deployment_logs_url(self) -> Optional[str]:
+        """
+        Url to access repository action logs.
+        """
+        return pulumi.get(self, "deployment_logs_url")
+
+    @property
+    @pulumi.getter(name="deploymentResult")
+    def deployment_result(self) -> Optional[str]:
+        """
+        The outcome of the deployment.
+        """
+        return pulumi.get(self, "deployment_result")
+
+    @property
+    @pulumi.getter(name="deploymentState")
+    def deployment_state(self) -> Optional[str]:
+        """
+        Current status of the deployment.
+        """
+        return pulumi.get(self, "deployment_state")
+
+    @property
+    @pulumi.getter(name="deploymentTime")
+    def deployment_time(self) -> Optional[str]:
+        """
+        The time when the deployment finished.
+        """
+        return pulumi.get(self, "deployment_time")
+
+
+@pulumi.output_type
 class Dynamics365DataConnectorDataTypesResponse(dict):
     """
     The available data types for Dynamics365 data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dynamics365CdsActivities":
-            suggest = "dynamics365_cds_activities"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Dynamics365DataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        Dynamics365DataConnectorDataTypesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        Dynamics365DataConnectorDataTypesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  dynamics365_cds_activities: 'outputs.Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities'):
         """
@@ -1987,6 +2391,41 @@ class Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities(dict):
         Describe whether this data type connection is enabled or not.
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class EntityFieldMappingResponse(dict):
+    """
+    Map identifiers of a single entity
+    """
+    def __init__(__self__, *,
+                 identifier: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Map identifiers of a single entity
+        :param str identifier: Alert V3 identifier
+        :param str value: The value of the identifier
+        """
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[str]:
+        """
+        Alert V3 identifier
+        """
+        return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the identifier
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2088,25 +2527,6 @@ class EntityMappingResponse(dict):
     """
     Single entity mapping for the alert rule
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "entityType":
-            suggest = "entity_type"
-        elif key == "fieldMappings":
-            suggest = "field_mappings"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EntityMappingResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EntityMappingResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EntityMappingResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  entity_type: Optional[str] = None,
                  field_mappings: Optional[Sequence['outputs.FieldMappingResponse']] = None):
@@ -2142,23 +2562,6 @@ class EventGroupingSettingsResponse(dict):
     """
     Event grouping settings property bag.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "aggregationKind":
-            suggest = "aggregation_kind"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EventGroupingSettingsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EventGroupingSettingsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EventGroupingSettingsResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  aggregation_kind: Optional[str] = None):
         """
@@ -2182,23 +2585,6 @@ class FieldMappingResponse(dict):
     """
     A single field mapping of the mapped entity
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "columnName":
-            suggest = "column_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FieldMappingResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FieldMappingResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FieldMappingResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  column_name: Optional[str] = None,
                  identifier: Optional[str] = None):
@@ -2230,29 +2616,79 @@ class FieldMappingResponse(dict):
 
 
 @pulumi.output_type
+class FileMetadataResponse(dict):
+    """
+    Represents a file.
+    """
+    def __init__(__self__, *,
+                 delete_status: str,
+                 file_content_uri: str,
+                 file_format: Optional[str] = None,
+                 file_name: Optional[str] = None,
+                 file_size: Optional[int] = None):
+        """
+        Represents a file.
+        :param str delete_status: Indicates whether the file was deleted from the storage account.
+        :param str file_content_uri: A URI with a valid SAS token to allow uploading / downloading the file.
+        :param str file_format: The format of the file
+        :param str file_name: The name of the file.
+        :param int file_size: The size of the file.
+        """
+        pulumi.set(__self__, "delete_status", delete_status)
+        pulumi.set(__self__, "file_content_uri", file_content_uri)
+        if file_format is not None:
+            pulumi.set(__self__, "file_format", file_format)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if file_size is not None:
+            pulumi.set(__self__, "file_size", file_size)
+
+    @property
+    @pulumi.getter(name="deleteStatus")
+    def delete_status(self) -> str:
+        """
+        Indicates whether the file was deleted from the storage account.
+        """
+        return pulumi.get(self, "delete_status")
+
+    @property
+    @pulumi.getter(name="fileContentUri")
+    def file_content_uri(self) -> str:
+        """
+        A URI with a valid SAS token to allow uploading / downloading the file.
+        """
+        return pulumi.get(self, "file_content_uri")
+
+    @property
+    @pulumi.getter(name="fileFormat")
+    def file_format(self) -> Optional[str]:
+        """
+        The format of the file
+        """
+        return pulumi.get(self, "file_format")
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[str]:
+        """
+        The name of the file.
+        """
+        return pulumi.get(self, "file_name")
+
+    @property
+    @pulumi.getter(name="fileSize")
+    def file_size(self) -> Optional[int]:
+        """
+        The size of the file.
+        """
+        return pulumi.get(self, "file_size")
+
+
+@pulumi.output_type
 class FusionScenarioExclusionPatternResponse(dict):
     """
     Represents a Fusion scenario exclusion patterns in Fusion detection.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dateAddedInUTC":
-            suggest = "date_added_in_utc"
-        elif key == "exclusionPattern":
-            suggest = "exclusion_pattern"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FusionScenarioExclusionPatternResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FusionScenarioExclusionPatternResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FusionScenarioExclusionPatternResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  date_added_in_utc: str,
                  exclusion_pattern: str):
@@ -2286,25 +2722,6 @@ class FusionSourceSettingsResponse(dict):
     """
     Represents a supported source signal configuration in Fusion detection.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sourceName":
-            suggest = "source_name"
-        elif key == "sourceSubTypes":
-            suggest = "source_sub_types"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FusionSourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FusionSourceSettingsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FusionSourceSettingsResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  enabled: bool,
                  source_name: str,
@@ -2350,27 +2767,6 @@ class FusionSourceSubTypeSettingResponse(dict):
     """
     Represents a supported source subtype configuration under a source signal in Fusion detection.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "severityFilters":
-            suggest = "severity_filters"
-        elif key == "sourceSubTypeDisplayName":
-            suggest = "source_sub_type_display_name"
-        elif key == "sourceSubTypeName":
-            suggest = "source_sub_type_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FusionSourceSubTypeSettingResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FusionSourceSubTypeSettingResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FusionSourceSubTypeSettingResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  enabled: bool,
                  severity_filters: 'outputs.FusionSubTypeSeverityFilterResponse',
@@ -2426,23 +2822,6 @@ class FusionSubTypeSeverityFilterResponse(dict):
     """
     Represents severity configuration for a source subtype consumed in Fusion detection.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isSupported":
-            suggest = "is_supported"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FusionSubTypeSeverityFilterResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FusionSubTypeSeverityFilterResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FusionSubTypeSeverityFilterResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  is_supported: bool,
                  filters: Optional[Sequence['outputs.FusionSubTypeSeverityFiltersItemResponse']] = None):
@@ -2585,37 +2964,33 @@ class GetInsightsResultsMetadataResponse(dict):
 
 
 @pulumi.output_type
+class GitHubResourceInfoResponse(dict):
+    """
+    Resources created in GitHub repository.
+    """
+    def __init__(__self__, *,
+                 app_installation_id: Optional[str] = None):
+        """
+        Resources created in GitHub repository.
+        :param str app_installation_id: GitHub application installation id.
+        """
+        if app_installation_id is not None:
+            pulumi.set(__self__, "app_installation_id", app_installation_id)
+
+    @property
+    @pulumi.getter(name="appInstallationId")
+    def app_installation_id(self) -> Optional[str]:
+        """
+        GitHub application installation id.
+        """
+        return pulumi.get(self, "app_installation_id")
+
+
+@pulumi.output_type
 class GroupingConfigurationResponse(dict):
     """
     Grouping configuration property bag.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lookbackDuration":
-            suggest = "lookback_duration"
-        elif key == "matchingMethod":
-            suggest = "matching_method"
-        elif key == "reopenClosedIncident":
-            suggest = "reopen_closed_incident"
-        elif key == "groupByAlertDetails":
-            suggest = "group_by_alert_details"
-        elif key == "groupByCustomDetails":
-            suggest = "group_by_custom_details"
-        elif key == "groupByEntities":
-            suggest = "group_by_entities"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GroupingConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GroupingConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GroupingConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  enabled: bool,
                  lookback_duration: str,
@@ -2820,25 +3195,6 @@ class IncidentConfigurationResponse(dict):
     """
     Incident Configuration property bag.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createIncident":
-            suggest = "create_incident"
-        elif key == "groupingConfiguration":
-            suggest = "grouping_configuration"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IncidentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IncidentConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IncidentConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  create_incident: bool,
                  grouping_configuration: Optional['outputs.GroupingConfigurationResponse'] = None):
@@ -2866,6 +3222,65 @@ class IncidentConfigurationResponse(dict):
         Set how the alerts that are triggered by this analytics rule, are grouped into incidents
         """
         return pulumi.get(self, "grouping_configuration")
+
+
+@pulumi.output_type
+class IncidentInfoResponse(dict):
+    """
+    Describes related incident information for the bookmark
+    """
+    def __init__(__self__, *,
+                 incident_id: Optional[str] = None,
+                 relation_name: Optional[str] = None,
+                 severity: Optional[str] = None,
+                 title: Optional[str] = None):
+        """
+        Describes related incident information for the bookmark
+        :param str incident_id: Incident Id
+        :param str relation_name: Relation Name
+        :param str severity: The severity of the incident
+        :param str title: The title of the incident
+        """
+        if incident_id is not None:
+            pulumi.set(__self__, "incident_id", incident_id)
+        if relation_name is not None:
+            pulumi.set(__self__, "relation_name", relation_name)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="incidentId")
+    def incident_id(self) -> Optional[str]:
+        """
+        Incident Id
+        """
+        return pulumi.get(self, "incident_id")
+
+    @property
+    @pulumi.getter(name="relationName")
+    def relation_name(self) -> Optional[str]:
+        """
+        Relation Name
+        """
+        return pulumi.get(self, "relation_name")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[str]:
+        """
+        The severity of the incident
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        The title of the incident
+        """
+        return pulumi.get(self, "title")
 
 
 @pulumi.output_type
@@ -3015,6 +3430,97 @@ class IncidentOwnerInfoResponse(dict):
 
 
 @pulumi.output_type
+class IncidentPropertiesActionResponse(dict):
+    def __init__(__self__, *,
+                 classification: Optional[str] = None,
+                 classification_comment: Optional[str] = None,
+                 classification_reason: Optional[str] = None,
+                 labels: Optional[Sequence['outputs.IncidentLabelResponse']] = None,
+                 owner: Optional['outputs.IncidentOwnerInfoResponse'] = None,
+                 severity: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        :param str classification: The reason the incident was closed
+        :param str classification_comment: Describes the reason the incident was closed.
+        :param str classification_reason: The classification reason the incident was closed with
+        :param Sequence['IncidentLabelResponse'] labels: List of labels to add to the incident.
+        :param 'IncidentOwnerInfoResponse' owner: Information on the user an incident is assigned to
+        :param str severity: The severity of the incident
+        :param str status: The status of the incident
+        """
+        if classification is not None:
+            pulumi.set(__self__, "classification", classification)
+        if classification_comment is not None:
+            pulumi.set(__self__, "classification_comment", classification_comment)
+        if classification_reason is not None:
+            pulumi.set(__self__, "classification_reason", classification_reason)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def classification(self) -> Optional[str]:
+        """
+        The reason the incident was closed
+        """
+        return pulumi.get(self, "classification")
+
+    @property
+    @pulumi.getter(name="classificationComment")
+    def classification_comment(self) -> Optional[str]:
+        """
+        Describes the reason the incident was closed.
+        """
+        return pulumi.get(self, "classification_comment")
+
+    @property
+    @pulumi.getter(name="classificationReason")
+    def classification_reason(self) -> Optional[str]:
+        """
+        The classification reason the incident was closed with
+        """
+        return pulumi.get(self, "classification_reason")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Sequence['outputs.IncidentLabelResponse']]:
+        """
+        List of labels to add to the incident.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional['outputs.IncidentOwnerInfoResponse']:
+        """
+        Information on the user an incident is assigned to
+        """
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[str]:
+        """
+        The severity of the incident
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the incident
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class InsightsTableResultResponse(dict):
     """
     Query results for table insights query.
@@ -3115,23 +3621,6 @@ class MCASDataConnectorDataTypesResponse(dict):
     """
     The available data types for MCAS (Microsoft Cloud App Security) data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "discoveryLogs":
-            suggest = "discovery_logs"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MCASDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MCASDataConnectorDataTypesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MCASDataConnectorDataTypesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  alerts: 'outputs.DataConnectorDataTypeCommonResponse',
                  discovery_logs: Optional['outputs.DataConnectorDataTypeCommonResponse'] = None):
@@ -3166,25 +3655,6 @@ class MSTIDataConnectorDataTypesResponse(dict):
     """
     The available data types for Microsoft Threat Intelligence Platforms data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "bingSafetyPhishingURL":
-            suggest = "bing_safety_phishing_url"
-        elif key == "microsoftEmergingThreatFeed":
-            suggest = "microsoft_emerging_threat_feed"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MSTIDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MSTIDataConnectorDataTypesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MSTIDataConnectorDataTypesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  bing_safety_phishing_url: 'outputs.MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL',
                  microsoft_emerging_threat_feed: 'outputs.MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed'):
@@ -3218,23 +3688,6 @@ class MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL(dict):
     """
     Data type for Microsoft Threat Intelligence Platforms data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lookbackPeriod":
-            suggest = "lookback_period"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  lookback_period: str,
                  state: str):
@@ -3268,23 +3721,6 @@ class MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed(dict):
     """
     Data type for Microsoft Threat Intelligence Platforms data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lookbackPeriod":
-            suggest = "lookback_period"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  lookback_period: str,
                  state: str):
@@ -3809,23 +4245,6 @@ class OfficeDataConnectorDataTypesResponse(dict):
     """
     The available data types for office data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sharePoint":
-            suggest = "share_point"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OfficeDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        OfficeDataConnectorDataTypesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        OfficeDataConnectorDataTypesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  exchange: 'outputs.OfficeDataConnectorDataTypesResponseExchange',
                  share_point: 'outputs.OfficeDataConnectorDataTypesResponseSharePoint',
@@ -3980,23 +4399,6 @@ class PermissionsResponse(dict):
     """
     Permissions required for the connector
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "resourceProvider":
-            suggest = "resource_provider"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PermissionsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PermissionsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PermissionsResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  customs: Optional[Sequence['outputs.PermissionsResponseCustoms']] = None,
                  resource_provider: Optional[Sequence['outputs.PermissionsResponseResourceProvider']] = None):
@@ -4060,27 +4462,6 @@ class PermissionsResponseCustoms(dict):
 
 @pulumi.output_type
 class PermissionsResponseResourceProvider(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "permissionsDisplayText":
-            suggest = "permissions_display_text"
-        elif key == "providerDisplayName":
-            suggest = "provider_display_name"
-        elif key == "requiredPermissions":
-            suggest = "required_permissions"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PermissionsResponseResourceProvider. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PermissionsResponseResourceProvider.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PermissionsResponseResourceProvider.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  permissions_display_text: Optional[str] = None,
                  provider: Optional[str] = None,
@@ -4147,6 +4528,165 @@ class PermissionsResponseResourceProvider(dict):
 
 
 @pulumi.output_type
+class PlaybookActionPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 logic_app_resource_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str logic_app_resource_id: The resource id of the playbook resource.
+        :param str tenant_id: The tenant id of the playbook resource.
+        """
+        if logic_app_resource_id is not None:
+            pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="logicAppResourceId")
+    def logic_app_resource_id(self) -> Optional[str]:
+        """
+        The resource id of the playbook resource.
+        """
+        return pulumi.get(self, "logic_app_resource_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant id of the playbook resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class PropertyArrayChangedConditionPropertiesResponse(dict):
+    """
+    Describes an automation rule condition that evaluates an array property's value change
+    """
+    def __init__(__self__, *,
+                 condition_type: str,
+                 condition_properties: Optional['outputs.AutomationRulePropertyArrayChangedValuesConditionResponse'] = None):
+        """
+        Describes an automation rule condition that evaluates an array property's value change
+        :param str condition_type: 
+               Expected value is 'PropertyArrayChanged'.
+        """
+        pulumi.set(__self__, "condition_type", 'PropertyArrayChanged')
+        if condition_properties is not None:
+            pulumi.set(__self__, "condition_properties", condition_properties)
+
+    @property
+    @pulumi.getter(name="conditionType")
+    def condition_type(self) -> str:
+        """
+
+        Expected value is 'PropertyArrayChanged'.
+        """
+        return pulumi.get(self, "condition_type")
+
+    @property
+    @pulumi.getter(name="conditionProperties")
+    def condition_properties(self) -> Optional['outputs.AutomationRulePropertyArrayChangedValuesConditionResponse']:
+        return pulumi.get(self, "condition_properties")
+
+
+@pulumi.output_type
+class PropertyArrayConditionPropertiesResponse(dict):
+    """
+    Describes an automation rule condition that evaluates an array property's value
+    """
+    def __init__(__self__, *,
+                 condition_type: str,
+                 condition_properties: Optional['outputs.AutomationRulePropertyArrayValuesConditionResponse'] = None):
+        """
+        Describes an automation rule condition that evaluates an array property's value
+        :param str condition_type: 
+               Expected value is 'PropertyArray'.
+        """
+        pulumi.set(__self__, "condition_type", 'PropertyArray')
+        if condition_properties is not None:
+            pulumi.set(__self__, "condition_properties", condition_properties)
+
+    @property
+    @pulumi.getter(name="conditionType")
+    def condition_type(self) -> str:
+        """
+
+        Expected value is 'PropertyArray'.
+        """
+        return pulumi.get(self, "condition_type")
+
+    @property
+    @pulumi.getter(name="conditionProperties")
+    def condition_properties(self) -> Optional['outputs.AutomationRulePropertyArrayValuesConditionResponse']:
+        return pulumi.get(self, "condition_properties")
+
+
+@pulumi.output_type
+class PropertyChangedConditionPropertiesResponse(dict):
+    """
+    Describes an automation rule condition that evaluates a property's value change
+    """
+    def __init__(__self__, *,
+                 condition_type: str,
+                 condition_properties: Optional['outputs.AutomationRulePropertyValuesChangedConditionResponse'] = None):
+        """
+        Describes an automation rule condition that evaluates a property's value change
+        :param str condition_type: 
+               Expected value is 'PropertyChanged'.
+        """
+        pulumi.set(__self__, "condition_type", 'PropertyChanged')
+        if condition_properties is not None:
+            pulumi.set(__self__, "condition_properties", condition_properties)
+
+    @property
+    @pulumi.getter(name="conditionType")
+    def condition_type(self) -> str:
+        """
+
+        Expected value is 'PropertyChanged'.
+        """
+        return pulumi.get(self, "condition_type")
+
+    @property
+    @pulumi.getter(name="conditionProperties")
+    def condition_properties(self) -> Optional['outputs.AutomationRulePropertyValuesChangedConditionResponse']:
+        return pulumi.get(self, "condition_properties")
+
+
+@pulumi.output_type
+class PropertyConditionPropertiesResponse(dict):
+    """
+    Describes an automation rule condition that evaluates a property's value
+    """
+    def __init__(__self__, *,
+                 condition_type: str,
+                 condition_properties: Optional['outputs.AutomationRulePropertyValuesConditionResponse'] = None):
+        """
+        Describes an automation rule condition that evaluates a property's value
+        :param str condition_type: 
+               Expected value is 'Property'.
+        """
+        pulumi.set(__self__, "condition_type", 'Property')
+        if condition_properties is not None:
+            pulumi.set(__self__, "condition_properties", condition_properties)
+
+    @property
+    @pulumi.getter(name="conditionType")
+    def condition_type(self) -> str:
+        """
+
+        Expected value is 'Property'.
+        """
+        return pulumi.get(self, "condition_type")
+
+    @property
+    @pulumi.getter(name="conditionProperties")
+    def condition_properties(self) -> Optional['outputs.AutomationRulePropertyValuesConditionResponse']:
+        return pulumi.get(self, "condition_properties")
+
+
+@pulumi.output_type
 class RepoResponse(dict):
     """
     Represents a repository.
@@ -4189,6 +4729,124 @@ class RepoResponse(dict):
     def url(self) -> Optional[str]:
         """
         The url to access the repository.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class RepositoryResourceInfoResponse(dict):
+    """
+    Resources created in user's repository for the source-control.
+    """
+    def __init__(__self__, *,
+                 azure_dev_ops_resource_info: Optional['outputs.AzureDevOpsResourceInfoResponse'] = None,
+                 git_hub_resource_info: Optional['outputs.GitHubResourceInfoResponse'] = None,
+                 webhook: Optional['outputs.WebhookResponse'] = None):
+        """
+        Resources created in user's repository for the source-control.
+        :param 'AzureDevOpsResourceInfoResponse' azure_dev_ops_resource_info: Resources created in Azure DevOps for this source-control.
+        :param 'GitHubResourceInfoResponse' git_hub_resource_info: Resources created in GitHub for this source-control.
+        :param 'WebhookResponse' webhook: The webhook object created for the source-control.
+        """
+        if azure_dev_ops_resource_info is not None:
+            pulumi.set(__self__, "azure_dev_ops_resource_info", azure_dev_ops_resource_info)
+        if git_hub_resource_info is not None:
+            pulumi.set(__self__, "git_hub_resource_info", git_hub_resource_info)
+        if webhook is not None:
+            pulumi.set(__self__, "webhook", webhook)
+
+    @property
+    @pulumi.getter(name="azureDevOpsResourceInfo")
+    def azure_dev_ops_resource_info(self) -> Optional['outputs.AzureDevOpsResourceInfoResponse']:
+        """
+        Resources created in Azure DevOps for this source-control.
+        """
+        return pulumi.get(self, "azure_dev_ops_resource_info")
+
+    @property
+    @pulumi.getter(name="gitHubResourceInfo")
+    def git_hub_resource_info(self) -> Optional['outputs.GitHubResourceInfoResponse']:
+        """
+        Resources created in GitHub for this source-control.
+        """
+        return pulumi.get(self, "git_hub_resource_info")
+
+    @property
+    @pulumi.getter
+    def webhook(self) -> Optional['outputs.WebhookResponse']:
+        """
+        The webhook object created for the source-control.
+        """
+        return pulumi.get(self, "webhook")
+
+
+@pulumi.output_type
+class RepositoryResponse(dict):
+    """
+    metadata of a repository.
+    """
+    def __init__(__self__, *,
+                 branch: Optional[str] = None,
+                 deployment_logs_url: Optional[str] = None,
+                 display_url: Optional[str] = None,
+                 path_mapping: Optional[Sequence['outputs.ContentPathMapResponse']] = None,
+                 url: Optional[str] = None):
+        """
+        metadata of a repository.
+        :param str branch: Branch name of repository.
+        :param str deployment_logs_url: Url to access repository action logs.
+        :param str display_url: Display url of repository.
+        :param Sequence['ContentPathMapResponse'] path_mapping: Dictionary of source control content type and path mapping.
+        :param str url: Url of repository.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if deployment_logs_url is not None:
+            pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
+        if display_url is not None:
+            pulumi.set(__self__, "display_url", display_url)
+        if path_mapping is not None:
+            pulumi.set(__self__, "path_mapping", path_mapping)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[str]:
+        """
+        Branch name of repository.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="deploymentLogsUrl")
+    def deployment_logs_url(self) -> Optional[str]:
+        """
+        Url to access repository action logs.
+        """
+        return pulumi.get(self, "deployment_logs_url")
+
+    @property
+    @pulumi.getter(name="displayUrl")
+    def display_url(self) -> Optional[str]:
+        """
+        Display url of repository.
+        """
+        return pulumi.get(self, "display_url")
+
+    @property
+    @pulumi.getter(name="pathMapping")
+    def path_mapping(self) -> Optional[Sequence['outputs.ContentPathMapResponse']]:
+        """
+        Dictionary of source control content type and path mapping.
+        """
+        return pulumi.get(self, "path_mapping")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        Url of repository.
         """
         return pulumi.get(self, "url")
 
@@ -4405,25 +5063,6 @@ class SecurityMLAnalyticsSettingsDataSourceResponse(dict):
     """
     security ml analytics settings data sources
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "connectorId":
-            suggest = "connector_id"
-        elif key == "dataTypes":
-            suggest = "data_types"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SecurityMLAnalyticsSettingsDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SecurityMLAnalyticsSettingsDataSourceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SecurityMLAnalyticsSettingsDataSourceResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  connector_id: Optional[str] = None,
                  data_types: Optional[Sequence[str]] = None):
@@ -4459,23 +5098,6 @@ class SentinelEntityMappingResponse(dict):
     """
     A single sentinel entity mapping
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "columnName":
-            suggest = "column_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SentinelEntityMappingResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SentinelEntityMappingResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SentinelEntityMappingResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  column_name: Optional[str] = None):
         """
@@ -4740,23 +5362,6 @@ class TiTaxiiDataConnectorDataTypesResponse(dict):
     """
     The available data types for Threat Intelligence TAXII data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "taxiiClient":
-            suggest = "taxii_client"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TiTaxiiDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TiTaxiiDataConnectorDataTypesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TiTaxiiDataConnectorDataTypesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  taxii_client: 'outputs.TiTaxiiDataConnectorDataTypesResponseTaxiiClient'):
         """
@@ -4962,5 +5567,143 @@ class UserInfoResponse(dict):
         The object id of the user.
         """
         return pulumi.get(self, "object_id")
+
+
+@pulumi.output_type
+class ValidationErrorResponse(dict):
+    """
+    Describes an error encountered in the file during validation.
+    """
+    def __init__(__self__, *,
+                 error_messages: Sequence[str],
+                 record_index: Optional[int] = None):
+        """
+        Describes an error encountered in the file during validation.
+        :param Sequence[str] error_messages: A list of descriptions of the error.
+        :param int record_index: The number of the record that has the error.
+        """
+        pulumi.set(__self__, "error_messages", error_messages)
+        if record_index is not None:
+            pulumi.set(__self__, "record_index", record_index)
+
+    @property
+    @pulumi.getter(name="errorMessages")
+    def error_messages(self) -> Sequence[str]:
+        """
+        A list of descriptions of the error.
+        """
+        return pulumi.get(self, "error_messages")
+
+    @property
+    @pulumi.getter(name="recordIndex")
+    def record_index(self) -> Optional[int]:
+        """
+        The number of the record that has the error.
+        """
+        return pulumi.get(self, "record_index")
+
+
+@pulumi.output_type
+class WatchlistUserInfoResponse(dict):
+    """
+    User information that made some action
+    """
+    def __init__(__self__, *,
+                 email: str,
+                 name: str,
+                 object_id: Optional[str] = None):
+        """
+        User information that made some action
+        :param str email: The email of the user.
+        :param str name: The name of the user.
+        :param str object_id: The object id of the user.
+        """
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "name", name)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        The email of the user.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the user.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object id of the user.
+        """
+        return pulumi.get(self, "object_id")
+
+
+@pulumi.output_type
+class WebhookResponse(dict):
+    """
+    Detail about the webhook object.
+    """
+    def __init__(__self__, *,
+                 rotate_webhook_secret: Optional[bool] = None,
+                 webhook_id: Optional[str] = None,
+                 webhook_secret_update_time: Optional[str] = None,
+                 webhook_url: Optional[str] = None):
+        """
+        Detail about the webhook object.
+        :param bool rotate_webhook_secret: A flag to instruct the backend service to rotate webhook secret.
+        :param str webhook_id: Unique identifier for the webhook.
+        :param str webhook_secret_update_time: Time when the webhook secret was updated.
+        :param str webhook_url: URL that gets invoked by the webhook.
+        """
+        if rotate_webhook_secret is not None:
+            pulumi.set(__self__, "rotate_webhook_secret", rotate_webhook_secret)
+        if webhook_id is not None:
+            pulumi.set(__self__, "webhook_id", webhook_id)
+        if webhook_secret_update_time is not None:
+            pulumi.set(__self__, "webhook_secret_update_time", webhook_secret_update_time)
+        if webhook_url is not None:
+            pulumi.set(__self__, "webhook_url", webhook_url)
+
+    @property
+    @pulumi.getter(name="rotateWebhookSecret")
+    def rotate_webhook_secret(self) -> Optional[bool]:
+        """
+        A flag to instruct the backend service to rotate webhook secret.
+        """
+        return pulumi.get(self, "rotate_webhook_secret")
+
+    @property
+    @pulumi.getter(name="webhookId")
+    def webhook_id(self) -> Optional[str]:
+        """
+        Unique identifier for the webhook.
+        """
+        return pulumi.get(self, "webhook_id")
+
+    @property
+    @pulumi.getter(name="webhookSecretUpdateTime")
+    def webhook_secret_update_time(self) -> Optional[str]:
+        """
+        Time when the webhook secret was updated.
+        """
+        return pulumi.get(self, "webhook_secret_update_time")
+
+    @property
+    @pulumi.getter(name="webhookUrl")
+    def webhook_url(self) -> Optional[str]:
+        """
+        URL that gets invoked by the webhook.
+        """
+        return pulumi.get(self, "webhook_url")
 
 

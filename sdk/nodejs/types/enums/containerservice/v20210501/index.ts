@@ -34,6 +34,18 @@ export const AgentPoolType = {
  */
 export type AgentPoolType = (typeof AgentPoolType)[keyof typeof AgentPoolType];
 
+export const ConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * The private link service connection status.
+ */
+export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
+
 export const Expander = {
     /**
      * Selects the node group that will have the least idle CPU (if tied, unused memory) after scale-up. This is useful when you have different classes of nodes, for example, high CPU or high memory nodes, and only want to expand those when there are pending pods that need a lot of those resources.
@@ -338,3 +350,18 @@ export const UpgradeChannel = {
  * For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
  */
 export type UpgradeChannel = (typeof UpgradeChannel)[keyof typeof UpgradeChannel];
+
+export const WeekDay = {
+    Sunday: "Sunday",
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+} as const;
+
+/**
+ * The day of the week.
+ */
+export type WeekDay = (typeof WeekDay)[keyof typeof WeekDay];

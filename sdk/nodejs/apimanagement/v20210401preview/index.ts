@@ -5,6 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetApiArgs, GetApiResult, GetApiOutputArgs } from "./getApi";
+export const getApi: typeof import("./getApi").getApi = null as any;
+export const getApiOutput: typeof import("./getApi").getApiOutput = null as any;
+utilities.lazyLoad(exports, ["getApi","getApiOutput"], () => require("./getApi"));
+
+export { GetApiDiagnosticArgs, GetApiDiagnosticResult, GetApiDiagnosticOutputArgs } from "./getApiDiagnostic";
+export const getApiDiagnostic: typeof import("./getApiDiagnostic").getApiDiagnostic = null as any;
+export const getApiDiagnosticOutput: typeof import("./getApiDiagnostic").getApiDiagnosticOutput = null as any;
+utilities.lazyLoad(exports, ["getApiDiagnostic","getApiDiagnosticOutput"], () => require("./getApiDiagnostic"));
+
+export { GetApiIssueArgs, GetApiIssueResult, GetApiIssueOutputArgs } from "./getApiIssue";
+export const getApiIssue: typeof import("./getApiIssue").getApiIssue = null as any;
+export const getApiIssueOutput: typeof import("./getApiIssue").getApiIssueOutput = null as any;
+utilities.lazyLoad(exports, ["getApiIssue","getApiIssueOutput"], () => require("./getApiIssue"));
+
+export { GetApiIssueAttachmentArgs, GetApiIssueAttachmentResult, GetApiIssueAttachmentOutputArgs } from "./getApiIssueAttachment";
+export const getApiIssueAttachment: typeof import("./getApiIssueAttachment").getApiIssueAttachment = null as any;
+export const getApiIssueAttachmentOutput: typeof import("./getApiIssueAttachment").getApiIssueAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getApiIssueAttachment","getApiIssueAttachmentOutput"], () => require("./getApiIssueAttachment"));
+
+export { GetApiIssueCommentArgs, GetApiIssueCommentResult, GetApiIssueCommentOutputArgs } from "./getApiIssueComment";
+export const getApiIssueComment: typeof import("./getApiIssueComment").getApiIssueComment = null as any;
+export const getApiIssueCommentOutput: typeof import("./getApiIssueComment").getApiIssueCommentOutput = null as any;
+utilities.lazyLoad(exports, ["getApiIssueComment","getApiIssueCommentOutput"], () => require("./getApiIssueComment"));
+
+export { GetApiManagementServiceArgs, GetApiManagementServiceResult, GetApiManagementServiceOutputArgs } from "./getApiManagementService";
+export const getApiManagementService: typeof import("./getApiManagementService").getApiManagementService = null as any;
+export const getApiManagementServiceOutput: typeof import("./getApiManagementService").getApiManagementServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getApiManagementService","getApiManagementServiceOutput"], () => require("./getApiManagementService"));
+
 export { GetApiManagementServiceDomainOwnershipIdentifierArgs, GetApiManagementServiceDomainOwnershipIdentifierResult } from "./getApiManagementServiceDomainOwnershipIdentifier";
 export const getApiManagementServiceDomainOwnershipIdentifier: typeof import("./getApiManagementServiceDomainOwnershipIdentifier").getApiManagementServiceDomainOwnershipIdentifier = null as any;
 utilities.lazyLoad(exports, ["getApiManagementServiceDomainOwnershipIdentifier"], () => require("./getApiManagementServiceDomainOwnershipIdentifier"));
@@ -14,15 +44,175 @@ export const getApiManagementServiceSsoToken: typeof import("./getApiManagementS
 export const getApiManagementServiceSsoTokenOutput: typeof import("./getApiManagementServiceSsoToken").getApiManagementServiceSsoTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getApiManagementServiceSsoToken","getApiManagementServiceSsoTokenOutput"], () => require("./getApiManagementServiceSsoToken"));
 
+export { GetApiOperationArgs, GetApiOperationResult, GetApiOperationOutputArgs } from "./getApiOperation";
+export const getApiOperation: typeof import("./getApiOperation").getApiOperation = null as any;
+export const getApiOperationOutput: typeof import("./getApiOperation").getApiOperationOutput = null as any;
+utilities.lazyLoad(exports, ["getApiOperation","getApiOperationOutput"], () => require("./getApiOperation"));
+
+export { GetApiOperationPolicyArgs, GetApiOperationPolicyResult, GetApiOperationPolicyOutputArgs } from "./getApiOperationPolicy";
+export const getApiOperationPolicy: typeof import("./getApiOperationPolicy").getApiOperationPolicy = null as any;
+export const getApiOperationPolicyOutput: typeof import("./getApiOperationPolicy").getApiOperationPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getApiOperationPolicy","getApiOperationPolicyOutput"], () => require("./getApiOperationPolicy"));
+
+export { GetApiPolicyArgs, GetApiPolicyResult, GetApiPolicyOutputArgs } from "./getApiPolicy";
+export const getApiPolicy: typeof import("./getApiPolicy").getApiPolicy = null as any;
+export const getApiPolicyOutput: typeof import("./getApiPolicy").getApiPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getApiPolicy","getApiPolicyOutput"], () => require("./getApiPolicy"));
+
+export { GetApiReleaseArgs, GetApiReleaseResult, GetApiReleaseOutputArgs } from "./getApiRelease";
+export const getApiRelease: typeof import("./getApiRelease").getApiRelease = null as any;
+export const getApiReleaseOutput: typeof import("./getApiRelease").getApiReleaseOutput = null as any;
+utilities.lazyLoad(exports, ["getApiRelease","getApiReleaseOutput"], () => require("./getApiRelease"));
+
+export { GetApiSchemaArgs, GetApiSchemaResult, GetApiSchemaOutputArgs } from "./getApiSchema";
+export const getApiSchema: typeof import("./getApiSchema").getApiSchema = null as any;
+export const getApiSchemaOutput: typeof import("./getApiSchema").getApiSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getApiSchema","getApiSchemaOutput"], () => require("./getApiSchema"));
+
+export { GetApiTagDescriptionArgs, GetApiTagDescriptionResult, GetApiTagDescriptionOutputArgs } from "./getApiTagDescription";
+export const getApiTagDescription: typeof import("./getApiTagDescription").getApiTagDescription = null as any;
+export const getApiTagDescriptionOutput: typeof import("./getApiTagDescription").getApiTagDescriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getApiTagDescription","getApiTagDescriptionOutput"], () => require("./getApiTagDescription"));
+
+export { GetApiVersionSetArgs, GetApiVersionSetResult, GetApiVersionSetOutputArgs } from "./getApiVersionSet";
+export const getApiVersionSet: typeof import("./getApiVersionSet").getApiVersionSet = null as any;
+export const getApiVersionSetOutput: typeof import("./getApiVersionSet").getApiVersionSetOutput = null as any;
+utilities.lazyLoad(exports, ["getApiVersionSet","getApiVersionSetOutput"], () => require("./getApiVersionSet"));
+
+export { GetAuthorizationServerArgs, GetAuthorizationServerResult, GetAuthorizationServerOutputArgs } from "./getAuthorizationServer";
+export const getAuthorizationServer: typeof import("./getAuthorizationServer").getAuthorizationServer = null as any;
+export const getAuthorizationServerOutput: typeof import("./getAuthorizationServer").getAuthorizationServerOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorizationServer","getAuthorizationServerOutput"], () => require("./getAuthorizationServer"));
+
+export { GetBackendArgs, GetBackendResult, GetBackendOutputArgs } from "./getBackend";
+export const getBackend: typeof import("./getBackend").getBackend = null as any;
+export const getBackendOutput: typeof import("./getBackend").getBackendOutput = null as any;
+utilities.lazyLoad(exports, ["getBackend","getBackendOutput"], () => require("./getBackend"));
+
+export { GetCacheArgs, GetCacheResult, GetCacheOutputArgs } from "./getCache";
+export const getCache: typeof import("./getCache").getCache = null as any;
+export const getCacheOutput: typeof import("./getCache").getCacheOutput = null as any;
+utilities.lazyLoad(exports, ["getCache","getCacheOutput"], () => require("./getCache"));
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetContentItemArgs, GetContentItemResult, GetContentItemOutputArgs } from "./getContentItem";
+export const getContentItem: typeof import("./getContentItem").getContentItem = null as any;
+export const getContentItemOutput: typeof import("./getContentItem").getContentItemOutput = null as any;
+utilities.lazyLoad(exports, ["getContentItem","getContentItemOutput"], () => require("./getContentItem"));
+
+export { GetContentTypeArgs, GetContentTypeResult, GetContentTypeOutputArgs } from "./getContentType";
+export const getContentType: typeof import("./getContentType").getContentType = null as any;
+export const getContentTypeOutput: typeof import("./getContentType").getContentTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getContentType","getContentTypeOutput"], () => require("./getContentType"));
+
+export { GetDiagnosticArgs, GetDiagnosticResult, GetDiagnosticOutputArgs } from "./getDiagnostic";
+export const getDiagnostic: typeof import("./getDiagnostic").getDiagnostic = null as any;
+export const getDiagnosticOutput: typeof import("./getDiagnostic").getDiagnosticOutput = null as any;
+utilities.lazyLoad(exports, ["getDiagnostic","getDiagnosticOutput"], () => require("./getDiagnostic"));
+
+export { GetEmailTemplateArgs, GetEmailTemplateResult, GetEmailTemplateOutputArgs } from "./getEmailTemplate";
+export const getEmailTemplate: typeof import("./getEmailTemplate").getEmailTemplate = null as any;
+export const getEmailTemplateOutput: typeof import("./getEmailTemplate").getEmailTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getEmailTemplate","getEmailTemplateOutput"], () => require("./getEmailTemplate"));
+
+export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
+export const getGateway: typeof import("./getGateway").getGateway = null as any;
+export const getGatewayOutput: typeof import("./getGateway").getGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getGateway","getGatewayOutput"], () => require("./getGateway"));
+
+export { GetGatewayCertificateAuthorityArgs, GetGatewayCertificateAuthorityResult, GetGatewayCertificateAuthorityOutputArgs } from "./getGatewayCertificateAuthority";
+export const getGatewayCertificateAuthority: typeof import("./getGatewayCertificateAuthority").getGatewayCertificateAuthority = null as any;
+export const getGatewayCertificateAuthorityOutput: typeof import("./getGatewayCertificateAuthority").getGatewayCertificateAuthorityOutput = null as any;
+utilities.lazyLoad(exports, ["getGatewayCertificateAuthority","getGatewayCertificateAuthorityOutput"], () => require("./getGatewayCertificateAuthority"));
+
+export { GetGatewayHostnameConfigurationArgs, GetGatewayHostnameConfigurationResult, GetGatewayHostnameConfigurationOutputArgs } from "./getGatewayHostnameConfiguration";
+export const getGatewayHostnameConfiguration: typeof import("./getGatewayHostnameConfiguration").getGatewayHostnameConfiguration = null as any;
+export const getGatewayHostnameConfigurationOutput: typeof import("./getGatewayHostnameConfiguration").getGatewayHostnameConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getGatewayHostnameConfiguration","getGatewayHostnameConfigurationOutput"], () => require("./getGatewayHostnameConfiguration"));
+
+export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
+export const getGroup: typeof import("./getGroup").getGroup = null as any;
+export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
+
+export { GetIdentityProviderArgs, GetIdentityProviderResult, GetIdentityProviderOutputArgs } from "./getIdentityProvider";
+export const getIdentityProvider: typeof import("./getIdentityProvider").getIdentityProvider = null as any;
+export const getIdentityProviderOutput: typeof import("./getIdentityProvider").getIdentityProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityProvider","getIdentityProviderOutput"], () => require("./getIdentityProvider"));
+
+export { GetLoggerArgs, GetLoggerResult, GetLoggerOutputArgs } from "./getLogger";
+export const getLogger: typeof import("./getLogger").getLogger = null as any;
+export const getLoggerOutput: typeof import("./getLogger").getLoggerOutput = null as any;
+utilities.lazyLoad(exports, ["getLogger","getLoggerOutput"], () => require("./getLogger"));
+
+export { GetNamedValueArgs, GetNamedValueResult, GetNamedValueOutputArgs } from "./getNamedValue";
+export const getNamedValue: typeof import("./getNamedValue").getNamedValue = null as any;
+export const getNamedValueOutput: typeof import("./getNamedValue").getNamedValueOutput = null as any;
+utilities.lazyLoad(exports, ["getNamedValue","getNamedValueOutput"], () => require("./getNamedValue"));
+
+export { GetOpenIdConnectProviderArgs, GetOpenIdConnectProviderResult, GetOpenIdConnectProviderOutputArgs } from "./getOpenIdConnectProvider";
+export const getOpenIdConnectProvider: typeof import("./getOpenIdConnectProvider").getOpenIdConnectProvider = null as any;
+export const getOpenIdConnectProviderOutput: typeof import("./getOpenIdConnectProvider").getOpenIdConnectProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getOpenIdConnectProvider","getOpenIdConnectProviderOutput"], () => require("./getOpenIdConnectProvider"));
+
+export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
+export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
+export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+
 export { GetPrivateEndpointConnectionByNameArgs, GetPrivateEndpointConnectionByNameResult, GetPrivateEndpointConnectionByNameOutputArgs } from "./getPrivateEndpointConnectionByName";
 export const getPrivateEndpointConnectionByName: typeof import("./getPrivateEndpointConnectionByName").getPrivateEndpointConnectionByName = null as any;
 export const getPrivateEndpointConnectionByNameOutput: typeof import("./getPrivateEndpointConnectionByName").getPrivateEndpointConnectionByNameOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnectionByName","getPrivateEndpointConnectionByNameOutput"], () => require("./getPrivateEndpointConnectionByName"));
 
+export { GetProductArgs, GetProductResult, GetProductOutputArgs } from "./getProduct";
+export const getProduct: typeof import("./getProduct").getProduct = null as any;
+export const getProductOutput: typeof import("./getProduct").getProductOutput = null as any;
+utilities.lazyLoad(exports, ["getProduct","getProductOutput"], () => require("./getProduct"));
+
+export { GetProductPolicyArgs, GetProductPolicyResult, GetProductPolicyOutputArgs } from "./getProductPolicy";
+export const getProductPolicy: typeof import("./getProductPolicy").getProductPolicy = null as any;
+export const getProductPolicyOutput: typeof import("./getProductPolicy").getProductPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getProductPolicy","getProductPolicyOutput"], () => require("./getProductPolicy"));
+
 export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
 export const getSchema: typeof import("./getSchema").getSchema = null as any;
 export const getSchemaOutput: typeof import("./getSchema").getSchemaOutput = null as any;
 utilities.lazyLoad(exports, ["getSchema","getSchemaOutput"], () => require("./getSchema"));
+
+export { GetSubscriptionArgs, GetSubscriptionResult, GetSubscriptionOutputArgs } from "./getSubscription";
+export const getSubscription: typeof import("./getSubscription").getSubscription = null as any;
+export const getSubscriptionOutput: typeof import("./getSubscription").getSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscription","getSubscriptionOutput"], () => require("./getSubscription"));
+
+export { GetTagArgs, GetTagResult, GetTagOutputArgs } from "./getTag";
+export const getTag: typeof import("./getTag").getTag = null as any;
+export const getTagOutput: typeof import("./getTag").getTagOutput = null as any;
+utilities.lazyLoad(exports, ["getTag","getTagOutput"], () => require("./getTag"));
+
+export { GetTagByApiArgs, GetTagByApiResult, GetTagByApiOutputArgs } from "./getTagByApi";
+export const getTagByApi: typeof import("./getTagByApi").getTagByApi = null as any;
+export const getTagByApiOutput: typeof import("./getTagByApi").getTagByApiOutput = null as any;
+utilities.lazyLoad(exports, ["getTagByApi","getTagByApiOutput"], () => require("./getTagByApi"));
+
+export { GetTagByOperationArgs, GetTagByOperationResult, GetTagByOperationOutputArgs } from "./getTagByOperation";
+export const getTagByOperation: typeof import("./getTagByOperation").getTagByOperation = null as any;
+export const getTagByOperationOutput: typeof import("./getTagByOperation").getTagByOperationOutput = null as any;
+utilities.lazyLoad(exports, ["getTagByOperation","getTagByOperationOutput"], () => require("./getTagByOperation"));
+
+export { GetTagByProductArgs, GetTagByProductResult, GetTagByProductOutputArgs } from "./getTagByProduct";
+export const getTagByProduct: typeof import("./getTagByProduct").getTagByProduct = null as any;
+export const getTagByProductOutput: typeof import("./getTagByProduct").getTagByProductOutput = null as any;
+utilities.lazyLoad(exports, ["getTagByProduct","getTagByProductOutput"], () => require("./getTagByProduct"));
+
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
 export { GetUserSharedAccessTokenArgs, GetUserSharedAccessTokenResult, GetUserSharedAccessTokenOutputArgs } from "./getUserSharedAccessToken";
 export const getUserSharedAccessToken: typeof import("./getUserSharedAccessToken").getUserSharedAccessToken = null as any;

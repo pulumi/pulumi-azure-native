@@ -8,5 +8,13 @@ import typing
 from ._enums import *
 from .analytics_connector import *
 from .get_analytics_connector import *
+from .get_dicom_service import *
+from .get_fhir_service import *
+from .get_iot_connector import *
+from .get_iot_connector_fhir_destination import *
+from .get_private_endpoint_connection import *
+from .get_service import *
+from .get_workspace import *
+from .get_workspace_private_endpoint_connection import *
 from ._inputs import *
 from . import outputs

@@ -70,6 +70,11 @@ export const getCodeVersion: typeof import("./getCodeVersion").getCodeVersion = 
 export const getCodeVersionOutput: typeof import("./getCodeVersion").getCodeVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getCodeVersion","getCodeVersionOutput"], () => require("./getCodeVersion"));
 
+export { GetComputeArgs, GetComputeResult, GetComputeOutputArgs } from "./getCompute";
+export const getCompute: typeof import("./getCompute").getCompute = null as any;
+export const getComputeOutput: typeof import("./getCompute").getComputeOutput = null as any;
+utilities.lazyLoad(exports, ["getCompute","getComputeOutput"], () => require("./getCompute"));
+
 export { GetDataContainerArgs, GetDataContainerResult, GetDataContainerOutputArgs } from "./getDataContainer";
 export const getDataContainer: typeof import("./getDataContainer").getDataContainer = null as any;
 export const getDataContainerOutput: typeof import("./getDataContainer").getDataContainerOutput = null as any;
@@ -134,6 +139,21 @@ export { GetOnlineEndpointTokenArgs, GetOnlineEndpointTokenResult, GetOnlineEndp
 export const getOnlineEndpointToken: typeof import("./getOnlineEndpointToken").getOnlineEndpointToken = null as any;
 export const getOnlineEndpointTokenOutput: typeof import("./getOnlineEndpointToken").getOnlineEndpointTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getOnlineEndpointToken","getOnlineEndpointTokenOutput"], () => require("./getOnlineEndpointToken"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+
+export { GetWorkspaceConnectionArgs, GetWorkspaceConnectionResult, GetWorkspaceConnectionOutputArgs } from "./getWorkspaceConnection";
+export const getWorkspaceConnection: typeof import("./getWorkspaceConnection").getWorkspaceConnection = null as any;
+export const getWorkspaceConnectionOutput: typeof import("./getWorkspaceConnection").getWorkspaceConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceConnection","getWorkspaceConnectionOutput"], () => require("./getWorkspaceConnection"));
 
 export { JobArgs } from "./job";
 export type Job = import("./job").Job;

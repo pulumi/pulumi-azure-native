@@ -6,9 +6,14 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_namespace import *
 from .get_namespace_authorization_rule import *
+from .get_queue import *
 from .get_queue_authorization_rule import *
+from .get_subscription import *
+from .get_topic import *
 from .get_topic_authorization_rule import *
 from .namespace_authorization_rule import *
 from .queue_authorization_rule import *
 from .topic_authorization_rule import *
+from . import outputs

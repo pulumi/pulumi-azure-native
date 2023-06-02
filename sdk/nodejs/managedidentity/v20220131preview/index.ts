@@ -15,6 +15,11 @@ export const getFederatedIdentityCredential: typeof import("./getFederatedIdenti
 export const getFederatedIdentityCredentialOutput: typeof import("./getFederatedIdentityCredential").getFederatedIdentityCredentialOutput = null as any;
 utilities.lazyLoad(exports, ["getFederatedIdentityCredential","getFederatedIdentityCredentialOutput"], () => require("./getFederatedIdentityCredential"));
 
+export { GetUserAssignedIdentityArgs, GetUserAssignedIdentityResult, GetUserAssignedIdentityOutputArgs } from "./getUserAssignedIdentity";
+export const getUserAssignedIdentity: typeof import("./getUserAssignedIdentity").getUserAssignedIdentity = null as any;
+export const getUserAssignedIdentityOutput: typeof import("./getUserAssignedIdentity").getUserAssignedIdentityOutput = null as any;
+utilities.lazyLoad(exports, ["getUserAssignedIdentity","getUserAssignedIdentityOutput"], () => require("./getUserAssignedIdentity"));
+
 export { ListUserAssignedIdentityAssociatedResourcesArgs, ListUserAssignedIdentityAssociatedResourcesResult, ListUserAssignedIdentityAssociatedResourcesOutputArgs } from "./listUserAssignedIdentityAssociatedResources";
 export const listUserAssignedIdentityAssociatedResources: typeof import("./listUserAssignedIdentityAssociatedResources").listUserAssignedIdentityAssociatedResources = null as any;
 export const listUserAssignedIdentityAssociatedResourcesOutput: typeof import("./listUserAssignedIdentityAssociatedResources").listUserAssignedIdentityAssociatedResourcesOutput = null as any;

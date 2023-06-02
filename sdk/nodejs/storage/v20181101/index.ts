@@ -5,6 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetBlobContainerArgs, GetBlobContainerResult, GetBlobContainerOutputArgs } from "./getBlobContainer";
+export const getBlobContainer: typeof import("./getBlobContainer").getBlobContainer = null as any;
+export const getBlobContainerOutput: typeof import("./getBlobContainer").getBlobContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getBlobContainer","getBlobContainerOutput"], () => require("./getBlobContainer"));
+
+export { GetBlobContainerImmutabilityPolicyArgs, GetBlobContainerImmutabilityPolicyResult, GetBlobContainerImmutabilityPolicyOutputArgs } from "./getBlobContainerImmutabilityPolicy";
+export const getBlobContainerImmutabilityPolicy: typeof import("./getBlobContainerImmutabilityPolicy").getBlobContainerImmutabilityPolicy = null as any;
+export const getBlobContainerImmutabilityPolicyOutput: typeof import("./getBlobContainerImmutabilityPolicy").getBlobContainerImmutabilityPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getBlobContainerImmutabilityPolicy","getBlobContainerImmutabilityPolicyOutput"], () => require("./getBlobContainerImmutabilityPolicy"));
+
+export { GetBlobServicePropertiesArgs, GetBlobServicePropertiesResult, GetBlobServicePropertiesOutputArgs } from "./getBlobServiceProperties";
+export const getBlobServiceProperties: typeof import("./getBlobServiceProperties").getBlobServiceProperties = null as any;
+export const getBlobServicePropertiesOutput: typeof import("./getBlobServiceProperties").getBlobServicePropertiesOutput = null as any;
+utilities.lazyLoad(exports, ["getBlobServiceProperties","getBlobServicePropertiesOutput"], () => require("./getBlobServiceProperties"));
+
+export { GetManagementPolicyArgs, GetManagementPolicyResult, GetManagementPolicyOutputArgs } from "./getManagementPolicy";
+export const getManagementPolicy: typeof import("./getManagementPolicy").getManagementPolicy = null as any;
+export const getManagementPolicyOutput: typeof import("./getManagementPolicy").getManagementPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getManagementPolicy","getManagementPolicyOutput"], () => require("./getManagementPolicy"));
+
 export { GetStorageAccountArgs, GetStorageAccountResult, GetStorageAccountOutputArgs } from "./getStorageAccount";
 export const getStorageAccount: typeof import("./getStorageAccount").getStorageAccount = null as any;
 export const getStorageAccountOutput: typeof import("./getStorageAccount").getStorageAccountOutput = null as any;

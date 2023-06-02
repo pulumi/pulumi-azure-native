@@ -8,5 +8,9 @@ import typing
 from ._enums import *
 from .active_directory_connector import *
 from .get_active_directory_connector import *
+from .get_data_controller import *
+from .get_postgres_instance import *
+from .get_sql_managed_instance import *
+from .get_sql_server_instance import *
 from ._inputs import *
 from . import outputs

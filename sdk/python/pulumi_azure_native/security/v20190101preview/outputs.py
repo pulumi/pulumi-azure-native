@@ -12,6 +12,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AssessmentLinksResponse',
+    'AssessmentStatusResponse',
     'AutomationActionEventHubResponse',
     'AutomationActionLogicAppResponse',
     'AutomationActionWorkspaceResponse',
@@ -19,9 +21,80 @@ __all__ = [
     'AutomationScopeResponse',
     'AutomationSourceResponse',
     'AutomationTriggeringRuleResponse',
+    'AzureResourceDetailsResponse',
+    'OnPremiseResourceDetailsResponse',
+    'OnPremiseSqlResourceDetailsResponse',
     'ScopeElementResponse',
     'SuppressionAlertsScopeResponse',
 ]
+
+@pulumi.output_type
+class AssessmentLinksResponse(dict):
+    """
+    Links relevant to the assessment
+    """
+    def __init__(__self__, *,
+                 azure_portal_uri: str):
+        """
+        Links relevant to the assessment
+        :param str azure_portal_uri: Link to assessment in Azure Portal
+        """
+        pulumi.set(__self__, "azure_portal_uri", azure_portal_uri)
+
+    @property
+    @pulumi.getter(name="azurePortalUri")
+    def azure_portal_uri(self) -> str:
+        """
+        Link to assessment in Azure Portal
+        """
+        return pulumi.get(self, "azure_portal_uri")
+
+
+@pulumi.output_type
+class AssessmentStatusResponse(dict):
+    """
+    The result of the assessment
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 cause: Optional[str] = None,
+                 description: Optional[str] = None):
+        """
+        The result of the assessment
+        :param str code: Programmatic code for the status of the assessment
+        :param str cause: Programmatic code for the cause of the assessment status
+        :param str description: Human readable description of the assessment status
+        """
+        pulumi.set(__self__, "code", code)
+        if cause is not None:
+            pulumi.set(__self__, "cause", cause)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Programmatic code for the status of the assessment
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def cause(self) -> Optional[str]:
+        """
+        Programmatic code for the cause of the assessment status
+        """
+        return pulumi.get(self, "cause")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Human readable description of the assessment status
+        """
+        return pulumi.get(self, "description")
+
 
 @pulumi.output_type
 class AutomationActionEventHubResponse(dict):
@@ -430,6 +503,199 @@ class AutomationTriggeringRuleResponse(dict):
         The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
         """
         return pulumi.get(self, "property_type")
+
+
+@pulumi.output_type
+class AzureResourceDetailsResponse(dict):
+    """
+    Details of the Azure resource that was assessed
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 source: str):
+        """
+        Details of the Azure resource that was assessed
+        :param str id: Azure resource Id of the assessed resource
+        :param str source: The platform where the assessed resource resides
+               Expected value is 'Azure'.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "source", 'Azure')
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id of the assessed resource
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The platform where the assessed resource resides
+        Expected value is 'Azure'.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class OnPremiseResourceDetailsResponse(dict):
+    """
+    Details of the On Premise resource that was assessed
+    """
+    def __init__(__self__, *,
+                 machine_name: str,
+                 source: str,
+                 source_computer_id: str,
+                 vmuuid: str,
+                 workspace_id: str):
+        """
+        Details of the On Premise resource that was assessed
+        :param str machine_name: The name of the machine
+        :param str source: The platform where the assessed resource resides
+               Expected value is 'OnPremise'.
+        :param str source_computer_id: The oms agent Id installed on the machine
+        :param str vmuuid: The unique Id of the machine
+        :param str workspace_id: Azure resource Id of the workspace the machine is attached to
+        """
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "source", 'OnPremise')
+        pulumi.set(__self__, "source_computer_id", source_computer_id)
+        pulumi.set(__self__, "vmuuid", vmuuid)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> str:
+        """
+        The name of the machine
+        """
+        return pulumi.get(self, "machine_name")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The platform where the assessed resource resides
+        Expected value is 'OnPremise'.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="sourceComputerId")
+    def source_computer_id(self) -> str:
+        """
+        The oms agent Id installed on the machine
+        """
+        return pulumi.get(self, "source_computer_id")
+
+    @property
+    @pulumi.getter
+    def vmuuid(self) -> str:
+        """
+        The unique Id of the machine
+        """
+        return pulumi.get(self, "vmuuid")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+        return pulumi.get(self, "workspace_id")
+
+
+@pulumi.output_type
+class OnPremiseSqlResourceDetailsResponse(dict):
+    """
+    Details of the On Premise Sql resource that was assessed
+    """
+    def __init__(__self__, *,
+                 database_name: str,
+                 machine_name: str,
+                 server_name: str,
+                 source: str,
+                 source_computer_id: str,
+                 vmuuid: str,
+                 workspace_id: str):
+        """
+        Details of the On Premise Sql resource that was assessed
+        :param str database_name: The Sql database name installed on the machine
+        :param str machine_name: The name of the machine
+        :param str server_name: The Sql server name installed on the machine
+        :param str source: The platform where the assessed resource resides
+               Expected value is 'OnPremiseSql'.
+        :param str source_computer_id: The oms agent Id installed on the machine
+        :param str vmuuid: The unique Id of the machine
+        :param str workspace_id: Azure resource Id of the workspace the machine is attached to
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "source", 'OnPremiseSql')
+        pulumi.set(__self__, "source_computer_id", source_computer_id)
+        pulumi.set(__self__, "vmuuid", vmuuid)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        The Sql database name installed on the machine
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> str:
+        """
+        The name of the machine
+        """
+        return pulumi.get(self, "machine_name")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> str:
+        """
+        The Sql server name installed on the machine
+        """
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The platform where the assessed resource resides
+        Expected value is 'OnPremiseSql'.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="sourceComputerId")
+    def source_computer_id(self) -> str:
+        """
+        The oms agent Id installed on the machine
+        """
+        return pulumi.get(self, "source_computer_id")
+
+    @property
+    @pulumi.getter
+    def vmuuid(self) -> str:
+        """
+        The unique Id of the machine
+        """
+        return pulumi.get(self, "vmuuid")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+        return pulumi.get(self, "workspace_id")
 
 
 @pulumi.output_type

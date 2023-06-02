@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetPeerAsnArgs, GetPeerAsnResult, GetPeerAsnOutputArgs } from "./getPeerAsn";
+export const getPeerAsn: typeof import("./getPeerAsn").getPeerAsn = null as any;
+export const getPeerAsnOutput: typeof import("./getPeerAsn").getPeerAsnOutput = null as any;
+utilities.lazyLoad(exports, ["getPeerAsn","getPeerAsnOutput"], () => require("./getPeerAsn"));
+
+export { GetPeeringArgs, GetPeeringResult, GetPeeringOutputArgs } from "./getPeering";
+export const getPeering: typeof import("./getPeering").getPeering = null as any;
+export const getPeeringOutput: typeof import("./getPeering").getPeeringOutput = null as any;
+utilities.lazyLoad(exports, ["getPeering","getPeeringOutput"], () => require("./getPeering"));
+
+export { GetPeeringServiceArgs, GetPeeringServiceResult, GetPeeringServiceOutputArgs } from "./getPeeringService";
+export const getPeeringService: typeof import("./getPeeringService").getPeeringService = null as any;
+export const getPeeringServiceOutput: typeof import("./getPeeringService").getPeeringServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getPeeringService","getPeeringServiceOutput"], () => require("./getPeeringService"));
+
 export { GetPeeringServicePrefixArgs, GetPeeringServicePrefixResult, GetPeeringServicePrefixOutputArgs } from "./getPeeringServicePrefix";
 export const getPeeringServicePrefix: typeof import("./getPeeringServicePrefix").getPeeringServicePrefix = null as any;
 export const getPeeringServicePrefixOutput: typeof import("./getPeeringServicePrefix").getPeeringServicePrefixOutput = null as any;

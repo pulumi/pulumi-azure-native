@@ -5,6 +5,11 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .get_backup_instance import *
+from .get_backup_policy import *
+from .get_backup_vault import *
+from .get_dpp_resource_guard_proxy import *
 from .get_resource_guard import *
 from .resource_guard import *
 from ._inputs import *

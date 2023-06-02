@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetRoleAssignmentArgs, GetRoleAssignmentResult, GetRoleAssignmentOutputArgs } from "./getRoleAssignment";
+export const getRoleAssignment: typeof import("./getRoleAssignment").getRoleAssignment = null as any;
+export const getRoleAssignmentOutput: typeof import("./getRoleAssignment").getRoleAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getRoleAssignment","getRoleAssignmentOutput"], () => require("./getRoleAssignment"));
+
 export { GetRoleDefinitionArgs, GetRoleDefinitionResult, GetRoleDefinitionOutputArgs } from "./getRoleDefinition";
 export const getRoleDefinition: typeof import("./getRoleDefinition").getRoleDefinition = null as any;
 export const getRoleDefinitionOutput: typeof import("./getRoleDefinition").getRoleDefinitionOutput = null as any;

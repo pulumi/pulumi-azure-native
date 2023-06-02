@@ -8,6 +8,101 @@ using Pulumi;
 namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
 {
     /// <summary>
+    /// Type of storage accessed on the storage account.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccountType : IEquatable<AccountType>
+    {
+        private readonly string _value;
+
+        private AccountType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccountType GeneralPurposeStorage { get; } = new AccountType("GeneralPurposeStorage");
+        public static AccountType BlobStorage { get; } = new AccountType("BlobStorage");
+
+        public static bool operator ==(AccountType left, AccountType right) => left.Equals(right);
+        public static bool operator !=(AccountType left, AccountType right) => !left.Equals(right);
+
+        public static explicit operator string(AccountType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccountType other && Equals(other);
+        public bool Equals(AccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Storage format used for the file represented by the share.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureContainerDataFormat : IEquatable<AzureContainerDataFormat>
+    {
+        private readonly string _value;
+
+        private AzureContainerDataFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureContainerDataFormat BlockBlob { get; } = new AzureContainerDataFormat("BlockBlob");
+        public static AzureContainerDataFormat PageBlob { get; } = new AzureContainerDataFormat("PageBlob");
+        public static AzureContainerDataFormat AzureFile { get; } = new AzureContainerDataFormat("AzureFile");
+
+        public static bool operator ==(AzureContainerDataFormat left, AzureContainerDataFormat right) => left.Equals(right);
+        public static bool operator !=(AzureContainerDataFormat left, AzureContainerDataFormat right) => !left.Equals(right);
+
+        public static explicit operator string(AzureContainerDataFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureContainerDataFormat other && Equals(other);
+        public bool Equals(AzureContainerDataFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of access to be allowed for the client.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClientPermissionType : IEquatable<ClientPermissionType>
+    {
+        private readonly string _value;
+
+        private ClientPermissionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClientPermissionType NoAccess { get; } = new ClientPermissionType("NoAccess");
+        public static ClientPermissionType ReadOnly { get; } = new ClientPermissionType("ReadOnly");
+        public static ClientPermissionType ReadWrite { get; } = new ClientPermissionType("ReadWrite");
+
+        public static bool operator ==(ClientPermissionType left, ClientPermissionType right) => left.Equals(right);
+        public static bool operator !=(ClientPermissionType left, ClientPermissionType right) => !left.Equals(right);
+
+        public static explicit operator string(ClientPermissionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClientPermissionType other && Equals(other);
+        public bool Equals(ClientPermissionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the Data Box Edge/Gateway device.
     /// </summary>
     [EnumType]
@@ -74,6 +169,39 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct DayOfWeek : IEquatable<DayOfWeek>
+    {
+        private readonly string _value;
+
+        private DayOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
+        public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
+        public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
+        public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
+        public static DayOfWeek Thursday { get; } = new DayOfWeek("Thursday");
+        public static DayOfWeek Friday { get; } = new DayOfWeek("Friday");
+        public static DayOfWeek Saturday { get; } = new DayOfWeek("Saturday");
+
+        public static bool operator ==(DayOfWeek left, DayOfWeek right) => left.Equals(right);
+        public static bool operator !=(DayOfWeek left, DayOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DayOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DayOfWeek other && Equals(other);
+        public bool Equals(DayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The algorithm used to encrypt "Value".
     /// </summary>
@@ -99,6 +227,37 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EncryptionAlgorithm other && Equals(other);
         public bool Equals(EncryptionAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Current monitoring status of the share.
+    /// </summary>
+    [EnumType]
+    public readonly struct MonitoringStatus : IEquatable<MonitoringStatus>
+    {
+        private readonly string _value;
+
+        private MonitoringStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MonitoringStatus Enabled { get; } = new MonitoringStatus("Enabled");
+        public static MonitoringStatus Disabled { get; } = new MonitoringStatus("Disabled");
+
+        public static bool operator ==(MonitoringStatus left, MonitoringStatus right) => left.Equals(right);
+        public static bool operator !=(MonitoringStatus left, MonitoringStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MonitoringStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MonitoringStatus other && Equals(other);
+        public bool Equals(MonitoringStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -245,6 +404,134 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
     }
 
     /// <summary>
+    /// Signifies whether SSL needs to be enabled or not.
+    /// </summary>
+    [EnumType]
+    public readonly struct SSLStatus : IEquatable<SSLStatus>
+    {
+        private readonly string _value;
+
+        private SSLStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SSLStatus Enabled { get; } = new SSLStatus("Enabled");
+        public static SSLStatus Disabled { get; } = new SSLStatus("Disabled");
+
+        public static bool operator ==(SSLStatus left, SSLStatus right) => left.Equals(right);
+        public static bool operator !=(SSLStatus left, SSLStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SSLStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SSLStatus other && Equals(other);
+        public bool Equals(SSLStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Access protocol to be used by the share.
+    /// </summary>
+    [EnumType]
+    public readonly struct ShareAccessProtocol : IEquatable<ShareAccessProtocol>
+    {
+        private readonly string _value;
+
+        private ShareAccessProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ShareAccessProtocol SMB { get; } = new ShareAccessProtocol("SMB");
+        public static ShareAccessProtocol NFS { get; } = new ShareAccessProtocol("NFS");
+
+        public static bool operator ==(ShareAccessProtocol left, ShareAccessProtocol right) => left.Equals(right);
+        public static bool operator !=(ShareAccessProtocol left, ShareAccessProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ShareAccessProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ShareAccessProtocol other && Equals(other);
+        public bool Equals(ShareAccessProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of access to be allowed for the user.
+    /// </summary>
+    [EnumType]
+    public readonly struct ShareAccessType : IEquatable<ShareAccessType>
+    {
+        private readonly string _value;
+
+        private ShareAccessType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ShareAccessType Change { get; } = new ShareAccessType("Change");
+        public static ShareAccessType Read { get; } = new ShareAccessType("Read");
+        public static ShareAccessType Custom { get; } = new ShareAccessType("Custom");
+
+        public static bool operator ==(ShareAccessType left, ShareAccessType right) => left.Equals(right);
+        public static bool operator !=(ShareAccessType left, ShareAccessType right) => !left.Equals(right);
+
+        public static explicit operator string(ShareAccessType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ShareAccessType other && Equals(other);
+        public bool Equals(ShareAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Current status of the share.
+    /// </summary>
+    [EnumType]
+    public readonly struct ShareStatus : IEquatable<ShareStatus>
+    {
+        private readonly string _value;
+
+        private ShareStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ShareStatus Offline { get; } = new ShareStatus("Offline");
+        public static ShareStatus Unknown { get; } = new ShareStatus("Unknown");
+        public static ShareStatus OK { get; } = new ShareStatus("OK");
+        public static ShareStatus Updating { get; } = new ShareStatus("Updating");
+        public static ShareStatus NeedsAttention { get; } = new ShareStatus("NeedsAttention");
+
+        public static bool operator ==(ShareStatus left, ShareStatus right) => left.Equals(right);
+        public static bool operator !=(ShareStatus left, ShareStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ShareStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ShareStatus other && Equals(other);
+        public bool Equals(ShareStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// SKU name.
     /// </summary>
     [EnumType]
@@ -374,6 +661,38 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TriggerEventType other && Equals(other);
         public bool Equals(TriggerEventType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the user.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserType : IEquatable<UserType>
+    {
+        private readonly string _value;
+
+        private UserType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserType Share { get; } = new UserType("Share");
+        public static UserType LocalManagement { get; } = new UserType("LocalManagement");
+        public static UserType ARM { get; } = new UserType("ARM");
+
+        public static bool operator ==(UserType left, UserType right) => left.Equals(right);
+        public static bool operator !=(UserType left, UserType right) => !left.Equals(right);
+
+        public static explicit operator string(UserType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserType other && Equals(other);
+        public bool Equals(UserType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

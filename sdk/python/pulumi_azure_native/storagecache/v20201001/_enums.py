@@ -9,6 +9,7 @@ __all__ = [
     'NfsAccessRuleAccess',
     'NfsAccessRuleScope',
     'ProvisioningStateType',
+    'StorageTargetType',
     'UsernameSource',
 ]
 
@@ -49,6 +50,15 @@ class ProvisioningStateType(str, Enum):
     CREATING = "Creating"
     DELETING = "Deleting"
     UPDATING = "Updating"
+
+
+class StorageTargetType(str, Enum):
+    """
+    Type of the Storage Target.
+    """
+    NFS3 = "nfs3"
+    CLFS = "clfs"
+    UNKNOWN = "unknown"
 
 
 class UsernameSource(str, Enum):

@@ -6,5 +6,18 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_database_advisor import *
+from .get_database_blob_auditing_policy import *
+from .get_encryption_protector import *
+from .get_failover_group import *
+from .get_firewall_rule import *
+from .get_managed_instance import *
+from .get_server import *
+from .get_server_advisor import *
 from .get_server_key import *
+from .get_sync_agent import *
+from .get_sync_group import *
+from .get_sync_member import *
+from .get_virtual_network_rule import *
 from .server_key import *
+from . import outputs

@@ -10,10 +10,55 @@ export const getWebApp: typeof import("./getWebApp").getWebApp = null as any;
 export const getWebAppOutput: typeof import("./getWebApp").getWebAppOutput = null as any;
 utilities.lazyLoad(exports, ["getWebApp","getWebAppOutput"], () => require("./getWebApp"));
 
+export { GetWebAppDeploymentArgs, GetWebAppDeploymentResult, GetWebAppDeploymentOutputArgs } from "./getWebAppDeployment";
+export const getWebAppDeployment: typeof import("./getWebAppDeployment").getWebAppDeployment = null as any;
+export const getWebAppDeploymentOutput: typeof import("./getWebAppDeployment").getWebAppDeploymentOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppDeployment","getWebAppDeploymentOutput"], () => require("./getWebAppDeployment"));
+
+export { GetWebAppDeploymentSlotArgs, GetWebAppDeploymentSlotResult, GetWebAppDeploymentSlotOutputArgs } from "./getWebAppDeploymentSlot";
+export const getWebAppDeploymentSlot: typeof import("./getWebAppDeploymentSlot").getWebAppDeploymentSlot = null as any;
+export const getWebAppDeploymentSlotOutput: typeof import("./getWebAppDeploymentSlot").getWebAppDeploymentSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppDeploymentSlot","getWebAppDeploymentSlotOutput"], () => require("./getWebAppDeploymentSlot"));
+
+export { GetWebAppDiagnosticLogsConfigurationArgs, GetWebAppDiagnosticLogsConfigurationResult, GetWebAppDiagnosticLogsConfigurationOutputArgs } from "./getWebAppDiagnosticLogsConfiguration";
+export const getWebAppDiagnosticLogsConfiguration: typeof import("./getWebAppDiagnosticLogsConfiguration").getWebAppDiagnosticLogsConfiguration = null as any;
+export const getWebAppDiagnosticLogsConfigurationOutput: typeof import("./getWebAppDiagnosticLogsConfiguration").getWebAppDiagnosticLogsConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppDiagnosticLogsConfiguration","getWebAppDiagnosticLogsConfigurationOutput"], () => require("./getWebAppDiagnosticLogsConfiguration"));
+
+export { GetWebAppDomainOwnershipIdentifierArgs, GetWebAppDomainOwnershipIdentifierResult, GetWebAppDomainOwnershipIdentifierOutputArgs } from "./getWebAppDomainOwnershipIdentifier";
+export const getWebAppDomainOwnershipIdentifier: typeof import("./getWebAppDomainOwnershipIdentifier").getWebAppDomainOwnershipIdentifier = null as any;
+export const getWebAppDomainOwnershipIdentifierOutput: typeof import("./getWebAppDomainOwnershipIdentifier").getWebAppDomainOwnershipIdentifierOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppDomainOwnershipIdentifier","getWebAppDomainOwnershipIdentifierOutput"], () => require("./getWebAppDomainOwnershipIdentifier"));
+
+export { GetWebAppDomainOwnershipIdentifierSlotArgs, GetWebAppDomainOwnershipIdentifierSlotResult, GetWebAppDomainOwnershipIdentifierSlotOutputArgs } from "./getWebAppDomainOwnershipIdentifierSlot";
+export const getWebAppDomainOwnershipIdentifierSlot: typeof import("./getWebAppDomainOwnershipIdentifierSlot").getWebAppDomainOwnershipIdentifierSlot = null as any;
+export const getWebAppDomainOwnershipIdentifierSlotOutput: typeof import("./getWebAppDomainOwnershipIdentifierSlot").getWebAppDomainOwnershipIdentifierSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppDomainOwnershipIdentifierSlot","getWebAppDomainOwnershipIdentifierSlotOutput"], () => require("./getWebAppDomainOwnershipIdentifierSlot"));
+
 export { GetWebAppFunctionArgs, GetWebAppFunctionResult, GetWebAppFunctionOutputArgs } from "./getWebAppFunction";
 export const getWebAppFunction: typeof import("./getWebAppFunction").getWebAppFunction = null as any;
 export const getWebAppFunctionOutput: typeof import("./getWebAppFunction").getWebAppFunctionOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppFunction","getWebAppFunctionOutput"], () => require("./getWebAppFunction"));
+
+export { GetWebAppHostNameBindingArgs, GetWebAppHostNameBindingResult, GetWebAppHostNameBindingOutputArgs } from "./getWebAppHostNameBinding";
+export const getWebAppHostNameBinding: typeof import("./getWebAppHostNameBinding").getWebAppHostNameBinding = null as any;
+export const getWebAppHostNameBindingOutput: typeof import("./getWebAppHostNameBinding").getWebAppHostNameBindingOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppHostNameBinding","getWebAppHostNameBindingOutput"], () => require("./getWebAppHostNameBinding"));
+
+export { GetWebAppHostNameBindingSlotArgs, GetWebAppHostNameBindingSlotResult, GetWebAppHostNameBindingSlotOutputArgs } from "./getWebAppHostNameBindingSlot";
+export const getWebAppHostNameBindingSlot: typeof import("./getWebAppHostNameBindingSlot").getWebAppHostNameBindingSlot = null as any;
+export const getWebAppHostNameBindingSlotOutput: typeof import("./getWebAppHostNameBindingSlot").getWebAppHostNameBindingSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppHostNameBindingSlot","getWebAppHostNameBindingSlotOutput"], () => require("./getWebAppHostNameBindingSlot"));
+
+export { GetWebAppHybridConnectionArgs, GetWebAppHybridConnectionResult, GetWebAppHybridConnectionOutputArgs } from "./getWebAppHybridConnection";
+export const getWebAppHybridConnection: typeof import("./getWebAppHybridConnection").getWebAppHybridConnection = null as any;
+export const getWebAppHybridConnectionOutput: typeof import("./getWebAppHybridConnection").getWebAppHybridConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppHybridConnection","getWebAppHybridConnectionOutput"], () => require("./getWebAppHybridConnection"));
+
+export { GetWebAppHybridConnectionSlotArgs, GetWebAppHybridConnectionSlotResult, GetWebAppHybridConnectionSlotOutputArgs } from "./getWebAppHybridConnectionSlot";
+export const getWebAppHybridConnectionSlot: typeof import("./getWebAppHybridConnectionSlot").getWebAppHybridConnectionSlot = null as any;
+export const getWebAppHybridConnectionSlotOutput: typeof import("./getWebAppHybridConnectionSlot").getWebAppHybridConnectionSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppHybridConnectionSlot","getWebAppHybridConnectionSlotOutput"], () => require("./getWebAppHybridConnectionSlot"));
 
 export { GetWebAppInstanceFunctionSlotArgs, GetWebAppInstanceFunctionSlotResult, GetWebAppInstanceFunctionSlotOutputArgs } from "./getWebAppInstanceFunctionSlot";
 export const getWebAppInstanceFunctionSlot: typeof import("./getWebAppInstanceFunctionSlot").getWebAppInstanceFunctionSlot = null as any;
@@ -30,6 +75,26 @@ export const getWebAppPremierAddOnSlot: typeof import("./getWebAppPremierAddOnSl
 export const getWebAppPremierAddOnSlotOutput: typeof import("./getWebAppPremierAddOnSlot").getWebAppPremierAddOnSlotOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppPremierAddOnSlot","getWebAppPremierAddOnSlotOutput"], () => require("./getWebAppPremierAddOnSlot"));
 
+export { GetWebAppPublicCertificateArgs, GetWebAppPublicCertificateResult, GetWebAppPublicCertificateOutputArgs } from "./getWebAppPublicCertificate";
+export const getWebAppPublicCertificate: typeof import("./getWebAppPublicCertificate").getWebAppPublicCertificate = null as any;
+export const getWebAppPublicCertificateOutput: typeof import("./getWebAppPublicCertificate").getWebAppPublicCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppPublicCertificate","getWebAppPublicCertificateOutput"], () => require("./getWebAppPublicCertificate"));
+
+export { GetWebAppPublicCertificateSlotArgs, GetWebAppPublicCertificateSlotResult, GetWebAppPublicCertificateSlotOutputArgs } from "./getWebAppPublicCertificateSlot";
+export const getWebAppPublicCertificateSlot: typeof import("./getWebAppPublicCertificateSlot").getWebAppPublicCertificateSlot = null as any;
+export const getWebAppPublicCertificateSlotOutput: typeof import("./getWebAppPublicCertificateSlot").getWebAppPublicCertificateSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppPublicCertificateSlot","getWebAppPublicCertificateSlotOutput"], () => require("./getWebAppPublicCertificateSlot"));
+
+export { GetWebAppRelayServiceConnectionArgs, GetWebAppRelayServiceConnectionResult, GetWebAppRelayServiceConnectionOutputArgs } from "./getWebAppRelayServiceConnection";
+export const getWebAppRelayServiceConnection: typeof import("./getWebAppRelayServiceConnection").getWebAppRelayServiceConnection = null as any;
+export const getWebAppRelayServiceConnectionOutput: typeof import("./getWebAppRelayServiceConnection").getWebAppRelayServiceConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppRelayServiceConnection","getWebAppRelayServiceConnectionOutput"], () => require("./getWebAppRelayServiceConnection"));
+
+export { GetWebAppRelayServiceConnectionSlotArgs, GetWebAppRelayServiceConnectionSlotResult, GetWebAppRelayServiceConnectionSlotOutputArgs } from "./getWebAppRelayServiceConnectionSlot";
+export const getWebAppRelayServiceConnectionSlot: typeof import("./getWebAppRelayServiceConnectionSlot").getWebAppRelayServiceConnectionSlot = null as any;
+export const getWebAppRelayServiceConnectionSlotOutput: typeof import("./getWebAppRelayServiceConnectionSlot").getWebAppRelayServiceConnectionSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppRelayServiceConnectionSlot","getWebAppRelayServiceConnectionSlotOutput"], () => require("./getWebAppRelayServiceConnectionSlot"));
+
 export { GetWebAppSiteExtensionArgs, GetWebAppSiteExtensionResult, GetWebAppSiteExtensionOutputArgs } from "./getWebAppSiteExtension";
 export const getWebAppSiteExtension: typeof import("./getWebAppSiteExtension").getWebAppSiteExtension = null as any;
 export const getWebAppSiteExtensionOutput: typeof import("./getWebAppSiteExtension").getWebAppSiteExtensionOutput = null as any;
@@ -44,6 +109,31 @@ export { GetWebAppSlotArgs, GetWebAppSlotResult, GetWebAppSlotOutputArgs } from 
 export const getWebAppSlot: typeof import("./getWebAppSlot").getWebAppSlot = null as any;
 export const getWebAppSlotOutput: typeof import("./getWebAppSlot").getWebAppSlotOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppSlot","getWebAppSlotOutput"], () => require("./getWebAppSlot"));
+
+export { GetWebAppSlotConfigurationNamesArgs, GetWebAppSlotConfigurationNamesResult, GetWebAppSlotConfigurationNamesOutputArgs } from "./getWebAppSlotConfigurationNames";
+export const getWebAppSlotConfigurationNames: typeof import("./getWebAppSlotConfigurationNames").getWebAppSlotConfigurationNames = null as any;
+export const getWebAppSlotConfigurationNamesOutput: typeof import("./getWebAppSlotConfigurationNames").getWebAppSlotConfigurationNamesOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppSlotConfigurationNames","getWebAppSlotConfigurationNamesOutput"], () => require("./getWebAppSlotConfigurationNames"));
+
+export { GetWebAppSourceControlArgs, GetWebAppSourceControlResult, GetWebAppSourceControlOutputArgs } from "./getWebAppSourceControl";
+export const getWebAppSourceControl: typeof import("./getWebAppSourceControl").getWebAppSourceControl = null as any;
+export const getWebAppSourceControlOutput: typeof import("./getWebAppSourceControl").getWebAppSourceControlOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppSourceControl","getWebAppSourceControlOutput"], () => require("./getWebAppSourceControl"));
+
+export { GetWebAppSourceControlSlotArgs, GetWebAppSourceControlSlotResult, GetWebAppSourceControlSlotOutputArgs } from "./getWebAppSourceControlSlot";
+export const getWebAppSourceControlSlot: typeof import("./getWebAppSourceControlSlot").getWebAppSourceControlSlot = null as any;
+export const getWebAppSourceControlSlotOutput: typeof import("./getWebAppSourceControlSlot").getWebAppSourceControlSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppSourceControlSlot","getWebAppSourceControlSlotOutput"], () => require("./getWebAppSourceControlSlot"));
+
+export { GetWebAppVnetConnectionArgs, GetWebAppVnetConnectionResult, GetWebAppVnetConnectionOutputArgs } from "./getWebAppVnetConnection";
+export const getWebAppVnetConnection: typeof import("./getWebAppVnetConnection").getWebAppVnetConnection = null as any;
+export const getWebAppVnetConnectionOutput: typeof import("./getWebAppVnetConnection").getWebAppVnetConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppVnetConnection","getWebAppVnetConnectionOutput"], () => require("./getWebAppVnetConnection"));
+
+export { GetWebAppVnetConnectionSlotArgs, GetWebAppVnetConnectionSlotResult, GetWebAppVnetConnectionSlotOutputArgs } from "./getWebAppVnetConnectionSlot";
+export const getWebAppVnetConnectionSlot: typeof import("./getWebAppVnetConnectionSlot").getWebAppVnetConnectionSlot = null as any;
+export const getWebAppVnetConnectionSlotOutput: typeof import("./getWebAppVnetConnectionSlot").getWebAppVnetConnectionSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppVnetConnectionSlot","getWebAppVnetConnectionSlotOutput"], () => require("./getWebAppVnetConnectionSlot"));
 
 export { ListWebAppApplicationSettingsArgs, ListWebAppApplicationSettingsResult, ListWebAppApplicationSettingsOutputArgs } from "./listWebAppApplicationSettings";
 export const listWebAppApplicationSettings: typeof import("./listWebAppApplicationSettings").listWebAppApplicationSettings = null as any;

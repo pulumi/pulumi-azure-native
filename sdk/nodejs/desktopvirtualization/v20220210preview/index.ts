@@ -5,10 +5,45 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+
+export { GetApplicationGroupArgs, GetApplicationGroupResult, GetApplicationGroupOutputArgs } from "./getApplicationGroup";
+export const getApplicationGroup: typeof import("./getApplicationGroup").getApplicationGroup = null as any;
+export const getApplicationGroupOutput: typeof import("./getApplicationGroup").getApplicationGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationGroup","getApplicationGroupOutput"], () => require("./getApplicationGroup"));
+
+export { GetHostPoolArgs, GetHostPoolResult, GetHostPoolOutputArgs } from "./getHostPool";
+export const getHostPool: typeof import("./getHostPool").getHostPool = null as any;
+export const getHostPoolOutput: typeof import("./getHostPool").getHostPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getHostPool","getHostPoolOutput"], () => require("./getHostPool"));
+
+export { GetMSIXPackageArgs, GetMSIXPackageResult, GetMSIXPackageOutputArgs } from "./getMSIXPackage";
+export const getMSIXPackage: typeof import("./getMSIXPackage").getMSIXPackage = null as any;
+export const getMSIXPackageOutput: typeof import("./getMSIXPackage").getMSIXPackageOutput = null as any;
+utilities.lazyLoad(exports, ["getMSIXPackage","getMSIXPackageOutput"], () => require("./getMSIXPackage"));
+
+export { GetPrivateEndpointConnectionByHostPoolArgs, GetPrivateEndpointConnectionByHostPoolResult, GetPrivateEndpointConnectionByHostPoolOutputArgs } from "./getPrivateEndpointConnectionByHostPool";
+export const getPrivateEndpointConnectionByHostPool: typeof import("./getPrivateEndpointConnectionByHostPool").getPrivateEndpointConnectionByHostPool = null as any;
+export const getPrivateEndpointConnectionByHostPoolOutput: typeof import("./getPrivateEndpointConnectionByHostPool").getPrivateEndpointConnectionByHostPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionByHostPool","getPrivateEndpointConnectionByHostPoolOutput"], () => require("./getPrivateEndpointConnectionByHostPool"));
+
+export { GetPrivateEndpointConnectionByWorkspaceArgs, GetPrivateEndpointConnectionByWorkspaceResult, GetPrivateEndpointConnectionByWorkspaceOutputArgs } from "./getPrivateEndpointConnectionByWorkspace";
+export const getPrivateEndpointConnectionByWorkspace: typeof import("./getPrivateEndpointConnectionByWorkspace").getPrivateEndpointConnectionByWorkspace = null as any;
+export const getPrivateEndpointConnectionByWorkspaceOutput: typeof import("./getPrivateEndpointConnectionByWorkspace").getPrivateEndpointConnectionByWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionByWorkspace","getPrivateEndpointConnectionByWorkspaceOutput"], () => require("./getPrivateEndpointConnectionByWorkspace"));
+
 export { GetScalingPlanArgs, GetScalingPlanResult, GetScalingPlanOutputArgs } from "./getScalingPlan";
 export const getScalingPlan: typeof import("./getScalingPlan").getScalingPlan = null as any;
 export const getScalingPlanOutput: typeof import("./getScalingPlan").getScalingPlanOutput = null as any;
 utilities.lazyLoad(exports, ["getScalingPlan","getScalingPlanOutput"], () => require("./getScalingPlan"));
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 
 export { ScalingPlanArgs } from "./scalingPlan";
 export type ScalingPlan = import("./scalingPlan").ScalingPlan;

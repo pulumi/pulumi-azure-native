@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'EnterpriseSkuResponse',
+    'ModuleResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -50,6 +51,51 @@ class EnterpriseSkuResponse(dict):
         The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
         """
         return pulumi.get(self, "capacity")
+
+
+@pulumi.output_type
+class ModuleResponse(dict):
+    """
+    Specifies configuration of a redis module
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 version: str,
+                 args: Optional[str] = None):
+        """
+        Specifies configuration of a redis module
+        :param str name: The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
+        :param str version: The version of the module, e.g. '1.0'.
+        :param str args: Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version of the module, e.g. '1.0'.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[str]:
+        """
+        Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+        """
+        return pulumi.get(self, "args")
 
 
 @pulumi.output_type

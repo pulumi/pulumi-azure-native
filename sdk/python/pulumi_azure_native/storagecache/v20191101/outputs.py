@@ -11,11 +11,138 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'CacheHealthResponse',
+    'CacheResponseSku',
+    'CacheUpgradeStatusResponse',
     'ClfsTargetResponse',
     'NamespaceJunctionResponse',
     'Nfs3TargetResponse',
     'UnknownTargetResponse',
 ]
+
+@pulumi.output_type
+class CacheHealthResponse(dict):
+    """
+    An indication of Cache health. Gives more information about health than just that related to provisioning.
+    """
+    def __init__(__self__, *,
+                 state: Optional[str] = None,
+                 status_description: Optional[str] = None):
+        """
+        An indication of Cache health. Gives more information about health than just that related to provisioning.
+        :param str state: List of Cache health states.
+        :param str status_description: Describes explanation of state.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if status_description is not None:
+            pulumi.set(__self__, "status_description", status_description)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        List of Cache health states.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="statusDescription")
+    def status_description(self) -> Optional[str]:
+        """
+        Describes explanation of state.
+        """
+        return pulumi.get(self, "status_description")
+
+
+@pulumi.output_type
+class CacheResponseSku(dict):
+    """
+    SKU for the Cache.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        SKU for the Cache.
+        :param str name: SKU name for this Cache.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        SKU name for this Cache.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class CacheUpgradeStatusResponse(dict):
+    """
+    Properties describing the software upgrade state of the Cache.
+    """
+    def __init__(__self__, *,
+                 current_firmware_version: str,
+                 firmware_update_deadline: str,
+                 firmware_update_status: str,
+                 last_firmware_update: str,
+                 pending_firmware_version: str):
+        """
+        Properties describing the software upgrade state of the Cache.
+        :param str current_firmware_version: Version string of the firmware currently installed on this Cache.
+        :param str firmware_update_deadline: Time at which the pending firmware update will automatically be installed on the Cache.
+        :param str firmware_update_status: True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        :param str last_firmware_update: Time of the last successful firmware update.
+        :param str pending_firmware_version: When firmwareUpdateAvailable is true, this field holds the version string for the update.
+        """
+        pulumi.set(__self__, "current_firmware_version", current_firmware_version)
+        pulumi.set(__self__, "firmware_update_deadline", firmware_update_deadline)
+        pulumi.set(__self__, "firmware_update_status", firmware_update_status)
+        pulumi.set(__self__, "last_firmware_update", last_firmware_update)
+        pulumi.set(__self__, "pending_firmware_version", pending_firmware_version)
+
+    @property
+    @pulumi.getter(name="currentFirmwareVersion")
+    def current_firmware_version(self) -> str:
+        """
+        Version string of the firmware currently installed on this Cache.
+        """
+        return pulumi.get(self, "current_firmware_version")
+
+    @property
+    @pulumi.getter(name="firmwareUpdateDeadline")
+    def firmware_update_deadline(self) -> str:
+        """
+        Time at which the pending firmware update will automatically be installed on the Cache.
+        """
+        return pulumi.get(self, "firmware_update_deadline")
+
+    @property
+    @pulumi.getter(name="firmwareUpdateStatus")
+    def firmware_update_status(self) -> str:
+        """
+        True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        """
+        return pulumi.get(self, "firmware_update_status")
+
+    @property
+    @pulumi.getter(name="lastFirmwareUpdate")
+    def last_firmware_update(self) -> str:
+        """
+        Time of the last successful firmware update.
+        """
+        return pulumi.get(self, "last_firmware_update")
+
+    @property
+    @pulumi.getter(name="pendingFirmwareVersion")
+    def pending_firmware_version(self) -> str:
+        """
+        When firmwareUpdateAvailable is true, this field holds the version string for the update.
+        """
+        return pulumi.get(self, "pending_firmware_version")
+
 
 @pulumi.output_type
 class ClfsTargetResponse(dict):

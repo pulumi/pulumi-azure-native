@@ -6,6 +6,11 @@ from enum import Enum
 
 __all__ = [
     'AccessRights',
+    'EntityAvailabilityStatus',
+    'EntityStatus',
+    'NamespaceState',
+    'SkuName',
+    'SkuTier',
 ]
 
 
@@ -13,3 +18,66 @@ class AccessRights(str, Enum):
     MANAGE = "Manage"
     SEND = "Send"
     LISTEN = "Listen"
+
+
+class EntityAvailabilityStatus(str, Enum):
+    """
+    Entity availability status for the topic.
+    """
+    AVAILABLE = "Available"
+    LIMITED = "Limited"
+    RENAMING = "Renaming"
+    RESTORING = "Restoring"
+    UNKNOWN = "Unknown"
+
+
+class EntityStatus(str, Enum):
+    """
+    Enumerates the possible values for the status of a messaging entity.
+    """
+    ACTIVE = "Active"
+    CREATING = "Creating"
+    DELETING = "Deleting"
+    DISABLED = "Disabled"
+    RECEIVE_DISABLED = "ReceiveDisabled"
+    RENAMING = "Renaming"
+    RESTORING = "Restoring"
+    SEND_DISABLED = "SendDisabled"
+    UNKNOWN = "Unknown"
+
+
+class NamespaceState(str, Enum):
+    """
+    State of the namespace.
+    """
+    UNKNOWN = "Unknown"
+    CREATING = "Creating"
+    CREATED = "Created"
+    ACTIVATING = "Activating"
+    ENABLING = "Enabling"
+    ACTIVE = "Active"
+    DISABLING = "Disabling"
+    DISABLED = "Disabled"
+    SOFT_DELETING = "SoftDeleting"
+    SOFT_DELETED = "SoftDeleted"
+    REMOVING = "Removing"
+    REMOVED = "Removed"
+    FAILED = "Failed"
+
+
+class SkuName(str, Enum):
+    """
+    Name of this SKU.
+    """
+    BASIC = "Basic"
+    STANDARD = "Standard"
+    PREMIUM = "Premium"
+
+
+class SkuTier(str, Enum):
+    """
+    The billing tier of this particular SKU.
+    """
+    BASIC = "Basic"
+    STANDARD = "Standard"
+    PREMIUM = "Premium"

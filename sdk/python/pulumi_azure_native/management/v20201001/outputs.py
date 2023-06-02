@@ -11,9 +11,37 @@ from ... import _utilities
 from . import outputs
 
 __all__ = [
+    'DescendantParentGroupInfoResponse',
     'EntityInfoResponse',
     'EntityParentGroupInfoResponse',
+    'ManagementGroupChildInfoResponse',
+    'ManagementGroupDetailsResponse',
+    'ManagementGroupPathElementResponse',
+    'ParentGroupInfoResponse',
 ]
+
+@pulumi.output_type
+class DescendantParentGroupInfoResponse(dict):
+    """
+    The ID of the parent management group.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        The ID of the parent management group.
+        :param str id: The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        """
+        return pulumi.get(self, "id")
+
 
 @pulumi.output_type
 class EntityInfoResponse(dict):
@@ -196,5 +224,241 @@ class EntityParentGroupInfoResponse(dict):
         The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ManagementGroupChildInfoResponse(dict):
+    """
+    The child information of a management group.
+    """
+    def __init__(__self__, *,
+                 children: Optional[Sequence['outputs.ManagementGroupChildInfoResponse']] = None,
+                 display_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The child information of a management group.
+        :param Sequence['ManagementGroupChildInfoResponse'] children: The list of children.
+        :param str display_name: The friendly name of the child resource.
+        :param str id: The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        :param str name: The name of the child entity.
+        :param str type: The fully qualified resource type which includes provider namespace (e.g. Microsoft.Management/managementGroups)
+        """
+        if children is not None:
+            pulumi.set(__self__, "children", children)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def children(self) -> Optional[Sequence['outputs.ManagementGroupChildInfoResponse']]:
+        """
+        The list of children.
+        """
+        return pulumi.get(self, "children")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The friendly name of the child resource.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the child entity.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The fully qualified resource type which includes provider namespace (e.g. Microsoft.Management/managementGroups)
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ManagementGroupDetailsResponse(dict):
+    """
+    The details of a management group.
+    """
+    def __init__(__self__, *,
+                 management_group_ancestors: Optional[Sequence[str]] = None,
+                 parent: Optional['outputs.ParentGroupInfoResponse'] = None,
+                 path: Optional[Sequence['outputs.ManagementGroupPathElementResponse']] = None,
+                 updated_by: Optional[str] = None,
+                 updated_time: Optional[str] = None,
+                 version: Optional[float] = None):
+        """
+        The details of a management group.
+        :param Sequence[str] management_group_ancestors: The ancestors of the management group.
+        :param 'ParentGroupInfoResponse' parent: (Optional) The ID of the parent management group.
+        :param Sequence['ManagementGroupPathElementResponse'] path: The path from the root to the current group.
+        :param str updated_by: The identity of the principal or process that updated the object.
+        :param str updated_time: The date and time when this object was last updated.
+        :param float version: The version number of the object.
+        """
+        if management_group_ancestors is not None:
+            pulumi.set(__self__, "management_group_ancestors", management_group_ancestors)
+        if parent is not None:
+            pulumi.set(__self__, "parent", parent)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if updated_by is not None:
+            pulumi.set(__self__, "updated_by", updated_by)
+        if updated_time is not None:
+            pulumi.set(__self__, "updated_time", updated_time)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="managementGroupAncestors")
+    def management_group_ancestors(self) -> Optional[Sequence[str]]:
+        """
+        The ancestors of the management group.
+        """
+        return pulumi.get(self, "management_group_ancestors")
+
+    @property
+    @pulumi.getter
+    def parent(self) -> Optional['outputs.ParentGroupInfoResponse']:
+        """
+        (Optional) The ID of the parent management group.
+        """
+        return pulumi.get(self, "parent")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[Sequence['outputs.ManagementGroupPathElementResponse']]:
+        """
+        The path from the root to the current group.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="updatedBy")
+    def updated_by(self) -> Optional[str]:
+        """
+        The identity of the principal or process that updated the object.
+        """
+        return pulumi.get(self, "updated_by")
+
+    @property
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> Optional[str]:
+        """
+        The date and time when this object was last updated.
+        """
+        return pulumi.get(self, "updated_time")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[float]:
+        """
+        The version number of the object.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ManagementGroupPathElementResponse(dict):
+    """
+    A path element of a management group ancestors.
+    """
+    def __init__(__self__, *,
+                 display_name: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        A path element of a management group ancestors.
+        :param str display_name: The friendly name of the group.
+        :param str name: The name of the group.
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The friendly name of the group.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the group.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ParentGroupInfoResponse(dict):
+    """
+    (Optional) The ID of the parent management group.
+    """
+    def __init__(__self__, *,
+                 display_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        (Optional) The ID of the parent management group.
+        :param str display_name: The friendly name of the parent management group.
+        :param str id: The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        :param str name: The name of the parent management group
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The friendly name of the parent management group.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the parent management group
+        """
+        return pulumi.get(self, "name")
 
 

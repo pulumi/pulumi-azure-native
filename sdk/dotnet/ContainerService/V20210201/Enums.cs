@@ -70,6 +70,39 @@ namespace Pulumi.AzureNative.ContainerService.V20210201
     }
 
     /// <summary>
+    /// The private link service connection status.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionStatus : IEquatable<ConnectionStatus>
+    {
+        private readonly string _value;
+
+        private ConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionStatus Pending { get; } = new ConnectionStatus("Pending");
+        public static ConnectionStatus Approved { get; } = new ConnectionStatus("Approved");
+        public static ConnectionStatus Rejected { get; } = new ConnectionStatus("Rejected");
+        public static ConnectionStatus Disconnected { get; } = new ConnectionStatus("Disconnected");
+
+        public static bool operator ==(ConnectionStatus left, ConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(ConnectionStatus left, ConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionStatus other && Equals(other);
+        public bool Equals(ConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Size of agent VMs.
     /// </summary>
     [EnumType]
@@ -272,6 +305,36 @@ namespace Pulumi.AzureNative.ContainerService.V20210201
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct Expander : IEquatable<Expander>
+    {
+        private readonly string _value;
+
+        private Expander(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Expander Least_waste { get; } = new Expander("least-waste");
+        public static Expander Most_pods { get; } = new Expander("most-pods");
+        public static Expander Priority { get; } = new Expander("priority");
+        public static Expander Random { get; } = new Expander("random");
+
+        public static bool operator ==(Expander left, Expander right) => left.Equals(right);
+        public static bool operator !=(Expander left, Expander right) => !left.Equals(right);
+
+        public static explicit operator string(Expander value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Expander other && Equals(other);
+        public bool Equals(Expander other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
     /// </summary>
@@ -296,6 +359,222 @@ namespace Pulumi.AzureNative.ContainerService.V20210201
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KubeletDiskType other && Equals(other);
         public bool Equals(KubeletDiskType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
+    /// </summary>
+    [EnumType]
+    public readonly struct LicenseType : IEquatable<LicenseType>
+    {
+        private readonly string _value;
+
+        private LicenseType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LicenseType None { get; } = new LicenseType("None");
+        public static LicenseType Windows_Server { get; } = new LicenseType("Windows_Server");
+
+        public static bool operator ==(LicenseType left, LicenseType right) => left.Equals(right);
+        public static bool operator !=(LicenseType left, LicenseType right) => !left.Equals(right);
+
+        public static explicit operator string(LicenseType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LicenseType other && Equals(other);
+        public bool Equals(LicenseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The load balancer sku for the managed cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct LoadBalancerSku : IEquatable<LoadBalancerSku>
+    {
+        private readonly string _value;
+
+        private LoadBalancerSku(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LoadBalancerSku Standard { get; } = new LoadBalancerSku("standard");
+        public static LoadBalancerSku Basic { get; } = new LoadBalancerSku("basic");
+
+        public static bool operator ==(LoadBalancerSku left, LoadBalancerSku right) => left.Equals(right);
+        public static bool operator !=(LoadBalancerSku left, LoadBalancerSku right) => !left.Equals(right);
+
+        public static explicit operator string(LoadBalancerSku value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LoadBalancerSku other && Equals(other);
+        public bool Equals(LoadBalancerSku other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Name of a managed cluster SKU.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedClusterSKUName : IEquatable<ManagedClusterSKUName>
+    {
+        private readonly string _value;
+
+        private ManagedClusterSKUName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedClusterSKUName Basic { get; } = new ManagedClusterSKUName("Basic");
+
+        public static bool operator ==(ManagedClusterSKUName left, ManagedClusterSKUName right) => left.Equals(right);
+        public static bool operator !=(ManagedClusterSKUName left, ManagedClusterSKUName right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedClusterSKUName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedClusterSKUName other && Equals(other);
+        public bool Equals(ManagedClusterSKUName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Tier of a managed cluster SKU.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedClusterSKUTier : IEquatable<ManagedClusterSKUTier>
+    {
+        private readonly string _value;
+
+        private ManagedClusterSKUTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedClusterSKUTier Paid { get; } = new ManagedClusterSKUTier("Paid");
+        public static ManagedClusterSKUTier Free { get; } = new ManagedClusterSKUTier("Free");
+
+        public static bool operator ==(ManagedClusterSKUTier left, ManagedClusterSKUTier right) => left.Equals(right);
+        public static bool operator !=(ManagedClusterSKUTier left, ManagedClusterSKUTier right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedClusterSKUTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedClusterSKUTier other && Equals(other);
+        public bool Equals(ManagedClusterSKUTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Network mode used for building Kubernetes network.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkMode : IEquatable<NetworkMode>
+    {
+        private readonly string _value;
+
+        private NetworkMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkMode Transparent { get; } = new NetworkMode("transparent");
+        public static NetworkMode Bridge { get; } = new NetworkMode("bridge");
+
+        public static bool operator ==(NetworkMode left, NetworkMode right) => left.Equals(right);
+        public static bool operator !=(NetworkMode left, NetworkMode right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkMode other && Equals(other);
+        public bool Equals(NetworkMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Network plugin used for building Kubernetes network.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkPlugin : IEquatable<NetworkPlugin>
+    {
+        private readonly string _value;
+
+        private NetworkPlugin(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkPlugin Azure { get; } = new NetworkPlugin("azure");
+        public static NetworkPlugin Kubenet { get; } = new NetworkPlugin("kubenet");
+
+        public static bool operator ==(NetworkPlugin left, NetworkPlugin right) => left.Equals(right);
+        public static bool operator !=(NetworkPlugin left, NetworkPlugin right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkPlugin value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkPlugin other && Equals(other);
+        public bool Equals(NetworkPlugin other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Network policy used for building Kubernetes network.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkPolicy : IEquatable<NetworkPolicy>
+    {
+        private readonly string _value;
+
+        private NetworkPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkPolicy Calico { get; } = new NetworkPolicy("calico");
+        public static NetworkPolicy Azure { get; } = new NetworkPolicy("azure");
+
+        public static bool operator ==(NetworkPolicy left, NetworkPolicy right) => left.Equals(right);
+        public static bool operator !=(NetworkPolicy left, NetworkPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkPolicy other && Equals(other);
+        public bool Equals(NetworkPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -366,6 +645,69 @@ namespace Pulumi.AzureNative.ContainerService.V20210201
     }
 
     /// <summary>
+    /// The outbound (egress) routing method.
+    /// </summary>
+    [EnumType]
+    public readonly struct OutboundType : IEquatable<OutboundType>
+    {
+        private readonly string _value;
+
+        private OutboundType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OutboundType LoadBalancer { get; } = new OutboundType("loadBalancer");
+        public static OutboundType UserDefinedRouting { get; } = new OutboundType("userDefinedRouting");
+
+        public static bool operator ==(OutboundType left, OutboundType right) => left.Equals(right);
+        public static bool operator !=(OutboundType left, OutboundType right) => !left.Equals(right);
+
+        public static explicit operator string(OutboundType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OutboundType other && Equals(other);
+        public bool Equals(OutboundType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
+        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
+
+        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
+        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
     /// </summary>
     [EnumType]
@@ -420,6 +762,75 @@ namespace Pulumi.AzureNative.ContainerService.V20210201
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ScaleSetPriority other && Equals(other);
         public bool Equals(ScaleSetPriority other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// upgrade channel for auto upgrade.
+    /// </summary>
+    [EnumType]
+    public readonly struct UpgradeChannel : IEquatable<UpgradeChannel>
+    {
+        private readonly string _value;
+
+        private UpgradeChannel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UpgradeChannel Rapid { get; } = new UpgradeChannel("rapid");
+        public static UpgradeChannel Stable { get; } = new UpgradeChannel("stable");
+        public static UpgradeChannel Patch { get; } = new UpgradeChannel("patch");
+        public static UpgradeChannel None { get; } = new UpgradeChannel("none");
+
+        public static bool operator ==(UpgradeChannel left, UpgradeChannel right) => left.Equals(right);
+        public static bool operator !=(UpgradeChannel left, UpgradeChannel right) => !left.Equals(right);
+
+        public static explicit operator string(UpgradeChannel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UpgradeChannel other && Equals(other);
+        public bool Equals(UpgradeChannel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A day in a week.
+    /// </summary>
+    [EnumType]
+    public readonly struct WeekDay : IEquatable<WeekDay>
+    {
+        private readonly string _value;
+
+        private WeekDay(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WeekDay Sunday { get; } = new WeekDay("Sunday");
+        public static WeekDay Monday { get; } = new WeekDay("Monday");
+        public static WeekDay Tuesday { get; } = new WeekDay("Tuesday");
+        public static WeekDay Wednesday { get; } = new WeekDay("Wednesday");
+        public static WeekDay Thursday { get; } = new WeekDay("Thursday");
+        public static WeekDay Friday { get; } = new WeekDay("Friday");
+        public static WeekDay Saturday { get; } = new WeekDay("Saturday");
+
+        public static bool operator ==(WeekDay left, WeekDay right) => left.Equals(right);
+        public static bool operator !=(WeekDay left, WeekDay right) => !left.Equals(right);
+
+        public static explicit operator string(WeekDay value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WeekDay other && Equals(other);
+        public bool Equals(WeekDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

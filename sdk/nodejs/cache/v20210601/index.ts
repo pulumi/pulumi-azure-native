@@ -4,8 +4,36 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
+export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
+export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
+
+export { GetLinkedServerArgs, GetLinkedServerResult, GetLinkedServerOutputArgs } from "./getLinkedServer";
+export const getLinkedServer: typeof import("./getLinkedServer").getLinkedServer = null as any;
+export const getLinkedServerOutput: typeof import("./getLinkedServer").getLinkedServerOutput = null as any;
+utilities.lazyLoad(exports, ["getLinkedServer","getLinkedServerOutput"], () => require("./getLinkedServer"));
+
+export { GetPatchScheduleArgs, GetPatchScheduleResult, GetPatchScheduleOutputArgs } from "./getPatchSchedule";
+export const getPatchSchedule: typeof import("./getPatchSchedule").getPatchSchedule = null as any;
+export const getPatchScheduleOutput: typeof import("./getPatchSchedule").getPatchScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getPatchSchedule","getPatchScheduleOutput"], () => require("./getPatchSchedule"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetRedisArgs, GetRedisResult, GetRedisOutputArgs } from "./getRedis";
+export const getRedis: typeof import("./getRedis").getRedis = null as any;
+export const getRedisOutput: typeof import("./getRedis").getRedisOutput = null as any;
+utilities.lazyLoad(exports, ["getRedis","getRedisOutput"], () => require("./getRedis"));
+
 export { ListRedisKeysArgs, ListRedisKeysResult, ListRedisKeysOutputArgs } from "./listRedisKeys";
 export const listRedisKeys: typeof import("./listRedisKeys").listRedisKeys = null as any;
 export const listRedisKeysOutput: typeof import("./listRedisKeys").listRedisKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listRedisKeys","listRedisKeysOutput"], () => require("./listRedisKeys"));
 
+
+// Export enums:
+export * from "../../types/enums/cache/v20210601";

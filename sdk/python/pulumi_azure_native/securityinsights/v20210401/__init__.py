@@ -6,6 +6,9 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_incident import *
+from .get_incident_comment import *
+from .get_incident_relation import *
 from .get_threat_intelligence_indicator import *
 from .get_watchlist import *
 from .get_watchlist_item import *

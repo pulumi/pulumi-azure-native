@@ -20,12 +20,14 @@ __all__ = [
     'AddressPrefixItemResponse',
     'ConfigurationGroupResponse',
     'ConnectivityGroupItemResponse',
+    'CrossTenantScopesResponse',
     'EffectiveConnectivityConfigurationResponse',
     'EffectiveDefaultSecurityAdminRuleResponse',
     'EffectiveSecurityAdminRuleResponse',
     'EffectiveVirtualNetworkResponse',
     'HubResponse',
     'NetworkManagerDeploymentStatusResponse',
+    'NetworkManagerPropertiesResponseNetworkManagerScopes',
     'NetworkManagerSecurityGroupItemResponse',
     'SystemDataResponse',
 ]
@@ -1182,6 +1184,50 @@ class ConnectivityGroupItemResponse(dict):
 
 
 @pulumi.output_type
+class CrossTenantScopesResponse(dict):
+    """
+    Cross tenant scopes.
+    """
+    def __init__(__self__, *,
+                 management_groups: Sequence[str],
+                 subscriptions: Sequence[str],
+                 tenant_id: str):
+        """
+        Cross tenant scopes.
+        :param Sequence[str] management_groups: List of management groups.
+        :param Sequence[str] subscriptions: List of subscriptions.
+        :param str tenant_id: Tenant ID.
+        """
+        pulumi.set(__self__, "management_groups", management_groups)
+        pulumi.set(__self__, "subscriptions", subscriptions)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="managementGroups")
+    def management_groups(self) -> Sequence[str]:
+        """
+        List of management groups.
+        """
+        return pulumi.get(self, "management_groups")
+
+    @property
+    @pulumi.getter
+    def subscriptions(self) -> Sequence[str]:
+        """
+        List of subscriptions.
+        """
+        return pulumi.get(self, "subscriptions")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Tenant ID.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
 class EffectiveConnectivityConfigurationResponse(dict):
     """
     The network manager effective connectivity configuration
@@ -1865,6 +1911,52 @@ class NetworkManagerDeploymentStatusResponse(dict):
         Region Name.
         """
         return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class NetworkManagerPropertiesResponseNetworkManagerScopes(dict):
+    """
+    Scope of Network Manager.
+    """
+    def __init__(__self__, *,
+                 cross_tenant_scopes: Sequence['outputs.CrossTenantScopesResponse'],
+                 management_groups: Optional[Sequence[str]] = None,
+                 subscriptions: Optional[Sequence[str]] = None):
+        """
+        Scope of Network Manager.
+        :param Sequence['CrossTenantScopesResponse'] cross_tenant_scopes: List of cross tenant scopes.
+        :param Sequence[str] management_groups: List of management groups.
+        :param Sequence[str] subscriptions: List of subscriptions.
+        """
+        pulumi.set(__self__, "cross_tenant_scopes", cross_tenant_scopes)
+        if management_groups is not None:
+            pulumi.set(__self__, "management_groups", management_groups)
+        if subscriptions is not None:
+            pulumi.set(__self__, "subscriptions", subscriptions)
+
+    @property
+    @pulumi.getter(name="crossTenantScopes")
+    def cross_tenant_scopes(self) -> Sequence['outputs.CrossTenantScopesResponse']:
+        """
+        List of cross tenant scopes.
+        """
+        return pulumi.get(self, "cross_tenant_scopes")
+
+    @property
+    @pulumi.getter(name="managementGroups")
+    def management_groups(self) -> Optional[Sequence[str]]:
+        """
+        List of management groups.
+        """
+        return pulumi.get(self, "management_groups")
+
+    @property
+    @pulumi.getter
+    def subscriptions(self) -> Optional[Sequence[str]]:
+        """
+        List of subscriptions.
+        """
+        return pulumi.get(self, "subscriptions")
 
 
 @pulumi.output_type

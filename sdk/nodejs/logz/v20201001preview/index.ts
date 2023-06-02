@@ -4,6 +4,26 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
+export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
+export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
+
+export { GetSubAccountArgs, GetSubAccountResult, GetSubAccountOutputArgs } from "./getSubAccount";
+export const getSubAccount: typeof import("./getSubAccount").getSubAccount = null as any;
+export const getSubAccountOutput: typeof import("./getSubAccount").getSubAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getSubAccount","getSubAccountOutput"], () => require("./getSubAccount"));
+
+export { GetSubAccountTagRuleArgs, GetSubAccountTagRuleResult, GetSubAccountTagRuleOutputArgs } from "./getSubAccountTagRule";
+export const getSubAccountTagRule: typeof import("./getSubAccountTagRule").getSubAccountTagRule = null as any;
+export const getSubAccountTagRuleOutput: typeof import("./getSubAccountTagRule").getSubAccountTagRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getSubAccountTagRule","getSubAccountTagRuleOutput"], () => require("./getSubAccountTagRule"));
+
+export { GetTagRuleArgs, GetTagRuleResult, GetTagRuleOutputArgs } from "./getTagRule";
+export const getTagRule: typeof import("./getTagRule").getTagRule = null as any;
+export const getTagRuleOutput: typeof import("./getTagRule").getTagRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getTagRule","getTagRuleOutput"], () => require("./getTagRule"));
+
 export { ListMonitorMonitoredResourcesArgs, ListMonitorMonitoredResourcesResult, ListMonitorMonitoredResourcesOutputArgs } from "./listMonitorMonitoredResources";
 export const listMonitorMonitoredResources: typeof import("./listMonitorMonitoredResources").listMonitorMonitoredResources = null as any;
 export const listMonitorMonitoredResourcesOutput: typeof import("./listMonitorMonitoredResources").listMonitorMonitoredResourcesOutput = null as any;
@@ -29,3 +49,6 @@ export const listSubAccountVMHosts: typeof import("./listSubAccountVMHosts").lis
 export const listSubAccountVMHostsOutput: typeof import("./listSubAccountVMHosts").listSubAccountVMHostsOutput = null as any;
 utilities.lazyLoad(exports, ["listSubAccountVMHosts","listSubAccountVMHostsOutput"], () => require("./listSubAccountVMHosts"));
 
+
+// Export enums:
+export * from "../../types/enums/logz/v20201001preview";

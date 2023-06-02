@@ -6,7 +6,10 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_blob_container import *
+from .get_blob_container_immutability_policy import *
 from .get_management_policy import *
+from .get_storage_account import *
 from .get_storage_account_management_policies import *
 from .list_storage_account_keys import *
 from .list_storage_account_sas import *

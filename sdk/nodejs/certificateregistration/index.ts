@@ -30,11 +30,33 @@ utilities.lazyLoad(exports, ["getAppServiceCertificateOrderCertificate","getAppS
 export * from "../types/enums/certificateregistration";
 
 // Export sub-modules:
+import * as v20150801 from "./v20150801";
+import * as v20180201 from "./v20180201";
+import * as v20190801 from "./v20190801";
+import * as v20200601 from "./v20200601";
+import * as v20200901 from "./v20200901";
 import * as v20201001 from "./v20201001";
+import * as v20201201 from "./v20201201";
+import * as v20210101 from "./v20210101";
+import * as v20210115 from "./v20210115";
+import * as v20210201 from "./v20210201";
+import * as v20210301 from "./v20210301";
+import * as v20220301 from "./v20220301";
 import * as v20220901 from "./v20220901";
 
 export {
+    v20150801,
+    v20180201,
+    v20190801,
+    v20200601,
+    v20200901,
     v20201001,
+    v20201201,
+    v20210101,
+    v20210115,
+    v20210201,
+    v20210301,
+    v20220301,
     v20220901,
 };
 

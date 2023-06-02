@@ -4,10 +4,30 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetCustomerEventArgs, GetCustomerEventResult, GetCustomerEventOutputArgs } from "./getCustomerEvent";
+export const getCustomerEvent: typeof import("./getCustomerEvent").getCustomerEvent = null as any;
+export const getCustomerEventOutput: typeof import("./getCustomerEvent").getCustomerEventOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomerEvent","getCustomerEventOutput"], () => require("./getCustomerEvent"));
+
+export { GetFavoriteProcessArgs, GetFavoriteProcessResult, GetFavoriteProcessOutputArgs } from "./getFavoriteProcess";
+export const getFavoriteProcess: typeof import("./getFavoriteProcess").getFavoriteProcess = null as any;
+export const getFavoriteProcessOutput: typeof import("./getFavoriteProcess").getFavoriteProcessOutput = null as any;
+utilities.lazyLoad(exports, ["getFavoriteProcess","getFavoriteProcessOutput"], () => require("./getFavoriteProcess"));
+
+export { GetPackageArgs, GetPackageResult, GetPackageOutputArgs } from "./getPackage";
+export const getPackage: typeof import("./getPackage").getPackage = null as any;
+export const getPackageOutput: typeof import("./getPackage").getPackageOutput = null as any;
+utilities.lazyLoad(exports, ["getPackage","getPackageOutput"], () => require("./getPackage"));
+
 export { GetPackageDownloadURLArgs, GetPackageDownloadURLResult, GetPackageDownloadURLOutputArgs } from "./getPackageDownloadURL";
 export const getPackageDownloadURL: typeof import("./getPackageDownloadURL").getPackageDownloadURL = null as any;
 export const getPackageDownloadURLOutput: typeof import("./getPackageDownloadURL").getPackageDownloadURLOutput = null as any;
 utilities.lazyLoad(exports, ["getPackageDownloadURL","getPackageDownloadURLOutput"], () => require("./getPackageDownloadURL"));
+
+export { GetTestBaseAccountArgs, GetTestBaseAccountResult, GetTestBaseAccountOutputArgs } from "./getTestBaseAccount";
+export const getTestBaseAccount: typeof import("./getTestBaseAccount").getTestBaseAccount = null as any;
+export const getTestBaseAccountOutput: typeof import("./getTestBaseAccount").getTestBaseAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getTestBaseAccount","getTestBaseAccountOutput"], () => require("./getTestBaseAccount"));
 
 export { GetTestBaseAccountFileUploadUrlArgs, GetTestBaseAccountFileUploadUrlResult, GetTestBaseAccountFileUploadUrlOutputArgs } from "./getTestBaseAccountFileUploadUrl";
 export const getTestBaseAccountFileUploadUrl: typeof import("./getTestBaseAccountFileUploadUrl").getTestBaseAccountFileUploadUrl = null as any;
@@ -24,3 +44,6 @@ export const getTestResultVideoDownloadURL: typeof import("./getTestResultVideoD
 export const getTestResultVideoDownloadURLOutput: typeof import("./getTestResultVideoDownloadURL").getTestResultVideoDownloadURLOutput = null as any;
 utilities.lazyLoad(exports, ["getTestResultVideoDownloadURL","getTestResultVideoDownloadURLOutput"], () => require("./getTestResultVideoDownloadURL"));
 
+
+// Export enums:
+export * from "../../types/enums/testbase/v20201216preview";

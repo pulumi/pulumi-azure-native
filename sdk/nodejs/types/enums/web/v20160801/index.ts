@@ -13,6 +13,16 @@ export const AutoHealActionType = {
  */
 export type AutoHealActionType = (typeof AutoHealActionType)[keyof typeof AutoHealActionType];
 
+export const AzureResourceType = {
+    Website: "Website",
+    TrafficManager: "TrafficManager",
+} as const;
+
+/**
+ * Azure resource type.
+ */
+export type AzureResourceType = (typeof AzureResourceType)[keyof typeof AzureResourceType];
+
 export const BackupRestoreOperationType = {
     Default: "Default",
     Clone: "Clone",
@@ -24,6 +34,21 @@ export const BackupRestoreOperationType = {
  * Type of the backup.
  */
 export type BackupRestoreOperationType = (typeof BackupRestoreOperationType)[keyof typeof BackupRestoreOperationType];
+
+export const BuiltInAuthenticationProvider = {
+    AzureActiveDirectory: "AzureActiveDirectory",
+    Facebook: "Facebook",
+    Google: "Google",
+    MicrosoftAccount: "MicrosoftAccount",
+    Twitter: "Twitter",
+} as const;
+
+/**
+ * The default authentication provider to use when multiple providers are configured.
+ * This setting is only needed if multiple providers are configured and the unauthenticated client
+ * action is set to "RedirectToLoginPage".
+ */
+export type BuiltInAuthenticationProvider = (typeof BuiltInAuthenticationProvider)[keyof typeof BuiltInAuthenticationProvider];
 
 export const ConnectionStringType = {
     MySql: "MySql",
@@ -43,6 +68,16 @@ export const ConnectionStringType = {
  * Type of database.
  */
 export type ConnectionStringType = (typeof ConnectionStringType)[keyof typeof ConnectionStringType];
+
+export const CustomHostNameDnsRecordType = {
+    CName: "CName",
+    A: "A",
+} as const;
+
+/**
+ * Custom DNS record type.
+ */
+export type CustomHostNameDnsRecordType = (typeof CustomHostNameDnsRecordType)[keyof typeof CustomHostNameDnsRecordType];
 
 export const DatabaseType = {
     SqlAzure: "SqlAzure",
@@ -66,6 +101,16 @@ export const FrequencyUnit = {
  */
 export type FrequencyUnit = (typeof FrequencyUnit)[keyof typeof FrequencyUnit];
 
+export const HostNameType = {
+    Verified: "Verified",
+    Managed: "Managed",
+} as const;
+
+/**
+ * Hostname type.
+ */
+export type HostNameType = (typeof HostNameType)[keyof typeof HostNameType];
+
 export const HostType = {
     Standard: "Standard",
     Repository: "Repository",
@@ -75,6 +120,19 @@ export const HostType = {
  * Indicates whether the hostname is a standard or repository hostname.
  */
 export type HostType = (typeof HostType)[keyof typeof HostType];
+
+export const LogLevel = {
+    Off: "Off",
+    Verbose: "Verbose",
+    Information: "Information",
+    Warning: "Warning",
+    Error: "Error",
+} as const;
+
+/**
+ * Log level.
+ */
+export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
 
 export const ManagedPipelineMode = {
     Integrated: "Integrated",
@@ -94,6 +152,17 @@ export const ManagedServiceIdentityType = {
  * Type of managed service identity.
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
+export const PublicCertificateLocation = {
+    CurrentUserMy: "CurrentUserMy",
+    LocalMachineMy: "LocalMachineMy",
+    Unknown: "Unknown",
+} as const;
+
+/**
+ * Public Certificate Location
+ */
+export type PublicCertificateLocation = (typeof PublicCertificateLocation)[keyof typeof PublicCertificateLocation];
 
 export const ScmType = {
     None: "None",
@@ -150,3 +219,13 @@ export const SupportedTlsVersions = {
  * MinTlsVersion: configures the minimum version of TLS required for SSL requests
  */
 export type SupportedTlsVersions = (typeof SupportedTlsVersions)[keyof typeof SupportedTlsVersions];
+
+export const UnauthenticatedClientAction = {
+    RedirectToLoginPage: "RedirectToLoginPage",
+    AllowAnonymous: "AllowAnonymous",
+} as const;
+
+/**
+ * The action to take when an unauthenticated client attempts to access the app.
+ */
+export type UnauthenticatedClientAction = (typeof UnauthenticatedClientAction)[keyof typeof UnauthenticatedClientAction];

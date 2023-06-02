@@ -102,6 +102,8 @@ from .get_virtual_network_gateway_vpnclient_connection_health import *
 from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
 from .get_virtual_network_peering import *
 from .get_virtual_network_tap import *
+from .get_virtual_router import *
+from .get_virtual_router_peering import *
 from .get_virtual_wan import *
 from .get_vpn_connection import *
 from .get_vpn_gateway import *

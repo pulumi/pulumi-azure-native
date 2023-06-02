@@ -34,6 +34,7 @@ __all__ = [
     'GetInsightsErrorResponse',
     'GetInsightsResultsMetadataResponse',
     'GroupingConfigurationResponse',
+    'IncidentAdditionalDataResponse',
     'IncidentConfigurationResponse',
     'IncidentInfoResponse',
     'IncidentLabelResponse',
@@ -963,23 +964,6 @@ class Dynamics365DataConnectorDataTypesResponse(dict):
     """
     The available data types for Dynamics365 data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dynamics365CdsActivities":
-            suggest = "dynamics365_cds_activities"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Dynamics365DataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        Dynamics365DataConnectorDataTypesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        Dynamics365DataConnectorDataTypesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  dynamics365_cds_activities: 'outputs.Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities'):
         """
@@ -1118,23 +1102,6 @@ class EventGroupingSettingsResponse(dict):
     """
     Event grouping settings property bag.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "aggregationKind":
-            suggest = "aggregation_kind"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EventGroupingSettingsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EventGroupingSettingsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EventGroupingSettingsResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  aggregation_kind: Optional[str] = None):
         """
@@ -1237,29 +1204,6 @@ class GroupingConfigurationResponse(dict):
     """
     Grouping configuration property bag.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "entitiesMatchingMethod":
-            suggest = "entities_matching_method"
-        elif key == "lookbackDuration":
-            suggest = "lookback_duration"
-        elif key == "reopenClosedIncident":
-            suggest = "reopen_closed_incident"
-        elif key == "groupByEntities":
-            suggest = "group_by_entities"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GroupingConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GroupingConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GroupingConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  enabled: bool,
                  entities_matching_method: str,
@@ -1323,29 +1267,76 @@ class GroupingConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class IncidentAdditionalDataResponse(dict):
+    """
+    Incident additional data property bag.
+    """
+    def __init__(__self__, *,
+                 alert_product_names: Sequence[str],
+                 alerts_count: int,
+                 bookmarks_count: int,
+                 comments_count: int,
+                 tactics: Sequence[str]):
+        """
+        Incident additional data property bag.
+        :param Sequence[str] alert_product_names: List of product names of alerts in the incident
+        :param int alerts_count: The number of alerts in the incident
+        :param int bookmarks_count: The number of bookmarks in the incident
+        :param int comments_count: The number of comments in the incident
+        :param Sequence[str] tactics: The tactics associated with incident
+        """
+        pulumi.set(__self__, "alert_product_names", alert_product_names)
+        pulumi.set(__self__, "alerts_count", alerts_count)
+        pulumi.set(__self__, "bookmarks_count", bookmarks_count)
+        pulumi.set(__self__, "comments_count", comments_count)
+        pulumi.set(__self__, "tactics", tactics)
+
+    @property
+    @pulumi.getter(name="alertProductNames")
+    def alert_product_names(self) -> Sequence[str]:
+        """
+        List of product names of alerts in the incident
+        """
+        return pulumi.get(self, "alert_product_names")
+
+    @property
+    @pulumi.getter(name="alertsCount")
+    def alerts_count(self) -> int:
+        """
+        The number of alerts in the incident
+        """
+        return pulumi.get(self, "alerts_count")
+
+    @property
+    @pulumi.getter(name="bookmarksCount")
+    def bookmarks_count(self) -> int:
+        """
+        The number of bookmarks in the incident
+        """
+        return pulumi.get(self, "bookmarks_count")
+
+    @property
+    @pulumi.getter(name="commentsCount")
+    def comments_count(self) -> int:
+        """
+        The number of comments in the incident
+        """
+        return pulumi.get(self, "comments_count")
+
+    @property
+    @pulumi.getter
+    def tactics(self) -> Sequence[str]:
+        """
+        The tactics associated with incident
+        """
+        return pulumi.get(self, "tactics")
+
+
+@pulumi.output_type
 class IncidentConfigurationResponse(dict):
     """
     Incident Configuration property bag.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createIncident":
-            suggest = "create_incident"
-        elif key == "groupingConfiguration":
-            suggest = "grouping_configuration"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IncidentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IncidentConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IncidentConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  create_incident: bool,
                  grouping_configuration: Optional['outputs.GroupingConfigurationResponse'] = None):
@@ -1656,23 +1647,6 @@ class MCASDataConnectorDataTypesResponse(dict):
     """
     The available data types for MCAS (Microsoft Cloud App Security) data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "discoveryLogs":
-            suggest = "discovery_logs"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MCASDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MCASDataConnectorDataTypesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MCASDataConnectorDataTypesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  alerts: 'outputs.AlertsDataTypeOfDataConnectorResponseAlerts',
                  discovery_logs: Optional['outputs.MCASDataConnectorDataTypesResponseDiscoveryLogs'] = None):
@@ -1729,25 +1703,6 @@ class MSTIDataConnectorDataTypesResponse(dict):
     """
     The available data types for Microsoft Threat Intelligence Platforms data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "bingSafetyPhishingURL":
-            suggest = "bing_safety_phishing_url"
-        elif key == "microsoftEmergingThreatFeed":
-            suggest = "microsoft_emerging_threat_feed"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MSTIDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MSTIDataConnectorDataTypesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MSTIDataConnectorDataTypesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  bing_safety_phishing_url: 'outputs.MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL',
                  microsoft_emerging_threat_feed: 'outputs.MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed'):
@@ -1781,23 +1736,6 @@ class MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL(dict):
     """
     Data type for Microsoft Threat Intelligence Platforms data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lookbackPeriod":
-            suggest = "lookback_period"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  lookback_period: str,
                  state: str):
@@ -1831,23 +1769,6 @@ class MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed(dict):
     """
     Data type for Microsoft Threat Intelligence Platforms data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lookbackPeriod":
-            suggest = "lookback_period"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  lookback_period: str,
                  state: str):
@@ -1925,23 +1846,6 @@ class OfficeDataConnectorDataTypesResponse(dict):
     """
     The available data types for office data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sharePoint":
-            suggest = "share_point"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OfficeDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        OfficeDataConnectorDataTypesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        OfficeDataConnectorDataTypesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  exchange: 'outputs.OfficeDataConnectorDataTypesResponseExchange',
                  share_point: 'outputs.OfficeDataConnectorDataTypesResponseSharePoint',
@@ -2221,23 +2125,6 @@ class TiTaxiiDataConnectorDataTypesResponse(dict):
     """
     The available data types for Threat Intelligence TAXII data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "taxiiClient":
-            suggest = "taxii_client"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TiTaxiiDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TiTaxiiDataConnectorDataTypesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TiTaxiiDataConnectorDataTypesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  taxii_client: 'outputs.TiTaxiiDataConnectorDataTypesResponseTaxiiClient'):
         """

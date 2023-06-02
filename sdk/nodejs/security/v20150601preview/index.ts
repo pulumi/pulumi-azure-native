@@ -15,6 +15,14 @@ export const getAdaptiveApplicationControl: typeof import("./getAdaptiveApplicat
 export const getAdaptiveApplicationControlOutput: typeof import("./getAdaptiveApplicationControl").getAdaptiveApplicationControlOutput = null as any;
 utilities.lazyLoad(exports, ["getAdaptiveApplicationControl","getAdaptiveApplicationControlOutput"], () => require("./getAdaptiveApplicationControl"));
 
+export { GetJitNetworkAccessPolicyArgs, GetJitNetworkAccessPolicyResult, GetJitNetworkAccessPolicyOutputArgs } from "./getJitNetworkAccessPolicy";
+export const getJitNetworkAccessPolicy: typeof import("./getJitNetworkAccessPolicy").getJitNetworkAccessPolicy = null as any;
+export const getJitNetworkAccessPolicyOutput: typeof import("./getJitNetworkAccessPolicy").getJitNetworkAccessPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getJitNetworkAccessPolicy","getJitNetworkAccessPolicyOutput"], () => require("./getJitNetworkAccessPolicy"));
+
+
+// Export enums:
+export * from "../../types/enums/security/v20150601preview";
 
 const _module = {
     version: utilities.getVersion(),

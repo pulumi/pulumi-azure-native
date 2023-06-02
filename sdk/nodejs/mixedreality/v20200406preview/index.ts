@@ -4,8 +4,16 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetRemoteRenderingAccountArgs, GetRemoteRenderingAccountResult, GetRemoteRenderingAccountOutputArgs } from "./getRemoteRenderingAccount";
+export const getRemoteRenderingAccount: typeof import("./getRemoteRenderingAccount").getRemoteRenderingAccount = null as any;
+export const getRemoteRenderingAccountOutput: typeof import("./getRemoteRenderingAccount").getRemoteRenderingAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteRenderingAccount","getRemoteRenderingAccountOutput"], () => require("./getRemoteRenderingAccount"));
+
 export { ListRemoteRenderingAccountKeysArgs, ListRemoteRenderingAccountKeysResult, ListRemoteRenderingAccountKeysOutputArgs } from "./listRemoteRenderingAccountKeys";
 export const listRemoteRenderingAccountKeys: typeof import("./listRemoteRenderingAccountKeys").listRemoteRenderingAccountKeys = null as any;
 export const listRemoteRenderingAccountKeysOutput: typeof import("./listRemoteRenderingAccountKeys").listRemoteRenderingAccountKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listRemoteRenderingAccountKeys","listRemoteRenderingAccountKeysOutput"], () => require("./listRemoteRenderingAccountKeys"));
 
+
+// Export enums:
+export * from "../../types/enums/mixedreality/v20200406preview";

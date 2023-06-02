@@ -5,6 +5,18 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .get_cluster import *
+from .get_datastore import *
+from .get_guest_agent import *
+from .get_host import *
+from .get_hybrid_identity_metadatum import *
+from .get_inventory_item import *
 from .get_machine_extension import *
+from .get_resource_pool import *
+from .get_v_center import *
+from .get_virtual_machine import *
+from .get_virtual_machine_template import *
+from .get_virtual_network import *
 from .machine_extension import *
 from . import outputs

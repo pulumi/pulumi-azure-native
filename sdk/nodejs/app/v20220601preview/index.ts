@@ -4,15 +4,70 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetConnectedEnvironmentArgs, GetConnectedEnvironmentResult, GetConnectedEnvironmentOutputArgs } from "./getConnectedEnvironment";
+export const getConnectedEnvironment: typeof import("./getConnectedEnvironment").getConnectedEnvironment = null as any;
+export const getConnectedEnvironmentOutput: typeof import("./getConnectedEnvironment").getConnectedEnvironmentOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectedEnvironment","getConnectedEnvironmentOutput"], () => require("./getConnectedEnvironment"));
+
+export { GetConnectedEnvironmentsCertificateArgs, GetConnectedEnvironmentsCertificateResult, GetConnectedEnvironmentsCertificateOutputArgs } from "./getConnectedEnvironmentsCertificate";
+export const getConnectedEnvironmentsCertificate: typeof import("./getConnectedEnvironmentsCertificate").getConnectedEnvironmentsCertificate = null as any;
+export const getConnectedEnvironmentsCertificateOutput: typeof import("./getConnectedEnvironmentsCertificate").getConnectedEnvironmentsCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectedEnvironmentsCertificate","getConnectedEnvironmentsCertificateOutput"], () => require("./getConnectedEnvironmentsCertificate"));
+
+export { GetConnectedEnvironmentsDaprComponentArgs, GetConnectedEnvironmentsDaprComponentResult, GetConnectedEnvironmentsDaprComponentOutputArgs } from "./getConnectedEnvironmentsDaprComponent";
+export const getConnectedEnvironmentsDaprComponent: typeof import("./getConnectedEnvironmentsDaprComponent").getConnectedEnvironmentsDaprComponent = null as any;
+export const getConnectedEnvironmentsDaprComponentOutput: typeof import("./getConnectedEnvironmentsDaprComponent").getConnectedEnvironmentsDaprComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectedEnvironmentsDaprComponent","getConnectedEnvironmentsDaprComponentOutput"], () => require("./getConnectedEnvironmentsDaprComponent"));
+
+export { GetConnectedEnvironmentsStorageArgs, GetConnectedEnvironmentsStorageResult, GetConnectedEnvironmentsStorageOutputArgs } from "./getConnectedEnvironmentsStorage";
+export const getConnectedEnvironmentsStorage: typeof import("./getConnectedEnvironmentsStorage").getConnectedEnvironmentsStorage = null as any;
+export const getConnectedEnvironmentsStorageOutput: typeof import("./getConnectedEnvironmentsStorage").getConnectedEnvironmentsStorageOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectedEnvironmentsStorage","getConnectedEnvironmentsStorageOutput"], () => require("./getConnectedEnvironmentsStorage"));
+
+export { GetContainerAppArgs, GetContainerAppResult, GetContainerAppOutputArgs } from "./getContainerApp";
+export const getContainerApp: typeof import("./getContainerApp").getContainerApp = null as any;
+export const getContainerAppOutput: typeof import("./getContainerApp").getContainerAppOutput = null as any;
+utilities.lazyLoad(exports, ["getContainerApp","getContainerAppOutput"], () => require("./getContainerApp"));
+
 export { GetContainerAppAuthTokenArgs, GetContainerAppAuthTokenResult, GetContainerAppAuthTokenOutputArgs } from "./getContainerAppAuthToken";
 export const getContainerAppAuthToken: typeof import("./getContainerAppAuthToken").getContainerAppAuthToken = null as any;
 export const getContainerAppAuthTokenOutput: typeof import("./getContainerAppAuthToken").getContainerAppAuthTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getContainerAppAuthToken","getContainerAppAuthTokenOutput"], () => require("./getContainerAppAuthToken"));
 
+export { GetContainerAppsAuthConfigArgs, GetContainerAppsAuthConfigResult, GetContainerAppsAuthConfigOutputArgs } from "./getContainerAppsAuthConfig";
+export const getContainerAppsAuthConfig: typeof import("./getContainerAppsAuthConfig").getContainerAppsAuthConfig = null as any;
+export const getContainerAppsAuthConfigOutput: typeof import("./getContainerAppsAuthConfig").getContainerAppsAuthConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getContainerAppsAuthConfig","getContainerAppsAuthConfigOutput"], () => require("./getContainerAppsAuthConfig"));
+
+export { GetContainerAppsSourceControlArgs, GetContainerAppsSourceControlResult, GetContainerAppsSourceControlOutputArgs } from "./getContainerAppsSourceControl";
+export const getContainerAppsSourceControl: typeof import("./getContainerAppsSourceControl").getContainerAppsSourceControl = null as any;
+export const getContainerAppsSourceControlOutput: typeof import("./getContainerAppsSourceControl").getContainerAppsSourceControlOutput = null as any;
+utilities.lazyLoad(exports, ["getContainerAppsSourceControl","getContainerAppsSourceControlOutput"], () => require("./getContainerAppsSourceControl"));
+
+export { GetDaprComponentArgs, GetDaprComponentResult, GetDaprComponentOutputArgs } from "./getDaprComponent";
+export const getDaprComponent: typeof import("./getDaprComponent").getDaprComponent = null as any;
+export const getDaprComponentOutput: typeof import("./getDaprComponent").getDaprComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getDaprComponent","getDaprComponentOutput"], () => require("./getDaprComponent"));
+
+export { GetManagedEnvironmentArgs, GetManagedEnvironmentResult, GetManagedEnvironmentOutputArgs } from "./getManagedEnvironment";
+export const getManagedEnvironment: typeof import("./getManagedEnvironment").getManagedEnvironment = null as any;
+export const getManagedEnvironmentOutput: typeof import("./getManagedEnvironment").getManagedEnvironmentOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedEnvironment","getManagedEnvironmentOutput"], () => require("./getManagedEnvironment"));
+
 export { GetManagedEnvironmentAuthTokenArgs, GetManagedEnvironmentAuthTokenResult, GetManagedEnvironmentAuthTokenOutputArgs } from "./getManagedEnvironmentAuthToken";
 export const getManagedEnvironmentAuthToken: typeof import("./getManagedEnvironmentAuthToken").getManagedEnvironmentAuthToken = null as any;
 export const getManagedEnvironmentAuthTokenOutput: typeof import("./getManagedEnvironmentAuthToken").getManagedEnvironmentAuthTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedEnvironmentAuthToken","getManagedEnvironmentAuthTokenOutput"], () => require("./getManagedEnvironmentAuthToken"));
+
+export { GetManagedEnvironmentsStorageArgs, GetManagedEnvironmentsStorageResult, GetManagedEnvironmentsStorageOutputArgs } from "./getManagedEnvironmentsStorage";
+export const getManagedEnvironmentsStorage: typeof import("./getManagedEnvironmentsStorage").getManagedEnvironmentsStorage = null as any;
+export const getManagedEnvironmentsStorageOutput: typeof import("./getManagedEnvironmentsStorage").getManagedEnvironmentsStorageOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedEnvironmentsStorage","getManagedEnvironmentsStorageOutput"], () => require("./getManagedEnvironmentsStorage"));
 
 export { ListConnectedEnvironmentsDaprComponentSecretsArgs, ListConnectedEnvironmentsDaprComponentSecretsResult, ListConnectedEnvironmentsDaprComponentSecretsOutputArgs } from "./listConnectedEnvironmentsDaprComponentSecrets";
 export const listConnectedEnvironmentsDaprComponentSecrets: typeof import("./listConnectedEnvironmentsDaprComponentSecrets").listConnectedEnvironmentsDaprComponentSecrets = null as any;
@@ -34,3 +89,6 @@ export const listDaprComponentSecrets: typeof import("./listDaprComponentSecrets
 export const listDaprComponentSecretsOutput: typeof import("./listDaprComponentSecrets").listDaprComponentSecretsOutput = null as any;
 utilities.lazyLoad(exports, ["listDaprComponentSecrets","listDaprComponentSecretsOutput"], () => require("./listDaprComponentSecrets"));
 
+
+// Export enums:
+export * from "../../types/enums/app/v20220601preview";

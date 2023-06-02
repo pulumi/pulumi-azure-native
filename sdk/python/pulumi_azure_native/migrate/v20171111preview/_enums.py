@@ -13,6 +13,7 @@ __all__ = [
     'AzureStorageRedundancy',
     'Currency',
     'Percentile',
+    'ProvisioningState',
     'TimeRange',
 ]
 
@@ -160,6 +161,18 @@ class Percentile(str, Enum):
     PERCENTILE90 = "Percentile90"
     PERCENTILE95 = "Percentile95"
     PERCENTILE99 = "Percentile99"
+
+
+class ProvisioningState(str, Enum):
+    """
+    Provisioning state of the project.
+    """
+    ACCEPTED = "Accepted"
+    CREATING = "Creating"
+    DELETING = "Deleting"
+    FAILED = "Failed"
+    MOVING = "Moving"
+    SUCCEEDED = "Succeeded"
 
 
 class TimeRange(str, Enum):

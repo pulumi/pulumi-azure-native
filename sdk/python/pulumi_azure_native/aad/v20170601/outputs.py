@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ContainerAccountResponse',
     'DomainSecuritySettingsResponse',
     'ForestTrustResponse',
     'HealthAlertResponse',
@@ -22,6 +23,53 @@ __all__ = [
     'NotificationSettingsResponse',
     'ResourceForestSettingsResponse',
 ]
+
+@pulumi.output_type
+class ContainerAccountResponse(dict):
+    """
+    Container Account Description
+    """
+    def __init__(__self__, *,
+                 account_name: Optional[str] = None,
+                 password: Optional[str] = None,
+                 spn: Optional[str] = None):
+        """
+        Container Account Description
+        :param str account_name: The account name
+        :param str password: The account password
+        :param str spn: The account spn
+        """
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if spn is not None:
+            pulumi.set(__self__, "spn", spn)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[str]:
+        """
+        The account name
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The account password
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def spn(self) -> Optional[str]:
+        """
+        The account spn
+        """
+        return pulumi.get(self, "spn")
+
 
 @pulumi.output_type
 class DomainSecuritySettingsResponse(dict):

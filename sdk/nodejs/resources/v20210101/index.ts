@@ -55,6 +55,21 @@ export const getDeploymentAtTenantScope: typeof import("./getDeploymentAtTenantS
 export const getDeploymentAtTenantScopeOutput: typeof import("./getDeploymentAtTenantScope").getDeploymentAtTenantScopeOutput = null as any;
 utilities.lazyLoad(exports, ["getDeploymentAtTenantScope","getDeploymentAtTenantScopeOutput"], () => require("./getDeploymentAtTenantScope"));
 
+export { GetResourceArgs, GetResourceResult, GetResourceOutputArgs } from "./getResource";
+export const getResource: typeof import("./getResource").getResource = null as any;
+export const getResourceOutput: typeof import("./getResource").getResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getResource","getResourceOutput"], () => require("./getResource"));
+
+export { GetResourceGroupArgs, GetResourceGroupResult, GetResourceGroupOutputArgs } from "./getResourceGroup";
+export const getResourceGroup: typeof import("./getResourceGroup").getResourceGroup = null as any;
+export const getResourceGroupOutput: typeof import("./getResourceGroup").getResourceGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceGroup","getResourceGroupOutput"], () => require("./getResourceGroup"));
+
+export { GetTagAtScopeArgs, GetTagAtScopeResult, GetTagAtScopeOutputArgs } from "./getTagAtScope";
+export const getTagAtScope: typeof import("./getTagAtScope").getTagAtScope = null as any;
+export const getTagAtScopeOutput: typeof import("./getTagAtScope").getTagAtScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getTagAtScope","getTagAtScopeOutput"], () => require("./getTagAtScope"));
+
 
 // Export enums:
 export * from "../../types/enums/resources/v20210101";

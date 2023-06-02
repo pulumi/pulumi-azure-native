@@ -3,13 +3,23 @@
 
 // Export sub-modules:
 import * as v20180301preview from "./v20180301preview";
+import * as v20181119 from "./v20181119";
+import * as v20190501 from "./v20190501";
+import * as v20190601 from "./v20190601";
+import * as v20191101 from "./v20191101";
+import * as v20200101 from "./v20200101";
+import * as v20200218preview from "./v20200218preview";
+import * as v20200301 from "./v20200301";
+import * as v20200401 from "./v20200401";
 import * as v20200501preview from "./v20200501preview";
 import * as v20200515preview from "./v20200515preview";
+import * as v20200601 from "./v20200601";
 import * as v20200801 from "./v20200801";
 import * as v20200901preview from "./v20200901preview";
 import * as v20210101 from "./v20210101";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210401 from "./v20210401";
+import * as v20210701 from "./v20210701";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220201preview from "./v20220201preview";
 import * as v20220501 from "./v20220501";
@@ -23,13 +33,23 @@ import * as v20230401preview from "./v20230401preview";
 
 export {
     v20180301preview,
+    v20181119,
+    v20190501,
+    v20190601,
+    v20191101,
+    v20200101,
+    v20200218preview,
+    v20200301,
+    v20200401,
     v20200501preview,
     v20200515preview,
+    v20200601,
     v20200801,
     v20200901preview,
     v20210101,
     v20210301preview,
     v20210401,
+    v20210701,
     v20220101preview,
     v20220201preview,
     v20220501,

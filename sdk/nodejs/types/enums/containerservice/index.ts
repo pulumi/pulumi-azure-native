@@ -2,21 +2,61 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20151101preview from "./v20151101preview";
+import * as v20160330 from "./v20160330";
+import * as v20160930 from "./v20160930";
 import * as v20170131 from "./v20170131";
 import * as v20170831 from "./v20170831";
+import * as v20180331 from "./v20180331";
+import * as v20180801preview from "./v20180801preview";
 import * as v20180930preview from "./v20180930preview";
 import * as v20190201 from "./v20190201";
 import * as v20190401 from "./v20190401";
 import * as v20190430 from "./v20190430";
 import * as v20190601 from "./v20190601";
+import * as v20190801 from "./v20190801";
+import * as v20190930preview from "./v20190930preview";
+import * as v20191001 from "./v20191001";
 import * as v20191027preview from "./v20191027preview";
+import * as v20191101 from "./v20191101";
+import * as v20200101 from "./v20200101";
+import * as v20200201 from "./v20200201";
+import * as v20200301 from "./v20200301";
+import * as v20200401 from "./v20200401";
 import * as v20200601 from "./v20200601";
+import * as v20200701 from "./v20200701";
+import * as v20200901 from "./v20200901";
+import * as v20201101 from "./v20201101";
+import * as v20201201 from "./v20201201";
 import * as v20210201 from "./v20210201";
 import * as v20210301 from "./v20210301";
 import * as v20210501 from "./v20210501";
+import * as v20210701 from "./v20210701";
 import * as v20210801 from "./v20210801";
+import * as v20210901 from "./v20210901";
+import * as v20211001 from "./v20211001";
+import * as v20211101preview from "./v20211101preview";
+import * as v20220101 from "./v20220101";
+import * as v20220102preview from "./v20220102preview";
+import * as v20220201 from "./v20220201";
 import * as v20220202preview from "./v20220202preview";
+import * as v20220301 from "./v20220301";
+import * as v20220302preview from "./v20220302preview";
+import * as v20220401 from "./v20220401";
 import * as v20220402preview from "./v20220402preview";
+import * as v20220502preview from "./v20220502preview";
+import * as v20220601 from "./v20220601";
+import * as v20220602preview from "./v20220602preview";
+import * as v20220701 from "./v20220701";
+import * as v20220702preview from "./v20220702preview";
+import * as v20220802preview from "./v20220802preview";
+import * as v20220803preview from "./v20220803preview";
+import * as v20220901 from "./v20220901";
+import * as v20220902preview from "./v20220902preview";
+import * as v20221002preview from "./v20221002preview";
+import * as v20221101 from "./v20221101";
+import * as v20221102preview from "./v20221102preview";
+import * as v20230101 from "./v20230101";
 import * as v20230102preview from "./v20230102preview";
 import * as v20230201 from "./v20230201";
 import * as v20230202preview from "./v20230202preview";
@@ -24,21 +64,61 @@ import * as v20230301 from "./v20230301";
 import * as v20230302preview from "./v20230302preview";
 
 export {
+    v20151101preview,
+    v20160330,
+    v20160930,
     v20170131,
     v20170831,
+    v20180331,
+    v20180801preview,
     v20180930preview,
     v20190201,
     v20190401,
     v20190430,
     v20190601,
+    v20190801,
+    v20190930preview,
+    v20191001,
     v20191027preview,
+    v20191101,
+    v20200101,
+    v20200201,
+    v20200301,
+    v20200401,
     v20200601,
+    v20200701,
+    v20200901,
+    v20201101,
+    v20201201,
     v20210201,
     v20210301,
     v20210501,
+    v20210701,
     v20210801,
+    v20210901,
+    v20211001,
+    v20211101preview,
+    v20220101,
+    v20220102preview,
+    v20220201,
     v20220202preview,
+    v20220301,
+    v20220302preview,
+    v20220401,
     v20220402preview,
+    v20220502preview,
+    v20220601,
+    v20220602preview,
+    v20220701,
+    v20220702preview,
+    v20220802preview,
+    v20220803preview,
+    v20220901,
+    v20220902preview,
+    v20221002preview,
+    v20221101,
+    v20221102preview,
+    v20230101,
     v20230102preview,
     v20230201,
     v20230202preview,

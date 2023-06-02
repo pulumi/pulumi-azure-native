@@ -15,6 +15,16 @@ export const getAssessment: typeof import("./getAssessment").getAssessment = nul
 export const getAssessmentOutput: typeof import("./getAssessment").getAssessmentOutput = null as any;
 utilities.lazyLoad(exports, ["getAssessment","getAssessmentOutput"], () => require("./getAssessment"));
 
+export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
+export const getGroup: typeof import("./getGroup").getGroup = null as any;
+export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
+
+export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export const getProject: typeof import("./getProject").getProject = null as any;
+export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+
 export { GetProjectKeysArgs, GetProjectKeysResult, GetProjectKeysOutputArgs } from "./getProjectKeys";
 export const getProjectKeys: typeof import("./getProjectKeys").getProjectKeys = null as any;
 export const getProjectKeysOutput: typeof import("./getProjectKeys").getProjectKeysOutput = null as any;

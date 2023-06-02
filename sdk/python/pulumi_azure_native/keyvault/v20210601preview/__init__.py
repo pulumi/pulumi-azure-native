@@ -6,8 +6,12 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_key import *
 from .get_managed_hsm import *
 from .get_mhsm_private_endpoint_connection import *
+from .get_private_endpoint_connection import *
+from .get_secret import *
+from .get_vault import *
 from .managed_hsm import *
 from .mhsm_private_endpoint_connection import *
 from ._inputs import *

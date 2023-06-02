@@ -12,16 +12,27 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AzureFunctionEventSubscriptionDestinationResponse',
     'BoolEqualsAdvancedFilterResponse',
     'ConnectionStateResponse',
+    'DeadLetterWithResourceIdentityResponse',
+    'DeliveryWithResourceIdentityResponse',
     'DynamicDeliveryAttributeMappingResponse',
     'EventChannelDestinationResponse',
     'EventChannelFilterResponse',
     'EventChannelSourceResponse',
+    'EventHubEventSubscriptionDestinationResponse',
+    'EventSubscriptionFilterResponse',
+    'EventSubscriptionIdentityResponse',
+    'ExtendedLocationResponse',
+    'HybridConnectionEventSubscriptionDestinationResponse',
     'IdentityInfoResponse',
     'InboundIpRuleResponse',
     'IsNotNullAdvancedFilterResponse',
     'IsNullOrUndefinedAdvancedFilterResponse',
+    'JsonFieldResponse',
+    'JsonFieldWithDefaultResponse',
+    'JsonInputSchemaMappingResponse',
     'NumberGreaterThanAdvancedFilterResponse',
     'NumberGreaterThanOrEqualsAdvancedFilterResponse',
     'NumberInAdvancedFilterResponse',
@@ -32,7 +43,13 @@ __all__ = [
     'NumberNotInRangeAdvancedFilterResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
+    'ResourceSkuResponse',
+    'RetryPolicyResponse',
+    'ServiceBusQueueEventSubscriptionDestinationResponse',
+    'ServiceBusTopicEventSubscriptionDestinationResponse',
     'StaticDeliveryAttributeMappingResponse',
+    'StorageBlobDeadLetterDestinationResponse',
+    'StorageQueueEventSubscriptionDestinationResponse',
     'StringBeginsWithAdvancedFilterResponse',
     'StringContainsAdvancedFilterResponse',
     'StringEndsWithAdvancedFilterResponse',
@@ -43,7 +60,84 @@ __all__ = [
     'StringNotInAdvancedFilterResponse',
     'SystemDataResponse',
     'UserIdentityPropertiesResponse',
+    'WebHookEventSubscriptionDestinationResponse',
 ]
+
+@pulumi.output_type
+class AzureFunctionEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the azure function destination for an event subscription.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 delivery_attribute_mappings: Optional[Sequence[Any]] = None,
+                 max_events_per_batch: Optional[int] = None,
+                 preferred_batch_size_in_kilobytes: Optional[int] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the azure function destination for an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'AzureFunction'.
+        :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
+        :param int max_events_per_batch: Maximum number of events per batch.
+        :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
+        :param str resource_id: The Azure Resource Id that represents the endpoint of the Azure Function destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'AzureFunction')
+        if delivery_attribute_mappings is not None:
+            pulumi.set(__self__, "delivery_attribute_mappings", delivery_attribute_mappings)
+        if max_events_per_batch is None:
+            max_events_per_batch = 1
+        if max_events_per_batch is not None:
+            pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+        if preferred_batch_size_in_kilobytes is None:
+            preferred_batch_size_in_kilobytes = 64
+        if preferred_batch_size_in_kilobytes is not None:
+            pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'AzureFunction'.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="deliveryAttributeMappings")
+    def delivery_attribute_mappings(self) -> Optional[Sequence[Any]]:
+        """
+        Delivery attribute details.
+        """
+        return pulumi.get(self, "delivery_attribute_mappings")
+
+    @property
+    @pulumi.getter(name="maxEventsPerBatch")
+    def max_events_per_batch(self) -> Optional[int]:
+        """
+        Maximum number of events per batch.
+        """
+        return pulumi.get(self, "max_events_per_batch")
+
+    @property
+    @pulumi.getter(name="preferredBatchSizeInKilobytes")
+    def preferred_batch_size_in_kilobytes(self) -> Optional[int]:
+        """
+        Preferred batch size in Kilobytes.
+        """
+        return pulumi.get(self, "preferred_batch_size_in_kilobytes")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource Id that represents the endpoint of the Azure Function destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
 
 @pulumi.output_type
 class BoolEqualsAdvancedFilterResponse(dict):
@@ -172,6 +266,80 @@ class ConnectionStateResponse(dict):
         Status of the connection.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DeadLetterWithResourceIdentityResponse(dict):
+    """
+    Information about the deadletter destination with resource identity.
+    """
+    def __init__(__self__, *,
+                 dead_letter_destination: Optional['outputs.StorageBlobDeadLetterDestinationResponse'] = None,
+                 identity: Optional['outputs.EventSubscriptionIdentityResponse'] = None):
+        """
+        Information about the deadletter destination with resource identity.
+        :param 'StorageBlobDeadLetterDestinationResponse' dead_letter_destination: Information about the destination where events have to be delivered for the event subscription.
+               Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        :param 'EventSubscriptionIdentityResponse' identity: The identity to use when dead-lettering events.
+        """
+        if dead_letter_destination is not None:
+            pulumi.set(__self__, "dead_letter_destination", dead_letter_destination)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter(name="deadLetterDestination")
+    def dead_letter_destination(self) -> Optional['outputs.StorageBlobDeadLetterDestinationResponse']:
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        """
+        return pulumi.get(self, "dead_letter_destination")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.EventSubscriptionIdentityResponse']:
+        """
+        The identity to use when dead-lettering events.
+        """
+        return pulumi.get(self, "identity")
+
+
+@pulumi.output_type
+class DeliveryWithResourceIdentityResponse(dict):
+    """
+    Information about the delivery for an event subscription with resource identity.
+    """
+    def __init__(__self__, *,
+                 destination: Optional[Any] = None,
+                 identity: Optional['outputs.EventSubscriptionIdentityResponse'] = None):
+        """
+        Information about the delivery for an event subscription with resource identity.
+        :param Union['AzureFunctionEventSubscriptionDestinationResponse', 'EventHubEventSubscriptionDestinationResponse', 'HybridConnectionEventSubscriptionDestinationResponse', 'ServiceBusQueueEventSubscriptionDestinationResponse', 'ServiceBusTopicEventSubscriptionDestinationResponse', 'StorageQueueEventSubscriptionDestinationResponse', 'WebHookEventSubscriptionDestinationResponse'] destination: Information about the destination where events have to be delivered for the event subscription.
+               Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+        :param 'EventSubscriptionIdentityResponse' identity: The identity to use when delivering events.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[Any]:
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.EventSubscriptionIdentityResponse']:
+        """
+        The identity to use when delivering events.
+        """
+        return pulumi.get(self, "identity")
 
 
 @pulumi.output_type
@@ -373,6 +541,265 @@ class EventChannelSourceResponse(dict):
         This represents a unique resource in the partner's resource model.
         """
         return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class EventHubEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the event hub destination for an event subscription.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 delivery_attribute_mappings: Optional[Sequence[Any]] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the event hub destination for an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'EventHub'.
+        :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
+        :param str resource_id: The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'EventHub')
+        if delivery_attribute_mappings is not None:
+            pulumi.set(__self__, "delivery_attribute_mappings", delivery_attribute_mappings)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'EventHub'.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="deliveryAttributeMappings")
+    def delivery_attribute_mappings(self) -> Optional[Sequence[Any]]:
+        """
+        Delivery attribute details.
+        """
+        return pulumi.get(self, "delivery_attribute_mappings")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class EventSubscriptionFilterResponse(dict):
+    """
+    Filter for the Event Subscription.
+    """
+    def __init__(__self__, *,
+                 advanced_filters: Optional[Sequence[Any]] = None,
+                 enable_advanced_filtering_on_arrays: Optional[bool] = None,
+                 included_event_types: Optional[Sequence[str]] = None,
+                 is_subject_case_sensitive: Optional[bool] = None,
+                 subject_begins_with: Optional[str] = None,
+                 subject_ends_with: Optional[str] = None):
+        """
+        Filter for the Event Subscription.
+        :param Sequence[Union['BoolEqualsAdvancedFilterResponse', 'IsNotNullAdvancedFilterResponse', 'IsNullOrUndefinedAdvancedFilterResponse', 'NumberGreaterThanAdvancedFilterResponse', 'NumberGreaterThanOrEqualsAdvancedFilterResponse', 'NumberInAdvancedFilterResponse', 'NumberInRangeAdvancedFilterResponse', 'NumberLessThanAdvancedFilterResponse', 'NumberLessThanOrEqualsAdvancedFilterResponse', 'NumberNotInAdvancedFilterResponse', 'NumberNotInRangeAdvancedFilterResponse', 'StringBeginsWithAdvancedFilterResponse', 'StringContainsAdvancedFilterResponse', 'StringEndsWithAdvancedFilterResponse', 'StringInAdvancedFilterResponse', 'StringNotBeginsWithAdvancedFilterResponse', 'StringNotContainsAdvancedFilterResponse', 'StringNotEndsWithAdvancedFilterResponse', 'StringNotInAdvancedFilterResponse']] advanced_filters: An array of advanced filters that are used for filtering event subscriptions.
+        :param bool enable_advanced_filtering_on_arrays: Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
+        :param Sequence[str] included_event_types: A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
+        :param bool is_subject_case_sensitive: Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
+               should be compared in a case sensitive manner.
+        :param str subject_begins_with: An optional string to filter events for an event subscription based on a resource path prefix.
+               The format of this depends on the publisher of the events.
+               Wildcard characters are not supported in this path.
+        :param str subject_ends_with: An optional string to filter events for an event subscription based on a resource path suffix.
+               Wildcard characters are not supported in this path.
+        """
+        if advanced_filters is not None:
+            pulumi.set(__self__, "advanced_filters", advanced_filters)
+        if enable_advanced_filtering_on_arrays is not None:
+            pulumi.set(__self__, "enable_advanced_filtering_on_arrays", enable_advanced_filtering_on_arrays)
+        if included_event_types is not None:
+            pulumi.set(__self__, "included_event_types", included_event_types)
+        if is_subject_case_sensitive is None:
+            is_subject_case_sensitive = False
+        if is_subject_case_sensitive is not None:
+            pulumi.set(__self__, "is_subject_case_sensitive", is_subject_case_sensitive)
+        if subject_begins_with is not None:
+            pulumi.set(__self__, "subject_begins_with", subject_begins_with)
+        if subject_ends_with is not None:
+            pulumi.set(__self__, "subject_ends_with", subject_ends_with)
+
+    @property
+    @pulumi.getter(name="advancedFilters")
+    def advanced_filters(self) -> Optional[Sequence[Any]]:
+        """
+        An array of advanced filters that are used for filtering event subscriptions.
+        """
+        return pulumi.get(self, "advanced_filters")
+
+    @property
+    @pulumi.getter(name="enableAdvancedFilteringOnArrays")
+    def enable_advanced_filtering_on_arrays(self) -> Optional[bool]:
+        """
+        Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
+        """
+        return pulumi.get(self, "enable_advanced_filtering_on_arrays")
+
+    @property
+    @pulumi.getter(name="includedEventTypes")
+    def included_event_types(self) -> Optional[Sequence[str]]:
+        """
+        A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
+        """
+        return pulumi.get(self, "included_event_types")
+
+    @property
+    @pulumi.getter(name="isSubjectCaseSensitive")
+    def is_subject_case_sensitive(self) -> Optional[bool]:
+        """
+        Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
+        should be compared in a case sensitive manner.
+        """
+        return pulumi.get(self, "is_subject_case_sensitive")
+
+    @property
+    @pulumi.getter(name="subjectBeginsWith")
+    def subject_begins_with(self) -> Optional[str]:
+        """
+        An optional string to filter events for an event subscription based on a resource path prefix.
+        The format of this depends on the publisher of the events.
+        Wildcard characters are not supported in this path.
+        """
+        return pulumi.get(self, "subject_begins_with")
+
+    @property
+    @pulumi.getter(name="subjectEndsWith")
+    def subject_ends_with(self) -> Optional[str]:
+        """
+        An optional string to filter events for an event subscription based on a resource path suffix.
+        Wildcard characters are not supported in this path.
+        """
+        return pulumi.get(self, "subject_ends_with")
+
+
+@pulumi.output_type
+class EventSubscriptionIdentityResponse(dict):
+    """
+    The identity information with the event subscription.
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        The identity information with the event subscription.
+        :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        :param str user_assigned_identity: The user identity associated with the resource.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        The user identity associated with the resource.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    Definition of an Extended Location
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Definition of an Extended Location
+        :param str name: Fully qualified name of the extended location.
+        :param str type: Type of the extended location.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Fully qualified name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class HybridConnectionEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the HybridConnection destination for an event subscription.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 delivery_attribute_mappings: Optional[Sequence[Any]] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the HybridConnection destination for an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'HybridConnection'.
+        :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
+        :param str resource_id: The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'HybridConnection')
+        if delivery_attribute_mappings is not None:
+            pulumi.set(__self__, "delivery_attribute_mappings", delivery_attribute_mappings)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'HybridConnection'.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="deliveryAttributeMappings")
+    def delivery_attribute_mappings(self) -> Optional[Sequence[Any]]:
+        """
+        Delivery attribute details.
+        """
+        return pulumi.get(self, "delivery_attribute_mappings")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
@@ -611,6 +1038,166 @@ class IsNullOrUndefinedAdvancedFilterResponse(dict):
         The field/property in the event based on which you want to filter.
         """
         return pulumi.get(self, "key")
+
+
+@pulumi.output_type
+class JsonFieldResponse(dict):
+    """
+    This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.
+    """
+    def __init__(__self__, *,
+                 source_field: Optional[str] = None):
+        """
+        This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.
+        :param str source_field: Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+        if source_field is not None:
+            pulumi.set(__self__, "source_field", source_field)
+
+    @property
+    @pulumi.getter(name="sourceField")
+    def source_field(self) -> Optional[str]:
+        """
+        Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+        return pulumi.get(self, "source_field")
+
+
+@pulumi.output_type
+class JsonFieldWithDefaultResponse(dict):
+    """
+    This is used to express the source of an input schema mapping for a single target field
+    in the Event Grid Event schema. This is currently used in the mappings for the 'subject',
+    'eventtype' and 'dataversion' properties. This represents a field in the input event schema
+    along with a default value to be used, and at least one of these two properties should be provided.
+    """
+    def __init__(__self__, *,
+                 default_value: Optional[str] = None,
+                 source_field: Optional[str] = None):
+        """
+        This is used to express the source of an input schema mapping for a single target field
+        in the Event Grid Event schema. This is currently used in the mappings for the 'subject',
+        'eventtype' and 'dataversion' properties. This represents a field in the input event schema
+        along with a default value to be used, and at least one of these two properties should be provided.
+        :param str default_value: The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
+        :param str source_field: Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if source_field is not None:
+            pulumi.set(__self__, "source_field", source_field)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[str]:
+        """
+        The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
+        """
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter(name="sourceField")
+    def source_field(self) -> Optional[str]:
+        """
+        Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+        return pulumi.get(self, "source_field")
+
+
+@pulumi.output_type
+class JsonInputSchemaMappingResponse(dict):
+    """
+    This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
+    """
+    def __init__(__self__, *,
+                 input_schema_mapping_type: str,
+                 data_version: Optional['outputs.JsonFieldWithDefaultResponse'] = None,
+                 event_time: Optional['outputs.JsonFieldResponse'] = None,
+                 event_type: Optional['outputs.JsonFieldWithDefaultResponse'] = None,
+                 id: Optional['outputs.JsonFieldResponse'] = None,
+                 subject: Optional['outputs.JsonFieldWithDefaultResponse'] = None,
+                 topic: Optional['outputs.JsonFieldResponse'] = None):
+        """
+        This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
+        :param str input_schema_mapping_type: Type of the custom mapping
+               Expected value is 'Json'.
+        :param 'JsonFieldWithDefaultResponse' data_version: The mapping information for the DataVersion property of the Event Grid Event.
+        :param 'JsonFieldResponse' event_time: The mapping information for the EventTime property of the Event Grid Event.
+        :param 'JsonFieldWithDefaultResponse' event_type: The mapping information for the EventType property of the Event Grid Event.
+        :param 'JsonFieldResponse' id: The mapping information for the Id property of the Event Grid Event.
+        :param 'JsonFieldWithDefaultResponse' subject: The mapping information for the Subject property of the Event Grid Event.
+        :param 'JsonFieldResponse' topic: The mapping information for the Topic property of the Event Grid Event.
+        """
+        pulumi.set(__self__, "input_schema_mapping_type", 'Json')
+        if data_version is not None:
+            pulumi.set(__self__, "data_version", data_version)
+        if event_time is not None:
+            pulumi.set(__self__, "event_time", event_time)
+        if event_type is not None:
+            pulumi.set(__self__, "event_type", event_type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter(name="inputSchemaMappingType")
+    def input_schema_mapping_type(self) -> str:
+        """
+        Type of the custom mapping
+        Expected value is 'Json'.
+        """
+        return pulumi.get(self, "input_schema_mapping_type")
+
+    @property
+    @pulumi.getter(name="dataVersion")
+    def data_version(self) -> Optional['outputs.JsonFieldWithDefaultResponse']:
+        """
+        The mapping information for the DataVersion property of the Event Grid Event.
+        """
+        return pulumi.get(self, "data_version")
+
+    @property
+    @pulumi.getter(name="eventTime")
+    def event_time(self) -> Optional['outputs.JsonFieldResponse']:
+        """
+        The mapping information for the EventTime property of the Event Grid Event.
+        """
+        return pulumi.get(self, "event_time")
+
+    @property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> Optional['outputs.JsonFieldWithDefaultResponse']:
+        """
+        The mapping information for the EventType property of the Event Grid Event.
+        """
+        return pulumi.get(self, "event_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional['outputs.JsonFieldResponse']:
+        """
+        The mapping information for the Id property of the Event Grid Event.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional['outputs.JsonFieldWithDefaultResponse']:
+        """
+        The mapping information for the Subject property of the Event Grid Event.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional['outputs.JsonFieldResponse']:
+        """
+        The mapping information for the Topic property of the Event Grid Event.
+        """
+        return pulumi.get(self, "topic")
 
 
 @pulumi.output_type
@@ -1268,6 +1855,166 @@ class PrivateEndpointResponse(dict):
 
 
 @pulumi.output_type
+class ResourceSkuResponse(dict):
+    """
+    Describes an EventGrid Resource Sku.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        Describes an EventGrid Resource Sku.
+        :param str name: The Sku name of the resource. The possible values are: Basic or Premium.
+        """
+        if name is None:
+            name = 'Basic'
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The Sku name of the resource. The possible values are: Basic or Premium.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class RetryPolicyResponse(dict):
+    """
+    Information about the retry policy for an event subscription.
+    """
+    def __init__(__self__, *,
+                 event_time_to_live_in_minutes: Optional[int] = None,
+                 max_delivery_attempts: Optional[int] = None):
+        """
+        Information about the retry policy for an event subscription.
+        :param int event_time_to_live_in_minutes: Time To Live (in minutes) for events.
+        :param int max_delivery_attempts: Maximum number of delivery retry attempts for events.
+        """
+        if event_time_to_live_in_minutes is None:
+            event_time_to_live_in_minutes = 1440
+        if event_time_to_live_in_minutes is not None:
+            pulumi.set(__self__, "event_time_to_live_in_minutes", event_time_to_live_in_minutes)
+        if max_delivery_attempts is None:
+            max_delivery_attempts = 30
+        if max_delivery_attempts is not None:
+            pulumi.set(__self__, "max_delivery_attempts", max_delivery_attempts)
+
+    @property
+    @pulumi.getter(name="eventTimeToLiveInMinutes")
+    def event_time_to_live_in_minutes(self) -> Optional[int]:
+        """
+        Time To Live (in minutes) for events.
+        """
+        return pulumi.get(self, "event_time_to_live_in_minutes")
+
+    @property
+    @pulumi.getter(name="maxDeliveryAttempts")
+    def max_delivery_attempts(self) -> Optional[int]:
+        """
+        Maximum number of delivery retry attempts for events.
+        """
+        return pulumi.get(self, "max_delivery_attempts")
+
+
+@pulumi.output_type
+class ServiceBusQueueEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the service bus destination for an event subscription.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 delivery_attribute_mappings: Optional[Sequence[Any]] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the service bus destination for an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'ServiceBusQueue'.
+        :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
+        :param str resource_id: The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'ServiceBusQueue')
+        if delivery_attribute_mappings is not None:
+            pulumi.set(__self__, "delivery_attribute_mappings", delivery_attribute_mappings)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'ServiceBusQueue'.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="deliveryAttributeMappings")
+    def delivery_attribute_mappings(self) -> Optional[Sequence[Any]]:
+        """
+        Delivery attribute details.
+        """
+        return pulumi.get(self, "delivery_attribute_mappings")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class ServiceBusTopicEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the service bus topic destination for an event subscription.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 delivery_attribute_mappings: Optional[Sequence[Any]] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the service bus topic destination for an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'ServiceBusTopic'.
+        :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
+        :param str resource_id: The Azure Resource Id that represents the endpoint of the Service Bus Topic destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'ServiceBusTopic')
+        if delivery_attribute_mappings is not None:
+            pulumi.set(__self__, "delivery_attribute_mappings", delivery_attribute_mappings)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'ServiceBusTopic'.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="deliveryAttributeMappings")
+    def delivery_attribute_mappings(self) -> Optional[Sequence[Any]]:
+        """
+        Delivery attribute details.
+        """
+        return pulumi.get(self, "delivery_attribute_mappings")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource Id that represents the endpoint of the Service Bus Topic destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
 class StaticDeliveryAttributeMappingResponse(dict):
     """
     Static delivery attribute mapping details.
@@ -1327,6 +2074,114 @@ class StaticDeliveryAttributeMappingResponse(dict):
         Value of the delivery attribute.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class StorageBlobDeadLetterDestinationResponse(dict):
+    """
+    Information about the storage blob based dead letter destination.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 blob_container_name: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the storage blob based dead letter destination.
+        :param str endpoint_type: Type of the endpoint for the dead letter destination
+               Expected value is 'StorageBlob'.
+        :param str blob_container_name: The name of the Storage blob container that is the destination of the deadletter events
+        :param str resource_id: The Azure Resource ID of the storage account that is the destination of the deadletter events
+        """
+        pulumi.set(__self__, "endpoint_type", 'StorageBlob')
+        if blob_container_name is not None:
+            pulumi.set(__self__, "blob_container_name", blob_container_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the dead letter destination
+        Expected value is 'StorageBlob'.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="blobContainerName")
+    def blob_container_name(self) -> Optional[str]:
+        """
+        The name of the Storage blob container that is the destination of the deadletter events
+        """
+        return pulumi.get(self, "blob_container_name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource ID of the storage account that is the destination of the deadletter events
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class StorageQueueEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the storage queue destination for an event subscription.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 queue_message_time_to_live_in_seconds: Optional[float] = None,
+                 queue_name: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the storage queue destination for an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'StorageQueue'.
+        :param float queue_message_time_to_live_in_seconds: Storage queue message time to live in seconds.
+        :param str queue_name: The name of the Storage queue under a storage account that is the destination of an event subscription.
+        :param str resource_id: The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'StorageQueue')
+        if queue_message_time_to_live_in_seconds is not None:
+            pulumi.set(__self__, "queue_message_time_to_live_in_seconds", queue_message_time_to_live_in_seconds)
+        if queue_name is not None:
+            pulumi.set(__self__, "queue_name", queue_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'StorageQueue'.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="queueMessageTimeToLiveInSeconds")
+    def queue_message_time_to_live_in_seconds(self) -> Optional[float]:
+        """
+        Storage queue message time to live in seconds.
+        """
+        return pulumi.get(self, "queue_message_time_to_live_in_seconds")
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> Optional[str]:
+        """
+        The name of the Storage queue under a storage account that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
@@ -2011,5 +2866,116 @@ class UserIdentityPropertiesResponse(dict):
         The principal id of user assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class WebHookEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the webhook destination for an event subscription.
+    """
+    def __init__(__self__, *,
+                 endpoint_base_url: str,
+                 endpoint_type: str,
+                 azure_active_directory_application_id_or_uri: Optional[str] = None,
+                 azure_active_directory_tenant_id: Optional[str] = None,
+                 delivery_attribute_mappings: Optional[Sequence[Any]] = None,
+                 endpoint_url: Optional[str] = None,
+                 max_events_per_batch: Optional[int] = None,
+                 preferred_batch_size_in_kilobytes: Optional[int] = None):
+        """
+        Information about the webhook destination for an event subscription.
+        :param str endpoint_base_url: The base URL that represents the endpoint of the destination of an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'WebHook'.
+        :param str azure_active_directory_application_id_or_uri: The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+        :param str azure_active_directory_tenant_id: The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+        :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
+        :param str endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
+        :param int max_events_per_batch: Maximum number of events per batch.
+        :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
+        """
+        pulumi.set(__self__, "endpoint_base_url", endpoint_base_url)
+        pulumi.set(__self__, "endpoint_type", 'WebHook')
+        if azure_active_directory_application_id_or_uri is not None:
+            pulumi.set(__self__, "azure_active_directory_application_id_or_uri", azure_active_directory_application_id_or_uri)
+        if azure_active_directory_tenant_id is not None:
+            pulumi.set(__self__, "azure_active_directory_tenant_id", azure_active_directory_tenant_id)
+        if delivery_attribute_mappings is not None:
+            pulumi.set(__self__, "delivery_attribute_mappings", delivery_attribute_mappings)
+        if endpoint_url is not None:
+            pulumi.set(__self__, "endpoint_url", endpoint_url)
+        if max_events_per_batch is None:
+            max_events_per_batch = 1
+        if max_events_per_batch is not None:
+            pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+        if preferred_batch_size_in_kilobytes is None:
+            preferred_batch_size_in_kilobytes = 64
+        if preferred_batch_size_in_kilobytes is not None:
+            pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
+
+    @property
+    @pulumi.getter(name="endpointBaseUrl")
+    def endpoint_base_url(self) -> str:
+        """
+        The base URL that represents the endpoint of the destination of an event subscription.
+        """
+        return pulumi.get(self, "endpoint_base_url")
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'WebHook'.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="azureActiveDirectoryApplicationIdOrUri")
+    def azure_active_directory_application_id_or_uri(self) -> Optional[str]:
+        """
+        The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+        """
+        return pulumi.get(self, "azure_active_directory_application_id_or_uri")
+
+    @property
+    @pulumi.getter(name="azureActiveDirectoryTenantId")
+    def azure_active_directory_tenant_id(self) -> Optional[str]:
+        """
+        The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+        """
+        return pulumi.get(self, "azure_active_directory_tenant_id")
+
+    @property
+    @pulumi.getter(name="deliveryAttributeMappings")
+    def delivery_attribute_mappings(self) -> Optional[Sequence[Any]]:
+        """
+        Delivery attribute details.
+        """
+        return pulumi.get(self, "delivery_attribute_mappings")
+
+    @property
+    @pulumi.getter(name="endpointUrl")
+    def endpoint_url(self) -> Optional[str]:
+        """
+        The URL that represents the endpoint of the destination of an event subscription.
+        """
+        return pulumi.get(self, "endpoint_url")
+
+    @property
+    @pulumi.getter(name="maxEventsPerBatch")
+    def max_events_per_batch(self) -> Optional[int]:
+        """
+        Maximum number of events per batch.
+        """
+        return pulumi.get(self, "max_events_per_batch")
+
+    @property
+    @pulumi.getter(name="preferredBatchSizeInKilobytes")
+    def preferred_batch_size_in_kilobytes(self) -> Optional[int]:
+        """
+        Preferred batch size in Kilobytes.
+        """
+        return pulumi.get(self, "preferred_batch_size_in_kilobytes")
 
 

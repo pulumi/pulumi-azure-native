@@ -6,8 +6,8 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .event_grid_data_connection import *
-from .event_hub_data_connection import *
+from .get_cluster import *
+from .get_database import *
 from .get_event_grid_data_connection import *
 from .get_event_hub_data_connection import *
 from .list_database_principals import *

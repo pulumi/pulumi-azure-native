@@ -9,5 +9,6 @@ from ._enums import *
 from .arc_setting import *
 from .extension import *
 from .get_arc_setting import *
+from .get_cluster import *
 from .get_extension import *
 from . import outputs

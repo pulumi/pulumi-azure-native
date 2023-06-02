@@ -5,15 +5,55 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetAttachedDataNetworkArgs, GetAttachedDataNetworkResult, GetAttachedDataNetworkOutputArgs } from "./getAttachedDataNetwork";
+export const getAttachedDataNetwork: typeof import("./getAttachedDataNetwork").getAttachedDataNetwork = null as any;
+export const getAttachedDataNetworkOutput: typeof import("./getAttachedDataNetwork").getAttachedDataNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getAttachedDataNetwork","getAttachedDataNetworkOutput"], () => require("./getAttachedDataNetwork"));
+
+export { GetDataNetworkArgs, GetDataNetworkResult, GetDataNetworkOutputArgs } from "./getDataNetwork";
+export const getDataNetwork: typeof import("./getDataNetwork").getDataNetwork = null as any;
+export const getDataNetworkOutput: typeof import("./getDataNetwork").getDataNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getDataNetwork","getDataNetworkOutput"], () => require("./getDataNetwork"));
+
+export { GetMobileNetworkArgs, GetMobileNetworkResult, GetMobileNetworkOutputArgs } from "./getMobileNetwork";
+export const getMobileNetwork: typeof import("./getMobileNetwork").getMobileNetwork = null as any;
+export const getMobileNetworkOutput: typeof import("./getMobileNetwork").getMobileNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getMobileNetwork","getMobileNetworkOutput"], () => require("./getMobileNetwork"));
+
 export { GetPacketCoreControlPlaneArgs, GetPacketCoreControlPlaneResult, GetPacketCoreControlPlaneOutputArgs } from "./getPacketCoreControlPlane";
 export const getPacketCoreControlPlane: typeof import("./getPacketCoreControlPlane").getPacketCoreControlPlane = null as any;
 export const getPacketCoreControlPlaneOutput: typeof import("./getPacketCoreControlPlane").getPacketCoreControlPlaneOutput = null as any;
 utilities.lazyLoad(exports, ["getPacketCoreControlPlane","getPacketCoreControlPlaneOutput"], () => require("./getPacketCoreControlPlane"));
 
+export { GetPacketCoreDataPlaneArgs, GetPacketCoreDataPlaneResult, GetPacketCoreDataPlaneOutputArgs } from "./getPacketCoreDataPlane";
+export const getPacketCoreDataPlane: typeof import("./getPacketCoreDataPlane").getPacketCoreDataPlane = null as any;
+export const getPacketCoreDataPlaneOutput: typeof import("./getPacketCoreDataPlane").getPacketCoreDataPlaneOutput = null as any;
+utilities.lazyLoad(exports, ["getPacketCoreDataPlane","getPacketCoreDataPlaneOutput"], () => require("./getPacketCoreDataPlane"));
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+
 export { GetSimArgs, GetSimResult, GetSimOutputArgs } from "./getSim";
 export const getSim: typeof import("./getSim").getSim = null as any;
 export const getSimOutput: typeof import("./getSim").getSimOutput = null as any;
 utilities.lazyLoad(exports, ["getSim","getSimOutput"], () => require("./getSim"));
+
+export { GetSimPolicyArgs, GetSimPolicyResult, GetSimPolicyOutputArgs } from "./getSimPolicy";
+export const getSimPolicy: typeof import("./getSimPolicy").getSimPolicy = null as any;
+export const getSimPolicyOutput: typeof import("./getSimPolicy").getSimPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getSimPolicy","getSimPolicyOutput"], () => require("./getSimPolicy"));
+
+export { GetSiteArgs, GetSiteResult, GetSiteOutputArgs } from "./getSite";
+export const getSite: typeof import("./getSite").getSite = null as any;
+export const getSiteOutput: typeof import("./getSite").getSiteOutput = null as any;
+utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
+
+export { GetSliceArgs, GetSliceResult, GetSliceOutputArgs } from "./getSlice";
+export const getSlice: typeof import("./getSlice").getSlice = null as any;
+export const getSliceOutput: typeof import("./getSlice").getSliceOutput = null as any;
+utilities.lazyLoad(exports, ["getSlice","getSliceOutput"], () => require("./getSlice"));
 
 export { ListMobileNetworkSimIdsArgs, ListMobileNetworkSimIdsResult, ListMobileNetworkSimIdsOutputArgs } from "./listMobileNetworkSimIds";
 export const listMobileNetworkSimIds: typeof import("./listMobileNetworkSimIds").listMobileNetworkSimIds = null as any;

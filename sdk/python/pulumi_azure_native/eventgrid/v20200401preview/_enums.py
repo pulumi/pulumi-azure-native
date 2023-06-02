@@ -14,6 +14,7 @@ __all__ = [
     'InputSchema',
     'InputSchemaMappingType',
     'IpActionType',
+    'PartnerRegistrationVisibilityState',
     'PersistedConnectionStatus',
     'PublicNetworkAccess',
     'ResourceProvisioningState',
@@ -107,6 +108,15 @@ class IpActionType(str, Enum):
     Action to perform based on the match or no match of the IpMask.
     """
     ALLOW = "Allow"
+
+
+class PartnerRegistrationVisibilityState(str, Enum):
+    """
+    Visibility state of the partner registration.
+    """
+    HIDDEN = "Hidden"
+    PUBLIC_PREVIEW = "PublicPreview"
+    GENERALLY_AVAILABLE = "GenerallyAvailable"
 
 
 class PersistedConnectionStatus(str, Enum):

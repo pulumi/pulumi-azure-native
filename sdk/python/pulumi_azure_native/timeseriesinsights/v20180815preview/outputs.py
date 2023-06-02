@@ -16,6 +16,7 @@ __all__ = [
     'EnvironmentStatusResponse',
     'IngressEnvironmentStatusResponse',
     'LongTermStorageConfigurationOutputResponse',
+    'ReferenceDataSetKeyPropertyResponse',
     'SkuResponse',
     'TimeSeriesIdPropertyResponse',
     'WarmStorageEnvironmentStatusResponse',
@@ -195,6 +196,41 @@ class LongTermStorageConfigurationOutputResponse(dict):
         The name of the storage account that will hold the environment's long term data.
         """
         return pulumi.get(self, "account_name")
+
+
+@pulumi.output_type
+class ReferenceDataSetKeyPropertyResponse(dict):
+    """
+    A key property for the reference data set. A reference data set can have multiple key properties.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        A key property for the reference data set. A reference data set can have multiple key properties.
+        :param str name: The name of the key property.
+        :param str type: The type of the key property.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the key property.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the key property.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

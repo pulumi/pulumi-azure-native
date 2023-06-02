@@ -4,6 +4,36 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetAvailabilitySetArgs, GetAvailabilitySetResult, GetAvailabilitySetOutputArgs } from "./getAvailabilitySet";
+export const getAvailabilitySet: typeof import("./getAvailabilitySet").getAvailabilitySet = null as any;
+export const getAvailabilitySetOutput: typeof import("./getAvailabilitySet").getAvailabilitySetOutput = null as any;
+utilities.lazyLoad(exports, ["getAvailabilitySet","getAvailabilitySetOutput"], () => require("./getAvailabilitySet"));
+
+export { GetCapacityReservationArgs, GetCapacityReservationResult, GetCapacityReservationOutputArgs } from "./getCapacityReservation";
+export const getCapacityReservation: typeof import("./getCapacityReservation").getCapacityReservation = null as any;
+export const getCapacityReservationOutput: typeof import("./getCapacityReservation").getCapacityReservationOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityReservation","getCapacityReservationOutput"], () => require("./getCapacityReservation"));
+
+export { GetCapacityReservationGroupArgs, GetCapacityReservationGroupResult, GetCapacityReservationGroupOutputArgs } from "./getCapacityReservationGroup";
+export const getCapacityReservationGroup: typeof import("./getCapacityReservationGroup").getCapacityReservationGroup = null as any;
+export const getCapacityReservationGroupOutput: typeof import("./getCapacityReservationGroup").getCapacityReservationGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityReservationGroup","getCapacityReservationGroupOutput"], () => require("./getCapacityReservationGroup"));
+
+export { GetDedicatedHostArgs, GetDedicatedHostResult, GetDedicatedHostOutputArgs } from "./getDedicatedHost";
+export const getDedicatedHost: typeof import("./getDedicatedHost").getDedicatedHost = null as any;
+export const getDedicatedHostOutput: typeof import("./getDedicatedHost").getDedicatedHostOutput = null as any;
+utilities.lazyLoad(exports, ["getDedicatedHost","getDedicatedHostOutput"], () => require("./getDedicatedHost"));
+
+export { GetDedicatedHostGroupArgs, GetDedicatedHostGroupResult, GetDedicatedHostGroupOutputArgs } from "./getDedicatedHostGroup";
+export const getDedicatedHostGroup: typeof import("./getDedicatedHostGroup").getDedicatedHostGroup = null as any;
+export const getDedicatedHostGroupOutput: typeof import("./getDedicatedHostGroup").getDedicatedHostGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDedicatedHostGroup","getDedicatedHostGroupOutput"], () => require("./getDedicatedHostGroup"));
+
+export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
+export const getImage: typeof import("./getImage").getImage = null as any;
+export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
+utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
+
 export { GetLogAnalyticExportRequestRateByIntervalArgs, GetLogAnalyticExportRequestRateByIntervalResult, GetLogAnalyticExportRequestRateByIntervalOutputArgs } from "./getLogAnalyticExportRequestRateByInterval";
 export const getLogAnalyticExportRequestRateByInterval: typeof import("./getLogAnalyticExportRequestRateByInterval").getLogAnalyticExportRequestRateByInterval = null as any;
 export const getLogAnalyticExportRequestRateByIntervalOutput: typeof import("./getLogAnalyticExportRequestRateByInterval").getLogAnalyticExportRequestRateByIntervalOutput = null as any;
@@ -13,6 +43,66 @@ export { GetLogAnalyticExportThrottledRequestsArgs, GetLogAnalyticExportThrottle
 export const getLogAnalyticExportThrottledRequests: typeof import("./getLogAnalyticExportThrottledRequests").getLogAnalyticExportThrottledRequests = null as any;
 export const getLogAnalyticExportThrottledRequestsOutput: typeof import("./getLogAnalyticExportThrottledRequests").getLogAnalyticExportThrottledRequestsOutput = null as any;
 utilities.lazyLoad(exports, ["getLogAnalyticExportThrottledRequests","getLogAnalyticExportThrottledRequestsOutput"], () => require("./getLogAnalyticExportThrottledRequests"));
+
+export { GetProximityPlacementGroupArgs, GetProximityPlacementGroupResult, GetProximityPlacementGroupOutputArgs } from "./getProximityPlacementGroup";
+export const getProximityPlacementGroup: typeof import("./getProximityPlacementGroup").getProximityPlacementGroup = null as any;
+export const getProximityPlacementGroupOutput: typeof import("./getProximityPlacementGroup").getProximityPlacementGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getProximityPlacementGroup","getProximityPlacementGroupOutput"], () => require("./getProximityPlacementGroup"));
+
+export { GetRestorePointArgs, GetRestorePointResult, GetRestorePointOutputArgs } from "./getRestorePoint";
+export const getRestorePoint: typeof import("./getRestorePoint").getRestorePoint = null as any;
+export const getRestorePointOutput: typeof import("./getRestorePoint").getRestorePointOutput = null as any;
+utilities.lazyLoad(exports, ["getRestorePoint","getRestorePointOutput"], () => require("./getRestorePoint"));
+
+export { GetRestorePointCollectionArgs, GetRestorePointCollectionResult, GetRestorePointCollectionOutputArgs } from "./getRestorePointCollection";
+export const getRestorePointCollection: typeof import("./getRestorePointCollection").getRestorePointCollection = null as any;
+export const getRestorePointCollectionOutput: typeof import("./getRestorePointCollection").getRestorePointCollectionOutput = null as any;
+utilities.lazyLoad(exports, ["getRestorePointCollection","getRestorePointCollectionOutput"], () => require("./getRestorePointCollection"));
+
+export { GetSshPublicKeyArgs, GetSshPublicKeyResult, GetSshPublicKeyOutputArgs } from "./getSshPublicKey";
+export const getSshPublicKey: typeof import("./getSshPublicKey").getSshPublicKey = null as any;
+export const getSshPublicKeyOutput: typeof import("./getSshPublicKey").getSshPublicKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getSshPublicKey","getSshPublicKeyOutput"], () => require("./getSshPublicKey"));
+
+export { GetVirtualMachineArgs, GetVirtualMachineResult, GetVirtualMachineOutputArgs } from "./getVirtualMachine";
+export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualMachine = null as any;
+export const getVirtualMachineOutput: typeof import("./getVirtualMachine").getVirtualMachineOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
+
+export { GetVirtualMachineExtensionArgs, GetVirtualMachineExtensionResult, GetVirtualMachineExtensionOutputArgs } from "./getVirtualMachineExtension";
+export const getVirtualMachineExtension: typeof import("./getVirtualMachineExtension").getVirtualMachineExtension = null as any;
+export const getVirtualMachineExtensionOutput: typeof import("./getVirtualMachineExtension").getVirtualMachineExtensionOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMachineExtension","getVirtualMachineExtensionOutput"], () => require("./getVirtualMachineExtension"));
+
+export { GetVirtualMachineRunCommandByVirtualMachineArgs, GetVirtualMachineRunCommandByVirtualMachineResult, GetVirtualMachineRunCommandByVirtualMachineOutputArgs } from "./getVirtualMachineRunCommandByVirtualMachine";
+export const getVirtualMachineRunCommandByVirtualMachine: typeof import("./getVirtualMachineRunCommandByVirtualMachine").getVirtualMachineRunCommandByVirtualMachine = null as any;
+export const getVirtualMachineRunCommandByVirtualMachineOutput: typeof import("./getVirtualMachineRunCommandByVirtualMachine").getVirtualMachineRunCommandByVirtualMachineOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMachineRunCommandByVirtualMachine","getVirtualMachineRunCommandByVirtualMachineOutput"], () => require("./getVirtualMachineRunCommandByVirtualMachine"));
+
+export { GetVirtualMachineScaleSetArgs, GetVirtualMachineScaleSetResult, GetVirtualMachineScaleSetOutputArgs } from "./getVirtualMachineScaleSet";
+export const getVirtualMachineScaleSet: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSet = null as any;
+export const getVirtualMachineScaleSetOutput: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSetOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSet","getVirtualMachineScaleSetOutput"], () => require("./getVirtualMachineScaleSet"));
+
+export { GetVirtualMachineScaleSetExtensionArgs, GetVirtualMachineScaleSetExtensionResult, GetVirtualMachineScaleSetExtensionOutputArgs } from "./getVirtualMachineScaleSetExtension";
+export const getVirtualMachineScaleSetExtension: typeof import("./getVirtualMachineScaleSetExtension").getVirtualMachineScaleSetExtension = null as any;
+export const getVirtualMachineScaleSetExtensionOutput: typeof import("./getVirtualMachineScaleSetExtension").getVirtualMachineScaleSetExtensionOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSetExtension","getVirtualMachineScaleSetExtensionOutput"], () => require("./getVirtualMachineScaleSetExtension"));
+
+export { GetVirtualMachineScaleSetVMArgs, GetVirtualMachineScaleSetVMResult, GetVirtualMachineScaleSetVMOutputArgs } from "./getVirtualMachineScaleSetVM";
+export const getVirtualMachineScaleSetVM: typeof import("./getVirtualMachineScaleSetVM").getVirtualMachineScaleSetVM = null as any;
+export const getVirtualMachineScaleSetVMOutput: typeof import("./getVirtualMachineScaleSetVM").getVirtualMachineScaleSetVMOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSetVM","getVirtualMachineScaleSetVMOutput"], () => require("./getVirtualMachineScaleSetVM"));
+
+export { GetVirtualMachineScaleSetVMExtensionArgs, GetVirtualMachineScaleSetVMExtensionResult, GetVirtualMachineScaleSetVMExtensionOutputArgs } from "./getVirtualMachineScaleSetVMExtension";
+export const getVirtualMachineScaleSetVMExtension: typeof import("./getVirtualMachineScaleSetVMExtension").getVirtualMachineScaleSetVMExtension = null as any;
+export const getVirtualMachineScaleSetVMExtensionOutput: typeof import("./getVirtualMachineScaleSetVMExtension").getVirtualMachineScaleSetVMExtensionOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSetVMExtension","getVirtualMachineScaleSetVMExtensionOutput"], () => require("./getVirtualMachineScaleSetVMExtension"));
+
+export { GetVirtualMachineScaleSetVMRunCommandArgs, GetVirtualMachineScaleSetVMRunCommandResult, GetVirtualMachineScaleSetVMRunCommandOutputArgs } from "./getVirtualMachineScaleSetVMRunCommand";
+export const getVirtualMachineScaleSetVMRunCommand: typeof import("./getVirtualMachineScaleSetVMRunCommand").getVirtualMachineScaleSetVMRunCommand = null as any;
+export const getVirtualMachineScaleSetVMRunCommandOutput: typeof import("./getVirtualMachineScaleSetVMRunCommand").getVirtualMachineScaleSetVMRunCommandOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSetVMRunCommand","getVirtualMachineScaleSetVMRunCommandOutput"], () => require("./getVirtualMachineScaleSetVMRunCommand"));
 
 
 // Export enums:

@@ -6,8 +6,16 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_attached_data_network import *
+from .get_data_network import *
+from .get_mobile_network import *
 from .get_packet_core_control_plane import *
+from .get_packet_core_data_plane import *
+from .get_service import *
 from .get_sim import *
+from .get_sim_policy import *
+from .get_site import *
+from .get_slice import *
 from .list_mobile_network_sim_ids import *
 from .packet_core_control_plane import *
 from .sim import *

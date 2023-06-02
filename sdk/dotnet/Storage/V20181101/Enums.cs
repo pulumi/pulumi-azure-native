@@ -296,6 +296,38 @@ namespace Pulumi.AzureNative.Storage.V20181101
     }
 
     /// <summary>
+    /// Specifies whether data in the container may be accessed publicly and the level of access.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicAccess : IEquatable<PublicAccess>
+    {
+        private readonly string _value;
+
+        private PublicAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicAccess Container { get; } = new PublicAccess("Container");
+        public static PublicAccess Blob { get; } = new PublicAccess("Blob");
+        public static PublicAccess None { get; } = new PublicAccess("None");
+
+        public static bool operator ==(PublicAccess left, PublicAccess right) => left.Equals(right);
+        public static bool operator !=(PublicAccess left, PublicAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicAccess other && Equals(other);
+        public bool Equals(PublicAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
     /// </summary>
     [EnumType]
@@ -319,6 +351,36 @@ namespace Pulumi.AzureNative.Storage.V20181101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ReasonCode other && Equals(other);
         public bool Equals(ReasonCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The valid value is Lifecycle
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleType : IEquatable<RuleType>
+    {
+        private readonly string _value;
+
+        private RuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleType Lifecycle { get; } = new RuleType("Lifecycle");
+
+        public static bool operator ==(RuleType left, RuleType right) => left.Equals(right);
+        public static bool operator !=(RuleType left, RuleType right) => !left.Equals(right);
+
+        public static explicit operator string(RuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleType other && Equals(other);
+        public bool Equals(RuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

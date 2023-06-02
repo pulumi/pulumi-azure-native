@@ -9,17 +9,46 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ActorResponse',
+    'EncryptionPropertyResponse',
     'EventContentResponse',
     'EventRequestMessageResponse',
     'EventResponse',
     'EventResponseMessageResponse',
+    'ExportPipelineTargetPropertiesResponse',
+    'IPRuleResponse',
+    'IdentityPropertiesResponse',
+    'ImportPipelineSourcePropertiesResponse',
+    'KeyVaultPropertiesResponse',
+    'NetworkRuleSetResponse',
+    'PipelineRunRequestResponse',
+    'PipelineRunResponseResponse',
+    'PipelineRunSourcePropertiesResponse',
+    'PipelineRunTargetPropertiesResponse',
+    'PipelineSourceTriggerDescriptorResponse',
+    'PipelineSourceTriggerPropertiesResponse',
+    'PipelineTriggerDescriptorResponse',
+    'PipelineTriggerPropertiesResponse',
+    'PoliciesResponse',
+    'PrivateEndpointConnectionResponse',
+    'PrivateEndpointResponse',
+    'PrivateLinkServiceConnectionStateResponse',
+    'ProgressPropertiesResponse',
+    'QuarantinePolicyResponse',
     'RegistryPasswordResponse',
     'RequestResponse',
+    'RetentionPolicyResponse',
+    'SkuResponse',
     'SourceResponse',
+    'StatusResponse',
+    'SystemDataResponse',
     'TargetResponse',
+    'TrustPolicyResponse',
+    'UserIdentityPropertiesResponse',
+    'VirtualNetworkRuleResponse',
 ]
 
 @pulumi.output_type
@@ -43,6 +72,37 @@ class ActorResponse(dict):
         The subject or username associated with the request context that generated the event.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class EncryptionPropertyResponse(dict):
+    def __init__(__self__, *,
+                 key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
+                 status: Optional[str] = None):
+        """
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Key vault properties.
+        :param str status: Indicates whether or not the encryption is enabled for container registry.
+        """
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
+        """
+        Key vault properties.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates whether or not the encryption is enabled for container registry.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -330,6 +390,923 @@ class EventResponseMessageResponse(dict):
 
 
 @pulumi.output_type
+class ExportPipelineTargetPropertiesResponse(dict):
+    """
+    The properties of the export pipeline target.
+    """
+    def __init__(__self__, *,
+                 key_vault_uri: str,
+                 type: Optional[str] = None,
+                 uri: Optional[str] = None):
+        """
+        The properties of the export pipeline target.
+        :param str key_vault_uri: They key vault secret uri to obtain the target storage SAS token.
+        :param str type: The type of target for the export pipeline.
+        :param str uri: The target uri of the export pipeline.
+               When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+               When 'AzureStorageBlobContainer':  "https://accountName.blob.core.windows.net/containerName"
+        """
+        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> str:
+        """
+        They key vault secret uri to obtain the target storage SAS token.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of target for the export pipeline.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        The target uri of the export pipeline.
+        When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+        When 'AzureStorageBlobContainer':  "https://accountName.blob.core.windows.net/containerName"
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class IPRuleResponse(dict):
+    """
+    IP rule with specific IP or IP range in CIDR format.
+    """
+    def __init__(__self__, *,
+                 i_p_address_or_range: str,
+                 action: Optional[str] = None):
+        """
+        IP rule with specific IP or IP range in CIDR format.
+        :param str i_p_address_or_range: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        :param str action: The action of IP ACL rule.
+        """
+        pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        if action is None:
+            action = 'Allow'
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="iPAddressOrRange")
+    def i_p_address_or_range(self) -> str:
+        """
+        Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        """
+        return pulumi.get(self, "i_p_address_or_range")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action of IP ACL rule.
+        """
+        return pulumi.get(self, "action")
+
+
+@pulumi.output_type
+class IdentityPropertiesResponse(dict):
+    """
+    Managed identity for the resource.
+    """
+    def __init__(__self__, *,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None):
+        """
+        Managed identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity 
+               dictionary key references will be ARM resource ids in the form: 
+               '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
+                   providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']]:
+        """
+        The list of user identities associated with the resource. The user identity 
+        dictionary key references will be ARM resource ids in the form: 
+        '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
+            providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ImportPipelineSourcePropertiesResponse(dict):
+    """
+    The properties of the import pipeline source.
+    """
+    def __init__(__self__, *,
+                 key_vault_uri: str,
+                 type: Optional[str] = None,
+                 uri: Optional[str] = None):
+        """
+        The properties of the import pipeline source.
+        :param str key_vault_uri: They key vault secret uri to obtain the source storage SAS token.
+        :param str type: The type of source for the import pipeline.
+        :param str uri: The source uri of the import pipeline.
+               When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+               When 'AzureStorageBlobContainer': "https://accountName.blob.core.windows.net/containerName"
+        """
+        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if type is None:
+            type = 'AzureStorageBlobContainer'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> str:
+        """
+        They key vault secret uri to obtain the source storage SAS token.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of source for the import pipeline.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        The source uri of the import pipeline.
+        When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+        When 'AzureStorageBlobContainer': "https://accountName.blob.core.windows.net/containerName"
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class KeyVaultPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 key_rotation_enabled: bool,
+                 last_key_rotation_timestamp: str,
+                 versioned_key_identifier: str,
+                 identity: Optional[str] = None,
+                 key_identifier: Optional[str] = None):
+        """
+        :param bool key_rotation_enabled: Auto key rotation status for a CMK enabled registry.
+        :param str last_key_rotation_timestamp: Timestamp of the last successful key rotation.
+        :param str versioned_key_identifier: The fully qualified key identifier that includes the version of the key that is actually used for encryption.
+        :param str identity: The client id of the identity which will be used to access key vault.
+        :param str key_identifier: Key vault uri to access the encryption key.
+        """
+        pulumi.set(__self__, "key_rotation_enabled", key_rotation_enabled)
+        pulumi.set(__self__, "last_key_rotation_timestamp", last_key_rotation_timestamp)
+        pulumi.set(__self__, "versioned_key_identifier", versioned_key_identifier)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_identifier is not None:
+            pulumi.set(__self__, "key_identifier", key_identifier)
+
+    @property
+    @pulumi.getter(name="keyRotationEnabled")
+    def key_rotation_enabled(self) -> bool:
+        """
+        Auto key rotation status for a CMK enabled registry.
+        """
+        return pulumi.get(self, "key_rotation_enabled")
+
+    @property
+    @pulumi.getter(name="lastKeyRotationTimestamp")
+    def last_key_rotation_timestamp(self) -> str:
+        """
+        Timestamp of the last successful key rotation.
+        """
+        return pulumi.get(self, "last_key_rotation_timestamp")
+
+    @property
+    @pulumi.getter(name="versionedKeyIdentifier")
+    def versioned_key_identifier(self) -> str:
+        """
+        The fully qualified key identifier that includes the version of the key that is actually used for encryption.
+        """
+        return pulumi.get(self, "versioned_key_identifier")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[str]:
+        """
+        The client id of the identity which will be used to access key vault.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> Optional[str]:
+        """
+        Key vault uri to access the encryption key.
+        """
+        return pulumi.get(self, "key_identifier")
+
+
+@pulumi.output_type
+class NetworkRuleSetResponse(dict):
+    """
+    The network rule set for a container registry.
+    """
+    def __init__(__self__, *,
+                 default_action: str,
+                 ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
+                 virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
+        """
+        The network rule set for a container registry.
+        :param str default_action: The default action of allow or deny when no other rules match.
+        :param Sequence['IPRuleResponse'] ip_rules: The IP ACL rules.
+        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: The virtual network rules.
+        """
+        if default_action is None:
+            default_action = 'Allow'
+        pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+        if virtual_network_rules is not None:
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> str:
+        """
+        The default action of allow or deny when no other rules match.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[Sequence['outputs.IPRuleResponse']]:
+        """
+        The IP ACL rules.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.VirtualNetworkRuleResponse']]:
+        """
+        The virtual network rules.
+        """
+        return pulumi.get(self, "virtual_network_rules")
+
+
+@pulumi.output_type
+class PipelineRunRequestResponse(dict):
+    """
+    The request properties provided for a pipeline run.
+    """
+    def __init__(__self__, *,
+                 artifacts: Optional[Sequence[str]] = None,
+                 catalog_digest: Optional[str] = None,
+                 pipeline_resource_id: Optional[str] = None,
+                 source: Optional['outputs.PipelineRunSourcePropertiesResponse'] = None,
+                 target: Optional['outputs.PipelineRunTargetPropertiesResponse'] = None):
+        """
+        The request properties provided for a pipeline run.
+        :param Sequence[str] artifacts: List of source artifacts to be transferred by the pipeline. 
+               Specify an image by repository ('hello-world'). This will use the 'latest' tag.
+               Specify an image by tag ('hello-world:latest').
+               Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
+        :param str catalog_digest: The digest of the tar used to transfer the artifacts.
+        :param str pipeline_resource_id: The resource ID of the pipeline to run.
+        :param 'PipelineRunSourcePropertiesResponse' source: The source properties of the pipeline run.
+        :param 'PipelineRunTargetPropertiesResponse' target: The target properties of the pipeline run.
+        """
+        if artifacts is not None:
+            pulumi.set(__self__, "artifacts", artifacts)
+        if catalog_digest is not None:
+            pulumi.set(__self__, "catalog_digest", catalog_digest)
+        if pipeline_resource_id is not None:
+            pulumi.set(__self__, "pipeline_resource_id", pipeline_resource_id)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[Sequence[str]]:
+        """
+        List of source artifacts to be transferred by the pipeline. 
+        Specify an image by repository ('hello-world'). This will use the 'latest' tag.
+        Specify an image by tag ('hello-world:latest').
+        Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
+        """
+        return pulumi.get(self, "artifacts")
+
+    @property
+    @pulumi.getter(name="catalogDigest")
+    def catalog_digest(self) -> Optional[str]:
+        """
+        The digest of the tar used to transfer the artifacts.
+        """
+        return pulumi.get(self, "catalog_digest")
+
+    @property
+    @pulumi.getter(name="pipelineResourceId")
+    def pipeline_resource_id(self) -> Optional[str]:
+        """
+        The resource ID of the pipeline to run.
+        """
+        return pulumi.get(self, "pipeline_resource_id")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.PipelineRunSourcePropertiesResponse']:
+        """
+        The source properties of the pipeline run.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional['outputs.PipelineRunTargetPropertiesResponse']:
+        """
+        The target properties of the pipeline run.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class PipelineRunResponseResponse(dict):
+    """
+    The response properties returned for a pipeline run.
+    """
+    def __init__(__self__, *,
+                 catalog_digest: Optional[str] = None,
+                 finish_time: Optional[str] = None,
+                 imported_artifacts: Optional[Sequence[str]] = None,
+                 pipeline_run_error_message: Optional[str] = None,
+                 progress: Optional['outputs.ProgressPropertiesResponse'] = None,
+                 source: Optional['outputs.ImportPipelineSourcePropertiesResponse'] = None,
+                 start_time: Optional[str] = None,
+                 status: Optional[str] = None,
+                 target: Optional['outputs.ExportPipelineTargetPropertiesResponse'] = None,
+                 trigger: Optional['outputs.PipelineTriggerDescriptorResponse'] = None):
+        """
+        The response properties returned for a pipeline run.
+        :param str catalog_digest: The digest of the tar used to transfer the artifacts.
+        :param str finish_time: The time the pipeline run finished.
+        :param Sequence[str] imported_artifacts: The artifacts imported in the pipeline run.
+        :param str pipeline_run_error_message: The detailed error message for the pipeline run in the case of failure.
+        :param 'ProgressPropertiesResponse' progress: The current progress of the copy operation.
+        :param 'ImportPipelineSourcePropertiesResponse' source: The source of the pipeline run.
+        :param str start_time: The time the pipeline run started.
+        :param str status: The current status of the pipeline run.
+        :param 'ExportPipelineTargetPropertiesResponse' target: The target of the pipeline run.
+        :param 'PipelineTriggerDescriptorResponse' trigger: The trigger that caused the pipeline run.
+        """
+        if catalog_digest is not None:
+            pulumi.set(__self__, "catalog_digest", catalog_digest)
+        if finish_time is not None:
+            pulumi.set(__self__, "finish_time", finish_time)
+        if imported_artifacts is not None:
+            pulumi.set(__self__, "imported_artifacts", imported_artifacts)
+        if pipeline_run_error_message is not None:
+            pulumi.set(__self__, "pipeline_run_error_message", pipeline_run_error_message)
+        if progress is not None:
+            pulumi.set(__self__, "progress", progress)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if trigger is not None:
+            pulumi.set(__self__, "trigger", trigger)
+
+    @property
+    @pulumi.getter(name="catalogDigest")
+    def catalog_digest(self) -> Optional[str]:
+        """
+        The digest of the tar used to transfer the artifacts.
+        """
+        return pulumi.get(self, "catalog_digest")
+
+    @property
+    @pulumi.getter(name="finishTime")
+    def finish_time(self) -> Optional[str]:
+        """
+        The time the pipeline run finished.
+        """
+        return pulumi.get(self, "finish_time")
+
+    @property
+    @pulumi.getter(name="importedArtifacts")
+    def imported_artifacts(self) -> Optional[Sequence[str]]:
+        """
+        The artifacts imported in the pipeline run.
+        """
+        return pulumi.get(self, "imported_artifacts")
+
+    @property
+    @pulumi.getter(name="pipelineRunErrorMessage")
+    def pipeline_run_error_message(self) -> Optional[str]:
+        """
+        The detailed error message for the pipeline run in the case of failure.
+        """
+        return pulumi.get(self, "pipeline_run_error_message")
+
+    @property
+    @pulumi.getter
+    def progress(self) -> Optional['outputs.ProgressPropertiesResponse']:
+        """
+        The current progress of the copy operation.
+        """
+        return pulumi.get(self, "progress")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.ImportPipelineSourcePropertiesResponse']:
+        """
+        The source of the pipeline run.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        The time the pipeline run started.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The current status of the pipeline run.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional['outputs.ExportPipelineTargetPropertiesResponse']:
+        """
+        The target of the pipeline run.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> Optional['outputs.PipelineTriggerDescriptorResponse']:
+        """
+        The trigger that caused the pipeline run.
+        """
+        return pulumi.get(self, "trigger")
+
+
+@pulumi.output_type
+class PipelineRunSourcePropertiesResponse(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str name: The name of the source.
+        :param str type: The type of the source.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is None:
+            type = 'AzureStorageBlob'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the source.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the source.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PipelineRunTargetPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str name: The name of the target.
+        :param str type: The type of the target.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is None:
+            type = 'AzureStorageBlob'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the target.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the target.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PipelineSourceTriggerDescriptorResponse(dict):
+    def __init__(__self__, *,
+                 timestamp: Optional[str] = None):
+        """
+        :param str timestamp: The timestamp when the source update happened.
+        """
+        if timestamp is not None:
+            pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> Optional[str]:
+        """
+        The timestamp when the source update happened.
+        """
+        return pulumi.get(self, "timestamp")
+
+
+@pulumi.output_type
+class PipelineSourceTriggerPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 status: str):
+        """
+        :param str status: The current status of the source trigger.
+        """
+        if status is None:
+            status = 'Enabled'
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The current status of the source trigger.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class PipelineTriggerDescriptorResponse(dict):
+    def __init__(__self__, *,
+                 source_trigger: Optional['outputs.PipelineSourceTriggerDescriptorResponse'] = None):
+        """
+        :param 'PipelineSourceTriggerDescriptorResponse' source_trigger: The source trigger that caused the pipeline run.
+        """
+        if source_trigger is not None:
+            pulumi.set(__self__, "source_trigger", source_trigger)
+
+    @property
+    @pulumi.getter(name="sourceTrigger")
+    def source_trigger(self) -> Optional['outputs.PipelineSourceTriggerDescriptorResponse']:
+        """
+        The source trigger that caused the pipeline run.
+        """
+        return pulumi.get(self, "source_trigger")
+
+
+@pulumi.output_type
+class PipelineTriggerPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 source_trigger: Optional['outputs.PipelineSourceTriggerPropertiesResponse'] = None):
+        """
+        :param 'PipelineSourceTriggerPropertiesResponse' source_trigger: The source trigger properties of the pipeline.
+        """
+        if source_trigger is not None:
+            pulumi.set(__self__, "source_trigger", source_trigger)
+
+    @property
+    @pulumi.getter(name="sourceTrigger")
+    def source_trigger(self) -> Optional['outputs.PipelineSourceTriggerPropertiesResponse']:
+        """
+        The source trigger properties of the pipeline.
+        """
+        return pulumi.get(self, "source_trigger")
+
+
+@pulumi.output_type
+class PoliciesResponse(dict):
+    """
+    The policies for a container registry.
+    """
+    def __init__(__self__, *,
+                 quarantine_policy: Optional['outputs.QuarantinePolicyResponse'] = None,
+                 retention_policy: Optional['outputs.RetentionPolicyResponse'] = None,
+                 trust_policy: Optional['outputs.TrustPolicyResponse'] = None):
+        """
+        The policies for a container registry.
+        :param 'QuarantinePolicyResponse' quarantine_policy: The quarantine policy for a container registry.
+        :param 'RetentionPolicyResponse' retention_policy: The retention policy for a container registry.
+        :param 'TrustPolicyResponse' trust_policy: The content trust policy for a container registry.
+        """
+        if quarantine_policy is not None:
+            pulumi.set(__self__, "quarantine_policy", quarantine_policy)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if trust_policy is not None:
+            pulumi.set(__self__, "trust_policy", trust_policy)
+
+    @property
+    @pulumi.getter(name="quarantinePolicy")
+    def quarantine_policy(self) -> Optional['outputs.QuarantinePolicyResponse']:
+        """
+        The quarantine policy for a container registry.
+        """
+        return pulumi.get(self, "quarantine_policy")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyResponse']:
+        """
+        The retention policy for a container registry.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="trustPolicy")
+    def trust_policy(self) -> Optional['outputs.TrustPolicyResponse']:
+        """
+        The content trust policy for a container registry.
+        """
+        return pulumi.get(self, "trust_policy")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    An object that represents a private endpoint connection for a container registry.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
+        """
+        An object that represents a private endpoint connection for a container registry.
+        :param str id: The resource ID.
+        :param str name: The name of the resource.
+        :param str provisioning_state: The provisioning state of private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param str type: The type of the resource.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private endpoint.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The resource of private endpoint.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+
+@pulumi.output_type
+class PrivateEndpointResponse(dict):
+    """
+    The Private Endpoint resource.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        The Private Endpoint resource.
+        :param str id: This is private endpoint resource created with Microsoft.Network resource provider.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        This is private endpoint resource created with Microsoft.Network resource provider.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateResponse(dict):
+    """
+    The state of a private link service connection.
+    """
+    def __init__(__self__, *,
+                 actions_required: Optional[str] = None,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        The state of a private link service connection.
+        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param str description: The description for connection status. For example if connection is rejected it can indicate reason for rejection.
+        :param str status: The private link service connection status.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description for connection status. For example if connection is rejected it can indicate reason for rejection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ProgressPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 percentage: Optional[str] = None):
+        """
+        :param str percentage: The percentage complete of the copy operation.
+        """
+        if percentage is not None:
+            pulumi.set(__self__, "percentage", percentage)
+
+    @property
+    @pulumi.getter
+    def percentage(self) -> Optional[str]:
+        """
+        The percentage complete of the copy operation.
+        """
+        return pulumi.get(self, "percentage")
+
+
+@pulumi.output_type
+class QuarantinePolicyResponse(dict):
+    """
+    The quarantine policy for a container registry.
+    """
+    def __init__(__self__, *,
+                 status: Optional[str] = None):
+        """
+        The quarantine policy for a container registry.
+        :param str status: The value that indicates whether the policy is enabled or not.
+        """
+        if status is None:
+            status = 'disabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class RegistryPasswordResponse(dict):
     """
     The login password for the container registry.
@@ -436,6 +1413,89 @@ class RequestResponse(dict):
 
 
 @pulumi.output_type
+class RetentionPolicyResponse(dict):
+    """
+    The retention policy for a container registry.
+    """
+    def __init__(__self__, *,
+                 last_updated_time: str,
+                 days: Optional[int] = None,
+                 status: Optional[str] = None):
+        """
+        The retention policy for a container registry.
+        :param str last_updated_time: The timestamp when the policy was last updated.
+        :param int days: The number of days to retain an untagged manifest after which it gets purged.
+        :param str status: The value that indicates whether the policy is enabled or not.
+        """
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if days is None:
+            days = 7
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if status is None:
+            status = 'disabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> str:
+        """
+        The timestamp when the policy was last updated.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[int]:
+        """
+        The number of days to retain an untagged manifest after which it gets purged.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class SkuResponse(dict):
+    """
+    The SKU of a container registry.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str):
+        """
+        The SKU of a container registry.
+        :param str name: The SKU name of the container registry. Required for registry creation.
+        :param str tier: The SKU tier based on the SKU name.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The SKU name of the container registry. Required for registry creation.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        The SKU tier based on the SKU name.
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
 class SourceResponse(dict):
     """
     The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
@@ -468,6 +1528,133 @@ class SourceResponse(dict):
         The running instance of an application. Changes after each restart.
         """
         return pulumi.get(self, "instance_id")
+
+
+@pulumi.output_type
+class StatusResponse(dict):
+    """
+    The status of an Azure resource at the time the operation was called.
+    """
+    def __init__(__self__, *,
+                 display_status: str,
+                 message: str,
+                 timestamp: str):
+        """
+        The status of an Azure resource at the time the operation was called.
+        :param str display_status: The short label for the status.
+        :param str message: The detailed message for the status, including alerts and error messages.
+        :param str timestamp: The timestamp when the status was changed to the current value.
+        """
+        pulumi.set(__self__, "display_status", display_status)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="displayStatus")
+    def display_status(self) -> str:
+        """
+        The short label for the status.
+        """
+        return pulumi.get(self, "display_status")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The detailed message for the status, including alerts and error messages.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> str:
+        """
+        The timestamp when the status was changed to the current value.
+        """
+        return pulumi.get(self, "timestamp")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource modification (UTC).
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource modification (UTC).
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type
@@ -587,5 +1774,111 @@ class TargetResponse(dict):
         The version of the artifact.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class TrustPolicyResponse(dict):
+    """
+    The content trust policy for a container registry.
+    """
+    def __init__(__self__, *,
+                 status: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The content trust policy for a container registry.
+        :param str status: The value that indicates whether the policy is enabled or not.
+        :param str type: The type of trust policy.
+        """
+        if status is None:
+            status = 'disabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is None:
+            type = 'Notary'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of trust policy.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class UserIdentityPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 principal_id: Optional[str] = None):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class VirtualNetworkRuleResponse(dict):
+    """
+    Virtual network rule.
+    """
+    def __init__(__self__, *,
+                 virtual_network_resource_id: str,
+                 action: Optional[str] = None):
+        """
+        Virtual network rule.
+        :param str virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        :param str action: The action of virtual network rule.
+        """
+        pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        if action is None:
+            action = 'Allow'
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="virtualNetworkResourceId")
+    def virtual_network_resource_id(self) -> str:
+        """
+        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        """
+        return pulumi.get(self, "virtual_network_resource_id")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action of virtual network rule.
+        """
+        return pulumi.get(self, "action")
 
 

@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetFunctionArgs, GetFunctionResult, GetFunctionOutputArgs } from "./getFunction";
+export const getFunction: typeof import("./getFunction").getFunction = null as any;
+export const getFunctionOutput: typeof import("./getFunction").getFunctionOutput = null as any;
+utilities.lazyLoad(exports, ["getFunction","getFunctionOutput"], () => require("./getFunction"));
+
+export { GetInputArgs, GetInputResult, GetInputOutputArgs } from "./getInput";
+export const getInput: typeof import("./getInput").getInput = null as any;
+export const getInputOutput: typeof import("./getInput").getInputOutput = null as any;
+utilities.lazyLoad(exports, ["getInput","getInputOutput"], () => require("./getInput"));
+
+export { GetOutputArgs, GetOutputResult, GetOutputOutputArgs } from "./getOutput";
+export const getOutput: typeof import("./getOutput").getOutput = null as any;
+export const getOutputOutput: typeof import("./getOutput").getOutputOutput = null as any;
+utilities.lazyLoad(exports, ["getOutput","getOutputOutput"], () => require("./getOutput"));
+
 export { GetStreamingJobArgs, GetStreamingJobResult, GetStreamingJobOutputArgs } from "./getStreamingJob";
 export const getStreamingJob: typeof import("./getStreamingJob").getStreamingJob = null as any;
 export const getStreamingJobOutput: typeof import("./getStreamingJob").getStreamingJobOutput = null as any;

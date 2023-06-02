@@ -6,7 +6,14 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_availability_set import *
+from .get_disk import *
+from .get_image import *
 from .get_snapshot import *
+from .get_virtual_machine import *
+from .get_virtual_machine_extension import *
+from .get_virtual_machine_scale_set import *
+from .get_virtual_machine_scale_set_extension import *
 from .snapshot import *
 from ._inputs import *
 from . import outputs

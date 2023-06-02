@@ -12,10 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AddressResponse',
     'AsymmetricEncryptedSecretResponse',
     'AuthenticationResponse',
+    'AzureContainerInfoResponse',
+    'ClientAccessRightResponse',
     'CniConfigResponse',
     'ComputeResourceResponse',
+    'ContactDetailsResponse',
     'EdgeProfileResponse',
     'EdgeProfileSubscriptionResponse',
     'EtcdInfoResponse',
@@ -31,39 +35,126 @@ __all__ = [
     'KubernetesRoleStorageClassInfoResponse',
     'KubernetesRoleStorageResponse',
     'LoadBalancerConfigResponse',
+    'MetricConfigurationResponse',
+    'MetricCounterResponse',
+    'MetricCounterSetResponse',
+    'MetricDimensionResponse',
     'MountPointMapResponse',
     'NodeInfoResponse',
+    'OrderStatusResponse',
     'PeriodicTimerSourceInfoResponse',
+    'RefreshDetailsResponse',
+    'ResourceIdentityResponse',
+    'ResourceMoveDetailsResponse',
     'RoleSinkInfoResponse',
+    'ShareAccessRightResponse',
+    'SkuResponse',
     'SubscriptionRegisteredFeaturesResponse',
     'SymmetricKeyResponse',
     'SystemDataResponse',
+    'TrackingInfoResponse',
+    'UserAccessRightResponse',
 ]
+
+@pulumi.output_type
+class AddressResponse(dict):
+    """
+    The shipping address of the customer.
+    """
+    def __init__(__self__, *,
+                 country: str,
+                 address_line1: Optional[str] = None,
+                 address_line2: Optional[str] = None,
+                 address_line3: Optional[str] = None,
+                 city: Optional[str] = None,
+                 postal_code: Optional[str] = None,
+                 state: Optional[str] = None):
+        """
+        The shipping address of the customer.
+        :param str country: The country name.
+        :param str address_line1: The address line1.
+        :param str address_line2: The address line2.
+        :param str address_line3: The address line3.
+        :param str city: The city name.
+        :param str postal_code: The postal code.
+        :param str state: The state name.
+        """
+        pulumi.set(__self__, "country", country)
+        if address_line1 is not None:
+            pulumi.set(__self__, "address_line1", address_line1)
+        if address_line2 is not None:
+            pulumi.set(__self__, "address_line2", address_line2)
+        if address_line3 is not None:
+            pulumi.set(__self__, "address_line3", address_line3)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def country(self) -> str:
+        """
+        The country name.
+        """
+        return pulumi.get(self, "country")
+
+    @property
+    @pulumi.getter(name="addressLine1")
+    def address_line1(self) -> Optional[str]:
+        """
+        The address line1.
+        """
+        return pulumi.get(self, "address_line1")
+
+    @property
+    @pulumi.getter(name="addressLine2")
+    def address_line2(self) -> Optional[str]:
+        """
+        The address line2.
+        """
+        return pulumi.get(self, "address_line2")
+
+    @property
+    @pulumi.getter(name="addressLine3")
+    def address_line3(self) -> Optional[str]:
+        """
+        The address line3.
+        """
+        return pulumi.get(self, "address_line3")
+
+    @property
+    @pulumi.getter
+    def city(self) -> Optional[str]:
+        """
+        The city name.
+        """
+        return pulumi.get(self, "city")
+
+    @property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> Optional[str]:
+        """
+        The postal code.
+        """
+        return pulumi.get(self, "postal_code")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state name.
+        """
+        return pulumi.get(self, "state")
+
 
 @pulumi.output_type
 class AsymmetricEncryptedSecretResponse(dict):
     """
     Represent the secrets intended for encryption with asymmetric key pair.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "encryptionAlgorithm":
-            suggest = "encryption_algorithm"
-        elif key == "encryptionCertThumbprint":
-            suggest = "encryption_cert_thumbprint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AsymmetricEncryptedSecretResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AsymmetricEncryptedSecretResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AsymmetricEncryptedSecretResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  encryption_algorithm: str,
                  value: str,
@@ -109,23 +200,6 @@ class AuthenticationResponse(dict):
     """
     Authentication mechanism for IoT devices.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "symmetricKey":
-            suggest = "symmetric_key"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AuthenticationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AuthenticationResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  symmetric_key: Optional['outputs.SymmetricKeyResponse'] = None):
         """
@@ -145,29 +219,87 @@ class AuthenticationResponse(dict):
 
 
 @pulumi.output_type
+class AzureContainerInfoResponse(dict):
+    """
+    Azure container mapping of the endpoint.
+    """
+    def __init__(__self__, *,
+                 container_name: str,
+                 data_format: str,
+                 storage_account_credential_id: str):
+        """
+        Azure container mapping of the endpoint.
+        :param str container_name: Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
+        :param str data_format: Storage format used for the file represented by the share.
+        :param str storage_account_credential_id: ID of the storage account credential used to access storage.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "data_format", data_format)
+        pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> str:
+        """
+        Storage format used for the file represented by the share.
+        """
+        return pulumi.get(self, "data_format")
+
+    @property
+    @pulumi.getter(name="storageAccountCredentialId")
+    def storage_account_credential_id(self) -> str:
+        """
+        ID of the storage account credential used to access storage.
+        """
+        return pulumi.get(self, "storage_account_credential_id")
+
+
+@pulumi.output_type
+class ClientAccessRightResponse(dict):
+    """
+    The mapping between a particular client IP and the type of access client has on the NFS share.
+    """
+    def __init__(__self__, *,
+                 access_permission: str,
+                 client: str):
+        """
+        The mapping between a particular client IP and the type of access client has on the NFS share.
+        :param str access_permission: Type of access to be allowed for the client.
+        :param str client: IP of the client.
+        """
+        pulumi.set(__self__, "access_permission", access_permission)
+        pulumi.set(__self__, "client", client)
+
+    @property
+    @pulumi.getter(name="accessPermission")
+    def access_permission(self) -> str:
+        """
+        Type of access to be allowed for the client.
+        """
+        return pulumi.get(self, "access_permission")
+
+    @property
+    @pulumi.getter
+    def client(self) -> str:
+        """
+        IP of the client.
+        """
+        return pulumi.get(self, "client")
+
+
+@pulumi.output_type
 class CniConfigResponse(dict):
     """
     Cni configuration
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "podSubnet":
-            suggest = "pod_subnet"
-        elif key == "serviceSubnet":
-            suggest = "service_subnet"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CniConfigResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CniConfigResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CniConfigResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  pod_subnet: str,
                  service_subnet: str,
@@ -223,25 +355,6 @@ class ComputeResourceResponse(dict):
     """
     Compute infrastructure Resource
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "memoryInGB":
-            suggest = "memory_in_gb"
-        elif key == "processorCount":
-            suggest = "processor_count"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ComputeResourceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ComputeResourceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ComputeResourceResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  memory_in_gb: float,
                  processor_count: int):
@@ -268,6 +381,61 @@ class ComputeResourceResponse(dict):
         Processor count
         """
         return pulumi.get(self, "processor_count")
+
+
+@pulumi.output_type
+class ContactDetailsResponse(dict):
+    """
+    Contains all the contact details of the customer.
+    """
+    def __init__(__self__, *,
+                 company_name: str,
+                 contact_person: str,
+                 email_list: Sequence[str],
+                 phone: str):
+        """
+        Contains all the contact details of the customer.
+        :param str company_name: The name of the company.
+        :param str contact_person: The contact person name.
+        :param Sequence[str] email_list: The email list.
+        :param str phone: The phone number.
+        """
+        pulumi.set(__self__, "company_name", company_name)
+        pulumi.set(__self__, "contact_person", contact_person)
+        pulumi.set(__self__, "email_list", email_list)
+        pulumi.set(__self__, "phone", phone)
+
+    @property
+    @pulumi.getter(name="companyName")
+    def company_name(self) -> str:
+        """
+        The name of the company.
+        """
+        return pulumi.get(self, "company_name")
+
+    @property
+    @pulumi.getter(name="contactPerson")
+    def contact_person(self) -> str:
+        """
+        The contact person name.
+        """
+        return pulumi.get(self, "contact_person")
+
+    @property
+    @pulumi.getter(name="emailList")
+    def email_list(self) -> Sequence[str]:
+        """
+        The email list.
+        """
+        return pulumi.get(self, "email_list")
+
+    @property
+    @pulumi.getter
+    def phone(self) -> str:
+        """
+        The phone number.
+        """
+        return pulumi.get(self, "phone")
 
 
 @pulumi.output_type
@@ -298,37 +466,6 @@ class EdgeProfileSubscriptionResponse(dict):
     """
     Subscription details for the Edge Profile
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "locationPlacementId":
-            suggest = "location_placement_id"
-        elif key == "quotaId":
-            suggest = "quota_id"
-        elif key == "registeredFeatures":
-            suggest = "registered_features"
-        elif key == "registrationDate":
-            suggest = "registration_date"
-        elif key == "registrationId":
-            suggest = "registration_id"
-        elif key == "serializedDetails":
-            suggest = "serialized_details"
-        elif key == "subscriptionId":
-            suggest = "subscription_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EdgeProfileSubscriptionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EdgeProfileSubscriptionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EdgeProfileSubscriptionResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  location_placement_id: Optional[str] = None,
@@ -461,23 +598,6 @@ class FileSourceInfoResponse(dict):
     """
     File source details.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "shareId":
-            suggest = "share_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FileSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FileSourceInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FileSourceInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  share_id: str):
         """
@@ -500,25 +620,6 @@ class ImageRepositoryCredentialResponse(dict):
     """
     Image repository credential.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "imageRepositoryUrl":
-            suggest = "image_repository_url"
-        elif key == "userName":
-            suggest = "user_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ImageRepositoryCredentialResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ImageRepositoryCredentialResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ImageRepositoryCredentialResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  image_repository_url: str,
                  user_name: str,
@@ -564,27 +665,6 @@ class IoTDeviceInfoResponse(dict):
     """
     Metadata of IoT device/IoT Edge device to be configured.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "deviceId":
-            suggest = "device_id"
-        elif key == "ioTHostHub":
-            suggest = "io_t_host_hub"
-        elif key == "ioTHostHubId":
-            suggest = "io_t_host_hub_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IoTDeviceInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IoTDeviceInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IoTDeviceInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  device_id: str,
                  io_t_host_hub: str,
@@ -642,25 +722,6 @@ class IoTEdgeAgentInfoResponse(dict):
     """
     IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "imageName":
-            suggest = "image_name"
-        elif key == "imageRepository":
-            suggest = "image_repository"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IoTEdgeAgentInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IoTEdgeAgentInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IoTEdgeAgentInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  image_name: str,
                  tag: str,
@@ -706,23 +767,6 @@ class KubernetesClusterInfoResponse(dict):
     """
     Kubernetes cluster configuration
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "etcdInfo":
-            suggest = "etcd_info"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesClusterInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesClusterInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  etcd_info: 'outputs.EtcdInfoResponse',
                  nodes: Sequence['outputs.NodeInfoResponse'],
@@ -767,23 +811,6 @@ class KubernetesIPConfigurationResponse(dict):
     """
     Kubernetes node IP configuration
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipAddress":
-            suggest = "ip_address"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesIPConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesIPConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  port: str,
                  ip_address: Optional[str] = None):
@@ -818,27 +845,6 @@ class KubernetesRoleComputeResponse(dict):
     """
     Kubernetes role compute resource
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "memoryInBytes":
-            suggest = "memory_in_bytes"
-        elif key == "processorCount":
-            suggest = "processor_count"
-        elif key == "vmProfile":
-            suggest = "vm_profile"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesRoleComputeResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesRoleComputeResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesRoleComputeResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  memory_in_bytes: float,
                  processor_count: int,
@@ -883,25 +889,6 @@ class KubernetesRoleNetworkResponse(dict):
     """
     Kubernetes role network resource
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "cniConfig":
-            suggest = "cni_config"
-        elif key == "loadBalancerConfig":
-            suggest = "load_balancer_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesRoleNetworkResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesRoleNetworkResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesRoleNetworkResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  cni_config: 'outputs.CniConfigResponse',
                  load_balancer_config: 'outputs.LoadBalancerConfigResponse'):
@@ -980,23 +967,6 @@ class KubernetesRoleStorageClassInfoResponse(dict):
     """
     Kubernetes storage class info.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "posixCompliant":
-            suggest = "posix_compliant"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesRoleStorageClassInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesRoleStorageClassInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesRoleStorageClassInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  name: str,
                  posix_compliant: str,
@@ -1041,23 +1011,6 @@ class KubernetesRoleStorageResponse(dict):
     """
     Kubernetes role storage resource
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "storageClasses":
-            suggest = "storage_classes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesRoleStorageResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesRoleStorageResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesRoleStorageResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  storage_classes: Sequence['outputs.KubernetesRoleStorageClassInfoResponse'],
                  endpoints: Optional[Sequence['outputs.MountPointMapResponse']] = None):
@@ -1121,35 +1074,180 @@ class LoadBalancerConfigResponse(dict):
 
 
 @pulumi.output_type
+class MetricConfigurationResponse(dict):
+    """
+    Metric configuration.
+    """
+    def __init__(__self__, *,
+                 counter_sets: Sequence['outputs.MetricCounterSetResponse'],
+                 resource_id: str,
+                 mdm_account: Optional[str] = None,
+                 metric_name_space: Optional[str] = None):
+        """
+        Metric configuration.
+        :param Sequence['MetricCounterSetResponse'] counter_sets: Host name for the IoT hub associated to the device.
+        :param str resource_id: The Resource ID on which the metrics should be pushed.
+        :param str mdm_account: The MDM account to which the counters should be pushed.
+        :param str metric_name_space: The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
+        """
+        pulumi.set(__self__, "counter_sets", counter_sets)
+        pulumi.set(__self__, "resource_id", resource_id)
+        if mdm_account is not None:
+            pulumi.set(__self__, "mdm_account", mdm_account)
+        if metric_name_space is not None:
+            pulumi.set(__self__, "metric_name_space", metric_name_space)
+
+    @property
+    @pulumi.getter(name="counterSets")
+    def counter_sets(self) -> Sequence['outputs.MetricCounterSetResponse']:
+        """
+        Host name for the IoT hub associated to the device.
+        """
+        return pulumi.get(self, "counter_sets")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The Resource ID on which the metrics should be pushed.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="mdmAccount")
+    def mdm_account(self) -> Optional[str]:
+        """
+        The MDM account to which the counters should be pushed.
+        """
+        return pulumi.get(self, "mdm_account")
+
+    @property
+    @pulumi.getter(name="metricNameSpace")
+    def metric_name_space(self) -> Optional[str]:
+        """
+        The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
+        """
+        return pulumi.get(self, "metric_name_space")
+
+
+@pulumi.output_type
+class MetricCounterResponse(dict):
+    """
+    The metric counter
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 additional_dimensions: Optional[Sequence['outputs.MetricDimensionResponse']] = None,
+                 dimension_filter: Optional[Sequence['outputs.MetricDimensionResponse']] = None,
+                 instance: Optional[str] = None):
+        """
+        The metric counter
+        :param str name: The counter name.
+        :param Sequence['MetricDimensionResponse'] additional_dimensions: The additional dimensions to be added to metric.
+        :param Sequence['MetricDimensionResponse'] dimension_filter: The dimension filter.
+        :param str instance: The instance from which counter should be collected.
+        """
+        pulumi.set(__self__, "name", name)
+        if additional_dimensions is not None:
+            pulumi.set(__self__, "additional_dimensions", additional_dimensions)
+        if dimension_filter is not None:
+            pulumi.set(__self__, "dimension_filter", dimension_filter)
+        if instance is not None:
+            pulumi.set(__self__, "instance", instance)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The counter name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="additionalDimensions")
+    def additional_dimensions(self) -> Optional[Sequence['outputs.MetricDimensionResponse']]:
+        """
+        The additional dimensions to be added to metric.
+        """
+        return pulumi.get(self, "additional_dimensions")
+
+    @property
+    @pulumi.getter(name="dimensionFilter")
+    def dimension_filter(self) -> Optional[Sequence['outputs.MetricDimensionResponse']]:
+        """
+        The dimension filter.
+        """
+        return pulumi.get(self, "dimension_filter")
+
+    @property
+    @pulumi.getter
+    def instance(self) -> Optional[str]:
+        """
+        The instance from which counter should be collected.
+        """
+        return pulumi.get(self, "instance")
+
+
+@pulumi.output_type
+class MetricCounterSetResponse(dict):
+    """
+    The metric counter set
+    """
+    def __init__(__self__, *,
+                 counters: Sequence['outputs.MetricCounterResponse']):
+        """
+        The metric counter set
+        :param Sequence['MetricCounterResponse'] counters: The counters that should be collected in this set.
+        """
+        pulumi.set(__self__, "counters", counters)
+
+    @property
+    @pulumi.getter
+    def counters(self) -> Sequence['outputs.MetricCounterResponse']:
+        """
+        The counters that should be collected in this set.
+        """
+        return pulumi.get(self, "counters")
+
+
+@pulumi.output_type
+class MetricDimensionResponse(dict):
+    """
+    The metric dimension
+    """
+    def __init__(__self__, *,
+                 source_name: str,
+                 source_type: str):
+        """
+        The metric dimension
+        :param str source_name: The dimension value.
+        :param str source_type: The dimension type.
+        """
+        pulumi.set(__self__, "source_name", source_name)
+        pulumi.set(__self__, "source_type", source_type)
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> str:
+        """
+        The dimension value.
+        """
+        return pulumi.get(self, "source_name")
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> str:
+        """
+        The dimension type.
+        """
+        return pulumi.get(self, "source_type")
+
+
+@pulumi.output_type
 class MountPointMapResponse(dict):
     """
     The share mount point.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "mountPoint":
-            suggest = "mount_point"
-        elif key == "mountType":
-            suggest = "mount_type"
-        elif key == "roleId":
-            suggest = "role_id"
-        elif key == "roleType":
-            suggest = "role_type"
-        elif key == "shareId":
-            suggest = "share_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MountPointMapResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MountPointMapResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MountPointMapResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  mount_point: str,
                  mount_type: str,
@@ -1216,23 +1314,6 @@ class NodeInfoResponse(dict):
     """
     Kubernetes node info
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipConfiguration":
-            suggest = "ip_configuration"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NodeInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NodeInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NodeInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -1274,27 +1355,79 @@ class NodeInfoResponse(dict):
 
 
 @pulumi.output_type
+class OrderStatusResponse(dict):
+    """
+    Represents a single status change.
+    """
+    def __init__(__self__, *,
+                 additional_order_details: Mapping[str, str],
+                 status: str,
+                 tracking_information: 'outputs.TrackingInfoResponse',
+                 update_date_time: str,
+                 comments: Optional[str] = None):
+        """
+        Represents a single status change.
+        :param Mapping[str, str] additional_order_details: Dictionary to hold generic information which is not stored
+               by the already existing properties
+        :param str status: Status of the order as per the allowed status types.
+        :param 'TrackingInfoResponse' tracking_information: Tracking information related to the state in the ordering flow
+        :param str update_date_time: Time of status update.
+        :param str comments: Comments related to this status change.
+        """
+        pulumi.set(__self__, "additional_order_details", additional_order_details)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "tracking_information", tracking_information)
+        pulumi.set(__self__, "update_date_time", update_date_time)
+        if comments is not None:
+            pulumi.set(__self__, "comments", comments)
+
+    @property
+    @pulumi.getter(name="additionalOrderDetails")
+    def additional_order_details(self) -> Mapping[str, str]:
+        """
+        Dictionary to hold generic information which is not stored
+        by the already existing properties
+        """
+        return pulumi.get(self, "additional_order_details")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the order as per the allowed status types.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="trackingInformation")
+    def tracking_information(self) -> 'outputs.TrackingInfoResponse':
+        """
+        Tracking information related to the state in the ordering flow
+        """
+        return pulumi.get(self, "tracking_information")
+
+    @property
+    @pulumi.getter(name="updateDateTime")
+    def update_date_time(self) -> str:
+        """
+        Time of status update.
+        """
+        return pulumi.get(self, "update_date_time")
+
+    @property
+    @pulumi.getter
+    def comments(self) -> Optional[str]:
+        """
+        Comments related to this status change.
+        """
+        return pulumi.get(self, "comments")
+
+
+@pulumi.output_type
 class PeriodicTimerSourceInfoResponse(dict):
     """
     Periodic timer event source.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "startTime":
-            suggest = "start_time"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PeriodicTimerSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PeriodicTimerSourceInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PeriodicTimerSourceInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  schedule: str,
                  start_time: str,
@@ -1336,27 +1469,149 @@ class PeriodicTimerSourceInfoResponse(dict):
 
 
 @pulumi.output_type
+class RefreshDetailsResponse(dict):
+    """
+    Fields for tracking refresh job on the share or container.
+    """
+    def __init__(__self__, *,
+                 error_manifest_file: Optional[str] = None,
+                 in_progress_refresh_job_id: Optional[str] = None,
+                 last_completed_refresh_job_time_in_utc: Optional[str] = None,
+                 last_job: Optional[str] = None):
+        """
+        Fields for tracking refresh job on the share or container.
+        :param str error_manifest_file: Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
+        :param str in_progress_refresh_job_id: If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
+        :param str last_completed_refresh_job_time_in_utc: Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
+        :param str last_job: Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
+        """
+        if error_manifest_file is not None:
+            pulumi.set(__self__, "error_manifest_file", error_manifest_file)
+        if in_progress_refresh_job_id is not None:
+            pulumi.set(__self__, "in_progress_refresh_job_id", in_progress_refresh_job_id)
+        if last_completed_refresh_job_time_in_utc is not None:
+            pulumi.set(__self__, "last_completed_refresh_job_time_in_utc", last_completed_refresh_job_time_in_utc)
+        if last_job is not None:
+            pulumi.set(__self__, "last_job", last_job)
+
+    @property
+    @pulumi.getter(name="errorManifestFile")
+    def error_manifest_file(self) -> Optional[str]:
+        """
+        Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
+        """
+        return pulumi.get(self, "error_manifest_file")
+
+    @property
+    @pulumi.getter(name="inProgressRefreshJobId")
+    def in_progress_refresh_job_id(self) -> Optional[str]:
+        """
+        If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
+        """
+        return pulumi.get(self, "in_progress_refresh_job_id")
+
+    @property
+    @pulumi.getter(name="lastCompletedRefreshJobTimeInUTC")
+    def last_completed_refresh_job_time_in_utc(self) -> Optional[str]:
+        """
+        Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
+        """
+        return pulumi.get(self, "last_completed_refresh_job_time_in_utc")
+
+    @property
+    @pulumi.getter(name="lastJob")
+    def last_job(self) -> Optional[str]:
+        """
+        Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
+        """
+        return pulumi.get(self, "last_job")
+
+
+@pulumi.output_type
+class ResourceIdentityResponse(dict):
+    """
+    Msi identity details of the resource
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        Msi identity details of the resource
+        :param str principal_id: Service Principal Id backing the Msi
+        :param str tenant_id: Home Tenant Id
+        :param str type: Identity type
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Service Principal Id backing the Msi
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Home Tenant Id
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Identity type
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ResourceMoveDetailsResponse(dict):
+    """
+    Fields for tracking resource move
+    """
+    def __init__(__self__, *,
+                 operation_in_progress: Optional[str] = None,
+                 operation_in_progress_lock_timeout_in_utc: Optional[str] = None):
+        """
+        Fields for tracking resource move
+        :param str operation_in_progress: Denotes whether move operation is in progress
+        :param str operation_in_progress_lock_timeout_in_utc: Denotes the timeout of the operation to finish
+        """
+        if operation_in_progress is not None:
+            pulumi.set(__self__, "operation_in_progress", operation_in_progress)
+        if operation_in_progress_lock_timeout_in_utc is not None:
+            pulumi.set(__self__, "operation_in_progress_lock_timeout_in_utc", operation_in_progress_lock_timeout_in_utc)
+
+    @property
+    @pulumi.getter(name="operationInProgress")
+    def operation_in_progress(self) -> Optional[str]:
+        """
+        Denotes whether move operation is in progress
+        """
+        return pulumi.get(self, "operation_in_progress")
+
+    @property
+    @pulumi.getter(name="operationInProgressLockTimeoutInUTC")
+    def operation_in_progress_lock_timeout_in_utc(self) -> Optional[str]:
+        """
+        Denotes the timeout of the operation to finish
+        """
+        return pulumi.get(self, "operation_in_progress_lock_timeout_in_utc")
+
+
+@pulumi.output_type
 class RoleSinkInfoResponse(dict):
     """
     Compute role against which events will be raised.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "roleId":
-            suggest = "role_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoleSinkInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoleSinkInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoleSinkInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  role_id: str):
         """
@@ -1372,6 +1627,74 @@ class RoleSinkInfoResponse(dict):
         Compute role ID.
         """
         return pulumi.get(self, "role_id")
+
+
+@pulumi.output_type
+class ShareAccessRightResponse(dict):
+    """
+    Specifies the mapping between this particular user and the type of access he has on shares on this device.
+    """
+    def __init__(__self__, *,
+                 access_type: str,
+                 share_id: str):
+        """
+        Specifies the mapping between this particular user and the type of access he has on shares on this device.
+        :param str access_type: Type of access to be allowed on the share for this user.
+        :param str share_id: The share ID.
+        """
+        pulumi.set(__self__, "access_type", access_type)
+        pulumi.set(__self__, "share_id", share_id)
+
+    @property
+    @pulumi.getter(name="accessType")
+    def access_type(self) -> str:
+        """
+        Type of access to be allowed on the share for this user.
+        """
+        return pulumi.get(self, "access_type")
+
+    @property
+    @pulumi.getter(name="shareId")
+    def share_id(self) -> str:
+        """
+        The share ID.
+        """
+        return pulumi.get(self, "share_id")
+
+
+@pulumi.output_type
+class SkuResponse(dict):
+    """
+    The SKU type.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        The SKU type.
+        :param str name: SKU name.
+        :param str tier: The SKU tier. This is based on the SKU name.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        SKU name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        The SKU tier. This is based on the SKU name.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type
@@ -1400,23 +1723,6 @@ class SymmetricKeyResponse(dict):
     """
     Symmetric key for authentication.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "connectionString":
-            suggest = "connection_string"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SymmetricKeyResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SymmetricKeyResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SymmetricKeyResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  connection_string: Optional['outputs.AsymmetricEncryptedSecretResponse'] = None):
         """
@@ -1440,33 +1746,6 @@ class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -1543,5 +1822,97 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TrackingInfoResponse(dict):
+    """
+    Tracking courier information.
+    """
+    def __init__(__self__, *,
+                 carrier_name: Optional[str] = None,
+                 serial_number: Optional[str] = None,
+                 tracking_id: Optional[str] = None,
+                 tracking_url: Optional[str] = None):
+        """
+        Tracking courier information.
+        :param str carrier_name: Name of the carrier used in the delivery.
+        :param str serial_number: Serial number of the device being tracked.
+        :param str tracking_id: Tracking ID of the shipment.
+        :param str tracking_url: Tracking URL of the shipment.
+        """
+        if carrier_name is not None:
+            pulumi.set(__self__, "carrier_name", carrier_name)
+        if serial_number is not None:
+            pulumi.set(__self__, "serial_number", serial_number)
+        if tracking_id is not None:
+            pulumi.set(__self__, "tracking_id", tracking_id)
+        if tracking_url is not None:
+            pulumi.set(__self__, "tracking_url", tracking_url)
+
+    @property
+    @pulumi.getter(name="carrierName")
+    def carrier_name(self) -> Optional[str]:
+        """
+        Name of the carrier used in the delivery.
+        """
+        return pulumi.get(self, "carrier_name")
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> Optional[str]:
+        """
+        Serial number of the device being tracked.
+        """
+        return pulumi.get(self, "serial_number")
+
+    @property
+    @pulumi.getter(name="trackingId")
+    def tracking_id(self) -> Optional[str]:
+        """
+        Tracking ID of the shipment.
+        """
+        return pulumi.get(self, "tracking_id")
+
+    @property
+    @pulumi.getter(name="trackingUrl")
+    def tracking_url(self) -> Optional[str]:
+        """
+        Tracking URL of the shipment.
+        """
+        return pulumi.get(self, "tracking_url")
+
+
+@pulumi.output_type
+class UserAccessRightResponse(dict):
+    """
+    The mapping between a particular user and the access type on the SMB share.
+    """
+    def __init__(__self__, *,
+                 access_type: str,
+                 user_id: str):
+        """
+        The mapping between a particular user and the access type on the SMB share.
+        :param str access_type: Type of access to be allowed for the user.
+        :param str user_id: User ID (already existing in the device).
+        """
+        pulumi.set(__self__, "access_type", access_type)
+        pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="accessType")
+    def access_type(self) -> str:
+        """
+        Type of access to be allowed for the user.
+        """
+        return pulumi.get(self, "access_type")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> str:
+        """
+        User ID (already existing in the device).
+        """
+        return pulumi.get(self, "user_id")
 
 

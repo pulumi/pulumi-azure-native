@@ -15,10 +15,25 @@ export const getCloudEndpoint: typeof import("./getCloudEndpoint").getCloudEndpo
 export const getCloudEndpointOutput: typeof import("./getCloudEndpoint").getCloudEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudEndpoint","getCloudEndpointOutput"], () => require("./getCloudEndpoint"));
 
+export { GetRegisteredServerArgs, GetRegisteredServerResult, GetRegisteredServerOutputArgs } from "./getRegisteredServer";
+export const getRegisteredServer: typeof import("./getRegisteredServer").getRegisteredServer = null as any;
+export const getRegisteredServerOutput: typeof import("./getRegisteredServer").getRegisteredServerOutput = null as any;
+utilities.lazyLoad(exports, ["getRegisteredServer","getRegisteredServerOutput"], () => require("./getRegisteredServer"));
+
 export { GetServerEndpointArgs, GetServerEndpointResult, GetServerEndpointOutputArgs } from "./getServerEndpoint";
 export const getServerEndpoint: typeof import("./getServerEndpoint").getServerEndpoint = null as any;
 export const getServerEndpointOutput: typeof import("./getServerEndpoint").getServerEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getServerEndpoint","getServerEndpointOutput"], () => require("./getServerEndpoint"));
+
+export { GetStorageSyncServiceArgs, GetStorageSyncServiceResult, GetStorageSyncServiceOutputArgs } from "./getStorageSyncService";
+export const getStorageSyncService: typeof import("./getStorageSyncService").getStorageSyncService = null as any;
+export const getStorageSyncServiceOutput: typeof import("./getStorageSyncService").getStorageSyncServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageSyncService","getStorageSyncServiceOutput"], () => require("./getStorageSyncService"));
+
+export { GetSyncGroupArgs, GetSyncGroupResult, GetSyncGroupOutputArgs } from "./getSyncGroup";
+export const getSyncGroup: typeof import("./getSyncGroup").getSyncGroup = null as any;
+export const getSyncGroupOutput: typeof import("./getSyncGroup").getSyncGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getSyncGroup","getSyncGroupOutput"], () => require("./getSyncGroup"));
 
 export { ServerEndpointArgs } from "./serverEndpoint";
 export type ServerEndpoint = import("./serverEndpoint").ServerEndpoint;

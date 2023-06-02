@@ -10,6 +10,16 @@ export const getLiveEvent: typeof import("./getLiveEvent").getLiveEvent = null a
 export const getLiveEventOutput: typeof import("./getLiveEvent").getLiveEventOutput = null as any;
 utilities.lazyLoad(exports, ["getLiveEvent","getLiveEventOutput"], () => require("./getLiveEvent"));
 
+export { GetLiveOutputArgs, GetLiveOutputResult, GetLiveOutputOutputArgs } from "./getLiveOutput";
+export const getLiveOutput: typeof import("./getLiveOutput").getLiveOutput = null as any;
+export const getLiveOutputOutput: typeof import("./getLiveOutput").getLiveOutputOutput = null as any;
+utilities.lazyLoad(exports, ["getLiveOutput","getLiveOutputOutput"], () => require("./getLiveOutput"));
+
+export { GetStreamingEndpointArgs, GetStreamingEndpointResult, GetStreamingEndpointOutputArgs } from "./getStreamingEndpoint";
+export const getStreamingEndpoint: typeof import("./getStreamingEndpoint").getStreamingEndpoint = null as any;
+export const getStreamingEndpointOutput: typeof import("./getStreamingEndpoint").getStreamingEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getStreamingEndpoint","getStreamingEndpointOutput"], () => require("./getStreamingEndpoint"));
+
 export { LiveEventArgs } from "./liveEvent";
 export type LiveEvent = import("./liveEvent").LiveEvent;
 export const LiveEvent: typeof import("./liveEvent").LiveEvent = null as any;

@@ -5,18 +5,54 @@
 from enum import Enum
 
 __all__ = [
+    'AccountType',
+    'AzureContainerDataFormat',
+    'ClientPermissionType',
     'DataBoxEdgeDeviceStatus',
     'DataPolicy',
+    'DayOfWeek',
     'EncryptionAlgorithm',
+    'MonitoringStatus',
     'OrderState',
     'PlatformType',
     'RoleStatus',
     'RoleTypes',
+    'SSLStatus',
+    'ShareAccessProtocol',
+    'ShareAccessType',
+    'ShareStatus',
     'SkuName',
     'SkuTier',
     'StorageAccountStatus',
     'TriggerEventType',
+    'UserType',
 ]
+
+
+class AccountType(str, Enum):
+    """
+    Type of storage accessed on the storage account.
+    """
+    GENERAL_PURPOSE_STORAGE = "GeneralPurposeStorage"
+    BLOB_STORAGE = "BlobStorage"
+
+
+class AzureContainerDataFormat(str, Enum):
+    """
+    Storage format used for the file represented by the share.
+    """
+    BLOCK_BLOB = "BlockBlob"
+    PAGE_BLOB = "PageBlob"
+    AZURE_FILE = "AzureFile"
+
+
+class ClientPermissionType(str, Enum):
+    """
+    Type of access to be allowed for the client.
+    """
+    NO_ACCESS = "NoAccess"
+    READ_ONLY = "ReadOnly"
+    READ_WRITE = "ReadWrite"
 
 
 class DataBoxEdgeDeviceStatus(str, Enum):
@@ -40,6 +76,16 @@ class DataPolicy(str, Enum):
     LOCAL = "Local"
 
 
+class DayOfWeek(str, Enum):
+    SUNDAY = "Sunday"
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+
+
 class EncryptionAlgorithm(str, Enum):
     """
     The algorithm used to encrypt "Value".
@@ -47,6 +93,14 @@ class EncryptionAlgorithm(str, Enum):
     NONE = "None"
     AES256 = "AES256"
     RSAE_S_PKCS1_V_1_5 = "RSAES_PKCS1_v_1_5"
+
+
+class MonitoringStatus(str, Enum):
+    """
+    Current monitoring status of the share.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class OrderState(str, Enum):
@@ -95,6 +149,42 @@ class RoleTypes(str, Enum):
     COGNITIVE = "Cognitive"
 
 
+class SSLStatus(str, Enum):
+    """
+    Signifies whether SSL needs to be enabled or not.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class ShareAccessProtocol(str, Enum):
+    """
+    Access protocol to be used by the share.
+    """
+    SMB = "SMB"
+    NFS = "NFS"
+
+
+class ShareAccessType(str, Enum):
+    """
+    Type of access to be allowed for the user.
+    """
+    CHANGE = "Change"
+    READ = "Read"
+    CUSTOM = "Custom"
+
+
+class ShareStatus(str, Enum):
+    """
+    Current status of the share.
+    """
+    OFFLINE = "Offline"
+    UNKNOWN = "Unknown"
+    OK = "OK"
+    UPDATING = "Updating"
+    NEEDS_ATTENTION = "NeedsAttention"
+
+
 class SkuName(str, Enum):
     """
     SKU name.
@@ -138,3 +228,12 @@ class TriggerEventType(str, Enum):
     """
     FILE_EVENT = "FileEvent"
     PERIODIC_TIMER_EVENT = "PeriodicTimerEvent"
+
+
+class UserType(str, Enum):
+    """
+    Type of the user.
+    """
+    SHARE = "Share"
+    LOCAL_MANAGEMENT = "LocalManagement"
+    ARM = "ARM"

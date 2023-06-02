@@ -6,5 +6,6 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_connected_cluster import *
 from .list_connected_cluster_user_credentials import *
 from . import outputs

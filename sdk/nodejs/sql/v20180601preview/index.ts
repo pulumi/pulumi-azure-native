@@ -15,6 +15,46 @@ export const getDatabaseSecurityAlertPolicy: typeof import("./getDatabaseSecurit
 export const getDatabaseSecurityAlertPolicyOutput: typeof import("./getDatabaseSecurityAlertPolicy").getDatabaseSecurityAlertPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabaseSecurityAlertPolicy","getDatabaseSecurityAlertPolicyOutput"], () => require("./getDatabaseSecurityAlertPolicy"));
 
+export { GetInstancePoolArgs, GetInstancePoolResult, GetInstancePoolOutputArgs } from "./getInstancePool";
+export const getInstancePool: typeof import("./getInstancePool").getInstancePool = null as any;
+export const getInstancePoolOutput: typeof import("./getInstancePool").getInstancePoolOutput = null as any;
+utilities.lazyLoad(exports, ["getInstancePool","getInstancePoolOutput"], () => require("./getInstancePool"));
+
+export { GetManagedDatabaseArgs, GetManagedDatabaseResult, GetManagedDatabaseOutputArgs } from "./getManagedDatabase";
+export const getManagedDatabase: typeof import("./getManagedDatabase").getManagedDatabase = null as any;
+export const getManagedDatabaseOutput: typeof import("./getManagedDatabase").getManagedDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedDatabase","getManagedDatabaseOutput"], () => require("./getManagedDatabase"));
+
+export { GetManagedDatabaseSensitivityLabelArgs, GetManagedDatabaseSensitivityLabelResult, GetManagedDatabaseSensitivityLabelOutputArgs } from "./getManagedDatabaseSensitivityLabel";
+export const getManagedDatabaseSensitivityLabel: typeof import("./getManagedDatabaseSensitivityLabel").getManagedDatabaseSensitivityLabel = null as any;
+export const getManagedDatabaseSensitivityLabelOutput: typeof import("./getManagedDatabaseSensitivityLabel").getManagedDatabaseSensitivityLabelOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedDatabaseSensitivityLabel","getManagedDatabaseSensitivityLabelOutput"], () => require("./getManagedDatabaseSensitivityLabel"));
+
+export { GetManagedInstanceArgs, GetManagedInstanceResult, GetManagedInstanceOutputArgs } from "./getManagedInstance";
+export const getManagedInstance: typeof import("./getManagedInstance").getManagedInstance = null as any;
+export const getManagedInstanceOutput: typeof import("./getManagedInstance").getManagedInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedInstance","getManagedInstanceOutput"], () => require("./getManagedInstance"));
+
+export { GetManagedInstanceVulnerabilityAssessmentArgs, GetManagedInstanceVulnerabilityAssessmentResult, GetManagedInstanceVulnerabilityAssessmentOutputArgs } from "./getManagedInstanceVulnerabilityAssessment";
+export const getManagedInstanceVulnerabilityAssessment: typeof import("./getManagedInstanceVulnerabilityAssessment").getManagedInstanceVulnerabilityAssessment = null as any;
+export const getManagedInstanceVulnerabilityAssessmentOutput: typeof import("./getManagedInstanceVulnerabilityAssessment").getManagedInstanceVulnerabilityAssessmentOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedInstanceVulnerabilityAssessment","getManagedInstanceVulnerabilityAssessmentOutput"], () => require("./getManagedInstanceVulnerabilityAssessment"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetServerAzureADAdministratorArgs, GetServerAzureADAdministratorResult, GetServerAzureADAdministratorOutputArgs } from "./getServerAzureADAdministrator";
+export const getServerAzureADAdministrator: typeof import("./getServerAzureADAdministrator").getServerAzureADAdministrator = null as any;
+export const getServerAzureADAdministratorOutput: typeof import("./getServerAzureADAdministrator").getServerAzureADAdministratorOutput = null as any;
+utilities.lazyLoad(exports, ["getServerAzureADAdministrator","getServerAzureADAdministratorOutput"], () => require("./getServerAzureADAdministrator"));
+
+export { GetServerVulnerabilityAssessmentArgs, GetServerVulnerabilityAssessmentResult, GetServerVulnerabilityAssessmentOutputArgs } from "./getServerVulnerabilityAssessment";
+export const getServerVulnerabilityAssessment: typeof import("./getServerVulnerabilityAssessment").getServerVulnerabilityAssessment = null as any;
+export const getServerVulnerabilityAssessmentOutput: typeof import("./getServerVulnerabilityAssessment").getServerVulnerabilityAssessmentOutput = null as any;
+utilities.lazyLoad(exports, ["getServerVulnerabilityAssessment","getServerVulnerabilityAssessmentOutput"], () => require("./getServerVulnerabilityAssessment"));
+
 
 // Export enums:
 export * from "../../types/enums/sql/v20180601preview";

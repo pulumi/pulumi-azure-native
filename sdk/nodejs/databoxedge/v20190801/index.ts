@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { FileEventTriggerArgs } from "./fileEventTrigger";
-export type FileEventTrigger = import("./fileEventTrigger").FileEventTrigger;
-export const FileEventTrigger: typeof import("./fileEventTrigger").FileEventTrigger = null as any;
-utilities.lazyLoad(exports, ["FileEventTrigger"], () => require("./fileEventTrigger"));
+export { GetBandwidthScheduleArgs, GetBandwidthScheduleResult, GetBandwidthScheduleOutputArgs } from "./getBandwidthSchedule";
+export const getBandwidthSchedule: typeof import("./getBandwidthSchedule").getBandwidthSchedule = null as any;
+export const getBandwidthScheduleOutput: typeof import("./getBandwidthSchedule").getBandwidthScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getBandwidthSchedule","getBandwidthScheduleOutput"], () => require("./getBandwidthSchedule"));
+
+export { GetContainerArgs, GetContainerResult, GetContainerOutputArgs } from "./getContainer";
+export const getContainer: typeof import("./getContainer").getContainer = null as any;
+export const getContainerOutput: typeof import("./getContainer").getContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getContainer","getContainerOutput"], () => require("./getContainer"));
+
+export { GetDeviceArgs, GetDeviceResult, GetDeviceOutputArgs } from "./getDevice";
+export const getDevice: typeof import("./getDevice").getDevice = null as any;
+export const getDeviceOutput: typeof import("./getDevice").getDeviceOutput = null as any;
+utilities.lazyLoad(exports, ["getDevice","getDeviceOutput"], () => require("./getDevice"));
 
 export { GetDeviceExtendedInformationArgs, GetDeviceExtendedInformationResult, GetDeviceExtendedInformationOutputArgs } from "./getDeviceExtendedInformation";
 export const getDeviceExtendedInformation: typeof import("./getDeviceExtendedInformation").getDeviceExtendedInformation = null as any;
@@ -25,25 +35,35 @@ export const getIoTRole: typeof import("./getIoTRole").getIoTRole = null as any;
 export const getIoTRoleOutput: typeof import("./getIoTRole").getIoTRoleOutput = null as any;
 utilities.lazyLoad(exports, ["getIoTRole","getIoTRoleOutput"], () => require("./getIoTRole"));
 
+export { GetOrderArgs, GetOrderResult, GetOrderOutputArgs } from "./getOrder";
+export const getOrder: typeof import("./getOrder").getOrder = null as any;
+export const getOrderOutput: typeof import("./getOrder").getOrderOutput = null as any;
+utilities.lazyLoad(exports, ["getOrder","getOrderOutput"], () => require("./getOrder"));
+
 export { GetPeriodicTimerEventTriggerArgs, GetPeriodicTimerEventTriggerResult, GetPeriodicTimerEventTriggerOutputArgs } from "./getPeriodicTimerEventTrigger";
 export const getPeriodicTimerEventTrigger: typeof import("./getPeriodicTimerEventTrigger").getPeriodicTimerEventTrigger = null as any;
 export const getPeriodicTimerEventTriggerOutput: typeof import("./getPeriodicTimerEventTrigger").getPeriodicTimerEventTriggerOutput = null as any;
 utilities.lazyLoad(exports, ["getPeriodicTimerEventTrigger","getPeriodicTimerEventTriggerOutput"], () => require("./getPeriodicTimerEventTrigger"));
 
+export { GetShareArgs, GetShareResult, GetShareOutputArgs } from "./getShare";
+export const getShare: typeof import("./getShare").getShare = null as any;
+export const getShareOutput: typeof import("./getShare").getShareOutput = null as any;
+utilities.lazyLoad(exports, ["getShare","getShareOutput"], () => require("./getShare"));
+
+export { GetStorageAccountArgs, GetStorageAccountResult, GetStorageAccountOutputArgs } from "./getStorageAccount";
+export const getStorageAccount: typeof import("./getStorageAccount").getStorageAccount = null as any;
+export const getStorageAccountOutput: typeof import("./getStorageAccount").getStorageAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageAccount","getStorageAccountOutput"], () => require("./getStorageAccount"));
+
+export { GetStorageAccountCredentialArgs, GetStorageAccountCredentialResult, GetStorageAccountCredentialOutputArgs } from "./getStorageAccountCredential";
+export const getStorageAccountCredential: typeof import("./getStorageAccountCredential").getStorageAccountCredential = null as any;
+export const getStorageAccountCredentialOutput: typeof import("./getStorageAccountCredential").getStorageAccountCredentialOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageAccountCredential","getStorageAccountCredentialOutput"], () => require("./getStorageAccountCredential"));
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
-
-export { IoTRoleArgs } from "./ioTRole";
-export type IoTRole = import("./ioTRole").IoTRole;
-export const IoTRole: typeof import("./ioTRole").IoTRole = null as any;
-utilities.lazyLoad(exports, ["IoTRole"], () => require("./ioTRole"));
-
-export { PeriodicTimerEventTriggerArgs } from "./periodicTimerEventTrigger";
-export type PeriodicTimerEventTrigger = import("./periodicTimerEventTrigger").PeriodicTimerEventTrigger;
-export const PeriodicTimerEventTrigger: typeof import("./periodicTimerEventTrigger").PeriodicTimerEventTrigger = null as any;
-utilities.lazyLoad(exports, ["PeriodicTimerEventTrigger"], () => require("./periodicTimerEventTrigger"));
 
 export { UserArgs } from "./user";
 export type User = import("./user").User;
@@ -58,12 +78,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:databoxedge/v20190801:FileEventTrigger":
-                return new FileEventTrigger(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20190801:IoTRole":
-                return new IoTRole(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20190801:PeriodicTimerEventTrigger":
-                return new PeriodicTimerEventTrigger(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20190801:User":
                 return new User(name, <any>undefined, { urn })
             default:

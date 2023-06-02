@@ -14,13 +14,28 @@ from ._enums import *
 __all__ = [
     'AccountEncryptionResponse',
     'ActiveDirectoryResponse',
+    'DailyScheduleResponse',
     'EncryptionIdentityResponse',
+    'ExportPolicyRuleResponse',
+    'HourlyScheduleResponse',
     'IdentityResponse',
     'KeyVaultPropertiesResponse',
     'LdapSearchScopeOptResponse',
+    'MonthlyScheduleResponse',
+    'MountTargetPropertiesResponse',
+    'PlacementKeyValuePairsResponse',
+    'ReplicationObjectResponse',
     'ReplicationResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
+    'VolumeBackupPropertiesResponse',
+    'VolumeBackupsResponse',
+    'VolumeGroupMetaDataResponse',
+    'VolumeGroupVolumePropertiesResponse',
+    'VolumePropertiesResponseDataProtection',
+    'VolumePropertiesResponseExportPolicy',
+    'VolumeSnapshotPropertiesResponse',
+    'WeeklyScheduleResponse',
 ]
 
 @pulumi.output_type
@@ -412,6 +427,65 @@ class ActiveDirectoryResponse(dict):
 
 
 @pulumi.output_type
+class DailyScheduleResponse(dict):
+    """
+    Daily Schedule properties
+    """
+    def __init__(__self__, *,
+                 hour: Optional[int] = None,
+                 minute: Optional[int] = None,
+                 snapshots_to_keep: Optional[int] = None,
+                 used_bytes: Optional[float] = None):
+        """
+        Daily Schedule properties
+        :param int hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param int minute: Indicates which minute snapshot should be taken
+        :param int snapshots_to_keep: Daily snapshot count to keep
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        """
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+        if used_bytes is not None:
+            pulumi.set(__self__, "used_bytes", used_bytes)
+
+    @property
+    @pulumi.getter
+    def hour(self) -> Optional[int]:
+        """
+        Indicates which hour in UTC timezone a snapshot should be taken
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> Optional[int]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[int]:
+        """
+        Daily snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> Optional[float]:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
+
+
+@pulumi.output_type
 class EncryptionIdentityResponse(dict):
     """
     Identity used to authenticate with key vault.
@@ -462,6 +536,260 @@ class EncryptionIdentityResponse(dict):
         The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
         """
         return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
+class ExportPolicyRuleResponse(dict):
+    """
+    Volume Export Policy Rule
+    """
+    def __init__(__self__, *,
+                 allowed_clients: Optional[str] = None,
+                 chown_mode: Optional[str] = None,
+                 cifs: Optional[bool] = None,
+                 has_root_access: Optional[bool] = None,
+                 kerberos5_read_only: Optional[bool] = None,
+                 kerberos5_read_write: Optional[bool] = None,
+                 kerberos5i_read_only: Optional[bool] = None,
+                 kerberos5i_read_write: Optional[bool] = None,
+                 kerberos5p_read_only: Optional[bool] = None,
+                 kerberos5p_read_write: Optional[bool] = None,
+                 nfsv3: Optional[bool] = None,
+                 nfsv41: Optional[bool] = None,
+                 rule_index: Optional[int] = None,
+                 unix_read_only: Optional[bool] = None,
+                 unix_read_write: Optional[bool] = None):
+        """
+        Volume Export Policy Rule
+        :param str allowed_clients: Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+        :param str chown_mode: This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+        :param bool cifs: Allows CIFS protocol
+        :param bool has_root_access: Has root access to volume
+        :param bool kerberos5_read_only: Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
+        :param bool kerberos5_read_write: Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
+        :param bool kerberos5i_read_only: Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
+        :param bool kerberos5i_read_write: Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
+        :param bool kerberos5p_read_only: Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
+        :param bool kerberos5p_read_write: Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
+        :param bool nfsv3: Allows NFSv3 protocol. Enable only for NFSv3 type volumes
+        :param bool nfsv41: Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
+        :param int rule_index: Order index
+        :param bool unix_read_only: Read only access
+        :param bool unix_read_write: Read and write access
+        """
+        if allowed_clients is not None:
+            pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if chown_mode is None:
+            chown_mode = 'Restricted'
+        if chown_mode is not None:
+            pulumi.set(__self__, "chown_mode", chown_mode)
+        if cifs is not None:
+            pulumi.set(__self__, "cifs", cifs)
+        if has_root_access is None:
+            has_root_access = True
+        if has_root_access is not None:
+            pulumi.set(__self__, "has_root_access", has_root_access)
+        if kerberos5_read_only is None:
+            kerberos5_read_only = False
+        if kerberos5_read_only is not None:
+            pulumi.set(__self__, "kerberos5_read_only", kerberos5_read_only)
+        if kerberos5_read_write is None:
+            kerberos5_read_write = False
+        if kerberos5_read_write is not None:
+            pulumi.set(__self__, "kerberos5_read_write", kerberos5_read_write)
+        if kerberos5i_read_only is None:
+            kerberos5i_read_only = False
+        if kerberos5i_read_only is not None:
+            pulumi.set(__self__, "kerberos5i_read_only", kerberos5i_read_only)
+        if kerberos5i_read_write is None:
+            kerberos5i_read_write = False
+        if kerberos5i_read_write is not None:
+            pulumi.set(__self__, "kerberos5i_read_write", kerberos5i_read_write)
+        if kerberos5p_read_only is None:
+            kerberos5p_read_only = False
+        if kerberos5p_read_only is not None:
+            pulumi.set(__self__, "kerberos5p_read_only", kerberos5p_read_only)
+        if kerberos5p_read_write is None:
+            kerberos5p_read_write = False
+        if kerberos5p_read_write is not None:
+            pulumi.set(__self__, "kerberos5p_read_write", kerberos5p_read_write)
+        if nfsv3 is not None:
+            pulumi.set(__self__, "nfsv3", nfsv3)
+        if nfsv41 is not None:
+            pulumi.set(__self__, "nfsv41", nfsv41)
+        if rule_index is not None:
+            pulumi.set(__self__, "rule_index", rule_index)
+        if unix_read_only is not None:
+            pulumi.set(__self__, "unix_read_only", unix_read_only)
+        if unix_read_write is not None:
+            pulumi.set(__self__, "unix_read_write", unix_read_write)
+
+    @property
+    @pulumi.getter(name="allowedClients")
+    def allowed_clients(self) -> Optional[str]:
+        """
+        Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+        """
+        return pulumi.get(self, "allowed_clients")
+
+    @property
+    @pulumi.getter(name="chownMode")
+    def chown_mode(self) -> Optional[str]:
+        """
+        This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+        """
+        return pulumi.get(self, "chown_mode")
+
+    @property
+    @pulumi.getter
+    def cifs(self) -> Optional[bool]:
+        """
+        Allows CIFS protocol
+        """
+        return pulumi.get(self, "cifs")
+
+    @property
+    @pulumi.getter(name="hasRootAccess")
+    def has_root_access(self) -> Optional[bool]:
+        """
+        Has root access to volume
+        """
+        return pulumi.get(self, "has_root_access")
+
+    @property
+    @pulumi.getter(name="kerberos5ReadOnly")
+    def kerberos5_read_only(self) -> Optional[bool]:
+        """
+        Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5_read_only")
+
+    @property
+    @pulumi.getter(name="kerberos5ReadWrite")
+    def kerberos5_read_write(self) -> Optional[bool]:
+        """
+        Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5_read_write")
+
+    @property
+    @pulumi.getter(name="kerberos5iReadOnly")
+    def kerberos5i_read_only(self) -> Optional[bool]:
+        """
+        Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5i_read_only")
+
+    @property
+    @pulumi.getter(name="kerberos5iReadWrite")
+    def kerberos5i_read_write(self) -> Optional[bool]:
+        """
+        Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5i_read_write")
+
+    @property
+    @pulumi.getter(name="kerberos5pReadOnly")
+    def kerberos5p_read_only(self) -> Optional[bool]:
+        """
+        Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5p_read_only")
+
+    @property
+    @pulumi.getter(name="kerberos5pReadWrite")
+    def kerberos5p_read_write(self) -> Optional[bool]:
+        """
+        Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5p_read_write")
+
+    @property
+    @pulumi.getter
+    def nfsv3(self) -> Optional[bool]:
+        """
+        Allows NFSv3 protocol. Enable only for NFSv3 type volumes
+        """
+        return pulumi.get(self, "nfsv3")
+
+    @property
+    @pulumi.getter
+    def nfsv41(self) -> Optional[bool]:
+        """
+        Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
+        """
+        return pulumi.get(self, "nfsv41")
+
+    @property
+    @pulumi.getter(name="ruleIndex")
+    def rule_index(self) -> Optional[int]:
+        """
+        Order index
+        """
+        return pulumi.get(self, "rule_index")
+
+    @property
+    @pulumi.getter(name="unixReadOnly")
+    def unix_read_only(self) -> Optional[bool]:
+        """
+        Read only access
+        """
+        return pulumi.get(self, "unix_read_only")
+
+    @property
+    @pulumi.getter(name="unixReadWrite")
+    def unix_read_write(self) -> Optional[bool]:
+        """
+        Read and write access
+        """
+        return pulumi.get(self, "unix_read_write")
+
+
+@pulumi.output_type
+class HourlyScheduleResponse(dict):
+    """
+    Hourly Schedule properties
+    """
+    def __init__(__self__, *,
+                 minute: Optional[int] = None,
+                 snapshots_to_keep: Optional[int] = None,
+                 used_bytes: Optional[float] = None):
+        """
+        Hourly Schedule properties
+        :param int minute: Indicates which minute snapshot should be taken
+        :param int snapshots_to_keep: Hourly snapshot count to keep
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        """
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+        if used_bytes is not None:
+            pulumi.set(__self__, "used_bytes", used_bytes)
+
+    @property
+    @pulumi.getter
+    def minute(self) -> Optional[int]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[int]:
+        """
+        Hourly snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> Optional[float]:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
 
 
 @pulumi.output_type
@@ -699,6 +1027,236 @@ class LdapSearchScopeOptResponse(dict):
 
 
 @pulumi.output_type
+class MonthlyScheduleResponse(dict):
+    """
+    Monthly Schedule properties
+    """
+    def __init__(__self__, *,
+                 days_of_month: Optional[str] = None,
+                 hour: Optional[int] = None,
+                 minute: Optional[int] = None,
+                 snapshots_to_keep: Optional[int] = None,
+                 used_bytes: Optional[float] = None):
+        """
+        Monthly Schedule properties
+        :param str days_of_month: Indicates which days of the month snapshot should be taken. A comma delimited string.
+        :param int hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param int minute: Indicates which minute snapshot should be taken
+        :param int snapshots_to_keep: Monthly snapshot count to keep
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        """
+        if days_of_month is not None:
+            pulumi.set(__self__, "days_of_month", days_of_month)
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+        if used_bytes is not None:
+            pulumi.set(__self__, "used_bytes", used_bytes)
+
+    @property
+    @pulumi.getter(name="daysOfMonth")
+    def days_of_month(self) -> Optional[str]:
+        """
+        Indicates which days of the month snapshot should be taken. A comma delimited string.
+        """
+        return pulumi.get(self, "days_of_month")
+
+    @property
+    @pulumi.getter
+    def hour(self) -> Optional[int]:
+        """
+        Indicates which hour in UTC timezone a snapshot should be taken
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> Optional[int]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[int]:
+        """
+        Monthly snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> Optional[float]:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
+
+
+@pulumi.output_type
+class MountTargetPropertiesResponse(dict):
+    """
+    Mount target properties
+    """
+    def __init__(__self__, *,
+                 file_system_id: str,
+                 ip_address: str,
+                 mount_target_id: str,
+                 smb_server_fqdn: Optional[str] = None):
+        """
+        Mount target properties
+        :param str file_system_id: UUID v4 used to identify the MountTarget
+        :param str ip_address: The mount target's IPv4 address
+        :param str mount_target_id: UUID v4 used to identify the MountTarget
+        :param str smb_server_fqdn: The SMB server's Fully Qualified Domain Name, FQDN
+        """
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "mount_target_id", mount_target_id)
+        if smb_server_fqdn is not None:
+            pulumi.set(__self__, "smb_server_fqdn", smb_server_fqdn)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> str:
+        """
+        UUID v4 used to identify the MountTarget
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        """
+        The mount target's IPv4 address
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="mountTargetId")
+    def mount_target_id(self) -> str:
+        """
+        UUID v4 used to identify the MountTarget
+        """
+        return pulumi.get(self, "mount_target_id")
+
+    @property
+    @pulumi.getter(name="smbServerFqdn")
+    def smb_server_fqdn(self) -> Optional[str]:
+        """
+        The SMB server's Fully Qualified Domain Name, FQDN
+        """
+        return pulumi.get(self, "smb_server_fqdn")
+
+
+@pulumi.output_type
+class PlacementKeyValuePairsResponse(dict):
+    """
+    Application specific parameters for the placement of volumes in the volume group
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        Application specific parameters for the placement of volumes in the volume group
+        :param str key: Key for an application specific parameter for the placement of volumes in the volume group
+        :param str value: Value for an application specific parameter for the placement of volumes in the volume group
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Key for an application specific parameter for the placement of volumes in the volume group
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value for an application specific parameter for the placement of volumes in the volume group
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ReplicationObjectResponse(dict):
+    """
+    Replication properties
+    """
+    def __init__(__self__, *,
+                 remote_volume_resource_id: str,
+                 endpoint_type: Optional[str] = None,
+                 remote_volume_region: Optional[str] = None,
+                 replication_id: Optional[str] = None,
+                 replication_schedule: Optional[str] = None):
+        """
+        Replication properties
+        :param str remote_volume_resource_id: The resource ID of the remote volume.
+        :param str endpoint_type: Indicates whether the local volume is the source or destination for the Volume Replication
+        :param str remote_volume_region: The remote region for the other end of the Volume Replication.
+        :param str replication_id: Id
+        :param str replication_schedule: Schedule
+        """
+        pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
+        if endpoint_type is not None:
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
+        if remote_volume_region is not None:
+            pulumi.set(__self__, "remote_volume_region", remote_volume_region)
+        if replication_id is not None:
+            pulumi.set(__self__, "replication_id", replication_id)
+        if replication_schedule is not None:
+            pulumi.set(__self__, "replication_schedule", replication_schedule)
+
+    @property
+    @pulumi.getter(name="remoteVolumeResourceId")
+    def remote_volume_resource_id(self) -> str:
+        """
+        The resource ID of the remote volume.
+        """
+        return pulumi.get(self, "remote_volume_resource_id")
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> Optional[str]:
+        """
+        Indicates whether the local volume is the source or destination for the Volume Replication
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="remoteVolumeRegion")
+    def remote_volume_region(self) -> Optional[str]:
+        """
+        The remote region for the other end of the Volume Replication.
+        """
+        return pulumi.get(self, "remote_volume_region")
+
+    @property
+    @pulumi.getter(name="replicationId")
+    def replication_id(self) -> Optional[str]:
+        """
+        Id
+        """
+        return pulumi.get(self, "replication_id")
+
+    @property
+    @pulumi.getter(name="replicationSchedule")
+    def replication_schedule(self) -> Optional[str]:
+        """
+        Schedule
+        """
+        return pulumi.get(self, "replication_schedule")
+
+
+@pulumi.output_type
 class ReplicationResponse(dict):
     """
     Replication properties
@@ -916,5 +1474,992 @@ class UserAssignedIdentityResponse(dict):
         The principal ID of the identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class VolumeBackupPropertiesResponse(dict):
+    """
+    Volume Backup Properties
+    """
+    def __init__(__self__, *,
+                 backup_enabled: Optional[bool] = None,
+                 backup_policy_id: Optional[str] = None,
+                 policy_enforced: Optional[bool] = None,
+                 vault_id: Optional[str] = None):
+        """
+        Volume Backup Properties
+        :param bool backup_enabled: Backup Enabled
+        :param str backup_policy_id: Backup Policy Resource ID
+        :param bool policy_enforced: Policy Enforced
+        :param str vault_id: Vault Resource ID
+        """
+        if backup_enabled is not None:
+            pulumi.set(__self__, "backup_enabled", backup_enabled)
+        if backup_policy_id is not None:
+            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+        if policy_enforced is not None:
+            pulumi.set(__self__, "policy_enforced", policy_enforced)
+        if vault_id is not None:
+            pulumi.set(__self__, "vault_id", vault_id)
+
+    @property
+    @pulumi.getter(name="backupEnabled")
+    def backup_enabled(self) -> Optional[bool]:
+        """
+        Backup Enabled
+        """
+        return pulumi.get(self, "backup_enabled")
+
+    @property
+    @pulumi.getter(name="backupPolicyId")
+    def backup_policy_id(self) -> Optional[str]:
+        """
+        Backup Policy Resource ID
+        """
+        return pulumi.get(self, "backup_policy_id")
+
+    @property
+    @pulumi.getter(name="policyEnforced")
+    def policy_enforced(self) -> Optional[bool]:
+        """
+        Policy Enforced
+        """
+        return pulumi.get(self, "policy_enforced")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> Optional[str]:
+        """
+        Vault Resource ID
+        """
+        return pulumi.get(self, "vault_id")
+
+
+@pulumi.output_type
+class VolumeBackupsResponse(dict):
+    """
+    Volume details using the backup policy
+    """
+    def __init__(__self__, *,
+                 backups_count: Optional[int] = None,
+                 policy_enabled: Optional[bool] = None,
+                 volume_name: Optional[str] = None):
+        """
+        Volume details using the backup policy
+        :param int backups_count: Total count of backups for volume
+        :param bool policy_enabled: Policy enabled
+        :param str volume_name: Volume name
+        """
+        if backups_count is not None:
+            pulumi.set(__self__, "backups_count", backups_count)
+        if policy_enabled is not None:
+            pulumi.set(__self__, "policy_enabled", policy_enabled)
+        if volume_name is not None:
+            pulumi.set(__self__, "volume_name", volume_name)
+
+    @property
+    @pulumi.getter(name="backupsCount")
+    def backups_count(self) -> Optional[int]:
+        """
+        Total count of backups for volume
+        """
+        return pulumi.get(self, "backups_count")
+
+    @property
+    @pulumi.getter(name="policyEnabled")
+    def policy_enabled(self) -> Optional[bool]:
+        """
+        Policy enabled
+        """
+        return pulumi.get(self, "policy_enabled")
+
+    @property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> Optional[str]:
+        """
+        Volume name
+        """
+        return pulumi.get(self, "volume_name")
+
+
+@pulumi.output_type
+class VolumeGroupMetaDataResponse(dict):
+    """
+    Volume group properties
+    """
+    def __init__(__self__, *,
+                 volumes_count: float,
+                 application_identifier: Optional[str] = None,
+                 application_type: Optional[str] = None,
+                 deployment_spec_id: Optional[str] = None,
+                 global_placement_rules: Optional[Sequence['outputs.PlacementKeyValuePairsResponse']] = None,
+                 group_description: Optional[str] = None):
+        """
+        Volume group properties
+        :param float volumes_count: Number of volumes in volume group
+        :param str application_identifier: Application specific identifier
+        :param str application_type: Application Type
+        :param str deployment_spec_id: Application specific identifier of deployment rules for the volume group
+        :param Sequence['PlacementKeyValuePairsResponse'] global_placement_rules: Application specific placement rules for the volume group
+        :param str group_description: Group Description
+        """
+        pulumi.set(__self__, "volumes_count", volumes_count)
+        if application_identifier is not None:
+            pulumi.set(__self__, "application_identifier", application_identifier)
+        if application_type is not None:
+            pulumi.set(__self__, "application_type", application_type)
+        if deployment_spec_id is not None:
+            pulumi.set(__self__, "deployment_spec_id", deployment_spec_id)
+        if global_placement_rules is not None:
+            pulumi.set(__self__, "global_placement_rules", global_placement_rules)
+        if group_description is not None:
+            pulumi.set(__self__, "group_description", group_description)
+
+    @property
+    @pulumi.getter(name="volumesCount")
+    def volumes_count(self) -> float:
+        """
+        Number of volumes in volume group
+        """
+        return pulumi.get(self, "volumes_count")
+
+    @property
+    @pulumi.getter(name="applicationIdentifier")
+    def application_identifier(self) -> Optional[str]:
+        """
+        Application specific identifier
+        """
+        return pulumi.get(self, "application_identifier")
+
+    @property
+    @pulumi.getter(name="applicationType")
+    def application_type(self) -> Optional[str]:
+        """
+        Application Type
+        """
+        return pulumi.get(self, "application_type")
+
+    @property
+    @pulumi.getter(name="deploymentSpecId")
+    def deployment_spec_id(self) -> Optional[str]:
+        """
+        Application specific identifier of deployment rules for the volume group
+        """
+        return pulumi.get(self, "deployment_spec_id")
+
+    @property
+    @pulumi.getter(name="globalPlacementRules")
+    def global_placement_rules(self) -> Optional[Sequence['outputs.PlacementKeyValuePairsResponse']]:
+        """
+        Application specific placement rules for the volume group
+        """
+        return pulumi.get(self, "global_placement_rules")
+
+    @property
+    @pulumi.getter(name="groupDescription")
+    def group_description(self) -> Optional[str]:
+        """
+        Group Description
+        """
+        return pulumi.get(self, "group_description")
+
+
+@pulumi.output_type
+class VolumeGroupVolumePropertiesResponse(dict):
+    """
+    Volume resource
+    """
+    def __init__(__self__, *,
+                 baremetal_tenant_id: str,
+                 clone_progress: int,
+                 creation_token: str,
+                 encrypted: bool,
+                 file_system_id: str,
+                 id: str,
+                 maximum_number_of_files: float,
+                 mount_targets: Sequence['outputs.MountTargetPropertiesResponse'],
+                 network_sibling_set_id: str,
+                 provisioning_state: str,
+                 storage_to_network_proximity: str,
+                 subnet_id: str,
+                 t2_network: str,
+                 type: str,
+                 usage_threshold: float,
+                 volume_group_name: str,
+                 avs_data_store: Optional[str] = None,
+                 backup_id: Optional[str] = None,
+                 capacity_pool_resource_id: Optional[str] = None,
+                 cool_access: Optional[bool] = None,
+                 coolness_period: Optional[int] = None,
+                 data_protection: Optional['outputs.VolumePropertiesResponseDataProtection'] = None,
+                 default_group_quota_in_ki_bs: Optional[float] = None,
+                 default_user_quota_in_ki_bs: Optional[float] = None,
+                 delete_base_snapshot: Optional[bool] = None,
+                 enable_subvolumes: Optional[str] = None,
+                 encryption_key_source: Optional[str] = None,
+                 export_policy: Optional['outputs.VolumePropertiesResponseExportPolicy'] = None,
+                 is_default_quota_enabled: Optional[bool] = None,
+                 is_restoring: Optional[bool] = None,
+                 kerberos_enabled: Optional[bool] = None,
+                 key_vault_private_endpoint_resource_id: Optional[str] = None,
+                 ldap_enabled: Optional[bool] = None,
+                 name: Optional[str] = None,
+                 network_features: Optional[str] = None,
+                 placement_rules: Optional[Sequence['outputs.PlacementKeyValuePairsResponse']] = None,
+                 protocol_types: Optional[Sequence[str]] = None,
+                 proximity_placement_group: Optional[str] = None,
+                 security_style: Optional[str] = None,
+                 service_level: Optional[str] = None,
+                 smb_access_based_enumeration: Optional[str] = None,
+                 smb_continuously_available: Optional[bool] = None,
+                 smb_encryption: Optional[bool] = None,
+                 smb_non_browsable: Optional[str] = None,
+                 snapshot_directory_visible: Optional[bool] = None,
+                 snapshot_id: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 throughput_mibps: Optional[float] = None,
+                 unix_permissions: Optional[str] = None,
+                 volume_spec_name: Optional[str] = None,
+                 volume_type: Optional[str] = None):
+        """
+        Volume resource
+        :param str baremetal_tenant_id: Unique Baremetal Tenant Identifier.
+        :param int clone_progress: When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning.
+        :param str creation_token: A unique file path for the volume. Used when creating mount targets
+        :param bool encrypted: Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01.
+        :param str file_system_id: Unique FileSystem Identifier.
+        :param str id: Resource Id
+        :param float maximum_number_of_files: Maximum number of files allowed. Needs a service request in order to be changed. Only allowed to be changed if volume quota is more than 4TiB.
+        :param Sequence['MountTargetPropertiesResponse'] mount_targets: List of mount targets
+        :param str network_sibling_set_id: Network Sibling Set ID for the the group of volumes sharing networking resources.
+        :param str provisioning_state: Azure lifecycle management
+        :param str storage_to_network_proximity: Provides storage to network proximity information for the volume.
+        :param str subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+        :param str t2_network: T2 network information
+        :param str type: Resource type
+        :param float usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        :param str volume_group_name: Volume Group Name
+        :param str avs_data_store: Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+        :param str backup_id: UUID v4 or resource identifier used to identify the Backup.
+        :param str capacity_pool_resource_id: Pool Resource Id used in case of creating a volume through volume group
+        :param bool cool_access: Specifies whether Cool Access(tiering) is enabled for the volume.
+        :param int coolness_period: Specifies the number of days after which data that is not accessed by clients will be tiered.
+        :param 'VolumePropertiesResponseDataProtection' data_protection: DataProtection type volumes include an object containing details of the replication
+        :param float default_group_quota_in_ki_bs: Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+        :param float default_user_quota_in_ki_bs: Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+        :param bool delete_base_snapshot: If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
+        :param str enable_subvolumes: Flag indicating whether subvolume operations are enabled on the volume
+        :param str encryption_key_source: Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
+        :param 'VolumePropertiesResponseExportPolicy' export_policy: Set of export policy rules
+        :param bool is_default_quota_enabled: Specifies if default quota is enabled for the volume.
+        :param bool is_restoring: Restoring
+        :param bool kerberos_enabled: Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
+        :param str key_vault_private_endpoint_resource_id: The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+        :param bool ldap_enabled: Specifies whether LDAP is enabled or not for a given NFS volume.
+        :param str name: Resource name
+        :param str network_features: Basic network, or Standard features available to the volume.
+        :param Sequence['PlacementKeyValuePairsResponse'] placement_rules: Application specific placement rules for the particular volume
+        :param Sequence[str] protocol_types: Set of protocol types, default NFSv3, CIFS for SMB protocol
+        :param str proximity_placement_group: Proximity placement group associated with the volume
+        :param str security_style: The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
+        :param str service_level: The service level of the file system
+        :param str smb_access_based_enumeration: Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        :param bool smb_continuously_available: Enables continuously available share property for smb volume. Only applicable for SMB volume
+        :param bool smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+        :param str smb_non_browsable: Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        :param bool snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        :param str snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
+        :param Mapping[str, str] tags: Resource tags
+        :param str unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
+        :param str volume_spec_name: Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+        :param str volume_type: What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+        """
+        pulumi.set(__self__, "baremetal_tenant_id", baremetal_tenant_id)
+        pulumi.set(__self__, "clone_progress", clone_progress)
+        pulumi.set(__self__, "creation_token", creation_token)
+        pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "maximum_number_of_files", maximum_number_of_files)
+        pulumi.set(__self__, "mount_targets", mount_targets)
+        pulumi.set(__self__, "network_sibling_set_id", network_sibling_set_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "storage_to_network_proximity", storage_to_network_proximity)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        pulumi.set(__self__, "t2_network", t2_network)
+        pulumi.set(__self__, "type", type)
+        if usage_threshold is None:
+            usage_threshold = 107374182400
+        pulumi.set(__self__, "usage_threshold", usage_threshold)
+        pulumi.set(__self__, "volume_group_name", volume_group_name)
+        if avs_data_store is None:
+            avs_data_store = 'Disabled'
+        if avs_data_store is not None:
+            pulumi.set(__self__, "avs_data_store", avs_data_store)
+        if backup_id is not None:
+            pulumi.set(__self__, "backup_id", backup_id)
+        if capacity_pool_resource_id is not None:
+            pulumi.set(__self__, "capacity_pool_resource_id", capacity_pool_resource_id)
+        if cool_access is None:
+            cool_access = False
+        if cool_access is not None:
+            pulumi.set(__self__, "cool_access", cool_access)
+        if coolness_period is not None:
+            pulumi.set(__self__, "coolness_period", coolness_period)
+        if data_protection is not None:
+            pulumi.set(__self__, "data_protection", data_protection)
+        if default_group_quota_in_ki_bs is None:
+            default_group_quota_in_ki_bs = 0
+        if default_group_quota_in_ki_bs is not None:
+            pulumi.set(__self__, "default_group_quota_in_ki_bs", default_group_quota_in_ki_bs)
+        if default_user_quota_in_ki_bs is None:
+            default_user_quota_in_ki_bs = 0
+        if default_user_quota_in_ki_bs is not None:
+            pulumi.set(__self__, "default_user_quota_in_ki_bs", default_user_quota_in_ki_bs)
+        if delete_base_snapshot is not None:
+            pulumi.set(__self__, "delete_base_snapshot", delete_base_snapshot)
+        if enable_subvolumes is None:
+            enable_subvolumes = 'Disabled'
+        if enable_subvolumes is not None:
+            pulumi.set(__self__, "enable_subvolumes", enable_subvolumes)
+        if encryption_key_source is None:
+            encryption_key_source = 'Microsoft.NetApp'
+        if encryption_key_source is not None:
+            pulumi.set(__self__, "encryption_key_source", encryption_key_source)
+        if export_policy is not None:
+            pulumi.set(__self__, "export_policy", export_policy)
+        if is_default_quota_enabled is None:
+            is_default_quota_enabled = False
+        if is_default_quota_enabled is not None:
+            pulumi.set(__self__, "is_default_quota_enabled", is_default_quota_enabled)
+        if is_restoring is not None:
+            pulumi.set(__self__, "is_restoring", is_restoring)
+        if kerberos_enabled is None:
+            kerberos_enabled = False
+        if kerberos_enabled is not None:
+            pulumi.set(__self__, "kerberos_enabled", kerberos_enabled)
+        if key_vault_private_endpoint_resource_id is not None:
+            pulumi.set(__self__, "key_vault_private_endpoint_resource_id", key_vault_private_endpoint_resource_id)
+        if ldap_enabled is None:
+            ldap_enabled = False
+        if ldap_enabled is not None:
+            pulumi.set(__self__, "ldap_enabled", ldap_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_features is None:
+            network_features = 'Basic'
+        if network_features is not None:
+            pulumi.set(__self__, "network_features", network_features)
+        if placement_rules is not None:
+            pulumi.set(__self__, "placement_rules", placement_rules)
+        if protocol_types is not None:
+            pulumi.set(__self__, "protocol_types", protocol_types)
+        if proximity_placement_group is not None:
+            pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
+        if security_style is None:
+            security_style = 'unix'
+        if security_style is not None:
+            pulumi.set(__self__, "security_style", security_style)
+        if service_level is not None:
+            pulumi.set(__self__, "service_level", service_level)
+        if smb_access_based_enumeration is not None:
+            pulumi.set(__self__, "smb_access_based_enumeration", smb_access_based_enumeration)
+        if smb_continuously_available is None:
+            smb_continuously_available = False
+        if smb_continuously_available is not None:
+            pulumi.set(__self__, "smb_continuously_available", smb_continuously_available)
+        if smb_encryption is None:
+            smb_encryption = False
+        if smb_encryption is not None:
+            pulumi.set(__self__, "smb_encryption", smb_encryption)
+        if smb_non_browsable is not None:
+            pulumi.set(__self__, "smb_non_browsable", smb_non_browsable)
+        if snapshot_directory_visible is None:
+            snapshot_directory_visible = True
+        if snapshot_directory_visible is not None:
+            pulumi.set(__self__, "snapshot_directory_visible", snapshot_directory_visible)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if throughput_mibps is not None:
+            pulumi.set(__self__, "throughput_mibps", throughput_mibps)
+        if unix_permissions is None:
+            unix_permissions = '0770'
+        if unix_permissions is not None:
+            pulumi.set(__self__, "unix_permissions", unix_permissions)
+        if volume_spec_name is not None:
+            pulumi.set(__self__, "volume_spec_name", volume_spec_name)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="baremetalTenantId")
+    def baremetal_tenant_id(self) -> str:
+        """
+        Unique Baremetal Tenant Identifier.
+        """
+        return pulumi.get(self, "baremetal_tenant_id")
+
+    @property
+    @pulumi.getter(name="cloneProgress")
+    def clone_progress(self) -> int:
+        """
+        When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning.
+        """
+        return pulumi.get(self, "clone_progress")
+
+    @property
+    @pulumi.getter(name="creationToken")
+    def creation_token(self) -> str:
+        """
+        A unique file path for the volume. Used when creating mount targets
+        """
+        return pulumi.get(self, "creation_token")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> bool:
+        """
+        Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> str:
+        """
+        Unique FileSystem Identifier.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="maximumNumberOfFiles")
+    def maximum_number_of_files(self) -> float:
+        """
+        Maximum number of files allowed. Needs a service request in order to be changed. Only allowed to be changed if volume quota is more than 4TiB.
+        """
+        return pulumi.get(self, "maximum_number_of_files")
+
+    @property
+    @pulumi.getter(name="mountTargets")
+    def mount_targets(self) -> Sequence['outputs.MountTargetPropertiesResponse']:
+        """
+        List of mount targets
+        """
+        return pulumi.get(self, "mount_targets")
+
+    @property
+    @pulumi.getter(name="networkSiblingSetId")
+    def network_sibling_set_id(self) -> str:
+        """
+        Network Sibling Set ID for the the group of volumes sharing networking resources.
+        """
+        return pulumi.get(self, "network_sibling_set_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="storageToNetworkProximity")
+    def storage_to_network_proximity(self) -> str:
+        """
+        Provides storage to network proximity information for the volume.
+        """
+        return pulumi.get(self, "storage_to_network_proximity")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="t2Network")
+    def t2_network(self) -> str:
+        """
+        T2 network information
+        """
+        return pulumi.get(self, "t2_network")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="usageThreshold")
+    def usage_threshold(self) -> float:
+        """
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        """
+        return pulumi.get(self, "usage_threshold")
+
+    @property
+    @pulumi.getter(name="volumeGroupName")
+    def volume_group_name(self) -> str:
+        """
+        Volume Group Name
+        """
+        return pulumi.get(self, "volume_group_name")
+
+    @property
+    @pulumi.getter(name="avsDataStore")
+    def avs_data_store(self) -> Optional[str]:
+        """
+        Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+        """
+        return pulumi.get(self, "avs_data_store")
+
+    @property
+    @pulumi.getter(name="backupId")
+    def backup_id(self) -> Optional[str]:
+        """
+        UUID v4 or resource identifier used to identify the Backup.
+        """
+        return pulumi.get(self, "backup_id")
+
+    @property
+    @pulumi.getter(name="capacityPoolResourceId")
+    def capacity_pool_resource_id(self) -> Optional[str]:
+        """
+        Pool Resource Id used in case of creating a volume through volume group
+        """
+        return pulumi.get(self, "capacity_pool_resource_id")
+
+    @property
+    @pulumi.getter(name="coolAccess")
+    def cool_access(self) -> Optional[bool]:
+        """
+        Specifies whether Cool Access(tiering) is enabled for the volume.
+        """
+        return pulumi.get(self, "cool_access")
+
+    @property
+    @pulumi.getter(name="coolnessPeriod")
+    def coolness_period(self) -> Optional[int]:
+        """
+        Specifies the number of days after which data that is not accessed by clients will be tiered.
+        """
+        return pulumi.get(self, "coolness_period")
+
+    @property
+    @pulumi.getter(name="dataProtection")
+    def data_protection(self) -> Optional['outputs.VolumePropertiesResponseDataProtection']:
+        """
+        DataProtection type volumes include an object containing details of the replication
+        """
+        return pulumi.get(self, "data_protection")
+
+    @property
+    @pulumi.getter(name="defaultGroupQuotaInKiBs")
+    def default_group_quota_in_ki_bs(self) -> Optional[float]:
+        """
+        Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+        """
+        return pulumi.get(self, "default_group_quota_in_ki_bs")
+
+    @property
+    @pulumi.getter(name="defaultUserQuotaInKiBs")
+    def default_user_quota_in_ki_bs(self) -> Optional[float]:
+        """
+        Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+        """
+        return pulumi.get(self, "default_user_quota_in_ki_bs")
+
+    @property
+    @pulumi.getter(name="deleteBaseSnapshot")
+    def delete_base_snapshot(self) -> Optional[bool]:
+        """
+        If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
+        """
+        return pulumi.get(self, "delete_base_snapshot")
+
+    @property
+    @pulumi.getter(name="enableSubvolumes")
+    def enable_subvolumes(self) -> Optional[str]:
+        """
+        Flag indicating whether subvolume operations are enabled on the volume
+        """
+        return pulumi.get(self, "enable_subvolumes")
+
+    @property
+    @pulumi.getter(name="encryptionKeySource")
+    def encryption_key_source(self) -> Optional[str]:
+        """
+        Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
+        """
+        return pulumi.get(self, "encryption_key_source")
+
+    @property
+    @pulumi.getter(name="exportPolicy")
+    def export_policy(self) -> Optional['outputs.VolumePropertiesResponseExportPolicy']:
+        """
+        Set of export policy rules
+        """
+        return pulumi.get(self, "export_policy")
+
+    @property
+    @pulumi.getter(name="isDefaultQuotaEnabled")
+    def is_default_quota_enabled(self) -> Optional[bool]:
+        """
+        Specifies if default quota is enabled for the volume.
+        """
+        return pulumi.get(self, "is_default_quota_enabled")
+
+    @property
+    @pulumi.getter(name="isRestoring")
+    def is_restoring(self) -> Optional[bool]:
+        """
+        Restoring
+        """
+        return pulumi.get(self, "is_restoring")
+
+    @property
+    @pulumi.getter(name="kerberosEnabled")
+    def kerberos_enabled(self) -> Optional[bool]:
+        """
+        Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos_enabled")
+
+    @property
+    @pulumi.getter(name="keyVaultPrivateEndpointResourceId")
+    def key_vault_private_endpoint_resource_id(self) -> Optional[str]:
+        """
+        The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "key_vault_private_endpoint_resource_id")
+
+    @property
+    @pulumi.getter(name="ldapEnabled")
+    def ldap_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether LDAP is enabled or not for a given NFS volume.
+        """
+        return pulumi.get(self, "ldap_enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkFeatures")
+    def network_features(self) -> Optional[str]:
+        """
+        Basic network, or Standard features available to the volume.
+        """
+        return pulumi.get(self, "network_features")
+
+    @property
+    @pulumi.getter(name="placementRules")
+    def placement_rules(self) -> Optional[Sequence['outputs.PlacementKeyValuePairsResponse']]:
+        """
+        Application specific placement rules for the particular volume
+        """
+        return pulumi.get(self, "placement_rules")
+
+    @property
+    @pulumi.getter(name="protocolTypes")
+    def protocol_types(self) -> Optional[Sequence[str]]:
+        """
+        Set of protocol types, default NFSv3, CIFS for SMB protocol
+        """
+        return pulumi.get(self, "protocol_types")
+
+    @property
+    @pulumi.getter(name="proximityPlacementGroup")
+    def proximity_placement_group(self) -> Optional[str]:
+        """
+        Proximity placement group associated with the volume
+        """
+        return pulumi.get(self, "proximity_placement_group")
+
+    @property
+    @pulumi.getter(name="securityStyle")
+    def security_style(self) -> Optional[str]:
+        """
+        The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
+        """
+        return pulumi.get(self, "security_style")
+
+    @property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> Optional[str]:
+        """
+        The service level of the file system
+        """
+        return pulumi.get(self, "service_level")
+
+    @property
+    @pulumi.getter(name="smbAccessBasedEnumeration")
+    def smb_access_based_enumeration(self) -> Optional[str]:
+        """
+        Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        """
+        return pulumi.get(self, "smb_access_based_enumeration")
+
+    @property
+    @pulumi.getter(name="smbContinuouslyAvailable")
+    def smb_continuously_available(self) -> Optional[bool]:
+        """
+        Enables continuously available share property for smb volume. Only applicable for SMB volume
+        """
+        return pulumi.get(self, "smb_continuously_available")
+
+    @property
+    @pulumi.getter(name="smbEncryption")
+    def smb_encryption(self) -> Optional[bool]:
+        """
+        Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+        """
+        return pulumi.get(self, "smb_encryption")
+
+    @property
+    @pulumi.getter(name="smbNonBrowsable")
+    def smb_non_browsable(self) -> Optional[str]:
+        """
+        Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        """
+        return pulumi.get(self, "smb_non_browsable")
+
+    @property
+    @pulumi.getter(name="snapshotDirectoryVisible")
+    def snapshot_directory_visible(self) -> Optional[bool]:
+        """
+        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        """
+        return pulumi.get(self, "snapshot_directory_visible")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[str]:
+        """
+        UUID v4 or resource identifier used to identify the Snapshot.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="throughputMibps")
+    def throughput_mibps(self) -> Optional[float]:
+        return pulumi.get(self, "throughput_mibps")
+
+    @property
+    @pulumi.getter(name="unixPermissions")
+    def unix_permissions(self) -> Optional[str]:
+        """
+        UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
+        """
+        return pulumi.get(self, "unix_permissions")
+
+    @property
+    @pulumi.getter(name="volumeSpecName")
+    def volume_spec_name(self) -> Optional[str]:
+        """
+        Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+        """
+        return pulumi.get(self, "volume_spec_name")
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional[str]:
+        """
+        What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+        """
+        return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class VolumePropertiesResponseDataProtection(dict):
+    """
+    DataProtection type volumes include an object containing details of the replication
+    """
+    def __init__(__self__, *,
+                 backup: Optional['outputs.VolumeBackupPropertiesResponse'] = None,
+                 replication: Optional['outputs.ReplicationObjectResponse'] = None,
+                 snapshot: Optional['outputs.VolumeSnapshotPropertiesResponse'] = None):
+        """
+        DataProtection type volumes include an object containing details of the replication
+        :param 'VolumeBackupPropertiesResponse' backup: Backup Properties
+        :param 'ReplicationObjectResponse' replication: Replication properties
+        :param 'VolumeSnapshotPropertiesResponse' snapshot: Snapshot properties.
+        """
+        if backup is not None:
+            pulumi.set(__self__, "backup", backup)
+        if replication is not None:
+            pulumi.set(__self__, "replication", replication)
+        if snapshot is not None:
+            pulumi.set(__self__, "snapshot", snapshot)
+
+    @property
+    @pulumi.getter
+    def backup(self) -> Optional['outputs.VolumeBackupPropertiesResponse']:
+        """
+        Backup Properties
+        """
+        return pulumi.get(self, "backup")
+
+    @property
+    @pulumi.getter
+    def replication(self) -> Optional['outputs.ReplicationObjectResponse']:
+        """
+        Replication properties
+        """
+        return pulumi.get(self, "replication")
+
+    @property
+    @pulumi.getter
+    def snapshot(self) -> Optional['outputs.VolumeSnapshotPropertiesResponse']:
+        """
+        Snapshot properties.
+        """
+        return pulumi.get(self, "snapshot")
+
+
+@pulumi.output_type
+class VolumePropertiesResponseExportPolicy(dict):
+    """
+    Set of export policy rules
+    """
+    def __init__(__self__, *,
+                 rules: Optional[Sequence['outputs.ExportPolicyRuleResponse']] = None):
+        """
+        Set of export policy rules
+        :param Sequence['ExportPolicyRuleResponse'] rules: Export policy rule
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.ExportPolicyRuleResponse']]:
+        """
+        Export policy rule
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class VolumeSnapshotPropertiesResponse(dict):
+    """
+    Volume Snapshot Properties
+    """
+    def __init__(__self__, *,
+                 snapshot_policy_id: Optional[str] = None):
+        """
+        Volume Snapshot Properties
+        :param str snapshot_policy_id: Snapshot Policy ResourceId
+        """
+        if snapshot_policy_id is not None:
+            pulumi.set(__self__, "snapshot_policy_id", snapshot_policy_id)
+
+    @property
+    @pulumi.getter(name="snapshotPolicyId")
+    def snapshot_policy_id(self) -> Optional[str]:
+        """
+        Snapshot Policy ResourceId
+        """
+        return pulumi.get(self, "snapshot_policy_id")
+
+
+@pulumi.output_type
+class WeeklyScheduleResponse(dict):
+    """
+    Weekly Schedule properties, make a snapshot every week at a specific day or days
+    """
+    def __init__(__self__, *,
+                 day: Optional[str] = None,
+                 hour: Optional[int] = None,
+                 minute: Optional[int] = None,
+                 snapshots_to_keep: Optional[int] = None,
+                 used_bytes: Optional[float] = None):
+        """
+        Weekly Schedule properties, make a snapshot every week at a specific day or days
+        :param str day: Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
+        :param int hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param int minute: Indicates which minute snapshot should be taken
+        :param int snapshots_to_keep: Weekly snapshot count to keep
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        """
+        if day is not None:
+            pulumi.set(__self__, "day", day)
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+        if used_bytes is not None:
+            pulumi.set(__self__, "used_bytes", used_bytes)
+
+    @property
+    @pulumi.getter
+    def day(self) -> Optional[str]:
+        """
+        Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
+        """
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter
+    def hour(self) -> Optional[int]:
+        """
+        Indicates which hour in UTC timezone a snapshot should be taken
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> Optional[int]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[int]:
+        """
+        Weekly snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> Optional[float]:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
 
 

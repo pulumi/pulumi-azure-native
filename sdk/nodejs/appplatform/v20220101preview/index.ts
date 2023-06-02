@@ -60,10 +60,20 @@ export const getApiPortalCustomDomain: typeof import("./getApiPortalCustomDomain
 export const getApiPortalCustomDomainOutput: typeof import("./getApiPortalCustomDomain").getApiPortalCustomDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getApiPortalCustomDomain","getApiPortalCustomDomainOutput"], () => require("./getApiPortalCustomDomain"));
 
+export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
+export const getApp: typeof import("./getApp").getApp = null as any;
+export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
+utilities.lazyLoad(exports, ["getApp","getAppOutput"], () => require("./getApp"));
+
 export { GetAppResourceUploadUrlArgs, GetAppResourceUploadUrlResult, GetAppResourceUploadUrlOutputArgs } from "./getAppResourceUploadUrl";
 export const getAppResourceUploadUrl: typeof import("./getAppResourceUploadUrl").getAppResourceUploadUrl = null as any;
 export const getAppResourceUploadUrlOutput: typeof import("./getAppResourceUploadUrl").getAppResourceUploadUrlOutput = null as any;
 utilities.lazyLoad(exports, ["getAppResourceUploadUrl","getAppResourceUploadUrlOutput"], () => require("./getAppResourceUploadUrl"));
+
+export { GetBindingArgs, GetBindingResult, GetBindingOutputArgs } from "./getBinding";
+export const getBinding: typeof import("./getBinding").getBinding = null as any;
+export const getBindingOutput: typeof import("./getBinding").getBindingOutput = null as any;
+utilities.lazyLoad(exports, ["getBinding","getBindingOutput"], () => require("./getBinding"));
 
 export { GetBuildServiceAgentPoolArgs, GetBuildServiceAgentPoolResult, GetBuildServiceAgentPoolOutputArgs } from "./getBuildServiceAgentPool";
 export const getBuildServiceAgentPool: typeof import("./getBuildServiceAgentPool").getBuildServiceAgentPool = null as any;
@@ -90,10 +100,30 @@ export const getBuildpackBinding: typeof import("./getBuildpackBinding").getBuil
 export const getBuildpackBindingOutput: typeof import("./getBuildpackBinding").getBuildpackBindingOutput = null as any;
 utilities.lazyLoad(exports, ["getBuildpackBinding","getBuildpackBindingOutput"], () => require("./getBuildpackBinding"));
 
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetConfigServerArgs, GetConfigServerResult, GetConfigServerOutputArgs } from "./getConfigServer";
+export const getConfigServer: typeof import("./getConfigServer").getConfigServer = null as any;
+export const getConfigServerOutput: typeof import("./getConfigServer").getConfigServerOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigServer","getConfigServerOutput"], () => require("./getConfigServer"));
+
 export { GetConfigurationServiceArgs, GetConfigurationServiceResult, GetConfigurationServiceOutputArgs } from "./getConfigurationService";
 export const getConfigurationService: typeof import("./getConfigurationService").getConfigurationService = null as any;
 export const getConfigurationServiceOutput: typeof import("./getConfigurationService").getConfigurationServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationService","getConfigurationServiceOutput"], () => require("./getConfigurationService"));
+
+export { GetCustomDomainArgs, GetCustomDomainResult, GetCustomDomainOutputArgs } from "./getCustomDomain";
+export const getCustomDomain: typeof import("./getCustomDomain").getCustomDomain = null as any;
+export const getCustomDomainOutput: typeof import("./getCustomDomain").getCustomDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomDomain","getCustomDomainOutput"], () => require("./getCustomDomain"));
+
+export { GetDeploymentArgs, GetDeploymentResult, GetDeploymentOutputArgs } from "./getDeployment";
+export const getDeployment: typeof import("./getDeployment").getDeployment = null as any;
+export const getDeploymentOutput: typeof import("./getDeployment").getDeploymentOutput = null as any;
+utilities.lazyLoad(exports, ["getDeployment","getDeploymentOutput"], () => require("./getDeployment"));
 
 export { GetDeploymentLogFileUrlArgs, GetDeploymentLogFileUrlResult, GetDeploymentLogFileUrlOutputArgs } from "./getDeploymentLogFileUrl";
 export const getDeploymentLogFileUrl: typeof import("./getDeploymentLogFileUrl").getDeploymentLogFileUrl = null as any;
@@ -115,10 +145,25 @@ export const getGatewayRouteConfig: typeof import("./getGatewayRouteConfig").get
 export const getGatewayRouteConfigOutput: typeof import("./getGatewayRouteConfig").getGatewayRouteConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getGatewayRouteConfig","getGatewayRouteConfigOutput"], () => require("./getGatewayRouteConfig"));
 
+export { GetMonitoringSettingArgs, GetMonitoringSettingResult, GetMonitoringSettingOutputArgs } from "./getMonitoringSetting";
+export const getMonitoringSetting: typeof import("./getMonitoringSetting").getMonitoringSetting = null as any;
+export const getMonitoringSettingOutput: typeof import("./getMonitoringSetting").getMonitoringSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringSetting","getMonitoringSettingOutput"], () => require("./getMonitoringSetting"));
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+
 export { GetServiceRegistryArgs, GetServiceRegistryResult, GetServiceRegistryOutputArgs } from "./getServiceRegistry";
 export const getServiceRegistry: typeof import("./getServiceRegistry").getServiceRegistry = null as any;
 export const getServiceRegistryOutput: typeof import("./getServiceRegistry").getServiceRegistryOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceRegistry","getServiceRegistryOutput"], () => require("./getServiceRegistry"));
+
+export { GetStorageArgs, GetStorageResult, GetStorageOutputArgs } from "./getStorage";
+export const getStorage: typeof import("./getStorage").getStorage = null as any;
+export const getStorageOutput: typeof import("./getStorage").getStorageOutput = null as any;
+utilities.lazyLoad(exports, ["getStorage","getStorageOutput"], () => require("./getStorage"));
 
 export { ListServiceTestKeysArgs, ListServiceTestKeysResult, ListServiceTestKeysOutputArgs } from "./listServiceTestKeys";
 export const listServiceTestKeys: typeof import("./listServiceTestKeys").listServiceTestKeys = null as any;

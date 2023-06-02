@@ -825,24 +825,24 @@ class OrderBy:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'SkuName', 'BastionHostSkuName']]] = None):
         """
         The pricing tier of the web application firewall policy.
-        :param pulumi.Input[Union[str, 'SkuName']] name: Name of the pricing tier.
+        :param pulumi.Input[Union[str, 'SkuName', 'BastionHostSkuName']] name: Name of the pricing tier.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[Union[str, 'SkuName']]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'SkuName', 'BastionHostSkuName']]]:
         """
         Name of the pricing tier.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[Union[str, 'SkuName']]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'SkuName', 'BastionHostSkuName']]]):
         pulumi.set(self, "name", value)
 
 

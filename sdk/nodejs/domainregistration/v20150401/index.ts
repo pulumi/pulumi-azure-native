@@ -4,6 +4,16 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
+export const getDomain: typeof import("./getDomain").getDomain = null as any;
+export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+
+export { GetDomainOwnershipIdentifierArgs, GetDomainOwnershipIdentifierResult, GetDomainOwnershipIdentifierOutputArgs } from "./getDomainOwnershipIdentifier";
+export const getDomainOwnershipIdentifier: typeof import("./getDomainOwnershipIdentifier").getDomainOwnershipIdentifier = null as any;
+export const getDomainOwnershipIdentifierOutput: typeof import("./getDomainOwnershipIdentifier").getDomainOwnershipIdentifierOutput = null as any;
+utilities.lazyLoad(exports, ["getDomainOwnershipIdentifier","getDomainOwnershipIdentifierOutput"], () => require("./getDomainOwnershipIdentifier"));
+
 export { ListDomainRecommendationsArgs, ListDomainRecommendationsResult, ListDomainRecommendationsOutputArgs } from "./listDomainRecommendations";
 export const listDomainRecommendations: typeof import("./listDomainRecommendations").listDomainRecommendations = null as any;
 export const listDomainRecommendationsOutput: typeof import("./listDomainRecommendations").listDomainRecommendationsOutput = null as any;
@@ -14,3 +24,6 @@ export const listTopLevelDomainAgreements: typeof import("./listTopLevelDomainAg
 export const listTopLevelDomainAgreementsOutput: typeof import("./listTopLevelDomainAgreements").listTopLevelDomainAgreementsOutput = null as any;
 utilities.lazyLoad(exports, ["listTopLevelDomainAgreements","listTopLevelDomainAgreementsOutput"], () => require("./listTopLevelDomainAgreements"));
 
+
+// Export enums:
+export * from "../../types/enums/domainregistration/v20150401";

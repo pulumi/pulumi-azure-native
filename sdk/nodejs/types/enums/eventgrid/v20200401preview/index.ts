@@ -108,6 +108,17 @@ export const IpActionType = {
  */
 export type IpActionType = (typeof IpActionType)[keyof typeof IpActionType];
 
+export const PartnerRegistrationVisibilityState = {
+    Hidden: "Hidden",
+    PublicPreview: "PublicPreview",
+    GenerallyAvailable: "GenerallyAvailable",
+} as const;
+
+/**
+ * Visibility state of the partner registration.
+ */
+export type PartnerRegistrationVisibilityState = (typeof PartnerRegistrationVisibilityState)[keyof typeof PartnerRegistrationVisibilityState];
+
 export const PersistedConnectionStatus = {
     Pending: "Pending",
     Approved: "Approved",

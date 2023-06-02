@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CertificatePropertiesResponse',
     'CloudToDevicePropertiesResponse',
     'EventHubPropertiesResponse',
     'FallbackRoutePropertiesResponse',
@@ -31,6 +32,83 @@ __all__ = [
     'SharedAccessSignatureAuthorizationRuleResponse',
     'StorageEndpointPropertiesResponse',
 ]
+
+@pulumi.output_type
+class CertificatePropertiesResponse(dict):
+    """
+    The description of an X509 CA Certificate.
+    """
+    def __init__(__self__, *,
+                 created: str,
+                 expiry: str,
+                 is_verified: bool,
+                 subject: str,
+                 thumbprint: str,
+                 updated: str):
+        """
+        The description of an X509 CA Certificate.
+        :param str created: The certificate's create date and time.
+        :param str expiry: The certificate's expiration date and time.
+        :param bool is_verified: Determines whether certificate has been verified.
+        :param str subject: The certificate's subject name.
+        :param str thumbprint: The certificate's thumbprint.
+        :param str updated: The certificate's last update date and time.
+        """
+        pulumi.set(__self__, "created", created)
+        pulumi.set(__self__, "expiry", expiry)
+        pulumi.set(__self__, "is_verified", is_verified)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "thumbprint", thumbprint)
+        pulumi.set(__self__, "updated", updated)
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
+        """
+        The certificate's create date and time.
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> str:
+        """
+        The certificate's expiration date and time.
+        """
+        return pulumi.get(self, "expiry")
+
+    @property
+    @pulumi.getter(name="isVerified")
+    def is_verified(self) -> bool:
+        """
+        Determines whether certificate has been verified.
+        """
+        return pulumi.get(self, "is_verified")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> str:
+        """
+        The certificate's subject name.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
+        """
+        The certificate's thumbprint.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter
+    def updated(self) -> str:
+        """
+        The certificate's last update date and time.
+        """
+        return pulumi.get(self, "updated")
+
 
 @pulumi.output_type
 class CloudToDevicePropertiesResponse(dict):

@@ -7,10 +7,21 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .disk import *
+from .get_availability_set import *
 from .get_disk import *
+from .get_gallery import *
+from .get_gallery_image import *
+from .get_gallery_image_version import *
+from .get_image import *
 from .get_log_analytic_export_request_rate_by_interval import *
 from .get_log_analytic_export_throttled_requests import *
+from .get_proximity_placement_group import *
 from .get_snapshot import *
+from .get_virtual_machine import *
+from .get_virtual_machine_extension import *
+from .get_virtual_machine_scale_set import *
+from .get_virtual_machine_scale_set_extension import *
+from .get_virtual_machine_scale_set_vm import *
 from .snapshot import *
 from ._inputs import *
 from . import outputs

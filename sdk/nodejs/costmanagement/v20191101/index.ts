@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetExportArgs, GetExportResult, GetExportOutputArgs } from "./getExport";
+export const getExport: typeof import("./getExport").getExport = null as any;
+export const getExportOutput: typeof import("./getExport").getExportOutput = null as any;
+utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
+
 export { GetSettingArgs, GetSettingResult, GetSettingOutputArgs } from "./getSetting";
 export const getSetting: typeof import("./getSetting").getSetting = null as any;
 export const getSettingOutput: typeof import("./getSetting").getSettingOutput = null as any;

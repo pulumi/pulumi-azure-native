@@ -56,6 +56,17 @@ export const ScheduleFrequency = {
  */
 export type ScheduleFrequency = (typeof ScheduleFrequency)[keyof typeof ScheduleFrequency];
 
+export const SourceType = {
+    VsoGit: "VsoGit",
+    VsoTfvc: "VsoTfvc",
+    GitHub: "GitHub",
+} as const;
+
+/**
+ * The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
 export const TagOperators = {
     All: "All",
     Any: "Any",
@@ -65,6 +76,16 @@ export const TagOperators = {
  * Filter VMs by Any or All specified tags.
  */
 export type TagOperators = (typeof TagOperators)[keyof typeof TagOperators];
+
+export const TokenType = {
+    PersonalAccessToken: "PersonalAccessToken",
+    Oauth: "Oauth",
+} as const;
+
+/**
+ * The token type. Must be either PersonalAccessToken or Oauth.
+ */
+export type TokenType = (typeof TokenType)[keyof typeof TokenType];
 
 export const WindowsUpdateClasses = {
     Unclassified: "Unclassified",

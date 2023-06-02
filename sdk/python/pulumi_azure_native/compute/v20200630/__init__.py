@@ -7,6 +7,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .disk_encryption_set import *
+from .get_disk import *
+from .get_disk_access import *
 from .get_disk_encryption_set import *
+from .get_snapshot import *
 from ._inputs import *
 from . import outputs

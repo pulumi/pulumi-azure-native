@@ -5,8 +5,11 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from .get_cloud_endpoint import *
+from .get_registered_server import *
 from .get_server_endpoint import *
 from .get_storage_sync_service import *
+from .get_sync_group import *
 from .server_endpoint import *
 from .storage_sync_service import *
 from . import outputs

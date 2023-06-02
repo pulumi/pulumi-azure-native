@@ -5,6 +5,9 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .get_deployment import *
+from .get_resource import *
 from .get_resource_group import *
 from .resource_group import *
 from . import outputs

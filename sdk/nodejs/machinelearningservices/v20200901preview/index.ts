@@ -5,21 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ACIServiceArgs } from "./aciservice";
-export type ACIService = import("./aciservice").ACIService;
-export const ACIService: typeof import("./aciservice").ACIService = null as any;
-utilities.lazyLoad(exports, ["ACIService"], () => require("./aciservice"));
-
-export { AKSServiceArgs } from "./aksservice";
-export type AKSService = import("./aksservice").AKSService;
-export const AKSService: typeof import("./aksservice").AKSService = null as any;
-utilities.lazyLoad(exports, ["AKSService"], () => require("./aksservice"));
-
-export { EndpointVariantArgs } from "./endpointVariant";
-export type EndpointVariant = import("./endpointVariant").EndpointVariant;
-export const EndpointVariant: typeof import("./endpointVariant").EndpointVariant = null as any;
-utilities.lazyLoad(exports, ["EndpointVariant"], () => require("./endpointVariant"));
-
 export { GetACIServiceArgs, GetACIServiceResult, GetACIServiceOutputArgs } from "./getACIService";
 export const getACIService: typeof import("./getACIService").getACIService = null as any;
 export const getACIServiceOutput: typeof import("./getACIService").getACIServiceOutput = null as any;
@@ -45,10 +30,25 @@ export const getLinkedService: typeof import("./getLinkedService").getLinkedServ
 export const getLinkedServiceOutput: typeof import("./getLinkedService").getLinkedServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getLinkedService","getLinkedServiceOutput"], () => require("./getLinkedService"));
 
+export { GetMachineLearningComputeArgs, GetMachineLearningComputeResult, GetMachineLearningComputeOutputArgs } from "./getMachineLearningCompute";
+export const getMachineLearningCompute: typeof import("./getMachineLearningCompute").getMachineLearningCompute = null as any;
+export const getMachineLearningComputeOutput: typeof import("./getMachineLearningCompute").getMachineLearningComputeOutput = null as any;
+utilities.lazyLoad(exports, ["getMachineLearningCompute","getMachineLearningComputeOutput"], () => require("./getMachineLearningCompute"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+
+export { GetWorkspaceConnectionArgs, GetWorkspaceConnectionResult, GetWorkspaceConnectionOutputArgs } from "./getWorkspaceConnection";
+export const getWorkspaceConnection: typeof import("./getWorkspaceConnection").getWorkspaceConnection = null as any;
+export const getWorkspaceConnectionOutput: typeof import("./getWorkspaceConnection").getWorkspaceConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceConnection","getWorkspaceConnectionOutput"], () => require("./getWorkspaceConnection"));
 
 export { LabelingJobArgs } from "./labelingJob";
 export type LabelingJob = import("./labelingJob").LabelingJob;
@@ -93,12 +93,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:machinelearningservices/v20200901preview:ACIService":
-                return new ACIService(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20200901preview:AKSService":
-                return new AKSService(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20200901preview:EndpointVariant":
-                return new EndpointVariant(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200901preview:LabelingJob":
                 return new LabelingJob(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200901preview:LinkedService":

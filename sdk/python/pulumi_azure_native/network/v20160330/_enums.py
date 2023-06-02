@@ -5,14 +5,125 @@
 from enum import Enum
 
 __all__ = [
+    'ApplicationGatewayCookieBasedAffinity',
+    'ApplicationGatewayProtocol',
+    'ApplicationGatewayRequestRoutingRuleType',
+    'ApplicationGatewaySkuName',
+    'ApplicationGatewayTier',
+    'AuthorizationUseStatus',
+    'ExpressRouteCircuitPeeringAdvertisedPublicPrefixState',
+    'ExpressRouteCircuitPeeringState',
+    'ExpressRouteCircuitPeeringType',
+    'ExpressRouteCircuitSkuFamily',
+    'ExpressRouteCircuitSkuTier',
     'IPAllocationMethod',
     'IPVersion',
+    'LoadDistribution',
+    'ProbeProtocol',
     'RouteNextHopType',
     'SecurityRuleAccess',
     'SecurityRuleDirection',
     'SecurityRuleProtocol',
+    'ServiceProviderProvisioningState',
     'TransportProtocol',
+    'VirtualNetworkGatewayConnectionStatus',
+    'VirtualNetworkGatewayConnectionType',
+    'VirtualNetworkGatewaySkuName',
+    'VirtualNetworkGatewaySkuTier',
+    'VirtualNetworkGatewayType',
+    'VpnType',
 ]
+
+
+class ApplicationGatewayCookieBasedAffinity(str, Enum):
+    """
+    Gets or sets the cookie affinity
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class ApplicationGatewayProtocol(str, Enum):
+    """
+    Gets or sets the protocol
+    """
+    HTTP = "Http"
+    HTTPS = "Https"
+
+
+class ApplicationGatewayRequestRoutingRuleType(str, Enum):
+    """
+    Gets or sets the rule type
+    """
+    BASIC = "Basic"
+    PATH_BASED_ROUTING = "PathBasedRouting"
+
+
+class ApplicationGatewaySkuName(str, Enum):
+    """
+    Gets or sets name of application gateway SKU
+    """
+    STANDARD_SMALL = "Standard_Small"
+    STANDARD_MEDIUM = "Standard_Medium"
+    STANDARD_LARGE = "Standard_Large"
+
+
+class ApplicationGatewayTier(str, Enum):
+    """
+    Gets or sets tier of application gateway
+    """
+    STANDARD = "Standard"
+
+
+class AuthorizationUseStatus(str, Enum):
+    """
+    Gets or sets AuthorizationUseStatus
+    """
+    AVAILABLE = "Available"
+    IN_USE = "InUse"
+
+
+class ExpressRouteCircuitPeeringAdvertisedPublicPrefixState(str, Enum):
+    """
+    Gets or sets AdvertisedPublicPrefixState of the Peering resource 
+    """
+    NOT_CONFIGURED = "NotConfigured"
+    CONFIGURING = "Configuring"
+    CONFIGURED = "Configured"
+    VALIDATION_NEEDED = "ValidationNeeded"
+
+
+class ExpressRouteCircuitPeeringState(str, Enum):
+    """
+    Gets or sets state of Peering
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class ExpressRouteCircuitPeeringType(str, Enum):
+    """
+    Gets or sets PeeringType
+    """
+    AZURE_PUBLIC_PEERING = "AzurePublicPeering"
+    AZURE_PRIVATE_PEERING = "AzurePrivatePeering"
+    MICROSOFT_PEERING = "MicrosoftPeering"
+
+
+class ExpressRouteCircuitSkuFamily(str, Enum):
+    """
+    Gets or sets family of the sku.
+    """
+    UNLIMITED_DATA = "UnlimitedData"
+    METERED_DATA = "MeteredData"
+
+
+class ExpressRouteCircuitSkuTier(str, Enum):
+    """
+    Gets or sets tier of the sku.
+    """
+    STANDARD = "Standard"
+    PREMIUM = "Premium"
 
 
 class IPAllocationMethod(str, Enum):
@@ -29,6 +140,23 @@ class IPVersion(str, Enum):
     """
     I_PV4 = "IPv4"
     I_PV6 = "IPv6"
+
+
+class LoadDistribution(str, Enum):
+    """
+    Gets or sets the load distribution policy for this rule
+    """
+    DEFAULT = "Default"
+    SOURCE_IP = "SourceIP"
+    SOURCE_IP_PROTOCOL = "SourceIPProtocol"
+
+
+class ProbeProtocol(str, Enum):
+    """
+    Gets or sets the protocol of the end point. Possible values are http pr Tcp. If Tcp is specified, a received ACK is required for the probe to be successful. If http is specified,a 200 OK response from the specifies URI is required for the probe to be successful
+    """
+    HTTP = "Http"
+    TCP = "Tcp"
 
 
 class RouteNextHopType(str, Enum):
@@ -67,9 +195,73 @@ class SecurityRuleProtocol(str, Enum):
     ASTERISK = "*"
 
 
+class ServiceProviderProvisioningState(str, Enum):
+    """
+    Gets or sets ServiceProviderProvisioningState state of the resource 
+    """
+    NOT_PROVISIONED = "NotProvisioned"
+    PROVISIONING = "Provisioning"
+    PROVISIONED = "Provisioned"
+    DEPROVISIONING = "Deprovisioning"
+
+
 class TransportProtocol(str, Enum):
     """
     Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
     """
     UDP = "Udp"
     TCP = "Tcp"
+
+
+class VirtualNetworkGatewayConnectionStatus(str, Enum):
+    """
+    Virtual network Gateway connection status
+    """
+    UNKNOWN = "Unknown"
+    CONNECTING = "Connecting"
+    CONNECTED = "Connected"
+    NOT_CONNECTED = "NotConnected"
+
+
+class VirtualNetworkGatewayConnectionType(str, Enum):
+    """
+    Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
+    """
+    IPSEC = "IPsec"
+    VNET2_VNET = "Vnet2Vnet"
+    EXPRESS_ROUTE = "ExpressRoute"
+    VPN_CLIENT = "VPNClient"
+
+
+class VirtualNetworkGatewaySkuName(str, Enum):
+    """
+    Gateway sku name -Basic/HighPerformance/Standard
+    """
+    BASIC = "Basic"
+    HIGH_PERFORMANCE = "HighPerformance"
+    STANDARD = "Standard"
+
+
+class VirtualNetworkGatewaySkuTier(str, Enum):
+    """
+    Gateway sku tier -Basic/HighPerformance/Standard
+    """
+    BASIC = "Basic"
+    HIGH_PERFORMANCE = "HighPerformance"
+    STANDARD = "Standard"
+
+
+class VirtualNetworkGatewayType(str, Enum):
+    """
+    The type of this virtual network gateway.
+    """
+    VPN = "Vpn"
+    EXPRESS_ROUTE = "ExpressRoute"
+
+
+class VpnType(str, Enum):
+    """
+    The type of this virtual network gateway.
+    """
+    POLICY_BASED = "PolicyBased"
+    ROUTE_BASED = "RouteBased"

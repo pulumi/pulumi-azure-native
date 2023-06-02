@@ -49,6 +49,195 @@ namespace Pulumi.AzureNative.Synapse.V20210501
     }
 
     /// <summary>
+    /// Compute type of the cluster which will execute data flow job.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataFlowComputeType : IEquatable<DataFlowComputeType>
+    {
+        private readonly string _value;
+
+        private DataFlowComputeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataFlowComputeType General { get; } = new DataFlowComputeType("General");
+        public static DataFlowComputeType MemoryOptimized { get; } = new DataFlowComputeType("MemoryOptimized");
+        public static DataFlowComputeType ComputeOptimized { get; } = new DataFlowComputeType("ComputeOptimized");
+
+        public static bool operator ==(DataFlowComputeType left, DataFlowComputeType right) => left.Equals(right);
+        public static bool operator !=(DataFlowComputeType left, DataFlowComputeType right) => !left.Equals(right);
+
+        public static explicit operator string(DataFlowComputeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataFlowComputeType other && Equals(other);
+        public bool Equals(DataFlowComputeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The edition for the SSIS Integration Runtime
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationRuntimeEdition : IEquatable<IntegrationRuntimeEdition>
+    {
+        private readonly string _value;
+
+        private IntegrationRuntimeEdition(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationRuntimeEdition Standard { get; } = new IntegrationRuntimeEdition("Standard");
+        public static IntegrationRuntimeEdition Enterprise { get; } = new IntegrationRuntimeEdition("Enterprise");
+
+        public static bool operator ==(IntegrationRuntimeEdition left, IntegrationRuntimeEdition right) => left.Equals(right);
+        public static bool operator !=(IntegrationRuntimeEdition left, IntegrationRuntimeEdition right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationRuntimeEdition value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationRuntimeEdition other && Equals(other);
+        public bool Equals(IntegrationRuntimeEdition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of this referenced entity.
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationRuntimeEntityReferenceType : IEquatable<IntegrationRuntimeEntityReferenceType>
+    {
+        private readonly string _value;
+
+        private IntegrationRuntimeEntityReferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationRuntimeEntityReferenceType IntegrationRuntimeReference { get; } = new IntegrationRuntimeEntityReferenceType("IntegrationRuntimeReference");
+        public static IntegrationRuntimeEntityReferenceType LinkedServiceReference { get; } = new IntegrationRuntimeEntityReferenceType("LinkedServiceReference");
+
+        public static bool operator ==(IntegrationRuntimeEntityReferenceType left, IntegrationRuntimeEntityReferenceType right) => left.Equals(right);
+        public static bool operator !=(IntegrationRuntimeEntityReferenceType left, IntegrationRuntimeEntityReferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationRuntimeEntityReferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationRuntimeEntityReferenceType other && Equals(other);
+        public bool Equals(IntegrationRuntimeEntityReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// License type for bringing your own license scenario.
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationRuntimeLicenseType : IEquatable<IntegrationRuntimeLicenseType>
+    {
+        private readonly string _value;
+
+        private IntegrationRuntimeLicenseType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationRuntimeLicenseType BasePrice { get; } = new IntegrationRuntimeLicenseType("BasePrice");
+        public static IntegrationRuntimeLicenseType LicenseIncluded { get; } = new IntegrationRuntimeLicenseType("LicenseIncluded");
+
+        public static bool operator ==(IntegrationRuntimeLicenseType left, IntegrationRuntimeLicenseType right) => left.Equals(right);
+        public static bool operator !=(IntegrationRuntimeLicenseType left, IntegrationRuntimeLicenseType right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationRuntimeLicenseType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationRuntimeLicenseType other && Equals(other);
+        public bool Equals(IntegrationRuntimeLicenseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationRuntimeSsisCatalogPricingTier : IEquatable<IntegrationRuntimeSsisCatalogPricingTier>
+    {
+        private readonly string _value;
+
+        private IntegrationRuntimeSsisCatalogPricingTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationRuntimeSsisCatalogPricingTier Basic { get; } = new IntegrationRuntimeSsisCatalogPricingTier("Basic");
+        public static IntegrationRuntimeSsisCatalogPricingTier Standard { get; } = new IntegrationRuntimeSsisCatalogPricingTier("Standard");
+        public static IntegrationRuntimeSsisCatalogPricingTier Premium { get; } = new IntegrationRuntimeSsisCatalogPricingTier("Premium");
+        public static IntegrationRuntimeSsisCatalogPricingTier PremiumRS { get; } = new IntegrationRuntimeSsisCatalogPricingTier("PremiumRS");
+
+        public static bool operator ==(IntegrationRuntimeSsisCatalogPricingTier left, IntegrationRuntimeSsisCatalogPricingTier right) => left.Equals(right);
+        public static bool operator !=(IntegrationRuntimeSsisCatalogPricingTier left, IntegrationRuntimeSsisCatalogPricingTier right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationRuntimeSsisCatalogPricingTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationRuntimeSsisCatalogPricingTier other && Equals(other);
+        public bool Equals(IntegrationRuntimeSsisCatalogPricingTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of integration runtime.
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationRuntimeType : IEquatable<IntegrationRuntimeType>
+    {
+        private readonly string _value;
+
+        private IntegrationRuntimeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationRuntimeType Managed { get; } = new IntegrationRuntimeType("Managed");
+        public static IntegrationRuntimeType SelfHosted { get; } = new IntegrationRuntimeType("SelfHosted");
+
+        public static bool operator ==(IntegrationRuntimeType left, IntegrationRuntimeType right) => left.Equals(right);
+        public static bool operator !=(IntegrationRuntimeType left, IntegrationRuntimeType right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationRuntimeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationRuntimeType other && Equals(other);
+        public bool Equals(IntegrationRuntimeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The level of compute power that each node in the Big Data pool has.
     /// </summary>
     [EnumType]
@@ -149,6 +338,37 @@ namespace Pulumi.AzureNative.Synapse.V20210501
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct SensitivityLabelRank : IEquatable<SensitivityLabelRank>
+    {
+        private readonly string _value;
+
+        private SensitivityLabelRank(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SensitivityLabelRank None { get; } = new SensitivityLabelRank("None");
+        public static SensitivityLabelRank Low { get; } = new SensitivityLabelRank("Low");
+        public static SensitivityLabelRank Medium { get; } = new SensitivityLabelRank("Medium");
+        public static SensitivityLabelRank High { get; } = new SensitivityLabelRank("High");
+        public static SensitivityLabelRank Critical { get; } = new SensitivityLabelRank("Critical");
+
+        public static bool operator ==(SensitivityLabelRank left, SensitivityLabelRank right) => left.Equals(right);
+        public static bool operator !=(SensitivityLabelRank left, SensitivityLabelRank right) => !left.Equals(right);
+
+        public static explicit operator string(SensitivityLabelRank value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SensitivityLabelRank other && Equals(other);
+        public bool Equals(SensitivityLabelRank other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The storage account type used to store backups for this sql pool.
     /// </summary>
@@ -174,6 +394,37 @@ namespace Pulumi.AzureNative.Synapse.V20210501
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageAccountType other && Equals(other);
         public bool Equals(StorageAccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the database transparent data encryption.
+    /// </summary>
+    [EnumType]
+    public readonly struct TransparentDataEncryptionStatus : IEquatable<TransparentDataEncryptionStatus>
+    {
+        private readonly string _value;
+
+        private TransparentDataEncryptionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransparentDataEncryptionStatus Enabled { get; } = new TransparentDataEncryptionStatus("Enabled");
+        public static TransparentDataEncryptionStatus Disabled { get; } = new TransparentDataEncryptionStatus("Disabled");
+
+        public static bool operator ==(TransparentDataEncryptionStatus left, TransparentDataEncryptionStatus right) => left.Equals(right);
+        public static bool operator !=(TransparentDataEncryptionStatus left, TransparentDataEncryptionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TransparentDataEncryptionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransparentDataEncryptionStatus other && Equals(other);
+        public bool Equals(TransparentDataEncryptionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -32,6 +32,16 @@ export const MonthOfYear = {
 
 export type MonthOfYear = (typeof MonthOfYear)[keyof typeof MonthOfYear];
 
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
 export const RetentionDurationType = {
     Invalid: "Invalid",
     Days: "Days",
@@ -66,6 +76,16 @@ export const ScheduleRunType = {
  * Defines the frequency interval (daily or weekly) for the schedule policy.
  */
 export type ScheduleRunType = (typeof ScheduleRunType)[keyof typeof ScheduleRunType];
+
+export const SkuName = {
+    Standard: "Standard",
+    RS0: "RS0",
+} as const;
+
+/**
+ * The Sku name.
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const WeekOfMonth = {
     First: "First",

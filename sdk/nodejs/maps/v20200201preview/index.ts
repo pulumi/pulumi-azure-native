@@ -10,6 +10,11 @@ export type Creator = import("./creator").Creator;
 export const Creator: typeof import("./creator").Creator = null as any;
 utilities.lazyLoad(exports, ["Creator"], () => require("./creator"));
 
+export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
+export const getAccount: typeof import("./getAccount").getAccount = null as any;
+export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
+
 export { GetCreatorArgs, GetCreatorResult, GetCreatorOutputArgs } from "./getCreator";
 export const getCreator: typeof import("./getCreator").getCreator = null as any;
 export const getCreatorOutput: typeof import("./getCreator").getCreatorOutput = null as any;

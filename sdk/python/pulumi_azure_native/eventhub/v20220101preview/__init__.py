@@ -8,6 +8,15 @@ import typing
 from ._enums import *
 from .application_group import *
 from .get_application_group import *
+from .get_cluster import *
+from .get_consumer_group import *
+from .get_disaster_recovery_config import *
+from .get_event_hub import *
+from .get_event_hub_authorization_rule import *
+from .get_namespace import *
+from .get_namespace_authorization_rule import *
+from .get_namespace_network_rule_set import *
+from .get_private_endpoint_connection import *
 from .get_schema_registry import *
 from .list_disaster_recovery_config_keys import *
 from .list_event_hub_keys import *

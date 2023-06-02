@@ -12,6 +12,7 @@ from .connection_type import *
 from .credential import *
 from .dsc_configuration import *
 from .dsc_node_configuration import *
+from .get_automation_account import *
 from .get_certificate import *
 from .get_connection import *
 from .get_connection_type import *

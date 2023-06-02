@@ -7,15 +7,22 @@ from enum import Enum
 __all__ = [
     'AccumulatedType',
     'ChartType',
+    'ExportType',
+    'FormatType',
     'FunctionType',
+    'GranularityType',
     'KpiTypeType',
     'MetricType',
     'OperatorType',
     'PivotTypeType',
+    'QueryColumnType',
+    'RecurrenceType',
     'ReportConfigColumnType',
     'ReportGranularityType',
     'ReportTimeframeType',
     'ReportType',
+    'StatusType',
+    'TimeframeType',
 ]
 
 
@@ -38,6 +45,22 @@ class ChartType(str, Enum):
     TABLE = "Table"
 
 
+class ExportType(str, Enum):
+    """
+    The type of the query.
+    """
+    USAGE = "Usage"
+    ACTUAL_COST = "ActualCost"
+    AMORTIZED_COST = "AmortizedCost"
+
+
+class FormatType(str, Enum):
+    """
+    The format of the export being delivered.
+    """
+    CSV = "Csv"
+
+
 class FunctionType(str, Enum):
     """
     The name of the aggregation function to use.
@@ -46,6 +69,13 @@ class FunctionType(str, Enum):
     MAX = "Max"
     MIN = "Min"
     SUM = "Sum"
+
+
+class GranularityType(str, Enum):
+    """
+    The granularity of rows in the query.
+    """
+    DAILY = "Daily"
 
 
 class KpiTypeType(str, Enum):
@@ -81,6 +111,24 @@ class PivotTypeType(str, Enum):
     TAG_KEY = "TagKey"
 
 
+class QueryColumnType(str, Enum):
+    """
+    Has type of the column to group.
+    """
+    TAG = "Tag"
+    DIMENSION = "Dimension"
+
+
+class RecurrenceType(str, Enum):
+    """
+    The schedule recurrence.
+    """
+    DAILY = "Daily"
+    WEEKLY = "Weekly"
+    MONTHLY = "Monthly"
+    ANNUALLY = "Annually"
+
+
 class ReportConfigColumnType(str, Enum):
     """
     Has type of the column to group.
@@ -112,3 +160,23 @@ class ReportType(str, Enum):
     The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
     """
     USAGE = "Usage"
+
+
+class StatusType(str, Enum):
+    """
+    The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
+    """
+    ACTIVE = "Active"
+    INACTIVE = "Inactive"
+
+
+class TimeframeType(str, Enum):
+    """
+    The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+    """
+    MONTH_TO_DATE = "MonthToDate"
+    BILLING_MONTH_TO_DATE = "BillingMonthToDate"
+    THE_LAST_MONTH = "TheLastMonth"
+    THE_LAST_BILLING_MONTH = "TheLastBillingMonth"
+    WEEK_TO_DATE = "WeekToDate"
+    CUSTOM = "Custom"

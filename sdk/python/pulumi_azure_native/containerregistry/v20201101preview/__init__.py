@@ -13,8 +13,11 @@ from .get_export_pipeline import *
 from .get_import_pipeline import *
 from .get_pipeline_run import *
 from .get_private_endpoint_connection import *
+from .get_registry import *
+from .get_replication import *
 from .get_scope_map import *
 from .get_token import *
+from .get_webhook import *
 from .get_webhook_callback_config import *
 from .import_pipeline import *
 from .list_registry_credentials import *

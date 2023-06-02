@@ -5,7 +5,12 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .file import *
 from .get_file import *
+from .get_project import *
+from .get_service import *
+from .get_service_task import *
+from .get_task import *
 from ._inputs import *
 from . import outputs

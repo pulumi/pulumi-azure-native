@@ -15,10 +15,30 @@ export const getAddon: typeof import("./getAddon").getAddon = null as any;
 export const getAddonOutput: typeof import("./getAddon").getAddonOutput = null as any;
 utilities.lazyLoad(exports, ["getAddon","getAddonOutput"], () => require("./getAddon"));
 
+export { GetAuthorizationArgs, GetAuthorizationResult, GetAuthorizationOutputArgs } from "./getAuthorization";
+export const getAuthorization: typeof import("./getAuthorization").getAuthorization = null as any;
+export const getAuthorizationOutput: typeof import("./getAuthorization").getAuthorizationOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorization","getAuthorizationOutput"], () => require("./getAuthorization"));
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+
 export { GetGlobalReachConnectionArgs, GetGlobalReachConnectionResult, GetGlobalReachConnectionOutputArgs } from "./getGlobalReachConnection";
 export const getGlobalReachConnection: typeof import("./getGlobalReachConnection").getGlobalReachConnection = null as any;
 export const getGlobalReachConnectionOutput: typeof import("./getGlobalReachConnection").getGlobalReachConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getGlobalReachConnection","getGlobalReachConnectionOutput"], () => require("./getGlobalReachConnection"));
+
+export { GetHcxEnterpriseSiteArgs, GetHcxEnterpriseSiteResult, GetHcxEnterpriseSiteOutputArgs } from "./getHcxEnterpriseSite";
+export const getHcxEnterpriseSite: typeof import("./getHcxEnterpriseSite").getHcxEnterpriseSite = null as any;
+export const getHcxEnterpriseSiteOutput: typeof import("./getHcxEnterpriseSite").getHcxEnterpriseSiteOutput = null as any;
+utilities.lazyLoad(exports, ["getHcxEnterpriseSite","getHcxEnterpriseSiteOutput"], () => require("./getHcxEnterpriseSite"));
+
+export { GetPrivateCloudArgs, GetPrivateCloudResult, GetPrivateCloudOutputArgs } from "./getPrivateCloud";
+export const getPrivateCloud: typeof import("./getPrivateCloud").getPrivateCloud = null as any;
+export const getPrivateCloudOutput: typeof import("./getPrivateCloud").getPrivateCloudOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateCloud","getPrivateCloudOutput"], () => require("./getPrivateCloud"));
 
 export { GetWorkloadNetworkDhcpArgs, GetWorkloadNetworkDhcpResult, GetWorkloadNetworkDhcpOutputArgs } from "./getWorkloadNetworkDhcp";
 export const getWorkloadNetworkDhcp: typeof import("./getWorkloadNetworkDhcp").getWorkloadNetworkDhcp = null as any;

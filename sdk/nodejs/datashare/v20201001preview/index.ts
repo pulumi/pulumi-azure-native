@@ -5,46 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ADLSGen1FileDataSetArgs } from "./adlsgen1FileDataSet";
-export type ADLSGen1FileDataSet = import("./adlsgen1FileDataSet").ADLSGen1FileDataSet;
-export const ADLSGen1FileDataSet: typeof import("./adlsgen1FileDataSet").ADLSGen1FileDataSet = null as any;
-utilities.lazyLoad(exports, ["ADLSGen1FileDataSet"], () => require("./adlsgen1FileDataSet"));
-
-export { ADLSGen1FolderDataSetArgs } from "./adlsgen1FolderDataSet";
-export type ADLSGen1FolderDataSet = import("./adlsgen1FolderDataSet").ADLSGen1FolderDataSet;
-export const ADLSGen1FolderDataSet: typeof import("./adlsgen1FolderDataSet").ADLSGen1FolderDataSet = null as any;
-utilities.lazyLoad(exports, ["ADLSGen1FolderDataSet"], () => require("./adlsgen1FolderDataSet"));
-
-export { ADLSGen2FileDataSetArgs } from "./adlsgen2FileDataSet";
-export type ADLSGen2FileDataSet = import("./adlsgen2FileDataSet").ADLSGen2FileDataSet;
-export const ADLSGen2FileDataSet: typeof import("./adlsgen2FileDataSet").ADLSGen2FileDataSet = null as any;
-utilities.lazyLoad(exports, ["ADLSGen2FileDataSet"], () => require("./adlsgen2FileDataSet"));
-
-export { ADLSGen2FileDataSetMappingArgs } from "./adlsgen2FileDataSetMapping";
-export type ADLSGen2FileDataSetMapping = import("./adlsgen2FileDataSetMapping").ADLSGen2FileDataSetMapping;
-export const ADLSGen2FileDataSetMapping: typeof import("./adlsgen2FileDataSetMapping").ADLSGen2FileDataSetMapping = null as any;
-utilities.lazyLoad(exports, ["ADLSGen2FileDataSetMapping"], () => require("./adlsgen2FileDataSetMapping"));
-
-export { ADLSGen2FileSystemDataSetArgs } from "./adlsgen2FileSystemDataSet";
-export type ADLSGen2FileSystemDataSet = import("./adlsgen2FileSystemDataSet").ADLSGen2FileSystemDataSet;
-export const ADLSGen2FileSystemDataSet: typeof import("./adlsgen2FileSystemDataSet").ADLSGen2FileSystemDataSet = null as any;
-utilities.lazyLoad(exports, ["ADLSGen2FileSystemDataSet"], () => require("./adlsgen2FileSystemDataSet"));
-
-export { ADLSGen2FileSystemDataSetMappingArgs } from "./adlsgen2FileSystemDataSetMapping";
-export type ADLSGen2FileSystemDataSetMapping = import("./adlsgen2FileSystemDataSetMapping").ADLSGen2FileSystemDataSetMapping;
-export const ADLSGen2FileSystemDataSetMapping: typeof import("./adlsgen2FileSystemDataSetMapping").ADLSGen2FileSystemDataSetMapping = null as any;
-utilities.lazyLoad(exports, ["ADLSGen2FileSystemDataSetMapping"], () => require("./adlsgen2FileSystemDataSetMapping"));
-
-export { ADLSGen2FolderDataSetArgs } from "./adlsgen2FolderDataSet";
-export type ADLSGen2FolderDataSet = import("./adlsgen2FolderDataSet").ADLSGen2FolderDataSet;
-export const ADLSGen2FolderDataSet: typeof import("./adlsgen2FolderDataSet").ADLSGen2FolderDataSet = null as any;
-utilities.lazyLoad(exports, ["ADLSGen2FolderDataSet"], () => require("./adlsgen2FolderDataSet"));
-
-export { ADLSGen2FolderDataSetMappingArgs } from "./adlsgen2FolderDataSetMapping";
-export type ADLSGen2FolderDataSetMapping = import("./adlsgen2FolderDataSetMapping").ADLSGen2FolderDataSetMapping;
-export const ADLSGen2FolderDataSetMapping: typeof import("./adlsgen2FolderDataSetMapping").ADLSGen2FolderDataSetMapping = null as any;
-utilities.lazyLoad(exports, ["ADLSGen2FolderDataSetMapping"], () => require("./adlsgen2FolderDataSetMapping"));
-
 export { ADLSGen2StorageAccountDataSetArgs } from "./adlsgen2StorageAccountDataSet";
 export type ADLSGen2StorageAccountDataSet = import("./adlsgen2StorageAccountDataSet").ADLSGen2StorageAccountDataSet;
 export const ADLSGen2StorageAccountDataSet: typeof import("./adlsgen2StorageAccountDataSet").ADLSGen2StorageAccountDataSet = null as any;
@@ -54,36 +14,6 @@ export { ADLSGen2StorageAccountDataSetMappingArgs } from "./adlsgen2StorageAccou
 export type ADLSGen2StorageAccountDataSetMapping = import("./adlsgen2StorageAccountDataSetMapping").ADLSGen2StorageAccountDataSetMapping;
 export const ADLSGen2StorageAccountDataSetMapping: typeof import("./adlsgen2StorageAccountDataSetMapping").ADLSGen2StorageAccountDataSetMapping = null as any;
 utilities.lazyLoad(exports, ["ADLSGen2StorageAccountDataSetMapping"], () => require("./adlsgen2StorageAccountDataSetMapping"));
-
-export { BlobContainerDataSetArgs } from "./blobContainerDataSet";
-export type BlobContainerDataSet = import("./blobContainerDataSet").BlobContainerDataSet;
-export const BlobContainerDataSet: typeof import("./blobContainerDataSet").BlobContainerDataSet = null as any;
-utilities.lazyLoad(exports, ["BlobContainerDataSet"], () => require("./blobContainerDataSet"));
-
-export { BlobContainerDataSetMappingArgs } from "./blobContainerDataSetMapping";
-export type BlobContainerDataSetMapping = import("./blobContainerDataSetMapping").BlobContainerDataSetMapping;
-export const BlobContainerDataSetMapping: typeof import("./blobContainerDataSetMapping").BlobContainerDataSetMapping = null as any;
-utilities.lazyLoad(exports, ["BlobContainerDataSetMapping"], () => require("./blobContainerDataSetMapping"));
-
-export { BlobDataSetArgs } from "./blobDataSet";
-export type BlobDataSet = import("./blobDataSet").BlobDataSet;
-export const BlobDataSet: typeof import("./blobDataSet").BlobDataSet = null as any;
-utilities.lazyLoad(exports, ["BlobDataSet"], () => require("./blobDataSet"));
-
-export { BlobDataSetMappingArgs } from "./blobDataSetMapping";
-export type BlobDataSetMapping = import("./blobDataSetMapping").BlobDataSetMapping;
-export const BlobDataSetMapping: typeof import("./blobDataSetMapping").BlobDataSetMapping = null as any;
-utilities.lazyLoad(exports, ["BlobDataSetMapping"], () => require("./blobDataSetMapping"));
-
-export { BlobFolderDataSetArgs } from "./blobFolderDataSet";
-export type BlobFolderDataSet = import("./blobFolderDataSet").BlobFolderDataSet;
-export const BlobFolderDataSet: typeof import("./blobFolderDataSet").BlobFolderDataSet = null as any;
-utilities.lazyLoad(exports, ["BlobFolderDataSet"], () => require("./blobFolderDataSet"));
-
-export { BlobFolderDataSetMappingArgs } from "./blobFolderDataSetMapping";
-export type BlobFolderDataSetMapping = import("./blobFolderDataSetMapping").BlobFolderDataSetMapping;
-export const BlobFolderDataSetMapping: typeof import("./blobFolderDataSetMapping").BlobFolderDataSetMapping = null as any;
-utilities.lazyLoad(exports, ["BlobFolderDataSetMapping"], () => require("./blobFolderDataSetMapping"));
 
 export { BlobStorageAccountDataSetArgs } from "./blobStorageAccountDataSet";
 export type BlobStorageAccountDataSet = import("./blobStorageAccountDataSet").BlobStorageAccountDataSet;
@@ -145,6 +75,11 @@ export const getADLSGen2StorageAccountDataSetMapping: typeof import("./getADLSGe
 export const getADLSGen2StorageAccountDataSetMappingOutput: typeof import("./getADLSGen2StorageAccountDataSetMapping").getADLSGen2StorageAccountDataSetMappingOutput = null as any;
 utilities.lazyLoad(exports, ["getADLSGen2StorageAccountDataSetMapping","getADLSGen2StorageAccountDataSetMappingOutput"], () => require("./getADLSGen2StorageAccountDataSetMapping"));
 
+export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
+export const getAccount: typeof import("./getAccount").getAccount = null as any;
+export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
+
 export { GetBlobContainerDataSetArgs, GetBlobContainerDataSetResult, GetBlobContainerDataSetOutputArgs } from "./getBlobContainerDataSet";
 export const getBlobContainerDataSet: typeof import("./getBlobContainerDataSet").getBlobContainerDataSet = null as any;
 export const getBlobContainerDataSetOutput: typeof import("./getBlobContainerDataSet").getBlobContainerDataSetOutput = null as any;
@@ -185,6 +120,11 @@ export const getBlobStorageAccountDataSetMapping: typeof import("./getBlobStorag
 export const getBlobStorageAccountDataSetMappingOutput: typeof import("./getBlobStorageAccountDataSetMapping").getBlobStorageAccountDataSetMappingOutput = null as any;
 utilities.lazyLoad(exports, ["getBlobStorageAccountDataSetMapping","getBlobStorageAccountDataSetMappingOutput"], () => require("./getBlobStorageAccountDataSetMapping"));
 
+export { GetInvitationArgs, GetInvitationResult, GetInvitationOutputArgs } from "./getInvitation";
+export const getInvitation: typeof import("./getInvitation").getInvitation = null as any;
+export const getInvitationOutput: typeof import("./getInvitation").getInvitationOutput = null as any;
+utilities.lazyLoad(exports, ["getInvitation","getInvitationOutput"], () => require("./getInvitation"));
+
 export { GetKustoClusterDataSetArgs, GetKustoClusterDataSetResult, GetKustoClusterDataSetOutputArgs } from "./getKustoClusterDataSet";
 export const getKustoClusterDataSet: typeof import("./getKustoClusterDataSet").getKustoClusterDataSet = null as any;
 export const getKustoClusterDataSetOutput: typeof import("./getKustoClusterDataSet").getKustoClusterDataSetOutput = null as any;
@@ -214,6 +154,16 @@ export { GetScheduledTriggerArgs, GetScheduledTriggerResult, GetScheduledTrigger
 export const getScheduledTrigger: typeof import("./getScheduledTrigger").getScheduledTrigger = null as any;
 export const getScheduledTriggerOutput: typeof import("./getScheduledTrigger").getScheduledTriggerOutput = null as any;
 utilities.lazyLoad(exports, ["getScheduledTrigger","getScheduledTriggerOutput"], () => require("./getScheduledTrigger"));
+
+export { GetShareArgs, GetShareResult, GetShareOutputArgs } from "./getShare";
+export const getShare: typeof import("./getShare").getShare = null as any;
+export const getShareOutput: typeof import("./getShare").getShareOutput = null as any;
+utilities.lazyLoad(exports, ["getShare","getShareOutput"], () => require("./getShare"));
+
+export { GetShareSubscriptionArgs, GetShareSubscriptionResult, GetShareSubscriptionOutputArgs } from "./getShareSubscription";
+export const getShareSubscription: typeof import("./getShareSubscription").getShareSubscription = null as any;
+export const getShareSubscriptionOutput: typeof import("./getShareSubscription").getShareSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getShareSubscription","getShareSubscriptionOutput"], () => require("./getShareSubscription"));
 
 export { GetSqlDBTableDataSetArgs, GetSqlDBTableDataSetResult, GetSqlDBTableDataSetOutputArgs } from "./getSqlDBTableDataSet";
 export const getSqlDBTableDataSet: typeof import("./getSqlDBTableDataSet").getSqlDBTableDataSet = null as any;
@@ -245,26 +195,6 @@ export const getSynapseWorkspaceSqlPoolTableDataSetMapping: typeof import("./get
 export const getSynapseWorkspaceSqlPoolTableDataSetMappingOutput: typeof import("./getSynapseWorkspaceSqlPoolTableDataSetMapping").getSynapseWorkspaceSqlPoolTableDataSetMappingOutput = null as any;
 utilities.lazyLoad(exports, ["getSynapseWorkspaceSqlPoolTableDataSetMapping","getSynapseWorkspaceSqlPoolTableDataSetMappingOutput"], () => require("./getSynapseWorkspaceSqlPoolTableDataSetMapping"));
 
-export { KustoClusterDataSetArgs } from "./kustoClusterDataSet";
-export type KustoClusterDataSet = import("./kustoClusterDataSet").KustoClusterDataSet;
-export const KustoClusterDataSet: typeof import("./kustoClusterDataSet").KustoClusterDataSet = null as any;
-utilities.lazyLoad(exports, ["KustoClusterDataSet"], () => require("./kustoClusterDataSet"));
-
-export { KustoClusterDataSetMappingArgs } from "./kustoClusterDataSetMapping";
-export type KustoClusterDataSetMapping = import("./kustoClusterDataSetMapping").KustoClusterDataSetMapping;
-export const KustoClusterDataSetMapping: typeof import("./kustoClusterDataSetMapping").KustoClusterDataSetMapping = null as any;
-utilities.lazyLoad(exports, ["KustoClusterDataSetMapping"], () => require("./kustoClusterDataSetMapping"));
-
-export { KustoDatabaseDataSetArgs } from "./kustoDatabaseDataSet";
-export type KustoDatabaseDataSet = import("./kustoDatabaseDataSet").KustoDatabaseDataSet;
-export const KustoDatabaseDataSet: typeof import("./kustoDatabaseDataSet").KustoDatabaseDataSet = null as any;
-utilities.lazyLoad(exports, ["KustoDatabaseDataSet"], () => require("./kustoDatabaseDataSet"));
-
-export { KustoDatabaseDataSetMappingArgs } from "./kustoDatabaseDataSetMapping";
-export type KustoDatabaseDataSetMapping = import("./kustoDatabaseDataSetMapping").KustoDatabaseDataSetMapping;
-export const KustoDatabaseDataSetMapping: typeof import("./kustoDatabaseDataSetMapping").KustoDatabaseDataSetMapping = null as any;
-utilities.lazyLoad(exports, ["KustoDatabaseDataSetMapping"], () => require("./kustoDatabaseDataSetMapping"));
-
 export { ListShareSubscriptionSourceShareSynchronizationSettingsArgs, ListShareSubscriptionSourceShareSynchronizationSettingsResult, ListShareSubscriptionSourceShareSynchronizationSettingsOutputArgs } from "./listShareSubscriptionSourceShareSynchronizationSettings";
 export const listShareSubscriptionSourceShareSynchronizationSettings: typeof import("./listShareSubscriptionSourceShareSynchronizationSettings").listShareSubscriptionSourceShareSynchronizationSettings = null as any;
 export const listShareSubscriptionSourceShareSynchronizationSettingsOutput: typeof import("./listShareSubscriptionSourceShareSynchronizationSettings").listShareSubscriptionSourceShareSynchronizationSettingsOutput = null as any;
@@ -290,46 +220,6 @@ export const listShareSynchronizations: typeof import("./listShareSynchronizatio
 export const listShareSynchronizationsOutput: typeof import("./listShareSynchronizations").listShareSynchronizationsOutput = null as any;
 utilities.lazyLoad(exports, ["listShareSynchronizations","listShareSynchronizationsOutput"], () => require("./listShareSynchronizations"));
 
-export { ScheduledSynchronizationSettingArgs } from "./scheduledSynchronizationSetting";
-export type ScheduledSynchronizationSetting = import("./scheduledSynchronizationSetting").ScheduledSynchronizationSetting;
-export const ScheduledSynchronizationSetting: typeof import("./scheduledSynchronizationSetting").ScheduledSynchronizationSetting = null as any;
-utilities.lazyLoad(exports, ["ScheduledSynchronizationSetting"], () => require("./scheduledSynchronizationSetting"));
-
-export { ScheduledTriggerArgs } from "./scheduledTrigger";
-export type ScheduledTrigger = import("./scheduledTrigger").ScheduledTrigger;
-export const ScheduledTrigger: typeof import("./scheduledTrigger").ScheduledTrigger = null as any;
-utilities.lazyLoad(exports, ["ScheduledTrigger"], () => require("./scheduledTrigger"));
-
-export { SqlDBTableDataSetArgs } from "./sqlDBTableDataSet";
-export type SqlDBTableDataSet = import("./sqlDBTableDataSet").SqlDBTableDataSet;
-export const SqlDBTableDataSet: typeof import("./sqlDBTableDataSet").SqlDBTableDataSet = null as any;
-utilities.lazyLoad(exports, ["SqlDBTableDataSet"], () => require("./sqlDBTableDataSet"));
-
-export { SqlDBTableDataSetMappingArgs } from "./sqlDBTableDataSetMapping";
-export type SqlDBTableDataSetMapping = import("./sqlDBTableDataSetMapping").SqlDBTableDataSetMapping;
-export const SqlDBTableDataSetMapping: typeof import("./sqlDBTableDataSetMapping").SqlDBTableDataSetMapping = null as any;
-utilities.lazyLoad(exports, ["SqlDBTableDataSetMapping"], () => require("./sqlDBTableDataSetMapping"));
-
-export { SqlDWTableDataSetArgs } from "./sqlDWTableDataSet";
-export type SqlDWTableDataSet = import("./sqlDWTableDataSet").SqlDWTableDataSet;
-export const SqlDWTableDataSet: typeof import("./sqlDWTableDataSet").SqlDWTableDataSet = null as any;
-utilities.lazyLoad(exports, ["SqlDWTableDataSet"], () => require("./sqlDWTableDataSet"));
-
-export { SqlDWTableDataSetMappingArgs } from "./sqlDWTableDataSetMapping";
-export type SqlDWTableDataSetMapping = import("./sqlDWTableDataSetMapping").SqlDWTableDataSetMapping;
-export const SqlDWTableDataSetMapping: typeof import("./sqlDWTableDataSetMapping").SqlDWTableDataSetMapping = null as any;
-utilities.lazyLoad(exports, ["SqlDWTableDataSetMapping"], () => require("./sqlDWTableDataSetMapping"));
-
-export { SynapseWorkspaceSqlPoolTableDataSetArgs } from "./synapseWorkspaceSqlPoolTableDataSet";
-export type SynapseWorkspaceSqlPoolTableDataSet = import("./synapseWorkspaceSqlPoolTableDataSet").SynapseWorkspaceSqlPoolTableDataSet;
-export const SynapseWorkspaceSqlPoolTableDataSet: typeof import("./synapseWorkspaceSqlPoolTableDataSet").SynapseWorkspaceSqlPoolTableDataSet = null as any;
-utilities.lazyLoad(exports, ["SynapseWorkspaceSqlPoolTableDataSet"], () => require("./synapseWorkspaceSqlPoolTableDataSet"));
-
-export { SynapseWorkspaceSqlPoolTableDataSetMappingArgs } from "./synapseWorkspaceSqlPoolTableDataSetMapping";
-export type SynapseWorkspaceSqlPoolTableDataSetMapping = import("./synapseWorkspaceSqlPoolTableDataSetMapping").SynapseWorkspaceSqlPoolTableDataSetMapping;
-export const SynapseWorkspaceSqlPoolTableDataSetMapping: typeof import("./synapseWorkspaceSqlPoolTableDataSetMapping").SynapseWorkspaceSqlPoolTableDataSetMapping = null as any;
-utilities.lazyLoad(exports, ["SynapseWorkspaceSqlPoolTableDataSetMapping"], () => require("./synapseWorkspaceSqlPoolTableDataSetMapping"));
-
 
 // Export enums:
 export * from "../../types/enums/datashare/v20201001preview";
@@ -338,66 +228,14 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:datashare/v20201001preview:ADLSGen1FileDataSet":
-                return new ADLSGen1FileDataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:ADLSGen1FolderDataSet":
-                return new ADLSGen1FolderDataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:ADLSGen2FileDataSet":
-                return new ADLSGen2FileDataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:ADLSGen2FileDataSetMapping":
-                return new ADLSGen2FileDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSet":
-                return new ADLSGen2FileSystemDataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSetMapping":
-                return new ADLSGen2FileSystemDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:ADLSGen2FolderDataSet":
-                return new ADLSGen2FolderDataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:ADLSGen2FolderDataSetMapping":
-                return new ADLSGen2FolderDataSetMapping(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSet":
                 return new ADLSGen2StorageAccountDataSet(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSetMapping":
                 return new ADLSGen2StorageAccountDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:BlobContainerDataSet":
-                return new BlobContainerDataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:BlobContainerDataSetMapping":
-                return new BlobContainerDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:BlobDataSet":
-                return new BlobDataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:BlobDataSetMapping":
-                return new BlobDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:BlobFolderDataSet":
-                return new BlobFolderDataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:BlobFolderDataSetMapping":
-                return new BlobFolderDataSetMapping(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:BlobStorageAccountDataSet":
                 return new BlobStorageAccountDataSet(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:BlobStorageAccountDataSetMapping":
                 return new BlobStorageAccountDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:KustoClusterDataSet":
-                return new KustoClusterDataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:KustoClusterDataSetMapping":
-                return new KustoClusterDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:KustoDatabaseDataSet":
-                return new KustoDatabaseDataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:KustoDatabaseDataSetMapping":
-                return new KustoDatabaseDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:ScheduledSynchronizationSetting":
-                return new ScheduledSynchronizationSetting(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:ScheduledTrigger":
-                return new ScheduledTrigger(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:SqlDBTableDataSet":
-                return new SqlDBTableDataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:SqlDBTableDataSetMapping":
-                return new SqlDBTableDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:SqlDWTableDataSet":
-                return new SqlDWTableDataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:SqlDWTableDataSetMapping":
-                return new SqlDWTableDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSet":
-                return new SynapseWorkspaceSqlPoolTableDataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping":
-                return new SynapseWorkspaceSqlPoolTableDataSetMapping(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

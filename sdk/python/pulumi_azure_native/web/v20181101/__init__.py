@@ -6,10 +6,35 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_certificate import *
 from .get_web_app import *
+from .get_web_app_deployment import *
+from .get_web_app_deployment_slot import *
+from .get_web_app_diagnostic_logs_configuration import *
 from .get_web_app_domain_ownership_identifier import *
 from .get_web_app_domain_ownership_identifier_slot import *
+from .get_web_app_function import *
+from .get_web_app_host_name_binding import *
+from .get_web_app_host_name_binding_slot import *
+from .get_web_app_hybrid_connection import *
+from .get_web_app_hybrid_connection_slot import *
+from .get_web_app_instance_function_slot import *
+from .get_web_app_premier_add_on import *
+from .get_web_app_premier_add_on_slot import *
+from .get_web_app_public_certificate import *
+from .get_web_app_public_certificate_slot import *
+from .get_web_app_relay_service_connection import *
+from .get_web_app_relay_service_connection_slot import *
+from .get_web_app_site_extension import *
+from .get_web_app_site_extension_slot import *
 from .get_web_app_slot import *
+from .get_web_app_slot_configuration_names import *
+from .get_web_app_source_control import *
+from .get_web_app_source_control_slot import *
+from .get_web_app_swift_virtual_network_connection import *
+from .get_web_app_swift_virtual_network_connection_slot import *
+from .get_web_app_vnet_connection import *
+from .get_web_app_vnet_connection_slot import *
 from .list_web_app_application_settings import *
 from .list_web_app_application_settings_slot import *
 from .list_web_app_auth_settings import *

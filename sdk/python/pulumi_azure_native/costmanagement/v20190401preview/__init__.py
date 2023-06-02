@@ -8,5 +8,7 @@ import typing
 from ._enums import *
 from .budget import *
 from .get_budget import *
+from .get_view import *
+from .get_view_by_scope import *
 from ._inputs import *
 from . import outputs

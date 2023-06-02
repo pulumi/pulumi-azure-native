@@ -14,64 +14,109 @@ from ._enums import *
 __all__ = [
     'AllowedAudiencesValidationResponse',
     'AllowedPrincipalsResponse',
+    'ApiDefinitionInfoResponse',
+    'ApiManagementConfigResponse',
+    'AppLogsConfigurationResponse',
     'AppRegistrationResponse',
     'AppleRegistrationResponse',
     'AppleResponse',
+    'ApplicationLogsConfigResponse',
+    'ArcConfigurationResponse',
     'ArmIdWrapperResponse',
     'ArmPlanResponse',
     'AuthPlatformResponse',
+    'AutoHealActionsResponse',
+    'AutoHealCustomActionResponse',
+    'AutoHealRulesResponse',
+    'AutoHealTriggersResponse',
     'AzureActiveDirectoryLoginResponse',
     'AzureActiveDirectoryRegistrationResponse',
     'AzureActiveDirectoryResponse',
     'AzureActiveDirectoryValidationResponse',
+    'AzureBlobStorageApplicationLogsConfigResponse',
+    'AzureBlobStorageHttpLogsConfigResponse',
     'AzureStaticWebAppsRegistrationResponse',
     'AzureStaticWebAppsResponse',
     'AzureStorageInfoValueResponse',
+    'AzureTableStorageApplicationLogsConfigResponse',
     'BackupItemResponse',
     'BackupScheduleResponse',
     'BlobStorageTokenStoreResponse',
     'CapabilityResponse',
     'ClientRegistrationResponse',
+    'ConnStringInfoResponse',
     'ConnStringValueTypePairResponse',
     'CookieExpirationResponse',
+    'CorsSettingsResponse',
     'CustomOpenIdConnectProviderResponse',
     'DatabaseBackupSettingResponse',
     'DefaultAuthorizationPolicyResponse',
+    'EnabledConfigResponse',
     'ErrorEntityResponse',
+    'ExperimentsResponse',
+    'ExtendedLocationResponse',
     'FacebookResponse',
+    'FileSystemApplicationLogsConfigResponse',
+    'FileSystemHttpLogsConfigResponse',
     'FileSystemTokenStoreResponse',
     'ForwardProxyResponse',
+    'FrontEndConfigurationResponse',
+    'GitHubActionCodeConfigurationResponse',
+    'GitHubActionConfigurationResponse',
+    'GitHubActionContainerConfigurationResponse',
     'GitHubResponse',
     'GlobalValidationResponse',
     'GoogleResponse',
+    'HandlerMappingResponse',
+    'HostNameSslStateResponse',
+    'HostingEnvironmentProfileResponse',
+    'HttpLogsConfigResponse',
     'HttpSettingsResponse',
     'HttpSettingsRoutesResponse',
     'IdentifierResponse',
     'IdentityProvidersResponse',
+    'IpSecurityRestrictionResponse',
     'JwtClaimChecksResponse',
+    'KubeEnvironmentProfileResponse',
     'LegacyMicrosoftAccountResponse',
+    'LogAnalyticsConfigurationResponse',
     'LoginResponse',
     'LoginRoutesResponse',
     'LoginScopesResponse',
     'ManagedServiceIdentityResponse',
+    'NameValuePairResponse',
     'NonceResponse',
     'OpenIdConnectClientCredentialResponse',
     'OpenIdConnectConfigResponse',
     'OpenIdConnectLoginResponse',
     'OpenIdConnectRegistrationResponse',
     'PrivateLinkConnectionStateResponse',
+    'PushSettingsResponse',
+    'RampUpRuleResponse',
     'RemotePrivateEndpointConnectionResponse',
+    'RequestsBasedTriggerResponse',
     'ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse',
+    'SiteConfigResponse',
+    'SiteLimitsResponse',
+    'SiteMachineKeyResponse',
     'SkuCapacityResponse',
     'SkuDescriptionResponse',
+    'SlotSwapStatusResponse',
+    'SlowRequestsBasedTriggerResponse',
     'StaticSiteBuildPropertiesResponse',
     'StaticSiteTemplateOptionsResponse',
     'StaticSiteUserARMResourceResponse',
     'StaticSiteUserProvidedFunctionAppResponse',
+    'StatusCodesBasedTriggerResponse',
+    'StatusCodesRangeBasedTriggerResponse',
     'TokenStoreResponse',
     'TwitterRegistrationResponse',
     'TwitterResponse',
     'UserAssignedIdentityResponse',
+    'VirtualApplicationResponse',
+    'VirtualDirectoryResponse',
+    'VirtualNetworkProfileResponse',
+    'VnetRouteResponse',
 ]
 
 @pulumi.output_type
@@ -147,6 +192,73 @@ class AllowedPrincipalsResponse(dict):
         The list of the allowed identities.
         """
         return pulumi.get(self, "identities")
+
+
+@pulumi.output_type
+class ApiDefinitionInfoResponse(dict):
+    """
+    Information about the formal API definition for the app.
+    """
+    def __init__(__self__, *,
+                 url: Optional[str] = None):
+        """
+        Information about the formal API definition for the app.
+        :param str url: The URL of the API definition.
+        """
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        The URL of the API definition.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class ApiManagementConfigResponse(dict):
+    """
+    Azure API management (APIM) configuration linked to the app.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Azure API management (APIM) configuration linked to the app.
+        :param str id: APIM-Api Identifier.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        APIM-Api Identifier.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class AppLogsConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 destination: Optional[str] = None,
+                 log_analytics_configuration: Optional['outputs.LogAnalyticsConfigurationResponse'] = None):
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if log_analytics_configuration is not None:
+            pulumi.set(__self__, "log_analytics_configuration", log_analytics_configuration)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[str]:
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="logAnalyticsConfiguration")
+    def log_analytics_configuration(self) -> Optional['outputs.LogAnalyticsConfigurationResponse']:
+        return pulumi.get(self, "log_analytics_configuration")
 
 
 @pulumi.output_type
@@ -302,6 +414,106 @@ class AppleResponse(dict):
         The configuration settings of the Apple registration.
         """
         return pulumi.get(self, "registration")
+
+
+@pulumi.output_type
+class ApplicationLogsConfigResponse(dict):
+    """
+    Application logs configuration.
+    """
+    def __init__(__self__, *,
+                 azure_blob_storage: Optional['outputs.AzureBlobStorageApplicationLogsConfigResponse'] = None,
+                 azure_table_storage: Optional['outputs.AzureTableStorageApplicationLogsConfigResponse'] = None,
+                 file_system: Optional['outputs.FileSystemApplicationLogsConfigResponse'] = None):
+        """
+        Application logs configuration.
+        :param 'AzureBlobStorageApplicationLogsConfigResponse' azure_blob_storage: Application logs to blob storage configuration.
+        :param 'AzureTableStorageApplicationLogsConfigResponse' azure_table_storage: Application logs to azure table storage configuration.
+        :param 'FileSystemApplicationLogsConfigResponse' file_system: Application logs to file system configuration.
+        """
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+        if azure_table_storage is not None:
+            pulumi.set(__self__, "azure_table_storage", azure_table_storage)
+        if file_system is not None:
+            pulumi.set(__self__, "file_system", file_system)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional['outputs.AzureBlobStorageApplicationLogsConfigResponse']:
+        """
+        Application logs to blob storage configuration.
+        """
+        return pulumi.get(self, "azure_blob_storage")
+
+    @property
+    @pulumi.getter(name="azureTableStorage")
+    def azure_table_storage(self) -> Optional['outputs.AzureTableStorageApplicationLogsConfigResponse']:
+        """
+        Application logs to azure table storage configuration.
+        """
+        return pulumi.get(self, "azure_table_storage")
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> Optional['outputs.FileSystemApplicationLogsConfigResponse']:
+        """
+        Application logs to file system configuration.
+        """
+        return pulumi.get(self, "file_system")
+
+
+@pulumi.output_type
+class ArcConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 artifact_storage_access_mode: Optional[str] = None,
+                 artifact_storage_class_name: Optional[str] = None,
+                 artifact_storage_mount_path: Optional[str] = None,
+                 artifact_storage_node_name: Optional[str] = None,
+                 artifacts_storage_type: Optional[str] = None,
+                 front_end_service_configuration: Optional['outputs.FrontEndConfigurationResponse'] = None):
+        if artifact_storage_access_mode is not None:
+            pulumi.set(__self__, "artifact_storage_access_mode", artifact_storage_access_mode)
+        if artifact_storage_class_name is not None:
+            pulumi.set(__self__, "artifact_storage_class_name", artifact_storage_class_name)
+        if artifact_storage_mount_path is not None:
+            pulumi.set(__self__, "artifact_storage_mount_path", artifact_storage_mount_path)
+        if artifact_storage_node_name is not None:
+            pulumi.set(__self__, "artifact_storage_node_name", artifact_storage_node_name)
+        if artifacts_storage_type is not None:
+            pulumi.set(__self__, "artifacts_storage_type", artifacts_storage_type)
+        if front_end_service_configuration is not None:
+            pulumi.set(__self__, "front_end_service_configuration", front_end_service_configuration)
+
+    @property
+    @pulumi.getter(name="artifactStorageAccessMode")
+    def artifact_storage_access_mode(self) -> Optional[str]:
+        return pulumi.get(self, "artifact_storage_access_mode")
+
+    @property
+    @pulumi.getter(name="artifactStorageClassName")
+    def artifact_storage_class_name(self) -> Optional[str]:
+        return pulumi.get(self, "artifact_storage_class_name")
+
+    @property
+    @pulumi.getter(name="artifactStorageMountPath")
+    def artifact_storage_mount_path(self) -> Optional[str]:
+        return pulumi.get(self, "artifact_storage_mount_path")
+
+    @property
+    @pulumi.getter(name="artifactStorageNodeName")
+    def artifact_storage_node_name(self) -> Optional[str]:
+        return pulumi.get(self, "artifact_storage_node_name")
+
+    @property
+    @pulumi.getter(name="artifactsStorageType")
+    def artifacts_storage_type(self) -> Optional[str]:
+        return pulumi.get(self, "artifacts_storage_type")
+
+    @property
+    @pulumi.getter(name="frontEndServiceConfiguration")
+    def front_end_service_configuration(self) -> Optional['outputs.FrontEndConfigurationResponse']:
+        return pulumi.get(self, "front_end_service_configuration")
 
 
 @pulumi.output_type
@@ -478,6 +690,210 @@ class AuthPlatformResponse(dict):
         The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
         """
         return pulumi.get(self, "runtime_version")
+
+
+@pulumi.output_type
+class AutoHealActionsResponse(dict):
+    """
+    Actions which to take by the auto-heal module when a rule is triggered.
+    """
+    def __init__(__self__, *,
+                 action_type: Optional[str] = None,
+                 custom_action: Optional['outputs.AutoHealCustomActionResponse'] = None,
+                 min_process_execution_time: Optional[str] = None):
+        """
+        Actions which to take by the auto-heal module when a rule is triggered.
+        :param str action_type: Predefined action to be taken.
+        :param 'AutoHealCustomActionResponse' custom_action: Custom action to be taken.
+        :param str min_process_execution_time: Minimum time the process must execute
+               before taking the action
+        """
+        if action_type is not None:
+            pulumi.set(__self__, "action_type", action_type)
+        if custom_action is not None:
+            pulumi.set(__self__, "custom_action", custom_action)
+        if min_process_execution_time is not None:
+            pulumi.set(__self__, "min_process_execution_time", min_process_execution_time)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> Optional[str]:
+        """
+        Predefined action to be taken.
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter(name="customAction")
+    def custom_action(self) -> Optional['outputs.AutoHealCustomActionResponse']:
+        """
+        Custom action to be taken.
+        """
+        return pulumi.get(self, "custom_action")
+
+    @property
+    @pulumi.getter(name="minProcessExecutionTime")
+    def min_process_execution_time(self) -> Optional[str]:
+        """
+        Minimum time the process must execute
+        before taking the action
+        """
+        return pulumi.get(self, "min_process_execution_time")
+
+
+@pulumi.output_type
+class AutoHealCustomActionResponse(dict):
+    """
+    Custom action to be executed
+    when an auto heal rule is triggered.
+    """
+    def __init__(__self__, *,
+                 exe: Optional[str] = None,
+                 parameters: Optional[str] = None):
+        """
+        Custom action to be executed
+        when an auto heal rule is triggered.
+        :param str exe: Executable to be run.
+        :param str parameters: Parameters for the executable.
+        """
+        if exe is not None:
+            pulumi.set(__self__, "exe", exe)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def exe(self) -> Optional[str]:
+        """
+        Executable to be run.
+        """
+        return pulumi.get(self, "exe")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[str]:
+        """
+        Parameters for the executable.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class AutoHealRulesResponse(dict):
+    """
+    Rules that can be defined for auto-heal.
+    """
+    def __init__(__self__, *,
+                 actions: Optional['outputs.AutoHealActionsResponse'] = None,
+                 triggers: Optional['outputs.AutoHealTriggersResponse'] = None):
+        """
+        Rules that can be defined for auto-heal.
+        :param 'AutoHealActionsResponse' actions: Actions to be executed when a rule is triggered.
+        :param 'AutoHealTriggersResponse' triggers: Conditions that describe when to execute the auto-heal actions.
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional['outputs.AutoHealActionsResponse']:
+        """
+        Actions to be executed when a rule is triggered.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def triggers(self) -> Optional['outputs.AutoHealTriggersResponse']:
+        """
+        Conditions that describe when to execute the auto-heal actions.
+        """
+        return pulumi.get(self, "triggers")
+
+
+@pulumi.output_type
+class AutoHealTriggersResponse(dict):
+    """
+    Triggers for auto-heal.
+    """
+    def __init__(__self__, *,
+                 private_bytes_in_kb: Optional[int] = None,
+                 requests: Optional['outputs.RequestsBasedTriggerResponse'] = None,
+                 slow_requests: Optional['outputs.SlowRequestsBasedTriggerResponse'] = None,
+                 slow_requests_with_path: Optional[Sequence['outputs.SlowRequestsBasedTriggerResponse']] = None,
+                 status_codes: Optional[Sequence['outputs.StatusCodesBasedTriggerResponse']] = None,
+                 status_codes_range: Optional[Sequence['outputs.StatusCodesRangeBasedTriggerResponse']] = None):
+        """
+        Triggers for auto-heal.
+        :param int private_bytes_in_kb: A rule based on private bytes.
+        :param 'RequestsBasedTriggerResponse' requests: A rule based on total requests.
+        :param 'SlowRequestsBasedTriggerResponse' slow_requests: A rule based on request execution time.
+        :param Sequence['SlowRequestsBasedTriggerResponse'] slow_requests_with_path: A rule based on multiple Slow Requests Rule with path
+        :param Sequence['StatusCodesBasedTriggerResponse'] status_codes: A rule based on status codes.
+        :param Sequence['StatusCodesRangeBasedTriggerResponse'] status_codes_range: A rule based on status codes ranges.
+        """
+        if private_bytes_in_kb is not None:
+            pulumi.set(__self__, "private_bytes_in_kb", private_bytes_in_kb)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if slow_requests is not None:
+            pulumi.set(__self__, "slow_requests", slow_requests)
+        if slow_requests_with_path is not None:
+            pulumi.set(__self__, "slow_requests_with_path", slow_requests_with_path)
+        if status_codes is not None:
+            pulumi.set(__self__, "status_codes", status_codes)
+        if status_codes_range is not None:
+            pulumi.set(__self__, "status_codes_range", status_codes_range)
+
+    @property
+    @pulumi.getter(name="privateBytesInKB")
+    def private_bytes_in_kb(self) -> Optional[int]:
+        """
+        A rule based on private bytes.
+        """
+        return pulumi.get(self, "private_bytes_in_kb")
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional['outputs.RequestsBasedTriggerResponse']:
+        """
+        A rule based on total requests.
+        """
+        return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter(name="slowRequests")
+    def slow_requests(self) -> Optional['outputs.SlowRequestsBasedTriggerResponse']:
+        """
+        A rule based on request execution time.
+        """
+        return pulumi.get(self, "slow_requests")
+
+    @property
+    @pulumi.getter(name="slowRequestsWithPath")
+    def slow_requests_with_path(self) -> Optional[Sequence['outputs.SlowRequestsBasedTriggerResponse']]:
+        """
+        A rule based on multiple Slow Requests Rule with path
+        """
+        return pulumi.get(self, "slow_requests_with_path")
+
+    @property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Optional[Sequence['outputs.StatusCodesBasedTriggerResponse']]:
+        """
+        A rule based on status codes.
+        """
+        return pulumi.get(self, "status_codes")
+
+    @property
+    @pulumi.getter(name="statusCodesRange")
+    def status_codes_range(self) -> Optional[Sequence['outputs.StatusCodesRangeBasedTriggerResponse']]:
+        """
+        A rule based on status codes ranges.
+        """
+        return pulumi.get(self, "status_codes_range")
 
 
 @pulumi.output_type
@@ -825,6 +1241,108 @@ class AzureActiveDirectoryValidationResponse(dict):
 
 
 @pulumi.output_type
+class AzureBlobStorageApplicationLogsConfigResponse(dict):
+    """
+    Application logs azure blob storage configuration.
+    """
+    def __init__(__self__, *,
+                 level: Optional[str] = None,
+                 retention_in_days: Optional[int] = None,
+                 sas_url: Optional[str] = None):
+        """
+        Application logs azure blob storage configuration.
+        :param str level: Log level.
+        :param int retention_in_days: Retention in days.
+               Remove blobs older than X days.
+               0 or lower means no retention.
+        :param str sas_url: SAS url to a azure blob container with read/write/list/delete permissions.
+        """
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if sas_url is not None:
+            pulumi.set(__self__, "sas_url", sas_url)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        Log level.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[int]:
+        """
+        Retention in days.
+        Remove blobs older than X days.
+        0 or lower means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @property
+    @pulumi.getter(name="sasUrl")
+    def sas_url(self) -> Optional[str]:
+        """
+        SAS url to a azure blob container with read/write/list/delete permissions.
+        """
+        return pulumi.get(self, "sas_url")
+
+
+@pulumi.output_type
+class AzureBlobStorageHttpLogsConfigResponse(dict):
+    """
+    Http logs to azure blob storage configuration.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 retention_in_days: Optional[int] = None,
+                 sas_url: Optional[str] = None):
+        """
+        Http logs to azure blob storage configuration.
+        :param bool enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        :param int retention_in_days: Retention in days.
+               Remove blobs older than X days.
+               0 or lower means no retention.
+        :param str sas_url: SAS url to a azure blob container with read/write/list/delete permissions.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if sas_url is not None:
+            pulumi.set(__self__, "sas_url", sas_url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[int]:
+        """
+        Retention in days.
+        Remove blobs older than X days.
+        0 or lower means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @property
+    @pulumi.getter(name="sasUrl")
+    def sas_url(self) -> Optional[str]:
+        """
+        SAS url to a azure blob container with read/write/list/delete permissions.
+        """
+        return pulumi.get(self, "sas_url")
+
+
+@pulumi.output_type
 class AzureStaticWebAppsRegistrationResponse(dict):
     """
     The configuration settings of the registration for the Azure Static Web Apps provider
@@ -979,6 +1497,40 @@ class AzureStorageInfoValueResponse(dict):
         Type of storage.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AzureTableStorageApplicationLogsConfigResponse(dict):
+    """
+    Application logs to Azure table storage configuration.
+    """
+    def __init__(__self__, *,
+                 sas_url: str,
+                 level: Optional[str] = None):
+        """
+        Application logs to Azure table storage configuration.
+        :param str sas_url: SAS URL to an Azure table with add/query/delete permissions.
+        :param str level: Log level.
+        """
+        pulumi.set(__self__, "sas_url", sas_url)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter(name="sasUrl")
+    def sas_url(self) -> str:
+        """
+        SAS URL to an Azure table with add/query/delete permissions.
+        """
+        return pulumi.get(self, "sas_url")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        Log level.
+        """
+        return pulumi.get(self, "level")
 
 
 @pulumi.output_type
@@ -1408,6 +1960,53 @@ class ClientRegistrationResponse(dict):
 
 
 @pulumi.output_type
+class ConnStringInfoResponse(dict):
+    """
+    Database connection string information.
+    """
+    def __init__(__self__, *,
+                 connection_string: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Database connection string information.
+        :param str connection_string: Connection string value.
+        :param str name: Name of connection string.
+        :param str type: Type of database.
+        """
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[str]:
+        """
+        Connection string value.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of connection string.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of database.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ConnStringValueTypePairResponse(dict):
     """
     Database connection string value to type pair.
@@ -1490,6 +2089,47 @@ class CookieExpirationResponse(dict):
         The time after the request is made when the session cookie should expire.
         """
         return pulumi.get(self, "time_to_expiration")
+
+
+@pulumi.output_type
+class CorsSettingsResponse(dict):
+    """
+    Cross-Origin Resource Sharing (CORS) settings for the app.
+    """
+    def __init__(__self__, *,
+                 allowed_origins: Optional[Sequence[str]] = None,
+                 support_credentials: Optional[bool] = None):
+        """
+        Cross-Origin Resource Sharing (CORS) settings for the app.
+        :param Sequence[str] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin
+               calls (for example: http://example.com:12345). Use "*" to allow all.
+        :param bool support_credentials: Gets or sets whether CORS requests with credentials are allowed. See 
+               https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
+               for more details.
+        """
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if support_credentials is not None:
+            pulumi.set(__self__, "support_credentials", support_credentials)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets the list of origins that should be allowed to make cross-origin
+        calls (for example: http://example.com:12345). Use "*" to allow all.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="supportCredentials")
+    def support_credentials(self) -> Optional[bool]:
+        """
+        Gets or sets whether CORS requests with credentials are allowed. See 
+        https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
+        for more details.
+        """
+        return pulumi.get(self, "support_credentials")
 
 
 @pulumi.output_type
@@ -1650,6 +2290,29 @@ class DefaultAuthorizationPolicyResponse(dict):
 
 
 @pulumi.output_type
+class EnabledConfigResponse(dict):
+    """
+    Enabled configuration.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Enabled configuration.
+        :param bool enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class ErrorEntityResponse(dict):
     """
     Body of the error response returned from the API.
@@ -1778,6 +2441,63 @@ class ErrorEntityResponse(dict):
 
 
 @pulumi.output_type
+class ExperimentsResponse(dict):
+    """
+    Routing rules in production experiments.
+    """
+    def __init__(__self__, *,
+                 ramp_up_rules: Optional[Sequence['outputs.RampUpRuleResponse']] = None):
+        """
+        Routing rules in production experiments.
+        :param Sequence['RampUpRuleResponse'] ramp_up_rules: List of ramp-up rules.
+        """
+        if ramp_up_rules is not None:
+            pulumi.set(__self__, "ramp_up_rules", ramp_up_rules)
+
+    @property
+    @pulumi.getter(name="rampUpRules")
+    def ramp_up_rules(self) -> Optional[Sequence['outputs.RampUpRuleResponse']]:
+        """
+        List of ramp-up rules.
+        """
+        return pulumi.get(self, "ramp_up_rules")
+
+
+@pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    Extended Location.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 name: Optional[str] = None):
+        """
+        Extended Location.
+        :param str type: Type of extended location.
+        :param str name: Name of extended location.
+        """
+        pulumi.set(__self__, "type", type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of extended location.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of extended location.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class FacebookResponse(dict):
     """
     The configuration settings of the Facebook provider.
@@ -1851,6 +2571,86 @@ class FacebookResponse(dict):
         The configuration settings of the app registration for the Facebook provider.
         """
         return pulumi.get(self, "registration")
+
+
+@pulumi.output_type
+class FileSystemApplicationLogsConfigResponse(dict):
+    """
+    Application logs to file system configuration.
+    """
+    def __init__(__self__, *,
+                 level: Optional[str] = None):
+        """
+        Application logs to file system configuration.
+        :param str level: Log level.
+        """
+        if level is None:
+            level = 'Off'
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        Log level.
+        """
+        return pulumi.get(self, "level")
+
+
+@pulumi.output_type
+class FileSystemHttpLogsConfigResponse(dict):
+    """
+    Http logs to file system configuration.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 retention_in_days: Optional[int] = None,
+                 retention_in_mb: Optional[int] = None):
+        """
+        Http logs to file system configuration.
+        :param bool enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        :param int retention_in_days: Retention in days.
+               Remove files older than X days.
+               0 or lower means no retention.
+        :param int retention_in_mb: Maximum size in megabytes that http log files can use.
+               When reached old log files will be removed to make space for new ones.
+               Value can range between 25 and 100.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if retention_in_mb is not None:
+            pulumi.set(__self__, "retention_in_mb", retention_in_mb)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[int]:
+        """
+        Retention in days.
+        Remove files older than X days.
+        0 or lower means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @property
+    @pulumi.getter(name="retentionInMb")
+    def retention_in_mb(self) -> Optional[int]:
+        """
+        Maximum size in megabytes that http log files can use.
+        When reached old log files will be removed to make space for new ones.
+        Value can range between 25 and 100.
+        """
+        return pulumi.get(self, "retention_in_mb")
 
 
 @pulumi.output_type
@@ -1940,6 +2740,172 @@ class ForwardProxyResponse(dict):
         The name of the header containing the scheme of the request.
         """
         return pulumi.get(self, "custom_proto_header_name")
+
+
+@pulumi.output_type
+class FrontEndConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 kind: Optional[str] = None):
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        return pulumi.get(self, "kind")
+
+
+@pulumi.output_type
+class GitHubActionCodeConfigurationResponse(dict):
+    """
+    The GitHub action code configuration.
+    """
+    def __init__(__self__, *,
+                 runtime_stack: Optional[str] = None,
+                 runtime_version: Optional[str] = None):
+        """
+        The GitHub action code configuration.
+        :param str runtime_stack: Runtime stack is used to determine the workflow file content for code base apps.
+        :param str runtime_version: Runtime version is used to determine what build version to set in the workflow file.
+        """
+        if runtime_stack is not None:
+            pulumi.set(__self__, "runtime_stack", runtime_stack)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter(name="runtimeStack")
+    def runtime_stack(self) -> Optional[str]:
+        """
+        Runtime stack is used to determine the workflow file content for code base apps.
+        """
+        return pulumi.get(self, "runtime_stack")
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[str]:
+        """
+        Runtime version is used to determine what build version to set in the workflow file.
+        """
+        return pulumi.get(self, "runtime_version")
+
+
+@pulumi.output_type
+class GitHubActionConfigurationResponse(dict):
+    """
+    The GitHub action configuration.
+    """
+    def __init__(__self__, *,
+                 code_configuration: Optional['outputs.GitHubActionCodeConfigurationResponse'] = None,
+                 container_configuration: Optional['outputs.GitHubActionContainerConfigurationResponse'] = None,
+                 generate_workflow_file: Optional[bool] = None,
+                 is_linux: Optional[bool] = None):
+        """
+        The GitHub action configuration.
+        :param 'GitHubActionCodeConfigurationResponse' code_configuration: GitHub Action code configuration.
+        :param 'GitHubActionContainerConfigurationResponse' container_configuration: GitHub Action container configuration.
+        :param bool generate_workflow_file: Workflow option to determine whether the workflow file should be generated and written to the repository.
+        :param bool is_linux: This will help determine the workflow configuration to select.
+        """
+        if code_configuration is not None:
+            pulumi.set(__self__, "code_configuration", code_configuration)
+        if container_configuration is not None:
+            pulumi.set(__self__, "container_configuration", container_configuration)
+        if generate_workflow_file is not None:
+            pulumi.set(__self__, "generate_workflow_file", generate_workflow_file)
+        if is_linux is not None:
+            pulumi.set(__self__, "is_linux", is_linux)
+
+    @property
+    @pulumi.getter(name="codeConfiguration")
+    def code_configuration(self) -> Optional['outputs.GitHubActionCodeConfigurationResponse']:
+        """
+        GitHub Action code configuration.
+        """
+        return pulumi.get(self, "code_configuration")
+
+    @property
+    @pulumi.getter(name="containerConfiguration")
+    def container_configuration(self) -> Optional['outputs.GitHubActionContainerConfigurationResponse']:
+        """
+        GitHub Action container configuration.
+        """
+        return pulumi.get(self, "container_configuration")
+
+    @property
+    @pulumi.getter(name="generateWorkflowFile")
+    def generate_workflow_file(self) -> Optional[bool]:
+        """
+        Workflow option to determine whether the workflow file should be generated and written to the repository.
+        """
+        return pulumi.get(self, "generate_workflow_file")
+
+    @property
+    @pulumi.getter(name="isLinux")
+    def is_linux(self) -> Optional[bool]:
+        """
+        This will help determine the workflow configuration to select.
+        """
+        return pulumi.get(self, "is_linux")
+
+
+@pulumi.output_type
+class GitHubActionContainerConfigurationResponse(dict):
+    """
+    The GitHub action container configuration.
+    """
+    def __init__(__self__, *,
+                 image_name: Optional[str] = None,
+                 password: Optional[str] = None,
+                 server_url: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        The GitHub action container configuration.
+        :param str image_name: The image name for the build.
+        :param str password: The password used to upload the image to the container registry.
+        :param str server_url: The server URL for the container registry where the build will be hosted.
+        :param str username: The username used to upload the image to the container registry.
+        """
+        if image_name is not None:
+            pulumi.set(__self__, "image_name", image_name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if server_url is not None:
+            pulumi.set(__self__, "server_url", server_url)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> Optional[str]:
+        """
+        The image name for the build.
+        """
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The password used to upload the image to the container registry.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="serverUrl")
+    def server_url(self) -> Optional[str]:
+        """
+        The server URL for the container registry where the build will be hosted.
+        """
+        return pulumi.get(self, "server_url")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The username used to upload the image to the container registry.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -2132,6 +3098,218 @@ class GoogleResponse(dict):
         The configuration settings of the Azure Active Directory token validation flow.
         """
         return pulumi.get(self, "validation")
+
+
+@pulumi.output_type
+class HandlerMappingResponse(dict):
+    """
+    The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
+    For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+    """
+    def __init__(__self__, *,
+                 arguments: Optional[str] = None,
+                 extension: Optional[str] = None,
+                 script_processor: Optional[str] = None):
+        """
+        The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
+        For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+        :param str arguments: Command-line arguments to be passed to the script processor.
+        :param str extension: Requests with this extension will be handled using the specified FastCGI application.
+        :param str script_processor: The absolute path to the FastCGI application.
+        """
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if extension is not None:
+            pulumi.set(__self__, "extension", extension)
+        if script_processor is not None:
+            pulumi.set(__self__, "script_processor", script_processor)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[str]:
+        """
+        Command-line arguments to be passed to the script processor.
+        """
+        return pulumi.get(self, "arguments")
+
+    @property
+    @pulumi.getter
+    def extension(self) -> Optional[str]:
+        """
+        Requests with this extension will be handled using the specified FastCGI application.
+        """
+        return pulumi.get(self, "extension")
+
+    @property
+    @pulumi.getter(name="scriptProcessor")
+    def script_processor(self) -> Optional[str]:
+        """
+        The absolute path to the FastCGI application.
+        """
+        return pulumi.get(self, "script_processor")
+
+
+@pulumi.output_type
+class HostNameSslStateResponse(dict):
+    """
+    SSL-enabled hostname.
+    """
+    def __init__(__self__, *,
+                 host_type: Optional[str] = None,
+                 name: Optional[str] = None,
+                 ssl_state: Optional[str] = None,
+                 thumbprint: Optional[str] = None,
+                 to_update: Optional[bool] = None,
+                 virtual_ip: Optional[str] = None):
+        """
+        SSL-enabled hostname.
+        :param str host_type: Indicates whether the hostname is a standard or repository hostname.
+        :param str name: Hostname.
+        :param str ssl_state: SSL type.
+        :param str thumbprint: SSL certificate thumbprint.
+        :param bool to_update: Set to <code>true</code> to update existing hostname.
+        :param str virtual_ip: Virtual IP address assigned to the hostname if IP based SSL is enabled.
+        """
+        if host_type is not None:
+            pulumi.set(__self__, "host_type", host_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if ssl_state is not None:
+            pulumi.set(__self__, "ssl_state", ssl_state)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+        if to_update is not None:
+            pulumi.set(__self__, "to_update", to_update)
+        if virtual_ip is not None:
+            pulumi.set(__self__, "virtual_ip", virtual_ip)
+
+    @property
+    @pulumi.getter(name="hostType")
+    def host_type(self) -> Optional[str]:
+        """
+        Indicates whether the hostname is a standard or repository hostname.
+        """
+        return pulumi.get(self, "host_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Hostname.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sslState")
+    def ssl_state(self) -> Optional[str]:
+        """
+        SSL type.
+        """
+        return pulumi.get(self, "ssl_state")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        SSL certificate thumbprint.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter(name="toUpdate")
+    def to_update(self) -> Optional[bool]:
+        """
+        Set to <code>true</code> to update existing hostname.
+        """
+        return pulumi.get(self, "to_update")
+
+    @property
+    @pulumi.getter(name="virtualIP")
+    def virtual_ip(self) -> Optional[str]:
+        """
+        Virtual IP address assigned to the hostname if IP based SSL is enabled.
+        """
+        return pulumi.get(self, "virtual_ip")
+
+
+@pulumi.output_type
+class HostingEnvironmentProfileResponse(dict):
+    """
+    Specification for an App Service Environment to use for this resource.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 id: Optional[str] = None):
+        """
+        Specification for an App Service Environment to use for this resource.
+        :param str name: Name of the App Service Environment.
+        :param str type: Resource type of the App Service Environment.
+        :param str id: Resource ID of the App Service Environment.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the App Service Environment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type of the App Service Environment.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID of the App Service Environment.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class HttpLogsConfigResponse(dict):
+    """
+    Http logs configuration.
+    """
+    def __init__(__self__, *,
+                 azure_blob_storage: Optional['outputs.AzureBlobStorageHttpLogsConfigResponse'] = None,
+                 file_system: Optional['outputs.FileSystemHttpLogsConfigResponse'] = None):
+        """
+        Http logs configuration.
+        :param 'AzureBlobStorageHttpLogsConfigResponse' azure_blob_storage: Http logs to azure blob storage configuration.
+        :param 'FileSystemHttpLogsConfigResponse' file_system: Http logs to file system configuration.
+        """
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+        if file_system is not None:
+            pulumi.set(__self__, "file_system", file_system)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional['outputs.AzureBlobStorageHttpLogsConfigResponse']:
+        """
+        Http logs to azure blob storage configuration.
+        """
+        return pulumi.get(self, "azure_blob_storage")
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> Optional['outputs.FileSystemHttpLogsConfigResponse']:
+        """
+        Http logs to file system configuration.
+        """
+        return pulumi.get(self, "file_system")
 
 
 @pulumi.output_type
@@ -2455,6 +3633,185 @@ class IdentityProvidersResponse(dict):
 
 
 @pulumi.output_type
+class IpSecurityRestrictionResponse(dict):
+    """
+    IP security restriction on an app.
+    """
+    def __init__(__self__, *,
+                 action: Optional[str] = None,
+                 description: Optional[str] = None,
+                 headers: Optional[Mapping[str, Sequence[str]]] = None,
+                 ip_address: Optional[str] = None,
+                 name: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 subnet_mask: Optional[str] = None,
+                 subnet_traffic_tag: Optional[int] = None,
+                 tag: Optional[str] = None,
+                 vnet_subnet_resource_id: Optional[str] = None,
+                 vnet_traffic_tag: Optional[int] = None):
+        """
+        IP security restriction on an app.
+        :param str action: Allow or Deny access for this IP range.
+        :param str description: IP restriction rule description.
+        :param Mapping[str, Sequence[str]] headers: IP restriction rule headers.
+               X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
+               The matching logic is ..
+               - If the property is null or empty (default), all hosts(or lack of) are allowed.
+               - A value is compared using ordinal-ignore-case (excluding port number).
+               - Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com
+                but not the root domain contoso.com or multi-level foo.bar.contoso.com
+               - Unicode host names are allowed but are converted to Punycode for matching.
+               
+               X-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).
+               The matching logic is ..
+               - If the property is null or empty (default), any forwarded-for chains (or lack of) are allowed.
+               - If any address (excluding port number) in the chain (comma separated) matches the CIDR defined by the property.
+               
+               X-Azure-FDID and X-FD-HealthProbe.
+               The matching logic is exact match.
+        :param str ip_address: IP address the security restriction is valid for.
+               It can be in form of pure ipv4 address (required SubnetMask property) or
+               CIDR notation such as ipv4/mask (leading bit match). For CIDR,
+               SubnetMask property must not be specified.
+        :param str name: IP restriction rule name.
+        :param int priority: Priority of IP restriction rule.
+        :param str subnet_mask: Subnet mask for the range of IP addresses the restriction is valid for.
+        :param int subnet_traffic_tag: (internal) Subnet traffic tag
+        :param str tag: Defines what this IP filter will be used for. This is to support IP filtering on proxies.
+        :param str vnet_subnet_resource_id: Virtual network resource id
+        :param int vnet_traffic_tag: (internal) Vnet traffic tag
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if subnet_mask is not None:
+            pulumi.set(__self__, "subnet_mask", subnet_mask)
+        if subnet_traffic_tag is not None:
+            pulumi.set(__self__, "subnet_traffic_tag", subnet_traffic_tag)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if vnet_subnet_resource_id is not None:
+            pulumi.set(__self__, "vnet_subnet_resource_id", vnet_subnet_resource_id)
+        if vnet_traffic_tag is not None:
+            pulumi.set(__self__, "vnet_traffic_tag", vnet_traffic_tag)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        Allow or Deny access for this IP range.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        IP restriction rule description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Mapping[str, Sequence[str]]]:
+        """
+        IP restriction rule headers.
+        X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
+        The matching logic is ..
+        - If the property is null or empty (default), all hosts(or lack of) are allowed.
+        - A value is compared using ordinal-ignore-case (excluding port number).
+        - Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com
+         but not the root domain contoso.com or multi-level foo.bar.contoso.com
+        - Unicode host names are allowed but are converted to Punycode for matching.
+
+        X-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).
+        The matching logic is ..
+        - If the property is null or empty (default), any forwarded-for chains (or lack of) are allowed.
+        - If any address (excluding port number) in the chain (comma separated) matches the CIDR defined by the property.
+
+        X-Azure-FDID and X-FD-HealthProbe.
+        The matching logic is exact match.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        """
+        IP address the security restriction is valid for.
+        It can be in form of pure ipv4 address (required SubnetMask property) or
+        CIDR notation such as ipv4/mask (leading bit match). For CIDR,
+        SubnetMask property must not be specified.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        IP restriction rule name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        Priority of IP restriction rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="subnetMask")
+    def subnet_mask(self) -> Optional[str]:
+        """
+        Subnet mask for the range of IP addresses the restriction is valid for.
+        """
+        return pulumi.get(self, "subnet_mask")
+
+    @property
+    @pulumi.getter(name="subnetTrafficTag")
+    def subnet_traffic_tag(self) -> Optional[int]:
+        """
+        (internal) Subnet traffic tag
+        """
+        return pulumi.get(self, "subnet_traffic_tag")
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[str]:
+        """
+        Defines what this IP filter will be used for. This is to support IP filtering on proxies.
+        """
+        return pulumi.get(self, "tag")
+
+    @property
+    @pulumi.getter(name="vnetSubnetResourceId")
+    def vnet_subnet_resource_id(self) -> Optional[str]:
+        """
+        Virtual network resource id
+        """
+        return pulumi.get(self, "vnet_subnet_resource_id")
+
+    @property
+    @pulumi.getter(name="vnetTrafficTag")
+    def vnet_traffic_tag(self) -> Optional[int]:
+        """
+        (internal) Vnet traffic tag
+        """
+        return pulumi.get(self, "vnet_traffic_tag")
+
+
+@pulumi.output_type
 class JwtClaimChecksResponse(dict):
     """
     The configuration settings of the checks that should be made while validating the JWT Claims.
@@ -2506,6 +3863,51 @@ class JwtClaimChecksResponse(dict):
         The list of the allowed groups.
         """
         return pulumi.get(self, "allowed_groups")
+
+
+@pulumi.output_type
+class KubeEnvironmentProfileResponse(dict):
+    """
+    Specification for a Kubernetes Environment to use for this resource.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 id: Optional[str] = None):
+        """
+        Specification for a Kubernetes Environment to use for this resource.
+        :param str name: Name of the Kubernetes Environment.
+        :param str type: Resource type of the Kubernetes Environment.
+        :param str id: Resource ID of the Kubernetes Environment.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Kubernetes Environment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type of the Kubernetes Environment.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID of the Kubernetes Environment.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -2565,6 +3967,19 @@ class LegacyMicrosoftAccountResponse(dict):
         The configuration settings of the legacy Microsoft Account provider token validation flow.
         """
         return pulumi.get(self, "validation")
+
+
+@pulumi.output_type
+class LogAnalyticsConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 customer_id: Optional[str] = None):
+        if customer_id is not None:
+            pulumi.set(__self__, "customer_id", customer_id)
+
+    @property
+    @pulumi.getter(name="customerId")
+    def customer_id(self) -> Optional[str]:
+        return pulumi.get(self, "customer_id")
 
 
 @pulumi.output_type
@@ -2816,6 +4231,41 @@ class ManagedServiceIdentityResponse(dict):
         The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class NameValuePairResponse(dict):
+    """
+    Name value pair.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Name value pair.
+        :param str name: Pair name.
+        :param str value: Pair value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Pair name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Pair value.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -3203,6 +4653,228 @@ class PrivateLinkConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class PushSettingsResponse(dict):
+    """
+    Push settings for the App.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 is_push_enabled: bool,
+                 name: str,
+                 type: str,
+                 dynamic_tags_json: Optional[str] = None,
+                 kind: Optional[str] = None,
+                 tag_whitelist_json: Optional[str] = None,
+                 tags_requiring_auth: Optional[str] = None):
+        """
+        Push settings for the App.
+        :param str id: Resource Id.
+        :param bool is_push_enabled: Gets or sets a flag indicating whether the Push endpoint is enabled.
+        :param str name: Resource Name.
+        :param str type: Resource type.
+        :param str dynamic_tags_json: Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+        :param str kind: Kind of resource.
+        :param str tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+        :param str tags_requiring_auth: Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+               Tags can consist of alphanumeric characters and the following:
+               '_', '@', '#', '.', ':', '-'. 
+               Validation should be performed at the PushRequestHandler.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if dynamic_tags_json is not None:
+            pulumi.set(__self__, "dynamic_tags_json", dynamic_tags_json)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if tag_whitelist_json is not None:
+            pulumi.set(__self__, "tag_whitelist_json", tag_whitelist_json)
+        if tags_requiring_auth is not None:
+            pulumi.set(__self__, "tags_requiring_auth", tags_requiring_auth)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isPushEnabled")
+    def is_push_enabled(self) -> bool:
+        """
+        Gets or sets a flag indicating whether the Push endpoint is enabled.
+        """
+        return pulumi.get(self, "is_push_enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="dynamicTagsJson")
+    def dynamic_tags_json(self) -> Optional[str]:
+        """
+        Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+        """
+        return pulumi.get(self, "dynamic_tags_json")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="tagWhitelistJson")
+    def tag_whitelist_json(self) -> Optional[str]:
+        """
+        Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+        """
+        return pulumi.get(self, "tag_whitelist_json")
+
+    @property
+    @pulumi.getter(name="tagsRequiringAuth")
+    def tags_requiring_auth(self) -> Optional[str]:
+        """
+        Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+        Tags can consist of alphanumeric characters and the following:
+        '_', '@', '#', '.', ':', '-'. 
+        Validation should be performed at the PushRequestHandler.
+        """
+        return pulumi.get(self, "tags_requiring_auth")
+
+
+@pulumi.output_type
+class RampUpRuleResponse(dict):
+    """
+    Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
+    """
+    def __init__(__self__, *,
+                 action_host_name: Optional[str] = None,
+                 change_decision_callback_url: Optional[str] = None,
+                 change_interval_in_minutes: Optional[int] = None,
+                 change_step: Optional[float] = None,
+                 max_reroute_percentage: Optional[float] = None,
+                 min_reroute_percentage: Optional[float] = None,
+                 name: Optional[str] = None,
+                 reroute_percentage: Optional[float] = None):
+        """
+        Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
+        :param str action_host_name: Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
+        :param str change_decision_callback_url: Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
+               https://www.siteextensions.net/packages/TiPCallback/
+        :param int change_interval_in_minutes: Specifies interval in minutes to reevaluate ReroutePercentage.
+        :param float change_step: In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or 
+               <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm 
+               can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
+        :param float max_reroute_percentage: Specifies upper boundary below which ReroutePercentage will stay.
+        :param float min_reroute_percentage: Specifies lower boundary above which ReroutePercentage will stay.
+        :param str name: Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
+        :param float reroute_percentage: Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
+        """
+        if action_host_name is not None:
+            pulumi.set(__self__, "action_host_name", action_host_name)
+        if change_decision_callback_url is not None:
+            pulumi.set(__self__, "change_decision_callback_url", change_decision_callback_url)
+        if change_interval_in_minutes is not None:
+            pulumi.set(__self__, "change_interval_in_minutes", change_interval_in_minutes)
+        if change_step is not None:
+            pulumi.set(__self__, "change_step", change_step)
+        if max_reroute_percentage is not None:
+            pulumi.set(__self__, "max_reroute_percentage", max_reroute_percentage)
+        if min_reroute_percentage is not None:
+            pulumi.set(__self__, "min_reroute_percentage", min_reroute_percentage)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if reroute_percentage is not None:
+            pulumi.set(__self__, "reroute_percentage", reroute_percentage)
+
+    @property
+    @pulumi.getter(name="actionHostName")
+    def action_host_name(self) -> Optional[str]:
+        """
+        Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
+        """
+        return pulumi.get(self, "action_host_name")
+
+    @property
+    @pulumi.getter(name="changeDecisionCallbackUrl")
+    def change_decision_callback_url(self) -> Optional[str]:
+        """
+        Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
+        https://www.siteextensions.net/packages/TiPCallback/
+        """
+        return pulumi.get(self, "change_decision_callback_url")
+
+    @property
+    @pulumi.getter(name="changeIntervalInMinutes")
+    def change_interval_in_minutes(self) -> Optional[int]:
+        """
+        Specifies interval in minutes to reevaluate ReroutePercentage.
+        """
+        return pulumi.get(self, "change_interval_in_minutes")
+
+    @property
+    @pulumi.getter(name="changeStep")
+    def change_step(self) -> Optional[float]:
+        """
+        In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or 
+        <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm 
+        can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
+        """
+        return pulumi.get(self, "change_step")
+
+    @property
+    @pulumi.getter(name="maxReroutePercentage")
+    def max_reroute_percentage(self) -> Optional[float]:
+        """
+        Specifies upper boundary below which ReroutePercentage will stay.
+        """
+        return pulumi.get(self, "max_reroute_percentage")
+
+    @property
+    @pulumi.getter(name="minReroutePercentage")
+    def min_reroute_percentage(self) -> Optional[float]:
+        """
+        Specifies lower boundary above which ReroutePercentage will stay.
+        """
+        return pulumi.get(self, "min_reroute_percentage")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="reroutePercentage")
+    def reroute_percentage(self) -> Optional[float]:
+        """
+        Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
+        """
+        return pulumi.get(self, "reroute_percentage")
+
+
+@pulumi.output_type
 class RemotePrivateEndpointConnectionResponse(dict):
     """
     A remote private endpoint connection
@@ -3322,6 +4994,41 @@ class RemotePrivateEndpointConnectionResponse(dict):
         The state of a private link connection
         """
         return pulumi.get(self, "private_link_service_connection_state")
+
+
+@pulumi.output_type
+class RequestsBasedTriggerResponse(dict):
+    """
+    Trigger based on total requests.
+    """
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 time_interval: Optional[str] = None):
+        """
+        Trigger based on total requests.
+        :param int count: Request Count.
+        :param str time_interval: Time interval.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        Request Count.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> Optional[str]:
+        """
+        Time interval.
+        """
+        return pulumi.get(self, "time_interval")
 
 
 @pulumi.output_type
@@ -3481,6 +5188,942 @@ class ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse(dict):
         Logical Availability Zones the service is hosted in
         """
         return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class SiteConfigResponse(dict):
+    """
+    Configuration of an App Service app.
+    """
+    def __init__(__self__, *,
+                 machine_key: 'outputs.SiteMachineKeyResponse',
+                 acr_use_managed_identity_creds: Optional[bool] = None,
+                 acr_user_managed_identity_id: Optional[str] = None,
+                 always_on: Optional[bool] = None,
+                 api_definition: Optional['outputs.ApiDefinitionInfoResponse'] = None,
+                 api_management_config: Optional['outputs.ApiManagementConfigResponse'] = None,
+                 app_command_line: Optional[str] = None,
+                 app_settings: Optional[Sequence['outputs.NameValuePairResponse']] = None,
+                 auto_heal_enabled: Optional[bool] = None,
+                 auto_heal_rules: Optional['outputs.AutoHealRulesResponse'] = None,
+                 auto_swap_slot_name: Optional[str] = None,
+                 azure_storage_accounts: Optional[Mapping[str, 'outputs.AzureStorageInfoValueResponse']] = None,
+                 connection_strings: Optional[Sequence['outputs.ConnStringInfoResponse']] = None,
+                 cors: Optional['outputs.CorsSettingsResponse'] = None,
+                 default_documents: Optional[Sequence[str]] = None,
+                 detailed_error_logging_enabled: Optional[bool] = None,
+                 document_root: Optional[str] = None,
+                 experiments: Optional['outputs.ExperimentsResponse'] = None,
+                 ftps_state: Optional[str] = None,
+                 function_app_scale_limit: Optional[int] = None,
+                 functions_runtime_scale_monitoring_enabled: Optional[bool] = None,
+                 handler_mappings: Optional[Sequence['outputs.HandlerMappingResponse']] = None,
+                 health_check_path: Optional[str] = None,
+                 http20_enabled: Optional[bool] = None,
+                 http_logging_enabled: Optional[bool] = None,
+                 ip_security_restrictions: Optional[Sequence['outputs.IpSecurityRestrictionResponse']] = None,
+                 java_container: Optional[str] = None,
+                 java_container_version: Optional[str] = None,
+                 java_version: Optional[str] = None,
+                 key_vault_reference_identity: Optional[str] = None,
+                 limits: Optional['outputs.SiteLimitsResponse'] = None,
+                 linux_fx_version: Optional[str] = None,
+                 load_balancing: Optional[str] = None,
+                 local_my_sql_enabled: Optional[bool] = None,
+                 logs_directory_size_limit: Optional[int] = None,
+                 managed_pipeline_mode: Optional[str] = None,
+                 managed_service_identity_id: Optional[int] = None,
+                 min_tls_version: Optional[str] = None,
+                 minimum_elastic_instance_count: Optional[int] = None,
+                 net_framework_version: Optional[str] = None,
+                 node_version: Optional[str] = None,
+                 number_of_workers: Optional[int] = None,
+                 php_version: Optional[str] = None,
+                 power_shell_version: Optional[str] = None,
+                 pre_warmed_instance_count: Optional[int] = None,
+                 public_network_access: Optional[str] = None,
+                 publishing_username: Optional[str] = None,
+                 push: Optional['outputs.PushSettingsResponse'] = None,
+                 python_version: Optional[str] = None,
+                 remote_debugging_enabled: Optional[bool] = None,
+                 remote_debugging_version: Optional[str] = None,
+                 request_tracing_enabled: Optional[bool] = None,
+                 request_tracing_expiration_time: Optional[str] = None,
+                 scm_ip_security_restrictions: Optional[Sequence['outputs.IpSecurityRestrictionResponse']] = None,
+                 scm_ip_security_restrictions_use_main: Optional[bool] = None,
+                 scm_min_tls_version: Optional[str] = None,
+                 scm_type: Optional[str] = None,
+                 tracing_options: Optional[str] = None,
+                 use32_bit_worker_process: Optional[bool] = None,
+                 virtual_applications: Optional[Sequence['outputs.VirtualApplicationResponse']] = None,
+                 vnet_name: Optional[str] = None,
+                 vnet_private_ports_count: Optional[int] = None,
+                 vnet_route_all_enabled: Optional[bool] = None,
+                 web_sockets_enabled: Optional[bool] = None,
+                 website_time_zone: Optional[str] = None,
+                 windows_fx_version: Optional[str] = None,
+                 x_managed_service_identity_id: Optional[int] = None):
+        """
+        Configuration of an App Service app.
+        :param 'SiteMachineKeyResponse' machine_key: Site MachineKey.
+        :param bool acr_use_managed_identity_creds: Flag to use Managed Identity Creds for ACR pull
+        :param str acr_user_managed_identity_id: If using user managed identity, the user managed identity ClientId
+        :param bool always_on: <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
+        :param 'ApiDefinitionInfoResponse' api_definition: Information about the formal API definition for the app.
+        :param 'ApiManagementConfigResponse' api_management_config: Azure API management settings linked to the app.
+        :param str app_command_line: App command line to launch.
+        :param Sequence['NameValuePairResponse'] app_settings: Application settings.
+        :param bool auto_heal_enabled: <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
+        :param 'AutoHealRulesResponse' auto_heal_rules: Auto Heal rules.
+        :param str auto_swap_slot_name: Auto-swap slot name.
+        :param Mapping[str, 'AzureStorageInfoValueResponse'] azure_storage_accounts: List of Azure Storage Accounts.
+        :param Sequence['ConnStringInfoResponse'] connection_strings: Connection strings.
+        :param 'CorsSettingsResponse' cors: Cross-Origin Resource Sharing (CORS) settings.
+        :param Sequence[str] default_documents: Default documents.
+        :param bool detailed_error_logging_enabled: <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
+        :param str document_root: Document root.
+        :param 'ExperimentsResponse' experiments: This is work around for polymorphic types.
+        :param str ftps_state: State of FTP / FTPS service
+        :param int function_app_scale_limit: Maximum number of workers that a site can scale out to.
+               This setting only applies to the Consumption and Elastic Premium Plans
+        :param bool functions_runtime_scale_monitoring_enabled: Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+               the ScaleController will not monitor event sources directly, but will instead call to the
+               runtime to get scale status.
+        :param Sequence['HandlerMappingResponse'] handler_mappings: Handler mappings.
+        :param str health_check_path: Health check path
+        :param bool http20_enabled: Http20Enabled: configures a web site to allow clients to connect over http2.0
+        :param bool http_logging_enabled: <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
+        :param Sequence['IpSecurityRestrictionResponse'] ip_security_restrictions: IP security restrictions for main.
+        :param str java_container: Java container.
+        :param str java_container_version: Java container version.
+        :param str java_version: Java version.
+        :param str key_vault_reference_identity: Identity to use for Key Vault Reference authentication.
+        :param 'SiteLimitsResponse' limits: Site limits.
+        :param str linux_fx_version: Linux App Framework and version
+        :param str load_balancing: Site load balancing.
+        :param bool local_my_sql_enabled: <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
+        :param int logs_directory_size_limit: HTTP logs directory size limit.
+        :param str managed_pipeline_mode: Managed pipeline mode.
+        :param int managed_service_identity_id: Managed Service Identity Id
+        :param str min_tls_version: MinTlsVersion: configures the minimum version of TLS required for SSL requests
+        :param int minimum_elastic_instance_count: Number of minimum instance count for a site
+               This setting only applies to the Elastic Plans
+        :param str net_framework_version: .NET Framework version.
+        :param str node_version: Version of Node.js.
+        :param int number_of_workers: Number of workers.
+        :param str php_version: Version of PHP.
+        :param str power_shell_version: Version of PowerShell.
+        :param int pre_warmed_instance_count: Number of preWarmed instances.
+               This setting only applies to the Consumption and Elastic Plans
+        :param str public_network_access: Property to allow or block all public traffic.
+        :param str publishing_username: Publishing user name.
+        :param 'PushSettingsResponse' push: Push endpoint settings.
+        :param str python_version: Version of Python.
+        :param bool remote_debugging_enabled: <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
+        :param str remote_debugging_version: Remote debugging version.
+        :param bool request_tracing_enabled: <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
+        :param str request_tracing_expiration_time: Request tracing expiration time.
+        :param Sequence['IpSecurityRestrictionResponse'] scm_ip_security_restrictions: IP security restrictions for scm.
+        :param bool scm_ip_security_restrictions_use_main: IP security restrictions for scm to use main.
+        :param str scm_min_tls_version: ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+        :param str scm_type: SCM type.
+        :param str tracing_options: Tracing options.
+        :param bool use32_bit_worker_process: <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
+        :param Sequence['VirtualApplicationResponse'] virtual_applications: Virtual applications.
+        :param str vnet_name: Virtual Network name.
+        :param int vnet_private_ports_count: The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+        :param bool vnet_route_all_enabled: Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        :param bool web_sockets_enabled: <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
+        :param str website_time_zone: Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Time Zones
+        :param str windows_fx_version: Xenon App Framework and version
+        :param int x_managed_service_identity_id: Explicit Managed Service Identity Id
+        """
+        pulumi.set(__self__, "machine_key", machine_key)
+        if acr_use_managed_identity_creds is not None:
+            pulumi.set(__self__, "acr_use_managed_identity_creds", acr_use_managed_identity_creds)
+        if acr_user_managed_identity_id is not None:
+            pulumi.set(__self__, "acr_user_managed_identity_id", acr_user_managed_identity_id)
+        if always_on is not None:
+            pulumi.set(__self__, "always_on", always_on)
+        if api_definition is not None:
+            pulumi.set(__self__, "api_definition", api_definition)
+        if api_management_config is not None:
+            pulumi.set(__self__, "api_management_config", api_management_config)
+        if app_command_line is not None:
+            pulumi.set(__self__, "app_command_line", app_command_line)
+        if app_settings is not None:
+            pulumi.set(__self__, "app_settings", app_settings)
+        if auto_heal_enabled is not None:
+            pulumi.set(__self__, "auto_heal_enabled", auto_heal_enabled)
+        if auto_heal_rules is not None:
+            pulumi.set(__self__, "auto_heal_rules", auto_heal_rules)
+        if auto_swap_slot_name is not None:
+            pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
+        if azure_storage_accounts is not None:
+            pulumi.set(__self__, "azure_storage_accounts", azure_storage_accounts)
+        if connection_strings is not None:
+            pulumi.set(__self__, "connection_strings", connection_strings)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if default_documents is not None:
+            pulumi.set(__self__, "default_documents", default_documents)
+        if detailed_error_logging_enabled is not None:
+            pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
+        if document_root is not None:
+            pulumi.set(__self__, "document_root", document_root)
+        if experiments is not None:
+            pulumi.set(__self__, "experiments", experiments)
+        if ftps_state is not None:
+            pulumi.set(__self__, "ftps_state", ftps_state)
+        if function_app_scale_limit is not None:
+            pulumi.set(__self__, "function_app_scale_limit", function_app_scale_limit)
+        if functions_runtime_scale_monitoring_enabled is not None:
+            pulumi.set(__self__, "functions_runtime_scale_monitoring_enabled", functions_runtime_scale_monitoring_enabled)
+        if handler_mappings is not None:
+            pulumi.set(__self__, "handler_mappings", handler_mappings)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if http20_enabled is None:
+            http20_enabled = True
+        if http20_enabled is not None:
+            pulumi.set(__self__, "http20_enabled", http20_enabled)
+        if http_logging_enabled is not None:
+            pulumi.set(__self__, "http_logging_enabled", http_logging_enabled)
+        if ip_security_restrictions is not None:
+            pulumi.set(__self__, "ip_security_restrictions", ip_security_restrictions)
+        if java_container is not None:
+            pulumi.set(__self__, "java_container", java_container)
+        if java_container_version is not None:
+            pulumi.set(__self__, "java_container_version", java_container_version)
+        if java_version is not None:
+            pulumi.set(__self__, "java_version", java_version)
+        if key_vault_reference_identity is not None:
+            pulumi.set(__self__, "key_vault_reference_identity", key_vault_reference_identity)
+        if limits is not None:
+            pulumi.set(__self__, "limits", limits)
+        if linux_fx_version is not None:
+            pulumi.set(__self__, "linux_fx_version", linux_fx_version)
+        if load_balancing is not None:
+            pulumi.set(__self__, "load_balancing", load_balancing)
+        if local_my_sql_enabled is None:
+            local_my_sql_enabled = False
+        if local_my_sql_enabled is not None:
+            pulumi.set(__self__, "local_my_sql_enabled", local_my_sql_enabled)
+        if logs_directory_size_limit is not None:
+            pulumi.set(__self__, "logs_directory_size_limit", logs_directory_size_limit)
+        if managed_pipeline_mode is not None:
+            pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if managed_service_identity_id is not None:
+            pulumi.set(__self__, "managed_service_identity_id", managed_service_identity_id)
+        if min_tls_version is not None:
+            pulumi.set(__self__, "min_tls_version", min_tls_version)
+        if minimum_elastic_instance_count is not None:
+            pulumi.set(__self__, "minimum_elastic_instance_count", minimum_elastic_instance_count)
+        if net_framework_version is None:
+            net_framework_version = 'v4.6'
+        if net_framework_version is not None:
+            pulumi.set(__self__, "net_framework_version", net_framework_version)
+        if node_version is not None:
+            pulumi.set(__self__, "node_version", node_version)
+        if number_of_workers is not None:
+            pulumi.set(__self__, "number_of_workers", number_of_workers)
+        if php_version is not None:
+            pulumi.set(__self__, "php_version", php_version)
+        if power_shell_version is not None:
+            pulumi.set(__self__, "power_shell_version", power_shell_version)
+        if pre_warmed_instance_count is not None:
+            pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if publishing_username is not None:
+            pulumi.set(__self__, "publishing_username", publishing_username)
+        if push is not None:
+            pulumi.set(__self__, "push", push)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+        if remote_debugging_enabled is not None:
+            pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
+        if remote_debugging_version is not None:
+            pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if request_tracing_enabled is not None:
+            pulumi.set(__self__, "request_tracing_enabled", request_tracing_enabled)
+        if request_tracing_expiration_time is not None:
+            pulumi.set(__self__, "request_tracing_expiration_time", request_tracing_expiration_time)
+        if scm_ip_security_restrictions is not None:
+            pulumi.set(__self__, "scm_ip_security_restrictions", scm_ip_security_restrictions)
+        if scm_ip_security_restrictions_use_main is not None:
+            pulumi.set(__self__, "scm_ip_security_restrictions_use_main", scm_ip_security_restrictions_use_main)
+        if scm_min_tls_version is not None:
+            pulumi.set(__self__, "scm_min_tls_version", scm_min_tls_version)
+        if scm_type is not None:
+            pulumi.set(__self__, "scm_type", scm_type)
+        if tracing_options is not None:
+            pulumi.set(__self__, "tracing_options", tracing_options)
+        if use32_bit_worker_process is not None:
+            pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
+        if virtual_applications is not None:
+            pulumi.set(__self__, "virtual_applications", virtual_applications)
+        if vnet_name is not None:
+            pulumi.set(__self__, "vnet_name", vnet_name)
+        if vnet_private_ports_count is not None:
+            pulumi.set(__self__, "vnet_private_ports_count", vnet_private_ports_count)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+        if web_sockets_enabled is not None:
+            pulumi.set(__self__, "web_sockets_enabled", web_sockets_enabled)
+        if website_time_zone is not None:
+            pulumi.set(__self__, "website_time_zone", website_time_zone)
+        if windows_fx_version is not None:
+            pulumi.set(__self__, "windows_fx_version", windows_fx_version)
+        if x_managed_service_identity_id is not None:
+            pulumi.set(__self__, "x_managed_service_identity_id", x_managed_service_identity_id)
+
+    @property
+    @pulumi.getter(name="machineKey")
+    def machine_key(self) -> 'outputs.SiteMachineKeyResponse':
+        """
+        Site MachineKey.
+        """
+        return pulumi.get(self, "machine_key")
+
+    @property
+    @pulumi.getter(name="acrUseManagedIdentityCreds")
+    def acr_use_managed_identity_creds(self) -> Optional[bool]:
+        """
+        Flag to use Managed Identity Creds for ACR pull
+        """
+        return pulumi.get(self, "acr_use_managed_identity_creds")
+
+    @property
+    @pulumi.getter(name="acrUserManagedIdentityID")
+    def acr_user_managed_identity_id(self) -> Optional[str]:
+        """
+        If using user managed identity, the user managed identity ClientId
+        """
+        return pulumi.get(self, "acr_user_managed_identity_id")
+
+    @property
+    @pulumi.getter(name="alwaysOn")
+    def always_on(self) -> Optional[bool]:
+        """
+        <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "always_on")
+
+    @property
+    @pulumi.getter(name="apiDefinition")
+    def api_definition(self) -> Optional['outputs.ApiDefinitionInfoResponse']:
+        """
+        Information about the formal API definition for the app.
+        """
+        return pulumi.get(self, "api_definition")
+
+    @property
+    @pulumi.getter(name="apiManagementConfig")
+    def api_management_config(self) -> Optional['outputs.ApiManagementConfigResponse']:
+        """
+        Azure API management settings linked to the app.
+        """
+        return pulumi.get(self, "api_management_config")
+
+    @property
+    @pulumi.getter(name="appCommandLine")
+    def app_command_line(self) -> Optional[str]:
+        """
+        App command line to launch.
+        """
+        return pulumi.get(self, "app_command_line")
+
+    @property
+    @pulumi.getter(name="appSettings")
+    def app_settings(self) -> Optional[Sequence['outputs.NameValuePairResponse']]:
+        """
+        Application settings.
+        """
+        return pulumi.get(self, "app_settings")
+
+    @property
+    @pulumi.getter(name="autoHealEnabled")
+    def auto_heal_enabled(self) -> Optional[bool]:
+        """
+        <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "auto_heal_enabled")
+
+    @property
+    @pulumi.getter(name="autoHealRules")
+    def auto_heal_rules(self) -> Optional['outputs.AutoHealRulesResponse']:
+        """
+        Auto Heal rules.
+        """
+        return pulumi.get(self, "auto_heal_rules")
+
+    @property
+    @pulumi.getter(name="autoSwapSlotName")
+    def auto_swap_slot_name(self) -> Optional[str]:
+        """
+        Auto-swap slot name.
+        """
+        return pulumi.get(self, "auto_swap_slot_name")
+
+    @property
+    @pulumi.getter(name="azureStorageAccounts")
+    def azure_storage_accounts(self) -> Optional[Mapping[str, 'outputs.AzureStorageInfoValueResponse']]:
+        """
+        List of Azure Storage Accounts.
+        """
+        return pulumi.get(self, "azure_storage_accounts")
+
+    @property
+    @pulumi.getter(name="connectionStrings")
+    def connection_strings(self) -> Optional[Sequence['outputs.ConnStringInfoResponse']]:
+        """
+        Connection strings.
+        """
+        return pulumi.get(self, "connection_strings")
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional['outputs.CorsSettingsResponse']:
+        """
+        Cross-Origin Resource Sharing (CORS) settings.
+        """
+        return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="defaultDocuments")
+    def default_documents(self) -> Optional[Sequence[str]]:
+        """
+        Default documents.
+        """
+        return pulumi.get(self, "default_documents")
+
+    @property
+    @pulumi.getter(name="detailedErrorLoggingEnabled")
+    def detailed_error_logging_enabled(self) -> Optional[bool]:
+        """
+        <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "detailed_error_logging_enabled")
+
+    @property
+    @pulumi.getter(name="documentRoot")
+    def document_root(self) -> Optional[str]:
+        """
+        Document root.
+        """
+        return pulumi.get(self, "document_root")
+
+    @property
+    @pulumi.getter
+    def experiments(self) -> Optional['outputs.ExperimentsResponse']:
+        """
+        This is work around for polymorphic types.
+        """
+        return pulumi.get(self, "experiments")
+
+    @property
+    @pulumi.getter(name="ftpsState")
+    def ftps_state(self) -> Optional[str]:
+        """
+        State of FTP / FTPS service
+        """
+        return pulumi.get(self, "ftps_state")
+
+    @property
+    @pulumi.getter(name="functionAppScaleLimit")
+    def function_app_scale_limit(self) -> Optional[int]:
+        """
+        Maximum number of workers that a site can scale out to.
+        This setting only applies to the Consumption and Elastic Premium Plans
+        """
+        return pulumi.get(self, "function_app_scale_limit")
+
+    @property
+    @pulumi.getter(name="functionsRuntimeScaleMonitoringEnabled")
+    def functions_runtime_scale_monitoring_enabled(self) -> Optional[bool]:
+        """
+        Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+        the ScaleController will not monitor event sources directly, but will instead call to the
+        runtime to get scale status.
+        """
+        return pulumi.get(self, "functions_runtime_scale_monitoring_enabled")
+
+    @property
+    @pulumi.getter(name="handlerMappings")
+    def handler_mappings(self) -> Optional[Sequence['outputs.HandlerMappingResponse']]:
+        """
+        Handler mappings.
+        """
+        return pulumi.get(self, "handler_mappings")
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[str]:
+        """
+        Health check path
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @property
+    @pulumi.getter(name="http20Enabled")
+    def http20_enabled(self) -> Optional[bool]:
+        """
+        Http20Enabled: configures a web site to allow clients to connect over http2.0
+        """
+        return pulumi.get(self, "http20_enabled")
+
+    @property
+    @pulumi.getter(name="httpLoggingEnabled")
+    def http_logging_enabled(self) -> Optional[bool]:
+        """
+        <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "http_logging_enabled")
+
+    @property
+    @pulumi.getter(name="ipSecurityRestrictions")
+    def ip_security_restrictions(self) -> Optional[Sequence['outputs.IpSecurityRestrictionResponse']]:
+        """
+        IP security restrictions for main.
+        """
+        return pulumi.get(self, "ip_security_restrictions")
+
+    @property
+    @pulumi.getter(name="javaContainer")
+    def java_container(self) -> Optional[str]:
+        """
+        Java container.
+        """
+        return pulumi.get(self, "java_container")
+
+    @property
+    @pulumi.getter(name="javaContainerVersion")
+    def java_container_version(self) -> Optional[str]:
+        """
+        Java container version.
+        """
+        return pulumi.get(self, "java_container_version")
+
+    @property
+    @pulumi.getter(name="javaVersion")
+    def java_version(self) -> Optional[str]:
+        """
+        Java version.
+        """
+        return pulumi.get(self, "java_version")
+
+    @property
+    @pulumi.getter(name="keyVaultReferenceIdentity")
+    def key_vault_reference_identity(self) -> Optional[str]:
+        """
+        Identity to use for Key Vault Reference authentication.
+        """
+        return pulumi.get(self, "key_vault_reference_identity")
+
+    @property
+    @pulumi.getter
+    def limits(self) -> Optional['outputs.SiteLimitsResponse']:
+        """
+        Site limits.
+        """
+        return pulumi.get(self, "limits")
+
+    @property
+    @pulumi.getter(name="linuxFxVersion")
+    def linux_fx_version(self) -> Optional[str]:
+        """
+        Linux App Framework and version
+        """
+        return pulumi.get(self, "linux_fx_version")
+
+    @property
+    @pulumi.getter(name="loadBalancing")
+    def load_balancing(self) -> Optional[str]:
+        """
+        Site load balancing.
+        """
+        return pulumi.get(self, "load_balancing")
+
+    @property
+    @pulumi.getter(name="localMySqlEnabled")
+    def local_my_sql_enabled(self) -> Optional[bool]:
+        """
+        <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "local_my_sql_enabled")
+
+    @property
+    @pulumi.getter(name="logsDirectorySizeLimit")
+    def logs_directory_size_limit(self) -> Optional[int]:
+        """
+        HTTP logs directory size limit.
+        """
+        return pulumi.get(self, "logs_directory_size_limit")
+
+    @property
+    @pulumi.getter(name="managedPipelineMode")
+    def managed_pipeline_mode(self) -> Optional[str]:
+        """
+        Managed pipeline mode.
+        """
+        return pulumi.get(self, "managed_pipeline_mode")
+
+    @property
+    @pulumi.getter(name="managedServiceIdentityId")
+    def managed_service_identity_id(self) -> Optional[int]:
+        """
+        Managed Service Identity Id
+        """
+        return pulumi.get(self, "managed_service_identity_id")
+
+    @property
+    @pulumi.getter(name="minTlsVersion")
+    def min_tls_version(self) -> Optional[str]:
+        """
+        MinTlsVersion: configures the minimum version of TLS required for SSL requests
+        """
+        return pulumi.get(self, "min_tls_version")
+
+    @property
+    @pulumi.getter(name="minimumElasticInstanceCount")
+    def minimum_elastic_instance_count(self) -> Optional[int]:
+        """
+        Number of minimum instance count for a site
+        This setting only applies to the Elastic Plans
+        """
+        return pulumi.get(self, "minimum_elastic_instance_count")
+
+    @property
+    @pulumi.getter(name="netFrameworkVersion")
+    def net_framework_version(self) -> Optional[str]:
+        """
+        .NET Framework version.
+        """
+        return pulumi.get(self, "net_framework_version")
+
+    @property
+    @pulumi.getter(name="nodeVersion")
+    def node_version(self) -> Optional[str]:
+        """
+        Version of Node.js.
+        """
+        return pulumi.get(self, "node_version")
+
+    @property
+    @pulumi.getter(name="numberOfWorkers")
+    def number_of_workers(self) -> Optional[int]:
+        """
+        Number of workers.
+        """
+        return pulumi.get(self, "number_of_workers")
+
+    @property
+    @pulumi.getter(name="phpVersion")
+    def php_version(self) -> Optional[str]:
+        """
+        Version of PHP.
+        """
+        return pulumi.get(self, "php_version")
+
+    @property
+    @pulumi.getter(name="powerShellVersion")
+    def power_shell_version(self) -> Optional[str]:
+        """
+        Version of PowerShell.
+        """
+        return pulumi.get(self, "power_shell_version")
+
+    @property
+    @pulumi.getter(name="preWarmedInstanceCount")
+    def pre_warmed_instance_count(self) -> Optional[int]:
+        """
+        Number of preWarmed instances.
+        This setting only applies to the Consumption and Elastic Plans
+        """
+        return pulumi.get(self, "pre_warmed_instance_count")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Property to allow or block all public traffic.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="publishingUsername")
+    def publishing_username(self) -> Optional[str]:
+        """
+        Publishing user name.
+        """
+        return pulumi.get(self, "publishing_username")
+
+    @property
+    @pulumi.getter
+    def push(self) -> Optional['outputs.PushSettingsResponse']:
+        """
+        Push endpoint settings.
+        """
+        return pulumi.get(self, "push")
+
+    @property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> Optional[str]:
+        """
+        Version of Python.
+        """
+        return pulumi.get(self, "python_version")
+
+    @property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> Optional[bool]:
+        """
+        <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "remote_debugging_enabled")
+
+    @property
+    @pulumi.getter(name="remoteDebuggingVersion")
+    def remote_debugging_version(self) -> Optional[str]:
+        """
+        Remote debugging version.
+        """
+        return pulumi.get(self, "remote_debugging_version")
+
+    @property
+    @pulumi.getter(name="requestTracingEnabled")
+    def request_tracing_enabled(self) -> Optional[bool]:
+        """
+        <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "request_tracing_enabled")
+
+    @property
+    @pulumi.getter(name="requestTracingExpirationTime")
+    def request_tracing_expiration_time(self) -> Optional[str]:
+        """
+        Request tracing expiration time.
+        """
+        return pulumi.get(self, "request_tracing_expiration_time")
+
+    @property
+    @pulumi.getter(name="scmIpSecurityRestrictions")
+    def scm_ip_security_restrictions(self) -> Optional[Sequence['outputs.IpSecurityRestrictionResponse']]:
+        """
+        IP security restrictions for scm.
+        """
+        return pulumi.get(self, "scm_ip_security_restrictions")
+
+    @property
+    @pulumi.getter(name="scmIpSecurityRestrictionsUseMain")
+    def scm_ip_security_restrictions_use_main(self) -> Optional[bool]:
+        """
+        IP security restrictions for scm to use main.
+        """
+        return pulumi.get(self, "scm_ip_security_restrictions_use_main")
+
+    @property
+    @pulumi.getter(name="scmMinTlsVersion")
+    def scm_min_tls_version(self) -> Optional[str]:
+        """
+        ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+        """
+        return pulumi.get(self, "scm_min_tls_version")
+
+    @property
+    @pulumi.getter(name="scmType")
+    def scm_type(self) -> Optional[str]:
+        """
+        SCM type.
+        """
+        return pulumi.get(self, "scm_type")
+
+    @property
+    @pulumi.getter(name="tracingOptions")
+    def tracing_options(self) -> Optional[str]:
+        """
+        Tracing options.
+        """
+        return pulumi.get(self, "tracing_options")
+
+    @property
+    @pulumi.getter(name="use32BitWorkerProcess")
+    def use32_bit_worker_process(self) -> Optional[bool]:
+        """
+        <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "use32_bit_worker_process")
+
+    @property
+    @pulumi.getter(name="virtualApplications")
+    def virtual_applications(self) -> Optional[Sequence['outputs.VirtualApplicationResponse']]:
+        """
+        Virtual applications.
+        """
+        return pulumi.get(self, "virtual_applications")
+
+    @property
+    @pulumi.getter(name="vnetName")
+    def vnet_name(self) -> Optional[str]:
+        """
+        Virtual Network name.
+        """
+        return pulumi.get(self, "vnet_name")
+
+    @property
+    @pulumi.getter(name="vnetPrivatePortsCount")
+    def vnet_private_ports_count(self) -> Optional[int]:
+        """
+        The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+        """
+        return pulumi.get(self, "vnet_private_ports_count")
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[bool]:
+        """
+        Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @property
+    @pulumi.getter(name="webSocketsEnabled")
+    def web_sockets_enabled(self) -> Optional[bool]:
+        """
+        <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "web_sockets_enabled")
+
+    @property
+    @pulumi.getter(name="websiteTimeZone")
+    def website_time_zone(self) -> Optional[str]:
+        """
+        Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Time Zones
+        """
+        return pulumi.get(self, "website_time_zone")
+
+    @property
+    @pulumi.getter(name="windowsFxVersion")
+    def windows_fx_version(self) -> Optional[str]:
+        """
+        Xenon App Framework and version
+        """
+        return pulumi.get(self, "windows_fx_version")
+
+    @property
+    @pulumi.getter(name="xManagedServiceIdentityId")
+    def x_managed_service_identity_id(self) -> Optional[int]:
+        """
+        Explicit Managed Service Identity Id
+        """
+        return pulumi.get(self, "x_managed_service_identity_id")
+
+
+@pulumi.output_type
+class SiteLimitsResponse(dict):
+    """
+    Metric limits set on an app.
+    """
+    def __init__(__self__, *,
+                 max_disk_size_in_mb: Optional[float] = None,
+                 max_memory_in_mb: Optional[float] = None,
+                 max_percentage_cpu: Optional[float] = None):
+        """
+        Metric limits set on an app.
+        :param float max_disk_size_in_mb: Maximum allowed disk size usage in MB.
+        :param float max_memory_in_mb: Maximum allowed memory usage in MB.
+        :param float max_percentage_cpu: Maximum allowed CPU usage percentage.
+        """
+        if max_disk_size_in_mb is not None:
+            pulumi.set(__self__, "max_disk_size_in_mb", max_disk_size_in_mb)
+        if max_memory_in_mb is not None:
+            pulumi.set(__self__, "max_memory_in_mb", max_memory_in_mb)
+        if max_percentage_cpu is not None:
+            pulumi.set(__self__, "max_percentage_cpu", max_percentage_cpu)
+
+    @property
+    @pulumi.getter(name="maxDiskSizeInMb")
+    def max_disk_size_in_mb(self) -> Optional[float]:
+        """
+        Maximum allowed disk size usage in MB.
+        """
+        return pulumi.get(self, "max_disk_size_in_mb")
+
+    @property
+    @pulumi.getter(name="maxMemoryInMb")
+    def max_memory_in_mb(self) -> Optional[float]:
+        """
+        Maximum allowed memory usage in MB.
+        """
+        return pulumi.get(self, "max_memory_in_mb")
+
+    @property
+    @pulumi.getter(name="maxPercentageCpu")
+    def max_percentage_cpu(self) -> Optional[float]:
+        """
+        Maximum allowed CPU usage percentage.
+        """
+        return pulumi.get(self, "max_percentage_cpu")
+
+
+@pulumi.output_type
+class SiteMachineKeyResponse(dict):
+    """
+    MachineKey of an app.
+    """
+    def __init__(__self__, *,
+                 decryption: Optional[str] = None,
+                 decryption_key: Optional[str] = None,
+                 validation: Optional[str] = None,
+                 validation_key: Optional[str] = None):
+        """
+        MachineKey of an app.
+        :param str decryption: Algorithm used for decryption.
+        :param str decryption_key: Decryption key.
+        :param str validation: MachineKey validation.
+        :param str validation_key: Validation key.
+        """
+        if decryption is not None:
+            pulumi.set(__self__, "decryption", decryption)
+        if decryption_key is not None:
+            pulumi.set(__self__, "decryption_key", decryption_key)
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
+        if validation_key is not None:
+            pulumi.set(__self__, "validation_key", validation_key)
+
+    @property
+    @pulumi.getter
+    def decryption(self) -> Optional[str]:
+        """
+        Algorithm used for decryption.
+        """
+        return pulumi.get(self, "decryption")
+
+    @property
+    @pulumi.getter(name="decryptionKey")
+    def decryption_key(self) -> Optional[str]:
+        """
+        Decryption key.
+        """
+        return pulumi.get(self, "decryption_key")
+
+    @property
+    @pulumi.getter
+    def validation(self) -> Optional[str]:
+        """
+        MachineKey validation.
+        """
+        return pulumi.get(self, "validation")
+
+    @property
+    @pulumi.getter(name="validationKey")
+    def validation_key(self) -> Optional[str]:
+        """
+        Validation key.
+        """
+        return pulumi.get(self, "validation_key")
 
 
 @pulumi.output_type
@@ -3695,6 +6338,109 @@ class SkuDescriptionResponse(dict):
         Service tier of the resource SKU.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class SlotSwapStatusResponse(dict):
+    """
+    The status of the last successful slot swap operation.
+    """
+    def __init__(__self__, *,
+                 destination_slot_name: str,
+                 source_slot_name: str,
+                 timestamp_utc: str):
+        """
+        The status of the last successful slot swap operation.
+        :param str destination_slot_name: The destination slot of the last swap operation.
+        :param str source_slot_name: The source slot of the last swap operation.
+        :param str timestamp_utc: The time the last successful slot swap completed.
+        """
+        pulumi.set(__self__, "destination_slot_name", destination_slot_name)
+        pulumi.set(__self__, "source_slot_name", source_slot_name)
+        pulumi.set(__self__, "timestamp_utc", timestamp_utc)
+
+    @property
+    @pulumi.getter(name="destinationSlotName")
+    def destination_slot_name(self) -> str:
+        """
+        The destination slot of the last swap operation.
+        """
+        return pulumi.get(self, "destination_slot_name")
+
+    @property
+    @pulumi.getter(name="sourceSlotName")
+    def source_slot_name(self) -> str:
+        """
+        The source slot of the last swap operation.
+        """
+        return pulumi.get(self, "source_slot_name")
+
+    @property
+    @pulumi.getter(name="timestampUtc")
+    def timestamp_utc(self) -> str:
+        """
+        The time the last successful slot swap completed.
+        """
+        return pulumi.get(self, "timestamp_utc")
+
+
+@pulumi.output_type
+class SlowRequestsBasedTriggerResponse(dict):
+    """
+    Trigger based on request execution time.
+    """
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 path: Optional[str] = None,
+                 time_interval: Optional[str] = None,
+                 time_taken: Optional[str] = None):
+        """
+        Trigger based on request execution time.
+        :param int count: Request Count.
+        :param str path: Request Path.
+        :param str time_interval: Time interval.
+        :param str time_taken: Time taken.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+        if time_taken is not None:
+            pulumi.set(__self__, "time_taken", time_taken)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        Request Count.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        Request Path.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> Optional[str]:
+        """
+        Time interval.
+        """
+        return pulumi.get(self, "time_interval")
+
+    @property
+    @pulumi.getter(name="timeTaken")
+    def time_taken(self) -> Optional[str]:
+        """
+        Time taken.
+        """
+        return pulumi.get(self, "time_taken")
 
 
 @pulumi.output_type
@@ -4141,6 +6887,144 @@ class StaticSiteUserProvidedFunctionAppResponse(dict):
 
 
 @pulumi.output_type
+class StatusCodesBasedTriggerResponse(dict):
+    """
+    Trigger based on status code.
+    """
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 path: Optional[str] = None,
+                 status: Optional[int] = None,
+                 sub_status: Optional[int] = None,
+                 time_interval: Optional[str] = None,
+                 win32_status: Optional[int] = None):
+        """
+        Trigger based on status code.
+        :param int count: Request Count.
+        :param str path: Request Path
+        :param int status: HTTP status code.
+        :param int sub_status: Request Sub Status.
+        :param str time_interval: Time interval.
+        :param int win32_status: Win32 error code.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if sub_status is not None:
+            pulumi.set(__self__, "sub_status", sub_status)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+        if win32_status is not None:
+            pulumi.set(__self__, "win32_status", win32_status)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        Request Count.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        Request Path
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[int]:
+        """
+        HTTP status code.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="subStatus")
+    def sub_status(self) -> Optional[int]:
+        """
+        Request Sub Status.
+        """
+        return pulumi.get(self, "sub_status")
+
+    @property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> Optional[str]:
+        """
+        Time interval.
+        """
+        return pulumi.get(self, "time_interval")
+
+    @property
+    @pulumi.getter(name="win32Status")
+    def win32_status(self) -> Optional[int]:
+        """
+        Win32 error code.
+        """
+        return pulumi.get(self, "win32_status")
+
+
+@pulumi.output_type
+class StatusCodesRangeBasedTriggerResponse(dict):
+    """
+    Trigger based on range of status codes.
+    """
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 path: Optional[str] = None,
+                 status_codes: Optional[str] = None,
+                 time_interval: Optional[str] = None):
+        """
+        Trigger based on range of status codes.
+        :param int count: Request Count.
+        :param str status_codes: HTTP status code.
+        :param str time_interval: Time interval.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if status_codes is not None:
+            pulumi.set(__self__, "status_codes", status_codes)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        Request Count.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Optional[str]:
+        """
+        HTTP status code.
+        """
+        return pulumi.get(self, "status_codes")
+
+    @property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> Optional[str]:
+        """
+        Time interval.
+        """
+        return pulumi.get(self, "time_interval")
+
+
+@pulumi.output_type
 class TokenStoreResponse(dict):
     """
     The configuration settings of the token store.
@@ -4369,5 +7253,257 @@ class UserAssignedIdentityResponse(dict):
         Principal Id of user assigned identity
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class VirtualApplicationResponse(dict):
+    """
+    Virtual application in an app.
+    """
+    def __init__(__self__, *,
+                 physical_path: Optional[str] = None,
+                 preload_enabled: Optional[bool] = None,
+                 virtual_directories: Optional[Sequence['outputs.VirtualDirectoryResponse']] = None,
+                 virtual_path: Optional[str] = None):
+        """
+        Virtual application in an app.
+        :param str physical_path: Physical path.
+        :param bool preload_enabled: <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
+        :param Sequence['VirtualDirectoryResponse'] virtual_directories: Virtual directories for virtual application.
+        :param str virtual_path: Virtual path.
+        """
+        if physical_path is not None:
+            pulumi.set(__self__, "physical_path", physical_path)
+        if preload_enabled is not None:
+            pulumi.set(__self__, "preload_enabled", preload_enabled)
+        if virtual_directories is not None:
+            pulumi.set(__self__, "virtual_directories", virtual_directories)
+        if virtual_path is not None:
+            pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @property
+    @pulumi.getter(name="physicalPath")
+    def physical_path(self) -> Optional[str]:
+        """
+        Physical path.
+        """
+        return pulumi.get(self, "physical_path")
+
+    @property
+    @pulumi.getter(name="preloadEnabled")
+    def preload_enabled(self) -> Optional[bool]:
+        """
+        <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "preload_enabled")
+
+    @property
+    @pulumi.getter(name="virtualDirectories")
+    def virtual_directories(self) -> Optional[Sequence['outputs.VirtualDirectoryResponse']]:
+        """
+        Virtual directories for virtual application.
+        """
+        return pulumi.get(self, "virtual_directories")
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> Optional[str]:
+        """
+        Virtual path.
+        """
+        return pulumi.get(self, "virtual_path")
+
+
+@pulumi.output_type
+class VirtualDirectoryResponse(dict):
+    """
+    Directory for virtual application.
+    """
+    def __init__(__self__, *,
+                 physical_path: Optional[str] = None,
+                 virtual_path: Optional[str] = None):
+        """
+        Directory for virtual application.
+        :param str physical_path: Physical path.
+        :param str virtual_path: Path to virtual application.
+        """
+        if physical_path is not None:
+            pulumi.set(__self__, "physical_path", physical_path)
+        if virtual_path is not None:
+            pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @property
+    @pulumi.getter(name="physicalPath")
+    def physical_path(self) -> Optional[str]:
+        """
+        Physical path.
+        """
+        return pulumi.get(self, "physical_path")
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> Optional[str]:
+        """
+        Path to virtual application.
+        """
+        return pulumi.get(self, "virtual_path")
+
+
+@pulumi.output_type
+class VirtualNetworkProfileResponse(dict):
+    """
+    Specification for using a Virtual Network.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str,
+                 subnet: Optional[str] = None):
+        """
+        Specification for using a Virtual Network.
+        :param str id: Resource id of the Virtual Network.
+        :param str name: Name of the Virtual Network (read-only).
+        :param str type: Resource type of the Virtual Network (read-only).
+        :param str subnet: Subnet within the Virtual Network.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource id of the Virtual Network.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Virtual Network (read-only).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type of the Virtual Network (read-only).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[str]:
+        """
+        Subnet within the Virtual Network.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
+class VnetRouteResponse(dict):
+    """
+    Virtual Network route contract used to pass routing information for a Virtual Network.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str,
+                 end_address: Optional[str] = None,
+                 kind: Optional[str] = None,
+                 route_type: Optional[str] = None,
+                 start_address: Optional[str] = None):
+        """
+        Virtual Network route contract used to pass routing information for a Virtual Network.
+        :param str id: Resource Id.
+        :param str name: Resource Name.
+        :param str type: Resource type.
+        :param str end_address: The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+        :param str kind: Kind of resource.
+        :param str route_type: The type of route this is:
+               DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
+               INHERITED - Routes inherited from the real Virtual Network routes
+               STATIC - Static route set on the app only
+               
+               These values will be used for syncing an app's routes with those from a Virtual Network.
+        :param str start_address: The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if end_address is not None:
+            pulumi.set(__self__, "end_address", end_address)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if route_type is not None:
+            pulumi.set(__self__, "route_type", route_type)
+        if start_address is not None:
+            pulumi.set(__self__, "start_address", start_address)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="endAddress")
+    def end_address(self) -> Optional[str]:
+        """
+        The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+        """
+        return pulumi.get(self, "end_address")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="routeType")
+    def route_type(self) -> Optional[str]:
+        """
+        The type of route this is:
+        DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
+        INHERITED - Routes inherited from the real Virtual Network routes
+        STATIC - Static route set on the app only
+
+        These values will be used for syncing an app's routes with those from a Virtual Network.
+        """
+        return pulumi.get(self, "route_type")
+
+    @property
+    @pulumi.getter(name="startAddress")
+    def start_address(self) -> Optional[str]:
+        """
+        The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+        """
+        return pulumi.get(self, "start_address")
 
 

@@ -39,6 +39,47 @@ namespace Pulumi.AzureNative.NetApp.V20200201
     }
 
     /// <summary>
+    /// The service level of the file system
+    /// </summary>
+    [EnumType]
+    public readonly struct PoolServiceLevel : IEquatable<PoolServiceLevel>
+    {
+        private readonly string _value;
+
+        private PoolServiceLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Standard service level
+        /// </summary>
+        public static PoolServiceLevel Standard { get; } = new PoolServiceLevel("Standard");
+        /// <summary>
+        /// Premium service level
+        /// </summary>
+        public static PoolServiceLevel Premium { get; } = new PoolServiceLevel("Premium");
+        /// <summary>
+        /// Ultra service level
+        /// </summary>
+        public static PoolServiceLevel Ultra { get; } = new PoolServiceLevel("Ultra");
+
+        public static bool operator ==(PoolServiceLevel left, PoolServiceLevel right) => left.Equals(right);
+        public static bool operator !=(PoolServiceLevel left, PoolServiceLevel right) => !left.Equals(right);
+
+        public static explicit operator string(PoolServiceLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PoolServiceLevel other && Equals(other);
+        public bool Equals(PoolServiceLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Schedule
     /// </summary>
     [EnumType]

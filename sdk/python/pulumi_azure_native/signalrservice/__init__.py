@@ -32,6 +32,10 @@ if typing.TYPE_CHECKING:
     v20200701preview = __v20200701preview
     import pulumi_azure_native.signalrservice.v20210401preview as __v20210401preview
     v20210401preview = __v20210401preview
+    import pulumi_azure_native.signalrservice.v20210601preview as __v20210601preview
+    v20210601preview = __v20210601preview
+    import pulumi_azure_native.signalrservice.v20210901preview as __v20210901preview
+    v20210901preview = __v20210901preview
     import pulumi_azure_native.signalrservice.v20211001 as __v20211001
     v20211001 = __v20211001
     import pulumi_azure_native.signalrservice.v20220201 as __v20220201
@@ -48,6 +52,8 @@ else:
     v20200501 = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20200501')
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20200701preview')
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20210401preview')
+    v20210601preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20210601preview')
+    v20210901preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20210901preview')
     v20211001 = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20211001')
     v20220201 = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20220201')
     v20220801preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20220801preview')

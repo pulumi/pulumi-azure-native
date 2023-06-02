@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetDpsCertificateArgs, GetDpsCertificateResult, GetDpsCertificateOutputArgs } from "./getDpsCertificate";
+export const getDpsCertificate: typeof import("./getDpsCertificate").getDpsCertificate = null as any;
+export const getDpsCertificateOutput: typeof import("./getDpsCertificate").getDpsCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getDpsCertificate","getDpsCertificateOutput"], () => require("./getDpsCertificate"));
+
 export { GetIotDpsResourceArgs, GetIotDpsResourceResult, GetIotDpsResourceOutputArgs } from "./getIotDpsResource";
 export const getIotDpsResource: typeof import("./getIotDpsResource").getIotDpsResource = null as any;
 export const getIotDpsResourceOutput: typeof import("./getIotDpsResource").getIotDpsResourceOutput = null as any;
 utilities.lazyLoad(exports, ["getIotDpsResource","getIotDpsResourceOutput"], () => require("./getIotDpsResource"));
+
+export { GetIotDpsResourcePrivateEndpointConnectionArgs, GetIotDpsResourcePrivateEndpointConnectionResult, GetIotDpsResourcePrivateEndpointConnectionOutputArgs } from "./getIotDpsResourcePrivateEndpointConnection";
+export const getIotDpsResourcePrivateEndpointConnection: typeof import("./getIotDpsResourcePrivateEndpointConnection").getIotDpsResourcePrivateEndpointConnection = null as any;
+export const getIotDpsResourcePrivateEndpointConnectionOutput: typeof import("./getIotDpsResourcePrivateEndpointConnection").getIotDpsResourcePrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getIotDpsResourcePrivateEndpointConnection","getIotDpsResourcePrivateEndpointConnectionOutput"], () => require("./getIotDpsResourcePrivateEndpointConnection"));
 
 export { IotDpsResourceArgs } from "./iotDpsResource";
 export type IotDpsResource = import("./iotDpsResource").IotDpsResource;

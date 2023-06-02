@@ -13,6 +13,26 @@ export const ActionType = {
  */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
+export const AssessmentStatusCode = {
+    /**
+     * The resource is healthy
+     */
+    Healthy: "Healthy",
+    /**
+     * The resource has a security issue that needs to be addressed
+     */
+    Unhealthy: "Unhealthy",
+    /**
+     * Assessment for this resource did not happen
+     */
+    NotApplicable: "NotApplicable",
+} as const;
+
+/**
+ * Programmatic code for the status of the assessment
+ */
+export type AssessmentStatusCode = (typeof AssessmentStatusCode)[keyof typeof AssessmentStatusCode];
+
 export const AssessmentType = {
     /**
      * Microsoft Defender for Cloud managed assessments
@@ -153,6 +173,26 @@ export const Severity = {
  * The severity level of the assessment
  */
 export type Severity = (typeof Severity)[keyof typeof Severity];
+
+export const Source = {
+    /**
+     * Resource is in Azure
+     */
+    Azure: "Azure",
+    /**
+     * Resource in an on premise machine connected to Azure cloud
+     */
+    OnPremise: "OnPremise",
+    /**
+     * SQL Resource in an on premise machine connected to Azure cloud
+     */
+    OnPremiseSql: "OnPremiseSql",
+} as const;
+
+/**
+ * The platform where the assessed resource resides
+ */
+export type Source = (typeof Source)[keyof typeof Source];
 
 export const Threats = {
     AccountBreach: "accountBreach",

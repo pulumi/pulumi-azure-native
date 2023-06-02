@@ -17,6 +17,7 @@ __all__ = [
     'ConfigurationExtensionResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
+    'HybridComputePrivateLinkScopePropertiesResponse',
     'IdentityResponse',
     'LocationDataResponse',
     'MachineExtensionInstanceViewResponse',
@@ -27,6 +28,10 @@ __all__ = [
     'OSProfileResponse',
     'OSProfileResponseLinuxConfiguration',
     'OSProfileResponseWindowsConfiguration',
+    'PrivateEndpointConnectionDataModelResponse',
+    'PrivateEndpointConnectionPropertiesResponse',
+    'PrivateEndpointPropertyResponse',
+    'PrivateLinkServiceConnectionStatePropertyResponse',
     'ServiceStatusResponse',
     'ServiceStatusesResponse',
     'SystemDataResponse',
@@ -331,6 +336,62 @@ class ErrorDetailResponse(dict):
         The error target.
         """
         return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class HybridComputePrivateLinkScopePropertiesResponse(dict):
+    """
+    Properties that define a Azure Arc PrivateLinkScope resource.
+    """
+    def __init__(__self__, *,
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionDataModelResponse'],
+                 private_link_scope_id: str,
+                 provisioning_state: str,
+                 public_network_access: Optional[str] = None):
+        """
+        Properties that define a Azure Arc PrivateLinkScope resource.
+        :param Sequence['PrivateEndpointConnectionDataModelResponse'] private_endpoint_connections: The collection of associated Private Endpoint Connections.
+        :param str private_link_scope_id: The Guid id of the private link scope.
+        :param str provisioning_state: Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+        :param str public_network_access: Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+        """
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        pulumi.set(__self__, "private_link_scope_id", private_link_scope_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionDataModelResponse']:
+        """
+        The collection of associated Private Endpoint Connections.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="privateLinkScopeId")
+    def private_link_scope_id(self) -> str:
+        """
+        The Guid id of the private link scope.
+        """
+        return pulumi.get(self, "private_link_scope_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+        """
+        return pulumi.get(self, "public_network_access")
 
 
 @pulumi.output_type
@@ -1447,6 +1508,186 @@ class OSProfileResponseWindowsConfiguration(dict):
         Specifies the patch mode.
         """
         return pulumi.get(self, "patch_mode")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionDataModelResponse(dict):
+    """
+    The Data Model for a Private Endpoint Connection associated with a Private Link Scope
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str,
+                 properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None):
+        """
+        The Data Model for a Private Endpoint Connection associated with a Private Link Scope
+        :param str id: The ARM Resource Id of the Private Endpoint.
+        :param str name: The Name of the Private Endpoint.
+        :param str type: Azure resource type
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: The Private Endpoint Connection properties.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ARM Resource Id of the Private Endpoint.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Name of the Private Endpoint.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.PrivateEndpointConnectionPropertiesResponse']:
+        """
+        The Private Endpoint Connection properties.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionPropertiesResponse(dict):
+    """
+    Properties of a private endpoint connection.
+    """
+    def __init__(__self__, *,
+                 group_ids: Sequence[str],
+                 provisioning_state: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse'] = None):
+        """
+        Properties of a private endpoint connection.
+        :param Sequence[str] group_ids: List of group IDs.
+        :param str provisioning_state: State of the private endpoint connection.
+        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        List of group IDs.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointPropertyResponse']:
+        """
+        Private endpoint which the connection belongs to.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse']:
+        """
+        Connection state of the private endpoint connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+
+@pulumi.output_type
+class PrivateEndpointPropertyResponse(dict):
+    """
+    Private endpoint which the connection belongs to.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Private endpoint which the connection belongs to.
+        :param str id: Resource id of the private endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource id of the private endpoint.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStatePropertyResponse(dict):
+    """
+    State of the private endpoint connection.
+    """
+    def __init__(__self__, *,
+                 actions_required: str,
+                 description: str,
+                 status: str):
+        """
+        State of the private endpoint connection.
+        :param str actions_required: The actions required for private link service connection.
+        :param str description: The private link service connection description.
+        :param str status: The private link service connection status.
+        """
+        pulumi.set(__self__, "actions_required", actions_required)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> str:
+        """
+        The actions required for private link service connection.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The private link service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

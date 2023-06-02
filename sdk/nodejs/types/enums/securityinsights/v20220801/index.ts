@@ -2,6 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ActionType = {
+    /**
+     * Modify an object's properties
+     */
+    ModifyProperties: "ModifyProperties",
+    /**
+     * Run a playbook on an object
+     */
+    RunPlaybook: "RunPlaybook",
+} as const;
+
+/**
+ * The type of the automation rule action
+ */
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
 export const AlertDetail = {
     /**
      * Alert display name
@@ -77,6 +93,276 @@ export const AttackTactic = {
  * The severity for alerts created by this alert rule.
  */
 export type AttackTactic = (typeof AttackTactic)[keyof typeof AttackTactic];
+
+export const AutomationRulePropertyConditionSupportedOperator = {
+    /**
+     * Evaluates if the property equals at least one of the condition values
+     */
+    Equals: "Equals",
+    /**
+     * Evaluates if the property does not equal any of the condition values
+     */
+    NotEquals: "NotEquals",
+    /**
+     * Evaluates if the property contains at least one of the condition values
+     */
+    Contains: "Contains",
+    /**
+     * Evaluates if the property does not contain any of the condition values
+     */
+    NotContains: "NotContains",
+    /**
+     * Evaluates if the property starts with any of the condition values
+     */
+    StartsWith: "StartsWith",
+    /**
+     * Evaluates if the property does not start with any of the condition values
+     */
+    NotStartsWith: "NotStartsWith",
+    /**
+     * Evaluates if the property ends with any of the condition values
+     */
+    EndsWith: "EndsWith",
+    /**
+     * Evaluates if the property does not end with any of the condition values
+     */
+    NotEndsWith: "NotEndsWith",
+} as const;
+
+export type AutomationRulePropertyConditionSupportedOperator = (typeof AutomationRulePropertyConditionSupportedOperator)[keyof typeof AutomationRulePropertyConditionSupportedOperator];
+
+export const AutomationRulePropertyConditionSupportedProperty = {
+    /**
+     * The title of the incident
+     */
+    IncidentTitle: "IncidentTitle",
+    /**
+     * The description of the incident
+     */
+    IncidentDescription: "IncidentDescription",
+    /**
+     * The severity of the incident
+     */
+    IncidentSeverity: "IncidentSeverity",
+    /**
+     * The status of the incident
+     */
+    IncidentStatus: "IncidentStatus",
+    /**
+     * The related Analytic rule ids of the incident
+     */
+    IncidentRelatedAnalyticRuleIds: "IncidentRelatedAnalyticRuleIds",
+    /**
+     * The tactics of the incident
+     */
+    IncidentTactics: "IncidentTactics",
+    /**
+     * The labels of the incident
+     */
+    IncidentLabel: "IncidentLabel",
+    /**
+     * The provider name of the incident
+     */
+    IncidentProviderName: "IncidentProviderName",
+    /**
+     * The account Azure Active Directory tenant id
+     */
+    AccountAadTenantId: "AccountAadTenantId",
+    /**
+     * The account Azure Active Directory user id
+     */
+    AccountAadUserId: "AccountAadUserId",
+    /**
+     * The account name
+     */
+    AccountName: "AccountName",
+    /**
+     * The account NetBIOS domain name
+     */
+    AccountNTDomain: "AccountNTDomain",
+    /**
+     * The account Azure Active Directory Passport User ID
+     */
+    AccountPUID: "AccountPUID",
+    /**
+     * The account security identifier
+     */
+    AccountSid: "AccountSid",
+    /**
+     * The account unique identifier
+     */
+    AccountObjectGuid: "AccountObjectGuid",
+    /**
+     * The account user principal name suffix
+     */
+    AccountUPNSuffix: "AccountUPNSuffix",
+    /**
+     * The name of the product of the alert
+     */
+    AlertProductNames: "AlertProductNames",
+    /**
+     * The Azure resource id
+     */
+    AzureResourceResourceId: "AzureResourceResourceId",
+    /**
+     * The Azure resource subscription id
+     */
+    AzureResourceSubscriptionId: "AzureResourceSubscriptionId",
+    /**
+     * The cloud application identifier
+     */
+    CloudApplicationAppId: "CloudApplicationAppId",
+    /**
+     * The cloud application name
+     */
+    CloudApplicationAppName: "CloudApplicationAppName",
+    /**
+     * The dns record domain name
+     */
+    DNSDomainName: "DNSDomainName",
+    /**
+     * The file directory full path
+     */
+    FileDirectory: "FileDirectory",
+    /**
+     * The file name without path
+     */
+    FileName: "FileName",
+    /**
+     * The file hash value
+     */
+    FileHashValue: "FileHashValue",
+    /**
+     * The host Azure resource id
+     */
+    HostAzureID: "HostAzureID",
+    /**
+     * The host name without domain
+     */
+    HostName: "HostName",
+    /**
+     * The host NetBIOS name
+     */
+    HostNetBiosName: "HostNetBiosName",
+    /**
+     * The host NT domain
+     */
+    HostNTDomain: "HostNTDomain",
+    /**
+     * The host operating system
+     */
+    HostOSVersion: "HostOSVersion",
+    /**
+     * "The IoT device id
+     */
+    IoTDeviceId: "IoTDeviceId",
+    /**
+     * The IoT device name
+     */
+    IoTDeviceName: "IoTDeviceName",
+    /**
+     * The IoT device type
+     */
+    IoTDeviceType: "IoTDeviceType",
+    /**
+     * The IoT device vendor
+     */
+    IoTDeviceVendor: "IoTDeviceVendor",
+    /**
+     * The IoT device model
+     */
+    IoTDeviceModel: "IoTDeviceModel",
+    /**
+     * The IoT device operating system
+     */
+    IoTDeviceOperatingSystem: "IoTDeviceOperatingSystem",
+    /**
+     * The IP address
+     */
+    IPAddress: "IPAddress",
+    /**
+     * The mailbox display name
+     */
+    MailboxDisplayName: "MailboxDisplayName",
+    /**
+     * The mailbox primary address
+     */
+    MailboxPrimaryAddress: "MailboxPrimaryAddress",
+    /**
+     * The mailbox user principal name
+     */
+    MailboxUPN: "MailboxUPN",
+    /**
+     * The mail message delivery action
+     */
+    MailMessageDeliveryAction: "MailMessageDeliveryAction",
+    /**
+     * The mail message delivery location
+     */
+    MailMessageDeliveryLocation: "MailMessageDeliveryLocation",
+    /**
+     * The mail message recipient
+     */
+    MailMessageRecipient: "MailMessageRecipient",
+    /**
+     * The mail message sender IP address
+     */
+    MailMessageSenderIP: "MailMessageSenderIP",
+    /**
+     * The mail message subject
+     */
+    MailMessageSubject: "MailMessageSubject",
+    /**
+     * The mail message P1 sender
+     */
+    MailMessageP1Sender: "MailMessageP1Sender",
+    /**
+     * The mail message P2 sender
+     */
+    MailMessageP2Sender: "MailMessageP2Sender",
+    /**
+     * The malware category
+     */
+    MalwareCategory: "MalwareCategory",
+    /**
+     * The malware name
+     */
+    MalwareName: "MalwareName",
+    /**
+     * The process execution command line
+     */
+    ProcessCommandLine: "ProcessCommandLine",
+    /**
+     * The process id
+     */
+    ProcessId: "ProcessId",
+    /**
+     * The registry key path
+     */
+    RegistryKey: "RegistryKey",
+    /**
+     * The registry key value in string formatted representation
+     */
+    RegistryValueData: "RegistryValueData",
+    /**
+     * The url
+     */
+    Url: "Url",
+} as const;
+
+/**
+ * The property to evaluate in an automation rule property condition
+ */
+export type AutomationRulePropertyConditionSupportedProperty = (typeof AutomationRulePropertyConditionSupportedProperty)[keyof typeof AutomationRulePropertyConditionSupportedProperty];
+
+export const ConditionType = {
+    /**
+     * Evaluate an object property value
+     */
+    Property: "Property",
+} as const;
+
+export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
 
 export const DataConnectorKind = {
     AzureActiveDirectory: "AzureActiveDirectory",
@@ -194,6 +480,98 @@ export const EventGroupingAggregationKind = {
  */
 export type EventGroupingAggregationKind = (typeof EventGroupingAggregationKind)[keyof typeof EventGroupingAggregationKind];
 
+export const IncidentClassification = {
+    /**
+     * Incident classification was undetermined
+     */
+    Undetermined: "Undetermined",
+    /**
+     * Incident was true positive
+     */
+    TruePositive: "TruePositive",
+    /**
+     * Incident was benign positive
+     */
+    BenignPositive: "BenignPositive",
+    /**
+     * Incident was false positive
+     */
+    FalsePositive: "FalsePositive",
+} as const;
+
+/**
+ * The reason the incident was closed
+ */
+export type IncidentClassification = (typeof IncidentClassification)[keyof typeof IncidentClassification];
+
+export const IncidentClassificationReason = {
+    /**
+     * Classification reason was suspicious activity
+     */
+    SuspiciousActivity: "SuspiciousActivity",
+    /**
+     * Classification reason was suspicious but expected
+     */
+    SuspiciousButExpected: "SuspiciousButExpected",
+    /**
+     * Classification reason was incorrect alert logic
+     */
+    IncorrectAlertLogic: "IncorrectAlertLogic",
+    /**
+     * Classification reason was inaccurate data
+     */
+    InaccurateData: "InaccurateData",
+} as const;
+
+/**
+ * The classification reason the incident was closed with
+ */
+export type IncidentClassificationReason = (typeof IncidentClassificationReason)[keyof typeof IncidentClassificationReason];
+
+export const IncidentSeverity = {
+    /**
+     * High severity
+     */
+    High: "High",
+    /**
+     * Medium severity
+     */
+    Medium: "Medium",
+    /**
+     * Low severity
+     */
+    Low: "Low",
+    /**
+     * Informational severity
+     */
+    Informational: "Informational",
+} as const;
+
+/**
+ * The severity of the incident
+ */
+export type IncidentSeverity = (typeof IncidentSeverity)[keyof typeof IncidentSeverity];
+
+export const IncidentStatus = {
+    /**
+     * An active incident which isn't being handled currently
+     */
+    New: "New",
+    /**
+     * An active incident which is being handled
+     */
+    Active: "Active",
+    /**
+     * A non-active incident
+     */
+    Closed: "Closed",
+} as const;
+
+/**
+ * The status of the incident
+ */
+export type IncidentStatus = (typeof IncidentStatus)[keyof typeof IncidentStatus];
+
 export const MatchingMethod = {
     /**
      * Grouping alerts into a single incident if all the entities match
@@ -227,6 +605,48 @@ export const MicrosoftSecurityProductName = {
  */
 export type MicrosoftSecurityProductName = (typeof MicrosoftSecurityProductName)[keyof typeof MicrosoftSecurityProductName];
 
+export const OwnerType = {
+    /**
+     * The incident owner type is unknown
+     */
+    Unknown: "Unknown",
+    /**
+     * The incident owner type is an AAD user
+     */
+    User: "User",
+    /**
+     * The incident owner type is an AAD group
+     */
+    Group: "Group",
+} as const;
+
+/**
+ * The type of the owner the incident is assigned to.
+ */
+export type OwnerType = (typeof OwnerType)[keyof typeof OwnerType];
+
+export const Source = {
+    Local_file: "Local file",
+    Remote_storage: "Remote storage",
+} as const;
+
+/**
+ * The source of the watchlist
+ */
+export type Source = (typeof Source)[keyof typeof Source];
+
+export const ThreatIntelligenceResourceInnerKind = {
+    /**
+     * Entity represents threat intelligence indicator in the system.
+     */
+    Indicator: "indicator",
+} as const;
+
+/**
+ * The kind of the entity.
+ */
+export type ThreatIntelligenceResourceInnerKind = (typeof ThreatIntelligenceResourceInnerKind)[keyof typeof ThreatIntelligenceResourceInnerKind];
+
 export const TriggerOperator = {
     GreaterThan: "GreaterThan",
     LessThan: "LessThan",
@@ -238,3 +658,21 @@ export const TriggerOperator = {
  * The operation against the threshold that triggers alert rule.
  */
 export type TriggerOperator = (typeof TriggerOperator)[keyof typeof TriggerOperator];
+
+export const TriggersOn = {
+    /**
+     * Trigger on Incidents
+     */
+    Incidents: "Incidents",
+} as const;
+
+export type TriggersOn = (typeof TriggersOn)[keyof typeof TriggersOn];
+
+export const TriggersWhen = {
+    /**
+     * Trigger on created objects
+     */
+    Created: "Created",
+} as const;
+
+export type TriggersWhen = (typeof TriggersWhen)[keyof typeof TriggersWhen];

@@ -10,11 +10,24 @@ export const getPolicyAssignment: typeof import("./getPolicyAssignment").getPoli
 export const getPolicyAssignmentOutput: typeof import("./getPolicyAssignment").getPolicyAssignmentOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicyAssignment","getPolicyAssignmentOutput"], () => require("./getPolicyAssignment"));
 
+export { GetPolicyDefinitionArgs, GetPolicyDefinitionResult, GetPolicyDefinitionOutputArgs } from "./getPolicyDefinition";
+export const getPolicyDefinition: typeof import("./getPolicyDefinition").getPolicyDefinition = null as any;
+export const getPolicyDefinitionOutput: typeof import("./getPolicyDefinition").getPolicyDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyDefinition","getPolicyDefinitionOutput"], () => require("./getPolicyDefinition"));
+
+export { GetPolicyDefinitionAtManagementGroupArgs, GetPolicyDefinitionAtManagementGroupResult, GetPolicyDefinitionAtManagementGroupOutputArgs } from "./getPolicyDefinitionAtManagementGroup";
+export const getPolicyDefinitionAtManagementGroup: typeof import("./getPolicyDefinitionAtManagementGroup").getPolicyDefinitionAtManagementGroup = null as any;
+export const getPolicyDefinitionAtManagementGroupOutput: typeof import("./getPolicyDefinitionAtManagementGroup").getPolicyDefinitionAtManagementGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyDefinitionAtManagementGroup","getPolicyDefinitionAtManagementGroupOutput"], () => require("./getPolicyDefinitionAtManagementGroup"));
+
 export { PolicyAssignmentArgs } from "./policyAssignment";
 export type PolicyAssignment = import("./policyAssignment").PolicyAssignment;
 export const PolicyAssignment: typeof import("./policyAssignment").PolicyAssignment = null as any;
 utilities.lazyLoad(exports, ["PolicyAssignment"], () => require("./policyAssignment"));
 
+
+// Export enums:
+export * from "../../types/enums/authorization/v20161201";
 
 const _module = {
     version: utilities.getVersion(),

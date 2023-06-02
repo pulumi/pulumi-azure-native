@@ -4,6 +4,56 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetDatabaseAccountArgs, GetDatabaseAccountResult, GetDatabaseAccountOutputArgs } from "./getDatabaseAccount";
+export const getDatabaseAccount: typeof import("./getDatabaseAccount").getDatabaseAccount = null as any;
+export const getDatabaseAccountOutput: typeof import("./getDatabaseAccount").getDatabaseAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAccount","getDatabaseAccountOutput"], () => require("./getDatabaseAccount"));
+
+export { GetDatabaseAccountCassandraKeyspaceArgs, GetDatabaseAccountCassandraKeyspaceResult, GetDatabaseAccountCassandraKeyspaceOutputArgs } from "./getDatabaseAccountCassandraKeyspace";
+export const getDatabaseAccountCassandraKeyspace: typeof import("./getDatabaseAccountCassandraKeyspace").getDatabaseAccountCassandraKeyspace = null as any;
+export const getDatabaseAccountCassandraKeyspaceOutput: typeof import("./getDatabaseAccountCassandraKeyspace").getDatabaseAccountCassandraKeyspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAccountCassandraKeyspace","getDatabaseAccountCassandraKeyspaceOutput"], () => require("./getDatabaseAccountCassandraKeyspace"));
+
+export { GetDatabaseAccountCassandraTableArgs, GetDatabaseAccountCassandraTableResult, GetDatabaseAccountCassandraTableOutputArgs } from "./getDatabaseAccountCassandraTable";
+export const getDatabaseAccountCassandraTable: typeof import("./getDatabaseAccountCassandraTable").getDatabaseAccountCassandraTable = null as any;
+export const getDatabaseAccountCassandraTableOutput: typeof import("./getDatabaseAccountCassandraTable").getDatabaseAccountCassandraTableOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAccountCassandraTable","getDatabaseAccountCassandraTableOutput"], () => require("./getDatabaseAccountCassandraTable"));
+
+export { GetDatabaseAccountGremlinDatabaseArgs, GetDatabaseAccountGremlinDatabaseResult, GetDatabaseAccountGremlinDatabaseOutputArgs } from "./getDatabaseAccountGremlinDatabase";
+export const getDatabaseAccountGremlinDatabase: typeof import("./getDatabaseAccountGremlinDatabase").getDatabaseAccountGremlinDatabase = null as any;
+export const getDatabaseAccountGremlinDatabaseOutput: typeof import("./getDatabaseAccountGremlinDatabase").getDatabaseAccountGremlinDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAccountGremlinDatabase","getDatabaseAccountGremlinDatabaseOutput"], () => require("./getDatabaseAccountGremlinDatabase"));
+
+export { GetDatabaseAccountGremlinGraphArgs, GetDatabaseAccountGremlinGraphResult, GetDatabaseAccountGremlinGraphOutputArgs } from "./getDatabaseAccountGremlinGraph";
+export const getDatabaseAccountGremlinGraph: typeof import("./getDatabaseAccountGremlinGraph").getDatabaseAccountGremlinGraph = null as any;
+export const getDatabaseAccountGremlinGraphOutput: typeof import("./getDatabaseAccountGremlinGraph").getDatabaseAccountGremlinGraphOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAccountGremlinGraph","getDatabaseAccountGremlinGraphOutput"], () => require("./getDatabaseAccountGremlinGraph"));
+
+export { GetDatabaseAccountMongoDBCollectionArgs, GetDatabaseAccountMongoDBCollectionResult, GetDatabaseAccountMongoDBCollectionOutputArgs } from "./getDatabaseAccountMongoDBCollection";
+export const getDatabaseAccountMongoDBCollection: typeof import("./getDatabaseAccountMongoDBCollection").getDatabaseAccountMongoDBCollection = null as any;
+export const getDatabaseAccountMongoDBCollectionOutput: typeof import("./getDatabaseAccountMongoDBCollection").getDatabaseAccountMongoDBCollectionOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAccountMongoDBCollection","getDatabaseAccountMongoDBCollectionOutput"], () => require("./getDatabaseAccountMongoDBCollection"));
+
+export { GetDatabaseAccountMongoDBDatabaseArgs, GetDatabaseAccountMongoDBDatabaseResult, GetDatabaseAccountMongoDBDatabaseOutputArgs } from "./getDatabaseAccountMongoDBDatabase";
+export const getDatabaseAccountMongoDBDatabase: typeof import("./getDatabaseAccountMongoDBDatabase").getDatabaseAccountMongoDBDatabase = null as any;
+export const getDatabaseAccountMongoDBDatabaseOutput: typeof import("./getDatabaseAccountMongoDBDatabase").getDatabaseAccountMongoDBDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAccountMongoDBDatabase","getDatabaseAccountMongoDBDatabaseOutput"], () => require("./getDatabaseAccountMongoDBDatabase"));
+
+export { GetDatabaseAccountSqlContainerArgs, GetDatabaseAccountSqlContainerResult, GetDatabaseAccountSqlContainerOutputArgs } from "./getDatabaseAccountSqlContainer";
+export const getDatabaseAccountSqlContainer: typeof import("./getDatabaseAccountSqlContainer").getDatabaseAccountSqlContainer = null as any;
+export const getDatabaseAccountSqlContainerOutput: typeof import("./getDatabaseAccountSqlContainer").getDatabaseAccountSqlContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAccountSqlContainer","getDatabaseAccountSqlContainerOutput"], () => require("./getDatabaseAccountSqlContainer"));
+
+export { GetDatabaseAccountSqlDatabaseArgs, GetDatabaseAccountSqlDatabaseResult, GetDatabaseAccountSqlDatabaseOutputArgs } from "./getDatabaseAccountSqlDatabase";
+export const getDatabaseAccountSqlDatabase: typeof import("./getDatabaseAccountSqlDatabase").getDatabaseAccountSqlDatabase = null as any;
+export const getDatabaseAccountSqlDatabaseOutput: typeof import("./getDatabaseAccountSqlDatabase").getDatabaseAccountSqlDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAccountSqlDatabase","getDatabaseAccountSqlDatabaseOutput"], () => require("./getDatabaseAccountSqlDatabase"));
+
+export { GetDatabaseAccountTableArgs, GetDatabaseAccountTableResult, GetDatabaseAccountTableOutputArgs } from "./getDatabaseAccountTable";
+export const getDatabaseAccountTable: typeof import("./getDatabaseAccountTable").getDatabaseAccountTable = null as any;
+export const getDatabaseAccountTableOutput: typeof import("./getDatabaseAccountTable").getDatabaseAccountTableOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAccountTable","getDatabaseAccountTableOutput"], () => require("./getDatabaseAccountTable"));
+
 export { ListDatabaseAccountConnectionStringsArgs, ListDatabaseAccountConnectionStringsResult, ListDatabaseAccountConnectionStringsOutputArgs } from "./listDatabaseAccountConnectionStrings";
 export const listDatabaseAccountConnectionStrings: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStrings = null as any;
 export const listDatabaseAccountConnectionStringsOutput: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStringsOutput = null as any;
@@ -14,3 +64,6 @@ export const listDatabaseAccountKeys: typeof import("./listDatabaseAccountKeys")
 export const listDatabaseAccountKeysOutput: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabaseAccountKeys","listDatabaseAccountKeysOutput"], () => require("./listDatabaseAccountKeys"));
 
+
+// Export enums:
+export * from "../../types/enums/documentdb/v20150401";

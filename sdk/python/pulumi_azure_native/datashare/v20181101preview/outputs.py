@@ -11,11 +11,57 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'IdentityResponse',
     'ScheduledSourceSynchronizationSettingResponse',
     'ShareSubscriptionSynchronizationResponse',
     'ShareSynchronizationResponse',
     'SynchronizationDetailsResponse',
 ]
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Identity of resource
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        Identity of resource
+        :param str principal_id: service principal Id
+        :param str tenant_id: Tenant Id
+        :param str type: Identity Type
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        service principal Id
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Tenant Id
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Identity Type
+        """
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class ScheduledSourceSynchronizationSettingResponse(dict):

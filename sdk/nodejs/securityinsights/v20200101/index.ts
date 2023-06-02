@@ -5,40 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AADDataConnectorArgs } from "./aaddataConnector";
-export type AADDataConnector = import("./aaddataConnector").AADDataConnector;
-export const AADDataConnector: typeof import("./aaddataConnector").AADDataConnector = null as any;
-utilities.lazyLoad(exports, ["AADDataConnector"], () => require("./aaddataConnector"));
-
-export { AATPDataConnectorArgs } from "./aatpdataConnector";
-export type AATPDataConnector = import("./aatpdataConnector").AATPDataConnector;
-export const AATPDataConnector: typeof import("./aatpdataConnector").AATPDataConnector = null as any;
-utilities.lazyLoad(exports, ["AATPDataConnector"], () => require("./aatpdataConnector"));
-
 export { ActionArgs } from "./action";
 export type Action = import("./action").Action;
 export const Action: typeof import("./action").Action = null as any;
 utilities.lazyLoad(exports, ["Action"], () => require("./action"));
 
-export { ASCDataConnectorArgs } from "./ascdataConnector";
-export type ASCDataConnector = import("./ascdataConnector").ASCDataConnector;
-export const ASCDataConnector: typeof import("./ascdataConnector").ASCDataConnector = null as any;
-utilities.lazyLoad(exports, ["ASCDataConnector"], () => require("./ascdataConnector"));
-
-export { AwsCloudTrailDataConnectorArgs } from "./awsCloudTrailDataConnector";
-export type AwsCloudTrailDataConnector = import("./awsCloudTrailDataConnector").AwsCloudTrailDataConnector;
-export const AwsCloudTrailDataConnector: typeof import("./awsCloudTrailDataConnector").AwsCloudTrailDataConnector = null as any;
-utilities.lazyLoad(exports, ["AwsCloudTrailDataConnector"], () => require("./awsCloudTrailDataConnector"));
-
 export { BookmarkArgs } from "./bookmark";
 export type Bookmark = import("./bookmark").Bookmark;
 export const Bookmark: typeof import("./bookmark").Bookmark = null as any;
 utilities.lazyLoad(exports, ["Bookmark"], () => require("./bookmark"));
-
-export { FusionAlertRuleArgs } from "./fusionAlertRule";
-export type FusionAlertRule = import("./fusionAlertRule").FusionAlertRule;
-export const FusionAlertRule: typeof import("./fusionAlertRule").FusionAlertRule = null as any;
-utilities.lazyLoad(exports, ["FusionAlertRule"], () => require("./fusionAlertRule"));
 
 export { GetAADDataConnectorArgs, GetAADDataConnectorResult, GetAADDataConnectorOutputArgs } from "./getAADDataConnector";
 export const getAADDataConnector: typeof import("./getAADDataConnector").getAADDataConnector = null as any;
@@ -115,36 +90,6 @@ export type Incident = import("./incident").Incident;
 export const Incident: typeof import("./incident").Incident = null as any;
 utilities.lazyLoad(exports, ["Incident"], () => require("./incident"));
 
-export { MCASDataConnectorArgs } from "./mcasdataConnector";
-export type MCASDataConnector = import("./mcasdataConnector").MCASDataConnector;
-export const MCASDataConnector: typeof import("./mcasdataConnector").MCASDataConnector = null as any;
-utilities.lazyLoad(exports, ["MCASDataConnector"], () => require("./mcasdataConnector"));
-
-export { MDATPDataConnectorArgs } from "./mdatpdataConnector";
-export type MDATPDataConnector = import("./mdatpdataConnector").MDATPDataConnector;
-export const MDATPDataConnector: typeof import("./mdatpdataConnector").MDATPDataConnector = null as any;
-utilities.lazyLoad(exports, ["MDATPDataConnector"], () => require("./mdatpdataConnector"));
-
-export { MicrosoftSecurityIncidentCreationAlertRuleArgs } from "./microsoftSecurityIncidentCreationAlertRule";
-export type MicrosoftSecurityIncidentCreationAlertRule = import("./microsoftSecurityIncidentCreationAlertRule").MicrosoftSecurityIncidentCreationAlertRule;
-export const MicrosoftSecurityIncidentCreationAlertRule: typeof import("./microsoftSecurityIncidentCreationAlertRule").MicrosoftSecurityIncidentCreationAlertRule = null as any;
-utilities.lazyLoad(exports, ["MicrosoftSecurityIncidentCreationAlertRule"], () => require("./microsoftSecurityIncidentCreationAlertRule"));
-
-export { OfficeDataConnectorArgs } from "./officeDataConnector";
-export type OfficeDataConnector = import("./officeDataConnector").OfficeDataConnector;
-export const OfficeDataConnector: typeof import("./officeDataConnector").OfficeDataConnector = null as any;
-utilities.lazyLoad(exports, ["OfficeDataConnector"], () => require("./officeDataConnector"));
-
-export { ScheduledAlertRuleArgs } from "./scheduledAlertRule";
-export type ScheduledAlertRule = import("./scheduledAlertRule").ScheduledAlertRule;
-export const ScheduledAlertRule: typeof import("./scheduledAlertRule").ScheduledAlertRule = null as any;
-utilities.lazyLoad(exports, ["ScheduledAlertRule"], () => require("./scheduledAlertRule"));
-
-export { TIDataConnectorArgs } from "./tidataConnector";
-export type TIDataConnector = import("./tidataConnector").TIDataConnector;
-export const TIDataConnector: typeof import("./tidataConnector").TIDataConnector = null as any;
-utilities.lazyLoad(exports, ["TIDataConnector"], () => require("./tidataConnector"));
-
 
 // Export enums:
 export * from "../../types/enums/securityinsights/v20200101";
@@ -153,34 +98,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:securityinsights/v20200101:AADDataConnector":
-                return new AADDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20200101:AATPDataConnector":
-                return new AATPDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20200101:ASCDataConnector":
-                return new ASCDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20200101:Action":
                 return new Action(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector":
-                return new AwsCloudTrailDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20200101:Bookmark":
                 return new Bookmark(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20200101:FusionAlertRule":
-                return new FusionAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20200101:Incident":
                 return new Incident(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20200101:MCASDataConnector":
-                return new MCASDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20200101:MDATPDataConnector":
-                return new MDATPDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20200101:MicrosoftSecurityIncidentCreationAlertRule":
-                return new MicrosoftSecurityIncidentCreationAlertRule(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20200101:OfficeDataConnector":
-                return new OfficeDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20200101:ScheduledAlertRule":
-                return new ScheduledAlertRule(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20200101:TIDataConnector":
-                return new TIDataConnector(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

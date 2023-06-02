@@ -23,8 +23,11 @@ __all__ = [
     'AS2SecuritySettingsResponse',
     'AS2ValidationSettingsResponse',
     'AgreementContentResponse',
+    'AssemblyPropertiesResponse',
     'AzureResourceErrorInfoResponse',
     'B2BPartnerContentResponse',
+    'BatchConfigurationPropertiesResponse',
+    'BatchReleaseCriteriaResponse',
     'BusinessIdentityResponse',
     'ContentHashResponse',
     'ContentLinkResponse',
@@ -45,11 +48,14 @@ __all__ = [
     'ExpressionResponse',
     'ExpressionRootResponse',
     'IntegrationAccountMapPropertiesResponseParametersSchema',
+    'IntegrationAccountSkuResponse',
     'KeyVaultKeyReferenceResponse',
     'KeyVaultKeyReferenceResponseKeyVault',
     'KeyVaultKeyResponse',
     'KeyVaultKeyResponseAttributes',
     'PartnerContentResponse',
+    'RecurrenceScheduleOccurrenceResponse',
+    'RecurrenceScheduleResponse',
     'ResourceReferenceResponse',
     'RosettaNetPipAcknowledgmentOfReceiptSettingsResponse',
     'RosettaNetPipActivityBehaviorResponse',
@@ -59,6 +65,7 @@ __all__ = [
     'SkuResponse',
     'WorkflowParameterResponse',
     'WorkflowTriggerListCallbackUrlQueriesResponse',
+    'WorkflowTriggerRecurrenceResponse',
     'X12AcknowledgementSettingsResponse',
     'X12AgreementContentResponse',
     'X12DelimiterOverridesResponse',
@@ -1136,6 +1143,128 @@ class AgreementContentResponse(dict):
 
 
 @pulumi.output_type
+class AssemblyPropertiesResponse(dict):
+    """
+    The assembly properties definition.
+    """
+    def __init__(__self__, *,
+                 assembly_name: str,
+                 assembly_culture: Optional[str] = None,
+                 assembly_public_key_token: Optional[str] = None,
+                 assembly_version: Optional[str] = None,
+                 changed_time: Optional[str] = None,
+                 content: Optional[Any] = None,
+                 content_link: Optional['outputs.ContentLinkResponse'] = None,
+                 content_type: Optional[str] = None,
+                 created_time: Optional[str] = None,
+                 metadata: Optional[Any] = None):
+        """
+        The assembly properties definition.
+        :param str assembly_name: The assembly name.
+        :param str assembly_culture: The assembly culture.
+        :param str assembly_public_key_token: The assembly public key token.
+        :param str assembly_version: The assembly version.
+        :param str changed_time: The artifact changed time.
+        :param 'ContentLinkResponse' content_link: The content link.
+        :param str content_type: The content type.
+        :param str created_time: The artifact creation time.
+        """
+        pulumi.set(__self__, "assembly_name", assembly_name)
+        if assembly_culture is not None:
+            pulumi.set(__self__, "assembly_culture", assembly_culture)
+        if assembly_public_key_token is not None:
+            pulumi.set(__self__, "assembly_public_key_token", assembly_public_key_token)
+        if assembly_version is not None:
+            pulumi.set(__self__, "assembly_version", assembly_version)
+        if changed_time is not None:
+            pulumi.set(__self__, "changed_time", changed_time)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if content_link is not None:
+            pulumi.set(__self__, "content_link", content_link)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="assemblyName")
+    def assembly_name(self) -> str:
+        """
+        The assembly name.
+        """
+        return pulumi.get(self, "assembly_name")
+
+    @property
+    @pulumi.getter(name="assemblyCulture")
+    def assembly_culture(self) -> Optional[str]:
+        """
+        The assembly culture.
+        """
+        return pulumi.get(self, "assembly_culture")
+
+    @property
+    @pulumi.getter(name="assemblyPublicKeyToken")
+    def assembly_public_key_token(self) -> Optional[str]:
+        """
+        The assembly public key token.
+        """
+        return pulumi.get(self, "assembly_public_key_token")
+
+    @property
+    @pulumi.getter(name="assemblyVersion")
+    def assembly_version(self) -> Optional[str]:
+        """
+        The assembly version.
+        """
+        return pulumi.get(self, "assembly_version")
+
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> Optional[str]:
+        """
+        The artifact changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[Any]:
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentLink")
+    def content_link(self) -> Optional['outputs.ContentLinkResponse']:
+        """
+        The content link.
+        """
+        return pulumi.get(self, "content_link")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        The content type.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[str]:
+        """
+        The artifact creation time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
 class AzureResourceErrorInfoResponse(dict):
     """
     The azure resource error info.
@@ -1218,6 +1347,118 @@ class B2BPartnerContentResponse(dict):
         The list of partner business identities.
         """
         return pulumi.get(self, "business_identities")
+
+
+@pulumi.output_type
+class BatchConfigurationPropertiesResponse(dict):
+    """
+    The batch configuration properties definition.
+    """
+    def __init__(__self__, *,
+                 batch_group_name: str,
+                 release_criteria: 'outputs.BatchReleaseCriteriaResponse',
+                 changed_time: Optional[str] = None,
+                 created_time: Optional[str] = None,
+                 metadata: Optional[Any] = None):
+        """
+        The batch configuration properties definition.
+        :param str batch_group_name: The name of the batch group.
+        :param 'BatchReleaseCriteriaResponse' release_criteria: The batch release criteria.
+        :param str changed_time: The artifact changed time.
+        :param str created_time: The artifact creation time.
+        """
+        pulumi.set(__self__, "batch_group_name", batch_group_name)
+        pulumi.set(__self__, "release_criteria", release_criteria)
+        if changed_time is not None:
+            pulumi.set(__self__, "changed_time", changed_time)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="batchGroupName")
+    def batch_group_name(self) -> str:
+        """
+        The name of the batch group.
+        """
+        return pulumi.get(self, "batch_group_name")
+
+    @property
+    @pulumi.getter(name="releaseCriteria")
+    def release_criteria(self) -> 'outputs.BatchReleaseCriteriaResponse':
+        """
+        The batch release criteria.
+        """
+        return pulumi.get(self, "release_criteria")
+
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> Optional[str]:
+        """
+        The artifact changed time.
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[str]:
+        """
+        The artifact creation time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class BatchReleaseCriteriaResponse(dict):
+    """
+    The batch release criteria.
+    """
+    def __init__(__self__, *,
+                 batch_size: Optional[int] = None,
+                 message_count: Optional[int] = None,
+                 recurrence: Optional['outputs.WorkflowTriggerRecurrenceResponse'] = None):
+        """
+        The batch release criteria.
+        :param int batch_size: The batch size in bytes.
+        :param int message_count: The message count.
+        :param 'WorkflowTriggerRecurrenceResponse' recurrence: The recurrence.
+        """
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if message_count is not None:
+            pulumi.set(__self__, "message_count", message_count)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[int]:
+        """
+        The batch size in bytes.
+        """
+        return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="messageCount")
+    def message_count(self) -> Optional[int]:
+        """
+        The message count.
+        """
+        return pulumi.get(self, "message_count")
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional['outputs.WorkflowTriggerRecurrenceResponse']:
+        """
+        The recurrence.
+        """
+        return pulumi.get(self, "recurrence")
 
 
 @pulumi.output_type
@@ -3705,6 +3946,28 @@ class IntegrationAccountMapPropertiesResponseParametersSchema(dict):
 
 
 @pulumi.output_type
+class IntegrationAccountSkuResponse(dict):
+    """
+    The integration account sku.
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        The integration account sku.
+        :param str name: The sku name.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The sku name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class KeyVaultKeyReferenceResponse(dict):
     """
     The reference to the key vault key.
@@ -3918,6 +4181,112 @@ class PartnerContentResponse(dict):
         The B2B partner content.
         """
         return pulumi.get(self, "b2b")
+
+
+@pulumi.output_type
+class RecurrenceScheduleOccurrenceResponse(dict):
+    """
+    The recurrence schedule occurrence.
+    """
+    def __init__(__self__, *,
+                 day: Optional[str] = None,
+                 occurrence: Optional[int] = None):
+        """
+        The recurrence schedule occurrence.
+        :param str day: The day of the week.
+        :param int occurrence: The occurrence.
+        """
+        if day is not None:
+            pulumi.set(__self__, "day", day)
+        if occurrence is not None:
+            pulumi.set(__self__, "occurrence", occurrence)
+
+    @property
+    @pulumi.getter
+    def day(self) -> Optional[str]:
+        """
+        The day of the week.
+        """
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter
+    def occurrence(self) -> Optional[int]:
+        """
+        The occurrence.
+        """
+        return pulumi.get(self, "occurrence")
+
+
+@pulumi.output_type
+class RecurrenceScheduleResponse(dict):
+    """
+    The recurrence schedule.
+    """
+    def __init__(__self__, *,
+                 hours: Optional[Sequence[int]] = None,
+                 minutes: Optional[Sequence[int]] = None,
+                 month_days: Optional[Sequence[int]] = None,
+                 monthly_occurrences: Optional[Sequence['outputs.RecurrenceScheduleOccurrenceResponse']] = None,
+                 week_days: Optional[Sequence[str]] = None):
+        """
+        The recurrence schedule.
+        :param Sequence[int] hours: The hours.
+        :param Sequence[int] minutes: The minutes.
+        :param Sequence[int] month_days: The month days.
+        :param Sequence['RecurrenceScheduleOccurrenceResponse'] monthly_occurrences: The monthly occurrences.
+        :param Sequence[str] week_days: The days of the week.
+        """
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if month_days is not None:
+            pulumi.set(__self__, "month_days", month_days)
+        if monthly_occurrences is not None:
+            pulumi.set(__self__, "monthly_occurrences", monthly_occurrences)
+        if week_days is not None:
+            pulumi.set(__self__, "week_days", week_days)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> Optional[Sequence[int]]:
+        """
+        The hours.
+        """
+        return pulumi.get(self, "hours")
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[Sequence[int]]:
+        """
+        The minutes.
+        """
+        return pulumi.get(self, "minutes")
+
+    @property
+    @pulumi.getter(name="monthDays")
+    def month_days(self) -> Optional[Sequence[int]]:
+        """
+        The month days.
+        """
+        return pulumi.get(self, "month_days")
+
+    @property
+    @pulumi.getter(name="monthlyOccurrences")
+    def monthly_occurrences(self) -> Optional[Sequence['outputs.RecurrenceScheduleOccurrenceResponse']]:
+        """
+        The monthly occurrences.
+        """
+        return pulumi.get(self, "monthly_occurrences")
+
+    @property
+    @pulumi.getter(name="weekDays")
+    def week_days(self) -> Optional[Sequence[str]]:
+        """
+        The days of the week.
+        """
+        return pulumi.get(self, "week_days")
 
 
 @pulumi.output_type
@@ -4528,6 +4897,89 @@ class WorkflowTriggerListCallbackUrlQueriesResponse(dict):
         The SAS version.
         """
         return pulumi.get(self, "sv")
+
+
+@pulumi.output_type
+class WorkflowTriggerRecurrenceResponse(dict):
+    """
+    The workflow trigger recurrence.
+    """
+    def __init__(__self__, *,
+                 end_time: Optional[str] = None,
+                 frequency: Optional[str] = None,
+                 interval: Optional[int] = None,
+                 schedule: Optional['outputs.RecurrenceScheduleResponse'] = None,
+                 start_time: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        """
+        The workflow trigger recurrence.
+        :param str end_time: The end time.
+        :param str frequency: The frequency.
+        :param int interval: The interval.
+        :param 'RecurrenceScheduleResponse' schedule: The recurrence schedule.
+        :param str start_time: The start time.
+        :param str time_zone: The time zone.
+        """
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        """
+        The end time.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[str]:
+        """
+        The frequency.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        The interval.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.RecurrenceScheduleResponse']:
+        """
+        The recurrence schedule.
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        The start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        The time zone.
+        """
+        return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type

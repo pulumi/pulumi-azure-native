@@ -8,6 +8,7 @@ __all__ = [
     'AuthenticationType',
     'ProjectSourcePlatform',
     'ProjectTargetPlatform',
+    'ServerLevelPermissionsGroup',
 ]
 
 
@@ -37,3 +38,11 @@ class ProjectTargetPlatform(str, Enum):
     SQLDB = "SQLDB"
     SQLMI = "SQLMI"
     UNKNOWN = "Unknown"
+
+
+class ServerLevelPermissionsGroup(str, Enum):
+    """
+    Permission group for validations
+    """
+    DEFAULT = "Default"
+    MIGRATION_FROM_SQL_SERVER_TO_AZURE_DB = "MigrationFromSqlServerToAzureDB"

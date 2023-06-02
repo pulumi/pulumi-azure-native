@@ -13,6 +13,45 @@ export const KustomizationValidationType = {
  */
 export type KustomizationValidationType = (typeof KustomizationValidationType)[keyof typeof KustomizationValidationType];
 
+export const LevelType = {
+    Error: "Error",
+    Warning: "Warning",
+    Information: "Information",
+} as const;
+
+/**
+ * Level of the status.
+ */
+export type LevelType = (typeof LevelType)[keyof typeof LevelType];
+
+export const OperatorScopeType = {
+    Cluster: "cluster",
+    Namespace: "namespace",
+} as const;
+
+/**
+ * Scope at which the operator will be installed.
+ */
+export type OperatorScopeType = (typeof OperatorScopeType)[keyof typeof OperatorScopeType];
+
+export const OperatorType = {
+    Flux: "Flux",
+} as const;
+
+/**
+ * Type of the operator
+ */
+export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
+
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
 export const ScopeType = {
     Cluster: "cluster",
     Namespace: "namespace",

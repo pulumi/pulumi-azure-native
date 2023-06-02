@@ -5,5 +5,6 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from .get_user_assigned_identity import *
 from .list_user_assigned_identity_associated_resources import *
 from . import outputs

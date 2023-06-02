@@ -9,6 +9,8 @@ from ._enums import *
 from .arc_setting import *
 from .galleryimage_retrieve import *
 from .get_arc_setting import *
+from .get_cluster import *
+from .get_extension import *
 from .get_galleryimage_retrieve import *
 from .get_guest_agent import *
 from .get_hybrid_identity_metadatum import *

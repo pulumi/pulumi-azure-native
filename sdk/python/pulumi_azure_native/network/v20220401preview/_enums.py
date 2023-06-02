@@ -6,19 +6,27 @@ from enum import Enum
 
 __all__ = [
     'AddressPrefixType',
+    'AdminRuleKind',
     'AllowedEndpointRecordType',
     'AlwaysServe',
     'ConfigurationType',
+    'ConnectivityTopology',
     'DeleteExistingNSGs',
+    'DeleteExistingPeering',
     'EndpointMonitorStatus',
     'EndpointStatus',
+    'GroupConnectivity',
+    'IsGlobal',
     'MonitorProtocol',
+    'NetworkIntentPolicyBasedService',
     'ProfileMonitorStatus',
     'ProfileStatus',
+    'SecurityConfigurationRuleAccess',
     'SecurityConfigurationRuleDirection',
     'SecurityConfigurationRuleProtocol',
     'TrafficRoutingMethod',
     'TrafficViewEnrollmentStatus',
+    'UseHubGateway',
     'UserRuleKind',
 ]
 
@@ -29,6 +37,14 @@ class AddressPrefixType(str, Enum):
     """
     IP_PREFIX = "IPPrefix"
     SERVICE_TAG = "ServiceTag"
+
+
+class AdminRuleKind(str, Enum):
+    """
+    Whether the rule is custom or default.
+    """
+    CUSTOM = "Custom"
+    DEFAULT = "Default"
 
 
 class AllowedEndpointRecordType(str, Enum):
@@ -58,9 +74,25 @@ class ConfigurationType(str, Enum):
     CONNECTIVITY = "Connectivity"
 
 
+class ConnectivityTopology(str, Enum):
+    """
+    Connectivity topology type.
+    """
+    HUB_AND_SPOKE = "HubAndSpoke"
+    MESH = "Mesh"
+
+
 class DeleteExistingNSGs(str, Enum):
     """
     Flag if need to delete existing network security groups.
+    """
+    FALSE = "False"
+    TRUE = "True"
+
+
+class DeleteExistingPeering(str, Enum):
+    """
+    Flag if need to remove current existing peerings.
     """
     FALSE = "False"
     TRUE = "True"
@@ -86,6 +118,22 @@ class EndpointStatus(str, Enum):
     DISABLED = "Disabled"
 
 
+class GroupConnectivity(str, Enum):
+    """
+    Group connectivity type.
+    """
+    NONE = "None"
+    DIRECTLY_CONNECTED = "DirectlyConnected"
+
+
+class IsGlobal(str, Enum):
+    """
+    Flag if global mesh is supported.
+    """
+    FALSE = "False"
+    TRUE = "True"
+
+
 class MonitorProtocol(str, Enum):
     """
     The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
@@ -93,6 +141,14 @@ class MonitorProtocol(str, Enum):
     HTTP = "HTTP"
     HTTPS = "HTTPS"
     TCP = "TCP"
+
+
+class NetworkIntentPolicyBasedService(str, Enum):
+    """
+    Network intent policy based services.
+    """
+    NONE = "None"
+    ALL = "All"
 
 
 class ProfileMonitorStatus(str, Enum):
@@ -112,6 +168,15 @@ class ProfileStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class SecurityConfigurationRuleAccess(str, Enum):
+    """
+    Indicates the access allowed for this particular rule
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+    ALWAYS_ALLOW = "AlwaysAllow"
 
 
 class SecurityConfigurationRuleDirection(str, Enum):
@@ -152,6 +217,14 @@ class TrafficViewEnrollmentStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class UseHubGateway(str, Enum):
+    """
+    Flag if need to use hub gateway.
+    """
+    FALSE = "False"
+    TRUE = "True"
 
 
 class UserRuleKind(str, Enum):

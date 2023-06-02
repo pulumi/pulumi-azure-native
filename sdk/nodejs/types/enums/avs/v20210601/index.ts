@@ -2,6 +2,69 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AddonType = {
+    SRM: "SRM",
+    VR: "VR",
+    HCX: "HCX",
+} as const;
+
+/**
+ * The type of private cloud addon
+ */
+export type AddonType = (typeof AddonType)[keyof typeof AddonType];
+
+export const DhcpTypeEnum = {
+    SERVER: "SERVER",
+    RELAY: "RELAY",
+} as const;
+
+/**
+ * Type of DHCP: SERVER or RELAY.
+ */
+export type DhcpTypeEnum = (typeof DhcpTypeEnum)[keyof typeof DhcpTypeEnum];
+
+export const DnsServiceLogLevelEnum = {
+    DEBUG: "DEBUG",
+    INFO: "INFO",
+    WARNING: "WARNING",
+    ERROR: "ERROR",
+    FATAL: "FATAL",
+} as const;
+
+/**
+ * DNS Service log level.
+ */
+export type DnsServiceLogLevelEnum = (typeof DnsServiceLogLevelEnum)[keyof typeof DnsServiceLogLevelEnum];
+
+export const InternetEnum = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Connectivity to internet is enabled or disabled
+ */
+export type InternetEnum = (typeof InternetEnum)[keyof typeof InternetEnum];
+
+export const MountOptionEnum = {
+    MOUNT: "MOUNT",
+    ATTACH: "ATTACH",
+} as const;
+
+/**
+ * Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+ */
+export type MountOptionEnum = (typeof MountOptionEnum)[keyof typeof MountOptionEnum];
+
+export const PortMirroringDirectionEnum = {
+    INGRESS_EGRESS_BIDIRECTIONAL: "INGRESS, EGRESS, BIDIRECTIONAL",
+} as const;
+
+/**
+ * Direction of port mirroring profile.
+ */
+export type PortMirroringDirectionEnum = (typeof PortMirroringDirectionEnum)[keyof typeof PortMirroringDirectionEnum];
+
 export const ScriptExecutionParameterType = {
     Value: "Value",
     SecureValue: "SecureValue",
@@ -12,3 +75,13 @@ export const ScriptExecutionParameterType = {
  * The type of execution parameter
  */
 export type ScriptExecutionParameterType = (typeof ScriptExecutionParameterType)[keyof typeof ScriptExecutionParameterType];
+
+export const SslEnum = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Protect LDAP communication using SSL certificate (LDAPS)
+ */
+export type SslEnum = (typeof SslEnum)[keyof typeof SslEnum];

@@ -4,15 +4,80 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetAccountFilterArgs, GetAccountFilterResult, GetAccountFilterOutputArgs } from "./getAccountFilter";
+export const getAccountFilter: typeof import("./getAccountFilter").getAccountFilter = null as any;
+export const getAccountFilterOutput: typeof import("./getAccountFilter").getAccountFilterOutput = null as any;
+utilities.lazyLoad(exports, ["getAccountFilter","getAccountFilterOutput"], () => require("./getAccountFilter"));
+
+export { GetAssetArgs, GetAssetResult, GetAssetOutputArgs } from "./getAsset";
+export const getAsset: typeof import("./getAsset").getAsset = null as any;
+export const getAssetOutput: typeof import("./getAsset").getAssetOutput = null as any;
+utilities.lazyLoad(exports, ["getAsset","getAssetOutput"], () => require("./getAsset"));
+
 export { GetAssetEncryptionKeyArgs, GetAssetEncryptionKeyResult, GetAssetEncryptionKeyOutputArgs } from "./getAssetEncryptionKey";
 export const getAssetEncryptionKey: typeof import("./getAssetEncryptionKey").getAssetEncryptionKey = null as any;
 export const getAssetEncryptionKeyOutput: typeof import("./getAssetEncryptionKey").getAssetEncryptionKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getAssetEncryptionKey","getAssetEncryptionKeyOutput"], () => require("./getAssetEncryptionKey"));
 
+export { GetAssetFilterArgs, GetAssetFilterResult, GetAssetFilterOutputArgs } from "./getAssetFilter";
+export const getAssetFilter: typeof import("./getAssetFilter").getAssetFilter = null as any;
+export const getAssetFilterOutput: typeof import("./getAssetFilter").getAssetFilterOutput = null as any;
+utilities.lazyLoad(exports, ["getAssetFilter","getAssetFilterOutput"], () => require("./getAssetFilter"));
+
+export { GetContentKeyPolicyArgs, GetContentKeyPolicyResult, GetContentKeyPolicyOutputArgs } from "./getContentKeyPolicy";
+export const getContentKeyPolicy: typeof import("./getContentKeyPolicy").getContentKeyPolicy = null as any;
+export const getContentKeyPolicyOutput: typeof import("./getContentKeyPolicy").getContentKeyPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getContentKeyPolicy","getContentKeyPolicyOutput"], () => require("./getContentKeyPolicy"));
+
 export { GetContentKeyPolicyPropertiesWithSecretsArgs, GetContentKeyPolicyPropertiesWithSecretsResult, GetContentKeyPolicyPropertiesWithSecretsOutputArgs } from "./getContentKeyPolicyPropertiesWithSecrets";
 export const getContentKeyPolicyPropertiesWithSecrets: typeof import("./getContentKeyPolicyPropertiesWithSecrets").getContentKeyPolicyPropertiesWithSecrets = null as any;
 export const getContentKeyPolicyPropertiesWithSecretsOutput: typeof import("./getContentKeyPolicyPropertiesWithSecrets").getContentKeyPolicyPropertiesWithSecretsOutput = null as any;
 utilities.lazyLoad(exports, ["getContentKeyPolicyPropertiesWithSecrets","getContentKeyPolicyPropertiesWithSecretsOutput"], () => require("./getContentKeyPolicyPropertiesWithSecrets"));
+
+export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
+export const getJob: typeof import("./getJob").getJob = null as any;
+export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
+utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
+
+export { GetLiveEventArgs, GetLiveEventResult, GetLiveEventOutputArgs } from "./getLiveEvent";
+export const getLiveEvent: typeof import("./getLiveEvent").getLiveEvent = null as any;
+export const getLiveEventOutput: typeof import("./getLiveEvent").getLiveEventOutput = null as any;
+utilities.lazyLoad(exports, ["getLiveEvent","getLiveEventOutput"], () => require("./getLiveEvent"));
+
+export { GetLiveOutputArgs, GetLiveOutputResult, GetLiveOutputOutputArgs } from "./getLiveOutput";
+export const getLiveOutput: typeof import("./getLiveOutput").getLiveOutput = null as any;
+export const getLiveOutputOutput: typeof import("./getLiveOutput").getLiveOutputOutput = null as any;
+utilities.lazyLoad(exports, ["getLiveOutput","getLiveOutputOutput"], () => require("./getLiveOutput"));
+
+export { GetMediaServiceArgs, GetMediaServiceResult, GetMediaServiceOutputArgs } from "./getMediaService";
+export const getMediaService: typeof import("./getMediaService").getMediaService = null as any;
+export const getMediaServiceOutput: typeof import("./getMediaService").getMediaServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getMediaService","getMediaServiceOutput"], () => require("./getMediaService"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetStreamingEndpointArgs, GetStreamingEndpointResult, GetStreamingEndpointOutputArgs } from "./getStreamingEndpoint";
+export const getStreamingEndpoint: typeof import("./getStreamingEndpoint").getStreamingEndpoint = null as any;
+export const getStreamingEndpointOutput: typeof import("./getStreamingEndpoint").getStreamingEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getStreamingEndpoint","getStreamingEndpointOutput"], () => require("./getStreamingEndpoint"));
+
+export { GetStreamingLocatorArgs, GetStreamingLocatorResult, GetStreamingLocatorOutputArgs } from "./getStreamingLocator";
+export const getStreamingLocator: typeof import("./getStreamingLocator").getStreamingLocator = null as any;
+export const getStreamingLocatorOutput: typeof import("./getStreamingLocator").getStreamingLocatorOutput = null as any;
+utilities.lazyLoad(exports, ["getStreamingLocator","getStreamingLocatorOutput"], () => require("./getStreamingLocator"));
+
+export { GetStreamingPolicyArgs, GetStreamingPolicyResult, GetStreamingPolicyOutputArgs } from "./getStreamingPolicy";
+export const getStreamingPolicy: typeof import("./getStreamingPolicy").getStreamingPolicy = null as any;
+export const getStreamingPolicyOutput: typeof import("./getStreamingPolicy").getStreamingPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getStreamingPolicy","getStreamingPolicyOutput"], () => require("./getStreamingPolicy"));
+
+export { GetTransformArgs, GetTransformResult, GetTransformOutputArgs } from "./getTransform";
+export const getTransform: typeof import("./getTransform").getTransform = null as any;
+export const getTransformOutput: typeof import("./getTransform").getTransformOutput = null as any;
+utilities.lazyLoad(exports, ["getTransform","getTransformOutput"], () => require("./getTransform"));
 
 export { ListAssetContainerSasArgs, ListAssetContainerSasResult, ListAssetContainerSasOutputArgs } from "./listAssetContainerSas";
 export const listAssetContainerSas: typeof import("./listAssetContainerSas").listAssetContainerSas = null as any;

@@ -8,7 +8,11 @@ import typing
 from ._enums import *
 from .addon import *
 from .get_addon import *
+from .get_authorization import *
+from .get_cluster import *
 from .get_global_reach_connection import *
+from .get_hcx_enterprise_site import *
+from .get_private_cloud import *
 from .get_workload_network_dhcp import *
 from .get_workload_network_dns_service import *
 from .get_workload_network_dns_zone import *

@@ -8,5 +8,7 @@ import typing
 from ._enums import *
 from .deployment import *
 from .get_deployment import *
+from .get_resource import *
+from .get_resource_group import *
 from ._inputs import *
 from . import outputs

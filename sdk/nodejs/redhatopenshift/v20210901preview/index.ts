@@ -4,6 +4,11 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetOpenShiftClusterArgs, GetOpenShiftClusterResult, GetOpenShiftClusterOutputArgs } from "./getOpenShiftCluster";
+export const getOpenShiftCluster: typeof import("./getOpenShiftCluster").getOpenShiftCluster = null as any;
+export const getOpenShiftClusterOutput: typeof import("./getOpenShiftCluster").getOpenShiftClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getOpenShiftCluster","getOpenShiftClusterOutput"], () => require("./getOpenShiftCluster"));
+
 export { ListOpenShiftClusterAdminCredentialsArgs, ListOpenShiftClusterAdminCredentialsResult, ListOpenShiftClusterAdminCredentialsOutputArgs } from "./listOpenShiftClusterAdminCredentials";
 export const listOpenShiftClusterAdminCredentials: typeof import("./listOpenShiftClusterAdminCredentials").listOpenShiftClusterAdminCredentials = null as any;
 export const listOpenShiftClusterAdminCredentialsOutput: typeof import("./listOpenShiftClusterAdminCredentials").listOpenShiftClusterAdminCredentialsOutput = null as any;
@@ -14,3 +19,6 @@ export const listOpenShiftClusterCredentials: typeof import("./listOpenShiftClus
 export const listOpenShiftClusterCredentialsOutput: typeof import("./listOpenShiftClusterCredentials").listOpenShiftClusterCredentialsOutput = null as any;
 utilities.lazyLoad(exports, ["listOpenShiftClusterCredentials","listOpenShiftClusterCredentialsOutput"], () => require("./listOpenShiftClusterCredentials"));
 
+
+// Export enums:
+export * from "../../types/enums/redhatopenshift/v20210901preview";

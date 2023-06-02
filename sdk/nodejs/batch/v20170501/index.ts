@@ -4,8 +4,26 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+
+export { GetApplicationPackageArgs, GetApplicationPackageResult, GetApplicationPackageOutputArgs } from "./getApplicationPackage";
+export const getApplicationPackage: typeof import("./getApplicationPackage").getApplicationPackage = null as any;
+export const getApplicationPackageOutput: typeof import("./getApplicationPackage").getApplicationPackageOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationPackage","getApplicationPackageOutput"], () => require("./getApplicationPackage"));
+
+export { GetBatchAccountArgs, GetBatchAccountResult, GetBatchAccountOutputArgs } from "./getBatchAccount";
+export const getBatchAccount: typeof import("./getBatchAccount").getBatchAccount = null as any;
+export const getBatchAccountOutput: typeof import("./getBatchAccount").getBatchAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getBatchAccount","getBatchAccountOutput"], () => require("./getBatchAccount"));
+
 export { ListBatchAccountKeysArgs, ListBatchAccountKeysResult, ListBatchAccountKeysOutputArgs } from "./listBatchAccountKeys";
 export const listBatchAccountKeys: typeof import("./listBatchAccountKeys").listBatchAccountKeys = null as any;
 export const listBatchAccountKeysOutput: typeof import("./listBatchAccountKeys").listBatchAccountKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listBatchAccountKeys","listBatchAccountKeysOutput"], () => require("./listBatchAccountKeys"));
 
+
+// Export enums:
+export * from "../../types/enums/batch/v20170501";

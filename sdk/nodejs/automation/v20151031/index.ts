@@ -5,6 +5,71 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetAutomationAccountArgs, GetAutomationAccountResult, GetAutomationAccountOutputArgs } from "./getAutomationAccount";
+export const getAutomationAccount: typeof import("./getAutomationAccount").getAutomationAccount = null as any;
+export const getAutomationAccountOutput: typeof import("./getAutomationAccount").getAutomationAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getAutomationAccount","getAutomationAccountOutput"], () => require("./getAutomationAccount"));
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
+export const getConnection: typeof import("./getConnection").getConnection = null as any;
+export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
+
+export { GetConnectionTypeArgs, GetConnectionTypeResult, GetConnectionTypeOutputArgs } from "./getConnectionType";
+export const getConnectionType: typeof import("./getConnectionType").getConnectionType = null as any;
+export const getConnectionTypeOutput: typeof import("./getConnectionType").getConnectionTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectionType","getConnectionTypeOutput"], () => require("./getConnectionType"));
+
+export { GetCredentialArgs, GetCredentialResult, GetCredentialOutputArgs } from "./getCredential";
+export const getCredential: typeof import("./getCredential").getCredential = null as any;
+export const getCredentialOutput: typeof import("./getCredential").getCredentialOutput = null as any;
+utilities.lazyLoad(exports, ["getCredential","getCredentialOutput"], () => require("./getCredential"));
+
+export { GetDscConfigurationArgs, GetDscConfigurationResult, GetDscConfigurationOutputArgs } from "./getDscConfiguration";
+export const getDscConfiguration: typeof import("./getDscConfiguration").getDscConfiguration = null as any;
+export const getDscConfigurationOutput: typeof import("./getDscConfiguration").getDscConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getDscConfiguration","getDscConfigurationOutput"], () => require("./getDscConfiguration"));
+
+export { GetDscNodeConfigurationArgs, GetDscNodeConfigurationResult, GetDscNodeConfigurationOutputArgs } from "./getDscNodeConfiguration";
+export const getDscNodeConfiguration: typeof import("./getDscNodeConfiguration").getDscNodeConfiguration = null as any;
+export const getDscNodeConfigurationOutput: typeof import("./getDscNodeConfiguration").getDscNodeConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getDscNodeConfiguration","getDscNodeConfigurationOutput"], () => require("./getDscNodeConfiguration"));
+
+export { GetJobScheduleArgs, GetJobScheduleResult, GetJobScheduleOutputArgs } from "./getJobSchedule";
+export const getJobSchedule: typeof import("./getJobSchedule").getJobSchedule = null as any;
+export const getJobScheduleOutput: typeof import("./getJobSchedule").getJobScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getJobSchedule","getJobScheduleOutput"], () => require("./getJobSchedule"));
+
+export { GetModuleArgs, GetModuleResult, GetModuleOutputArgs } from "./getModule";
+export const getModule: typeof import("./getModule").getModule = null as any;
+export const getModuleOutput: typeof import("./getModule").getModuleOutput = null as any;
+utilities.lazyLoad(exports, ["getModule","getModuleOutput"], () => require("./getModule"));
+
+export { GetRunbookArgs, GetRunbookResult, GetRunbookOutputArgs } from "./getRunbook";
+export const getRunbook: typeof import("./getRunbook").getRunbook = null as any;
+export const getRunbookOutput: typeof import("./getRunbook").getRunbookOutput = null as any;
+utilities.lazyLoad(exports, ["getRunbook","getRunbookOutput"], () => require("./getRunbook"));
+
+export { GetScheduleArgs, GetScheduleResult, GetScheduleOutputArgs } from "./getSchedule";
+export const getSchedule: typeof import("./getSchedule").getSchedule = null as any;
+export const getScheduleOutput: typeof import("./getSchedule").getScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getSchedule","getScheduleOutput"], () => require("./getSchedule"));
+
+export { GetVariableArgs, GetVariableResult, GetVariableOutputArgs } from "./getVariable";
+export const getVariable: typeof import("./getVariable").getVariable = null as any;
+export const getVariableOutput: typeof import("./getVariable").getVariableOutput = null as any;
+utilities.lazyLoad(exports, ["getVariable","getVariableOutput"], () => require("./getVariable"));
+
+export { GetWatcherArgs, GetWatcherResult, GetWatcherOutputArgs } from "./getWatcher";
+export const getWatcher: typeof import("./getWatcher").getWatcher = null as any;
+export const getWatcherOutput: typeof import("./getWatcher").getWatcherOutput = null as any;
+utilities.lazyLoad(exports, ["getWatcher","getWatcherOutput"], () => require("./getWatcher"));
+
 export { GetWebhookArgs, GetWebhookResult, GetWebhookOutputArgs } from "./getWebhook";
 export const getWebhook: typeof import("./getWebhook").getWebhook = null as any;
 export const getWebhookOutput: typeof import("./getWebhook").getWebhookOutput = null as any;
@@ -20,6 +85,9 @@ export type Webhook = import("./webhook").Webhook;
 export const Webhook: typeof import("./webhook").Webhook = null as any;
 utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
 
+
+// Export enums:
+export * from "../../types/enums/automation/v20151031";
 
 const _module = {
     version: utilities.getVersion(),

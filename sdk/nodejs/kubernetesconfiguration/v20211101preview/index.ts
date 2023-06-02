@@ -10,10 +10,20 @@ export type FluxConfiguration = import("./fluxConfiguration").FluxConfiguration;
 export const FluxConfiguration: typeof import("./fluxConfiguration").FluxConfiguration = null as any;
 utilities.lazyLoad(exports, ["FluxConfiguration"], () => require("./fluxConfiguration"));
 
+export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
+export const getExtension: typeof import("./getExtension").getExtension = null as any;
+export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
+utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
+
 export { GetFluxConfigurationArgs, GetFluxConfigurationResult, GetFluxConfigurationOutputArgs } from "./getFluxConfiguration";
 export const getFluxConfiguration: typeof import("./getFluxConfiguration").getFluxConfiguration = null as any;
 export const getFluxConfigurationOutput: typeof import("./getFluxConfiguration").getFluxConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getFluxConfiguration","getFluxConfigurationOutput"], () => require("./getFluxConfiguration"));
+
+export { GetSourceControlConfigurationArgs, GetSourceControlConfigurationResult, GetSourceControlConfigurationOutputArgs } from "./getSourceControlConfiguration";
+export const getSourceControlConfiguration: typeof import("./getSourceControlConfiguration").getSourceControlConfiguration = null as any;
+export const getSourceControlConfigurationOutput: typeof import("./getSourceControlConfiguration").getSourceControlConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getSourceControlConfiguration","getSourceControlConfigurationOutput"], () => require("./getSourceControlConfiguration"));
 
 
 // Export enums:

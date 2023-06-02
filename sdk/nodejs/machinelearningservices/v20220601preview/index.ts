@@ -4,15 +4,125 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetBatchDeploymentArgs, GetBatchDeploymentResult, GetBatchDeploymentOutputArgs } from "./getBatchDeployment";
+export const getBatchDeployment: typeof import("./getBatchDeployment").getBatchDeployment = null as any;
+export const getBatchDeploymentOutput: typeof import("./getBatchDeployment").getBatchDeploymentOutput = null as any;
+utilities.lazyLoad(exports, ["getBatchDeployment","getBatchDeploymentOutput"], () => require("./getBatchDeployment"));
+
+export { GetBatchEndpointArgs, GetBatchEndpointResult, GetBatchEndpointOutputArgs } from "./getBatchEndpoint";
+export const getBatchEndpoint: typeof import("./getBatchEndpoint").getBatchEndpoint = null as any;
+export const getBatchEndpointOutput: typeof import("./getBatchEndpoint").getBatchEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getBatchEndpoint","getBatchEndpointOutput"], () => require("./getBatchEndpoint"));
+
+export { GetCodeContainerArgs, GetCodeContainerResult, GetCodeContainerOutputArgs } from "./getCodeContainer";
+export const getCodeContainer: typeof import("./getCodeContainer").getCodeContainer = null as any;
+export const getCodeContainerOutput: typeof import("./getCodeContainer").getCodeContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getCodeContainer","getCodeContainerOutput"], () => require("./getCodeContainer"));
+
+export { GetCodeVersionArgs, GetCodeVersionResult, GetCodeVersionOutputArgs } from "./getCodeVersion";
+export const getCodeVersion: typeof import("./getCodeVersion").getCodeVersion = null as any;
+export const getCodeVersionOutput: typeof import("./getCodeVersion").getCodeVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getCodeVersion","getCodeVersionOutput"], () => require("./getCodeVersion"));
+
+export { GetComponentContainerArgs, GetComponentContainerResult, GetComponentContainerOutputArgs } from "./getComponentContainer";
+export const getComponentContainer: typeof import("./getComponentContainer").getComponentContainer = null as any;
+export const getComponentContainerOutput: typeof import("./getComponentContainer").getComponentContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getComponentContainer","getComponentContainerOutput"], () => require("./getComponentContainer"));
+
+export { GetComponentVersionArgs, GetComponentVersionResult, GetComponentVersionOutputArgs } from "./getComponentVersion";
+export const getComponentVersion: typeof import("./getComponentVersion").getComponentVersion = null as any;
+export const getComponentVersionOutput: typeof import("./getComponentVersion").getComponentVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getComponentVersion","getComponentVersionOutput"], () => require("./getComponentVersion"));
+
+export { GetComputeArgs, GetComputeResult, GetComputeOutputArgs } from "./getCompute";
+export const getCompute: typeof import("./getCompute").getCompute = null as any;
+export const getComputeOutput: typeof import("./getCompute").getComputeOutput = null as any;
+utilities.lazyLoad(exports, ["getCompute","getComputeOutput"], () => require("./getCompute"));
+
+export { GetDataContainerArgs, GetDataContainerResult, GetDataContainerOutputArgs } from "./getDataContainer";
+export const getDataContainer: typeof import("./getDataContainer").getDataContainer = null as any;
+export const getDataContainerOutput: typeof import("./getDataContainer").getDataContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getDataContainer","getDataContainerOutput"], () => require("./getDataContainer"));
+
+export { GetDataVersionArgs, GetDataVersionResult, GetDataVersionOutputArgs } from "./getDataVersion";
+export const getDataVersion: typeof import("./getDataVersion").getDataVersion = null as any;
+export const getDataVersionOutput: typeof import("./getDataVersion").getDataVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getDataVersion","getDataVersionOutput"], () => require("./getDataVersion"));
+
+export { GetDatastoreArgs, GetDatastoreResult, GetDatastoreOutputArgs } from "./getDatastore";
+export const getDatastore: typeof import("./getDatastore").getDatastore = null as any;
+export const getDatastoreOutput: typeof import("./getDatastore").getDatastoreOutput = null as any;
+utilities.lazyLoad(exports, ["getDatastore","getDatastoreOutput"], () => require("./getDatastore"));
+
+export { GetEnvironmentContainerArgs, GetEnvironmentContainerResult, GetEnvironmentContainerOutputArgs } from "./getEnvironmentContainer";
+export const getEnvironmentContainer: typeof import("./getEnvironmentContainer").getEnvironmentContainer = null as any;
+export const getEnvironmentContainerOutput: typeof import("./getEnvironmentContainer").getEnvironmentContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getEnvironmentContainer","getEnvironmentContainerOutput"], () => require("./getEnvironmentContainer"));
+
+export { GetEnvironmentVersionArgs, GetEnvironmentVersionResult, GetEnvironmentVersionOutputArgs } from "./getEnvironmentVersion";
+export const getEnvironmentVersion: typeof import("./getEnvironmentVersion").getEnvironmentVersion = null as any;
+export const getEnvironmentVersionOutput: typeof import("./getEnvironmentVersion").getEnvironmentVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getEnvironmentVersion","getEnvironmentVersionOutput"], () => require("./getEnvironmentVersion"));
+
+export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
+export const getJob: typeof import("./getJob").getJob = null as any;
+export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
+utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
+
+export { GetLabelingJobArgs, GetLabelingJobResult, GetLabelingJobOutputArgs } from "./getLabelingJob";
+export const getLabelingJob: typeof import("./getLabelingJob").getLabelingJob = null as any;
+export const getLabelingJobOutput: typeof import("./getLabelingJob").getLabelingJobOutput = null as any;
+utilities.lazyLoad(exports, ["getLabelingJob","getLabelingJobOutput"], () => require("./getLabelingJob"));
+
+export { GetModelContainerArgs, GetModelContainerResult, GetModelContainerOutputArgs } from "./getModelContainer";
+export const getModelContainer: typeof import("./getModelContainer").getModelContainer = null as any;
+export const getModelContainerOutput: typeof import("./getModelContainer").getModelContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getModelContainer","getModelContainerOutput"], () => require("./getModelContainer"));
+
+export { GetModelVersionArgs, GetModelVersionResult, GetModelVersionOutputArgs } from "./getModelVersion";
+export const getModelVersion: typeof import("./getModelVersion").getModelVersion = null as any;
+export const getModelVersionOutput: typeof import("./getModelVersion").getModelVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getModelVersion","getModelVersionOutput"], () => require("./getModelVersion"));
+
+export { GetOnlineDeploymentArgs, GetOnlineDeploymentResult, GetOnlineDeploymentOutputArgs } from "./getOnlineDeployment";
+export const getOnlineDeployment: typeof import("./getOnlineDeployment").getOnlineDeployment = null as any;
+export const getOnlineDeploymentOutput: typeof import("./getOnlineDeployment").getOnlineDeploymentOutput = null as any;
+utilities.lazyLoad(exports, ["getOnlineDeployment","getOnlineDeploymentOutput"], () => require("./getOnlineDeployment"));
+
 export { GetOnlineDeploymentLogsArgs, GetOnlineDeploymentLogsResult, GetOnlineDeploymentLogsOutputArgs } from "./getOnlineDeploymentLogs";
 export const getOnlineDeploymentLogs: typeof import("./getOnlineDeploymentLogs").getOnlineDeploymentLogs = null as any;
 export const getOnlineDeploymentLogsOutput: typeof import("./getOnlineDeploymentLogs").getOnlineDeploymentLogsOutput = null as any;
 utilities.lazyLoad(exports, ["getOnlineDeploymentLogs","getOnlineDeploymentLogsOutput"], () => require("./getOnlineDeploymentLogs"));
 
+export { GetOnlineEndpointArgs, GetOnlineEndpointResult, GetOnlineEndpointOutputArgs } from "./getOnlineEndpoint";
+export const getOnlineEndpoint: typeof import("./getOnlineEndpoint").getOnlineEndpoint = null as any;
+export const getOnlineEndpointOutput: typeof import("./getOnlineEndpoint").getOnlineEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getOnlineEndpoint","getOnlineEndpointOutput"], () => require("./getOnlineEndpoint"));
+
 export { GetOnlineEndpointTokenArgs, GetOnlineEndpointTokenResult, GetOnlineEndpointTokenOutputArgs } from "./getOnlineEndpointToken";
 export const getOnlineEndpointToken: typeof import("./getOnlineEndpointToken").getOnlineEndpointToken = null as any;
 export const getOnlineEndpointTokenOutput: typeof import("./getOnlineEndpointToken").getOnlineEndpointTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getOnlineEndpointToken","getOnlineEndpointTokenOutput"], () => require("./getOnlineEndpointToken"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetScheduleArgs, GetScheduleResult, GetScheduleOutputArgs } from "./getSchedule";
+export const getSchedule: typeof import("./getSchedule").getSchedule = null as any;
+export const getScheduleOutput: typeof import("./getSchedule").getScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getSchedule","getScheduleOutput"], () => require("./getSchedule"));
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+
+export { GetWorkspaceConnectionArgs, GetWorkspaceConnectionResult, GetWorkspaceConnectionOutputArgs } from "./getWorkspaceConnection";
+export const getWorkspaceConnection: typeof import("./getWorkspaceConnection").getWorkspaceConnection = null as any;
+export const getWorkspaceConnectionOutput: typeof import("./getWorkspaceConnection").getWorkspaceConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceConnection","getWorkspaceConnectionOutput"], () => require("./getWorkspaceConnection"));
 
 export { ListBatchEndpointKeysArgs, ListBatchEndpointKeysResult, ListBatchEndpointKeysOutputArgs } from "./listBatchEndpointKeys";
 export const listBatchEndpointKeys: typeof import("./listBatchEndpointKeys").listBatchEndpointKeys = null as any;

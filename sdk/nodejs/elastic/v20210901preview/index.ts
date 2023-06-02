@@ -4,6 +4,16 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
+export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
+export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
+
+export { GetTagRuleArgs, GetTagRuleResult, GetTagRuleOutputArgs } from "./getTagRule";
+export const getTagRule: typeof import("./getTagRule").getTagRule = null as any;
+export const getTagRuleOutput: typeof import("./getTagRule").getTagRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getTagRule","getTagRuleOutput"], () => require("./getTagRule"));
+
 export { ListDeploymentInfoArgs, ListDeploymentInfoResult, ListDeploymentInfoOutputArgs } from "./listDeploymentInfo";
 export const listDeploymentInfo: typeof import("./listDeploymentInfo").listDeploymentInfo = null as any;
 export const listDeploymentInfoOutput: typeof import("./listDeploymentInfo").listDeploymentInfoOutput = null as any;
@@ -19,3 +29,6 @@ export const listVMHost: typeof import("./listVMHost").listVMHost = null as any;
 export const listVMHostOutput: typeof import("./listVMHost").listVMHostOutput = null as any;
 utilities.lazyLoad(exports, ["listVMHost","listVMHostOutput"], () => require("./listVMHost"));
 
+
+// Export enums:
+export * from "../../types/enums/elastic/v20210901preview";

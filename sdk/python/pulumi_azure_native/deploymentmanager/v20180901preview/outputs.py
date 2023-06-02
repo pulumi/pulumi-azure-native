@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'CloudErrorBodyResponse',
@@ -18,6 +19,7 @@ __all__ = [
     'ResourceOperationResponse',
     'RolloutOperationInfoResponse',
     'RolloutStepResponse',
+    'SasAuthenticationResponse',
     'ServiceResponse',
     'ServiceUnitArtifactsResponse',
     'ServiceUnitResponse',
@@ -427,6 +429,41 @@ class RolloutStepResponse(dict):
         The step group the current step is part of.
         """
         return pulumi.get(self, "step_group")
+
+
+@pulumi.output_type
+class SasAuthenticationResponse(dict):
+    """
+    Defines the properties to access the artifacts using an Azure Storage SAS URI.
+    """
+    def __init__(__self__, *,
+                 sas_uri: str,
+                 type: str):
+        """
+        Defines the properties to access the artifacts using an Azure Storage SAS URI.
+        :param str sas_uri: The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+        :param str type: The authentication type
+               Expected value is 'Sas'.
+        """
+        pulumi.set(__self__, "sas_uri", sas_uri)
+        pulumi.set(__self__, "type", 'Sas')
+
+    @property
+    @pulumi.getter(name="sasUri")
+    def sas_uri(self) -> str:
+        """
+        The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+        """
+        return pulumi.get(self, "sas_uri")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The authentication type
+        Expected value is 'Sas'.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

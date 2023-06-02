@@ -15,6 +15,26 @@ export const getActiveDirectoryConnector: typeof import("./getActiveDirectoryCon
 export const getActiveDirectoryConnectorOutput: typeof import("./getActiveDirectoryConnector").getActiveDirectoryConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getActiveDirectoryConnector","getActiveDirectoryConnectorOutput"], () => require("./getActiveDirectoryConnector"));
 
+export { GetDataControllerArgs, GetDataControllerResult, GetDataControllerOutputArgs } from "./getDataController";
+export const getDataController: typeof import("./getDataController").getDataController = null as any;
+export const getDataControllerOutput: typeof import("./getDataController").getDataControllerOutput = null as any;
+utilities.lazyLoad(exports, ["getDataController","getDataControllerOutput"], () => require("./getDataController"));
+
+export { GetPostgresInstanceArgs, GetPostgresInstanceResult, GetPostgresInstanceOutputArgs } from "./getPostgresInstance";
+export const getPostgresInstance: typeof import("./getPostgresInstance").getPostgresInstance = null as any;
+export const getPostgresInstanceOutput: typeof import("./getPostgresInstance").getPostgresInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getPostgresInstance","getPostgresInstanceOutput"], () => require("./getPostgresInstance"));
+
+export { GetSqlManagedInstanceArgs, GetSqlManagedInstanceResult, GetSqlManagedInstanceOutputArgs } from "./getSqlManagedInstance";
+export const getSqlManagedInstance: typeof import("./getSqlManagedInstance").getSqlManagedInstance = null as any;
+export const getSqlManagedInstanceOutput: typeof import("./getSqlManagedInstance").getSqlManagedInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlManagedInstance","getSqlManagedInstanceOutput"], () => require("./getSqlManagedInstance"));
+
+export { GetSqlServerInstanceArgs, GetSqlServerInstanceResult, GetSqlServerInstanceOutputArgs } from "./getSqlServerInstance";
+export const getSqlServerInstance: typeof import("./getSqlServerInstance").getSqlServerInstance = null as any;
+export const getSqlServerInstanceOutput: typeof import("./getSqlServerInstance").getSqlServerInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlServerInstance","getSqlServerInstanceOutput"], () => require("./getSqlServerInstance"));
+
 
 // Export enums:
 export * from "../../types/enums/azurearcdata/v20220301preview";

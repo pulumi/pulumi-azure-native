@@ -4,6 +4,26 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetBotArgs, GetBotResult, GetBotOutputArgs } from "./getBot";
+export const getBot: typeof import("./getBot").getBot = null as any;
+export const getBotOutput: typeof import("./getBot").getBotOutput = null as any;
+utilities.lazyLoad(exports, ["getBot","getBotOutput"], () => require("./getBot"));
+
+export { GetBotConnectionArgs, GetBotConnectionResult, GetBotConnectionOutputArgs } from "./getBotConnection";
+export const getBotConnection: typeof import("./getBotConnection").getBotConnection = null as any;
+export const getBotConnectionOutput: typeof import("./getBotConnection").getBotConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getBotConnection","getBotConnectionOutput"], () => require("./getBotConnection"));
+
+export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getChannel";
+export const getChannel: typeof import("./getChannel").getChannel = null as any;
+export const getChannelOutput: typeof import("./getChannel").getChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
 export { ListBotConnectionServiceProvidersArgs, ListBotConnectionServiceProvidersResult } from "./listBotConnectionServiceProviders";
 export const listBotConnectionServiceProviders: typeof import("./listBotConnectionServiceProviders").listBotConnectionServiceProviders = null as any;
 utilities.lazyLoad(exports, ["listBotConnectionServiceProviders"], () => require("./listBotConnectionServiceProviders"));
@@ -23,3 +43,6 @@ export const listQnAMakerEndpointKey: typeof import("./listQnAMakerEndpointKey")
 export const listQnAMakerEndpointKeyOutput: typeof import("./listQnAMakerEndpointKey").listQnAMakerEndpointKeyOutput = null as any;
 utilities.lazyLoad(exports, ["listQnAMakerEndpointKey","listQnAMakerEndpointKeyOutput"], () => require("./listQnAMakerEndpointKey"));
 
+
+// Export enums:
+export * from "../../types/enums/botservice/v20220615preview";

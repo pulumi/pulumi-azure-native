@@ -247,6 +247,29 @@ export const PartnerTopicActivationState = {
  */
 export type PartnerTopicActivationState = (typeof PartnerTopicActivationState)[keyof typeof PartnerTopicActivationState];
 
+export const PartnerTopicRoutingMode = {
+    SourceEventAttribute: "SourceEventAttribute",
+    ChannelNameHeader: "ChannelNameHeader",
+} as const;
+
+/**
+ * This determines if events published to this partner namespace should use the source attribute in the event payload
+ * or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+ */
+export type PartnerTopicRoutingMode = (typeof PartnerTopicRoutingMode)[keyof typeof PartnerTopicRoutingMode];
+
+export const PersistedConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * Status of the connection.
+ */
+export type PersistedConnectionStatus = (typeof PersistedConnectionStatus)[keyof typeof PersistedConnectionStatus];
+
 export const PublicNetworkAccess = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -277,6 +300,20 @@ export const ResourceKind = {
  * Kind of the resource.
  */
 export type ResourceKind = (typeof ResourceKind)[keyof typeof ResourceKind];
+
+export const ResourceProvisioningState = {
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Canceled: "Canceled",
+    Failed: "Failed",
+} as const;
+
+/**
+ * Provisioning state of the Private Endpoint Connection.
+ */
+export type ResourceProvisioningState = (typeof ResourceProvisioningState)[keyof typeof ResourceProvisioningState];
 
 export const Sku = {
     Basic: "Basic",

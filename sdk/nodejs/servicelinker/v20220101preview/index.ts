@@ -4,8 +4,16 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetLinkerArgs, GetLinkerResult, GetLinkerOutputArgs } from "./getLinker";
+export const getLinker: typeof import("./getLinker").getLinker = null as any;
+export const getLinkerOutput: typeof import("./getLinker").getLinkerOutput = null as any;
+utilities.lazyLoad(exports, ["getLinker","getLinkerOutput"], () => require("./getLinker"));
+
 export { ListLinkerConfigurationsArgs, ListLinkerConfigurationsResult, ListLinkerConfigurationsOutputArgs } from "./listLinkerConfigurations";
 export const listLinkerConfigurations: typeof import("./listLinkerConfigurations").listLinkerConfigurations = null as any;
 export const listLinkerConfigurationsOutput: typeof import("./listLinkerConfigurations").listLinkerConfigurationsOutput = null as any;
 utilities.lazyLoad(exports, ["listLinkerConfigurations","listLinkerConfigurationsOutput"], () => require("./listLinkerConfigurations"));
 
+
+// Export enums:
+export * from "../../types/enums/servicelinker/v20220101preview";

@@ -40,6 +40,67 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20200701Preview
     }
 
     /// <summary>
+    /// Scope at which the operator will be installed.
+    /// </summary>
+    [EnumType]
+    public readonly struct OperatorScopeType : IEquatable<OperatorScopeType>
+    {
+        private readonly string _value;
+
+        private OperatorScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OperatorScopeType Cluster { get; } = new OperatorScopeType("cluster");
+        public static OperatorScopeType @Namespace { get; } = new OperatorScopeType("namespace");
+
+        public static bool operator ==(OperatorScopeType left, OperatorScopeType right) => left.Equals(right);
+        public static bool operator !=(OperatorScopeType left, OperatorScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(OperatorScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OperatorScopeType other && Equals(other);
+        public bool Equals(OperatorScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the operator
+    /// </summary>
+    [EnumType]
+    public readonly struct OperatorType : IEquatable<OperatorType>
+    {
+        private readonly string _value;
+
+        private OperatorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OperatorType Flux { get; } = new OperatorType("Flux");
+
+        public static bool operator ==(OperatorType left, OperatorType right) => left.Equals(right);
+        public static bool operator !=(OperatorType left, OperatorType right) => !left.Equals(right);
+
+        public static explicit operator string(OperatorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OperatorType other && Equals(other);
+        public bool Equals(OperatorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
     /// </summary>
     [EnumType]

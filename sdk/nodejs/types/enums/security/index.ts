@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20150601preview from "./v20150601preview";
 import * as v20170801preview from "./v20170801preview";
 import * as v20190101preview from "./v20190101preview";
 import * as v20190801 from "./v20190801";
@@ -10,12 +11,15 @@ import * as v20200101preview from "./v20200101preview";
 import * as v20210601 from "./v20210601";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801preview from "./v20210801preview";
+import * as v20211201preview from "./v20211201preview";
 import * as v20220101preview from "./v20220101preview";
+import * as v20220501preview from "./v20220501preview";
 import * as v20220701preview from "./v20220701preview";
 import * as v20220801preview from "./v20220801preview";
 import * as v20230301preview from "./v20230301preview";
 
 export {
+    v20150601preview,
     v20170801preview,
     v20190101preview,
     v20190801,
@@ -24,7 +28,9 @@ export {
     v20210601,
     v20210701preview,
     v20210801preview,
+    v20211201preview,
     v20220101preview,
+    v20220501preview,
     v20220701preview,
     v20220801preview,
     v20230301preview,

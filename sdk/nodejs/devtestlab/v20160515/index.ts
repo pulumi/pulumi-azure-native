@@ -85,6 +85,11 @@ export const getSecret: typeof import("./getSecret").getSecret = null as any;
 export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
 utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
 
+export { GetServiceRunnerArgs, GetServiceRunnerResult, GetServiceRunnerOutputArgs } from "./getServiceRunner";
+export const getServiceRunner: typeof import("./getServiceRunner").getServiceRunner = null as any;
+export const getServiceRunnerOutput: typeof import("./getServiceRunner").getServiceRunnerOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceRunner","getServiceRunnerOutput"], () => require("./getServiceRunner"));
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;

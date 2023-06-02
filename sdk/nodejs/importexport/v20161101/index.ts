@@ -4,8 +4,16 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
+export const getJob: typeof import("./getJob").getJob = null as any;
+export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
+utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
+
 export { ListBitLockerKeyArgs, ListBitLockerKeyResult, ListBitLockerKeyOutputArgs } from "./listBitLockerKey";
 export const listBitLockerKey: typeof import("./listBitLockerKey").listBitLockerKey = null as any;
 export const listBitLockerKeyOutput: typeof import("./listBitLockerKey").listBitLockerKeyOutput = null as any;
 utilities.lazyLoad(exports, ["listBitLockerKey","listBitLockerKeyOutput"], () => require("./listBitLockerKey"));
 
+
+// Export enums:
+export * from "../../types/enums/importexport/v20161101";

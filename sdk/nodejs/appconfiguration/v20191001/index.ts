@@ -4,6 +4,11 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetConfigurationStoreArgs, GetConfigurationStoreResult, GetConfigurationStoreOutputArgs } from "./getConfigurationStore";
+export const getConfigurationStore: typeof import("./getConfigurationStore").getConfigurationStore = null as any;
+export const getConfigurationStoreOutput: typeof import("./getConfigurationStore").getConfigurationStoreOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationStore","getConfigurationStoreOutput"], () => require("./getConfigurationStore"));
+
 export { ListConfigurationStoreKeyValueArgs, ListConfigurationStoreKeyValueResult, ListConfigurationStoreKeyValueOutputArgs } from "./listConfigurationStoreKeyValue";
 export const listConfigurationStoreKeyValue: typeof import("./listConfigurationStoreKeyValue").listConfigurationStoreKeyValue = null as any;
 export const listConfigurationStoreKeyValueOutput: typeof import("./listConfigurationStoreKeyValue").listConfigurationStoreKeyValueOutput = null as any;
@@ -14,3 +19,6 @@ export const listConfigurationStoreKeys: typeof import("./listConfigurationStore
 export const listConfigurationStoreKeysOutput: typeof import("./listConfigurationStoreKeys").listConfigurationStoreKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listConfigurationStoreKeys","listConfigurationStoreKeysOutput"], () => require("./listConfigurationStoreKeys"));
 
+
+// Export enums:
+export * from "../../types/enums/appconfiguration/v20191001";

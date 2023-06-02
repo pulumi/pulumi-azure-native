@@ -5,6 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetProtectedItemArgs, GetProtectedItemResult, GetProtectedItemOutputArgs } from "./getProtectedItem";
+export const getProtectedItem: typeof import("./getProtectedItem").getProtectedItem = null as any;
+export const getProtectedItemOutput: typeof import("./getProtectedItem").getProtectedItemOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectedItem","getProtectedItemOutput"], () => require("./getProtectedItem"));
+
+export { GetProtectionContainerArgs, GetProtectionContainerResult, GetProtectionContainerOutputArgs } from "./getProtectionContainer";
+export const getProtectionContainer: typeof import("./getProtectionContainer").getProtectionContainer = null as any;
+export const getProtectionContainerOutput: typeof import("./getProtectionContainer").getProtectionContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectionContainer","getProtectionContainerOutput"], () => require("./getProtectionContainer"));
+
+export { GetProtectionIntentArgs, GetProtectionIntentResult, GetProtectionIntentOutputArgs } from "./getProtectionIntent";
+export const getProtectionIntent: typeof import("./getProtectionIntent").getProtectionIntent = null as any;
+export const getProtectionIntentOutput: typeof import("./getProtectionIntent").getProtectionIntentOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectionIntent","getProtectionIntentOutput"], () => require("./getProtectionIntent"));
+
+export { GetProtectionPolicyArgs, GetProtectionPolicyResult, GetProtectionPolicyOutputArgs } from "./getProtectionPolicy";
+export const getProtectionPolicy: typeof import("./getProtectionPolicy").getProtectionPolicy = null as any;
+export const getProtectionPolicyOutput: typeof import("./getProtectionPolicy").getProtectionPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectionPolicy","getProtectionPolicyOutput"], () => require("./getProtectionPolicy"));
+
 export { GetResourceGuardProxyArgs, GetResourceGuardProxyResult, GetResourceGuardProxyOutputArgs } from "./getResourceGuardProxy";
 export const getResourceGuardProxy: typeof import("./getResourceGuardProxy").getResourceGuardProxy = null as any;
 export const getResourceGuardProxyOutput: typeof import("./getResourceGuardProxy").getResourceGuardProxyOutput = null as any;
@@ -15,6 +40,9 @@ export type ResourceGuardProxy = import("./resourceGuardProxy").ResourceGuardPro
 export const ResourceGuardProxy: typeof import("./resourceGuardProxy").ResourceGuardProxy = null as any;
 utilities.lazyLoad(exports, ["ResourceGuardProxy"], () => require("./resourceGuardProxy"));
 
+
+// Export enums:
+export * from "../../types/enums/recoveryservices/v20210201preview";
 
 const _module = {
     version: utilities.getVersion(),

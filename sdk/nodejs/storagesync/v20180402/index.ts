@@ -25,6 +25,11 @@ export const getServerEndpoint: typeof import("./getServerEndpoint").getServerEn
 export const getServerEndpointOutput: typeof import("./getServerEndpoint").getServerEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getServerEndpoint","getServerEndpointOutput"], () => require("./getServerEndpoint"));
 
+export { GetStorageSyncServiceArgs, GetStorageSyncServiceResult, GetStorageSyncServiceOutputArgs } from "./getStorageSyncService";
+export const getStorageSyncService: typeof import("./getStorageSyncService").getStorageSyncService = null as any;
+export const getStorageSyncServiceOutput: typeof import("./getStorageSyncService").getStorageSyncServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageSyncService","getStorageSyncServiceOutput"], () => require("./getStorageSyncService"));
+
 export { GetSyncGroupArgs, GetSyncGroupResult, GetSyncGroupOutputArgs } from "./getSyncGroup";
 export const getSyncGroup: typeof import("./getSyncGroup").getSyncGroup = null as any;
 export const getSyncGroupOutput: typeof import("./getSyncGroup").getSyncGroupOutput = null as any;

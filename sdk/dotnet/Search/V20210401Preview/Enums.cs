@@ -127,6 +127,51 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
     }
 
     /// <summary>
+    /// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateLinkServiceConnectionStatus : IEquatable<PrivateLinkServiceConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateLinkServiceConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The private endpoint connection has been created and is pending approval.
+        /// </summary>
+        public static PrivateLinkServiceConnectionStatus Pending { get; } = new PrivateLinkServiceConnectionStatus("Pending");
+        /// <summary>
+        /// The private endpoint connection is approved and is ready for use.
+        /// </summary>
+        public static PrivateLinkServiceConnectionStatus Approved { get; } = new PrivateLinkServiceConnectionStatus("Approved");
+        /// <summary>
+        /// The private endpoint connection has been rejected and cannot be used.
+        /// </summary>
+        public static PrivateLinkServiceConnectionStatus Rejected { get; } = new PrivateLinkServiceConnectionStatus("Rejected");
+        /// <summary>
+        /// The private endpoint connection has been removed from the service.
+        /// </summary>
+        public static PrivateLinkServiceConnectionStatus Disconnected { get; } = new PrivateLinkServiceConnectionStatus("Disconnected");
+
+        public static bool operator ==(PrivateLinkServiceConnectionStatus left, PrivateLinkServiceConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateLinkServiceConnectionStatus left, PrivateLinkServiceConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateLinkServiceConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateLinkServiceConnectionStatus other && Equals(other);
+        public bool Equals(PrivateLinkServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
     /// </summary>
     [EnumType]
@@ -308,6 +353,100 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SearchSemanticSearch other && Equals(other);
         public bool Equals(SearchSemanticSearch other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded, Incomplete or other yet to be documented value.
+    /// </summary>
+    [EnumType]
+    public readonly struct SharedPrivateLinkResourceProvisioningState : IEquatable<SharedPrivateLinkResourceProvisioningState>
+    {
+        private readonly string _value;
+
+        private SharedPrivateLinkResourceProvisioningState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The shared private link resource is in the process of being created along with other resources for it to be fully functional.
+        /// </summary>
+        public static SharedPrivateLinkResourceProvisioningState Updating { get; } = new SharedPrivateLinkResourceProvisioningState("Updating");
+        /// <summary>
+        /// The shared private link resource is in the process of being deleted.
+        /// </summary>
+        public static SharedPrivateLinkResourceProvisioningState Deleting { get; } = new SharedPrivateLinkResourceProvisioningState("Deleting");
+        /// <summary>
+        /// The shared private link resource has failed to be provisioned or deleted.
+        /// </summary>
+        public static SharedPrivateLinkResourceProvisioningState Failed { get; } = new SharedPrivateLinkResourceProvisioningState("Failed");
+        /// <summary>
+        /// The shared private link resource has finished provisioning and is ready for approval.
+        /// </summary>
+        public static SharedPrivateLinkResourceProvisioningState Succeeded { get; } = new SharedPrivateLinkResourceProvisioningState("Succeeded");
+        /// <summary>
+        /// Provisioning request for the shared private link resource has been accepted but the process of creation has not commenced yet.
+        /// </summary>
+        public static SharedPrivateLinkResourceProvisioningState Incomplete { get; } = new SharedPrivateLinkResourceProvisioningState("Incomplete");
+
+        public static bool operator ==(SharedPrivateLinkResourceProvisioningState left, SharedPrivateLinkResourceProvisioningState right) => left.Equals(right);
+        public static bool operator !=(SharedPrivateLinkResourceProvisioningState left, SharedPrivateLinkResourceProvisioningState right) => !left.Equals(right);
+
+        public static explicit operator string(SharedPrivateLinkResourceProvisioningState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SharedPrivateLinkResourceProvisioningState other && Equals(other);
+        public bool Equals(SharedPrivateLinkResourceProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected or other yet to be documented value.
+    /// </summary>
+    [EnumType]
+    public readonly struct SharedPrivateLinkResourceStatus : IEquatable<SharedPrivateLinkResourceStatus>
+    {
+        private readonly string _value;
+
+        private SharedPrivateLinkResourceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The shared private link resource has been created and is pending approval.
+        /// </summary>
+        public static SharedPrivateLinkResourceStatus Pending { get; } = new SharedPrivateLinkResourceStatus("Pending");
+        /// <summary>
+        /// The shared private link resource is approved and is ready for use.
+        /// </summary>
+        public static SharedPrivateLinkResourceStatus Approved { get; } = new SharedPrivateLinkResourceStatus("Approved");
+        /// <summary>
+        /// The shared private link resource has been rejected and cannot be used.
+        /// </summary>
+        public static SharedPrivateLinkResourceStatus Rejected { get; } = new SharedPrivateLinkResourceStatus("Rejected");
+        /// <summary>
+        /// The shared private link resource has been removed from the service.
+        /// </summary>
+        public static SharedPrivateLinkResourceStatus Disconnected { get; } = new SharedPrivateLinkResourceStatus("Disconnected");
+
+        public static bool operator ==(SharedPrivateLinkResourceStatus left, SharedPrivateLinkResourceStatus right) => left.Equals(right);
+        public static bool operator !=(SharedPrivateLinkResourceStatus left, SharedPrivateLinkResourceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SharedPrivateLinkResourceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SharedPrivateLinkResourceStatus other && Equals(other);
+        public bool Equals(SharedPrivateLinkResourceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

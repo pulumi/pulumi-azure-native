@@ -34,6 +34,7 @@ __all__ = [
     'ApplicationGatewayProbeResponse',
     'ApplicationGatewayRedirectConfigurationResponse',
     'ApplicationGatewayRequestRoutingRuleResponse',
+    'ApplicationGatewayResponse',
     'ApplicationGatewayRewriteRuleActionSetResponse',
     'ApplicationGatewayRewriteRuleConditionResponse',
     'ApplicationGatewayRewriteRuleResponse',
@@ -44,50 +45,102 @@ __all__ = [
     'ApplicationGatewayTrustedRootCertificateResponse',
     'ApplicationGatewayUrlPathMapResponse',
     'ApplicationGatewayWebApplicationFirewallConfigurationResponse',
+    'ApplicationRuleConditionResponse',
     'ApplicationSecurityGroupResponse',
+    'AzureFirewallApplicationRuleCollectionResponse',
+    'AzureFirewallApplicationRuleProtocolResponse',
+    'AzureFirewallApplicationRuleResponse',
+    'AzureFirewallIPConfigurationResponse',
+    'AzureFirewallNatRCActionResponse',
+    'AzureFirewallNatRuleCollectionResponse',
+    'AzureFirewallNatRuleResponse',
+    'AzureFirewallNetworkRuleCollectionResponse',
+    'AzureFirewallNetworkRuleResponse',
+    'AzureFirewallPublicIPAddressResponse',
+    'AzureFirewallRCActionResponse',
     'BackendAddressPoolResponse',
+    'BastionHostIPConfigurationResponse',
     'BgpPeerStatusResponse',
+    'BgpSettingsResponse',
+    'ConnectionMonitorDestinationResponse',
+    'ConnectionMonitorSourceResponse',
+    'ContainerNetworkInterfaceConfigurationResponse',
+    'ContainerNetworkInterfaceIpConfigurationResponse',
+    'ContainerNetworkInterfaceResponse',
+    'ContainerResponse',
     'DdosSettingsResponse',
     'DelegationResponse',
+    'DevicePropertiesResponse',
     'DhcpOptionsResponse',
     'ExpressRouteCircuitAuthorizationResponse',
     'ExpressRouteCircuitConnectionResponse',
     'ExpressRouteCircuitPeeringConfigResponse',
+    'ExpressRouteCircuitPeeringIdResponse',
     'ExpressRouteCircuitPeeringResponse',
     'ExpressRouteCircuitServiceProviderPropertiesResponse',
     'ExpressRouteCircuitSkuResponse',
     'ExpressRouteCircuitStatsResponse',
     'ExpressRouteConnectionIdResponse',
+    'ExpressRouteConnectionResponse',
+    'ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration',
+    'ExpressRouteGatewayPropertiesResponseBounds',
+    'ExpressRouteLinkResponse',
+    'FirewallPolicyFilterRuleActionResponse',
+    'FirewallPolicyFilterRuleResponse',
+    'FirewallPolicyNatRuleActionResponse',
+    'FirewallPolicyNatRuleResponse',
+    'FirewallPolicyRuleConditionApplicationProtocolResponse',
     'FrontendIPConfigurationResponse',
     'GatewayRouteResponse',
+    'HubIPAddressesResponse',
+    'HubVirtualNetworkConnectionResponse',
     'IPConfigurationProfileResponse',
     'IPConfigurationResponse',
     'InboundNatPoolResponse',
     'InboundNatRuleResponse',
     'IpTagResponse',
+    'IpsecPolicyResponse',
     'Ipv6ExpressRouteCircuitPeeringConfigResponse',
     'LoadBalancerSkuResponse',
     'LoadBalancingRuleResponse',
+    'LocalNetworkGatewayResponse',
     'ManagedServiceIdentityResponse',
     'ManagedServiceIdentityResponseUserAssignedIdentities',
+    'MatchConditionResponse',
+    'MatchVariableResponse',
     'NatGatewaySkuResponse',
     'NetworkInterfaceDnsSettingsResponse',
     'NetworkInterfaceIPConfigurationResponse',
     'NetworkInterfaceResponse',
     'NetworkInterfaceTapConfigurationResponse',
+    'NetworkRuleConditionResponse',
     'NetworkSecurityGroupResponse',
     'OutboundRuleResponse',
+    'P2SVpnServerConfigRadiusClientRootCertificateResponse',
+    'P2SVpnServerConfigRadiusServerRootCertificateResponse',
+    'P2SVpnServerConfigVpnClientRevokedCertificateResponse',
+    'P2SVpnServerConfigVpnClientRootCertificateResponse',
+    'P2SVpnServerConfigurationResponse',
+    'PacketCaptureFilterResponse',
+    'PacketCaptureStorageLocationResponse',
     'PeerExpressRouteCircuitConnectionResponse',
+    'PolicySettingsResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'PrivateLinkServiceIpConfigurationResponse',
+    'PrivateLinkServicePropertiesResponseAutoApproval',
+    'PrivateLinkServicePropertiesResponseVisibility',
     'ProbeResponse',
+    'ProtocolCustomSettingsFormatResponse',
     'PublicIPAddressDnsSettingsResponse',
     'PublicIPAddressResponse',
     'PublicIPAddressSkuResponse',
     'PublicIPPrefixSkuResponse',
     'ReferencedPublicIpAddressResponse',
     'ResourceNavigationLinkResponse',
+    'RouteFilterRuleResponse',
     'RouteResponse',
     'RouteTableResponse',
     'SecurityRuleResponse',
@@ -97,10 +150,26 @@ __all__ = [
     'ServiceEndpointPropertiesFormatResponse',
     'SubResourceResponse',
     'SubnetResponse',
+    'TunnelConnectionHealthResponse',
+    'VirtualHubIdResponse',
+    'VirtualHubRouteResponse',
+    'VirtualHubRouteTableResponse',
+    'VirtualNetworkGatewayIPConfigurationResponse',
+    'VirtualNetworkGatewayResponse',
+    'VirtualNetworkGatewaySkuResponse',
     'VirtualNetworkPeeringResponse',
     'VirtualNetworkTapResponse',
+    'VpnClientConfigurationResponse',
     'VpnClientConnectionHealthDetailResponse',
     'VpnClientConnectionHealthResponse',
+    'VpnClientRevokedCertificateResponse',
+    'VpnClientRootCertificateResponse',
+    'VpnConnectionResponse',
+    'VpnLinkBgpSettingsResponse',
+    'VpnLinkProviderPropertiesResponse',
+    'VpnSiteLinkConnectionResponse',
+    'VpnSiteLinkResponse',
+    'WebApplicationFirewallCustomRuleResponse',
 ]
 
 @pulumi.output_type
@@ -2413,6 +2482,410 @@ class ApplicationGatewayRequestRoutingRuleResponse(dict):
 
 
 @pulumi.output_type
+class ApplicationGatewayResponse(dict):
+    """
+    Application gateway resource.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 operational_state: str,
+                 type: str,
+                 authentication_certificates: Optional[Sequence['outputs.ApplicationGatewayAuthenticationCertificateResponse']] = None,
+                 autoscale_configuration: Optional['outputs.ApplicationGatewayAutoscaleConfigurationResponse'] = None,
+                 backend_address_pools: Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolResponse']] = None,
+                 backend_http_settings_collection: Optional[Sequence['outputs.ApplicationGatewayBackendHttpSettingsResponse']] = None,
+                 custom_error_configurations: Optional[Sequence['outputs.ApplicationGatewayCustomErrorResponse']] = None,
+                 enable_fips: Optional[bool] = None,
+                 enable_http2: Optional[bool] = None,
+                 etag: Optional[str] = None,
+                 firewall_policy: Optional['outputs.SubResourceResponse'] = None,
+                 frontend_ip_configurations: Optional[Sequence['outputs.ApplicationGatewayFrontendIPConfigurationResponse']] = None,
+                 frontend_ports: Optional[Sequence['outputs.ApplicationGatewayFrontendPortResponse']] = None,
+                 gateway_ip_configurations: Optional[Sequence['outputs.ApplicationGatewayIPConfigurationResponse']] = None,
+                 http_listeners: Optional[Sequence['outputs.ApplicationGatewayHttpListenerResponse']] = None,
+                 id: Optional[str] = None,
+                 identity: Optional['outputs.ManagedServiceIdentityResponse'] = None,
+                 location: Optional[str] = None,
+                 probes: Optional[Sequence['outputs.ApplicationGatewayProbeResponse']] = None,
+                 provisioning_state: Optional[str] = None,
+                 redirect_configurations: Optional[Sequence['outputs.ApplicationGatewayRedirectConfigurationResponse']] = None,
+                 request_routing_rules: Optional[Sequence['outputs.ApplicationGatewayRequestRoutingRuleResponse']] = None,
+                 resource_guid: Optional[str] = None,
+                 rewrite_rule_sets: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetResponse']] = None,
+                 sku: Optional['outputs.ApplicationGatewaySkuResponse'] = None,
+                 ssl_certificates: Optional[Sequence['outputs.ApplicationGatewaySslCertificateResponse']] = None,
+                 ssl_policy: Optional['outputs.ApplicationGatewaySslPolicyResponse'] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 trusted_root_certificates: Optional[Sequence['outputs.ApplicationGatewayTrustedRootCertificateResponse']] = None,
+                 url_path_maps: Optional[Sequence['outputs.ApplicationGatewayUrlPathMapResponse']] = None,
+                 web_application_firewall_configuration: Optional['outputs.ApplicationGatewayWebApplicationFirewallConfigurationResponse'] = None,
+                 zones: Optional[Sequence[str]] = None):
+        """
+        Application gateway resource.
+        :param str name: Resource name.
+        :param str operational_state: Operational state of the application gateway resource.
+        :param str type: Resource type.
+        :param Sequence['ApplicationGatewayAuthenticationCertificateResponse'] authentication_certificates: Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param 'ApplicationGatewayAutoscaleConfigurationResponse' autoscale_configuration: Autoscale Configuration.
+        :param Sequence['ApplicationGatewayBackendAddressPoolResponse'] backend_address_pools: Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayBackendHttpSettingsResponse'] backend_http_settings_collection: Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayCustomErrorResponse'] custom_error_configurations: Custom error configurations of the application gateway resource.
+        :param bool enable_fips: Whether FIPS is enabled on the application gateway resource.
+        :param bool enable_http2: Whether HTTP2 is enabled on the application gateway resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param 'SubResourceResponse' firewall_policy: Reference of the FirewallPolicy resource.
+        :param Sequence['ApplicationGatewayFrontendIPConfigurationResponse'] frontend_ip_configurations: Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayFrontendPortResponse'] frontend_ports: Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayIPConfigurationResponse'] gateway_ip_configurations: Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayHttpListenerResponse'] http_listeners: Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param str id: Resource ID.
+        :param 'ManagedServiceIdentityResponse' identity: The identity of the application gateway, if configured.
+        :param str location: Resource location.
+        :param Sequence['ApplicationGatewayProbeResponse'] probes: Probes of the application gateway resource.
+        :param str provisioning_state: Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        :param Sequence['ApplicationGatewayRedirectConfigurationResponse'] redirect_configurations: Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayRequestRoutingRuleResponse'] request_routing_rules: Request routing rules of the application gateway resource.
+        :param str resource_guid: Resource GUID property of the application gateway resource.
+        :param Sequence['ApplicationGatewayRewriteRuleSetResponse'] rewrite_rule_sets: Rewrite rules for the application gateway resource.
+        :param 'ApplicationGatewaySkuResponse' sku: SKU of the application gateway resource.
+        :param Sequence['ApplicationGatewaySslCertificateResponse'] ssl_certificates: SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param 'ApplicationGatewaySslPolicyResponse' ssl_policy: SSL policy of the application gateway resource.
+        :param Mapping[str, str] tags: Resource tags.
+        :param Sequence['ApplicationGatewayTrustedRootCertificateResponse'] trusted_root_certificates: Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayUrlPathMapResponse'] url_path_maps: URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param 'ApplicationGatewayWebApplicationFirewallConfigurationResponse' web_application_firewall_configuration: Web application firewall configuration.
+        :param Sequence[str] zones: A list of availability zones denoting where the resource needs to come from.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operational_state", operational_state)
+        pulumi.set(__self__, "type", type)
+        if authentication_certificates is not None:
+            pulumi.set(__self__, "authentication_certificates", authentication_certificates)
+        if autoscale_configuration is not None:
+            pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
+        if backend_address_pools is not None:
+            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+        if backend_http_settings_collection is not None:
+            pulumi.set(__self__, "backend_http_settings_collection", backend_http_settings_collection)
+        if custom_error_configurations is not None:
+            pulumi.set(__self__, "custom_error_configurations", custom_error_configurations)
+        if enable_fips is not None:
+            pulumi.set(__self__, "enable_fips", enable_fips)
+        if enable_http2 is not None:
+            pulumi.set(__self__, "enable_http2", enable_http2)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if firewall_policy is not None:
+            pulumi.set(__self__, "firewall_policy", firewall_policy)
+        if frontend_ip_configurations is not None:
+            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+        if frontend_ports is not None:
+            pulumi.set(__self__, "frontend_ports", frontend_ports)
+        if gateway_ip_configurations is not None:
+            pulumi.set(__self__, "gateway_ip_configurations", gateway_ip_configurations)
+        if http_listeners is not None:
+            pulumi.set(__self__, "http_listeners", http_listeners)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if probes is not None:
+            pulumi.set(__self__, "probes", probes)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if redirect_configurations is not None:
+            pulumi.set(__self__, "redirect_configurations", redirect_configurations)
+        if request_routing_rules is not None:
+            pulumi.set(__self__, "request_routing_rules", request_routing_rules)
+        if resource_guid is not None:
+            pulumi.set(__self__, "resource_guid", resource_guid)
+        if rewrite_rule_sets is not None:
+            pulumi.set(__self__, "rewrite_rule_sets", rewrite_rule_sets)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if ssl_certificates is not None:
+            pulumi.set(__self__, "ssl_certificates", ssl_certificates)
+        if ssl_policy is not None:
+            pulumi.set(__self__, "ssl_policy", ssl_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if trusted_root_certificates is not None:
+            pulumi.set(__self__, "trusted_root_certificates", trusted_root_certificates)
+        if url_path_maps is not None:
+            pulumi.set(__self__, "url_path_maps", url_path_maps)
+        if web_application_firewall_configuration is not None:
+            pulumi.set(__self__, "web_application_firewall_configuration", web_application_firewall_configuration)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="operationalState")
+    def operational_state(self) -> str:
+        """
+        Operational state of the application gateway resource.
+        """
+        return pulumi.get(self, "operational_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="authenticationCertificates")
+    def authentication_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewayAuthenticationCertificateResponse']]:
+        """
+        Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "authentication_certificates")
+
+    @property
+    @pulumi.getter(name="autoscaleConfiguration")
+    def autoscale_configuration(self) -> Optional['outputs.ApplicationGatewayAutoscaleConfigurationResponse']:
+        """
+        Autoscale Configuration.
+        """
+        return pulumi.get(self, "autoscale_configuration")
+
+    @property
+    @pulumi.getter(name="backendAddressPools")
+    def backend_address_pools(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolResponse']]:
+        """
+        Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "backend_address_pools")
+
+    @property
+    @pulumi.getter(name="backendHttpSettingsCollection")
+    def backend_http_settings_collection(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendHttpSettingsResponse']]:
+        """
+        Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "backend_http_settings_collection")
+
+    @property
+    @pulumi.getter(name="customErrorConfigurations")
+    def custom_error_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayCustomErrorResponse']]:
+        """
+        Custom error configurations of the application gateway resource.
+        """
+        return pulumi.get(self, "custom_error_configurations")
+
+    @property
+    @pulumi.getter(name="enableFips")
+    def enable_fips(self) -> Optional[bool]:
+        """
+        Whether FIPS is enabled on the application gateway resource.
+        """
+        return pulumi.get(self, "enable_fips")
+
+    @property
+    @pulumi.getter(name="enableHttp2")
+    def enable_http2(self) -> Optional[bool]:
+        """
+        Whether HTTP2 is enabled on the application gateway resource.
+        """
+        return pulumi.get(self, "enable_http2")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="firewallPolicy")
+    def firewall_policy(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference of the FirewallPolicy resource.
+        """
+        return pulumi.get(self, "firewall_policy")
+
+    @property
+    @pulumi.getter(name="frontendIPConfigurations")
+    def frontend_ip_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayFrontendIPConfigurationResponse']]:
+        """
+        Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "frontend_ip_configurations")
+
+    @property
+    @pulumi.getter(name="frontendPorts")
+    def frontend_ports(self) -> Optional[Sequence['outputs.ApplicationGatewayFrontendPortResponse']]:
+        """
+        Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "frontend_ports")
+
+    @property
+    @pulumi.getter(name="gatewayIPConfigurations")
+    def gateway_ip_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayIPConfigurationResponse']]:
+        """
+        Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "gateway_ip_configurations")
+
+    @property
+    @pulumi.getter(name="httpListeners")
+    def http_listeners(self) -> Optional[Sequence['outputs.ApplicationGatewayHttpListenerResponse']]:
+        """
+        Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "http_listeners")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity of the application gateway, if configured.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def probes(self) -> Optional[Sequence['outputs.ApplicationGatewayProbeResponse']]:
+        """
+        Probes of the application gateway resource.
+        """
+        return pulumi.get(self, "probes")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="redirectConfigurations")
+    def redirect_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayRedirectConfigurationResponse']]:
+        """
+        Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "redirect_configurations")
+
+    @property
+    @pulumi.getter(name="requestRoutingRules")
+    def request_routing_rules(self) -> Optional[Sequence['outputs.ApplicationGatewayRequestRoutingRuleResponse']]:
+        """
+        Request routing rules of the application gateway resource.
+        """
+        return pulumi.get(self, "request_routing_rules")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
+        """
+        Resource GUID property of the application gateway resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter(name="rewriteRuleSets")
+    def rewrite_rule_sets(self) -> Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetResponse']]:
+        """
+        Rewrite rules for the application gateway resource.
+        """
+        return pulumi.get(self, "rewrite_rule_sets")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ApplicationGatewaySkuResponse']:
+        """
+        SKU of the application gateway resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="sslCertificates")
+    def ssl_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewaySslCertificateResponse']]:
+        """
+        SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "ssl_certificates")
+
+    @property
+    @pulumi.getter(name="sslPolicy")
+    def ssl_policy(self) -> Optional['outputs.ApplicationGatewaySslPolicyResponse']:
+        """
+        SSL policy of the application gateway resource.
+        """
+        return pulumi.get(self, "ssl_policy")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trustedRootCertificates")
+    def trusted_root_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewayTrustedRootCertificateResponse']]:
+        """
+        Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "trusted_root_certificates")
+
+    @property
+    @pulumi.getter(name="urlPathMaps")
+    def url_path_maps(self) -> Optional[Sequence['outputs.ApplicationGatewayUrlPathMapResponse']]:
+        """
+        URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "url_path_maps")
+
+    @property
+    @pulumi.getter(name="webApplicationFirewallConfiguration")
+    def web_application_firewall_configuration(self) -> Optional['outputs.ApplicationGatewayWebApplicationFirewallConfigurationResponse']:
+        """
+        Web application firewall configuration.
+        """
+        return pulumi.get(self, "web_application_firewall_configuration")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        A list of availability zones denoting where the resource needs to come from.
+        """
+        return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
 class ApplicationGatewayRewriteRuleActionSetResponse(dict):
     """
     Set of actions in the Rewrite Rule in Application Gateway.
@@ -3422,6 +3895,114 @@ class ApplicationGatewayWebApplicationFirewallConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class ApplicationRuleConditionResponse(dict):
+    """
+    Rule condition of type application.
+    """
+    def __init__(__self__, *,
+                 rule_condition_type: str,
+                 description: Optional[str] = None,
+                 destination_addresses: Optional[Sequence[str]] = None,
+                 fqdn_tags: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 protocols: Optional[Sequence['outputs.FirewallPolicyRuleConditionApplicationProtocolResponse']] = None,
+                 source_addresses: Optional[Sequence[str]] = None,
+                 target_fqdns: Optional[Sequence[str]] = None):
+        """
+        Rule condition of type application.
+        :param str rule_condition_type: Rule Condition Type
+               Expected value is 'ApplicationRuleCondition'.
+        :param str description: Description of the rule condition.
+        :param Sequence[str] destination_addresses: List of destination IP addresses or Service Tags.
+        :param Sequence[str] fqdn_tags: List of FQDN Tags for this rule condition.
+        :param str name: Name of the rule condition.
+        :param Sequence['FirewallPolicyRuleConditionApplicationProtocolResponse'] protocols: Array of Application Protocols.
+        :param Sequence[str] source_addresses: List of source IP addresses for this rule.
+        :param Sequence[str] target_fqdns: List of FQDNs for this rule condition.
+        """
+        pulumi.set(__self__, "rule_condition_type", 'ApplicationRuleCondition')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if fqdn_tags is not None:
+            pulumi.set(__self__, "fqdn_tags", fqdn_tags)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if target_fqdns is not None:
+            pulumi.set(__self__, "target_fqdns", target_fqdns)
+
+    @property
+    @pulumi.getter(name="ruleConditionType")
+    def rule_condition_type(self) -> str:
+        """
+        Rule Condition Type
+        Expected value is 'ApplicationRuleCondition'.
+        """
+        return pulumi.get(self, "rule_condition_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the rule condition.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[Sequence[str]]:
+        """
+        List of destination IP addresses or Service Tags.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @property
+    @pulumi.getter(name="fqdnTags")
+    def fqdn_tags(self) -> Optional[Sequence[str]]:
+        """
+        List of FQDN Tags for this rule condition.
+        """
+        return pulumi.get(self, "fqdn_tags")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the rule condition.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[Sequence['outputs.FirewallPolicyRuleConditionApplicationProtocolResponse']]:
+        """
+        Array of Application Protocols.
+        """
+        return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[Sequence[str]]:
+        """
+        List of source IP addresses for this rule.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @property
+    @pulumi.getter(name="targetFqdns")
+    def target_fqdns(self) -> Optional[Sequence[str]]:
+        """
+        List of FQDNs for this rule condition.
+        """
+        return pulumi.get(self, "target_fqdns")
+
+
+@pulumi.output_type
 class ApplicationSecurityGroupResponse(dict):
     """
     An application security group in a resource group.
@@ -3540,6 +4121,754 @@ class ApplicationSecurityGroupResponse(dict):
         Resource tags.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AzureFirewallApplicationRuleCollectionResponse(dict):
+    """
+    Application rule collection resource.
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 action: Optional['outputs.AzureFirewallRCActionResponse'] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 rules: Optional[Sequence['outputs.AzureFirewallApplicationRuleResponse']] = None):
+        """
+        Application rule collection resource.
+        :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param 'AzureFirewallRCActionResponse' action: The action type of a rule collection.
+        :param str id: Resource ID.
+        :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param int priority: Priority of the application rule collection resource.
+        :param Sequence['AzureFirewallApplicationRuleResponse'] rules: Collection of rules used by a application rule collection.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['outputs.AzureFirewallRCActionResponse']:
+        """
+        The action type of a rule collection.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        Priority of the application rule collection resource.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.AzureFirewallApplicationRuleResponse']]:
+        """
+        Collection of rules used by a application rule collection.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class AzureFirewallApplicationRuleProtocolResponse(dict):
+    """
+    Properties of the application rule protocol.
+    """
+    def __init__(__self__, *,
+                 port: Optional[int] = None,
+                 protocol_type: Optional[str] = None):
+        """
+        Properties of the application rule protocol.
+        :param int port: Port number for the protocol, cannot be greater than 64000. This field is optional.
+        :param str protocol_type: Protocol type.
+        """
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol_type is not None:
+            pulumi.set(__self__, "protocol_type", protocol_type)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        Port number for the protocol, cannot be greater than 64000. This field is optional.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> Optional[str]:
+        """
+        Protocol type.
+        """
+        return pulumi.get(self, "protocol_type")
+
+
+@pulumi.output_type
+class AzureFirewallApplicationRuleResponse(dict):
+    """
+    Properties of an application rule.
+    """
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 fqdn_tags: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 protocols: Optional[Sequence['outputs.AzureFirewallApplicationRuleProtocolResponse']] = None,
+                 source_addresses: Optional[Sequence[str]] = None,
+                 target_fqdns: Optional[Sequence[str]] = None):
+        """
+        Properties of an application rule.
+        :param str description: Description of the rule.
+        :param Sequence[str] fqdn_tags: List of FQDN Tags for this rule.
+        :param str name: Name of the application rule.
+        :param Sequence['AzureFirewallApplicationRuleProtocolResponse'] protocols: Array of ApplicationRuleProtocols.
+        :param Sequence[str] source_addresses: List of source IP addresses for this rule.
+        :param Sequence[str] target_fqdns: List of FQDNs for this rule.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if fqdn_tags is not None:
+            pulumi.set(__self__, "fqdn_tags", fqdn_tags)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if target_fqdns is not None:
+            pulumi.set(__self__, "target_fqdns", target_fqdns)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="fqdnTags")
+    def fqdn_tags(self) -> Optional[Sequence[str]]:
+        """
+        List of FQDN Tags for this rule.
+        """
+        return pulumi.get(self, "fqdn_tags")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the application rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[Sequence['outputs.AzureFirewallApplicationRuleProtocolResponse']]:
+        """
+        Array of ApplicationRuleProtocols.
+        """
+        return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[Sequence[str]]:
+        """
+        List of source IP addresses for this rule.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @property
+    @pulumi.getter(name="targetFqdns")
+    def target_fqdns(self) -> Optional[Sequence[str]]:
+        """
+        List of FQDNs for this rule.
+        """
+        return pulumi.get(self, "target_fqdns")
+
+
+@pulumi.output_type
+class AzureFirewallIPConfigurationResponse(dict):
+    """
+    IP configuration of an Azure Firewall.
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 private_ip_address: str,
+                 provisioning_state: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 public_ip_address: Optional['outputs.SubResourceResponse'] = None,
+                 subnet: Optional['outputs.SubResourceResponse'] = None):
+        """
+        IP configuration of an Azure Firewall.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str private_ip_address: The Firewall Internal Load Balancer IP to be used as the next hop in User Defined Routes.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param str id: Resource ID.
+        :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param 'SubResourceResponse' public_ip_address: Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
+        :param 'SubResourceResponse' subnet: Reference of the subnet resource. This resource must be named 'AzureFirewallSubnet'.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> str:
+        """
+        The Firewall Internal Load Balancer IP to be used as the next hop in User Defined Routes.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference of the subnet resource. This resource must be named 'AzureFirewallSubnet'.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
+class AzureFirewallNatRCActionResponse(dict):
+    """
+    AzureFirewall NAT Rule Collection Action.
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        AzureFirewall NAT Rule Collection Action.
+        :param str type: The type of action.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of action.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AzureFirewallNatRuleCollectionResponse(dict):
+    """
+    NAT rule collection resource.
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 action: Optional['outputs.AzureFirewallNatRCActionResponse'] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 rules: Optional[Sequence['outputs.AzureFirewallNatRuleResponse']] = None):
+        """
+        NAT rule collection resource.
+        :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param 'AzureFirewallNatRCActionResponse' action: The action type of a NAT rule collection.
+        :param str id: Resource ID.
+        :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param int priority: Priority of the NAT rule collection resource.
+        :param Sequence['AzureFirewallNatRuleResponse'] rules: Collection of rules used by a NAT rule collection.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['outputs.AzureFirewallNatRCActionResponse']:
+        """
+        The action type of a NAT rule collection.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        Priority of the NAT rule collection resource.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.AzureFirewallNatRuleResponse']]:
+        """
+        Collection of rules used by a NAT rule collection.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class AzureFirewallNatRuleResponse(dict):
+    """
+    Properties of a NAT rule.
+    """
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 destination_addresses: Optional[Sequence[str]] = None,
+                 destination_ports: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 protocols: Optional[Sequence[str]] = None,
+                 source_addresses: Optional[Sequence[str]] = None,
+                 translated_address: Optional[str] = None,
+                 translated_port: Optional[str] = None):
+        """
+        Properties of a NAT rule.
+        :param str description: Description of the rule.
+        :param Sequence[str] destination_addresses: List of destination IP addresses for this rule. Supports IP ranges, prefixes, and service tags.
+        :param Sequence[str] destination_ports: List of destination ports.
+        :param str name: Name of the NAT rule.
+        :param Sequence[str] protocols: Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule.
+        :param Sequence[str] source_addresses: List of source IP addresses for this rule.
+        :param str translated_address: The translated address for this NAT rule.
+        :param str translated_port: The translated port for this NAT rule.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if translated_address is not None:
+            pulumi.set(__self__, "translated_address", translated_address)
+        if translated_port is not None:
+            pulumi.set(__self__, "translated_port", translated_port)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[Sequence[str]]:
+        """
+        List of destination IP addresses for this rule. Supports IP ranges, prefixes, and service tags.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[Sequence[str]]:
+        """
+        List of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the NAT rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[Sequence[str]]:
+        """
+        Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule.
+        """
+        return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[Sequence[str]]:
+        """
+        List of source IP addresses for this rule.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @property
+    @pulumi.getter(name="translatedAddress")
+    def translated_address(self) -> Optional[str]:
+        """
+        The translated address for this NAT rule.
+        """
+        return pulumi.get(self, "translated_address")
+
+    @property
+    @pulumi.getter(name="translatedPort")
+    def translated_port(self) -> Optional[str]:
+        """
+        The translated port for this NAT rule.
+        """
+        return pulumi.get(self, "translated_port")
+
+
+@pulumi.output_type
+class AzureFirewallNetworkRuleCollectionResponse(dict):
+    """
+    Network rule collection resource.
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 action: Optional['outputs.AzureFirewallRCActionResponse'] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 rules: Optional[Sequence['outputs.AzureFirewallNetworkRuleResponse']] = None):
+        """
+        Network rule collection resource.
+        :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param 'AzureFirewallRCActionResponse' action: The action type of a rule collection.
+        :param str id: Resource ID.
+        :param str name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param int priority: Priority of the network rule collection resource.
+        :param Sequence['AzureFirewallNetworkRuleResponse'] rules: Collection of rules used by a network rule collection.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['outputs.AzureFirewallRCActionResponse']:
+        """
+        The action type of a rule collection.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        Priority of the network rule collection resource.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.AzureFirewallNetworkRuleResponse']]:
+        """
+        Collection of rules used by a network rule collection.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class AzureFirewallNetworkRuleResponse(dict):
+    """
+    Properties of the network rule.
+    """
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 destination_addresses: Optional[Sequence[str]] = None,
+                 destination_ports: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 protocols: Optional[Sequence[str]] = None,
+                 source_addresses: Optional[Sequence[str]] = None):
+        """
+        Properties of the network rule.
+        :param str description: Description of the rule.
+        :param Sequence[str] destination_addresses: List of destination IP addresses.
+        :param Sequence[str] destination_ports: List of destination ports.
+        :param str name: Name of the network rule.
+        :param Sequence[str] protocols: Array of AzureFirewallNetworkRuleProtocols.
+        :param Sequence[str] source_addresses: List of source IP addresses for this rule.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[Sequence[str]]:
+        """
+        List of destination IP addresses.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[Sequence[str]]:
+        """
+        List of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the network rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[Sequence[str]]:
+        """
+        Array of AzureFirewallNetworkRuleProtocols.
+        """
+        return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[Sequence[str]]:
+        """
+        List of source IP addresses for this rule.
+        """
+        return pulumi.get(self, "source_addresses")
+
+
+@pulumi.output_type
+class AzureFirewallPublicIPAddressResponse(dict):
+    """
+    Public IP Address associated with azure firewall.
+    """
+    def __init__(__self__, *,
+                 address: Optional[str] = None):
+        """
+        Public IP Address associated with azure firewall.
+        :param str address: Public IP Address value.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        Public IP Address value.
+        """
+        return pulumi.get(self, "address")
+
+
+@pulumi.output_type
+class AzureFirewallRCActionResponse(dict):
+    """
+    Properties of the AzureFirewallRCAction.
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        Properties of the AzureFirewallRCAction.
+        :param str type: The type of action.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of action.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -3682,6 +5011,108 @@ class BackendAddressPoolResponse(dict):
 
 
 @pulumi.output_type
+class BastionHostIPConfigurationResponse(dict):
+    """
+    IP configuration of an Bastion Host.
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 public_ip_address: 'outputs.SubResourceResponse',
+                 subnet: 'outputs.SubResourceResponse',
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None):
+        """
+        IP configuration of an Bastion Host.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param 'SubResourceResponse' public_ip_address: Reference of the PublicIP resource.
+        :param 'SubResourceResponse' subnet: Reference of the subnet resource.
+        :param str type: Ip configuration type.
+        :param str id: Resource ID.
+        :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param str private_ip_allocation_method: Private IP allocation method.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+        pulumi.set(__self__, "subnet", subnet)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> 'outputs.SubResourceResponse':
+        """
+        Reference of the PublicIP resource.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> 'outputs.SubResourceResponse':
+        """
+        Reference of the subnet resource.
+        """
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Ip configuration type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        Private IP allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+
+@pulumi.output_type
 class BgpPeerStatusResponse(dict):
     """
     BGP peer status details.
@@ -3778,6 +5209,412 @@ class BgpPeerStatusResponse(dict):
         The BGP peer state.
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class BgpSettingsResponse(dict):
+    """
+    BGP settings details.
+    """
+    def __init__(__self__, *,
+                 asn: Optional[float] = None,
+                 bgp_peering_address: Optional[str] = None,
+                 peer_weight: Optional[int] = None):
+        """
+        BGP settings details.
+        :param float asn: The BGP speaker's ASN.
+        :param str bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
+        :param int peer_weight: The weight added to routes learned from this BGP speaker.
+        """
+        if asn is not None:
+            pulumi.set(__self__, "asn", asn)
+        if bgp_peering_address is not None:
+            pulumi.set(__self__, "bgp_peering_address", bgp_peering_address)
+        if peer_weight is not None:
+            pulumi.set(__self__, "peer_weight", peer_weight)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> Optional[float]:
+        """
+        The BGP speaker's ASN.
+        """
+        return pulumi.get(self, "asn")
+
+    @property
+    @pulumi.getter(name="bgpPeeringAddress")
+    def bgp_peering_address(self) -> Optional[str]:
+        """
+        The BGP peering address and BGP identifier of this BGP speaker.
+        """
+        return pulumi.get(self, "bgp_peering_address")
+
+    @property
+    @pulumi.getter(name="peerWeight")
+    def peer_weight(self) -> Optional[int]:
+        """
+        The weight added to routes learned from this BGP speaker.
+        """
+        return pulumi.get(self, "peer_weight")
+
+
+@pulumi.output_type
+class ConnectionMonitorDestinationResponse(dict):
+    """
+    Describes the destination of connection monitor.
+    """
+    def __init__(__self__, *,
+                 address: Optional[str] = None,
+                 port: Optional[int] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Describes the destination of connection monitor.
+        :param str address: Address of the connection monitor destination (IP or domain name).
+        :param int port: The destination port used by connection monitor.
+        :param str resource_id: The ID of the resource used as the destination by connection monitor.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        Address of the connection monitor destination (IP or domain name).
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The destination port used by connection monitor.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The ID of the resource used as the destination by connection monitor.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class ConnectionMonitorSourceResponse(dict):
+    """
+    Describes the source of connection monitor.
+    """
+    def __init__(__self__, *,
+                 resource_id: str,
+                 port: Optional[int] = None):
+        """
+        Describes the source of connection monitor.
+        :param str resource_id: The ID of the resource used as the source by connection monitor.
+        :param int port: The source port used by connection monitor.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The ID of the resource used as the source by connection monitor.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The source port used by connection monitor.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class ContainerNetworkInterfaceConfigurationResponse(dict):
+    """
+    Container network interface configuration child resource.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 type: str,
+                 container_network_interfaces: Optional[Sequence['outputs.SubResourceResponse']] = None,
+                 etag: Optional[str] = None,
+                 id: Optional[str] = None,
+                 ip_configurations: Optional[Sequence['outputs.IPConfigurationProfileResponse']] = None,
+                 name: Optional[str] = None):
+        """
+        Container network interface configuration child resource.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param str type: Sub Resource type.
+        :param Sequence['SubResourceResponse'] container_network_interfaces: A list of container network interfaces created from this container network interface configuration.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str id: Resource ID.
+        :param Sequence['IPConfigurationProfileResponse'] ip_configurations: A list of ip configurations of the container network interface configuration.
+        :param str name: The name of the resource. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if container_network_interfaces is not None:
+            pulumi.set(__self__, "container_network_interfaces", container_network_interfaces)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Sub Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="containerNetworkInterfaces")
+    def container_network_interfaces(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        A list of container network interfaces created from this container network interface configuration.
+        """
+        return pulumi.get(self, "container_network_interfaces")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[Sequence['outputs.IPConfigurationProfileResponse']]:
+        """
+        A list of ip configurations of the container network interface configuration.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ContainerNetworkInterfaceIpConfigurationResponse(dict):
+    """
+    The ip configuration for a container network interface.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 type: str,
+                 etag: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        The ip configuration for a container network interface.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param str type: Sub Resource type.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str name: The name of the resource. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Sub Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ContainerNetworkInterfaceResponse(dict):
+    """
+    Container network interface child resource.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 type: str,
+                 container: Optional['outputs.ContainerResponse'] = None,
+                 container_network_interface_configuration: Optional['outputs.ContainerNetworkInterfaceConfigurationResponse'] = None,
+                 etag: Optional[str] = None,
+                 id: Optional[str] = None,
+                 ip_configurations: Optional[Sequence['outputs.ContainerNetworkInterfaceIpConfigurationResponse']] = None,
+                 name: Optional[str] = None):
+        """
+        Container network interface child resource.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param str type: Sub Resource type.
+        :param 'ContainerResponse' container: Reference to the container to which this container network interface is attached.
+        :param 'ContainerNetworkInterfaceConfigurationResponse' container_network_interface_configuration: Container network interface configuration from which this container network interface is created.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str id: Resource ID.
+        :param Sequence['ContainerNetworkInterfaceIpConfigurationResponse'] ip_configurations: Reference to the ip configuration on this container nic.
+        :param str name: The name of the resource. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if container is not None:
+            pulumi.set(__self__, "container", container)
+        if container_network_interface_configuration is not None:
+            pulumi.set(__self__, "container_network_interface_configuration", container_network_interface_configuration)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Sub Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def container(self) -> Optional['outputs.ContainerResponse']:
+        """
+        Reference to the container to which this container network interface is attached.
+        """
+        return pulumi.get(self, "container")
+
+    @property
+    @pulumi.getter(name="containerNetworkInterfaceConfiguration")
+    def container_network_interface_configuration(self) -> Optional['outputs.ContainerNetworkInterfaceConfigurationResponse']:
+        """
+        Container network interface configuration from which this container network interface is created.
+        """
+        return pulumi.get(self, "container_network_interface_configuration")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[Sequence['outputs.ContainerNetworkInterfaceIpConfigurationResponse']]:
+        """
+        Reference to the ip configuration on this container nic.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ContainerResponse(dict):
+    """
+    Reference to container resource in remote resource provider.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Reference to container resource in remote resource provider.
+        :param str id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -3933,6 +5770,53 @@ class DelegationResponse(dict):
         The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
         """
         return pulumi.get(self, "service_name")
+
+
+@pulumi.output_type
+class DevicePropertiesResponse(dict):
+    """
+    List of properties of the device.
+    """
+    def __init__(__self__, *,
+                 device_model: Optional[str] = None,
+                 device_vendor: Optional[str] = None,
+                 link_speed_in_mbps: Optional[int] = None):
+        """
+        List of properties of the device.
+        :param str device_model: Model of the device.
+        :param str device_vendor: Name of the device Vendor.
+        :param int link_speed_in_mbps: Link speed.
+        """
+        if device_model is not None:
+            pulumi.set(__self__, "device_model", device_model)
+        if device_vendor is not None:
+            pulumi.set(__self__, "device_vendor", device_vendor)
+        if link_speed_in_mbps is not None:
+            pulumi.set(__self__, "link_speed_in_mbps", link_speed_in_mbps)
+
+    @property
+    @pulumi.getter(name="deviceModel")
+    def device_model(self) -> Optional[str]:
+        """
+        Model of the device.
+        """
+        return pulumi.get(self, "device_model")
+
+    @property
+    @pulumi.getter(name="deviceVendor")
+    def device_vendor(self) -> Optional[str]:
+        """
+        Name of the device Vendor.
+        """
+        return pulumi.get(self, "device_vendor")
+
+    @property
+    @pulumi.getter(name="linkSpeedInMbps")
+    def link_speed_in_mbps(self) -> Optional[int]:
+        """
+        Link speed.
+        """
+        return pulumi.get(self, "link_speed_in_mbps")
 
 
 @pulumi.output_type
@@ -4351,6 +6235,29 @@ class ExpressRouteCircuitPeeringConfigResponse(dict):
         The RoutingRegistryName of the configuration.
         """
         return pulumi.get(self, "routing_registry_name")
+
+
+@pulumi.output_type
+class ExpressRouteCircuitPeeringIdResponse(dict):
+    """
+    ExpressRoute circuit peering identifier.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        ExpressRoute circuit peering identifier.
+        :param str id: The ID of the ExpressRoute circuit peering.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the ExpressRoute circuit peering.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -4918,6 +6825,517 @@ class ExpressRouteConnectionIdResponse(dict):
 
 
 @pulumi.output_type
+class ExpressRouteConnectionResponse(dict):
+    """
+    ExpressRouteConnection resource.
+    """
+    def __init__(__self__, *,
+                 express_route_circuit_peering: 'outputs.ExpressRouteCircuitPeeringIdResponse',
+                 name: str,
+                 provisioning_state: str,
+                 authorization_key: Optional[str] = None,
+                 id: Optional[str] = None,
+                 routing_weight: Optional[int] = None):
+        """
+        ExpressRouteConnection resource.
+        :param 'ExpressRouteCircuitPeeringIdResponse' express_route_circuit_peering: The ExpressRoute circuit peering.
+        :param str name: The name of the resource.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param str authorization_key: Authorization key to establish the connection.
+        :param str id: Resource ID.
+        :param int routing_weight: The routing weight associated to the connection.
+        """
+        pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if authorization_key is not None:
+            pulumi.set(__self__, "authorization_key", authorization_key)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if routing_weight is not None:
+            pulumi.set(__self__, "routing_weight", routing_weight)
+
+    @property
+    @pulumi.getter(name="expressRouteCircuitPeering")
+    def express_route_circuit_peering(self) -> 'outputs.ExpressRouteCircuitPeeringIdResponse':
+        """
+        The ExpressRoute circuit peering.
+        """
+        return pulumi.get(self, "express_route_circuit_peering")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> Optional[str]:
+        """
+        Authorization key to establish the connection.
+        """
+        return pulumi.get(self, "authorization_key")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="routingWeight")
+    def routing_weight(self) -> Optional[int]:
+        """
+        The routing weight associated to the connection.
+        """
+        return pulumi.get(self, "routing_weight")
+
+
+@pulumi.output_type
+class ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration(dict):
+    """
+    Configuration for auto scaling.
+    """
+    def __init__(__self__, *,
+                 bounds: Optional['outputs.ExpressRouteGatewayPropertiesResponseBounds'] = None):
+        """
+        Configuration for auto scaling.
+        :param 'ExpressRouteGatewayPropertiesResponseBounds' bounds: Minimum and maximum number of scale units to deploy.
+        """
+        if bounds is not None:
+            pulumi.set(__self__, "bounds", bounds)
+
+    @property
+    @pulumi.getter
+    def bounds(self) -> Optional['outputs.ExpressRouteGatewayPropertiesResponseBounds']:
+        """
+        Minimum and maximum number of scale units to deploy.
+        """
+        return pulumi.get(self, "bounds")
+
+
+@pulumi.output_type
+class ExpressRouteGatewayPropertiesResponseBounds(dict):
+    """
+    Minimum and maximum number of scale units to deploy.
+    """
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        """
+        Minimum and maximum number of scale units to deploy.
+        :param int max: Maximum number of scale units deployed for ExpressRoute gateway.
+        :param int min: Minimum number of scale units deployed for ExpressRoute gateway.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        """
+        Maximum number of scale units deployed for ExpressRoute gateway.
+        """
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        """
+        Minimum number of scale units deployed for ExpressRoute gateway.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class ExpressRouteLinkResponse(dict):
+    """
+    ExpressRouteLink child resource definition.
+    """
+    def __init__(__self__, *,
+                 connector_type: str,
+                 etag: str,
+                 interface_name: str,
+                 patch_panel_id: str,
+                 provisioning_state: str,
+                 rack_id: str,
+                 router_name: str,
+                 admin_state: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        ExpressRouteLink child resource definition.
+        :param str connector_type: Physical fiber port type.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str interface_name: Name of Azure router interface.
+        :param str patch_panel_id: Mapping between physical port to patch panel port.
+        :param str provisioning_state: The provisioning state of the ExpressRouteLink resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+        :param str rack_id: Mapping of physical patch panel to rack.
+        :param str router_name: Name of Azure router associated with physical port.
+        :param str admin_state: Administrative state of the physical port.
+        :param str id: Resource ID.
+        :param str name: Name of child port resource that is unique among child port resources of the parent.
+        """
+        pulumi.set(__self__, "connector_type", connector_type)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "interface_name", interface_name)
+        pulumi.set(__self__, "patch_panel_id", patch_panel_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "rack_id", rack_id)
+        pulumi.set(__self__, "router_name", router_name)
+        if admin_state is not None:
+            pulumi.set(__self__, "admin_state", admin_state)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="connectorType")
+    def connector_type(self) -> str:
+        """
+        Physical fiber port type.
+        """
+        return pulumi.get(self, "connector_type")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="interfaceName")
+    def interface_name(self) -> str:
+        """
+        Name of Azure router interface.
+        """
+        return pulumi.get(self, "interface_name")
+
+    @property
+    @pulumi.getter(name="patchPanelId")
+    def patch_panel_id(self) -> str:
+        """
+        Mapping between physical port to patch panel port.
+        """
+        return pulumi.get(self, "patch_panel_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the ExpressRouteLink resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="rackId")
+    def rack_id(self) -> str:
+        """
+        Mapping of physical patch panel to rack.
+        """
+        return pulumi.get(self, "rack_id")
+
+    @property
+    @pulumi.getter(name="routerName")
+    def router_name(self) -> str:
+        """
+        Name of Azure router associated with physical port.
+        """
+        return pulumi.get(self, "router_name")
+
+    @property
+    @pulumi.getter(name="adminState")
+    def admin_state(self) -> Optional[str]:
+        """
+        Administrative state of the physical port.
+        """
+        return pulumi.get(self, "admin_state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of child port resource that is unique among child port resources of the parent.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class FirewallPolicyFilterRuleActionResponse(dict):
+    """
+    Properties of the FirewallPolicyFilterRuleAction.
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        Properties of the FirewallPolicyFilterRuleAction.
+        :param str type: The type of action.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of action.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FirewallPolicyFilterRuleResponse(dict):
+    """
+    Firewall Policy Filter Rule
+    """
+    def __init__(__self__, *,
+                 rule_type: str,
+                 action: Optional['outputs.FirewallPolicyFilterRuleActionResponse'] = None,
+                 name: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 rule_conditions: Optional[Sequence[Any]] = None):
+        """
+        Firewall Policy Filter Rule
+        :param str rule_type:  The type of the rule
+               Expected value is 'FirewallPolicyFilterRule'.
+        :param 'FirewallPolicyFilterRuleActionResponse' action: The action type of a Filter rule
+        :param str name: Name of the Rule
+        :param int priority: Priority of the Firewall Policy Rule resource.
+        :param Sequence[Union['ApplicationRuleConditionResponse', 'NetworkRuleConditionResponse']] rule_conditions: Collection of rule conditions used by a rule.
+        """
+        pulumi.set(__self__, "rule_type", 'FirewallPolicyFilterRule')
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if rule_conditions is not None:
+            pulumi.set(__self__, "rule_conditions", rule_conditions)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> str:
+        """
+         The type of the rule
+        Expected value is 'FirewallPolicyFilterRule'.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['outputs.FirewallPolicyFilterRuleActionResponse']:
+        """
+        The action type of a Filter rule
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the Rule
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        Priority of the Firewall Policy Rule resource.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="ruleConditions")
+    def rule_conditions(self) -> Optional[Sequence[Any]]:
+        """
+        Collection of rule conditions used by a rule.
+        """
+        return pulumi.get(self, "rule_conditions")
+
+
+@pulumi.output_type
+class FirewallPolicyNatRuleActionResponse(dict):
+    """
+    Properties of the FirewallPolicyNatRuleAction.
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        Properties of the FirewallPolicyNatRuleAction.
+        :param str type: The type of action.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of action.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FirewallPolicyNatRuleResponse(dict):
+    """
+    Firewall Policy NAT Rule
+    """
+    def __init__(__self__, *,
+                 rule_type: str,
+                 action: Optional['outputs.FirewallPolicyNatRuleActionResponse'] = None,
+                 name: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 rule_condition: Optional[Any] = None,
+                 translated_address: Optional[str] = None,
+                 translated_port: Optional[str] = None):
+        """
+        Firewall Policy NAT Rule
+        :param str rule_type:  The type of the rule
+               Expected value is 'FirewallPolicyNatRule'.
+        :param 'FirewallPolicyNatRuleActionResponse' action: The action type of a Nat rule, SNAT or DNAT
+        :param str name: Name of the Rule
+        :param int priority: Priority of the Firewall Policy Rule resource.
+        :param Union['ApplicationRuleConditionResponse', 'NetworkRuleConditionResponse'] rule_condition: The match conditions for incoming traffic
+        :param str translated_address: The translated address for this NAT rule.
+        :param str translated_port: The translated port for this NAT rule.
+        """
+        pulumi.set(__self__, "rule_type", 'FirewallPolicyNatRule')
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if rule_condition is not None:
+            pulumi.set(__self__, "rule_condition", rule_condition)
+        if translated_address is not None:
+            pulumi.set(__self__, "translated_address", translated_address)
+        if translated_port is not None:
+            pulumi.set(__self__, "translated_port", translated_port)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> str:
+        """
+         The type of the rule
+        Expected value is 'FirewallPolicyNatRule'.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['outputs.FirewallPolicyNatRuleActionResponse']:
+        """
+        The action type of a Nat rule, SNAT or DNAT
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the Rule
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        Priority of the Firewall Policy Rule resource.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="ruleCondition")
+    def rule_condition(self) -> Optional[Any]:
+        """
+        The match conditions for incoming traffic
+        """
+        return pulumi.get(self, "rule_condition")
+
+    @property
+    @pulumi.getter(name="translatedAddress")
+    def translated_address(self) -> Optional[str]:
+        """
+        The translated address for this NAT rule.
+        """
+        return pulumi.get(self, "translated_address")
+
+    @property
+    @pulumi.getter(name="translatedPort")
+    def translated_port(self) -> Optional[str]:
+        """
+        The translated port for this NAT rule.
+        """
+        return pulumi.get(self, "translated_port")
+
+
+@pulumi.output_type
+class FirewallPolicyRuleConditionApplicationProtocolResponse(dict):
+    """
+    Properties of the application rule protocol.
+    """
+    def __init__(__self__, *,
+                 port: Optional[int] = None,
+                 protocol_type: Optional[str] = None):
+        """
+        Properties of the application rule protocol.
+        :param int port: Port number for the protocol, cannot be greater than 64000.
+        :param str protocol_type: Protocol type
+        """
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol_type is not None:
+            pulumi.set(__self__, "protocol_type", protocol_type)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        Port number for the protocol, cannot be greater than 64000.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> Optional[str]:
+        """
+        Protocol type
+        """
+        return pulumi.get(self, "protocol_type")
+
+
+@pulumi.output_type
 class FrontendIPConfigurationResponse(dict):
     """
     Frontend IP address of the load balancer.
@@ -5236,6 +7654,146 @@ class GatewayRouteResponse(dict):
         The route's weight.
         """
         return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class HubIPAddressesResponse(dict):
+    """
+    IP addresses associated with azure firewall.
+    """
+    def __init__(__self__, *,
+                 private_ip_address: Optional[str] = None,
+                 public_ip_addresses: Optional[Sequence['outputs.AzureFirewallPublicIPAddressResponse']] = None):
+        """
+        IP addresses associated with azure firewall.
+        :param str private_ip_address: Private IP Address associated with azure firewall.
+        :param Sequence['AzureFirewallPublicIPAddressResponse'] public_ip_addresses: List of Public IP addresses associated with azure firewall.
+        """
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if public_ip_addresses is not None:
+            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        Private IP Address associated with azure firewall.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="publicIPAddresses")
+    def public_ip_addresses(self) -> Optional[Sequence['outputs.AzureFirewallPublicIPAddressResponse']]:
+        """
+        List of Public IP addresses associated with azure firewall.
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+
+@pulumi.output_type
+class HubVirtualNetworkConnectionResponse(dict):
+    """
+    HubVirtualNetworkConnection Resource.
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 allow_hub_to_remote_vnet_transit: Optional[bool] = None,
+                 allow_remote_vnet_to_use_hub_vnet_gateways: Optional[bool] = None,
+                 enable_internet_security: Optional[bool] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 remote_virtual_network: Optional['outputs.SubResourceResponse'] = None):
+        """
+        HubVirtualNetworkConnection Resource.
+        :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param bool allow_hub_to_remote_vnet_transit: VirtualHub to RemoteVnet transit to enabled or not.
+        :param bool allow_remote_vnet_to_use_hub_vnet_gateways: Allow RemoteVnet to use Virtual Hub's gateways.
+        :param bool enable_internet_security: Enable internet security.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param 'SubResourceResponse' remote_virtual_network: Reference to the remote virtual network.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if allow_hub_to_remote_vnet_transit is not None:
+            pulumi.set(__self__, "allow_hub_to_remote_vnet_transit", allow_hub_to_remote_vnet_transit)
+        if allow_remote_vnet_to_use_hub_vnet_gateways is not None:
+            pulumi.set(__self__, "allow_remote_vnet_to_use_hub_vnet_gateways", allow_remote_vnet_to_use_hub_vnet_gateways)
+        if enable_internet_security is not None:
+            pulumi.set(__self__, "enable_internet_security", enable_internet_security)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if remote_virtual_network is not None:
+            pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="allowHubToRemoteVnetTransit")
+    def allow_hub_to_remote_vnet_transit(self) -> Optional[bool]:
+        """
+        VirtualHub to RemoteVnet transit to enabled or not.
+        """
+        return pulumi.get(self, "allow_hub_to_remote_vnet_transit")
+
+    @property
+    @pulumi.getter(name="allowRemoteVnetToUseHubVnetGateways")
+    def allow_remote_vnet_to_use_hub_vnet_gateways(self) -> Optional[bool]:
+        """
+        Allow RemoteVnet to use Virtual Hub's gateways.
+        """
+        return pulumi.get(self, "allow_remote_vnet_to_use_hub_vnet_gateways")
+
+    @property
+    @pulumi.getter(name="enableInternetSecurity")
+    def enable_internet_security(self) -> Optional[bool]:
+        """
+        Enable internet security.
+        """
+        return pulumi.get(self, "enable_internet_security")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="remoteVirtualNetwork")
+    def remote_virtual_network(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to the remote virtual network.
+        """
+        return pulumi.get(self, "remote_virtual_network")
 
 
 @pulumi.output_type
@@ -5908,6 +8466,105 @@ class IpTagResponse(dict):
 
 
 @pulumi.output_type
+class IpsecPolicyResponse(dict):
+    """
+    An IPSec Policy configuration for a virtual network gateway connection.
+    """
+    def __init__(__self__, *,
+                 dh_group: str,
+                 ike_encryption: str,
+                 ike_integrity: str,
+                 ipsec_encryption: str,
+                 ipsec_integrity: str,
+                 pfs_group: str,
+                 sa_data_size_kilobytes: int,
+                 sa_life_time_seconds: int):
+        """
+        An IPSec Policy configuration for a virtual network gateway connection.
+        :param str dh_group: The DH Group used in IKE Phase 1 for initial SA.
+        :param str ike_encryption: The IKE encryption algorithm (IKE phase 2).
+        :param str ike_integrity: The IKE integrity algorithm (IKE phase 2).
+        :param str ipsec_encryption: The IPSec encryption algorithm (IKE phase 1).
+        :param str ipsec_integrity: The IPSec integrity algorithm (IKE phase 1).
+        :param str pfs_group: The Pfs Group used in IKE Phase 2 for new child SA.
+        :param int sa_data_size_kilobytes: The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+        :param int sa_life_time_seconds: The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
+        """
+        pulumi.set(__self__, "dh_group", dh_group)
+        pulumi.set(__self__, "ike_encryption", ike_encryption)
+        pulumi.set(__self__, "ike_integrity", ike_integrity)
+        pulumi.set(__self__, "ipsec_encryption", ipsec_encryption)
+        pulumi.set(__self__, "ipsec_integrity", ipsec_integrity)
+        pulumi.set(__self__, "pfs_group", pfs_group)
+        pulumi.set(__self__, "sa_data_size_kilobytes", sa_data_size_kilobytes)
+        pulumi.set(__self__, "sa_life_time_seconds", sa_life_time_seconds)
+
+    @property
+    @pulumi.getter(name="dhGroup")
+    def dh_group(self) -> str:
+        """
+        The DH Group used in IKE Phase 1 for initial SA.
+        """
+        return pulumi.get(self, "dh_group")
+
+    @property
+    @pulumi.getter(name="ikeEncryption")
+    def ike_encryption(self) -> str:
+        """
+        The IKE encryption algorithm (IKE phase 2).
+        """
+        return pulumi.get(self, "ike_encryption")
+
+    @property
+    @pulumi.getter(name="ikeIntegrity")
+    def ike_integrity(self) -> str:
+        """
+        The IKE integrity algorithm (IKE phase 2).
+        """
+        return pulumi.get(self, "ike_integrity")
+
+    @property
+    @pulumi.getter(name="ipsecEncryption")
+    def ipsec_encryption(self) -> str:
+        """
+        The IPSec encryption algorithm (IKE phase 1).
+        """
+        return pulumi.get(self, "ipsec_encryption")
+
+    @property
+    @pulumi.getter(name="ipsecIntegrity")
+    def ipsec_integrity(self) -> str:
+        """
+        The IPSec integrity algorithm (IKE phase 1).
+        """
+        return pulumi.get(self, "ipsec_integrity")
+
+    @property
+    @pulumi.getter(name="pfsGroup")
+    def pfs_group(self) -> str:
+        """
+        The Pfs Group used in IKE Phase 2 for new child SA.
+        """
+        return pulumi.get(self, "pfs_group")
+
+    @property
+    @pulumi.getter(name="saDataSizeKilobytes")
+    def sa_data_size_kilobytes(self) -> int:
+        """
+        The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+        """
+        return pulumi.get(self, "sa_data_size_kilobytes")
+
+    @property
+    @pulumi.getter(name="saLifeTimeSeconds")
+    def sa_life_time_seconds(self) -> int:
+        """
+        The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
+        """
+        return pulumi.get(self, "sa_life_time_seconds")
+
+
+@pulumi.output_type
 class Ipv6ExpressRouteCircuitPeeringConfigResponse(dict):
     """
     Contains IPv6 peering config.
@@ -6260,6 +8917,146 @@ class LoadBalancingRuleResponse(dict):
 
 
 @pulumi.output_type
+class LocalNetworkGatewayResponse(dict):
+    """
+    A common class for general resource information.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 provisioning_state: str,
+                 type: str,
+                 bgp_settings: Optional['outputs.BgpSettingsResponse'] = None,
+                 etag: Optional[str] = None,
+                 gateway_ip_address: Optional[str] = None,
+                 id: Optional[str] = None,
+                 local_network_address_space: Optional['outputs.AddressSpaceResponse'] = None,
+                 location: Optional[str] = None,
+                 resource_guid: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        A common class for general resource information.
+        :param str name: Resource name.
+        :param str provisioning_state: The provisioning state of the LocalNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        :param str type: Resource type.
+        :param 'BgpSettingsResponse' bgp_settings: Local network gateway's BGP speaker settings.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str gateway_ip_address: IP address of local network gateway.
+        :param str id: Resource ID.
+        :param 'AddressSpaceResponse' local_network_address_space: Local network site address space.
+        :param str location: Resource location.
+        :param str resource_guid: The resource GUID property of the LocalNetworkGateway resource.
+        :param Mapping[str, str] tags: Resource tags.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if bgp_settings is not None:
+            pulumi.set(__self__, "bgp_settings", bgp_settings)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if gateway_ip_address is not None:
+            pulumi.set(__self__, "gateway_ip_address", gateway_ip_address)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if local_network_address_space is not None:
+            pulumi.set(__self__, "local_network_address_space", local_network_address_space)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if resource_guid is not None:
+            pulumi.set(__self__, "resource_guid", resource_guid)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the LocalNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="bgpSettings")
+    def bgp_settings(self) -> Optional['outputs.BgpSettingsResponse']:
+        """
+        Local network gateway's BGP speaker settings.
+        """
+        return pulumi.get(self, "bgp_settings")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="gatewayIpAddress")
+    def gateway_ip_address(self) -> Optional[str]:
+        """
+        IP address of local network gateway.
+        """
+        return pulumi.get(self, "gateway_ip_address")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="localNetworkAddressSpace")
+    def local_network_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+        """
+        Local network site address space.
+        """
+        return pulumi.get(self, "local_network_address_space")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
+        """
+        The resource GUID property of the LocalNetworkGateway resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
 class ManagedServiceIdentityResponse(dict):
     """
     Identity for the resource.
@@ -6383,6 +9180,108 @@ class ManagedServiceIdentityResponseUserAssignedIdentities(dict):
         The principal id of user assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class MatchConditionResponse(dict):
+    """
+    Define match conditions.
+    """
+    def __init__(__self__, *,
+                 match_values: Sequence[str],
+                 match_variables: Sequence['outputs.MatchVariableResponse'],
+                 operator: str,
+                 negation_conditon: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Define match conditions.
+        :param Sequence[str] match_values: Match value.
+        :param Sequence['MatchVariableResponse'] match_variables: List of match variables.
+        :param str operator: Describes operator to be matched.
+        :param bool negation_conditon: Describes if this is negate condition or not.
+        :param Sequence[str] transforms: List of transforms.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        pulumi.set(__self__, "match_variables", match_variables)
+        pulumi.set(__self__, "operator", operator)
+        if negation_conditon is not None:
+            pulumi.set(__self__, "negation_conditon", negation_conditon)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Sequence[str]:
+        """
+        Match value.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="matchVariables")
+    def match_variables(self) -> Sequence['outputs.MatchVariableResponse']:
+        """
+        List of match variables.
+        """
+        return pulumi.get(self, "match_variables")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="negationConditon")
+    def negation_conditon(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not.
+        """
+        return pulumi.get(self, "negation_conditon")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms.
+        """
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
+class MatchVariableResponse(dict):
+    """
+    Define match variables.
+    """
+    def __init__(__self__, *,
+                 variable_name: str,
+                 selector: Optional[str] = None):
+        """
+        Define match variables.
+        :param str variable_name: Match Variable.
+        :param str selector: Describes field of the matchVariable collection.
+        """
+        pulumi.set(__self__, "variable_name", variable_name)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+
+    @property
+    @pulumi.getter(name="variableName")
+    def variable_name(self) -> str:
+        """
+        Match Variable.
+        """
+        return pulumi.get(self, "variable_name")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        """
+        Describes field of the matchVariable collection.
+        """
+        return pulumi.get(self, "selector")
 
 
 @pulumi.output_type
@@ -7104,6 +10003,102 @@ class NetworkInterfaceTapConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class NetworkRuleConditionResponse(dict):
+    """
+    Rule condition of type network
+    """
+    def __init__(__self__, *,
+                 rule_condition_type: str,
+                 description: Optional[str] = None,
+                 destination_addresses: Optional[Sequence[str]] = None,
+                 destination_ports: Optional[Sequence[str]] = None,
+                 ip_protocols: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 source_addresses: Optional[Sequence[str]] = None):
+        """
+        Rule condition of type network
+        :param str rule_condition_type: Rule Condition Type
+               Expected value is 'NetworkRuleCondition'.
+        :param str description: Description of the rule condition.
+        :param Sequence[str] destination_addresses: List of destination IP addresses or Service Tags.
+        :param Sequence[str] destination_ports: List of destination ports.
+        :param Sequence[str] ip_protocols: Array of FirewallPolicyRuleConditionNetworkProtocols.
+        :param str name: Name of the rule condition.
+        :param Sequence[str] source_addresses: List of source IP addresses for this rule.
+        """
+        pulumi.set(__self__, "rule_condition_type", 'NetworkRuleCondition')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if ip_protocols is not None:
+            pulumi.set(__self__, "ip_protocols", ip_protocols)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+
+    @property
+    @pulumi.getter(name="ruleConditionType")
+    def rule_condition_type(self) -> str:
+        """
+        Rule Condition Type
+        Expected value is 'NetworkRuleCondition'.
+        """
+        return pulumi.get(self, "rule_condition_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the rule condition.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[Sequence[str]]:
+        """
+        List of destination IP addresses or Service Tags.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[Sequence[str]]:
+        """
+        List of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @property
+    @pulumi.getter(name="ipProtocols")
+    def ip_protocols(self) -> Optional[Sequence[str]]:
+        """
+        Array of FirewallPolicyRuleConditionNetworkProtocols.
+        """
+        return pulumi.get(self, "ip_protocols")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the rule condition.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[Sequence[str]]:
+        """
+        List of source IP addresses for this rule.
+        """
+        return pulumi.get(self, "source_addresses")
+
+
+@pulumi.output_type
 class NetworkSecurityGroupResponse(dict):
     """
     NetworkSecurityGroup resource.
@@ -7446,6 +10441,568 @@ class OutboundRuleResponse(dict):
 
 
 @pulumi.output_type
+class P2SVpnServerConfigRadiusClientRootCertificateResponse(dict):
+    """
+    Radius client root certificate of P2SVpnServerConfiguration.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 etag: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
+        """
+        Radius client root certificate of P2SVpnServerConfiguration.
+        :param str provisioning_state: The provisioning state of the Radius client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param str thumbprint: The Radius client root certificate thumbprint.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the Radius client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        The Radius client root certificate thumbprint.
+        """
+        return pulumi.get(self, "thumbprint")
+
+
+@pulumi.output_type
+class P2SVpnServerConfigRadiusServerRootCertificateResponse(dict):
+    """
+    Radius Server root certificate of P2SVpnServerConfiguration.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 public_cert_data: str,
+                 etag: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Radius Server root certificate of P2SVpnServerConfiguration.
+        :param str provisioning_state: The provisioning state of the P2SVpnServerConfiguration Radius Server root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        :param str public_cert_data: The certificate public data.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "public_cert_data", public_cert_data)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the P2SVpnServerConfiguration Radius Server root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicCertData")
+    def public_cert_data(self) -> str:
+        """
+        The certificate public data.
+        """
+        return pulumi.get(self, "public_cert_data")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class P2SVpnServerConfigVpnClientRevokedCertificateResponse(dict):
+    """
+    VPN client revoked certificate of P2SVpnServerConfiguration.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 etag: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
+        """
+        VPN client revoked certificate of P2SVpnServerConfiguration.
+        :param str provisioning_state: The provisioning state of the VPN client revoked certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param str thumbprint: The revoked VPN client certificate thumbprint.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the VPN client revoked certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        The revoked VPN client certificate thumbprint.
+        """
+        return pulumi.get(self, "thumbprint")
+
+
+@pulumi.output_type
+class P2SVpnServerConfigVpnClientRootCertificateResponse(dict):
+    """
+    VPN client root certificate of P2SVpnServerConfiguration.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 public_cert_data: str,
+                 etag: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        VPN client root certificate of P2SVpnServerConfiguration.
+        :param str provisioning_state: The provisioning state of the P2SVpnServerConfiguration VPN client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        :param str public_cert_data: The certificate public data.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "public_cert_data", public_cert_data)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the P2SVpnServerConfiguration VPN client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicCertData")
+    def public_cert_data(self) -> str:
+        """
+        The certificate public data.
+        """
+        return pulumi.get(self, "public_cert_data")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class P2SVpnServerConfigurationResponse(dict):
+    """
+    P2SVpnServerConfiguration Resource.
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 p2_s_vpn_gateways: Sequence['outputs.SubResourceResponse'],
+                 provisioning_state: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 p2_s_vpn_server_config_radius_client_root_certificates: Optional[Sequence['outputs.P2SVpnServerConfigRadiusClientRootCertificateResponse']] = None,
+                 p2_s_vpn_server_config_radius_server_root_certificates: Optional[Sequence['outputs.P2SVpnServerConfigRadiusServerRootCertificateResponse']] = None,
+                 p2_s_vpn_server_config_vpn_client_revoked_certificates: Optional[Sequence['outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponse']] = None,
+                 p2_s_vpn_server_config_vpn_client_root_certificates: Optional[Sequence['outputs.P2SVpnServerConfigVpnClientRootCertificateResponse']] = None,
+                 radius_server_address: Optional[str] = None,
+                 radius_server_secret: Optional[str] = None,
+                 vpn_client_ipsec_policies: Optional[Sequence['outputs.IpsecPolicyResponse']] = None,
+                 vpn_protocols: Optional[Sequence[str]] = None):
+        """
+        P2SVpnServerConfiguration Resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param Sequence['SubResourceResponse'] p2_s_vpn_gateways: List of references to P2SVpnGateways.
+        :param str provisioning_state: The provisioning state of the P2SVpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        :param str id: Resource ID.
+        :param str name: The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
+        :param Sequence['P2SVpnServerConfigRadiusClientRootCertificateResponse'] p2_s_vpn_server_config_radius_client_root_certificates: Radius client root certificate of P2SVpnServerConfiguration.
+        :param Sequence['P2SVpnServerConfigRadiusServerRootCertificateResponse'] p2_s_vpn_server_config_radius_server_root_certificates: Radius Server root certificate of P2SVpnServerConfiguration.
+        :param Sequence['P2SVpnServerConfigVpnClientRevokedCertificateResponse'] p2_s_vpn_server_config_vpn_client_revoked_certificates: VPN client revoked certificate of P2SVpnServerConfiguration.
+        :param Sequence['P2SVpnServerConfigVpnClientRootCertificateResponse'] p2_s_vpn_server_config_vpn_client_root_certificates: VPN client root certificate of P2SVpnServerConfiguration.
+        :param str radius_server_address: The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
+        :param str radius_server_secret: The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
+        :param Sequence['IpsecPolicyResponse'] vpn_client_ipsec_policies: VpnClientIpsecPolicies for P2SVpnServerConfiguration.
+        :param Sequence[str] vpn_protocols: VPN protocols for the P2SVpnServerConfiguration.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "p2_s_vpn_gateways", p2_s_vpn_gateways)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if p2_s_vpn_server_config_radius_client_root_certificates is not None:
+            pulumi.set(__self__, "p2_s_vpn_server_config_radius_client_root_certificates", p2_s_vpn_server_config_radius_client_root_certificates)
+        if p2_s_vpn_server_config_radius_server_root_certificates is not None:
+            pulumi.set(__self__, "p2_s_vpn_server_config_radius_server_root_certificates", p2_s_vpn_server_config_radius_server_root_certificates)
+        if p2_s_vpn_server_config_vpn_client_revoked_certificates is not None:
+            pulumi.set(__self__, "p2_s_vpn_server_config_vpn_client_revoked_certificates", p2_s_vpn_server_config_vpn_client_revoked_certificates)
+        if p2_s_vpn_server_config_vpn_client_root_certificates is not None:
+            pulumi.set(__self__, "p2_s_vpn_server_config_vpn_client_root_certificates", p2_s_vpn_server_config_vpn_client_root_certificates)
+        if radius_server_address is not None:
+            pulumi.set(__self__, "radius_server_address", radius_server_address)
+        if radius_server_secret is not None:
+            pulumi.set(__self__, "radius_server_secret", radius_server_secret)
+        if vpn_client_ipsec_policies is not None:
+            pulumi.set(__self__, "vpn_client_ipsec_policies", vpn_client_ipsec_policies)
+        if vpn_protocols is not None:
+            pulumi.set(__self__, "vpn_protocols", vpn_protocols)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="p2SVpnGateways")
+    def p2_s_vpn_gateways(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        List of references to P2SVpnGateways.
+        """
+        return pulumi.get(self, "p2_s_vpn_gateways")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the P2SVpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="p2SVpnServerConfigRadiusClientRootCertificates")
+    def p2_s_vpn_server_config_radius_client_root_certificates(self) -> Optional[Sequence['outputs.P2SVpnServerConfigRadiusClientRootCertificateResponse']]:
+        """
+        Radius client root certificate of P2SVpnServerConfiguration.
+        """
+        return pulumi.get(self, "p2_s_vpn_server_config_radius_client_root_certificates")
+
+    @property
+    @pulumi.getter(name="p2SVpnServerConfigRadiusServerRootCertificates")
+    def p2_s_vpn_server_config_radius_server_root_certificates(self) -> Optional[Sequence['outputs.P2SVpnServerConfigRadiusServerRootCertificateResponse']]:
+        """
+        Radius Server root certificate of P2SVpnServerConfiguration.
+        """
+        return pulumi.get(self, "p2_s_vpn_server_config_radius_server_root_certificates")
+
+    @property
+    @pulumi.getter(name="p2SVpnServerConfigVpnClientRevokedCertificates")
+    def p2_s_vpn_server_config_vpn_client_revoked_certificates(self) -> Optional[Sequence['outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponse']]:
+        """
+        VPN client revoked certificate of P2SVpnServerConfiguration.
+        """
+        return pulumi.get(self, "p2_s_vpn_server_config_vpn_client_revoked_certificates")
+
+    @property
+    @pulumi.getter(name="p2SVpnServerConfigVpnClientRootCertificates")
+    def p2_s_vpn_server_config_vpn_client_root_certificates(self) -> Optional[Sequence['outputs.P2SVpnServerConfigVpnClientRootCertificateResponse']]:
+        """
+        VPN client root certificate of P2SVpnServerConfiguration.
+        """
+        return pulumi.get(self, "p2_s_vpn_server_config_vpn_client_root_certificates")
+
+    @property
+    @pulumi.getter(name="radiusServerAddress")
+    def radius_server_address(self) -> Optional[str]:
+        """
+        The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
+        """
+        return pulumi.get(self, "radius_server_address")
+
+    @property
+    @pulumi.getter(name="radiusServerSecret")
+    def radius_server_secret(self) -> Optional[str]:
+        """
+        The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
+        """
+        return pulumi.get(self, "radius_server_secret")
+
+    @property
+    @pulumi.getter(name="vpnClientIpsecPolicies")
+    def vpn_client_ipsec_policies(self) -> Optional[Sequence['outputs.IpsecPolicyResponse']]:
+        """
+        VpnClientIpsecPolicies for P2SVpnServerConfiguration.
+        """
+        return pulumi.get(self, "vpn_client_ipsec_policies")
+
+    @property
+    @pulumi.getter(name="vpnProtocols")
+    def vpn_protocols(self) -> Optional[Sequence[str]]:
+        """
+        VPN protocols for the P2SVpnServerConfiguration.
+        """
+        return pulumi.get(self, "vpn_protocols")
+
+
+@pulumi.output_type
+class PacketCaptureFilterResponse(dict):
+    """
+    Filter that is applied to packet capture request. Multiple filters can be applied.
+    """
+    def __init__(__self__, *,
+                 local_ip_address: Optional[str] = None,
+                 local_port: Optional[str] = None,
+                 protocol: Optional[str] = None,
+                 remote_ip_address: Optional[str] = None,
+                 remote_port: Optional[str] = None):
+        """
+        Filter that is applied to packet capture request. Multiple filters can be applied.
+        :param str local_ip_address: Local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5"? for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        :param str local_port: Local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        :param str protocol: Protocol to be filtered on.
+        :param str remote_ip_address: Local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        :param str remote_port: Remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        """
+        if local_ip_address is not None:
+            pulumi.set(__self__, "local_ip_address", local_ip_address)
+        if local_port is not None:
+            pulumi.set(__self__, "local_port", local_port)
+        if protocol is None:
+            protocol = 'Any'
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if remote_ip_address is not None:
+            pulumi.set(__self__, "remote_ip_address", remote_ip_address)
+        if remote_port is not None:
+            pulumi.set(__self__, "remote_port", remote_port)
+
+    @property
+    @pulumi.getter(name="localIPAddress")
+    def local_ip_address(self) -> Optional[str]:
+        """
+        Local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5"? for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        """
+        return pulumi.get(self, "local_ip_address")
+
+    @property
+    @pulumi.getter(name="localPort")
+    def local_port(self) -> Optional[str]:
+        """
+        Local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        """
+        return pulumi.get(self, "local_port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        Protocol to be filtered on.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="remoteIPAddress")
+    def remote_ip_address(self) -> Optional[str]:
+        """
+        Local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        """
+        return pulumi.get(self, "remote_ip_address")
+
+    @property
+    @pulumi.getter(name="remotePort")
+    def remote_port(self) -> Optional[str]:
+        """
+        Remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        """
+        return pulumi.get(self, "remote_port")
+
+
+@pulumi.output_type
+class PacketCaptureStorageLocationResponse(dict):
+    """
+    Describes the storage location for a packet capture session.
+    """
+    def __init__(__self__, *,
+                 file_path: Optional[str] = None,
+                 storage_id: Optional[str] = None,
+                 storage_path: Optional[str] = None):
+        """
+        Describes the storage location for a packet capture session.
+        :param str file_path: A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with /var/captures. Required if no storage ID is provided, otherwise optional.
+        :param str storage_id: The ID of the storage account to save the packet capture session. Required if no local file path is provided.
+        :param str storage_path: The URI of the storage path to save the packet capture. Must be a well-formed URI describing the location to save the packet capture.
+        """
+        if file_path is not None:
+            pulumi.set(__self__, "file_path", file_path)
+        if storage_id is not None:
+            pulumi.set(__self__, "storage_id", storage_id)
+        if storage_path is not None:
+            pulumi.set(__self__, "storage_path", storage_path)
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> Optional[str]:
+        """
+        A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with /var/captures. Required if no storage ID is provided, otherwise optional.
+        """
+        return pulumi.get(self, "file_path")
+
+    @property
+    @pulumi.getter(name="storageId")
+    def storage_id(self) -> Optional[str]:
+        """
+        The ID of the storage account to save the packet capture session. Required if no local file path is provided.
+        """
+        return pulumi.get(self, "storage_id")
+
+    @property
+    @pulumi.getter(name="storagePath")
+    def storage_path(self) -> Optional[str]:
+        """
+        The URI of the storage path to save the packet capture. Must be a well-formed URI describing the location to save the packet capture.
+        """
+        return pulumi.get(self, "storage_path")
+
+
+@pulumi.output_type
 class PeerExpressRouteCircuitConnectionResponse(dict):
     """
     Peer Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
@@ -7611,6 +11168,133 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
         Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """
         return pulumi.get(self, "peer_express_route_circuit_peering")
+
+
+@pulumi.output_type
+class PolicySettingsResponse(dict):
+    """
+    Defines contents of a web application firewall global configuration.
+    """
+    def __init__(__self__, *,
+                 enabled_state: Optional[str] = None,
+                 mode: Optional[str] = None):
+        """
+        Defines contents of a web application firewall global configuration.
+        :param str enabled_state: Describes if the policy is in enabled state or disabled state.
+        :param str mode: Describes if it is in detection mode or prevention mode at policy level.
+        """
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        Describes if the policy is in enabled state or disabled state.
+        """
+        return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Describes if it is in detection mode or prevention mode at policy level.
+        """
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    PrivateEndpointConnection resource.
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
+        """
+        PrivateEndpointConnection resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the private endpoint connection.
+        :param str type: The resource type.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The resource of private end point.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
 
 
 @pulumi.output_type
@@ -7981,6 +11665,180 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class PrivateLinkServiceIpConfigurationResponse(dict):
+    """
+    The private link service ip configuration.
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 primary: Optional[bool] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_address_version: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 subnet: Optional['outputs.SubnetResponse'] = None):
+        """
+        The private link service ip configuration.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the private link service ip configuration.
+        :param str type: The resource type.
+        :param str id: Resource ID.
+        :param str name: The name of private link service ip configuration.
+        :param bool primary: Whether the ip configuration is primary or not.
+        :param str private_ip_address: The private IP address of the IP configuration.
+        :param str private_ip_address_version: Available from Api-Version 2016-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
+        :param str private_ip_allocation_method: The private IP address allocation method.
+        :param 'SubnetResponse' subnet: The reference of the subnet resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_address_version is not None:
+            pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private link service ip configuration.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of private link service ip configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        """
+        Whether the ip configuration is primary or not.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIPAddressVersion")
+    def private_ip_address_version(self) -> Optional[str]:
+        """
+        Available from Api-Version 2016-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
+        """
+        return pulumi.get(self, "private_ip_address_version")
+
+    @property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP address allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubnetResponse']:
+        """
+        The reference of the subnet resource.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
+class PrivateLinkServicePropertiesResponseAutoApproval(dict):
+    """
+    The auto-approval list of the private link service.
+    """
+    def __init__(__self__, *,
+                 subscriptions: Optional[Sequence[str]] = None):
+        """
+        The auto-approval list of the private link service.
+        :param Sequence[str] subscriptions: The list of subscriptions.
+        """
+        if subscriptions is not None:
+            pulumi.set(__self__, "subscriptions", subscriptions)
+
+    @property
+    @pulumi.getter
+    def subscriptions(self) -> Optional[Sequence[str]]:
+        """
+        The list of subscriptions.
+        """
+        return pulumi.get(self, "subscriptions")
+
+
+@pulumi.output_type
+class PrivateLinkServicePropertiesResponseVisibility(dict):
+    """
+    The visibility list of the private link service.
+    """
+    def __init__(__self__, *,
+                 subscriptions: Optional[Sequence[str]] = None):
+        """
+        The visibility list of the private link service.
+        :param Sequence[str] subscriptions: The list of subscriptions.
+        """
+        if subscriptions is not None:
+            pulumi.set(__self__, "subscriptions", subscriptions)
+
+    @property
+    @pulumi.getter
+    def subscriptions(self) -> Optional[Sequence[str]]:
+        """
+        The list of subscriptions.
+        """
+        return pulumi.get(self, "subscriptions")
+
+
+@pulumi.output_type
 class ProbeResponse(dict):
     """
     A load balancer probe.
@@ -8142,6 +12000,65 @@ class ProbeResponse(dict):
         The URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value.
         """
         return pulumi.get(self, "request_path")
+
+
+@pulumi.output_type
+class ProtocolCustomSettingsFormatResponse(dict):
+    """
+    DDoS custom policy properties.
+    """
+    def __init__(__self__, *,
+                 protocol: Optional[str] = None,
+                 source_rate_override: Optional[str] = None,
+                 trigger_rate_override: Optional[str] = None,
+                 trigger_sensitivity_override: Optional[str] = None):
+        """
+        DDoS custom policy properties.
+        :param str protocol: The protocol for which the DDoS protection policy is being customized.
+        :param str source_rate_override: The customized DDoS protection source rate.
+        :param str trigger_rate_override: The customized DDoS protection trigger rate.
+        :param str trigger_sensitivity_override: The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
+        """
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_rate_override is not None:
+            pulumi.set(__self__, "source_rate_override", source_rate_override)
+        if trigger_rate_override is not None:
+            pulumi.set(__self__, "trigger_rate_override", trigger_rate_override)
+        if trigger_sensitivity_override is not None:
+            pulumi.set(__self__, "trigger_sensitivity_override", trigger_sensitivity_override)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The protocol for which the DDoS protection policy is being customized.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="sourceRateOverride")
+    def source_rate_override(self) -> Optional[str]:
+        """
+        The customized DDoS protection source rate.
+        """
+        return pulumi.get(self, "source_rate_override")
+
+    @property
+    @pulumi.getter(name="triggerRateOverride")
+    def trigger_rate_override(self) -> Optional[str]:
+        """
+        The customized DDoS protection trigger rate.
+        """
+        return pulumi.get(self, "trigger_rate_override")
+
+    @property
+    @pulumi.getter(name="triggerSensitivityOverride")
+    def trigger_sensitivity_override(self) -> Optional[str]:
+        """
+        The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
+        """
+        return pulumi.get(self, "trigger_sensitivity_override")
 
 
 @pulumi.output_type
@@ -8658,6 +12575,108 @@ class ResourceNavigationLinkResponse(dict):
     def name(self) -> Optional[str]:
         """
         Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class RouteFilterRuleResponse(dict):
+    """
+    Route Filter Rule Resource.
+    """
+    def __init__(__self__, *,
+                 access: str,
+                 communities: Sequence[str],
+                 etag: str,
+                 provisioning_state: str,
+                 route_filter_rule_type: str,
+                 id: Optional[str] = None,
+                 location: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Route Filter Rule Resource.
+        :param str access: The access type of the rule.
+        :param Sequence[str] communities: The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+        :param str route_filter_rule_type: The rule type of the rule.
+        :param str id: Resource ID.
+        :param str location: Resource location.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "access", access)
+        pulumi.set(__self__, "communities", communities)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "route_filter_rule_type", route_filter_rule_type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def access(self) -> str:
+        """
+        The access type of the rule.
+        """
+        return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter
+    def communities(self) -> Sequence[str]:
+        """
+        The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+        """
+        return pulumi.get(self, "communities")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="routeFilterRuleType")
+    def route_filter_rule_type(self) -> str:
+        """
+        The rule type of the rule.
+        """
+        return pulumi.get(self, "route_filter_rule_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
 
@@ -9977,6 +13996,518 @@ class SubnetResponse(dict):
 
 
 @pulumi.output_type
+class TunnelConnectionHealthResponse(dict):
+    """
+    VirtualNetworkGatewayConnection properties.
+    """
+    def __init__(__self__, *,
+                 connection_status: str,
+                 egress_bytes_transferred: float,
+                 ingress_bytes_transferred: float,
+                 last_connection_established_utc_time: str,
+                 tunnel: str):
+        """
+        VirtualNetworkGatewayConnection properties.
+        :param str connection_status: Virtual Network Gateway connection status.
+        :param float egress_bytes_transferred: The Egress Bytes Transferred in this connection.
+        :param float ingress_bytes_transferred: The Ingress Bytes Transferred in this connection.
+        :param str last_connection_established_utc_time: The time at which connection was established in Utc format.
+        :param str tunnel: Tunnel name.
+        """
+        pulumi.set(__self__, "connection_status", connection_status)
+        pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
+        pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
+        pulumi.set(__self__, "last_connection_established_utc_time", last_connection_established_utc_time)
+        pulumi.set(__self__, "tunnel", tunnel)
+
+    @property
+    @pulumi.getter(name="connectionStatus")
+    def connection_status(self) -> str:
+        """
+        Virtual Network Gateway connection status.
+        """
+        return pulumi.get(self, "connection_status")
+
+    @property
+    @pulumi.getter(name="egressBytesTransferred")
+    def egress_bytes_transferred(self) -> float:
+        """
+        The Egress Bytes Transferred in this connection.
+        """
+        return pulumi.get(self, "egress_bytes_transferred")
+
+    @property
+    @pulumi.getter(name="ingressBytesTransferred")
+    def ingress_bytes_transferred(self) -> float:
+        """
+        The Ingress Bytes Transferred in this connection.
+        """
+        return pulumi.get(self, "ingress_bytes_transferred")
+
+    @property
+    @pulumi.getter(name="lastConnectionEstablishedUtcTime")
+    def last_connection_established_utc_time(self) -> str:
+        """
+        The time at which connection was established in Utc format.
+        """
+        return pulumi.get(self, "last_connection_established_utc_time")
+
+    @property
+    @pulumi.getter
+    def tunnel(self) -> str:
+        """
+        Tunnel name.
+        """
+        return pulumi.get(self, "tunnel")
+
+
+@pulumi.output_type
+class VirtualHubIdResponse(dict):
+    """
+    Virtual Hub identifier.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Virtual Hub identifier.
+        :param str id: The resource URI for the Virtual Hub where the ExpressRoute gateway is or will be deployed. The Virtual Hub resource and the ExpressRoute gateway resource reside in the same subscription.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The resource URI for the Virtual Hub where the ExpressRoute gateway is or will be deployed. The Virtual Hub resource and the ExpressRoute gateway resource reside in the same subscription.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class VirtualHubRouteResponse(dict):
+    """
+    VirtualHub route.
+    """
+    def __init__(__self__, *,
+                 address_prefixes: Optional[Sequence[str]] = None,
+                 next_hop_ip_address: Optional[str] = None):
+        """
+        VirtualHub route.
+        :param Sequence[str] address_prefixes: List of all addressPrefixes.
+        :param str next_hop_ip_address: NextHop ip address.
+        """
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if next_hop_ip_address is not None:
+            pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        List of all addressPrefixes.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter(name="nextHopIpAddress")
+    def next_hop_ip_address(self) -> Optional[str]:
+        """
+        NextHop ip address.
+        """
+        return pulumi.get(self, "next_hop_ip_address")
+
+
+@pulumi.output_type
+class VirtualHubRouteTableResponse(dict):
+    """
+    VirtualHub route table.
+    """
+    def __init__(__self__, *,
+                 routes: Optional[Sequence['outputs.VirtualHubRouteResponse']] = None):
+        """
+        VirtualHub route table.
+        :param Sequence['VirtualHubRouteResponse'] routes: List of all routes.
+        """
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[Sequence['outputs.VirtualHubRouteResponse']]:
+        """
+        List of all routes.
+        """
+        return pulumi.get(self, "routes")
+
+
+@pulumi.output_type
+class VirtualNetworkGatewayIPConfigurationResponse(dict):
+    """
+    IP configuration for virtual network gateway.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 etag: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 public_ip_address: Optional['outputs.SubResourceResponse'] = None,
+                 subnet: Optional['outputs.SubResourceResponse'] = None):
+        """
+        IP configuration for virtual network gateway.
+        :param str provisioning_state: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param str private_ip_allocation_method: The private IP address allocation method.
+        :param 'SubResourceResponse' public_ip_address: The reference of the public IP resource.
+        :param 'SubResourceResponse' subnet: The reference of the subnet resource.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP address allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The reference of the public IP resource.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The reference of the subnet resource.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
+class VirtualNetworkGatewayResponse(dict):
+    """
+    A common class for general resource information.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 provisioning_state: str,
+                 type: str,
+                 active_active: Optional[bool] = None,
+                 bgp_settings: Optional['outputs.BgpSettingsResponse'] = None,
+                 custom_routes: Optional['outputs.AddressSpaceResponse'] = None,
+                 enable_bgp: Optional[bool] = None,
+                 etag: Optional[str] = None,
+                 gateway_default_site: Optional['outputs.SubResourceResponse'] = None,
+                 gateway_type: Optional[str] = None,
+                 id: Optional[str] = None,
+                 ip_configurations: Optional[Sequence['outputs.VirtualNetworkGatewayIPConfigurationResponse']] = None,
+                 location: Optional[str] = None,
+                 resource_guid: Optional[str] = None,
+                 sku: Optional['outputs.VirtualNetworkGatewaySkuResponse'] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 vpn_client_configuration: Optional['outputs.VpnClientConfigurationResponse'] = None,
+                 vpn_type: Optional[str] = None):
+        """
+        A common class for general resource information.
+        :param str name: Resource name.
+        :param str provisioning_state: The provisioning state of the VirtualNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        :param str type: Resource type.
+        :param bool active_active: ActiveActive flag.
+        :param 'BgpSettingsResponse' bgp_settings: Virtual network gateway's BGP speaker settings.
+        :param 'AddressSpaceResponse' custom_routes: The reference of the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
+        :param bool enable_bgp: Whether BGP is enabled for this virtual network gateway or not.
+        :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param 'SubResourceResponse' gateway_default_site: The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+        :param str gateway_type: The type of this virtual network gateway.
+        :param str id: Resource ID.
+        :param Sequence['VirtualNetworkGatewayIPConfigurationResponse'] ip_configurations: IP configurations for virtual network gateway.
+        :param str location: Resource location.
+        :param str resource_guid: The resource GUID property of the VirtualNetworkGateway resource.
+        :param 'VirtualNetworkGatewaySkuResponse' sku: The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+        :param Mapping[str, str] tags: Resource tags.
+        :param 'VpnClientConfigurationResponse' vpn_client_configuration: The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+        :param str vpn_type: The type of this virtual network gateway.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if active_active is not None:
+            pulumi.set(__self__, "active_active", active_active)
+        if bgp_settings is not None:
+            pulumi.set(__self__, "bgp_settings", bgp_settings)
+        if custom_routes is not None:
+            pulumi.set(__self__, "custom_routes", custom_routes)
+        if enable_bgp is not None:
+            pulumi.set(__self__, "enable_bgp", enable_bgp)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if gateway_default_site is not None:
+            pulumi.set(__self__, "gateway_default_site", gateway_default_site)
+        if gateway_type is not None:
+            pulumi.set(__self__, "gateway_type", gateway_type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if resource_guid is not None:
+            pulumi.set(__self__, "resource_guid", resource_guid)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpn_client_configuration is not None:
+            pulumi.set(__self__, "vpn_client_configuration", vpn_client_configuration)
+        if vpn_type is not None:
+            pulumi.set(__self__, "vpn_type", vpn_type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the VirtualNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="activeActive")
+    def active_active(self) -> Optional[bool]:
+        """
+        ActiveActive flag.
+        """
+        return pulumi.get(self, "active_active")
+
+    @property
+    @pulumi.getter(name="bgpSettings")
+    def bgp_settings(self) -> Optional['outputs.BgpSettingsResponse']:
+        """
+        Virtual network gateway's BGP speaker settings.
+        """
+        return pulumi.get(self, "bgp_settings")
+
+    @property
+    @pulumi.getter(name="customRoutes")
+    def custom_routes(self) -> Optional['outputs.AddressSpaceResponse']:
+        """
+        The reference of the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
+        """
+        return pulumi.get(self, "custom_routes")
+
+    @property
+    @pulumi.getter(name="enableBgp")
+    def enable_bgp(self) -> Optional[bool]:
+        """
+        Whether BGP is enabled for this virtual network gateway or not.
+        """
+        return pulumi.get(self, "enable_bgp")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="gatewayDefaultSite")
+    def gateway_default_site(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+        """
+        return pulumi.get(self, "gateway_default_site")
+
+    @property
+    @pulumi.getter(name="gatewayType")
+    def gateway_type(self) -> Optional[str]:
+        """
+        The type of this virtual network gateway.
+        """
+        return pulumi.get(self, "gateway_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayIPConfigurationResponse']]:
+        """
+        IP configurations for virtual network gateway.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> Optional[str]:
+        """
+        The resource GUID property of the VirtualNetworkGateway resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.VirtualNetworkGatewaySkuResponse']:
+        """
+        The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpnClientConfiguration")
+    def vpn_client_configuration(self) -> Optional['outputs.VpnClientConfigurationResponse']:
+        """
+        The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+        """
+        return pulumi.get(self, "vpn_client_configuration")
+
+    @property
+    @pulumi.getter(name="vpnType")
+    def vpn_type(self) -> Optional[str]:
+        """
+        The type of this virtual network gateway.
+        """
+        return pulumi.get(self, "vpn_type")
+
+
+@pulumi.output_type
+class VirtualNetworkGatewaySkuResponse(dict):
+    """
+    VirtualNetworkGatewaySku details.
+    """
+    def __init__(__self__, *,
+                 capacity: Optional[int] = None,
+                 name: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        VirtualNetworkGatewaySku details.
+        :param int capacity: The capacity.
+        :param str name: Gateway SKU name.
+        :param str tier: Gateway SKU tier.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The capacity.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gateway SKU name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        Gateway SKU tier.
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
 class VirtualNetworkPeeringResponse(dict):
     """
     Peerings in a virtual network resource.
@@ -10328,6 +14859,137 @@ class VirtualNetworkTapResponse(dict):
 
 
 @pulumi.output_type
+class VpnClientConfigurationResponse(dict):
+    """
+    VpnClientConfiguration for P2S client.
+    """
+    def __init__(__self__, *,
+                 aad_audience: Optional[str] = None,
+                 aad_issuer: Optional[str] = None,
+                 aad_tenant: Optional[str] = None,
+                 radius_server_address: Optional[str] = None,
+                 radius_server_secret: Optional[str] = None,
+                 vpn_client_address_pool: Optional['outputs.AddressSpaceResponse'] = None,
+                 vpn_client_ipsec_policies: Optional[Sequence['outputs.IpsecPolicyResponse']] = None,
+                 vpn_client_protocols: Optional[Sequence[str]] = None,
+                 vpn_client_revoked_certificates: Optional[Sequence['outputs.VpnClientRevokedCertificateResponse']] = None,
+                 vpn_client_root_certificates: Optional[Sequence['outputs.VpnClientRootCertificateResponse']] = None):
+        """
+        VpnClientConfiguration for P2S client.
+        :param str aad_audience: The AADAudience property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+        :param str aad_issuer: The AADIssuer property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+        :param str aad_tenant: The AADTenant property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+        :param str radius_server_address: The radius server address property of the VirtualNetworkGateway resource for vpn client connection.
+        :param str radius_server_secret: The radius secret property of the VirtualNetworkGateway resource for vpn client connection.
+        :param 'AddressSpaceResponse' vpn_client_address_pool: The reference of the address space resource which represents Address space for P2S VpnClient.
+        :param Sequence['IpsecPolicyResponse'] vpn_client_ipsec_policies: VpnClientIpsecPolicies for virtual network gateway P2S client.
+        :param Sequence[str] vpn_client_protocols: VpnClientProtocols for Virtual network gateway.
+        :param Sequence['VpnClientRevokedCertificateResponse'] vpn_client_revoked_certificates: VpnClientRevokedCertificate for Virtual network gateway.
+        :param Sequence['VpnClientRootCertificateResponse'] vpn_client_root_certificates: VpnClientRootCertificate for virtual network gateway.
+        """
+        if aad_audience is not None:
+            pulumi.set(__self__, "aad_audience", aad_audience)
+        if aad_issuer is not None:
+            pulumi.set(__self__, "aad_issuer", aad_issuer)
+        if aad_tenant is not None:
+            pulumi.set(__self__, "aad_tenant", aad_tenant)
+        if radius_server_address is not None:
+            pulumi.set(__self__, "radius_server_address", radius_server_address)
+        if radius_server_secret is not None:
+            pulumi.set(__self__, "radius_server_secret", radius_server_secret)
+        if vpn_client_address_pool is not None:
+            pulumi.set(__self__, "vpn_client_address_pool", vpn_client_address_pool)
+        if vpn_client_ipsec_policies is not None:
+            pulumi.set(__self__, "vpn_client_ipsec_policies", vpn_client_ipsec_policies)
+        if vpn_client_protocols is not None:
+            pulumi.set(__self__, "vpn_client_protocols", vpn_client_protocols)
+        if vpn_client_revoked_certificates is not None:
+            pulumi.set(__self__, "vpn_client_revoked_certificates", vpn_client_revoked_certificates)
+        if vpn_client_root_certificates is not None:
+            pulumi.set(__self__, "vpn_client_root_certificates", vpn_client_root_certificates)
+
+    @property
+    @pulumi.getter(name="aadAudience")
+    def aad_audience(self) -> Optional[str]:
+        """
+        The AADAudience property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+        """
+        return pulumi.get(self, "aad_audience")
+
+    @property
+    @pulumi.getter(name="aadIssuer")
+    def aad_issuer(self) -> Optional[str]:
+        """
+        The AADIssuer property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+        """
+        return pulumi.get(self, "aad_issuer")
+
+    @property
+    @pulumi.getter(name="aadTenant")
+    def aad_tenant(self) -> Optional[str]:
+        """
+        The AADTenant property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+        """
+        return pulumi.get(self, "aad_tenant")
+
+    @property
+    @pulumi.getter(name="radiusServerAddress")
+    def radius_server_address(self) -> Optional[str]:
+        """
+        The radius server address property of the VirtualNetworkGateway resource for vpn client connection.
+        """
+        return pulumi.get(self, "radius_server_address")
+
+    @property
+    @pulumi.getter(name="radiusServerSecret")
+    def radius_server_secret(self) -> Optional[str]:
+        """
+        The radius secret property of the VirtualNetworkGateway resource for vpn client connection.
+        """
+        return pulumi.get(self, "radius_server_secret")
+
+    @property
+    @pulumi.getter(name="vpnClientAddressPool")
+    def vpn_client_address_pool(self) -> Optional['outputs.AddressSpaceResponse']:
+        """
+        The reference of the address space resource which represents Address space for P2S VpnClient.
+        """
+        return pulumi.get(self, "vpn_client_address_pool")
+
+    @property
+    @pulumi.getter(name="vpnClientIpsecPolicies")
+    def vpn_client_ipsec_policies(self) -> Optional[Sequence['outputs.IpsecPolicyResponse']]:
+        """
+        VpnClientIpsecPolicies for virtual network gateway P2S client.
+        """
+        return pulumi.get(self, "vpn_client_ipsec_policies")
+
+    @property
+    @pulumi.getter(name="vpnClientProtocols")
+    def vpn_client_protocols(self) -> Optional[Sequence[str]]:
+        """
+        VpnClientProtocols for Virtual network gateway.
+        """
+        return pulumi.get(self, "vpn_client_protocols")
+
+    @property
+    @pulumi.getter(name="vpnClientRevokedCertificates")
+    def vpn_client_revoked_certificates(self) -> Optional[Sequence['outputs.VpnClientRevokedCertificateResponse']]:
+        """
+        VpnClientRevokedCertificate for Virtual network gateway.
+        """
+        return pulumi.get(self, "vpn_client_revoked_certificates")
+
+    @property
+    @pulumi.getter(name="vpnClientRootCertificates")
+    def vpn_client_root_certificates(self) -> Optional[Sequence['outputs.VpnClientRootCertificateResponse']]:
+        """
+        VpnClientRootCertificate for virtual network gateway.
+        """
+        return pulumi.get(self, "vpn_client_root_certificates")
+
+
+@pulumi.output_type
 class VpnClientConnectionHealthDetailResponse(dict):
     """
     VPN client connection health detail.
@@ -10525,5 +15187,851 @@ class VpnClientConnectionHealthResponse(dict):
         The total of p2s vpn clients connected at this time to this P2SVpnGateway.
         """
         return pulumi.get(self, "vpn_client_connections_count")
+
+
+@pulumi.output_type
+class VpnClientRevokedCertificateResponse(dict):
+    """
+    VPN client revoked certificate of virtual network gateway.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 etag: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
+        """
+        VPN client revoked certificate of virtual network gateway.
+        :param str provisioning_state: The provisioning state of the VPN client revoked certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param str thumbprint: The revoked VPN client certificate thumbprint.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the VPN client revoked certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        The revoked VPN client certificate thumbprint.
+        """
+        return pulumi.get(self, "thumbprint")
+
+
+@pulumi.output_type
+class VpnClientRootCertificateResponse(dict):
+    """
+    VPN client root certificate of virtual network gateway.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 public_cert_data: str,
+                 etag: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        VPN client root certificate of virtual network gateway.
+        :param str provisioning_state: The provisioning state of the VPN client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        :param str public_cert_data: The certificate public data.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "public_cert_data", public_cert_data)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the VPN client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicCertData")
+    def public_cert_data(self) -> str:
+        """
+        The certificate public data.
+        """
+        return pulumi.get(self, "public_cert_data")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class VpnConnectionResponse(dict):
+    """
+    VpnConnection Resource.
+    """
+    def __init__(__self__, *,
+                 connection_status: str,
+                 egress_bytes_transferred: float,
+                 etag: str,
+                 ingress_bytes_transferred: float,
+                 provisioning_state: str,
+                 connection_bandwidth: Optional[int] = None,
+                 enable_bgp: Optional[bool] = None,
+                 enable_internet_security: Optional[bool] = None,
+                 enable_rate_limiting: Optional[bool] = None,
+                 id: Optional[str] = None,
+                 ipsec_policies: Optional[Sequence['outputs.IpsecPolicyResponse']] = None,
+                 name: Optional[str] = None,
+                 remote_vpn_site: Optional['outputs.SubResourceResponse'] = None,
+                 routing_weight: Optional[int] = None,
+                 shared_key: Optional[str] = None,
+                 use_local_azure_ip_address: Optional[bool] = None,
+                 use_policy_based_traffic_selectors: Optional[bool] = None,
+                 vpn_connection_protocol_type: Optional[str] = None,
+                 vpn_link_connections: Optional[Sequence['outputs.VpnSiteLinkConnectionResponse']] = None):
+        """
+        VpnConnection Resource.
+        :param str connection_status: The connection status.
+        :param float egress_bytes_transferred: Egress bytes transferred.
+        :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param float ingress_bytes_transferred: Ingress bytes transferred.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param int connection_bandwidth: Expected bandwidth in MBPS.
+        :param bool enable_bgp: EnableBgp flag.
+        :param bool enable_internet_security: Enable internet security.
+        :param bool enable_rate_limiting: EnableBgp flag.
+        :param str id: Resource ID.
+        :param Sequence['IpsecPolicyResponse'] ipsec_policies: The IPSec Policies to be considered by this connection.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param 'SubResourceResponse' remote_vpn_site: Id of the connected vpn site.
+        :param int routing_weight: Routing weight for vpn connection.
+        :param str shared_key: SharedKey for the vpn connection.
+        :param bool use_local_azure_ip_address: Use local azure ip to initiate connection.
+        :param bool use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
+        :param str vpn_connection_protocol_type: Connection protocol used for this connection.
+        :param Sequence['VpnSiteLinkConnectionResponse'] vpn_link_connections: List of all vpn site link connections to the gateway.
+        """
+        pulumi.set(__self__, "connection_status", connection_status)
+        pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if connection_bandwidth is not None:
+            pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
+        if enable_bgp is not None:
+            pulumi.set(__self__, "enable_bgp", enable_bgp)
+        if enable_internet_security is not None:
+            pulumi.set(__self__, "enable_internet_security", enable_internet_security)
+        if enable_rate_limiting is not None:
+            pulumi.set(__self__, "enable_rate_limiting", enable_rate_limiting)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ipsec_policies is not None:
+            pulumi.set(__self__, "ipsec_policies", ipsec_policies)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if remote_vpn_site is not None:
+            pulumi.set(__self__, "remote_vpn_site", remote_vpn_site)
+        if routing_weight is not None:
+            pulumi.set(__self__, "routing_weight", routing_weight)
+        if shared_key is not None:
+            pulumi.set(__self__, "shared_key", shared_key)
+        if use_local_azure_ip_address is not None:
+            pulumi.set(__self__, "use_local_azure_ip_address", use_local_azure_ip_address)
+        if use_policy_based_traffic_selectors is not None:
+            pulumi.set(__self__, "use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
+        if vpn_connection_protocol_type is not None:
+            pulumi.set(__self__, "vpn_connection_protocol_type", vpn_connection_protocol_type)
+        if vpn_link_connections is not None:
+            pulumi.set(__self__, "vpn_link_connections", vpn_link_connections)
+
+    @property
+    @pulumi.getter(name="connectionStatus")
+    def connection_status(self) -> str:
+        """
+        The connection status.
+        """
+        return pulumi.get(self, "connection_status")
+
+    @property
+    @pulumi.getter(name="egressBytesTransferred")
+    def egress_bytes_transferred(self) -> float:
+        """
+        Egress bytes transferred.
+        """
+        return pulumi.get(self, "egress_bytes_transferred")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="ingressBytesTransferred")
+    def ingress_bytes_transferred(self) -> float:
+        """
+        Ingress bytes transferred.
+        """
+        return pulumi.get(self, "ingress_bytes_transferred")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="connectionBandwidth")
+    def connection_bandwidth(self) -> Optional[int]:
+        """
+        Expected bandwidth in MBPS.
+        """
+        return pulumi.get(self, "connection_bandwidth")
+
+    @property
+    @pulumi.getter(name="enableBgp")
+    def enable_bgp(self) -> Optional[bool]:
+        """
+        EnableBgp flag.
+        """
+        return pulumi.get(self, "enable_bgp")
+
+    @property
+    @pulumi.getter(name="enableInternetSecurity")
+    def enable_internet_security(self) -> Optional[bool]:
+        """
+        Enable internet security.
+        """
+        return pulumi.get(self, "enable_internet_security")
+
+    @property
+    @pulumi.getter(name="enableRateLimiting")
+    def enable_rate_limiting(self) -> Optional[bool]:
+        """
+        EnableBgp flag.
+        """
+        return pulumi.get(self, "enable_rate_limiting")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipsecPolicies")
+    def ipsec_policies(self) -> Optional[Sequence['outputs.IpsecPolicyResponse']]:
+        """
+        The IPSec Policies to be considered by this connection.
+        """
+        return pulumi.get(self, "ipsec_policies")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="remoteVpnSite")
+    def remote_vpn_site(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Id of the connected vpn site.
+        """
+        return pulumi.get(self, "remote_vpn_site")
+
+    @property
+    @pulumi.getter(name="routingWeight")
+    def routing_weight(self) -> Optional[int]:
+        """
+        Routing weight for vpn connection.
+        """
+        return pulumi.get(self, "routing_weight")
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[str]:
+        """
+        SharedKey for the vpn connection.
+        """
+        return pulumi.get(self, "shared_key")
+
+    @property
+    @pulumi.getter(name="useLocalAzureIpAddress")
+    def use_local_azure_ip_address(self) -> Optional[bool]:
+        """
+        Use local azure ip to initiate connection.
+        """
+        return pulumi.get(self, "use_local_azure_ip_address")
+
+    @property
+    @pulumi.getter(name="usePolicyBasedTrafficSelectors")
+    def use_policy_based_traffic_selectors(self) -> Optional[bool]:
+        """
+        Enable policy-based traffic selectors.
+        """
+        return pulumi.get(self, "use_policy_based_traffic_selectors")
+
+    @property
+    @pulumi.getter(name="vpnConnectionProtocolType")
+    def vpn_connection_protocol_type(self) -> Optional[str]:
+        """
+        Connection protocol used for this connection.
+        """
+        return pulumi.get(self, "vpn_connection_protocol_type")
+
+    @property
+    @pulumi.getter(name="vpnLinkConnections")
+    def vpn_link_connections(self) -> Optional[Sequence['outputs.VpnSiteLinkConnectionResponse']]:
+        """
+        List of all vpn site link connections to the gateway.
+        """
+        return pulumi.get(self, "vpn_link_connections")
+
+
+@pulumi.output_type
+class VpnLinkBgpSettingsResponse(dict):
+    """
+    BGP settings details for a link.
+    """
+    def __init__(__self__, *,
+                 asn: Optional[float] = None,
+                 bgp_peering_address: Optional[str] = None):
+        """
+        BGP settings details for a link.
+        :param float asn: The BGP speaker's ASN.
+        :param str bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
+        """
+        if asn is not None:
+            pulumi.set(__self__, "asn", asn)
+        if bgp_peering_address is not None:
+            pulumi.set(__self__, "bgp_peering_address", bgp_peering_address)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> Optional[float]:
+        """
+        The BGP speaker's ASN.
+        """
+        return pulumi.get(self, "asn")
+
+    @property
+    @pulumi.getter(name="bgpPeeringAddress")
+    def bgp_peering_address(self) -> Optional[str]:
+        """
+        The BGP peering address and BGP identifier of this BGP speaker.
+        """
+        return pulumi.get(self, "bgp_peering_address")
+
+
+@pulumi.output_type
+class VpnLinkProviderPropertiesResponse(dict):
+    """
+    List of properties of a link provider.
+    """
+    def __init__(__self__, *,
+                 link_provider_name: Optional[str] = None,
+                 link_speed_in_mbps: Optional[int] = None):
+        """
+        List of properties of a link provider.
+        :param str link_provider_name: Name of the link provider.
+        :param int link_speed_in_mbps: Link speed.
+        """
+        if link_provider_name is not None:
+            pulumi.set(__self__, "link_provider_name", link_provider_name)
+        if link_speed_in_mbps is not None:
+            pulumi.set(__self__, "link_speed_in_mbps", link_speed_in_mbps)
+
+    @property
+    @pulumi.getter(name="linkProviderName")
+    def link_provider_name(self) -> Optional[str]:
+        """
+        Name of the link provider.
+        """
+        return pulumi.get(self, "link_provider_name")
+
+    @property
+    @pulumi.getter(name="linkSpeedInMbps")
+    def link_speed_in_mbps(self) -> Optional[int]:
+        """
+        Link speed.
+        """
+        return pulumi.get(self, "link_speed_in_mbps")
+
+
+@pulumi.output_type
+class VpnSiteLinkConnectionResponse(dict):
+    """
+    VpnSiteLinkConnection Resource.
+    """
+    def __init__(__self__, *,
+                 connection_status: str,
+                 egress_bytes_transferred: float,
+                 etag: str,
+                 ingress_bytes_transferred: float,
+                 provisioning_state: str,
+                 type: str,
+                 connection_bandwidth: Optional[int] = None,
+                 enable_bgp: Optional[bool] = None,
+                 enable_rate_limiting: Optional[bool] = None,
+                 id: Optional[str] = None,
+                 ipsec_policies: Optional[Sequence['outputs.IpsecPolicyResponse']] = None,
+                 name: Optional[str] = None,
+                 routing_weight: Optional[int] = None,
+                 shared_key: Optional[str] = None,
+                 use_local_azure_ip_address: Optional[bool] = None,
+                 use_policy_based_traffic_selectors: Optional[bool] = None,
+                 vpn_connection_protocol_type: Optional[str] = None,
+                 vpn_site_link: Optional['outputs.SubResourceResponse'] = None):
+        """
+        VpnSiteLinkConnection Resource.
+        :param str connection_status: The connection status.
+        :param float egress_bytes_transferred: Egress bytes transferred.
+        :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param float ingress_bytes_transferred: Ingress bytes transferred.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param str type: Resource type.
+        :param int connection_bandwidth: Expected bandwidth in MBPS.
+        :param bool enable_bgp: EnableBgp flag.
+        :param bool enable_rate_limiting: EnableBgp flag.
+        :param str id: Resource ID.
+        :param Sequence['IpsecPolicyResponse'] ipsec_policies: The IPSec Policies to be considered by this connection.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param int routing_weight: Routing weight for vpn connection.
+        :param str shared_key: SharedKey for the vpn connection.
+        :param bool use_local_azure_ip_address: Use local azure ip to initiate connection.
+        :param bool use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
+        :param str vpn_connection_protocol_type: Connection protocol used for this connection.
+        :param 'SubResourceResponse' vpn_site_link: Id of the connected vpn site link.
+        """
+        pulumi.set(__self__, "connection_status", connection_status)
+        pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if connection_bandwidth is not None:
+            pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
+        if enable_bgp is not None:
+            pulumi.set(__self__, "enable_bgp", enable_bgp)
+        if enable_rate_limiting is not None:
+            pulumi.set(__self__, "enable_rate_limiting", enable_rate_limiting)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ipsec_policies is not None:
+            pulumi.set(__self__, "ipsec_policies", ipsec_policies)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if routing_weight is not None:
+            pulumi.set(__self__, "routing_weight", routing_weight)
+        if shared_key is not None:
+            pulumi.set(__self__, "shared_key", shared_key)
+        if use_local_azure_ip_address is not None:
+            pulumi.set(__self__, "use_local_azure_ip_address", use_local_azure_ip_address)
+        if use_policy_based_traffic_selectors is not None:
+            pulumi.set(__self__, "use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
+        if vpn_connection_protocol_type is not None:
+            pulumi.set(__self__, "vpn_connection_protocol_type", vpn_connection_protocol_type)
+        if vpn_site_link is not None:
+            pulumi.set(__self__, "vpn_site_link", vpn_site_link)
+
+    @property
+    @pulumi.getter(name="connectionStatus")
+    def connection_status(self) -> str:
+        """
+        The connection status.
+        """
+        return pulumi.get(self, "connection_status")
+
+    @property
+    @pulumi.getter(name="egressBytesTransferred")
+    def egress_bytes_transferred(self) -> float:
+        """
+        Egress bytes transferred.
+        """
+        return pulumi.get(self, "egress_bytes_transferred")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="ingressBytesTransferred")
+    def ingress_bytes_transferred(self) -> float:
+        """
+        Ingress bytes transferred.
+        """
+        return pulumi.get(self, "ingress_bytes_transferred")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="connectionBandwidth")
+    def connection_bandwidth(self) -> Optional[int]:
+        """
+        Expected bandwidth in MBPS.
+        """
+        return pulumi.get(self, "connection_bandwidth")
+
+    @property
+    @pulumi.getter(name="enableBgp")
+    def enable_bgp(self) -> Optional[bool]:
+        """
+        EnableBgp flag.
+        """
+        return pulumi.get(self, "enable_bgp")
+
+    @property
+    @pulumi.getter(name="enableRateLimiting")
+    def enable_rate_limiting(self) -> Optional[bool]:
+        """
+        EnableBgp flag.
+        """
+        return pulumi.get(self, "enable_rate_limiting")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipsecPolicies")
+    def ipsec_policies(self) -> Optional[Sequence['outputs.IpsecPolicyResponse']]:
+        """
+        The IPSec Policies to be considered by this connection.
+        """
+        return pulumi.get(self, "ipsec_policies")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="routingWeight")
+    def routing_weight(self) -> Optional[int]:
+        """
+        Routing weight for vpn connection.
+        """
+        return pulumi.get(self, "routing_weight")
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[str]:
+        """
+        SharedKey for the vpn connection.
+        """
+        return pulumi.get(self, "shared_key")
+
+    @property
+    @pulumi.getter(name="useLocalAzureIpAddress")
+    def use_local_azure_ip_address(self) -> Optional[bool]:
+        """
+        Use local azure ip to initiate connection.
+        """
+        return pulumi.get(self, "use_local_azure_ip_address")
+
+    @property
+    @pulumi.getter(name="usePolicyBasedTrafficSelectors")
+    def use_policy_based_traffic_selectors(self) -> Optional[bool]:
+        """
+        Enable policy-based traffic selectors.
+        """
+        return pulumi.get(self, "use_policy_based_traffic_selectors")
+
+    @property
+    @pulumi.getter(name="vpnConnectionProtocolType")
+    def vpn_connection_protocol_type(self) -> Optional[str]:
+        """
+        Connection protocol used for this connection.
+        """
+        return pulumi.get(self, "vpn_connection_protocol_type")
+
+    @property
+    @pulumi.getter(name="vpnSiteLink")
+    def vpn_site_link(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Id of the connected vpn site link.
+        """
+        return pulumi.get(self, "vpn_site_link")
+
+
+@pulumi.output_type
+class VpnSiteLinkResponse(dict):
+    """
+    VpnSiteLink Resource.
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 bgp_properties: Optional['outputs.VpnLinkBgpSettingsResponse'] = None,
+                 id: Optional[str] = None,
+                 ip_address: Optional[str] = None,
+                 link_properties: Optional['outputs.VpnLinkProviderPropertiesResponse'] = None,
+                 name: Optional[str] = None):
+        """
+        VpnSiteLink Resource.
+        :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param str type: Resource type.
+        :param 'VpnLinkBgpSettingsResponse' bgp_properties: The set of bgp properties.
+        :param str id: Resource ID.
+        :param str ip_address: The ip-address for the vpn-site-link.
+        :param 'VpnLinkProviderPropertiesResponse' link_properties: The link provider properties.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if bgp_properties is not None:
+            pulumi.set(__self__, "bgp_properties", bgp_properties)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if link_properties is not None:
+            pulumi.set(__self__, "link_properties", link_properties)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="bgpProperties")
+    def bgp_properties(self) -> Optional['outputs.VpnLinkBgpSettingsResponse']:
+        """
+        The set of bgp properties.
+        """
+        return pulumi.get(self, "bgp_properties")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        """
+        The ip-address for the vpn-site-link.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="linkProperties")
+    def link_properties(self) -> Optional['outputs.VpnLinkProviderPropertiesResponse']:
+        """
+        The link provider properties.
+        """
+        return pulumi.get(self, "link_properties")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class WebApplicationFirewallCustomRuleResponse(dict):
+    """
+    Defines contents of a web application rule.
+    """
+    def __init__(__self__, *,
+                 action: str,
+                 etag: str,
+                 match_conditions: Sequence['outputs.MatchConditionResponse'],
+                 priority: int,
+                 rule_type: str,
+                 name: Optional[str] = None):
+        """
+        Defines contents of a web application rule.
+        :param str action: Type of Actions.
+        :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param Sequence['MatchConditionResponse'] match_conditions: List of match conditions.
+        :param int priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+        :param str rule_type: Describes type of rule.
+        :param str name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "match_conditions", match_conditions)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "rule_type", rule_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Type of Actions.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="matchConditions")
+    def match_conditions(self) -> Sequence['outputs.MatchConditionResponse']:
+        """
+        List of match conditions.
+        """
+        return pulumi.get(self, "match_conditions")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> str:
+        """
+        Describes type of rule.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
 
 

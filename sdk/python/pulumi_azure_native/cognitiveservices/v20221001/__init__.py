@@ -7,7 +7,10 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .commitment_plan import *
+from .get_account import *
 from .get_commitment_plan import *
+from .get_deployment import *
+from .get_private_endpoint_connection import *
 from .list_account_keys import *
 from ._inputs import *
 from . import outputs

@@ -8,5 +8,7 @@ import typing
 from ._enums import *
 from .data_collection_endpoint import *
 from .get_data_collection_endpoint import *
+from .get_data_collection_rule import *
+from .get_data_collection_rule_association import *
 from ._inputs import *
 from . import outputs

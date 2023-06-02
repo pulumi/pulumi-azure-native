@@ -13,6 +13,25 @@ export const LevelType = {
  */
 export type LevelType = (typeof LevelType)[keyof typeof LevelType];
 
+export const OperatorScopeType = {
+    Cluster: "cluster",
+    Namespace: "namespace",
+} as const;
+
+/**
+ * Scope at which the operator will be installed.
+ */
+export type OperatorScopeType = (typeof OperatorScopeType)[keyof typeof OperatorScopeType];
+
+export const OperatorType = {
+    Flux: "Flux",
+} as const;
+
+/**
+ * Type of the operator
+ */
+export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
+
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
     None: "None",

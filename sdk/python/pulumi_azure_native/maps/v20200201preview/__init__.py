@@ -6,6 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from .creator import *
+from .get_account import *
 from .get_creator import *
 from .get_private_atlase import *
 from .list_account_keys import *

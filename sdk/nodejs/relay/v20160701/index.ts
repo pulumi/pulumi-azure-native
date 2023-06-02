@@ -5,10 +5,35 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetHybridConnectionArgs, GetHybridConnectionResult, GetHybridConnectionOutputArgs } from "./getHybridConnection";
+export const getHybridConnection: typeof import("./getHybridConnection").getHybridConnection = null as any;
+export const getHybridConnectionOutput: typeof import("./getHybridConnection").getHybridConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getHybridConnection","getHybridConnectionOutput"], () => require("./getHybridConnection"));
+
+export { GetHybridConnectionAuthorizationRuleArgs, GetHybridConnectionAuthorizationRuleResult, GetHybridConnectionAuthorizationRuleOutputArgs } from "./getHybridConnectionAuthorizationRule";
+export const getHybridConnectionAuthorizationRule: typeof import("./getHybridConnectionAuthorizationRule").getHybridConnectionAuthorizationRule = null as any;
+export const getHybridConnectionAuthorizationRuleOutput: typeof import("./getHybridConnectionAuthorizationRule").getHybridConnectionAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getHybridConnectionAuthorizationRule","getHybridConnectionAuthorizationRuleOutput"], () => require("./getHybridConnectionAuthorizationRule"));
+
+export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
+export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
+export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
+
+export { GetNamespaceAuthorizationRuleArgs, GetNamespaceAuthorizationRuleResult, GetNamespaceAuthorizationRuleOutputArgs } from "./getNamespaceAuthorizationRule";
+export const getNamespaceAuthorizationRule: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRule = null as any;
+export const getNamespaceAuthorizationRuleOutput: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
+
 export { GetWCFRelayArgs, GetWCFRelayResult, GetWCFRelayOutputArgs } from "./getWCFRelay";
 export const getWCFRelay: typeof import("./getWCFRelay").getWCFRelay = null as any;
 export const getWCFRelayOutput: typeof import("./getWCFRelay").getWCFRelayOutput = null as any;
 utilities.lazyLoad(exports, ["getWCFRelay","getWCFRelayOutput"], () => require("./getWCFRelay"));
+
+export { GetWCFRelayAuthorizationRuleArgs, GetWCFRelayAuthorizationRuleResult, GetWCFRelayAuthorizationRuleOutputArgs } from "./getWCFRelayAuthorizationRule";
+export const getWCFRelayAuthorizationRule: typeof import("./getWCFRelayAuthorizationRule").getWCFRelayAuthorizationRule = null as any;
+export const getWCFRelayAuthorizationRuleOutput: typeof import("./getWCFRelayAuthorizationRule").getWCFRelayAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getWCFRelayAuthorizationRule","getWCFRelayAuthorizationRuleOutput"], () => require("./getWCFRelayAuthorizationRule"));
 
 export { ListHybridConnectionKeysArgs, ListHybridConnectionKeysResult, ListHybridConnectionKeysOutputArgs } from "./listHybridConnectionKeys";
 export const listHybridConnectionKeys: typeof import("./listHybridConnectionKeys").listHybridConnectionKeys = null as any;

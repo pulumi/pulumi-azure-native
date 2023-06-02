@@ -401,3 +401,13 @@ export const SyncMemberDbType = {
  * Database type of the sync member.
  */
 export type SyncMemberDbType = (typeof SyncMemberDbType)[keyof typeof SyncMemberDbType];
+
+export const TransparentDataEncryptionState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies the state of the transparent data encryption.
+ */
+export type TransparentDataEncryptionState = (typeof TransparentDataEncryptionState)[keyof typeof TransparentDataEncryptionState];

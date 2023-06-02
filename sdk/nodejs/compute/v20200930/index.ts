@@ -30,6 +30,26 @@ export type GalleryImageVersion = import("./galleryImageVersion").GalleryImageVe
 export const GalleryImageVersion: typeof import("./galleryImageVersion").GalleryImageVersion = null as any;
 utilities.lazyLoad(exports, ["GalleryImageVersion"], () => require("./galleryImageVersion"));
 
+export { GetDiskArgs, GetDiskResult, GetDiskOutputArgs } from "./getDisk";
+export const getDisk: typeof import("./getDisk").getDisk = null as any;
+export const getDiskOutput: typeof import("./getDisk").getDiskOutput = null as any;
+utilities.lazyLoad(exports, ["getDisk","getDiskOutput"], () => require("./getDisk"));
+
+export { GetDiskAccessArgs, GetDiskAccessResult, GetDiskAccessOutputArgs } from "./getDiskAccess";
+export const getDiskAccess: typeof import("./getDiskAccess").getDiskAccess = null as any;
+export const getDiskAccessOutput: typeof import("./getDiskAccess").getDiskAccessOutput = null as any;
+utilities.lazyLoad(exports, ["getDiskAccess","getDiskAccessOutput"], () => require("./getDiskAccess"));
+
+export { GetDiskAccessAPrivateEndpointConnectionArgs, GetDiskAccessAPrivateEndpointConnectionResult, GetDiskAccessAPrivateEndpointConnectionOutputArgs } from "./getDiskAccessAPrivateEndpointConnection";
+export const getDiskAccessAPrivateEndpointConnection: typeof import("./getDiskAccessAPrivateEndpointConnection").getDiskAccessAPrivateEndpointConnection = null as any;
+export const getDiskAccessAPrivateEndpointConnectionOutput: typeof import("./getDiskAccessAPrivateEndpointConnection").getDiskAccessAPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getDiskAccessAPrivateEndpointConnection","getDiskAccessAPrivateEndpointConnectionOutput"], () => require("./getDiskAccessAPrivateEndpointConnection"));
+
+export { GetDiskEncryptionSetArgs, GetDiskEncryptionSetResult, GetDiskEncryptionSetOutputArgs } from "./getDiskEncryptionSet";
+export const getDiskEncryptionSet: typeof import("./getDiskEncryptionSet").getDiskEncryptionSet = null as any;
+export const getDiskEncryptionSetOutput: typeof import("./getDiskEncryptionSet").getDiskEncryptionSetOutput = null as any;
+utilities.lazyLoad(exports, ["getDiskEncryptionSet","getDiskEncryptionSetOutput"], () => require("./getDiskEncryptionSet"));
+
 export { GetGalleryArgs, GetGalleryResult, GetGalleryOutputArgs } from "./getGallery";
 export const getGallery: typeof import("./getGallery").getGallery = null as any;
 export const getGalleryOutput: typeof import("./getGallery").getGalleryOutput = null as any;
@@ -54,6 +74,11 @@ export { GetGalleryImageVersionArgs, GetGalleryImageVersionResult, GetGalleryIma
 export const getGalleryImageVersion: typeof import("./getGalleryImageVersion").getGalleryImageVersion = null as any;
 export const getGalleryImageVersionOutput: typeof import("./getGalleryImageVersion").getGalleryImageVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getGalleryImageVersion","getGalleryImageVersionOutput"], () => require("./getGalleryImageVersion"));
+
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
 
 
 // Export enums:

@@ -12,7 +12,10 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AkamaiAccessControlResponse',
+    'AkamaiSignatureHeaderAuthenticationKeyResponse',
     'CrossSiteAccessPoliciesResponse',
+    'HlsResponse',
     'IPAccessControlResponse',
     'IPRangeResponse',
     'LiveEventEncodingResponse',
@@ -24,7 +27,78 @@ __all__ = [
     'LiveEventPreviewAccessControlResponse',
     'LiveEventPreviewResponse',
     'LiveEventTranscriptionResponse',
+    'StreamingEndpointAccessControlResponse',
 ]
+
+@pulumi.output_type
+class AkamaiAccessControlResponse(dict):
+    """
+    Akamai access control
+    """
+    def __init__(__self__, *,
+                 akamai_signature_header_authentication_key_list: Optional[Sequence['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']] = None):
+        """
+        Akamai access control
+        :param Sequence['AkamaiSignatureHeaderAuthenticationKeyResponse'] akamai_signature_header_authentication_key_list: authentication key list
+        """
+        if akamai_signature_header_authentication_key_list is not None:
+            pulumi.set(__self__, "akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
+
+    @property
+    @pulumi.getter(name="akamaiSignatureHeaderAuthenticationKeyList")
+    def akamai_signature_header_authentication_key_list(self) -> Optional[Sequence['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']]:
+        """
+        authentication key list
+        """
+        return pulumi.get(self, "akamai_signature_header_authentication_key_list")
+
+
+@pulumi.output_type
+class AkamaiSignatureHeaderAuthenticationKeyResponse(dict):
+    """
+    Akamai Signature Header authentication key.
+    """
+    def __init__(__self__, *,
+                 base64_key: Optional[str] = None,
+                 expiration: Optional[str] = None,
+                 identifier: Optional[str] = None):
+        """
+        Akamai Signature Header authentication key.
+        :param str base64_key: authentication key
+        :param str expiration: The expiration time of the authentication key.
+        :param str identifier: identifier of the key
+        """
+        if base64_key is not None:
+            pulumi.set(__self__, "base64_key", base64_key)
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter(name="base64Key")
+    def base64_key(self) -> Optional[str]:
+        """
+        authentication key
+        """
+        return pulumi.get(self, "base64_key")
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> Optional[str]:
+        """
+        The expiration time of the authentication key.
+        """
+        return pulumi.get(self, "expiration")
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[str]:
+        """
+        identifier of the key
+        """
+        return pulumi.get(self, "identifier")
+
 
 @pulumi.output_type
 class CrossSiteAccessPoliciesResponse(dict):
@@ -78,6 +152,29 @@ class CrossSiteAccessPoliciesResponse(dict):
         The content of crossdomain.xml used by Silverlight.
         """
         return pulumi.get(self, "cross_domain_policy")
+
+
+@pulumi.output_type
+class HlsResponse(dict):
+    """
+    The HLS configuration.
+    """
+    def __init__(__self__, *,
+                 fragments_per_ts_segment: Optional[int] = None):
+        """
+        The HLS configuration.
+        :param int fragments_per_ts_segment: The amount of fragments per HTTP Live Streaming (HLS) segment.
+        """
+        if fragments_per_ts_segment is not None:
+            pulumi.set(__self__, "fragments_per_ts_segment", fragments_per_ts_segment)
+
+    @property
+    @pulumi.getter(name="fragmentsPerTsSegment")
+    def fragments_per_ts_segment(self) -> Optional[int]:
+        """
+        The amount of fragments per HTTP Live Streaming (HLS) segment.
+        """
+        return pulumi.get(self, "fragments_per_ts_segment")
 
 
 @pulumi.output_type
@@ -639,5 +736,40 @@ class LiveEventTranscriptionResponse(dict):
         Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
         """
         return pulumi.get(self, "output_transcription_track")
+
+
+@pulumi.output_type
+class StreamingEndpointAccessControlResponse(dict):
+    """
+    StreamingEndpoint access control definition.
+    """
+    def __init__(__self__, *,
+                 akamai: Optional['outputs.AkamaiAccessControlResponse'] = None,
+                 ip: Optional['outputs.IPAccessControlResponse'] = None):
+        """
+        StreamingEndpoint access control definition.
+        :param 'AkamaiAccessControlResponse' akamai: The access control of Akamai
+        :param 'IPAccessControlResponse' ip: The IP access control of the StreamingEndpoint.
+        """
+        if akamai is not None:
+            pulumi.set(__self__, "akamai", akamai)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+
+    @property
+    @pulumi.getter
+    def akamai(self) -> Optional['outputs.AkamaiAccessControlResponse']:
+        """
+        The access control of Akamai
+        """
+        return pulumi.get(self, "akamai")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional['outputs.IPAccessControlResponse']:
+        """
+        The IP access control of the StreamingEndpoint.
+        """
+        return pulumi.get(self, "ip")
 
 

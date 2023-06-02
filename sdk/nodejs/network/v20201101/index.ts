@@ -485,6 +485,16 @@ export const getVirtualNetworkTap: typeof import("./getVirtualNetworkTap").getVi
 export const getVirtualNetworkTapOutput: typeof import("./getVirtualNetworkTap").getVirtualNetworkTapOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualNetworkTap","getVirtualNetworkTapOutput"], () => require("./getVirtualNetworkTap"));
 
+export { GetVirtualRouterArgs, GetVirtualRouterResult, GetVirtualRouterOutputArgs } from "./getVirtualRouter";
+export const getVirtualRouter: typeof import("./getVirtualRouter").getVirtualRouter = null as any;
+export const getVirtualRouterOutput: typeof import("./getVirtualRouter").getVirtualRouterOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualRouter","getVirtualRouterOutput"], () => require("./getVirtualRouter"));
+
+export { GetVirtualRouterPeeringArgs, GetVirtualRouterPeeringResult, GetVirtualRouterPeeringOutputArgs } from "./getVirtualRouterPeering";
+export const getVirtualRouterPeering: typeof import("./getVirtualRouterPeering").getVirtualRouterPeering = null as any;
+export const getVirtualRouterPeeringOutput: typeof import("./getVirtualRouterPeering").getVirtualRouterPeeringOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualRouterPeering","getVirtualRouterPeeringOutput"], () => require("./getVirtualRouterPeering"));
+
 export { GetVirtualWanArgs, GetVirtualWanResult, GetVirtualWanOutputArgs } from "./getVirtualWan";
 export const getVirtualWan: typeof import("./getVirtualWan").getVirtualWan = null as any;
 export const getVirtualWanOutput: typeof import("./getVirtualWan").getVirtualWanOutput = null as any;

@@ -11,21 +11,113 @@ export const ActionsRequired = {
  */
 export type ActionsRequired = (typeof ActionsRequired)[keyof typeof ActionsRequired];
 
-export const CreateMode = {
-    /**
-     * Recover the managed HSM pool from a soft-deleted resource.
-     */
+export const CertificatePermissions = {
+    All: "all",
+    Get: "get",
+    List: "list",
+    Delete: "delete",
+    Create: "create",
+    Import: "import",
+    Update: "update",
+    Managecontacts: "managecontacts",
+    Getissuers: "getissuers",
+    Listissuers: "listissuers",
+    Setissuers: "setissuers",
+    Deleteissuers: "deleteissuers",
+    Manageissuers: "manageissuers",
     Recover: "recover",
-    /**
-     * Create a new managed HSM pool. This is the default option.
-     */
+    Purge: "purge",
+    Backup: "backup",
+    Restore: "restore",
+} as const;
+
+export type CertificatePermissions = (typeof CertificatePermissions)[keyof typeof CertificatePermissions];
+
+export const CreateMode = {
+    Recover: "recover",
     Default: "default",
 } as const;
 
 /**
- * The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+ * The vault's create mode to indicate whether the vault need to be recovered or not.
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
+
+export const JsonWebKeyCurveName = {
+    P_256: "P-256",
+    P_384: "P-384",
+    P_521: "P-521",
+    P_256K: "P-256K",
+} as const;
+
+/**
+ * The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+ */
+export type JsonWebKeyCurveName = (typeof JsonWebKeyCurveName)[keyof typeof JsonWebKeyCurveName];
+
+export const JsonWebKeyOperation = {
+    Encrypt: "encrypt",
+    Decrypt: "decrypt",
+    Sign: "sign",
+    Verify: "verify",
+    WrapKey: "wrapKey",
+    UnwrapKey: "unwrapKey",
+    Import: "import",
+    Release: "release",
+} as const;
+
+/**
+ * The permitted JSON web key operations of the key. For more information, see JsonWebKeyOperation.
+ */
+export type JsonWebKeyOperation = (typeof JsonWebKeyOperation)[keyof typeof JsonWebKeyOperation];
+
+export const JsonWebKeyType = {
+    EC: "EC",
+    EC_HSM: "EC-HSM",
+    RSA: "RSA",
+    RSA_HSM: "RSA-HSM",
+} as const;
+
+/**
+ * The type of the key. For valid values, see JsonWebKeyType.
+ */
+export type JsonWebKeyType = (typeof JsonWebKeyType)[keyof typeof JsonWebKeyType];
+
+export const KeyPermissions = {
+    All: "all",
+    Encrypt: "encrypt",
+    Decrypt: "decrypt",
+    WrapKey: "wrapKey",
+    UnwrapKey: "unwrapKey",
+    Sign: "sign",
+    Verify: "verify",
+    Get: "get",
+    List: "list",
+    Create: "create",
+    Update: "update",
+    Import: "import",
+    Delete: "delete",
+    Backup: "backup",
+    Restore: "restore",
+    Recover: "recover",
+    Purge: "purge",
+    Rotate: "rotate",
+    Getrotationpolicy: "getrotationpolicy",
+    Setrotationpolicy: "setrotationpolicy",
+    Release: "release",
+} as const;
+
+export type KeyPermissions = (typeof KeyPermissions)[keyof typeof KeyPermissions];
+
+export const KeyRotationPolicyActionType = {
+    Rotate: "rotate",
+    Notify: "notify",
+} as const;
+
+/**
+ * The type of action.
+ */
+export type KeyRotationPolicyActionType = (typeof KeyRotationPolicyActionType)[keyof typeof KeyRotationPolicyActionType];
 
 export const ManagedHsmSkuFamily = {
     B: "B",
@@ -88,3 +180,66 @@ export const PublicNetworkAccess = {
  * Control permission to the managed HSM from public networks.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const SecretPermissions = {
+    All: "all",
+    Get: "get",
+    List: "list",
+    Set: "set",
+    Delete: "delete",
+    Backup: "backup",
+    Restore: "restore",
+    Recover: "recover",
+    Purge: "purge",
+} as const;
+
+export type SecretPermissions = (typeof SecretPermissions)[keyof typeof SecretPermissions];
+
+export const SkuFamily = {
+    A: "A",
+} as const;
+
+/**
+ * SKU family name
+ */
+export type SkuFamily = (typeof SkuFamily)[keyof typeof SkuFamily];
+
+export const SkuName = {
+    Standard: "standard",
+    Premium: "premium",
+} as const;
+
+/**
+ * SKU name to specify whether the key vault is a standard vault or a premium vault.
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const StoragePermissions = {
+    All: "all",
+    Get: "get",
+    List: "list",
+    Delete: "delete",
+    Set: "set",
+    Update: "update",
+    Regeneratekey: "regeneratekey",
+    Recover: "recover",
+    Purge: "purge",
+    Backup: "backup",
+    Restore: "restore",
+    Setsas: "setsas",
+    Listsas: "listsas",
+    Getsas: "getsas",
+    Deletesas: "deletesas",
+} as const;
+
+export type StoragePermissions = (typeof StoragePermissions)[keyof typeof StoragePermissions];
+
+export const VaultProvisioningState = {
+    Succeeded: "Succeeded",
+    RegisteringDns: "RegisteringDns",
+} as const;
+
+/**
+ * Provisioning state of the vault.
+ */
+export type VaultProvisioningState = (typeof VaultProvisioningState)[keyof typeof VaultProvisioningState];

@@ -11,11 +11,527 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AddonHcxPropertiesResponse',
+    'AddonSrmPropertiesResponse',
+    'AddonVrPropertiesResponse',
+    'CircuitResponse',
+    'DiskPoolVolumeResponse',
+    'EndpointsResponse',
+    'IdentitySourceResponse',
+    'ManagementClusterResponse',
+    'NetAppVolumeResponse',
     'PSCredentialExecutionParameterResponse',
     'ScriptSecureStringExecutionParameterResponse',
     'ScriptStringExecutionParameterResponse',
     'SkuResponse',
+    'WorkloadNetworkDhcpRelayResponse',
+    'WorkloadNetworkDhcpServerResponse',
+    'WorkloadNetworkSegmentPortVifResponse',
+    'WorkloadNetworkSegmentSubnetResponse',
 ]
+
+@pulumi.output_type
+class AddonHcxPropertiesResponse(dict):
+    """
+    The properties of an HCX addon
+    """
+    def __init__(__self__, *,
+                 addon_type: str,
+                 offer: str,
+                 provisioning_state: str):
+        """
+        The properties of an HCX addon
+        :param str addon_type: The type of private cloud addon
+               Expected value is 'HCX'.
+        :param str offer: The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
+        :param str provisioning_state: The state of the addon provisioning
+        """
+        pulumi.set(__self__, "addon_type", 'HCX')
+        pulumi.set(__self__, "offer", offer)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="addonType")
+    def addon_type(self) -> str:
+        """
+        The type of private cloud addon
+        Expected value is 'HCX'.
+        """
+        return pulumi.get(self, "addon_type")
+
+    @property
+    @pulumi.getter
+    def offer(self) -> str:
+        """
+        The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
+        """
+        return pulumi.get(self, "offer")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The state of the addon provisioning
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class AddonSrmPropertiesResponse(dict):
+    """
+    The properties of a Site Recovery Manager (SRM) addon
+    """
+    def __init__(__self__, *,
+                 addon_type: str,
+                 license_key: str,
+                 provisioning_state: str):
+        """
+        The properties of a Site Recovery Manager (SRM) addon
+        :param str addon_type: The type of private cloud addon
+               Expected value is 'SRM'.
+        :param str license_key: The Site Recovery Manager (SRM) license
+        :param str provisioning_state: The state of the addon provisioning
+        """
+        pulumi.set(__self__, "addon_type", 'SRM')
+        pulumi.set(__self__, "license_key", license_key)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="addonType")
+    def addon_type(self) -> str:
+        """
+        The type of private cloud addon
+        Expected value is 'SRM'.
+        """
+        return pulumi.get(self, "addon_type")
+
+    @property
+    @pulumi.getter(name="licenseKey")
+    def license_key(self) -> str:
+        """
+        The Site Recovery Manager (SRM) license
+        """
+        return pulumi.get(self, "license_key")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The state of the addon provisioning
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class AddonVrPropertiesResponse(dict):
+    """
+    The properties of a vSphere Replication (VR) addon
+    """
+    def __init__(__self__, *,
+                 addon_type: str,
+                 provisioning_state: str,
+                 vrs_count: int):
+        """
+        The properties of a vSphere Replication (VR) addon
+        :param str addon_type: The type of private cloud addon
+               Expected value is 'VR'.
+        :param str provisioning_state: The state of the addon provisioning
+        :param int vrs_count: The vSphere Replication Server (VRS) count
+        """
+        pulumi.set(__self__, "addon_type", 'VR')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "vrs_count", vrs_count)
+
+    @property
+    @pulumi.getter(name="addonType")
+    def addon_type(self) -> str:
+        """
+        The type of private cloud addon
+        Expected value is 'VR'.
+        """
+        return pulumi.get(self, "addon_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The state of the addon provisioning
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="vrsCount")
+    def vrs_count(self) -> int:
+        """
+        The vSphere Replication Server (VRS) count
+        """
+        return pulumi.get(self, "vrs_count")
+
+
+@pulumi.output_type
+class CircuitResponse(dict):
+    """
+    An ExpressRoute Circuit
+    """
+    def __init__(__self__, *,
+                 express_route_id: str,
+                 express_route_private_peering_id: str,
+                 primary_subnet: str,
+                 secondary_subnet: str):
+        """
+        An ExpressRoute Circuit
+        :param str express_route_id: Identifier of the ExpressRoute Circuit (Microsoft Colo only)
+        :param str express_route_private_peering_id: ExpressRoute Circuit private peering identifier
+        :param str primary_subnet: CIDR of primary subnet
+        :param str secondary_subnet: CIDR of secondary subnet
+        """
+        pulumi.set(__self__, "express_route_id", express_route_id)
+        pulumi.set(__self__, "express_route_private_peering_id", express_route_private_peering_id)
+        pulumi.set(__self__, "primary_subnet", primary_subnet)
+        pulumi.set(__self__, "secondary_subnet", secondary_subnet)
+
+    @property
+    @pulumi.getter(name="expressRouteID")
+    def express_route_id(self) -> str:
+        """
+        Identifier of the ExpressRoute Circuit (Microsoft Colo only)
+        """
+        return pulumi.get(self, "express_route_id")
+
+    @property
+    @pulumi.getter(name="expressRoutePrivatePeeringID")
+    def express_route_private_peering_id(self) -> str:
+        """
+        ExpressRoute Circuit private peering identifier
+        """
+        return pulumi.get(self, "express_route_private_peering_id")
+
+    @property
+    @pulumi.getter(name="primarySubnet")
+    def primary_subnet(self) -> str:
+        """
+        CIDR of primary subnet
+        """
+        return pulumi.get(self, "primary_subnet")
+
+    @property
+    @pulumi.getter(name="secondarySubnet")
+    def secondary_subnet(self) -> str:
+        """
+        CIDR of secondary subnet
+        """
+        return pulumi.get(self, "secondary_subnet")
+
+
+@pulumi.output_type
+class DiskPoolVolumeResponse(dict):
+    """
+    An iSCSI volume from Microsoft.StoragePool provider
+    """
+    def __init__(__self__, *,
+                 lun_name: str,
+                 path: str,
+                 target_id: str,
+                 mount_option: Optional[str] = None):
+        """
+        An iSCSI volume from Microsoft.StoragePool provider
+        :param str lun_name: Name of the LUN to be used for datastore
+        :param str path: Device path
+        :param str target_id: Azure resource ID of the iSCSI target
+        :param str mount_option: Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+        """
+        pulumi.set(__self__, "lun_name", lun_name)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "target_id", target_id)
+        if mount_option is None:
+            mount_option = 'MOUNT'
+        if mount_option is not None:
+            pulumi.set(__self__, "mount_option", mount_option)
+
+    @property
+    @pulumi.getter(name="lunName")
+    def lun_name(self) -> str:
+        """
+        Name of the LUN to be used for datastore
+        """
+        return pulumi.get(self, "lun_name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        Device path
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> str:
+        """
+        Azure resource ID of the iSCSI target
+        """
+        return pulumi.get(self, "target_id")
+
+    @property
+    @pulumi.getter(name="mountOption")
+    def mount_option(self) -> Optional[str]:
+        """
+        Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+        """
+        return pulumi.get(self, "mount_option")
+
+
+@pulumi.output_type
+class EndpointsResponse(dict):
+    """
+    Endpoint addresses
+    """
+    def __init__(__self__, *,
+                 hcx_cloud_manager: str,
+                 nsxt_manager: str,
+                 vcsa: str):
+        """
+        Endpoint addresses
+        :param str hcx_cloud_manager: Endpoint for the HCX Cloud Manager
+        :param str nsxt_manager: Endpoint for the NSX-T Data Center manager
+        :param str vcsa: Endpoint for Virtual Center Server Appliance
+        """
+        pulumi.set(__self__, "hcx_cloud_manager", hcx_cloud_manager)
+        pulumi.set(__self__, "nsxt_manager", nsxt_manager)
+        pulumi.set(__self__, "vcsa", vcsa)
+
+    @property
+    @pulumi.getter(name="hcxCloudManager")
+    def hcx_cloud_manager(self) -> str:
+        """
+        Endpoint for the HCX Cloud Manager
+        """
+        return pulumi.get(self, "hcx_cloud_manager")
+
+    @property
+    @pulumi.getter(name="nsxtManager")
+    def nsxt_manager(self) -> str:
+        """
+        Endpoint for the NSX-T Data Center manager
+        """
+        return pulumi.get(self, "nsxt_manager")
+
+    @property
+    @pulumi.getter
+    def vcsa(self) -> str:
+        """
+        Endpoint for Virtual Center Server Appliance
+        """
+        return pulumi.get(self, "vcsa")
+
+
+@pulumi.output_type
+class IdentitySourceResponse(dict):
+    """
+    vCenter Single Sign On Identity Source
+    """
+    def __init__(__self__, *,
+                 alias: Optional[str] = None,
+                 base_group_dn: Optional[str] = None,
+                 base_user_dn: Optional[str] = None,
+                 domain: Optional[str] = None,
+                 name: Optional[str] = None,
+                 password: Optional[str] = None,
+                 primary_server: Optional[str] = None,
+                 secondary_server: Optional[str] = None,
+                 ssl: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        vCenter Single Sign On Identity Source
+        :param str alias: The domain's NetBIOS name
+        :param str base_group_dn: The base distinguished name for groups
+        :param str base_user_dn: The base distinguished name for users
+        :param str domain: The domain's dns name
+        :param str name: The name of the identity source
+        :param str password: The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+        :param str primary_server: Primary server URL
+        :param str secondary_server: Secondary server URL
+        :param str ssl: Protect LDAP communication using SSL certificate (LDAPS)
+        :param str username: The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+        """
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if base_group_dn is not None:
+            pulumi.set(__self__, "base_group_dn", base_group_dn)
+        if base_user_dn is not None:
+            pulumi.set(__self__, "base_user_dn", base_user_dn)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if primary_server is not None:
+            pulumi.set(__self__, "primary_server", primary_server)
+        if secondary_server is not None:
+            pulumi.set(__self__, "secondary_server", secondary_server)
+        if ssl is not None:
+            pulumi.set(__self__, "ssl", ssl)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[str]:
+        """
+        The domain's NetBIOS name
+        """
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="baseGroupDN")
+    def base_group_dn(self) -> Optional[str]:
+        """
+        The base distinguished name for groups
+        """
+        return pulumi.get(self, "base_group_dn")
+
+    @property
+    @pulumi.getter(name="baseUserDN")
+    def base_user_dn(self) -> Optional[str]:
+        """
+        The base distinguished name for users
+        """
+        return pulumi.get(self, "base_user_dn")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[str]:
+        """
+        The domain's dns name
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the identity source
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="primaryServer")
+    def primary_server(self) -> Optional[str]:
+        """
+        Primary server URL
+        """
+        return pulumi.get(self, "primary_server")
+
+    @property
+    @pulumi.getter(name="secondaryServer")
+    def secondary_server(self) -> Optional[str]:
+        """
+        Secondary server URL
+        """
+        return pulumi.get(self, "secondary_server")
+
+    @property
+    @pulumi.getter
+    def ssl(self) -> Optional[str]:
+        """
+        Protect LDAP communication using SSL certificate (LDAPS)
+        """
+        return pulumi.get(self, "ssl")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ManagementClusterResponse(dict):
+    """
+    The properties of a management cluster
+    """
+    def __init__(__self__, *,
+                 cluster_id: int,
+                 cluster_size: int,
+                 hosts: Sequence[str],
+                 provisioning_state: str):
+        """
+        The properties of a management cluster
+        :param int cluster_id: The identity
+        :param int cluster_size: The cluster size
+        :param Sequence[str] hosts: The hosts
+        :param str provisioning_state: The state of the cluster provisioning
+        """
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        pulumi.set(__self__, "cluster_size", cluster_size)
+        pulumi.set(__self__, "hosts", hosts)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> int:
+        """
+        The identity
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="clusterSize")
+    def cluster_size(self) -> int:
+        """
+        The cluster size
+        """
+        return pulumi.get(self, "cluster_size")
+
+    @property
+    @pulumi.getter
+    def hosts(self) -> Sequence[str]:
+        """
+        The hosts
+        """
+        return pulumi.get(self, "hosts")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The state of the cluster provisioning
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class NetAppVolumeResponse(dict):
+    """
+    An Azure NetApp Files volume from Microsoft.NetApp provider
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        An Azure NetApp Files volume from Microsoft.NetApp provider
+        :param str id: Azure resource ID of the NetApp volume
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource ID of the NetApp volume
+        """
+        return pulumi.get(self, "id")
+
 
 @pulumi.output_type
 class PSCredentialExecutionParameterResponse(dict):
@@ -207,5 +723,239 @@ class SkuResponse(dict):
         The name of the SKU.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class WorkloadNetworkDhcpRelayResponse(dict):
+    """
+    NSX DHCP Relay
+    """
+    def __init__(__self__, *,
+                 dhcp_type: str,
+                 provisioning_state: str,
+                 segments: Sequence[str],
+                 display_name: Optional[str] = None,
+                 revision: Optional[float] = None,
+                 server_addresses: Optional[Sequence[str]] = None):
+        """
+        NSX DHCP Relay
+        :param str dhcp_type: Type of DHCP: SERVER or RELAY.
+               Expected value is 'RELAY'.
+        :param str provisioning_state: The provisioning state
+        :param Sequence[str] segments: NSX Segments consuming DHCP.
+        :param str display_name: Display name of the DHCP entity.
+        :param float revision: NSX revision number.
+        :param Sequence[str] server_addresses: DHCP Relay Addresses. Max 3.
+        """
+        pulumi.set(__self__, "dhcp_type", 'RELAY')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "segments", segments)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+        if server_addresses is not None:
+            pulumi.set(__self__, "server_addresses", server_addresses)
+
+    @property
+    @pulumi.getter(name="dhcpType")
+    def dhcp_type(self) -> str:
+        """
+        Type of DHCP: SERVER or RELAY.
+        Expected value is 'RELAY'.
+        """
+        return pulumi.get(self, "dhcp_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def segments(self) -> Sequence[str]:
+        """
+        NSX Segments consuming DHCP.
+        """
+        return pulumi.get(self, "segments")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name of the DHCP entity.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[float]:
+        """
+        NSX revision number.
+        """
+        return pulumi.get(self, "revision")
+
+    @property
+    @pulumi.getter(name="serverAddresses")
+    def server_addresses(self) -> Optional[Sequence[str]]:
+        """
+        DHCP Relay Addresses. Max 3.
+        """
+        return pulumi.get(self, "server_addresses")
+
+
+@pulumi.output_type
+class WorkloadNetworkDhcpServerResponse(dict):
+    """
+    NSX DHCP Server
+    """
+    def __init__(__self__, *,
+                 dhcp_type: str,
+                 provisioning_state: str,
+                 segments: Sequence[str],
+                 display_name: Optional[str] = None,
+                 lease_time: Optional[float] = None,
+                 revision: Optional[float] = None,
+                 server_address: Optional[str] = None):
+        """
+        NSX DHCP Server
+        :param str dhcp_type: Type of DHCP: SERVER or RELAY.
+               Expected value is 'SERVER'.
+        :param str provisioning_state: The provisioning state
+        :param Sequence[str] segments: NSX Segments consuming DHCP.
+        :param str display_name: Display name of the DHCP entity.
+        :param float lease_time: DHCP Server Lease Time.
+        :param float revision: NSX revision number.
+        :param str server_address: DHCP Server Address.
+        """
+        pulumi.set(__self__, "dhcp_type", 'SERVER')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "segments", segments)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if lease_time is not None:
+            pulumi.set(__self__, "lease_time", lease_time)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+        if server_address is not None:
+            pulumi.set(__self__, "server_address", server_address)
+
+    @property
+    @pulumi.getter(name="dhcpType")
+    def dhcp_type(self) -> str:
+        """
+        Type of DHCP: SERVER or RELAY.
+        Expected value is 'SERVER'.
+        """
+        return pulumi.get(self, "dhcp_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def segments(self) -> Sequence[str]:
+        """
+        NSX Segments consuming DHCP.
+        """
+        return pulumi.get(self, "segments")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name of the DHCP entity.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="leaseTime")
+    def lease_time(self) -> Optional[float]:
+        """
+        DHCP Server Lease Time.
+        """
+        return pulumi.get(self, "lease_time")
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[float]:
+        """
+        NSX revision number.
+        """
+        return pulumi.get(self, "revision")
+
+    @property
+    @pulumi.getter(name="serverAddress")
+    def server_address(self) -> Optional[str]:
+        """
+        DHCP Server Address.
+        """
+        return pulumi.get(self, "server_address")
+
+
+@pulumi.output_type
+class WorkloadNetworkSegmentPortVifResponse(dict):
+    """
+    Ports and any VIF attached to segment.
+    """
+    def __init__(__self__, *,
+                 port_name: Optional[str] = None):
+        """
+        Ports and any VIF attached to segment.
+        :param str port_name: Name of port or VIF attached to segment.
+        """
+        if port_name is not None:
+            pulumi.set(__self__, "port_name", port_name)
+
+    @property
+    @pulumi.getter(name="portName")
+    def port_name(self) -> Optional[str]:
+        """
+        Name of port or VIF attached to segment.
+        """
+        return pulumi.get(self, "port_name")
+
+
+@pulumi.output_type
+class WorkloadNetworkSegmentSubnetResponse(dict):
+    """
+    Subnet configuration for segment
+    """
+    def __init__(__self__, *,
+                 dhcp_ranges: Optional[Sequence[str]] = None,
+                 gateway_address: Optional[str] = None):
+        """
+        Subnet configuration for segment
+        :param Sequence[str] dhcp_ranges: DHCP Range assigned for subnet.
+        :param str gateway_address: Gateway address.
+        """
+        if dhcp_ranges is not None:
+            pulumi.set(__self__, "dhcp_ranges", dhcp_ranges)
+        if gateway_address is not None:
+            pulumi.set(__self__, "gateway_address", gateway_address)
+
+    @property
+    @pulumi.getter(name="dhcpRanges")
+    def dhcp_ranges(self) -> Optional[Sequence[str]]:
+        """
+        DHCP Range assigned for subnet.
+        """
+        return pulumi.get(self, "dhcp_ranges")
+
+    @property
+    @pulumi.getter(name="gatewayAddress")
+    def gateway_address(self) -> Optional[str]:
+        """
+        Gateway address.
+        """
+        return pulumi.get(self, "gateway_address")
 
 

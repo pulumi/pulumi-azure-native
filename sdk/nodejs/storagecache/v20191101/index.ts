@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetCacheArgs, GetCacheResult, GetCacheOutputArgs } from "./getCache";
+export const getCache: typeof import("./getCache").getCache = null as any;
+export const getCacheOutput: typeof import("./getCache").getCacheOutput = null as any;
+utilities.lazyLoad(exports, ["getCache","getCacheOutput"], () => require("./getCache"));
+
 export { GetStorageTargetArgs, GetStorageTargetResult, GetStorageTargetOutputArgs } from "./getStorageTarget";
 export const getStorageTarget: typeof import("./getStorageTarget").getStorageTarget = null as any;
 export const getStorageTargetOutput: typeof import("./getStorageTarget").getStorageTargetOutput = null as any;

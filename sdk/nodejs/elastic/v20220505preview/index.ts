@@ -4,6 +4,16 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
+export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
+export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
+
+export { GetTagRuleArgs, GetTagRuleResult, GetTagRuleOutputArgs } from "./getTagRule";
+export const getTagRule: typeof import("./getTagRule").getTagRule = null as any;
+export const getTagRuleOutput: typeof import("./getTagRule").getTagRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getTagRule","getTagRuleOutput"], () => require("./getTagRule"));
+
 export { ListAllTrafficFilterArgs, ListAllTrafficFilterResult, ListAllTrafficFilterOutputArgs } from "./listAllTrafficFilter";
 export const listAllTrafficFilter: typeof import("./listAllTrafficFilter").listAllTrafficFilter = null as any;
 export const listAllTrafficFilterOutput: typeof import("./listAllTrafficFilter").listAllTrafficFilterOutput = null as any;
@@ -34,3 +44,6 @@ export const listlistAssociatedTrafficFilter: typeof import("./listlistAssociate
 export const listlistAssociatedTrafficFilterOutput: typeof import("./listlistAssociatedTrafficFilter").listlistAssociatedTrafficFilterOutput = null as any;
 utilities.lazyLoad(exports, ["listlistAssociatedTrafficFilter","listlistAssociatedTrafficFilterOutput"], () => require("./listlistAssociatedTrafficFilter"));
 
+
+// Export enums:
+export * from "../../types/enums/elastic/v20220505preview";

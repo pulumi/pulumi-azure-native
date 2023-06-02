@@ -5,6 +5,9 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .get_private_endpoint_connection import *
+from .get_service import *
 from .list_admin_key import *
 from .list_query_key_by_search_service import *
 from . import outputs

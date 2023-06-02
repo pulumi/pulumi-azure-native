@@ -214,6 +214,37 @@ namespace Pulumi.AzureNative.Automation.V20190601
     }
 
     /// <summary>
+    /// Gets or sets the SKU name of the account.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuNameEnum : IEquatable<SkuNameEnum>
+    {
+        private readonly string _value;
+
+        private SkuNameEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SkuNameEnum Free { get; } = new SkuNameEnum("Free");
+        public static SkuNameEnum Basic { get; } = new SkuNameEnum("Basic");
+
+        public static bool operator ==(SkuNameEnum left, SkuNameEnum right) => left.Equals(right);
+        public static bool operator !=(SkuNameEnum left, SkuNameEnum right) => !left.Equals(right);
+
+        public static explicit operator string(SkuNameEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuNameEnum other && Equals(other);
+        public bool Equals(SkuNameEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
     /// </summary>
     [EnumType]

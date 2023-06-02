@@ -5,12 +5,31 @@
 from enum import Enum
 
 __all__ = [
+    'AccessPolicyRole',
+    'DataStringComparisonBehavior',
     'Kind',
     'LocalTimestampFormat',
     'PropertyType',
+    'ReferenceDataKeyPropertyType',
     'SkuName',
     'StorageLimitExceededBehavior',
 ]
+
+
+class AccessPolicyRole(str, Enum):
+    """
+    A role defining the data plane operations that a principal can perform on a Time Series Insights client.
+    """
+    READER = "Reader"
+    CONTRIBUTOR = "Contributor"
+
+
+class DataStringComparisonBehavior(str, Enum):
+    """
+    The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+    """
+    ORDINAL = "Ordinal"
+    ORDINAL_IGNORE_CASE = "OrdinalIgnoreCase"
 
 
 class Kind(str, Enum):
@@ -33,6 +52,16 @@ class PropertyType(str, Enum):
     The type of the property.
     """
     STRING = "String"
+
+
+class ReferenceDataKeyPropertyType(str, Enum):
+    """
+    The type of the key property.
+    """
+    STRING = "String"
+    DOUBLE = "Double"
+    BOOL = "Bool"
+    DATE_TIME = "DateTime"
 
 
 class SkuName(str, Enum):

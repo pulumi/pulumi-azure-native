@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'DatadogApiKeyResponse',
@@ -16,8 +17,13 @@ __all__ = [
     'DatadogHostResponse',
     'DatadogInstallMethodResponse',
     'DatadogLogsAgentResponse',
+    'DatadogOrganizationPropertiesResponse',
+    'IdentityPropertiesResponse',
     'LinkedResourceResponse',
+    'MonitorPropertiesResponse',
     'MonitoredResourceResponse',
+    'ResourceSkuResponse',
+    'UserInfoResponse',
 ]
 
 @pulumi.output_type
@@ -223,6 +229,80 @@ class DatadogLogsAgentResponse(dict):
 
 
 @pulumi.output_type
+class DatadogOrganizationPropertiesResponse(dict):
+    """
+    Datadog organization properties
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str):
+        """
+        Datadog organization properties
+        :param str id: Id of the Datadog organization.
+        :param str name: Name of the Datadog organization.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the Datadog organization.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Datadog organization.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class IdentityPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        :param str principal_id: The identity ID.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: Identity type
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The identity ID.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Identity type
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class LinkedResourceResponse(dict):
     """
     The definition of a linked resource.
@@ -243,6 +323,89 @@ class LinkedResourceResponse(dict):
         The ARM id of the linked resource.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class MonitorPropertiesResponse(dict):
+    """
+    Properties specific to the monitor resource.
+    """
+    def __init__(__self__, *,
+                 liftr_resource_category: str,
+                 liftr_resource_preference: int,
+                 marketplace_subscription_status: str,
+                 provisioning_state: str,
+                 datadog_organization_properties: Optional['outputs.DatadogOrganizationPropertiesResponse'] = None,
+                 monitoring_status: Optional[str] = None,
+                 user_info: Optional['outputs.UserInfoResponse'] = None):
+        """
+        Properties specific to the monitor resource.
+        :param int liftr_resource_preference: The priority of the resource.
+        :param str marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
+        :param 'DatadogOrganizationPropertiesResponse' datadog_organization_properties: Datadog organization properties
+        :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
+        :param 'UserInfoResponse' user_info: User info
+        """
+        pulumi.set(__self__, "liftr_resource_category", liftr_resource_category)
+        pulumi.set(__self__, "liftr_resource_preference", liftr_resource_preference)
+        pulumi.set(__self__, "marketplace_subscription_status", marketplace_subscription_status)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if datadog_organization_properties is not None:
+            pulumi.set(__self__, "datadog_organization_properties", datadog_organization_properties)
+        if monitoring_status is not None:
+            pulumi.set(__self__, "monitoring_status", monitoring_status)
+        if user_info is not None:
+            pulumi.set(__self__, "user_info", user_info)
+
+    @property
+    @pulumi.getter(name="liftrResourceCategory")
+    def liftr_resource_category(self) -> str:
+        return pulumi.get(self, "liftr_resource_category")
+
+    @property
+    @pulumi.getter(name="liftrResourcePreference")
+    def liftr_resource_preference(self) -> int:
+        """
+        The priority of the resource.
+        """
+        return pulumi.get(self, "liftr_resource_preference")
+
+    @property
+    @pulumi.getter(name="marketplaceSubscriptionStatus")
+    def marketplace_subscription_status(self) -> str:
+        """
+        Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
+        """
+        return pulumi.get(self, "marketplace_subscription_status")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="datadogOrganizationProperties")
+    def datadog_organization_properties(self) -> Optional['outputs.DatadogOrganizationPropertiesResponse']:
+        """
+        Datadog organization properties
+        """
+        return pulumi.get(self, "datadog_organization_properties")
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> Optional[str]:
+        """
+        Flag specifying if the resource monitoring is enabled or disabled.
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @property
+    @pulumi.getter(name="userInfo")
+    def user_info(self) -> Optional['outputs.UserInfoResponse']:
+        """
+        User info
+        """
+        return pulumi.get(self, "user_info")
 
 
 @pulumi.output_type
@@ -314,5 +477,70 @@ class MonitoredResourceResponse(dict):
         Flag indicating if resource is sending metrics to Datadog.
         """
         return pulumi.get(self, "sending_metrics")
+
+
+@pulumi.output_type
+class ResourceSkuResponse(dict):
+    def __init__(__self__, *,
+                 name: str):
+        """
+        :param str name: Name of the SKU.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the SKU.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class UserInfoResponse(dict):
+    """
+    User info
+    """
+    def __init__(__self__, *,
+                 email_address: Optional[str] = None,
+                 name: Optional[str] = None,
+                 phone_number: Optional[str] = None):
+        """
+        User info
+        :param str email_address: Email of the user used by Datadog for contacting them if needed
+        :param str name: Name of the user
+        :param str phone_number: Phone number of the user used by Datadog for contacting them if needed
+        """
+        if email_address is not None:
+            pulumi.set(__self__, "email_address", email_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> Optional[str]:
+        """
+        Email of the user used by Datadog for contacting them if needed
+        """
+        return pulumi.get(self, "email_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the user
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> Optional[str]:
+        """
+        Phone number of the user used by Datadog for contacting them if needed
+        """
+        return pulumi.get(self, "phone_number")
 
 

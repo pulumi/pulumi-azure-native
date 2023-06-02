@@ -8,5 +8,12 @@ import typing
 from ._enums import *
 from .database import *
 from .get_database import *
+from .get_managed_database import *
+from .get_server import *
+from .get_server_azure_ad_administrator import *
+from .get_sync_group import *
+from .get_sync_member import *
+from .get_workload_classifier import *
+from .get_workload_group import *
 from ._inputs import *
 from . import outputs

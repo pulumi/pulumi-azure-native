@@ -6,13 +6,24 @@ from enum import Enum
 
 __all__ = [
     'ActionsRequired',
+    'CertificatePermissions',
     'CreateMode',
+    'JsonWebKeyCurveName',
+    'JsonWebKeyOperation',
+    'JsonWebKeyType',
+    'KeyPermissions',
+    'KeyRotationPolicyActionType',
     'ManagedHsmSkuFamily',
     'ManagedHsmSkuName',
     'NetworkRuleAction',
     'NetworkRuleBypassOptions',
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
+    'SecretPermissions',
+    'SkuFamily',
+    'SkuName',
+    'StoragePermissions',
+    'VaultProvisioningState',
 ]
 
 
@@ -23,18 +34,98 @@ class ActionsRequired(str, Enum):
     NONE = "None"
 
 
+class CertificatePermissions(str, Enum):
+    ALL = "all"
+    GET = "get"
+    LIST = "list"
+    DELETE = "delete"
+    CREATE = "create"
+    IMPORT_ = "import"
+    UPDATE = "update"
+    MANAGECONTACTS = "managecontacts"
+    GETISSUERS = "getissuers"
+    LISTISSUERS = "listissuers"
+    SETISSUERS = "setissuers"
+    DELETEISSUERS = "deleteissuers"
+    MANAGEISSUERS = "manageissuers"
+    RECOVER = "recover"
+    PURGE = "purge"
+    BACKUP = "backup"
+    RESTORE = "restore"
+
+
 class CreateMode(str, Enum):
     """
-    The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+    The vault's create mode to indicate whether the vault need to be recovered or not.
     """
     RECOVER = "recover"
-    """
-    Recover the managed HSM pool from a soft-deleted resource.
-    """
     DEFAULT = "default"
+
+
+class JsonWebKeyCurveName(str, Enum):
     """
-    Create a new managed HSM pool. This is the default option.
+    The elliptic curve name. For valid values, see JsonWebKeyCurveName.
     """
+    P_256 = "P-256"
+    P_384 = "P-384"
+    P_521 = "P-521"
+    P_256_K = "P-256K"
+
+
+class JsonWebKeyOperation(str, Enum):
+    """
+    The permitted JSON web key operations of the key. For more information, see JsonWebKeyOperation.
+    """
+    ENCRYPT = "encrypt"
+    DECRYPT = "decrypt"
+    SIGN = "sign"
+    VERIFY = "verify"
+    WRAP_KEY = "wrapKey"
+    UNWRAP_KEY = "unwrapKey"
+    IMPORT_ = "import"
+    RELEASE = "release"
+
+
+class JsonWebKeyType(str, Enum):
+    """
+    The type of the key. For valid values, see JsonWebKeyType.
+    """
+    EC = "EC"
+    E_C_HSM = "EC-HSM"
+    RSA = "RSA"
+    RS_A_HSM = "RSA-HSM"
+
+
+class KeyPermissions(str, Enum):
+    ALL = "all"
+    ENCRYPT = "encrypt"
+    DECRYPT = "decrypt"
+    WRAP_KEY = "wrapKey"
+    UNWRAP_KEY = "unwrapKey"
+    SIGN = "sign"
+    VERIFY = "verify"
+    GET = "get"
+    LIST = "list"
+    CREATE = "create"
+    UPDATE = "update"
+    IMPORT_ = "import"
+    DELETE = "delete"
+    BACKUP = "backup"
+    RESTORE = "restore"
+    RECOVER = "recover"
+    PURGE = "purge"
+    ROTATE = "rotate"
+    GETROTATIONPOLICY = "getrotationpolicy"
+    SETROTATIONPOLICY = "setrotationpolicy"
+    RELEASE = "release"
+
+
+class KeyRotationPolicyActionType(str, Enum):
+    """
+    The type of action.
+    """
+    ROTATE = "rotate"
+    NOTIFY = "notify"
 
 
 class ManagedHsmSkuFamily(str, Enum):
@@ -85,3 +176,56 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class SecretPermissions(str, Enum):
+    ALL = "all"
+    GET = "get"
+    LIST = "list"
+    SET = "set"
+    DELETE = "delete"
+    BACKUP = "backup"
+    RESTORE = "restore"
+    RECOVER = "recover"
+    PURGE = "purge"
+
+
+class SkuFamily(str, Enum):
+    """
+    SKU family name
+    """
+    A = "A"
+
+
+class SkuName(str, Enum):
+    """
+    SKU name to specify whether the key vault is a standard vault or a premium vault.
+    """
+    STANDARD = "standard"
+    PREMIUM = "premium"
+
+
+class StoragePermissions(str, Enum):
+    ALL = "all"
+    GET = "get"
+    LIST = "list"
+    DELETE = "delete"
+    SET = "set"
+    UPDATE = "update"
+    REGENERATEKEY = "regeneratekey"
+    RECOVER = "recover"
+    PURGE = "purge"
+    BACKUP = "backup"
+    RESTORE = "restore"
+    SETSAS = "setsas"
+    LISTSAS = "listsas"
+    GETSAS = "getsas"
+    DELETESAS = "deletesas"
+
+
+class VaultProvisioningState(str, Enum):
+    """
+    Provisioning state of the vault.
+    """
+    SUCCEEDED = "Succeeded"
+    REGISTERING_DNS = "RegisteringDns"

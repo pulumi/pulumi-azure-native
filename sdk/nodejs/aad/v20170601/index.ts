@@ -15,6 +15,11 @@ export const getDomainService: typeof import("./getDomainService").getDomainServ
 export const getDomainServiceOutput: typeof import("./getDomainService").getDomainServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getDomainService","getDomainServiceOutput"], () => require("./getDomainService"));
 
+export { GetOuContainerArgs, GetOuContainerResult, GetOuContainerOutputArgs } from "./getOuContainer";
+export const getOuContainer: typeof import("./getOuContainer").getOuContainer = null as any;
+export const getOuContainerOutput: typeof import("./getOuContainer").getOuContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getOuContainer","getOuContainerOutput"], () => require("./getOuContainer"));
+
 
 // Export enums:
 export * from "../../types/enums/aad/v20170601";

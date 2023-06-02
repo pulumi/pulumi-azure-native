@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
+export const getConnector: typeof import("./getConnector").getConnector = null as any;
+export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
+
+export { GetConnectorMappingArgs, GetConnectorMappingResult, GetConnectorMappingOutputArgs } from "./getConnectorMapping";
+export const getConnectorMapping: typeof import("./getConnectorMapping").getConnectorMapping = null as any;
+export const getConnectorMappingOutput: typeof import("./getConnectorMapping").getConnectorMappingOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectorMapping","getConnectorMappingOutput"], () => require("./getConnectorMapping"));
+
+export { GetHubArgs, GetHubResult, GetHubOutputArgs } from "./getHub";
+export const getHub: typeof import("./getHub").getHub = null as any;
+export const getHubOutput: typeof import("./getHub").getHubOutput = null as any;
+utilities.lazyLoad(exports, ["getHub","getHubOutput"], () => require("./getHub"));
+
 export { GetImageUploadUrlForDataArgs, GetImageUploadUrlForDataResult, GetImageUploadUrlForDataOutputArgs } from "./getImageUploadUrlForData";
 export const getImageUploadUrlForData: typeof import("./getImageUploadUrlForData").getImageUploadUrlForData = null as any;
 export const getImageUploadUrlForDataOutput: typeof import("./getImageUploadUrlForData").getImageUploadUrlForDataOutput = null as any;
@@ -15,15 +30,40 @@ export const getImageUploadUrlForEntityType: typeof import("./getImageUploadUrlF
 export const getImageUploadUrlForEntityTypeOutput: typeof import("./getImageUploadUrlForEntityType").getImageUploadUrlForEntityTypeOutput = null as any;
 utilities.lazyLoad(exports, ["getImageUploadUrlForEntityType","getImageUploadUrlForEntityTypeOutput"], () => require("./getImageUploadUrlForEntityType"));
 
+export { GetKpiArgs, GetKpiResult, GetKpiOutputArgs } from "./getKpi";
+export const getKpi: typeof import("./getKpi").getKpi = null as any;
+export const getKpiOutput: typeof import("./getKpi").getKpiOutput = null as any;
+utilities.lazyLoad(exports, ["getKpi","getKpiOutput"], () => require("./getKpi"));
+
 export { GetLinkArgs, GetLinkResult, GetLinkOutputArgs } from "./getLink";
 export const getLink: typeof import("./getLink").getLink = null as any;
 export const getLinkOutput: typeof import("./getLink").getLinkOutput = null as any;
 utilities.lazyLoad(exports, ["getLink","getLinkOutput"], () => require("./getLink"));
 
+export { GetProfileArgs, GetProfileResult, GetProfileOutputArgs } from "./getProfile";
+export const getProfile: typeof import("./getProfile").getProfile = null as any;
+export const getProfileOutput: typeof import("./getProfile").getProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getProfile","getProfileOutput"], () => require("./getProfile"));
+
+export { GetRelationshipArgs, GetRelationshipResult, GetRelationshipOutputArgs } from "./getRelationship";
+export const getRelationship: typeof import("./getRelationship").getRelationship = null as any;
+export const getRelationshipOutput: typeof import("./getRelationship").getRelationshipOutput = null as any;
+utilities.lazyLoad(exports, ["getRelationship","getRelationshipOutput"], () => require("./getRelationship"));
+
 export { GetRelationshipLinkArgs, GetRelationshipLinkResult, GetRelationshipLinkOutputArgs } from "./getRelationshipLink";
 export const getRelationshipLink: typeof import("./getRelationshipLink").getRelationshipLink = null as any;
 export const getRelationshipLinkOutput: typeof import("./getRelationshipLink").getRelationshipLinkOutput = null as any;
 utilities.lazyLoad(exports, ["getRelationshipLink","getRelationshipLinkOutput"], () => require("./getRelationshipLink"));
+
+export { GetRoleAssignmentArgs, GetRoleAssignmentResult, GetRoleAssignmentOutputArgs } from "./getRoleAssignment";
+export const getRoleAssignment: typeof import("./getRoleAssignment").getRoleAssignment = null as any;
+export const getRoleAssignmentOutput: typeof import("./getRoleAssignment").getRoleAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getRoleAssignment","getRoleAssignmentOutput"], () => require("./getRoleAssignment"));
+
+export { GetViewArgs, GetViewResult, GetViewOutputArgs } from "./getView";
+export const getView: typeof import("./getView").getView = null as any;
+export const getViewOutput: typeof import("./getView").getViewOutput = null as any;
+utilities.lazyLoad(exports, ["getView","getViewOutput"], () => require("./getView"));
 
 export { LinkArgs } from "./link";
 export type Link = import("./link").Link;

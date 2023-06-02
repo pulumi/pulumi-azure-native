@@ -17,6 +17,9 @@ __all__ = [
     'ConnectionStateResponse',
     'DeadLetterWithResourceIdentityResponse',
     'DeliveryWithResourceIdentityResponse',
+    'EventChannelDestinationResponse',
+    'EventChannelFilterResponse',
+    'EventChannelSourceResponse',
     'EventHubEventSubscriptionDestinationResponse',
     'EventSubscriptionFilterResponse',
     'EventSubscriptionIdentityResponse',
@@ -355,6 +358,105 @@ class DeliveryWithResourceIdentityResponse(dict):
         The identity to use when delivering events.
         """
         return pulumi.get(self, "identity")
+
+
+@pulumi.output_type
+class EventChannelDestinationResponse(dict):
+    """
+    Properties of the destination of an event channel.
+    """
+    def __init__(__self__, *,
+                 azure_subscription_id: Optional[str] = None,
+                 partner_topic_name: Optional[str] = None,
+                 resource_group: Optional[str] = None):
+        """
+        Properties of the destination of an event channel.
+        :param str azure_subscription_id: Azure subscription ID of the customer creating the event channel. The partner topic
+               associated with the event channel will be created under this Azure subscription.
+        :param str partner_topic_name: Name of the partner topic associated with the event channel.
+        :param str resource_group: Azure Resource Group of the customer creating the event channel. The partner topic
+               associated with the event channel will be created under this resource group.
+        """
+        if azure_subscription_id is not None:
+            pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
+        if partner_topic_name is not None:
+            pulumi.set(__self__, "partner_topic_name", partner_topic_name)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+
+    @property
+    @pulumi.getter(name="azureSubscriptionId")
+    def azure_subscription_id(self) -> Optional[str]:
+        """
+        Azure subscription ID of the customer creating the event channel. The partner topic
+        associated with the event channel will be created under this Azure subscription.
+        """
+        return pulumi.get(self, "azure_subscription_id")
+
+    @property
+    @pulumi.getter(name="partnerTopicName")
+    def partner_topic_name(self) -> Optional[str]:
+        """
+        Name of the partner topic associated with the event channel.
+        """
+        return pulumi.get(self, "partner_topic_name")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Azure Resource Group of the customer creating the event channel. The partner topic
+        associated with the event channel will be created under this resource group.
+        """
+        return pulumi.get(self, "resource_group")
+
+
+@pulumi.output_type
+class EventChannelFilterResponse(dict):
+    """
+    Filter for the Event Channel.
+    """
+    def __init__(__self__, *,
+                 advanced_filters: Optional[Sequence[Any]] = None):
+        """
+        Filter for the Event Channel.
+        :param Sequence[Union['BoolEqualsAdvancedFilterResponse', 'NumberGreaterThanAdvancedFilterResponse', 'NumberGreaterThanOrEqualsAdvancedFilterResponse', 'NumberInAdvancedFilterResponse', 'NumberLessThanAdvancedFilterResponse', 'NumberLessThanOrEqualsAdvancedFilterResponse', 'NumberNotInAdvancedFilterResponse', 'StringBeginsWithAdvancedFilterResponse', 'StringContainsAdvancedFilterResponse', 'StringEndsWithAdvancedFilterResponse', 'StringInAdvancedFilterResponse', 'StringNotInAdvancedFilterResponse']] advanced_filters: An array of advanced filters that are used for filtering event channels.
+        """
+        if advanced_filters is not None:
+            pulumi.set(__self__, "advanced_filters", advanced_filters)
+
+    @property
+    @pulumi.getter(name="advancedFilters")
+    def advanced_filters(self) -> Optional[Sequence[Any]]:
+        """
+        An array of advanced filters that are used for filtering event channels.
+        """
+        return pulumi.get(self, "advanced_filters")
+
+
+@pulumi.output_type
+class EventChannelSourceResponse(dict):
+    """
+    Properties of the source of an event channel.
+    """
+    def __init__(__self__, *,
+                 source: Optional[str] = None):
+        """
+        Properties of the source of an event channel.
+        :param str source: The identifier of the resource that's the source of the events.
+               This represents a unique resource in the partner's resource model.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        The identifier of the resource that's the source of the events.
+        This represents a unique resource in the partner's resource model.
+        """
+        return pulumi.get(self, "source")
 
 
 @pulumi.output_type

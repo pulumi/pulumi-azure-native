@@ -5,13 +5,58 @@
 from enum import Enum
 
 __all__ = [
+    'ApiType',
+    'ApimIdentityType',
+    'AuthorizationMethod',
     'BackendProtocol',
+    'BearerTokenSendingMethod',
+    'BearerTokenSendingMethods',
+    'ClientAuthenticationMethod',
     'Confirmation',
+    'ContentFormat',
+    'GrantType',
+    'GroupType',
+    'HostnameType',
+    'IdentityProviderType',
     'KeyType',
     'LoggerType',
+    'PolicyContentFormat',
+    'ProductState',
+    'Protocol',
+    'SkuType',
+    'SoapApiType',
+    'State',
     'SubscriptionState',
     'UserState',
+    'VersioningScheme',
+    'VirtualNetworkType',
 ]
+
+
+class ApiType(str, Enum):
+    """
+    Type of API.
+    """
+    HTTP = "http"
+    SOAP = "soap"
+
+
+class ApimIdentityType(str, Enum):
+    """
+    The identity type. Currently the only supported type is 'SystemAssigned'.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class AuthorizationMethod(str, Enum):
+    HEAD = "HEAD"
+    OPTIONS = "OPTIONS"
+    TRACE = "TRACE"
+    GET = "GET"
+    POST = "POST"
+    PUT = "PUT"
+    PATCH = "PATCH"
+    DELETE = "DELETE"
 
 
 class BackendProtocol(str, Enum):
@@ -28,6 +73,36 @@ class BackendProtocol(str, Enum):
     """
 
 
+class BearerTokenSendingMethod(str, Enum):
+    AUTHORIZATION_HEADER = "authorizationHeader"
+    QUERY = "query"
+
+
+class BearerTokenSendingMethods(str, Enum):
+    """
+    Form of an authorization grant, which the client uses to request the access token.
+    """
+    AUTHORIZATION_HEADER = "authorizationHeader"
+    """
+    Access token will be transmitted in the Authorization header using Bearer schema
+    """
+    QUERY = "query"
+    """
+    Access token will be transmitted as query parameters.
+    """
+
+
+class ClientAuthenticationMethod(str, Enum):
+    BASIC = "Basic"
+    """
+    Basic Client Authentication method.
+    """
+    BODY = "Body"
+    """
+    Body based Authentication method.
+    """
+
+
 class Confirmation(str, Enum):
     """
     Determines the type of confirmation e-mail that will be sent to the newly created user.
@@ -39,6 +114,104 @@ class Confirmation(str, Enum):
     INVITE = "invite"
     """
     Send an e-mail inviting the user to sign-up and complete registration.
+    """
+
+
+class ContentFormat(str, Enum):
+    """
+    Format of the Content in which the API is getting imported.
+    """
+    WADL_XML = "wadl-xml"
+    """
+    The contents are inline and Content type is a WADL document.
+    """
+    WADL_LINK_JSON = "wadl-link-json"
+    """
+    The WADL document is hosted on a publicly accessible internet address.
+    """
+    SWAGGER_JSON = "swagger-json"
+    """
+    The contents are inline and Content Type is a OpenApi 2.0 Document.
+    """
+    SWAGGER_LINK_JSON = "swagger-link-json"
+    """
+    The Open Api 2.0 document is hosted on a publicly accessible internet address.
+    """
+    WSDL = "wsdl"
+    """
+    The contents are inline and the document is a WSDL/Soap document.
+    """
+    WSDL_LINK = "wsdl-link"
+    """
+    The WSDL document is hosted on a publicly accessible internet address.
+    """
+
+
+class GrantType(str, Enum):
+    AUTHORIZATION_CODE = "authorizationCode"
+    """
+    Authorization Code Grant flow as described https://tools.ietf.org/html/rfc6749#section-4.1.
+    """
+    IMPLICIT = "implicit"
+    """
+    Implicit Code Grant flow as described https://tools.ietf.org/html/rfc6749#section-4.2.
+    """
+    RESOURCE_OWNER_PASSWORD = "resourceOwnerPassword"
+    """
+    Resource Owner Password Grant flow as described https://tools.ietf.org/html/rfc6749#section-4.3.
+    """
+    CLIENT_CREDENTIALS = "clientCredentials"
+    """
+    Client Credentials Grant flow as described https://tools.ietf.org/html/rfc6749#section-4.4.
+    """
+
+
+class GroupType(str, Enum):
+    """
+    Group type.
+    """
+    CUSTOM = "custom"
+    SYSTEM = "system"
+    EXTERNAL = "external"
+
+
+class HostnameType(str, Enum):
+    """
+    Hostname type.
+    """
+    PROXY = "Proxy"
+    PORTAL = "Portal"
+    MANAGEMENT = "Management"
+    SCM = "Scm"
+
+
+class IdentityProviderType(str, Enum):
+    """
+    Identity Provider Type identifier.
+    """
+    FACEBOOK = "facebook"
+    """
+    Facebook as Identity provider.
+    """
+    GOOGLE = "google"
+    """
+    Google as Identity provider.
+    """
+    MICROSOFT = "microsoft"
+    """
+    Microsoft Live as Identity provider.
+    """
+    TWITTER = "twitter"
+    """
+    Twitter as Identity provider.
+    """
+    AAD = "aad"
+    """
+    Azure Active Directory as Identity provider.
+    """
+    AAD_B2_C = "aadB2C"
+    """
+    Azure Active Directory B2C as Identity provider.
     """
 
 
@@ -61,6 +234,105 @@ class LoggerType(str, Enum):
     APPLICATION_INSIGHTS = "applicationInsights"
     """
     Azure Application Insights as log destination.
+    """
+
+
+class PolicyContentFormat(str, Enum):
+    """
+    Format of the policyContent.
+    """
+    XML = "xml"
+    """
+    The contents are inline and Content type is an XML document.
+    """
+    XML_LINK = "xml-link"
+    """
+    The policy XML document is hosted on a http endpoint accessible from the API Management service.
+    """
+    RAWXML = "rawxml"
+    """
+    The contents are inline and Content type is a non XML encoded policy document.
+    """
+    RAWXML_LINK = "rawxml-link"
+    """
+    The policy document is not Xml encoded and is hosted on a http endpoint accessible from the API Management service.
+    """
+
+
+class ProductState(str, Enum):
+    """
+    whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
+    """
+    NOT_PUBLISHED = "notPublished"
+    PUBLISHED = "published"
+
+
+class Protocol(str, Enum):
+    HTTP = "http"
+    HTTPS = "https"
+
+
+class SkuType(str, Enum):
+    """
+    Name of the Sku.
+    """
+    DEVELOPER = "Developer"
+    """
+    Developer SKU of Api Management.
+    """
+    STANDARD = "Standard"
+    """
+    Standard SKU of Api Management.
+    """
+    PREMIUM = "Premium"
+    """
+    Premium SKU of Api Management.
+    """
+    BASIC = "Basic"
+    """
+    Basic SKU of Api Management.
+    """
+
+
+class SoapApiType(str, Enum):
+    """
+    Type of Api to create. 
+     * `http` creates a SOAP to REST API 
+     * `soap` creates a SOAP pass-through API .
+    """
+    SOAP_TO_REST = "http"
+    """
+    Imports a SOAP API having a RESTful front end.
+    """
+    SOAP_PASS_THROUGH = "soap"
+    """
+    Imports the Soap API having a SOAP front end.
+    """
+
+
+class State(str, Enum):
+    """
+    Status of the issue.
+    """
+    PROPOSED = "proposed"
+    """
+    The issue is proposed.
+    """
+    OPEN = "open"
+    """
+    The issue is opened.
+    """
+    REMOVED = "removed"
+    """
+    The issue was removed.
+    """
+    RESOLVED = "resolved"
+    """
+    The issue is now resolved.
+    """
+    CLOSED = "closed"
+    """
+    The issue was closed.
     """
 
 
@@ -95,4 +367,40 @@ class UserState(str, Enum):
     DELETED = "deleted"
     """
     User account is closed. All identities and related entities are removed.
+    """
+
+
+class VersioningScheme(str, Enum):
+    """
+    An value that determines where the API Version identifier will be located in a HTTP request.
+    """
+    SEGMENT = "Segment"
+    """
+    The API Version is passed in a path segment.
+    """
+    QUERY = "Query"
+    """
+    The API Version is passed in a query parameter.
+    """
+    HEADER = "Header"
+    """
+    The API Version is passed in a HTTP header.
+    """
+
+
+class VirtualNetworkType(str, Enum):
+    """
+    The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+    """
+    NONE = "None"
+    """
+    The service is not part of any Virtual Network.
+    """
+    EXTERNAL = "External"
+    """
+    The service is part of Virtual Network and it is accessible from Internet.
+    """
+    INTERNAL = "Internal"
+    """
+    The service is part of Virtual Network and it is only accessible from within the virtual network.
     """

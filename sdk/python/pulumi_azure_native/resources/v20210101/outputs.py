@@ -23,12 +23,19 @@ __all__ = [
     'DeploymentPropertiesExtendedResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorResponseResponse',
+    'ExtendedLocationResponse',
+    'IdentityResponse',
+    'IdentityResponseUserAssignedIdentities',
     'OnErrorDeploymentExtendedResponse',
     'ParametersLinkResponse',
+    'PlanResponse',
     'ProviderExtendedLocationResponse',
     'ProviderResourceTypeResponse',
     'ProviderResponse',
+    'ResourceGroupPropertiesResponse',
     'ResourceReferenceResponse',
+    'SkuResponse',
+    'TagsResponse',
     'TemplateLinkResponse',
     'ZoneMappingResponse',
 ]
@@ -869,6 +876,127 @@ class ErrorResponseResponse(dict):
 
 
 @pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    Resource extended location.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Resource extended location.
+        :param str name: The extended location name.
+        :param str type: The extended location type.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The extended location name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The extended location type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        :param Mapping[str, 'IdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class IdentityResponseUserAssignedIdentities(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class OnErrorDeploymentExtendedResponse(dict):
     """
     Deployment on error behavior with additional details.
@@ -982,6 +1110,77 @@ class ParametersLinkResponse(dict):
         If included, must match the ContentVersion in the template.
         """
         return pulumi.get(self, "content_version")
+
+
+@pulumi.output_type
+class PlanResponse(dict):
+    """
+    Plan for the resource.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 product: Optional[str] = None,
+                 promotion_code: Optional[str] = None,
+                 publisher: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        Plan for the resource.
+        :param str name: The plan ID.
+        :param str product: The offer ID.
+        :param str promotion_code: The promotion code.
+        :param str publisher: The publisher ID.
+        :param str version: The plan's version.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if product is not None:
+            pulumi.set(__self__, "product", product)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The plan ID.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> Optional[str]:
+        """
+        The offer ID.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[str]:
+        """
+        The promotion code.
+        """
+        return pulumi.get(self, "promotion_code")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[str]:
+        """
+        The publisher ID.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The plan's version.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -1289,6 +1488,28 @@ class ProviderResponse(dict):
 
 
 @pulumi.output_type
+class ResourceGroupPropertiesResponse(dict):
+    """
+    The resource group properties.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str):
+        """
+        The resource group properties.
+        :param str provisioning_state: The provisioning state. 
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state. 
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
 class ResourceReferenceResponse(dict):
     """
     The resource Id model.
@@ -1308,6 +1529,108 @@ class ResourceReferenceResponse(dict):
         The fully qualified resource Id.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SkuResponse(dict):
+    """
+    SKU for the resource.
+    """
+    def __init__(__self__, *,
+                 capacity: Optional[int] = None,
+                 family: Optional[str] = None,
+                 model: Optional[str] = None,
+                 name: Optional[str] = None,
+                 size: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        SKU for the resource.
+        :param int capacity: The SKU capacity.
+        :param str family: The SKU family.
+        :param str model: The SKU model.
+        :param str name: The SKU name.
+        :param str size: The SKU size.
+        :param str tier: The SKU tier.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if model is not None:
+            pulumi.set(__self__, "model", model)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The SKU capacity.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[str]:
+        """
+        The SKU family.
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def model(self) -> Optional[str]:
+        """
+        The SKU model.
+        """
+        return pulumi.get(self, "model")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The SKU name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        The SKU size.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        The SKU tier.
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class TagsResponse(dict):
+    """
+    A dictionary of name and value pairs.
+    """
+    def __init__(__self__, *,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        A dictionary of name and value pairs.
+        """
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

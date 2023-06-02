@@ -14,6 +14,11 @@ export const getProducts: typeof import("./getProducts").getProducts = null as a
 export const getProductsOutput: typeof import("./getProducts").getProductsOutput = null as any;
 utilities.lazyLoad(exports, ["getProducts","getProductsOutput"], () => require("./getProducts"));
 
+export { GetRegistrationArgs, GetRegistrationResult, GetRegistrationOutputArgs } from "./getRegistration";
+export const getRegistration: typeof import("./getRegistration").getRegistration = null as any;
+export const getRegistrationOutput: typeof import("./getRegistration").getRegistrationOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistration","getRegistrationOutput"], () => require("./getRegistration"));
+
 export { GetRegistrationActivationKeyArgs, GetRegistrationActivationKeyResult, GetRegistrationActivationKeyOutputArgs } from "./getRegistrationActivationKey";
 export const getRegistrationActivationKey: typeof import("./getRegistrationActivationKey").getRegistrationActivationKey = null as any;
 export const getRegistrationActivationKeyOutput: typeof import("./getRegistrationActivationKey").getRegistrationActivationKeyOutput = null as any;
@@ -29,3 +34,6 @@ export const listProducts: typeof import("./listProducts").listProducts = null a
 export const listProductsOutput: typeof import("./listProducts").listProductsOutput = null as any;
 utilities.lazyLoad(exports, ["listProducts","listProductsOutput"], () => require("./listProducts"));
 
+
+// Export enums:
+export * from "../../types/enums/azurestack/v20160101";

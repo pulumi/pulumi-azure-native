@@ -295,7 +295,7 @@ class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
         """
-        The private endpoint connection of a provisioning service
+        The private endpoint connection of an IotHub
         :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: The properties of a private endpoint connection
         """
         pulumi.set(__self__, "properties", properties)

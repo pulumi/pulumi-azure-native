@@ -8,3 +8,12 @@ import typing
 from ._enums import *
 from .database_security_alert_policy import *
 from .get_database_security_alert_policy import *
+from .get_instance_pool import *
+from .get_managed_database import *
+from .get_managed_database_sensitivity_label import *
+from .get_managed_instance import *
+from .get_managed_instance_vulnerability_assessment import *
+from .get_private_endpoint_connection import *
+from .get_server_azure_ad_administrator import *
+from .get_server_vulnerability_assessment import *
+from . import outputs

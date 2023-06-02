@@ -15,6 +15,11 @@ export const getAzureTrafficCollector: typeof import("./getAzureTrafficCollector
 export const getAzureTrafficCollectorOutput: typeof import("./getAzureTrafficCollector").getAzureTrafficCollectorOutput = null as any;
 utilities.lazyLoad(exports, ["getAzureTrafficCollector","getAzureTrafficCollectorOutput"], () => require("./getAzureTrafficCollector"));
 
+export { GetCollectorPolicyArgs, GetCollectorPolicyResult, GetCollectorPolicyOutputArgs } from "./getCollectorPolicy";
+export const getCollectorPolicy: typeof import("./getCollectorPolicy").getCollectorPolicy = null as any;
+export const getCollectorPolicyOutput: typeof import("./getCollectorPolicy").getCollectorPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getCollectorPolicy","getCollectorPolicyOutput"], () => require("./getCollectorPolicy"));
+
 
 // Export enums:
 export * from "../../types/enums/networkfunction/v20220801";

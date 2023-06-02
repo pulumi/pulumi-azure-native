@@ -137,6 +137,37 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview
     }
 
     /// <summary>
+    /// The OS State.
+    /// </summary>
+    [EnumType]
+    public readonly struct OperatingSystemStateTypes : IEquatable<OperatingSystemStateTypes>
+    {
+        private readonly string _value;
+
+        private OperatingSystemStateTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OperatingSystemStateTypes Generalized { get; } = new OperatingSystemStateTypes("Generalized");
+        public static OperatingSystemStateTypes Specialized { get; } = new OperatingSystemStateTypes("Specialized");
+
+        public static bool operator ==(OperatingSystemStateTypes left, OperatingSystemStateTypes right) => left.Equals(right);
+        public static bool operator !=(OperatingSystemStateTypes left, OperatingSystemStateTypes right) => !left.Equals(right);
+
+        public static explicit operator string(OperatingSystemStateTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OperatingSystemStateTypes other && Equals(other);
+        public bool Equals(OperatingSystemStateTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
     /// </summary>
     [EnumType]
@@ -290,6 +321,38 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview
     }
 
     /// <summary>
+    /// The level code.
+    /// </summary>
+    [EnumType]
+    public readonly struct StatusLevelTypes : IEquatable<StatusLevelTypes>
+    {
+        private readonly string _value;
+
+        private StatusLevelTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StatusLevelTypes Info { get; } = new StatusLevelTypes("Info");
+        public static StatusLevelTypes Warning { get; } = new StatusLevelTypes("Warning");
+        public static StatusLevelTypes Error { get; } = new StatusLevelTypes("Error");
+
+        public static bool operator ==(StatusLevelTypes left, StatusLevelTypes right) => left.Equals(right);
+        public static bool operator !=(StatusLevelTypes left, StatusLevelTypes right) => !left.Equals(right);
+
+        public static explicit operator string(StatusLevelTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StatusLevelTypes other && Equals(other);
+        public bool Equals(StatusLevelTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
     /// </summary>
     [EnumType]
@@ -344,6 +407,98 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UpgradeMode other && Equals(other);
         public bool Equals(UpgradeMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). &lt;br&gt;&lt;br&gt; The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes in an availability set](virtualmachines-list-sizes-availability-set.md) &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes in a region](virtualmachines-list-sizes-region.md) &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes for resizing](virtualmachines-list-sizes-for-resizing.md)
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualMachineSizeTypes : IEquatable<VirtualMachineSizeTypes>
+    {
+        private readonly string _value;
+
+        private VirtualMachineSizeTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualMachineSizeTypes Basic_A0 { get; } = new VirtualMachineSizeTypes("Basic_A0");
+        public static VirtualMachineSizeTypes Basic_A1 { get; } = new VirtualMachineSizeTypes("Basic_A1");
+        public static VirtualMachineSizeTypes Basic_A2 { get; } = new VirtualMachineSizeTypes("Basic_A2");
+        public static VirtualMachineSizeTypes Basic_A3 { get; } = new VirtualMachineSizeTypes("Basic_A3");
+        public static VirtualMachineSizeTypes Basic_A4 { get; } = new VirtualMachineSizeTypes("Basic_A4");
+        public static VirtualMachineSizeTypes Standard_A0 { get; } = new VirtualMachineSizeTypes("Standard_A0");
+        public static VirtualMachineSizeTypes Standard_A1 { get; } = new VirtualMachineSizeTypes("Standard_A1");
+        public static VirtualMachineSizeTypes Standard_A2 { get; } = new VirtualMachineSizeTypes("Standard_A2");
+        public static VirtualMachineSizeTypes Standard_A3 { get; } = new VirtualMachineSizeTypes("Standard_A3");
+        public static VirtualMachineSizeTypes Standard_A4 { get; } = new VirtualMachineSizeTypes("Standard_A4");
+        public static VirtualMachineSizeTypes Standard_A5 { get; } = new VirtualMachineSizeTypes("Standard_A5");
+        public static VirtualMachineSizeTypes Standard_A6 { get; } = new VirtualMachineSizeTypes("Standard_A6");
+        public static VirtualMachineSizeTypes Standard_A7 { get; } = new VirtualMachineSizeTypes("Standard_A7");
+        public static VirtualMachineSizeTypes Standard_A8 { get; } = new VirtualMachineSizeTypes("Standard_A8");
+        public static VirtualMachineSizeTypes Standard_A9 { get; } = new VirtualMachineSizeTypes("Standard_A9");
+        public static VirtualMachineSizeTypes Standard_A10 { get; } = new VirtualMachineSizeTypes("Standard_A10");
+        public static VirtualMachineSizeTypes Standard_A11 { get; } = new VirtualMachineSizeTypes("Standard_A11");
+        public static VirtualMachineSizeTypes Standard_D1 { get; } = new VirtualMachineSizeTypes("Standard_D1");
+        public static VirtualMachineSizeTypes Standard_D2 { get; } = new VirtualMachineSizeTypes("Standard_D2");
+        public static VirtualMachineSizeTypes Standard_D3 { get; } = new VirtualMachineSizeTypes("Standard_D3");
+        public static VirtualMachineSizeTypes Standard_D4 { get; } = new VirtualMachineSizeTypes("Standard_D4");
+        public static VirtualMachineSizeTypes Standard_D11 { get; } = new VirtualMachineSizeTypes("Standard_D11");
+        public static VirtualMachineSizeTypes Standard_D12 { get; } = new VirtualMachineSizeTypes("Standard_D12");
+        public static VirtualMachineSizeTypes Standard_D13 { get; } = new VirtualMachineSizeTypes("Standard_D13");
+        public static VirtualMachineSizeTypes Standard_D14 { get; } = new VirtualMachineSizeTypes("Standard_D14");
+        public static VirtualMachineSizeTypes Standard_D1_v2 { get; } = new VirtualMachineSizeTypes("Standard_D1_v2");
+        public static VirtualMachineSizeTypes Standard_D2_v2 { get; } = new VirtualMachineSizeTypes("Standard_D2_v2");
+        public static VirtualMachineSizeTypes Standard_D3_v2 { get; } = new VirtualMachineSizeTypes("Standard_D3_v2");
+        public static VirtualMachineSizeTypes Standard_D4_v2 { get; } = new VirtualMachineSizeTypes("Standard_D4_v2");
+        public static VirtualMachineSizeTypes Standard_D5_v2 { get; } = new VirtualMachineSizeTypes("Standard_D5_v2");
+        public static VirtualMachineSizeTypes Standard_D11_v2 { get; } = new VirtualMachineSizeTypes("Standard_D11_v2");
+        public static VirtualMachineSizeTypes Standard_D12_v2 { get; } = new VirtualMachineSizeTypes("Standard_D12_v2");
+        public static VirtualMachineSizeTypes Standard_D13_v2 { get; } = new VirtualMachineSizeTypes("Standard_D13_v2");
+        public static VirtualMachineSizeTypes Standard_D14_v2 { get; } = new VirtualMachineSizeTypes("Standard_D14_v2");
+        public static VirtualMachineSizeTypes Standard_D15_v2 { get; } = new VirtualMachineSizeTypes("Standard_D15_v2");
+        public static VirtualMachineSizeTypes Standard_DS1 { get; } = new VirtualMachineSizeTypes("Standard_DS1");
+        public static VirtualMachineSizeTypes Standard_DS2 { get; } = new VirtualMachineSizeTypes("Standard_DS2");
+        public static VirtualMachineSizeTypes Standard_DS3 { get; } = new VirtualMachineSizeTypes("Standard_DS3");
+        public static VirtualMachineSizeTypes Standard_DS4 { get; } = new VirtualMachineSizeTypes("Standard_DS4");
+        public static VirtualMachineSizeTypes Standard_DS11 { get; } = new VirtualMachineSizeTypes("Standard_DS11");
+        public static VirtualMachineSizeTypes Standard_DS12 { get; } = new VirtualMachineSizeTypes("Standard_DS12");
+        public static VirtualMachineSizeTypes Standard_DS13 { get; } = new VirtualMachineSizeTypes("Standard_DS13");
+        public static VirtualMachineSizeTypes Standard_DS14 { get; } = new VirtualMachineSizeTypes("Standard_DS14");
+        public static VirtualMachineSizeTypes Standard_DS1_v2 { get; } = new VirtualMachineSizeTypes("Standard_DS1_v2");
+        public static VirtualMachineSizeTypes Standard_DS2_v2 { get; } = new VirtualMachineSizeTypes("Standard_DS2_v2");
+        public static VirtualMachineSizeTypes Standard_DS3_v2 { get; } = new VirtualMachineSizeTypes("Standard_DS3_v2");
+        public static VirtualMachineSizeTypes Standard_DS4_v2 { get; } = new VirtualMachineSizeTypes("Standard_DS4_v2");
+        public static VirtualMachineSizeTypes Standard_DS5_v2 { get; } = new VirtualMachineSizeTypes("Standard_DS5_v2");
+        public static VirtualMachineSizeTypes Standard_DS11_v2 { get; } = new VirtualMachineSizeTypes("Standard_DS11_v2");
+        public static VirtualMachineSizeTypes Standard_DS12_v2 { get; } = new VirtualMachineSizeTypes("Standard_DS12_v2");
+        public static VirtualMachineSizeTypes Standard_DS13_v2 { get; } = new VirtualMachineSizeTypes("Standard_DS13_v2");
+        public static VirtualMachineSizeTypes Standard_DS14_v2 { get; } = new VirtualMachineSizeTypes("Standard_DS14_v2");
+        public static VirtualMachineSizeTypes Standard_DS15_v2 { get; } = new VirtualMachineSizeTypes("Standard_DS15_v2");
+        public static VirtualMachineSizeTypes Standard_G1 { get; } = new VirtualMachineSizeTypes("Standard_G1");
+        public static VirtualMachineSizeTypes Standard_G2 { get; } = new VirtualMachineSizeTypes("Standard_G2");
+        public static VirtualMachineSizeTypes Standard_G3 { get; } = new VirtualMachineSizeTypes("Standard_G3");
+        public static VirtualMachineSizeTypes Standard_G4 { get; } = new VirtualMachineSizeTypes("Standard_G4");
+        public static VirtualMachineSizeTypes Standard_G5 { get; } = new VirtualMachineSizeTypes("Standard_G5");
+        public static VirtualMachineSizeTypes Standard_GS1 { get; } = new VirtualMachineSizeTypes("Standard_GS1");
+        public static VirtualMachineSizeTypes Standard_GS2 { get; } = new VirtualMachineSizeTypes("Standard_GS2");
+        public static VirtualMachineSizeTypes Standard_GS3 { get; } = new VirtualMachineSizeTypes("Standard_GS3");
+        public static VirtualMachineSizeTypes Standard_GS4 { get; } = new VirtualMachineSizeTypes("Standard_GS4");
+        public static VirtualMachineSizeTypes Standard_GS5 { get; } = new VirtualMachineSizeTypes("Standard_GS5");
+
+        public static bool operator ==(VirtualMachineSizeTypes left, VirtualMachineSizeTypes right) => left.Equals(right);
+        public static bool operator !=(VirtualMachineSizeTypes left, VirtualMachineSizeTypes right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualMachineSizeTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualMachineSizeTypes other && Equals(other);
+        public bool Equals(VirtualMachineSizeTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

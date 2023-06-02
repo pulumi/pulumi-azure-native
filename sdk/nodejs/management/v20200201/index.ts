@@ -10,6 +10,11 @@ export const getEntity: typeof import("./getEntity").getEntity = null as any;
 export const getEntityOutput: typeof import("./getEntity").getEntityOutput = null as any;
 utilities.lazyLoad(exports, ["getEntity","getEntityOutput"], () => require("./getEntity"));
 
+export { GetHierarchySettingArgs, GetHierarchySettingResult, GetHierarchySettingOutputArgs } from "./getHierarchySetting";
+export const getHierarchySetting: typeof import("./getHierarchySetting").getHierarchySetting = null as any;
+export const getHierarchySettingOutput: typeof import("./getHierarchySetting").getHierarchySettingOutput = null as any;
+utilities.lazyLoad(exports, ["getHierarchySetting","getHierarchySettingOutput"], () => require("./getHierarchySetting"));
+
 export { GetManagementGroupArgs, GetManagementGroupResult, GetManagementGroupOutputArgs } from "./getManagementGroup";
 export const getManagementGroup: typeof import("./getManagementGroup").getManagementGroup = null as any;
 export const getManagementGroupOutput: typeof import("./getManagementGroup").getManagementGroupOutput = null as any;

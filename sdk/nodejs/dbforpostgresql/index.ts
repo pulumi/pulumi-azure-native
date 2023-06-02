@@ -135,11 +135,17 @@ import * as v20171201preview from "./v20171201preview";
 import * as v20180601 from "./v20180601";
 import * as v20180601privatepreview from "./v20180601privatepreview";
 import * as v20200101 from "./v20200101";
+import * as v20200101privatepreview from "./v20200101privatepreview";
 import * as v20200214preview from "./v20200214preview";
 import * as v20200214privatepreview from "./v20200214privatepreview";
 import * as v20201005privatepreview from "./v20201005privatepreview";
+import * as v20201105preview from "./v20201105preview";
 import * as v20210410privatepreview from "./v20210410privatepreview";
+import * as v20210601 from "./v20210601";
+import * as v20210601preview from "./v20210601preview";
 import * as v20210615privatepreview from "./v20210615privatepreview";
+import * as v20220120preview from "./v20220120preview";
+import * as v20220308preview from "./v20220308preview";
 import * as v20220308privatepreview from "./v20220308privatepreview";
 import * as v20220501preview from "./v20220501preview";
 import * as v20221108 from "./v20221108";
@@ -151,11 +157,17 @@ export {
     v20180601,
     v20180601privatepreview,
     v20200101,
+    v20200101privatepreview,
     v20200214preview,
     v20200214privatepreview,
     v20201005privatepreview,
+    v20201105preview,
     v20210410privatepreview,
+    v20210601,
+    v20210601preview,
     v20210615privatepreview,
+    v20220120preview,
+    v20220308preview,
     v20220308privatepreview,
     v20220501preview,
     v20221108,

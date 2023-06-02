@@ -15,6 +15,11 @@ export type EmailService = import("./emailService").EmailService;
 export const EmailService: typeof import("./emailService").EmailService = null as any;
 utilities.lazyLoad(exports, ["EmailService"], () => require("./emailService"));
 
+export { GetCommunicationServiceArgs, GetCommunicationServiceResult, GetCommunicationServiceOutputArgs } from "./getCommunicationService";
+export const getCommunicationService: typeof import("./getCommunicationService").getCommunicationService = null as any;
+export const getCommunicationServiceOutput: typeof import("./getCommunicationService").getCommunicationServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getCommunicationService","getCommunicationServiceOutput"], () => require("./getCommunicationService"));
+
 export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
 export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;

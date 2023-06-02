@@ -5,10 +5,70 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetDatabaseAdvisorArgs, GetDatabaseAdvisorResult, GetDatabaseAdvisorOutputArgs } from "./getDatabaseAdvisor";
+export const getDatabaseAdvisor: typeof import("./getDatabaseAdvisor").getDatabaseAdvisor = null as any;
+export const getDatabaseAdvisorOutput: typeof import("./getDatabaseAdvisor").getDatabaseAdvisorOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAdvisor","getDatabaseAdvisorOutput"], () => require("./getDatabaseAdvisor"));
+
+export { GetDatabaseBlobAuditingPolicyArgs, GetDatabaseBlobAuditingPolicyResult, GetDatabaseBlobAuditingPolicyOutputArgs } from "./getDatabaseBlobAuditingPolicy";
+export const getDatabaseBlobAuditingPolicy: typeof import("./getDatabaseBlobAuditingPolicy").getDatabaseBlobAuditingPolicy = null as any;
+export const getDatabaseBlobAuditingPolicyOutput: typeof import("./getDatabaseBlobAuditingPolicy").getDatabaseBlobAuditingPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseBlobAuditingPolicy","getDatabaseBlobAuditingPolicyOutput"], () => require("./getDatabaseBlobAuditingPolicy"));
+
+export { GetEncryptionProtectorArgs, GetEncryptionProtectorResult, GetEncryptionProtectorOutputArgs } from "./getEncryptionProtector";
+export const getEncryptionProtector: typeof import("./getEncryptionProtector").getEncryptionProtector = null as any;
+export const getEncryptionProtectorOutput: typeof import("./getEncryptionProtector").getEncryptionProtectorOutput = null as any;
+utilities.lazyLoad(exports, ["getEncryptionProtector","getEncryptionProtectorOutput"], () => require("./getEncryptionProtector"));
+
+export { GetFailoverGroupArgs, GetFailoverGroupResult, GetFailoverGroupOutputArgs } from "./getFailoverGroup";
+export const getFailoverGroup: typeof import("./getFailoverGroup").getFailoverGroup = null as any;
+export const getFailoverGroupOutput: typeof import("./getFailoverGroup").getFailoverGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getFailoverGroup","getFailoverGroupOutput"], () => require("./getFailoverGroup"));
+
+export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
+export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
+export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
+
+export { GetManagedInstanceArgs, GetManagedInstanceResult, GetManagedInstanceOutputArgs } from "./getManagedInstance";
+export const getManagedInstance: typeof import("./getManagedInstance").getManagedInstance = null as any;
+export const getManagedInstanceOutput: typeof import("./getManagedInstance").getManagedInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedInstance","getManagedInstanceOutput"], () => require("./getManagedInstance"));
+
+export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
+export const getServer: typeof import("./getServer").getServer = null as any;
+export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
+
+export { GetServerAdvisorArgs, GetServerAdvisorResult, GetServerAdvisorOutputArgs } from "./getServerAdvisor";
+export const getServerAdvisor: typeof import("./getServerAdvisor").getServerAdvisor = null as any;
+export const getServerAdvisorOutput: typeof import("./getServerAdvisor").getServerAdvisorOutput = null as any;
+utilities.lazyLoad(exports, ["getServerAdvisor","getServerAdvisorOutput"], () => require("./getServerAdvisor"));
+
 export { GetServerKeyArgs, GetServerKeyResult, GetServerKeyOutputArgs } from "./getServerKey";
 export const getServerKey: typeof import("./getServerKey").getServerKey = null as any;
 export const getServerKeyOutput: typeof import("./getServerKey").getServerKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getServerKey","getServerKeyOutput"], () => require("./getServerKey"));
+
+export { GetSyncAgentArgs, GetSyncAgentResult, GetSyncAgentOutputArgs } from "./getSyncAgent";
+export const getSyncAgent: typeof import("./getSyncAgent").getSyncAgent = null as any;
+export const getSyncAgentOutput: typeof import("./getSyncAgent").getSyncAgentOutput = null as any;
+utilities.lazyLoad(exports, ["getSyncAgent","getSyncAgentOutput"], () => require("./getSyncAgent"));
+
+export { GetSyncGroupArgs, GetSyncGroupResult, GetSyncGroupOutputArgs } from "./getSyncGroup";
+export const getSyncGroup: typeof import("./getSyncGroup").getSyncGroup = null as any;
+export const getSyncGroupOutput: typeof import("./getSyncGroup").getSyncGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getSyncGroup","getSyncGroupOutput"], () => require("./getSyncGroup"));
+
+export { GetSyncMemberArgs, GetSyncMemberResult, GetSyncMemberOutputArgs } from "./getSyncMember";
+export const getSyncMember: typeof import("./getSyncMember").getSyncMember = null as any;
+export const getSyncMemberOutput: typeof import("./getSyncMember").getSyncMemberOutput = null as any;
+utilities.lazyLoad(exports, ["getSyncMember","getSyncMemberOutput"], () => require("./getSyncMember"));
+
+export { GetVirtualNetworkRuleArgs, GetVirtualNetworkRuleResult, GetVirtualNetworkRuleOutputArgs } from "./getVirtualNetworkRule";
+export const getVirtualNetworkRule: typeof import("./getVirtualNetworkRule").getVirtualNetworkRule = null as any;
+export const getVirtualNetworkRuleOutput: typeof import("./getVirtualNetworkRule").getVirtualNetworkRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetworkRule","getVirtualNetworkRuleOutput"], () => require("./getVirtualNetworkRule"));
 
 export { ServerKeyArgs } from "./serverKey";
 export type ServerKey = import("./serverKey").ServerKey;

@@ -3,25 +3,36 @@
 
 // Export sub-modules:
 import * as v20150615 from "./v20150615";
+import * as v20160330 from "./v20160330";
 import * as v20160430preview from "./v20160430preview";
 import * as v20170330 from "./v20170330";
 import * as v20171201 from "./v20171201";
 import * as v20180401 from "./v20180401";
 import * as v20180601 from "./v20180601";
+import * as v20180930 from "./v20180930";
 import * as v20181001 from "./v20181001";
 import * as v20190301 from "./v20190301";
 import * as v20190701 from "./v20190701";
+import * as v20191101 from "./v20191101";
 import * as v20191201 from "./v20191201";
+import * as v20200501 from "./v20200501";
 import * as v20200601 from "./v20200601";
 import * as v20200630 from "./v20200630";
 import * as v20200930 from "./v20200930";
+import * as v20201001preview from "./v20201001preview";
 import * as v20201201 from "./v20201201";
 import * as v20210301 from "./v20210301";
 import * as v20210401 from "./v20210401";
 import * as v20210701 from "./v20210701";
+import * as v20210801 from "./v20210801";
+import * as v20211001 from "./v20211001";
 import * as v20211101 from "./v20211101";
+import * as v20211201 from "./v20211201";
+import * as v20220103 from "./v20220103";
 import * as v20220301 from "./v20220301";
+import * as v20220302 from "./v20220302";
 import * as v20220303 from "./v20220303";
+import * as v20220404 from "./v20220404";
 import * as v20220702 from "./v20220702";
 import * as v20220801 from "./v20220801";
 import * as v20220904 from "./v20220904";
@@ -30,25 +41,36 @@ import * as v20230301 from "./v20230301";
 
 export {
     v20150615,
+    v20160330,
     v20160430preview,
     v20170330,
     v20171201,
     v20180401,
     v20180601,
+    v20180930,
     v20181001,
     v20190301,
     v20190701,
+    v20191101,
     v20191201,
+    v20200501,
     v20200601,
     v20200630,
     v20200930,
+    v20201001preview,
     v20201201,
     v20210301,
     v20210401,
     v20210701,
+    v20210801,
+    v20211001,
     v20211101,
+    v20211201,
+    v20220103,
     v20220301,
+    v20220302,
     v20220303,
+    v20220404,
     v20220702,
     v20220801,
     v20220904,

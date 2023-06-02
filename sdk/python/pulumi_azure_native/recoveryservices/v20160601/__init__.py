@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_protection_policy import *
+from .get_vault import *
 from .protection_policy import *
 from ._inputs import *
 from . import outputs

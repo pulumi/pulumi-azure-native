@@ -5,10 +5,60 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetAdminRuleArgs, GetAdminRuleResult, GetAdminRuleOutputArgs } from "./getAdminRule";
+export const getAdminRule: typeof import("./getAdminRule").getAdminRule = null as any;
+export const getAdminRuleOutput: typeof import("./getAdminRule").getAdminRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getAdminRule","getAdminRuleOutput"], () => require("./getAdminRule"));
+
+export { GetAdminRuleCollectionArgs, GetAdminRuleCollectionResult, GetAdminRuleCollectionOutputArgs } from "./getAdminRuleCollection";
+export const getAdminRuleCollection: typeof import("./getAdminRuleCollection").getAdminRuleCollection = null as any;
+export const getAdminRuleCollectionOutput: typeof import("./getAdminRuleCollection").getAdminRuleCollectionOutput = null as any;
+utilities.lazyLoad(exports, ["getAdminRuleCollection","getAdminRuleCollectionOutput"], () => require("./getAdminRuleCollection"));
+
+export { GetConnectivityConfigurationArgs, GetConnectivityConfigurationResult, GetConnectivityConfigurationOutputArgs } from "./getConnectivityConfiguration";
+export const getConnectivityConfiguration: typeof import("./getConnectivityConfiguration").getConnectivityConfiguration = null as any;
+export const getConnectivityConfigurationOutput: typeof import("./getConnectivityConfiguration").getConnectivityConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectivityConfiguration","getConnectivityConfigurationOutput"], () => require("./getConnectivityConfiguration"));
+
+export { GetDefaultAdminRuleArgs, GetDefaultAdminRuleResult, GetDefaultAdminRuleOutputArgs } from "./getDefaultAdminRule";
+export const getDefaultAdminRule: typeof import("./getDefaultAdminRule").getDefaultAdminRule = null as any;
+export const getDefaultAdminRuleOutput: typeof import("./getDefaultAdminRule").getDefaultAdminRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getDefaultAdminRule","getDefaultAdminRuleOutput"], () => require("./getDefaultAdminRule"));
+
+export { GetDefaultUserRuleArgs, GetDefaultUserRuleResult, GetDefaultUserRuleOutputArgs } from "./getDefaultUserRule";
+export const getDefaultUserRule: typeof import("./getDefaultUserRule").getDefaultUserRule = null as any;
+export const getDefaultUserRuleOutput: typeof import("./getDefaultUserRule").getDefaultUserRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getDefaultUserRule","getDefaultUserRuleOutput"], () => require("./getDefaultUserRule"));
+
+export { GetManagementGroupNetworkManagerConnectionArgs, GetManagementGroupNetworkManagerConnectionResult, GetManagementGroupNetworkManagerConnectionOutputArgs } from "./getManagementGroupNetworkManagerConnection";
+export const getManagementGroupNetworkManagerConnection: typeof import("./getManagementGroupNetworkManagerConnection").getManagementGroupNetworkManagerConnection = null as any;
+export const getManagementGroupNetworkManagerConnectionOutput: typeof import("./getManagementGroupNetworkManagerConnection").getManagementGroupNetworkManagerConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getManagementGroupNetworkManagerConnection","getManagementGroupNetworkManagerConnectionOutput"], () => require("./getManagementGroupNetworkManagerConnection"));
+
+export { GetNetworkGroupArgs, GetNetworkGroupResult, GetNetworkGroupOutputArgs } from "./getNetworkGroup";
+export const getNetworkGroup: typeof import("./getNetworkGroup").getNetworkGroup = null as any;
+export const getNetworkGroupOutput: typeof import("./getNetworkGroup").getNetworkGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkGroup","getNetworkGroupOutput"], () => require("./getNetworkGroup"));
+
+export { GetNetworkManagerArgs, GetNetworkManagerResult, GetNetworkManagerOutputArgs } from "./getNetworkManager";
+export const getNetworkManager: typeof import("./getNetworkManager").getNetworkManager = null as any;
+export const getNetworkManagerOutput: typeof import("./getNetworkManager").getNetworkManagerOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkManager","getNetworkManagerOutput"], () => require("./getNetworkManager"));
+
 export { GetScopeConnectionArgs, GetScopeConnectionResult, GetScopeConnectionOutputArgs } from "./getScopeConnection";
 export const getScopeConnection: typeof import("./getScopeConnection").getScopeConnection = null as any;
 export const getScopeConnectionOutput: typeof import("./getScopeConnection").getScopeConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getScopeConnection","getScopeConnectionOutput"], () => require("./getScopeConnection"));
+
+export { GetSecurityAdminConfigurationArgs, GetSecurityAdminConfigurationResult, GetSecurityAdminConfigurationOutputArgs } from "./getSecurityAdminConfiguration";
+export const getSecurityAdminConfiguration: typeof import("./getSecurityAdminConfiguration").getSecurityAdminConfiguration = null as any;
+export const getSecurityAdminConfigurationOutput: typeof import("./getSecurityAdminConfiguration").getSecurityAdminConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityAdminConfiguration","getSecurityAdminConfigurationOutput"], () => require("./getSecurityAdminConfiguration"));
+
+export { GetSecurityUserConfigurationArgs, GetSecurityUserConfigurationResult, GetSecurityUserConfigurationOutputArgs } from "./getSecurityUserConfiguration";
+export const getSecurityUserConfiguration: typeof import("./getSecurityUserConfiguration").getSecurityUserConfiguration = null as any;
+export const getSecurityUserConfigurationOutput: typeof import("./getSecurityUserConfiguration").getSecurityUserConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityUserConfiguration","getSecurityUserConfigurationOutput"], () => require("./getSecurityUserConfiguration"));
 
 export { GetStaticMemberArgs, GetStaticMemberResult, GetStaticMemberOutputArgs } from "./getStaticMember";
 export const getStaticMember: typeof import("./getStaticMember").getStaticMember = null as any;
@@ -19,6 +69,16 @@ export { GetSubscriptionNetworkManagerConnectionArgs, GetSubscriptionNetworkMana
 export const getSubscriptionNetworkManagerConnection: typeof import("./getSubscriptionNetworkManagerConnection").getSubscriptionNetworkManagerConnection = null as any;
 export const getSubscriptionNetworkManagerConnectionOutput: typeof import("./getSubscriptionNetworkManagerConnection").getSubscriptionNetworkManagerConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getSubscriptionNetworkManagerConnection","getSubscriptionNetworkManagerConnectionOutput"], () => require("./getSubscriptionNetworkManagerConnection"));
+
+export { GetUserRuleArgs, GetUserRuleResult, GetUserRuleOutputArgs } from "./getUserRule";
+export const getUserRule: typeof import("./getUserRule").getUserRule = null as any;
+export const getUserRuleOutput: typeof import("./getUserRule").getUserRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getUserRule","getUserRuleOutput"], () => require("./getUserRule"));
+
+export { GetUserRuleCollectionArgs, GetUserRuleCollectionResult, GetUserRuleCollectionOutputArgs } from "./getUserRuleCollection";
+export const getUserRuleCollection: typeof import("./getUserRuleCollection").getUserRuleCollection = null as any;
+export const getUserRuleCollectionOutput: typeof import("./getUserRuleCollection").getUserRuleCollectionOutput = null as any;
+utilities.lazyLoad(exports, ["getUserRuleCollection","getUserRuleCollectionOutput"], () => require("./getUserRuleCollection"));
 
 export { ListActiveConnectivityConfigurationsArgs, ListActiveConnectivityConfigurationsResult, ListActiveConnectivityConfigurationsOutputArgs } from "./listActiveConnectivityConfigurations";
 export const listActiveConnectivityConfigurations: typeof import("./listActiveConnectivityConfigurations").listActiveConnectivityConfigurations = null as any;

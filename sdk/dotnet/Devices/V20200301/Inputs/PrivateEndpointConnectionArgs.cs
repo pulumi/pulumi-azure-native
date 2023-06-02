@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Devices.V20200301.Inputs
 {
 
     /// <summary>
-    /// The private endpoint connection of a provisioning service
+    /// The private endpoint connection of an IotHub
     /// </summary>
     public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {

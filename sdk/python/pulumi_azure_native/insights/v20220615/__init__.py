@@ -6,6 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_scheduled_query_rule import *
 from .get_web_test import *
 from .web_test import *
 from ._inputs import *

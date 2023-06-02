@@ -6,6 +6,8 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_advanced_threat_protection import *
+from .get_device_security_group import *
 from .get_iot_security_solution import *
 from .get_security_contact import *
 from .get_workspace_setting import *

@@ -6,7 +6,12 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_application import *
+from .get_application_type import *
+from .get_application_type_version import *
 from .get_managed_cluster import *
+from .get_node_type import *
+from .get_service import *
 from .getmanaged_az_resiliency_status import *
 from .managed_cluster import *
 from ._inputs import *

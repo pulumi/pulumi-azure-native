@@ -583,6 +583,7 @@ export * from "../types/enums/sql";
 import * as v20140401 from "./v20140401";
 import * as v20150501preview from "./v20150501preview";
 import * as v20170301preview from "./v20170301preview";
+import * as v20171001preview from "./v20171001preview";
 import * as v20180601preview from "./v20180601preview";
 import * as v20190601preview from "./v20190601preview";
 import * as v20200202preview from "./v20200202preview";
@@ -591,13 +592,17 @@ import * as v20201101preview from "./v20201101preview";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210501preview from "./v20210501preview";
 import * as v20210801preview from "./v20210801preview";
+import * as v20211101 from "./v20211101";
 import * as v20211101preview from "./v20211101preview";
+import * as v20220201preview from "./v20220201preview";
+import * as v20220501preview from "./v20220501preview";
 import * as v20220801preview from "./v20220801preview";
 
 export {
     v20140401,
     v20150501preview,
     v20170301preview,
+    v20171001preview,
     v20180601preview,
     v20190601preview,
     v20200202preview,
@@ -606,7 +611,10 @@ export {
     v20210201preview,
     v20210501preview,
     v20210801preview,
+    v20211101,
     v20211101preview,
+    v20220201preview,
+    v20220501preview,
     v20220801preview,
 };
 

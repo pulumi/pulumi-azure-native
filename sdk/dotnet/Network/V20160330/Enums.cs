@@ -8,6 +8,350 @@ using Pulumi;
 namespace Pulumi.AzureNative.Network.V20160330
 {
     /// <summary>
+    /// Gets or sets the cookie affinity
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewayCookieBasedAffinity : IEquatable<ApplicationGatewayCookieBasedAffinity>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewayCookieBasedAffinity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewayCookieBasedAffinity Enabled { get; } = new ApplicationGatewayCookieBasedAffinity("Enabled");
+        public static ApplicationGatewayCookieBasedAffinity Disabled { get; } = new ApplicationGatewayCookieBasedAffinity("Disabled");
+
+        public static bool operator ==(ApplicationGatewayCookieBasedAffinity left, ApplicationGatewayCookieBasedAffinity right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewayCookieBasedAffinity left, ApplicationGatewayCookieBasedAffinity right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewayCookieBasedAffinity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewayCookieBasedAffinity other && Equals(other);
+        public bool Equals(ApplicationGatewayCookieBasedAffinity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets the protocol
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewayProtocol : IEquatable<ApplicationGatewayProtocol>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewayProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewayProtocol Http { get; } = new ApplicationGatewayProtocol("Http");
+        public static ApplicationGatewayProtocol Https { get; } = new ApplicationGatewayProtocol("Https");
+
+        public static bool operator ==(ApplicationGatewayProtocol left, ApplicationGatewayProtocol right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewayProtocol left, ApplicationGatewayProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewayProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewayProtocol other && Equals(other);
+        public bool Equals(ApplicationGatewayProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets the rule type
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewayRequestRoutingRuleType : IEquatable<ApplicationGatewayRequestRoutingRuleType>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewayRequestRoutingRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewayRequestRoutingRuleType Basic { get; } = new ApplicationGatewayRequestRoutingRuleType("Basic");
+        public static ApplicationGatewayRequestRoutingRuleType PathBasedRouting { get; } = new ApplicationGatewayRequestRoutingRuleType("PathBasedRouting");
+
+        public static bool operator ==(ApplicationGatewayRequestRoutingRuleType left, ApplicationGatewayRequestRoutingRuleType right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewayRequestRoutingRuleType left, ApplicationGatewayRequestRoutingRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewayRequestRoutingRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewayRequestRoutingRuleType other && Equals(other);
+        public bool Equals(ApplicationGatewayRequestRoutingRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets name of application gateway SKU
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewaySkuName : IEquatable<ApplicationGatewaySkuName>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewaySkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewaySkuName Standard_Small { get; } = new ApplicationGatewaySkuName("Standard_Small");
+        public static ApplicationGatewaySkuName Standard_Medium { get; } = new ApplicationGatewaySkuName("Standard_Medium");
+        public static ApplicationGatewaySkuName Standard_Large { get; } = new ApplicationGatewaySkuName("Standard_Large");
+
+        public static bool operator ==(ApplicationGatewaySkuName left, ApplicationGatewaySkuName right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewaySkuName left, ApplicationGatewaySkuName right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewaySkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewaySkuName other && Equals(other);
+        public bool Equals(ApplicationGatewaySkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets tier of application gateway
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewayTier : IEquatable<ApplicationGatewayTier>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewayTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewayTier Standard { get; } = new ApplicationGatewayTier("Standard");
+
+        public static bool operator ==(ApplicationGatewayTier left, ApplicationGatewayTier right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewayTier left, ApplicationGatewayTier right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewayTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewayTier other && Equals(other);
+        public bool Equals(ApplicationGatewayTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets AuthorizationUseStatus
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthorizationUseStatus : IEquatable<AuthorizationUseStatus>
+    {
+        private readonly string _value;
+
+        private AuthorizationUseStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AuthorizationUseStatus Available { get; } = new AuthorizationUseStatus("Available");
+        public static AuthorizationUseStatus InUse { get; } = new AuthorizationUseStatus("InUse");
+
+        public static bool operator ==(AuthorizationUseStatus left, AuthorizationUseStatus right) => left.Equals(right);
+        public static bool operator !=(AuthorizationUseStatus left, AuthorizationUseStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AuthorizationUseStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthorizationUseStatus other && Equals(other);
+        public bool Equals(AuthorizationUseStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets AdvertisedPublicPrefixState of the Peering resource 
+    /// </summary>
+    [EnumType]
+    public readonly struct ExpressRouteCircuitPeeringAdvertisedPublicPrefixState : IEquatable<ExpressRouteCircuitPeeringAdvertisedPublicPrefixState>
+    {
+        private readonly string _value;
+
+        private ExpressRouteCircuitPeeringAdvertisedPublicPrefixState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExpressRouteCircuitPeeringAdvertisedPublicPrefixState NotConfigured { get; } = new ExpressRouteCircuitPeeringAdvertisedPublicPrefixState("NotConfigured");
+        public static ExpressRouteCircuitPeeringAdvertisedPublicPrefixState Configuring { get; } = new ExpressRouteCircuitPeeringAdvertisedPublicPrefixState("Configuring");
+        public static ExpressRouteCircuitPeeringAdvertisedPublicPrefixState Configured { get; } = new ExpressRouteCircuitPeeringAdvertisedPublicPrefixState("Configured");
+        public static ExpressRouteCircuitPeeringAdvertisedPublicPrefixState ValidationNeeded { get; } = new ExpressRouteCircuitPeeringAdvertisedPublicPrefixState("ValidationNeeded");
+
+        public static bool operator ==(ExpressRouteCircuitPeeringAdvertisedPublicPrefixState left, ExpressRouteCircuitPeeringAdvertisedPublicPrefixState right) => left.Equals(right);
+        public static bool operator !=(ExpressRouteCircuitPeeringAdvertisedPublicPrefixState left, ExpressRouteCircuitPeeringAdvertisedPublicPrefixState right) => !left.Equals(right);
+
+        public static explicit operator string(ExpressRouteCircuitPeeringAdvertisedPublicPrefixState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExpressRouteCircuitPeeringAdvertisedPublicPrefixState other && Equals(other);
+        public bool Equals(ExpressRouteCircuitPeeringAdvertisedPublicPrefixState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets state of Peering
+    /// </summary>
+    [EnumType]
+    public readonly struct ExpressRouteCircuitPeeringState : IEquatable<ExpressRouteCircuitPeeringState>
+    {
+        private readonly string _value;
+
+        private ExpressRouteCircuitPeeringState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExpressRouteCircuitPeeringState Disabled { get; } = new ExpressRouteCircuitPeeringState("Disabled");
+        public static ExpressRouteCircuitPeeringState Enabled { get; } = new ExpressRouteCircuitPeeringState("Enabled");
+
+        public static bool operator ==(ExpressRouteCircuitPeeringState left, ExpressRouteCircuitPeeringState right) => left.Equals(right);
+        public static bool operator !=(ExpressRouteCircuitPeeringState left, ExpressRouteCircuitPeeringState right) => !left.Equals(right);
+
+        public static explicit operator string(ExpressRouteCircuitPeeringState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExpressRouteCircuitPeeringState other && Equals(other);
+        public bool Equals(ExpressRouteCircuitPeeringState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets PeeringType
+    /// </summary>
+    [EnumType]
+    public readonly struct ExpressRouteCircuitPeeringType : IEquatable<ExpressRouteCircuitPeeringType>
+    {
+        private readonly string _value;
+
+        private ExpressRouteCircuitPeeringType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExpressRouteCircuitPeeringType AzurePublicPeering { get; } = new ExpressRouteCircuitPeeringType("AzurePublicPeering");
+        public static ExpressRouteCircuitPeeringType AzurePrivatePeering { get; } = new ExpressRouteCircuitPeeringType("AzurePrivatePeering");
+        public static ExpressRouteCircuitPeeringType MicrosoftPeering { get; } = new ExpressRouteCircuitPeeringType("MicrosoftPeering");
+
+        public static bool operator ==(ExpressRouteCircuitPeeringType left, ExpressRouteCircuitPeeringType right) => left.Equals(right);
+        public static bool operator !=(ExpressRouteCircuitPeeringType left, ExpressRouteCircuitPeeringType right) => !left.Equals(right);
+
+        public static explicit operator string(ExpressRouteCircuitPeeringType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExpressRouteCircuitPeeringType other && Equals(other);
+        public bool Equals(ExpressRouteCircuitPeeringType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets family of the sku.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExpressRouteCircuitSkuFamily : IEquatable<ExpressRouteCircuitSkuFamily>
+    {
+        private readonly string _value;
+
+        private ExpressRouteCircuitSkuFamily(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExpressRouteCircuitSkuFamily UnlimitedData { get; } = new ExpressRouteCircuitSkuFamily("UnlimitedData");
+        public static ExpressRouteCircuitSkuFamily MeteredData { get; } = new ExpressRouteCircuitSkuFamily("MeteredData");
+
+        public static bool operator ==(ExpressRouteCircuitSkuFamily left, ExpressRouteCircuitSkuFamily right) => left.Equals(right);
+        public static bool operator !=(ExpressRouteCircuitSkuFamily left, ExpressRouteCircuitSkuFamily right) => !left.Equals(right);
+
+        public static explicit operator string(ExpressRouteCircuitSkuFamily value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExpressRouteCircuitSkuFamily other && Equals(other);
+        public bool Equals(ExpressRouteCircuitSkuFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets tier of the sku.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExpressRouteCircuitSkuTier : IEquatable<ExpressRouteCircuitSkuTier>
+    {
+        private readonly string _value;
+
+        private ExpressRouteCircuitSkuTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExpressRouteCircuitSkuTier Standard { get; } = new ExpressRouteCircuitSkuTier("Standard");
+        public static ExpressRouteCircuitSkuTier Premium { get; } = new ExpressRouteCircuitSkuTier("Premium");
+
+        public static bool operator ==(ExpressRouteCircuitSkuTier left, ExpressRouteCircuitSkuTier right) => left.Equals(right);
+        public static bool operator !=(ExpressRouteCircuitSkuTier left, ExpressRouteCircuitSkuTier right) => !left.Equals(right);
+
+        public static explicit operator string(ExpressRouteCircuitSkuTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExpressRouteCircuitSkuTier other && Equals(other);
+        public bool Equals(ExpressRouteCircuitSkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Gets or sets PrivateIP allocation method (Static/Dynamic)
     /// </summary>
     [EnumType]
@@ -62,6 +406,69 @@ namespace Pulumi.AzureNative.Network.V20160330
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IPVersion other && Equals(other);
         public bool Equals(IPVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets the load distribution policy for this rule
+    /// </summary>
+    [EnumType]
+    public readonly struct LoadDistribution : IEquatable<LoadDistribution>
+    {
+        private readonly string _value;
+
+        private LoadDistribution(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LoadDistribution Default { get; } = new LoadDistribution("Default");
+        public static LoadDistribution SourceIP { get; } = new LoadDistribution("SourceIP");
+        public static LoadDistribution SourceIPProtocol { get; } = new LoadDistribution("SourceIPProtocol");
+
+        public static bool operator ==(LoadDistribution left, LoadDistribution right) => left.Equals(right);
+        public static bool operator !=(LoadDistribution left, LoadDistribution right) => !left.Equals(right);
+
+        public static explicit operator string(LoadDistribution value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LoadDistribution other && Equals(other);
+        public bool Equals(LoadDistribution other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets the protocol of the end point. Possible values are http pr Tcp. If Tcp is specified, a received ACK is required for the probe to be successful. If http is specified,a 200 OK response from the specifies URI is required for the probe to be successful
+    /// </summary>
+    [EnumType]
+    public readonly struct ProbeProtocol : IEquatable<ProbeProtocol>
+    {
+        private readonly string _value;
+
+        private ProbeProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProbeProtocol Http { get; } = new ProbeProtocol("Http");
+        public static ProbeProtocol Tcp { get; } = new ProbeProtocol("Tcp");
+
+        public static bool operator ==(ProbeProtocol left, ProbeProtocol right) => left.Equals(right);
+        public static bool operator !=(ProbeProtocol left, ProbeProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ProbeProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProbeProtocol other && Equals(other);
+        public bool Equals(ProbeProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -198,6 +605,39 @@ namespace Pulumi.AzureNative.Network.V20160330
     }
 
     /// <summary>
+    /// Gets or sets ServiceProviderProvisioningState state of the resource 
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceProviderProvisioningState : IEquatable<ServiceProviderProvisioningState>
+    {
+        private readonly string _value;
+
+        private ServiceProviderProvisioningState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceProviderProvisioningState NotProvisioned { get; } = new ServiceProviderProvisioningState("NotProvisioned");
+        public static ServiceProviderProvisioningState Provisioning { get; } = new ServiceProviderProvisioningState("Provisioning");
+        public static ServiceProviderProvisioningState Provisioned { get; } = new ServiceProviderProvisioningState("Provisioned");
+        public static ServiceProviderProvisioningState Deprovisioning { get; } = new ServiceProviderProvisioningState("Deprovisioning");
+
+        public static bool operator ==(ServiceProviderProvisioningState left, ServiceProviderProvisioningState right) => left.Equals(right);
+        public static bool operator !=(ServiceProviderProvisioningState left, ServiceProviderProvisioningState right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceProviderProvisioningState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceProviderProvisioningState other && Equals(other);
+        public bool Equals(ServiceProviderProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
     /// </summary>
     [EnumType]
@@ -221,6 +661,198 @@ namespace Pulumi.AzureNative.Network.V20160330
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TransportProtocol other && Equals(other);
         public bool Equals(TransportProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Virtual network Gateway connection status
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkGatewayConnectionStatus : IEquatable<VirtualNetworkGatewayConnectionStatus>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkGatewayConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkGatewayConnectionStatus Unknown { get; } = new VirtualNetworkGatewayConnectionStatus("Unknown");
+        public static VirtualNetworkGatewayConnectionStatus Connecting { get; } = new VirtualNetworkGatewayConnectionStatus("Connecting");
+        public static VirtualNetworkGatewayConnectionStatus Connected { get; } = new VirtualNetworkGatewayConnectionStatus("Connected");
+        public static VirtualNetworkGatewayConnectionStatus NotConnected { get; } = new VirtualNetworkGatewayConnectionStatus("NotConnected");
+
+        public static bool operator ==(VirtualNetworkGatewayConnectionStatus left, VirtualNetworkGatewayConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkGatewayConnectionStatus left, VirtualNetworkGatewayConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkGatewayConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkGatewayConnectionStatus other && Equals(other);
+        public bool Equals(VirtualNetworkGatewayConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkGatewayConnectionType : IEquatable<VirtualNetworkGatewayConnectionType>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkGatewayConnectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkGatewayConnectionType IPsec { get; } = new VirtualNetworkGatewayConnectionType("IPsec");
+        public static VirtualNetworkGatewayConnectionType Vnet2Vnet { get; } = new VirtualNetworkGatewayConnectionType("Vnet2Vnet");
+        public static VirtualNetworkGatewayConnectionType ExpressRoute { get; } = new VirtualNetworkGatewayConnectionType("ExpressRoute");
+        public static VirtualNetworkGatewayConnectionType VPNClient { get; } = new VirtualNetworkGatewayConnectionType("VPNClient");
+
+        public static bool operator ==(VirtualNetworkGatewayConnectionType left, VirtualNetworkGatewayConnectionType right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkGatewayConnectionType left, VirtualNetworkGatewayConnectionType right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkGatewayConnectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkGatewayConnectionType other && Equals(other);
+        public bool Equals(VirtualNetworkGatewayConnectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gateway sku name -Basic/HighPerformance/Standard
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkGatewaySkuName : IEquatable<VirtualNetworkGatewaySkuName>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkGatewaySkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkGatewaySkuName Basic { get; } = new VirtualNetworkGatewaySkuName("Basic");
+        public static VirtualNetworkGatewaySkuName HighPerformance { get; } = new VirtualNetworkGatewaySkuName("HighPerformance");
+        public static VirtualNetworkGatewaySkuName Standard { get; } = new VirtualNetworkGatewaySkuName("Standard");
+
+        public static bool operator ==(VirtualNetworkGatewaySkuName left, VirtualNetworkGatewaySkuName right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkGatewaySkuName left, VirtualNetworkGatewaySkuName right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkGatewaySkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkGatewaySkuName other && Equals(other);
+        public bool Equals(VirtualNetworkGatewaySkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gateway sku tier -Basic/HighPerformance/Standard
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkGatewaySkuTier : IEquatable<VirtualNetworkGatewaySkuTier>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkGatewaySkuTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkGatewaySkuTier Basic { get; } = new VirtualNetworkGatewaySkuTier("Basic");
+        public static VirtualNetworkGatewaySkuTier HighPerformance { get; } = new VirtualNetworkGatewaySkuTier("HighPerformance");
+        public static VirtualNetworkGatewaySkuTier Standard { get; } = new VirtualNetworkGatewaySkuTier("Standard");
+
+        public static bool operator ==(VirtualNetworkGatewaySkuTier left, VirtualNetworkGatewaySkuTier right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkGatewaySkuTier left, VirtualNetworkGatewaySkuTier right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkGatewaySkuTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkGatewaySkuTier other && Equals(other);
+        public bool Equals(VirtualNetworkGatewaySkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of this virtual network gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkGatewayType : IEquatable<VirtualNetworkGatewayType>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkGatewayType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkGatewayType Vpn { get; } = new VirtualNetworkGatewayType("Vpn");
+        public static VirtualNetworkGatewayType ExpressRoute { get; } = new VirtualNetworkGatewayType("ExpressRoute");
+
+        public static bool operator ==(VirtualNetworkGatewayType left, VirtualNetworkGatewayType right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkGatewayType left, VirtualNetworkGatewayType right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkGatewayType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkGatewayType other && Equals(other);
+        public bool Equals(VirtualNetworkGatewayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of this virtual network gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpnType : IEquatable<VpnType>
+    {
+        private readonly string _value;
+
+        private VpnType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnType PolicyBased { get; } = new VpnType("PolicyBased");
+        public static VpnType RouteBased { get; } = new VpnType("RouteBased");
+
+        public static bool operator ==(VpnType left, VpnType right) => left.Equals(right);
+        public static bool operator !=(VpnType left, VpnType right) => !left.Equals(right);
+
+        public static explicit operator string(VpnType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnType other && Equals(other);
+        public bool Equals(VpnType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

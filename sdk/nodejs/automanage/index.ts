@@ -58,10 +58,12 @@ utilities.lazyLoad(exports, ["getConfigurationProfilesVersion","getConfiguration
 
 // Export sub-modules:
 import * as v20200630preview from "./v20200630preview";
+import * as v20210430preview from "./v20210430preview";
 import * as v20220504 from "./v20220504";
 
 export {
     v20200630preview,
+    v20210430preview,
     v20220504,
 };
 

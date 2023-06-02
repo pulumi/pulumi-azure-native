@@ -101,6 +101,17 @@ export const Permissions = {
  */
 export type Permissions = (typeof Permissions)[keyof typeof Permissions];
 
+export const PublicAccess = {
+    Container: "Container",
+    Blob: "Blob",
+    None: "None",
+} as const;
+
+/**
+ * Specifies whether data in the container may be accessed publicly and the level of access.
+ */
+export type PublicAccess = (typeof PublicAccess)[keyof typeof PublicAccess];
+
 export const ReasonCode = {
     QuotaId: "QuotaId",
     NotAvailableForSubscription: "NotAvailableForSubscription",
@@ -110,6 +121,15 @@ export const ReasonCode = {
  * The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
  */
 export type ReasonCode = (typeof ReasonCode)[keyof typeof ReasonCode];
+
+export const RuleType = {
+    Lifecycle: "Lifecycle",
+} as const;
+
+/**
+ * The valid value is Lifecycle
+ */
+export type RuleType = (typeof RuleType)[keyof typeof RuleType];
 
 export const Services = {
     B: "b",

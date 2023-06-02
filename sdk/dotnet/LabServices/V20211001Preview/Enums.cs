@@ -40,6 +40,43 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
     }
 
     /// <summary>
+    /// Indicates what lab virtual machines are created from.
+    /// </summary>
+    [EnumType]
+    public readonly struct CreateOption : IEquatable<CreateOption>
+    {
+        private readonly string _value;
+
+        private CreateOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// An image is used to create all lab user virtual machines. When this option is set, no template VM will be created.
+        /// </summary>
+        public static CreateOption Image { get; } = new CreateOption("Image");
+        /// <summary>
+        /// A template VM will be used to create all lab user virtual machines.
+        /// </summary>
+        public static CreateOption TemplateVM { get; } = new CreateOption("TemplateVM");
+
+        public static bool operator ==(CreateOption left, CreateOption right) => left.Equals(right);
+        public static bool operator !=(CreateOption left, CreateOption right) => !left.Equals(right);
+
+        public static explicit operator string(CreateOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreateOption other && Equals(other);
+        public bool Equals(CreateOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether a VM will get shutdown when it hasn't been connected to after a period of time.
     /// </summary>
     [EnumType]
@@ -141,6 +178,39 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ShutdownOnIdleMode other && Equals(other);
         public bool Equals(ShutdownOnIdleMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuTier : IEquatable<SkuTier>
+    {
+        private readonly string _value;
+
+        private SkuTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SkuTier Free { get; } = new SkuTier("Free");
+        public static SkuTier Basic { get; } = new SkuTier("Basic");
+        public static SkuTier Standard { get; } = new SkuTier("Standard");
+        public static SkuTier Premium { get; } = new SkuTier("Premium");
+
+        public static bool operator ==(SkuTier left, SkuTier right) => left.Equals(right);
+        public static bool operator !=(SkuTier left, SkuTier right) => !left.Equals(right);
+
+        public static explicit operator string(SkuTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
+        public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

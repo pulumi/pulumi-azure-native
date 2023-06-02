@@ -9,9 +9,15 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'AppWhitelistingIssueSummaryResponse',
+    'JitNetworkAccessPolicyVirtualMachineResponse',
+    'JitNetworkAccessPortRuleResponse',
+    'JitNetworkAccessRequestPortResponse',
+    'JitNetworkAccessRequestResponse',
+    'JitNetworkAccessRequestVirtualMachineResponse',
     'PathRecommendationResponse',
     'ProtectionModeResponse',
     'PublisherInfoResponse',
@@ -69,6 +75,263 @@ class AppWhitelistingIssueSummaryResponse(dict):
         The number of machines in the VM/server group that have this alert
         """
         return pulumi.get(self, "number_of_vms")
+
+
+@pulumi.output_type
+class JitNetworkAccessPolicyVirtualMachineResponse(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 ports: Sequence['outputs.JitNetworkAccessPortRuleResponse'],
+                 public_ip_address: Optional[str] = None):
+        """
+        :param str id: Resource ID of the virtual machine that is linked to this policy
+        :param Sequence['JitNetworkAccessPortRuleResponse'] ports: Port configurations for the virtual machine
+        :param str public_ip_address: Public IP address of the Azure Firewall that is linked to this policy, if applicable
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "ports", ports)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID of the virtual machine that is linked to this policy
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Sequence['outputs.JitNetworkAccessPortRuleResponse']:
+        """
+        Port configurations for the virtual machine
+        """
+        return pulumi.get(self, "ports")
+
+    @property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> Optional[str]:
+        """
+        Public IP address of the Azure Firewall that is linked to this policy, if applicable
+        """
+        return pulumi.get(self, "public_ip_address")
+
+
+@pulumi.output_type
+class JitNetworkAccessPortRuleResponse(dict):
+    def __init__(__self__, *,
+                 max_request_access_duration: str,
+                 number: int,
+                 protocol: str,
+                 allowed_source_address_prefix: Optional[str] = None,
+                 allowed_source_address_prefixes: Optional[Sequence[str]] = None):
+        """
+        :param str max_request_access_duration: Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
+        :param str allowed_source_address_prefix: Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+        :param Sequence[str] allowed_source_address_prefixes: Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+        """
+        pulumi.set(__self__, "max_request_access_duration", max_request_access_duration)
+        pulumi.set(__self__, "number", number)
+        pulumi.set(__self__, "protocol", protocol)
+        if allowed_source_address_prefix is not None:
+            pulumi.set(__self__, "allowed_source_address_prefix", allowed_source_address_prefix)
+        if allowed_source_address_prefixes is not None:
+            pulumi.set(__self__, "allowed_source_address_prefixes", allowed_source_address_prefixes)
+
+    @property
+    @pulumi.getter(name="maxRequestAccessDuration")
+    def max_request_access_duration(self) -> str:
+        """
+        Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
+        """
+        return pulumi.get(self, "max_request_access_duration")
+
+    @property
+    @pulumi.getter
+    def number(self) -> int:
+        return pulumi.get(self, "number")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="allowedSourceAddressPrefix")
+    def allowed_source_address_prefix(self) -> Optional[str]:
+        """
+        Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+        """
+        return pulumi.get(self, "allowed_source_address_prefix")
+
+    @property
+    @pulumi.getter(name="allowedSourceAddressPrefixes")
+    def allowed_source_address_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+        """
+        return pulumi.get(self, "allowed_source_address_prefixes")
+
+
+@pulumi.output_type
+class JitNetworkAccessRequestPortResponse(dict):
+    def __init__(__self__, *,
+                 end_time_utc: str,
+                 number: int,
+                 status: str,
+                 status_reason: str,
+                 allowed_source_address_prefix: Optional[str] = None,
+                 allowed_source_address_prefixes: Optional[Sequence[str]] = None,
+                 mapped_port: Optional[int] = None):
+        """
+        :param str end_time_utc: The date & time at which the request ends in UTC
+        :param str status: The status of the port
+        :param str status_reason: A description of why the `status` has its value
+        :param str allowed_source_address_prefix: Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+        :param Sequence[str] allowed_source_address_prefixes: Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+        :param int mapped_port: The port which is mapped to this port's `number` in the Azure Firewall, if applicable
+        """
+        pulumi.set(__self__, "end_time_utc", end_time_utc)
+        pulumi.set(__self__, "number", number)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_reason", status_reason)
+        if allowed_source_address_prefix is not None:
+            pulumi.set(__self__, "allowed_source_address_prefix", allowed_source_address_prefix)
+        if allowed_source_address_prefixes is not None:
+            pulumi.set(__self__, "allowed_source_address_prefixes", allowed_source_address_prefixes)
+        if mapped_port is not None:
+            pulumi.set(__self__, "mapped_port", mapped_port)
+
+    @property
+    @pulumi.getter(name="endTimeUtc")
+    def end_time_utc(self) -> str:
+        """
+        The date & time at which the request ends in UTC
+        """
+        return pulumi.get(self, "end_time_utc")
+
+    @property
+    @pulumi.getter
+    def number(self) -> int:
+        return pulumi.get(self, "number")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the port
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusReason")
+    def status_reason(self) -> str:
+        """
+        A description of why the `status` has its value
+        """
+        return pulumi.get(self, "status_reason")
+
+    @property
+    @pulumi.getter(name="allowedSourceAddressPrefix")
+    def allowed_source_address_prefix(self) -> Optional[str]:
+        """
+        Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+        """
+        return pulumi.get(self, "allowed_source_address_prefix")
+
+    @property
+    @pulumi.getter(name="allowedSourceAddressPrefixes")
+    def allowed_source_address_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+        """
+        return pulumi.get(self, "allowed_source_address_prefixes")
+
+    @property
+    @pulumi.getter(name="mappedPort")
+    def mapped_port(self) -> Optional[int]:
+        """
+        The port which is mapped to this port's `number` in the Azure Firewall, if applicable
+        """
+        return pulumi.get(self, "mapped_port")
+
+
+@pulumi.output_type
+class JitNetworkAccessRequestResponse(dict):
+    def __init__(__self__, *,
+                 requestor: str,
+                 start_time_utc: str,
+                 virtual_machines: Sequence['outputs.JitNetworkAccessRequestVirtualMachineResponse'],
+                 justification: Optional[str] = None):
+        """
+        :param str requestor: The identity of the person who made the request
+        :param str start_time_utc: The start time of the request in UTC
+        :param str justification: The justification for making the initiate request
+        """
+        pulumi.set(__self__, "requestor", requestor)
+        pulumi.set(__self__, "start_time_utc", start_time_utc)
+        pulumi.set(__self__, "virtual_machines", virtual_machines)
+        if justification is not None:
+            pulumi.set(__self__, "justification", justification)
+
+    @property
+    @pulumi.getter
+    def requestor(self) -> str:
+        """
+        The identity of the person who made the request
+        """
+        return pulumi.get(self, "requestor")
+
+    @property
+    @pulumi.getter(name="startTimeUtc")
+    def start_time_utc(self) -> str:
+        """
+        The start time of the request in UTC
+        """
+        return pulumi.get(self, "start_time_utc")
+
+    @property
+    @pulumi.getter(name="virtualMachines")
+    def virtual_machines(self) -> Sequence['outputs.JitNetworkAccessRequestVirtualMachineResponse']:
+        return pulumi.get(self, "virtual_machines")
+
+    @property
+    @pulumi.getter
+    def justification(self) -> Optional[str]:
+        """
+        The justification for making the initiate request
+        """
+        return pulumi.get(self, "justification")
+
+
+@pulumi.output_type
+class JitNetworkAccessRequestVirtualMachineResponse(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 ports: Sequence['outputs.JitNetworkAccessRequestPortResponse']):
+        """
+        :param str id: Resource ID of the virtual machine that is linked to this policy
+        :param Sequence['JitNetworkAccessRequestPortResponse'] ports: The ports that were opened for the virtual machine
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "ports", ports)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID of the virtual machine that is linked to this policy
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Sequence['outputs.JitNetworkAccessRequestPortResponse']:
+        """
+        The ports that were opened for the virtual machine
+        """
+        return pulumi.get(self, "ports")
 
 
 @pulumi.output_type

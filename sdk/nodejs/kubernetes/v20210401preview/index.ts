@@ -4,6 +4,11 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetConnectedClusterArgs, GetConnectedClusterResult, GetConnectedClusterOutputArgs } from "./getConnectedCluster";
+export const getConnectedCluster: typeof import("./getConnectedCluster").getConnectedCluster = null as any;
+export const getConnectedClusterOutput: typeof import("./getConnectedCluster").getConnectedClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectedCluster","getConnectedClusterOutput"], () => require("./getConnectedCluster"));
+
 export { ListConnectedClusterUserCredentialsArgs, ListConnectedClusterUserCredentialsResult, ListConnectedClusterUserCredentialsOutputArgs } from "./listConnectedClusterUserCredentials";
 export const listConnectedClusterUserCredentials: typeof import("./listConnectedClusterUserCredentials").listConnectedClusterUserCredentials = null as any;
 export const listConnectedClusterUserCredentialsOutput: typeof import("./listConnectedClusterUserCredentials").listConnectedClusterUserCredentialsOutput = null as any;

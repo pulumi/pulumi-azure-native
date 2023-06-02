@@ -12,8 +12,17 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AkamaiAccessControlResponse',
+    'AkamaiSignatureHeaderAuthenticationKeyResponse',
+    'ArmStreamingEndpointCurrentSkuResponse',
     'AssetFileEncryptionMetadataResponse',
     'AssetStreamingLocatorResponse',
+    'AudioTrackResponse',
+    'CbcsDrmConfigurationResponse',
+    'CencDrmConfigurationResponse',
+    'ClearKeyEncryptionConfigurationResponse',
+    'CommonEncryptionCbcsResponse',
+    'CommonEncryptionCencResponse',
     'ContentKeyPolicyClearKeyConfigurationResponse',
     'ContentKeyPolicyFairPlayConfigurationResponse',
     'ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse',
@@ -33,11 +42,147 @@ __all__ = [
     'ContentKeyPolicyUnknownRestrictionResponse',
     'ContentKeyPolicyWidevineConfigurationResponse',
     'ContentKeyPolicyX509CertificateTokenKeyResponse',
+    'CrossSiteAccessPoliciesResponse',
+    'DashSettingsResponse',
+    'DefaultKeyResponse',
+    'EnabledProtocolsResponse',
+    'EnvelopeEncryptionResponse',
+    'FilterTrackPropertyConditionResponse',
+    'FilterTrackSelectionResponse',
+    'FirstQualityResponse',
+    'HlsResponse',
+    'HlsSettingsResponse',
+    'IPAccessControlResponse',
+    'IPRangeResponse',
+    'LiveEventEncodingResponse',
+    'LiveEventEndpointResponse',
+    'LiveEventInputAccessControlResponse',
+    'LiveEventInputResponse',
+    'LiveEventInputTrackSelectionResponse',
+    'LiveEventOutputTranscriptionTrackResponse',
+    'LiveEventPreviewAccessControlResponse',
+    'LiveEventPreviewResponse',
+    'LiveEventTranscriptionResponse',
+    'NoEncryptionResponse',
+    'PresentationTimeRangeResponse',
+    'StreamingEndpointAccessControlResponse',
     'StreamingLocatorContentKeyResponse',
     'StreamingPathResponse',
+    'StreamingPolicyContentKeyResponse',
+    'StreamingPolicyContentKeysResponse',
+    'StreamingPolicyFairPlayConfigurationResponse',
+    'StreamingPolicyPlayReadyConfigurationResponse',
+    'StreamingPolicyWidevineConfigurationResponse',
+    'SystemDataResponse',
+    'TextTrackResponse',
     'TrackPropertyConditionResponse',
     'TrackSelectionResponse',
+    'VideoTrackResponse',
 ]
+
+@pulumi.output_type
+class AkamaiAccessControlResponse(dict):
+    """
+    Akamai access control
+    """
+    def __init__(__self__, *,
+                 akamai_signature_header_authentication_key_list: Optional[Sequence['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']] = None):
+        """
+        Akamai access control
+        :param Sequence['AkamaiSignatureHeaderAuthenticationKeyResponse'] akamai_signature_header_authentication_key_list: authentication key list
+        """
+        if akamai_signature_header_authentication_key_list is not None:
+            pulumi.set(__self__, "akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
+
+    @property
+    @pulumi.getter(name="akamaiSignatureHeaderAuthenticationKeyList")
+    def akamai_signature_header_authentication_key_list(self) -> Optional[Sequence['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']]:
+        """
+        authentication key list
+        """
+        return pulumi.get(self, "akamai_signature_header_authentication_key_list")
+
+
+@pulumi.output_type
+class AkamaiSignatureHeaderAuthenticationKeyResponse(dict):
+    """
+    Akamai Signature Header authentication key.
+    """
+    def __init__(__self__, *,
+                 base64_key: Optional[str] = None,
+                 expiration: Optional[str] = None,
+                 identifier: Optional[str] = None):
+        """
+        Akamai Signature Header authentication key.
+        :param str base64_key: authentication key
+        :param str expiration: The expiration time of the authentication key.
+        :param str identifier: identifier of the key
+        """
+        if base64_key is not None:
+            pulumi.set(__self__, "base64_key", base64_key)
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter(name="base64Key")
+    def base64_key(self) -> Optional[str]:
+        """
+        authentication key
+        """
+        return pulumi.get(self, "base64_key")
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> Optional[str]:
+        """
+        The expiration time of the authentication key.
+        """
+        return pulumi.get(self, "expiration")
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[str]:
+        """
+        identifier of the key
+        """
+        return pulumi.get(self, "identifier")
+
+
+@pulumi.output_type
+class ArmStreamingEndpointCurrentSkuResponse(dict):
+    """
+    The streaming endpoint current sku.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 capacity: Optional[int] = None):
+        """
+        The streaming endpoint current sku.
+        :param str name: The streaming endpoint sku name.
+        :param int capacity: The streaming endpoint sku capacity.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The streaming endpoint sku name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The streaming endpoint sku capacity.
+        """
+        return pulumi.get(self, "capacity")
+
 
 @pulumi.output_type
 class AssetFileEncryptionMetadataResponse(dict):
@@ -182,6 +327,360 @@ class AssetStreamingLocatorResponse(dict):
         Name of the Streaming Policy used by this Streaming Locator.
         """
         return pulumi.get(self, "streaming_policy_name")
+
+
+@pulumi.output_type
+class AudioTrackResponse(dict):
+    """
+    Represents an audio track in the asset.
+    """
+    def __init__(__self__, *,
+                 bit_rate: int,
+                 odata_type: str,
+                 dash_settings: Optional['outputs.DashSettingsResponse'] = None,
+                 display_name: Optional[str] = None,
+                 file_name: Optional[str] = None,
+                 hls_settings: Optional['outputs.HlsSettingsResponse'] = None,
+                 language_code: Optional[str] = None,
+                 mpeg4_track_id: Optional[int] = None):
+        """
+        Represents an audio track in the asset.
+        :param int bit_rate: The stream bit rate for the audio track.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.AudioTrack'.
+        :param 'DashSettingsResponse' dash_settings: The DASH specific setting for the audio track.
+        :param str display_name: The display name of the audio track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA.
+        :param str file_name: The file name to the source file. This file is located in the storage container of the asset.
+        :param 'HlsSettingsResponse' hls_settings: The HLS specific setting for the audio track.
+        :param str language_code: The RFC5646 language code for the audio track.
+        :param int mpeg4_track_id: The MPEG-4 audio track ID for the audio track.
+        """
+        pulumi.set(__self__, "bit_rate", bit_rate)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioTrack')
+        if dash_settings is not None:
+            pulumi.set(__self__, "dash_settings", dash_settings)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if hls_settings is not None:
+            pulumi.set(__self__, "hls_settings", hls_settings)
+        if language_code is not None:
+            pulumi.set(__self__, "language_code", language_code)
+        if mpeg4_track_id is not None:
+            pulumi.set(__self__, "mpeg4_track_id", mpeg4_track_id)
+
+    @property
+    @pulumi.getter(name="bitRate")
+    def bit_rate(self) -> int:
+        """
+        The stream bit rate for the audio track.
+        """
+        return pulumi.get(self, "bit_rate")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.AudioTrack'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="dashSettings")
+    def dash_settings(self) -> Optional['outputs.DashSettingsResponse']:
+        """
+        The DASH specific setting for the audio track.
+        """
+        return pulumi.get(self, "dash_settings")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the audio track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[str]:
+        """
+        The file name to the source file. This file is located in the storage container of the asset.
+        """
+        return pulumi.get(self, "file_name")
+
+    @property
+    @pulumi.getter(name="hlsSettings")
+    def hls_settings(self) -> Optional['outputs.HlsSettingsResponse']:
+        """
+        The HLS specific setting for the audio track.
+        """
+        return pulumi.get(self, "hls_settings")
+
+    @property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> Optional[str]:
+        """
+        The RFC5646 language code for the audio track.
+        """
+        return pulumi.get(self, "language_code")
+
+    @property
+    @pulumi.getter(name="mpeg4TrackId")
+    def mpeg4_track_id(self) -> Optional[int]:
+        """
+        The MPEG-4 audio track ID for the audio track.
+        """
+        return pulumi.get(self, "mpeg4_track_id")
+
+
+@pulumi.output_type
+class CbcsDrmConfigurationResponse(dict):
+    """
+    Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
+    """
+    def __init__(__self__, *,
+                 fair_play: Optional['outputs.StreamingPolicyFairPlayConfigurationResponse'] = None,
+                 play_ready: Optional['outputs.StreamingPolicyPlayReadyConfigurationResponse'] = None,
+                 widevine: Optional['outputs.StreamingPolicyWidevineConfigurationResponse'] = None):
+        """
+        Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
+        :param 'StreamingPolicyFairPlayConfigurationResponse' fair_play: FairPlay configurations
+        :param 'StreamingPolicyPlayReadyConfigurationResponse' play_ready: PlayReady configurations
+        :param 'StreamingPolicyWidevineConfigurationResponse' widevine: Widevine configurations
+        """
+        if fair_play is not None:
+            pulumi.set(__self__, "fair_play", fair_play)
+        if play_ready is not None:
+            pulumi.set(__self__, "play_ready", play_ready)
+        if widevine is not None:
+            pulumi.set(__self__, "widevine", widevine)
+
+    @property
+    @pulumi.getter(name="fairPlay")
+    def fair_play(self) -> Optional['outputs.StreamingPolicyFairPlayConfigurationResponse']:
+        """
+        FairPlay configurations
+        """
+        return pulumi.get(self, "fair_play")
+
+    @property
+    @pulumi.getter(name="playReady")
+    def play_ready(self) -> Optional['outputs.StreamingPolicyPlayReadyConfigurationResponse']:
+        """
+        PlayReady configurations
+        """
+        return pulumi.get(self, "play_ready")
+
+    @property
+    @pulumi.getter
+    def widevine(self) -> Optional['outputs.StreamingPolicyWidevineConfigurationResponse']:
+        """
+        Widevine configurations
+        """
+        return pulumi.get(self, "widevine")
+
+
+@pulumi.output_type
+class CencDrmConfigurationResponse(dict):
+    """
+    Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
+    """
+    def __init__(__self__, *,
+                 play_ready: Optional['outputs.StreamingPolicyPlayReadyConfigurationResponse'] = None,
+                 widevine: Optional['outputs.StreamingPolicyWidevineConfigurationResponse'] = None):
+        """
+        Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
+        :param 'StreamingPolicyPlayReadyConfigurationResponse' play_ready: PlayReady configurations
+        :param 'StreamingPolicyWidevineConfigurationResponse' widevine: Widevine configurations
+        """
+        if play_ready is not None:
+            pulumi.set(__self__, "play_ready", play_ready)
+        if widevine is not None:
+            pulumi.set(__self__, "widevine", widevine)
+
+    @property
+    @pulumi.getter(name="playReady")
+    def play_ready(self) -> Optional['outputs.StreamingPolicyPlayReadyConfigurationResponse']:
+        """
+        PlayReady configurations
+        """
+        return pulumi.get(self, "play_ready")
+
+    @property
+    @pulumi.getter
+    def widevine(self) -> Optional['outputs.StreamingPolicyWidevineConfigurationResponse']:
+        """
+        Widevine configurations
+        """
+        return pulumi.get(self, "widevine")
+
+
+@pulumi.output_type
+class ClearKeyEncryptionConfigurationResponse(dict):
+    """
+    Class to specify ClearKey configuration of common encryption schemes in Streaming Policy
+    """
+    def __init__(__self__, *,
+                 custom_keys_acquisition_url_template: Optional[str] = None):
+        """
+        Class to specify ClearKey configuration of common encryption schemes in Streaming Policy
+        :param str custom_keys_acquisition_url_template: Template for the URL of the custom service delivering content keys to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token value is {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId.
+        """
+        if custom_keys_acquisition_url_template is not None:
+            pulumi.set(__self__, "custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
+
+    @property
+    @pulumi.getter(name="customKeysAcquisitionUrlTemplate")
+    def custom_keys_acquisition_url_template(self) -> Optional[str]:
+        """
+        Template for the URL of the custom service delivering content keys to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token value is {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId.
+        """
+        return pulumi.get(self, "custom_keys_acquisition_url_template")
+
+
+@pulumi.output_type
+class CommonEncryptionCbcsResponse(dict):
+    """
+    Class for CommonEncryptionCbcs encryption scheme
+    """
+    def __init__(__self__, *,
+                 clear_key_encryption_configuration: Optional['outputs.ClearKeyEncryptionConfigurationResponse'] = None,
+                 clear_tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
+                 content_keys: Optional['outputs.StreamingPolicyContentKeysResponse'] = None,
+                 drm: Optional['outputs.CbcsDrmConfigurationResponse'] = None,
+                 enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
+        """
+        Class for CommonEncryptionCbcs encryption scheme
+        :param 'ClearKeyEncryptionConfigurationResponse' clear_key_encryption_configuration: Optional configuration supporting ClearKey in CommonEncryptionCbcs encryption scheme.
+        :param Sequence['TrackSelectionResponse'] clear_tracks: Representing which tracks should not be encrypted
+        :param 'StreamingPolicyContentKeysResponse' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
+        :param 'CbcsDrmConfigurationResponse' drm: Configuration of DRMs for current encryption scheme
+        :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
+        """
+        if clear_key_encryption_configuration is not None:
+            pulumi.set(__self__, "clear_key_encryption_configuration", clear_key_encryption_configuration)
+        if clear_tracks is not None:
+            pulumi.set(__self__, "clear_tracks", clear_tracks)
+        if content_keys is not None:
+            pulumi.set(__self__, "content_keys", content_keys)
+        if drm is not None:
+            pulumi.set(__self__, "drm", drm)
+        if enabled_protocols is not None:
+            pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+
+    @property
+    @pulumi.getter(name="clearKeyEncryptionConfiguration")
+    def clear_key_encryption_configuration(self) -> Optional['outputs.ClearKeyEncryptionConfigurationResponse']:
+        """
+        Optional configuration supporting ClearKey in CommonEncryptionCbcs encryption scheme.
+        """
+        return pulumi.get(self, "clear_key_encryption_configuration")
+
+    @property
+    @pulumi.getter(name="clearTracks")
+    def clear_tracks(self) -> Optional[Sequence['outputs.TrackSelectionResponse']]:
+        """
+        Representing which tracks should not be encrypted
+        """
+        return pulumi.get(self, "clear_tracks")
+
+    @property
+    @pulumi.getter(name="contentKeys")
+    def content_keys(self) -> Optional['outputs.StreamingPolicyContentKeysResponse']:
+        """
+        Representing default content key for each encryption scheme and separate content keys for specific tracks
+        """
+        return pulumi.get(self, "content_keys")
+
+    @property
+    @pulumi.getter
+    def drm(self) -> Optional['outputs.CbcsDrmConfigurationResponse']:
+        """
+        Configuration of DRMs for current encryption scheme
+        """
+        return pulumi.get(self, "drm")
+
+    @property
+    @pulumi.getter(name="enabledProtocols")
+    def enabled_protocols(self) -> Optional['outputs.EnabledProtocolsResponse']:
+        """
+        Representing supported protocols
+        """
+        return pulumi.get(self, "enabled_protocols")
+
+
+@pulumi.output_type
+class CommonEncryptionCencResponse(dict):
+    """
+    Class for envelope encryption scheme
+    """
+    def __init__(__self__, *,
+                 clear_key_encryption_configuration: Optional['outputs.ClearKeyEncryptionConfigurationResponse'] = None,
+                 clear_tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
+                 content_keys: Optional['outputs.StreamingPolicyContentKeysResponse'] = None,
+                 drm: Optional['outputs.CencDrmConfigurationResponse'] = None,
+                 enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
+        """
+        Class for envelope encryption scheme
+        :param 'ClearKeyEncryptionConfigurationResponse' clear_key_encryption_configuration: Optional configuration supporting ClearKey in CommonEncryptionCenc encryption scheme.
+        :param Sequence['TrackSelectionResponse'] clear_tracks: Representing which tracks should not be encrypted
+        :param 'StreamingPolicyContentKeysResponse' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
+        :param 'CencDrmConfigurationResponse' drm: Configuration of DRMs for CommonEncryptionCenc encryption scheme
+        :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
+        """
+        if clear_key_encryption_configuration is not None:
+            pulumi.set(__self__, "clear_key_encryption_configuration", clear_key_encryption_configuration)
+        if clear_tracks is not None:
+            pulumi.set(__self__, "clear_tracks", clear_tracks)
+        if content_keys is not None:
+            pulumi.set(__self__, "content_keys", content_keys)
+        if drm is not None:
+            pulumi.set(__self__, "drm", drm)
+        if enabled_protocols is not None:
+            pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+
+    @property
+    @pulumi.getter(name="clearKeyEncryptionConfiguration")
+    def clear_key_encryption_configuration(self) -> Optional['outputs.ClearKeyEncryptionConfigurationResponse']:
+        """
+        Optional configuration supporting ClearKey in CommonEncryptionCenc encryption scheme.
+        """
+        return pulumi.get(self, "clear_key_encryption_configuration")
+
+    @property
+    @pulumi.getter(name="clearTracks")
+    def clear_tracks(self) -> Optional[Sequence['outputs.TrackSelectionResponse']]:
+        """
+        Representing which tracks should not be encrypted
+        """
+        return pulumi.get(self, "clear_tracks")
+
+    @property
+    @pulumi.getter(name="contentKeys")
+    def content_keys(self) -> Optional['outputs.StreamingPolicyContentKeysResponse']:
+        """
+        Representing default content key for each encryption scheme and separate content keys for specific tracks
+        """
+        return pulumi.get(self, "content_keys")
+
+    @property
+    @pulumi.getter
+    def drm(self) -> Optional['outputs.CencDrmConfigurationResponse']:
+        """
+        Configuration of DRMs for CommonEncryptionCenc encryption scheme
+        """
+        return pulumi.get(self, "drm")
+
+    @property
+    @pulumi.getter(name="enabledProtocols")
+    def enabled_protocols(self) -> Optional['outputs.EnabledProtocolsResponse']:
+        """
+        Representing supported protocols
+        """
+        return pulumi.get(self, "enabled_protocols")
 
 
 @pulumi.output_type
@@ -1188,6 +1687,979 @@ class ContentKeyPolicyX509CertificateTokenKeyResponse(dict):
 
 
 @pulumi.output_type
+class CrossSiteAccessPoliciesResponse(dict):
+    """
+    The client access policy.
+    """
+    def __init__(__self__, *,
+                 client_access_policy: Optional[str] = None,
+                 cross_domain_policy: Optional[str] = None):
+        """
+        The client access policy.
+        :param str client_access_policy: The content of clientaccesspolicy.xml used by Silverlight.
+        :param str cross_domain_policy: The content of crossdomain.xml used by Silverlight.
+        """
+        if client_access_policy is not None:
+            pulumi.set(__self__, "client_access_policy", client_access_policy)
+        if cross_domain_policy is not None:
+            pulumi.set(__self__, "cross_domain_policy", cross_domain_policy)
+
+    @property
+    @pulumi.getter(name="clientAccessPolicy")
+    def client_access_policy(self) -> Optional[str]:
+        """
+        The content of clientaccesspolicy.xml used by Silverlight.
+        """
+        return pulumi.get(self, "client_access_policy")
+
+    @property
+    @pulumi.getter(name="crossDomainPolicy")
+    def cross_domain_policy(self) -> Optional[str]:
+        """
+        The content of crossdomain.xml used by Silverlight.
+        """
+        return pulumi.get(self, "cross_domain_policy")
+
+
+@pulumi.output_type
+class DashSettingsResponse(dict):
+    """
+    The DASH setting for a track.
+    """
+    def __init__(__self__, *,
+                 role: Optional[str] = None):
+        """
+        The DASH setting for a track.
+        :param str role: The role for the DASH setting.
+        """
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        The role for the DASH setting.
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class DefaultKeyResponse(dict):
+    """
+    Class to specify properties of default content key for each encryption scheme
+    """
+    def __init__(__self__, *,
+                 label: Optional[str] = None,
+                 policy_name: Optional[str] = None):
+        """
+        Class to specify properties of default content key for each encryption scheme
+        :param str label: Label can be used to specify Content Key when creating a Streaming Locator
+        :param str policy_name: Policy used by Default Key
+        """
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Label can be used to specify Content Key when creating a Streaming Locator
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Policy used by Default Key
+        """
+        return pulumi.get(self, "policy_name")
+
+
+@pulumi.output_type
+class EnabledProtocolsResponse(dict):
+    """
+    Class to specify which protocols are enabled
+    """
+    def __init__(__self__, *,
+                 dash: bool,
+                 download: bool,
+                 hls: bool,
+                 smooth_streaming: bool):
+        """
+        Class to specify which protocols are enabled
+        :param bool dash: Enable DASH protocol or not
+        :param bool download: Enable Download protocol or not
+        :param bool hls: Enable HLS protocol or not
+        :param bool smooth_streaming: Enable SmoothStreaming protocol or not
+        """
+        pulumi.set(__self__, "dash", dash)
+        pulumi.set(__self__, "download", download)
+        pulumi.set(__self__, "hls", hls)
+        pulumi.set(__self__, "smooth_streaming", smooth_streaming)
+
+    @property
+    @pulumi.getter
+    def dash(self) -> bool:
+        """
+        Enable DASH protocol or not
+        """
+        return pulumi.get(self, "dash")
+
+    @property
+    @pulumi.getter
+    def download(self) -> bool:
+        """
+        Enable Download protocol or not
+        """
+        return pulumi.get(self, "download")
+
+    @property
+    @pulumi.getter
+    def hls(self) -> bool:
+        """
+        Enable HLS protocol or not
+        """
+        return pulumi.get(self, "hls")
+
+    @property
+    @pulumi.getter(name="smoothStreaming")
+    def smooth_streaming(self) -> bool:
+        """
+        Enable SmoothStreaming protocol or not
+        """
+        return pulumi.get(self, "smooth_streaming")
+
+
+@pulumi.output_type
+class EnvelopeEncryptionResponse(dict):
+    """
+    Class for EnvelopeEncryption encryption scheme
+    """
+    def __init__(__self__, *,
+                 clear_tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
+                 content_keys: Optional['outputs.StreamingPolicyContentKeysResponse'] = None,
+                 custom_key_acquisition_url_template: Optional[str] = None,
+                 enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
+        """
+        Class for EnvelopeEncryption encryption scheme
+        :param Sequence['TrackSelectionResponse'] clear_tracks: Representing which tracks should not be encrypted
+        :param 'StreamingPolicyContentKeysResponse' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
+        :param str custom_key_acquisition_url_template: Template for the URL of the custom service delivering keys to end user players.  Not required when using Azure Media Services for issuing keys.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+        :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
+        """
+        if clear_tracks is not None:
+            pulumi.set(__self__, "clear_tracks", clear_tracks)
+        if content_keys is not None:
+            pulumi.set(__self__, "content_keys", content_keys)
+        if custom_key_acquisition_url_template is not None:
+            pulumi.set(__self__, "custom_key_acquisition_url_template", custom_key_acquisition_url_template)
+        if enabled_protocols is not None:
+            pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+
+    @property
+    @pulumi.getter(name="clearTracks")
+    def clear_tracks(self) -> Optional[Sequence['outputs.TrackSelectionResponse']]:
+        """
+        Representing which tracks should not be encrypted
+        """
+        return pulumi.get(self, "clear_tracks")
+
+    @property
+    @pulumi.getter(name="contentKeys")
+    def content_keys(self) -> Optional['outputs.StreamingPolicyContentKeysResponse']:
+        """
+        Representing default content key for each encryption scheme and separate content keys for specific tracks
+        """
+        return pulumi.get(self, "content_keys")
+
+    @property
+    @pulumi.getter(name="customKeyAcquisitionUrlTemplate")
+    def custom_key_acquisition_url_template(self) -> Optional[str]:
+        """
+        Template for the URL of the custom service delivering keys to end user players.  Not required when using Azure Media Services for issuing keys.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+        """
+        return pulumi.get(self, "custom_key_acquisition_url_template")
+
+    @property
+    @pulumi.getter(name="enabledProtocols")
+    def enabled_protocols(self) -> Optional['outputs.EnabledProtocolsResponse']:
+        """
+        Representing supported protocols
+        """
+        return pulumi.get(self, "enabled_protocols")
+
+
+@pulumi.output_type
+class FilterTrackPropertyConditionResponse(dict):
+    """
+    The class to specify one track property condition.
+    """
+    def __init__(__self__, *,
+                 operation: str,
+                 property: str,
+                 value: str):
+        """
+        The class to specify one track property condition.
+        :param str operation: The track property condition operation.
+        :param str property: The track property type.
+        :param str value: The track property value.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "property", property)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> str:
+        """
+        The track property condition operation.
+        """
+        return pulumi.get(self, "operation")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The track property value.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def property(self) -> str:
+        """
+        The track property type.
+        """
+        return pulumi.get(self, "property")
+
+
+@pulumi.output_type
+class FilterTrackSelectionResponse(dict):
+    """
+    Representing a list of FilterTrackPropertyConditions to select a track.  The filters are combined using a logical AND operation.
+    """
+    def __init__(__self__, *,
+                 track_selections: Sequence['outputs.FilterTrackPropertyConditionResponse']):
+        """
+        Representing a list of FilterTrackPropertyConditions to select a track.  The filters are combined using a logical AND operation.
+        :param Sequence['FilterTrackPropertyConditionResponse'] track_selections: The track selections.
+        """
+        pulumi.set(__self__, "track_selections", track_selections)
+
+    @property
+    @pulumi.getter(name="trackSelections")
+    def track_selections(self) -> Sequence['outputs.FilterTrackPropertyConditionResponse']:
+        """
+        The track selections.
+        """
+        return pulumi.get(self, "track_selections")
+
+
+@pulumi.output_type
+class FirstQualityResponse(dict):
+    """
+    Filter First Quality
+    """
+    def __init__(__self__, *,
+                 bitrate: int):
+        """
+        Filter First Quality
+        :param int bitrate: The first quality bitrate.
+        """
+        pulumi.set(__self__, "bitrate", bitrate)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> int:
+        """
+        The first quality bitrate.
+        """
+        return pulumi.get(self, "bitrate")
+
+
+@pulumi.output_type
+class HlsResponse(dict):
+    """
+    HTTP Live Streaming (HLS) packing setting for the live output.
+    """
+    def __init__(__self__, *,
+                 fragments_per_ts_segment: Optional[int] = None):
+        """
+        HTTP Live Streaming (HLS) packing setting for the live output.
+        :param int fragments_per_ts_segment: The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
+        """
+        if fragments_per_ts_segment is not None:
+            pulumi.set(__self__, "fragments_per_ts_segment", fragments_per_ts_segment)
+
+    @property
+    @pulumi.getter(name="fragmentsPerTsSegment")
+    def fragments_per_ts_segment(self) -> Optional[int]:
+        """
+        The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
+        """
+        return pulumi.get(self, "fragments_per_ts_segment")
+
+
+@pulumi.output_type
+class HlsSettingsResponse(dict):
+    """
+    The HLS setting for a track.
+    """
+    def __init__(__self__, *,
+                 characteristics: Optional[str] = None,
+                 default: Optional[bool] = None,
+                 forced: Optional[bool] = None):
+        """
+        The HLS setting for a track.
+        :param str characteristics: The characteristics for the HLS setting.
+        :param bool default: The default for the HLS setting.
+        :param bool forced: The forced for the HLS setting.
+        """
+        if characteristics is not None:
+            pulumi.set(__self__, "characteristics", characteristics)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if forced is not None:
+            pulumi.set(__self__, "forced", forced)
+
+    @property
+    @pulumi.getter
+    def characteristics(self) -> Optional[str]:
+        """
+        The characteristics for the HLS setting.
+        """
+        return pulumi.get(self, "characteristics")
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[bool]:
+        """
+        The default for the HLS setting.
+        """
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def forced(self) -> Optional[bool]:
+        """
+        The forced for the HLS setting.
+        """
+        return pulumi.get(self, "forced")
+
+
+@pulumi.output_type
+class IPAccessControlResponse(dict):
+    """
+    The IP access control.
+    """
+    def __init__(__self__, *,
+                 allow: Optional[Sequence['outputs.IPRangeResponse']] = None):
+        """
+        The IP access control.
+        :param Sequence['IPRangeResponse'] allow: The IP allow list.
+        """
+        if allow is not None:
+            pulumi.set(__self__, "allow", allow)
+
+    @property
+    @pulumi.getter
+    def allow(self) -> Optional[Sequence['outputs.IPRangeResponse']]:
+        """
+        The IP allow list.
+        """
+        return pulumi.get(self, "allow")
+
+
+@pulumi.output_type
+class IPRangeResponse(dict):
+    """
+    The IP address range in the CIDR scheme.
+    """
+    def __init__(__self__, *,
+                 address: Optional[str] = None,
+                 name: Optional[str] = None,
+                 subnet_prefix_length: Optional[int] = None):
+        """
+        The IP address range in the CIDR scheme.
+        :param str address: The IP address.
+        :param str name: The friendly name for the IP address range.
+        :param int subnet_prefix_length: The subnet mask prefix length (see CIDR notation).
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if subnet_prefix_length is not None:
+            pulumi.set(__self__, "subnet_prefix_length", subnet_prefix_length)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        The IP address.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The friendly name for the IP address range.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subnetPrefixLength")
+    def subnet_prefix_length(self) -> Optional[int]:
+        """
+        The subnet mask prefix length (see CIDR notation).
+        """
+        return pulumi.get(self, "subnet_prefix_length")
+
+
+@pulumi.output_type
+class LiveEventEncodingResponse(dict):
+    """
+    Specifies the live event type and optional encoding settings for encoding live events.
+    """
+    def __init__(__self__, *,
+                 encoding_type: Optional[str] = None,
+                 key_frame_interval: Optional[str] = None,
+                 preset_name: Optional[str] = None,
+                 stretch_mode: Optional[str] = None):
+        """
+        Specifies the live event type and optional encoding settings for encoding live events.
+        :param str encoding_type: Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+        :param str key_frame_interval: Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+        :param str preset_name: The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
+        :param str stretch_mode: Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
+        """
+        if encoding_type is not None:
+            pulumi.set(__self__, "encoding_type", encoding_type)
+        if key_frame_interval is not None:
+            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+        if preset_name is not None:
+            pulumi.set(__self__, "preset_name", preset_name)
+        if stretch_mode is not None:
+            pulumi.set(__self__, "stretch_mode", stretch_mode)
+
+    @property
+    @pulumi.getter(name="encodingType")
+    def encoding_type(self) -> Optional[str]:
+        """
+        Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+        """
+        return pulumi.get(self, "encoding_type")
+
+    @property
+    @pulumi.getter(name="keyFrameInterval")
+    def key_frame_interval(self) -> Optional[str]:
+        """
+        Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+        """
+        return pulumi.get(self, "key_frame_interval")
+
+    @property
+    @pulumi.getter(name="presetName")
+    def preset_name(self) -> Optional[str]:
+        """
+        The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
+        """
+        return pulumi.get(self, "preset_name")
+
+    @property
+    @pulumi.getter(name="stretchMode")
+    def stretch_mode(self) -> Optional[str]:
+        """
+        Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
+        """
+        return pulumi.get(self, "stretch_mode")
+
+
+@pulumi.output_type
+class LiveEventEndpointResponse(dict):
+    """
+    The live event endpoint.
+    """
+    def __init__(__self__, *,
+                 protocol: Optional[str] = None,
+                 url: Optional[str] = None):
+        """
+        The live event endpoint.
+        :param str protocol: The endpoint protocol.
+        :param str url: The endpoint URL.
+        """
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The endpoint protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        The endpoint URL.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class LiveEventInputAccessControlResponse(dict):
+    """
+    The IP access control for live event input.
+    """
+    def __init__(__self__, *,
+                 ip: Optional['outputs.IPAccessControlResponse'] = None):
+        """
+        The IP access control for live event input.
+        :param 'IPAccessControlResponse' ip: The IP access control properties.
+        """
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional['outputs.IPAccessControlResponse']:
+        """
+        The IP access control properties.
+        """
+        return pulumi.get(self, "ip")
+
+
+@pulumi.output_type
+class LiveEventInputResponse(dict):
+    """
+    The live event input.
+    """
+    def __init__(__self__, *,
+                 streaming_protocol: str,
+                 access_control: Optional['outputs.LiveEventInputAccessControlResponse'] = None,
+                 access_token: Optional[str] = None,
+                 endpoints: Optional[Sequence['outputs.LiveEventEndpointResponse']] = None,
+                 key_frame_interval_duration: Optional[str] = None):
+        """
+        The live event input.
+        :param str streaming_protocol: The input protocol for the live event. This is specified at creation time and cannot be updated.
+        :param 'LiveEventInputAccessControlResponse' access_control: Access control for live event input.
+        :param str access_token: A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
+        :param Sequence['LiveEventEndpointResponse'] endpoints: The input endpoints for the live event.
+        :param str key_frame_interval_duration: ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
+        """
+        pulumi.set(__self__, "streaming_protocol", streaming_protocol)
+        if access_control is not None:
+            pulumi.set(__self__, "access_control", access_control)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if key_frame_interval_duration is not None:
+            pulumi.set(__self__, "key_frame_interval_duration", key_frame_interval_duration)
+
+    @property
+    @pulumi.getter(name="streamingProtocol")
+    def streaming_protocol(self) -> str:
+        """
+        The input protocol for the live event. This is specified at creation time and cannot be updated.
+        """
+        return pulumi.get(self, "streaming_protocol")
+
+    @property
+    @pulumi.getter(name="accessControl")
+    def access_control(self) -> Optional['outputs.LiveEventInputAccessControlResponse']:
+        """
+        Access control for live event input.
+        """
+        return pulumi.get(self, "access_control")
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
+        """
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[Sequence['outputs.LiveEventEndpointResponse']]:
+        """
+        The input endpoints for the live event.
+        """
+        return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter(name="keyFrameIntervalDuration")
+    def key_frame_interval_duration(self) -> Optional[str]:
+        """
+        ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
+        """
+        return pulumi.get(self, "key_frame_interval_duration")
+
+
+@pulumi.output_type
+class LiveEventInputTrackSelectionResponse(dict):
+    """
+    A track selection condition. This property is reserved for future use, any value set on this property will be ignored.
+    """
+    def __init__(__self__, *,
+                 operation: Optional[str] = None,
+                 property: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        A track selection condition. This property is reserved for future use, any value set on this property will be ignored.
+        :param str operation: Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
+        :param str property: Property name to select. This property is reserved for future use, any value set on this property will be ignored.
+        :param str value: Property value to select. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        if operation is not None:
+            pulumi.set(__self__, "operation", operation)
+        if property is not None:
+            pulumi.set(__self__, "property", property)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> Optional[str]:
+        """
+        Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "operation")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Property value to select. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def property(self) -> Optional[str]:
+        """
+        Property name to select. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "property")
+
+
+@pulumi.output_type
+class LiveEventOutputTranscriptionTrackResponse(dict):
+    """
+    Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+    """
+    def __init__(__self__, *,
+                 track_name: str):
+        """
+        Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+        :param str track_name: The output track name. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        pulumi.set(__self__, "track_name", track_name)
+
+    @property
+    @pulumi.getter(name="trackName")
+    def track_name(self) -> str:
+        """
+        The output track name. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "track_name")
+
+
+@pulumi.output_type
+class LiveEventPreviewAccessControlResponse(dict):
+    """
+    The IP access control for the live event preview endpoint.
+    """
+    def __init__(__self__, *,
+                 ip: Optional['outputs.IPAccessControlResponse'] = None):
+        """
+        The IP access control for the live event preview endpoint.
+        :param 'IPAccessControlResponse' ip: The IP access control properties.
+        """
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional['outputs.IPAccessControlResponse']:
+        """
+        The IP access control properties.
+        """
+        return pulumi.get(self, "ip")
+
+
+@pulumi.output_type
+class LiveEventPreviewResponse(dict):
+    """
+    Live event preview settings.
+    """
+    def __init__(__self__, *,
+                 access_control: Optional['outputs.LiveEventPreviewAccessControlResponse'] = None,
+                 alternative_media_id: Optional[str] = None,
+                 endpoints: Optional[Sequence['outputs.LiveEventEndpointResponse']] = None,
+                 preview_locator: Optional[str] = None,
+                 streaming_policy_name: Optional[str] = None):
+        """
+        Live event preview settings.
+        :param 'LiveEventPreviewAccessControlResponse' access_control: The access control for live event preview.
+        :param str alternative_media_id: An alternative media identifier associated with the streaming locator created for the preview. This value is specified at creation time and cannot be updated. The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+        :param Sequence['LiveEventEndpointResponse'] endpoints: The endpoints for preview. Do not share the preview URL with the live event audience.
+        :param str preview_locator: The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
+        :param str streaming_policy_name: The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
+        """
+        if access_control is not None:
+            pulumi.set(__self__, "access_control", access_control)
+        if alternative_media_id is not None:
+            pulumi.set(__self__, "alternative_media_id", alternative_media_id)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if preview_locator is not None:
+            pulumi.set(__self__, "preview_locator", preview_locator)
+        if streaming_policy_name is not None:
+            pulumi.set(__self__, "streaming_policy_name", streaming_policy_name)
+
+    @property
+    @pulumi.getter(name="accessControl")
+    def access_control(self) -> Optional['outputs.LiveEventPreviewAccessControlResponse']:
+        """
+        The access control for live event preview.
+        """
+        return pulumi.get(self, "access_control")
+
+    @property
+    @pulumi.getter(name="alternativeMediaId")
+    def alternative_media_id(self) -> Optional[str]:
+        """
+        An alternative media identifier associated with the streaming locator created for the preview. This value is specified at creation time and cannot be updated. The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+        """
+        return pulumi.get(self, "alternative_media_id")
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[Sequence['outputs.LiveEventEndpointResponse']]:
+        """
+        The endpoints for preview. Do not share the preview URL with the live event audience.
+        """
+        return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter(name="previewLocator")
+    def preview_locator(self) -> Optional[str]:
+        """
+        The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
+        """
+        return pulumi.get(self, "preview_locator")
+
+    @property
+    @pulumi.getter(name="streamingPolicyName")
+    def streaming_policy_name(self) -> Optional[str]:
+        """
+        The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
+        """
+        return pulumi.get(self, "streaming_policy_name")
+
+
+@pulumi.output_type
+class LiveEventTranscriptionResponse(dict):
+    """
+    Describes the transcription tracks in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+    """
+    def __init__(__self__, *,
+                 input_track_selection: Optional[Sequence['outputs.LiveEventInputTrackSelectionResponse']] = None,
+                 language: Optional[str] = None,
+                 output_transcription_track: Optional['outputs.LiveEventOutputTranscriptionTrackResponse'] = None):
+        """
+        Describes the transcription tracks in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+        :param Sequence['LiveEventInputTrackSelectionResponse'] input_track_selection: Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied. This property is reserved for future use, any value set on this property will be ignored.
+        :param str language: Specifies the language (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in BCP-47 format (e.g: 'en-US'). See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature and the list of supported languages.
+        :param 'LiveEventOutputTranscriptionTrackResponse' output_transcription_track: Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        if input_track_selection is not None:
+            pulumi.set(__self__, "input_track_selection", input_track_selection)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+        if output_transcription_track is not None:
+            pulumi.set(__self__, "output_transcription_track", output_transcription_track)
+
+    @property
+    @pulumi.getter(name="inputTrackSelection")
+    def input_track_selection(self) -> Optional[Sequence['outputs.LiveEventInputTrackSelectionResponse']]:
+        """
+        Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "input_track_selection")
+
+    @property
+    @pulumi.getter
+    def language(self) -> Optional[str]:
+        """
+        Specifies the language (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in BCP-47 format (e.g: 'en-US'). See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature and the list of supported languages.
+        """
+        return pulumi.get(self, "language")
+
+    @property
+    @pulumi.getter(name="outputTranscriptionTrack")
+    def output_transcription_track(self) -> Optional['outputs.LiveEventOutputTranscriptionTrackResponse']:
+        """
+        Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "output_transcription_track")
+
+
+@pulumi.output_type
+class NoEncryptionResponse(dict):
+    """
+    Class for NoEncryption scheme
+    """
+    def __init__(__self__, *,
+                 enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
+        """
+        Class for NoEncryption scheme
+        :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
+        """
+        if enabled_protocols is not None:
+            pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+
+    @property
+    @pulumi.getter(name="enabledProtocols")
+    def enabled_protocols(self) -> Optional['outputs.EnabledProtocolsResponse']:
+        """
+        Representing supported protocols
+        """
+        return pulumi.get(self, "enabled_protocols")
+
+
+@pulumi.output_type
+class PresentationTimeRangeResponse(dict):
+    """
+    The presentation time range, this is asset related and not recommended for Account Filter.
+    """
+    def __init__(__self__, *,
+                 end_timestamp: Optional[float] = None,
+                 force_end_timestamp: Optional[bool] = None,
+                 live_backoff_duration: Optional[float] = None,
+                 presentation_window_duration: Optional[float] = None,
+                 start_timestamp: Optional[float] = None,
+                 timescale: Optional[float] = None):
+        """
+        The presentation time range, this is asset related and not recommended for Account Filter.
+        :param float end_timestamp: The absolute end time boundary.
+        :param bool force_end_timestamp: The indicator of forcing existing of end time stamp.
+        :param float live_backoff_duration: The relative to end right edge.
+        :param float presentation_window_duration: The relative to end sliding window.
+        :param float start_timestamp: The absolute start time boundary.
+        :param float timescale: The time scale of time stamps.
+        """
+        if end_timestamp is not None:
+            pulumi.set(__self__, "end_timestamp", end_timestamp)
+        if force_end_timestamp is not None:
+            pulumi.set(__self__, "force_end_timestamp", force_end_timestamp)
+        if live_backoff_duration is not None:
+            pulumi.set(__self__, "live_backoff_duration", live_backoff_duration)
+        if presentation_window_duration is not None:
+            pulumi.set(__self__, "presentation_window_duration", presentation_window_duration)
+        if start_timestamp is not None:
+            pulumi.set(__self__, "start_timestamp", start_timestamp)
+        if timescale is not None:
+            pulumi.set(__self__, "timescale", timescale)
+
+    @property
+    @pulumi.getter(name="endTimestamp")
+    def end_timestamp(self) -> Optional[float]:
+        """
+        The absolute end time boundary.
+        """
+        return pulumi.get(self, "end_timestamp")
+
+    @property
+    @pulumi.getter(name="forceEndTimestamp")
+    def force_end_timestamp(self) -> Optional[bool]:
+        """
+        The indicator of forcing existing of end time stamp.
+        """
+        return pulumi.get(self, "force_end_timestamp")
+
+    @property
+    @pulumi.getter(name="liveBackoffDuration")
+    def live_backoff_duration(self) -> Optional[float]:
+        """
+        The relative to end right edge.
+        """
+        return pulumi.get(self, "live_backoff_duration")
+
+    @property
+    @pulumi.getter(name="presentationWindowDuration")
+    def presentation_window_duration(self) -> Optional[float]:
+        """
+        The relative to end sliding window.
+        """
+        return pulumi.get(self, "presentation_window_duration")
+
+    @property
+    @pulumi.getter(name="startTimestamp")
+    def start_timestamp(self) -> Optional[float]:
+        """
+        The absolute start time boundary.
+        """
+        return pulumi.get(self, "start_timestamp")
+
+    @property
+    @pulumi.getter
+    def timescale(self) -> Optional[float]:
+        """
+        The time scale of time stamps.
+        """
+        return pulumi.get(self, "timescale")
+
+
+@pulumi.output_type
+class StreamingEndpointAccessControlResponse(dict):
+    """
+    Streaming endpoint access control definition.
+    """
+    def __init__(__self__, *,
+                 akamai: Optional['outputs.AkamaiAccessControlResponse'] = None,
+                 ip: Optional['outputs.IPAccessControlResponse'] = None):
+        """
+        Streaming endpoint access control definition.
+        :param 'AkamaiAccessControlResponse' akamai: The access control of Akamai
+        :param 'IPAccessControlResponse' ip: The IP access control of the streaming endpoint.
+        """
+        if akamai is not None:
+            pulumi.set(__self__, "akamai", akamai)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+
+    @property
+    @pulumi.getter
+    def akamai(self) -> Optional['outputs.AkamaiAccessControlResponse']:
+        """
+        The access control of Akamai
+        """
+        return pulumi.get(self, "akamai")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional['outputs.IPAccessControlResponse']:
+        """
+        The IP access control of the streaming endpoint.
+        """
+        return pulumi.get(self, "ip")
+
+
+@pulumi.output_type
 class StreamingLocatorContentKeyResponse(dict):
     """
     Class for content key in Streaming Locator
@@ -1312,6 +2784,346 @@ class StreamingPathResponse(dict):
 
 
 @pulumi.output_type
+class StreamingPolicyContentKeyResponse(dict):
+    """
+    Class to specify properties of content key
+    """
+    def __init__(__self__, *,
+                 label: Optional[str] = None,
+                 policy_name: Optional[str] = None,
+                 tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None):
+        """
+        Class to specify properties of content key
+        :param str label: Label can be used to specify Content Key when creating a Streaming Locator
+        :param str policy_name: Policy used by Content Key
+        :param Sequence['TrackSelectionResponse'] tracks: Tracks which use this content key
+        """
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if tracks is not None:
+            pulumi.set(__self__, "tracks", tracks)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Label can be used to specify Content Key when creating a Streaming Locator
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Policy used by Content Key
+        """
+        return pulumi.get(self, "policy_name")
+
+    @property
+    @pulumi.getter
+    def tracks(self) -> Optional[Sequence['outputs.TrackSelectionResponse']]:
+        """
+        Tracks which use this content key
+        """
+        return pulumi.get(self, "tracks")
+
+
+@pulumi.output_type
+class StreamingPolicyContentKeysResponse(dict):
+    """
+    Class to specify properties of all content keys in Streaming Policy
+    """
+    def __init__(__self__, *,
+                 default_key: Optional['outputs.DefaultKeyResponse'] = None,
+                 key_to_track_mappings: Optional[Sequence['outputs.StreamingPolicyContentKeyResponse']] = None):
+        """
+        Class to specify properties of all content keys in Streaming Policy
+        :param 'DefaultKeyResponse' default_key: Default content key for an encryption scheme
+        :param Sequence['StreamingPolicyContentKeyResponse'] key_to_track_mappings: Representing tracks needs separate content key
+        """
+        if default_key is not None:
+            pulumi.set(__self__, "default_key", default_key)
+        if key_to_track_mappings is not None:
+            pulumi.set(__self__, "key_to_track_mappings", key_to_track_mappings)
+
+    @property
+    @pulumi.getter(name="defaultKey")
+    def default_key(self) -> Optional['outputs.DefaultKeyResponse']:
+        """
+        Default content key for an encryption scheme
+        """
+        return pulumi.get(self, "default_key")
+
+    @property
+    @pulumi.getter(name="keyToTrackMappings")
+    def key_to_track_mappings(self) -> Optional[Sequence['outputs.StreamingPolicyContentKeyResponse']]:
+        """
+        Representing tracks needs separate content key
+        """
+        return pulumi.get(self, "key_to_track_mappings")
+
+
+@pulumi.output_type
+class StreamingPolicyFairPlayConfigurationResponse(dict):
+    """
+    Class to specify configurations of FairPlay in Streaming Policy
+    """
+    def __init__(__self__, *,
+                 allow_persistent_license: bool,
+                 custom_license_acquisition_url_template: Optional[str] = None):
+        """
+        Class to specify configurations of FairPlay in Streaming Policy
+        :param bool allow_persistent_license: All license to be persistent or not
+        :param str custom_license_acquisition_url_template: Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+        """
+        pulumi.set(__self__, "allow_persistent_license", allow_persistent_license)
+        if custom_license_acquisition_url_template is not None:
+            pulumi.set(__self__, "custom_license_acquisition_url_template", custom_license_acquisition_url_template)
+
+    @property
+    @pulumi.getter(name="allowPersistentLicense")
+    def allow_persistent_license(self) -> bool:
+        """
+        All license to be persistent or not
+        """
+        return pulumi.get(self, "allow_persistent_license")
+
+    @property
+    @pulumi.getter(name="customLicenseAcquisitionUrlTemplate")
+    def custom_license_acquisition_url_template(self) -> Optional[str]:
+        """
+        Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+        """
+        return pulumi.get(self, "custom_license_acquisition_url_template")
+
+
+@pulumi.output_type
+class StreamingPolicyPlayReadyConfigurationResponse(dict):
+    """
+    Class to specify configurations of PlayReady in Streaming Policy
+    """
+    def __init__(__self__, *,
+                 custom_license_acquisition_url_template: Optional[str] = None,
+                 play_ready_custom_attributes: Optional[str] = None):
+        """
+        Class to specify configurations of PlayReady in Streaming Policy
+        :param str custom_license_acquisition_url_template: Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+        :param str play_ready_custom_attributes: Custom attributes for PlayReady
+        """
+        if custom_license_acquisition_url_template is not None:
+            pulumi.set(__self__, "custom_license_acquisition_url_template", custom_license_acquisition_url_template)
+        if play_ready_custom_attributes is not None:
+            pulumi.set(__self__, "play_ready_custom_attributes", play_ready_custom_attributes)
+
+    @property
+    @pulumi.getter(name="customLicenseAcquisitionUrlTemplate")
+    def custom_license_acquisition_url_template(self) -> Optional[str]:
+        """
+        Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+        """
+        return pulumi.get(self, "custom_license_acquisition_url_template")
+
+    @property
+    @pulumi.getter(name="playReadyCustomAttributes")
+    def play_ready_custom_attributes(self) -> Optional[str]:
+        """
+        Custom attributes for PlayReady
+        """
+        return pulumi.get(self, "play_ready_custom_attributes")
+
+
+@pulumi.output_type
+class StreamingPolicyWidevineConfigurationResponse(dict):
+    """
+    Class to specify configurations of Widevine in Streaming Policy
+    """
+    def __init__(__self__, *,
+                 custom_license_acquisition_url_template: Optional[str] = None):
+        """
+        Class to specify configurations of Widevine in Streaming Policy
+        :param str custom_license_acquisition_url_template: Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+        """
+        if custom_license_acquisition_url_template is not None:
+            pulumi.set(__self__, "custom_license_acquisition_url_template", custom_license_acquisition_url_template)
+
+    @property
+    @pulumi.getter(name="customLicenseAcquisitionUrlTemplate")
+    def custom_license_acquisition_url_template(self) -> Optional[str]:
+        """
+        Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+        """
+        return pulumi.get(self, "custom_license_acquisition_url_template")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TextTrackResponse(dict):
+    """
+    Represents a text track in an asset. A text track is usually used for sparse data related to the audio or video tracks.
+    """
+    def __init__(__self__, *,
+                 language_code: str,
+                 odata_type: str,
+                 display_name: Optional[str] = None,
+                 file_name: Optional[str] = None,
+                 hls_settings: Optional['outputs.HlsSettingsResponse'] = None,
+                 player_visibility: Optional[str] = None):
+        """
+        Represents a text track in an asset. A text track is usually used for sparse data related to the audio or video tracks.
+        :param str language_code: The RFC5646 language code for the text track.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.TextTrack'.
+        :param str display_name: The display name of the text track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA.
+        :param str file_name: The file name to the source file. This file is located in the storage container of the asset.
+        :param 'HlsSettingsResponse' hls_settings: The HLS specific setting for the text track.
+        :param str player_visibility: When PlayerVisibility is set to "Visible", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to "Hidden", the text will not be available to the client. The default value is "Visible".
+        """
+        pulumi.set(__self__, "language_code", language_code)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.TextTrack')
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if hls_settings is not None:
+            pulumi.set(__self__, "hls_settings", hls_settings)
+        if player_visibility is not None:
+            pulumi.set(__self__, "player_visibility", player_visibility)
+
+    @property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> str:
+        """
+        The RFC5646 language code for the text track.
+        """
+        return pulumi.get(self, "language_code")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.TextTrack'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the text track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[str]:
+        """
+        The file name to the source file. This file is located in the storage container of the asset.
+        """
+        return pulumi.get(self, "file_name")
+
+    @property
+    @pulumi.getter(name="hlsSettings")
+    def hls_settings(self) -> Optional['outputs.HlsSettingsResponse']:
+        """
+        The HLS specific setting for the text track.
+        """
+        return pulumi.get(self, "hls_settings")
+
+    @property
+    @pulumi.getter(name="playerVisibility")
+    def player_visibility(self) -> Optional[str]:
+        """
+        When PlayerVisibility is set to "Visible", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to "Hidden", the text will not be available to the client. The default value is "Visible".
+        """
+        return pulumi.get(self, "player_visibility")
+
+
+@pulumi.output_type
 class TrackPropertyConditionResponse(dict):
     """
     Class to specify one track property condition
@@ -1377,5 +3189,29 @@ class TrackSelectionResponse(dict):
         TrackSelections is a track property condition list which can specify track(s)
         """
         return pulumi.get(self, "track_selections")
+
+
+@pulumi.output_type
+class VideoTrackResponse(dict):
+    """
+    Represents a video track in the asset.
+    """
+    def __init__(__self__, *,
+                 odata_type: str):
+        """
+        Represents a video track in the asset.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.VideoTrack'.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoTrack')
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.VideoTrack'.
+        """
+        return pulumi.get(self, "odata_type")
 
 

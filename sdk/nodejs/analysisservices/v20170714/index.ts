@@ -4,8 +4,16 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetServerDetailsArgs, GetServerDetailsResult, GetServerDetailsOutputArgs } from "./getServerDetails";
+export const getServerDetails: typeof import("./getServerDetails").getServerDetails = null as any;
+export const getServerDetailsOutput: typeof import("./getServerDetails").getServerDetailsOutput = null as any;
+utilities.lazyLoad(exports, ["getServerDetails","getServerDetailsOutput"], () => require("./getServerDetails"));
+
 export { ListServerGatewayStatusArgs, ListServerGatewayStatusResult, ListServerGatewayStatusOutputArgs } from "./listServerGatewayStatus";
 export const listServerGatewayStatus: typeof import("./listServerGatewayStatus").listServerGatewayStatus = null as any;
 export const listServerGatewayStatusOutput: typeof import("./listServerGatewayStatus").listServerGatewayStatusOutput = null as any;
 utilities.lazyLoad(exports, ["listServerGatewayStatus","listServerGatewayStatusOutput"], () => require("./listServerGatewayStatus"));
 
+
+// Export enums:
+export * from "../../types/enums/analysisservices/v20170714";

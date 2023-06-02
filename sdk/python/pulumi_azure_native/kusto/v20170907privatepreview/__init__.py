@@ -5,5 +5,9 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .get_cluster import *
+from .get_database import *
+from .get_event_hub_connection import *
 from .list_database_principals import *
 from . import outputs

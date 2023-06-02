@@ -3,19 +3,30 @@
 
 // Export sub-modules:
 import * as v20150101 from "./v20150101";
+import * as v20151001preview from "./v20151001preview";
 import * as v20160401 from "./v20160401";
+import * as v20160901 from "./v20160901";
+import * as v20161201 from "./v20161201";
 import * as v20170401 from "./v20170401";
+import * as v20170601preview from "./v20170601preview";
+import * as v20180301 from "./v20180301";
 import * as v20180501 from "./v20180501";
+import * as v20180501preview from "./v20180501preview";
+import * as v20180901preview from "./v20180901preview";
+import * as v20190101 from "./v20190101";
 import * as v20190601 from "./v20190601";
+import * as v20190901 from "./v20190901";
 import * as v20200301 from "./v20200301";
 import * as v20200301preview from "./v20200301preview";
 import * as v20200401preview from "./v20200401preview";
 import * as v20200501 from "./v20200501";
 import * as v20200701preview from "./v20200701preview";
+import * as v20200801preview from "./v20200801preview";
 import * as v20200901 from "./v20200901";
 import * as v20201001preview from "./v20201001preview";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210601 from "./v20210601";
+import * as v20210701preview from "./v20210701preview";
 import * as v20211116preview from "./v20211116preview";
 import * as v20211201preview from "./v20211201preview";
 import * as v20220401 from "./v20220401";
@@ -24,19 +35,30 @@ import * as v20220701preview from "./v20220701preview";
 
 export {
     v20150101,
+    v20151001preview,
     v20160401,
+    v20160901,
+    v20161201,
     v20170401,
+    v20170601preview,
+    v20180301,
     v20180501,
+    v20180501preview,
+    v20180901preview,
+    v20190101,
     v20190601,
+    v20190901,
     v20200301,
     v20200301preview,
     v20200401preview,
     v20200501,
     v20200701preview,
+    v20200801preview,
     v20200901,
     v20201001preview,
     v20210301preview,
     v20210601,
+    v20210701preview,
     v20211116preview,
     v20211201preview,
     v20220401,

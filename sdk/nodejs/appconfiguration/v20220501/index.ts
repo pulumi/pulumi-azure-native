@@ -4,8 +4,26 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetConfigurationStoreArgs, GetConfigurationStoreResult, GetConfigurationStoreOutputArgs } from "./getConfigurationStore";
+export const getConfigurationStore: typeof import("./getConfigurationStore").getConfigurationStore = null as any;
+export const getConfigurationStoreOutput: typeof import("./getConfigurationStore").getConfigurationStoreOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationStore","getConfigurationStoreOutput"], () => require("./getConfigurationStore"));
+
+export { GetKeyValueArgs, GetKeyValueResult, GetKeyValueOutputArgs } from "./getKeyValue";
+export const getKeyValue: typeof import("./getKeyValue").getKeyValue = null as any;
+export const getKeyValueOutput: typeof import("./getKeyValue").getKeyValueOutput = null as any;
+utilities.lazyLoad(exports, ["getKeyValue","getKeyValueOutput"], () => require("./getKeyValue"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
 export { ListConfigurationStoreKeysArgs, ListConfigurationStoreKeysResult, ListConfigurationStoreKeysOutputArgs } from "./listConfigurationStoreKeys";
 export const listConfigurationStoreKeys: typeof import("./listConfigurationStoreKeys").listConfigurationStoreKeys = null as any;
 export const listConfigurationStoreKeysOutput: typeof import("./listConfigurationStoreKeys").listConfigurationStoreKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listConfigurationStoreKeys","listConfigurationStoreKeysOutput"], () => require("./listConfigurationStoreKeys"));
 
+
+// Export enums:
+export * from "../../types/enums/appconfiguration/v20220501";

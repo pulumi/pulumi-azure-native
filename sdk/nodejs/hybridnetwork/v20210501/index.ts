@@ -4,8 +4,36 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetDeviceArgs, GetDeviceResult, GetDeviceOutputArgs } from "./getDevice";
+export const getDevice: typeof import("./getDevice").getDevice = null as any;
+export const getDeviceOutput: typeof import("./getDevice").getDeviceOutput = null as any;
+utilities.lazyLoad(exports, ["getDevice","getDeviceOutput"], () => require("./getDevice"));
+
+export { GetNetworkFunctionArgs, GetNetworkFunctionResult, GetNetworkFunctionOutputArgs } from "./getNetworkFunction";
+export const getNetworkFunction: typeof import("./getNetworkFunction").getNetworkFunction = null as any;
+export const getNetworkFunctionOutput: typeof import("./getNetworkFunction").getNetworkFunctionOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkFunction","getNetworkFunctionOutput"], () => require("./getNetworkFunction"));
+
+export { GetVendorArgs, GetVendorResult, GetVendorOutputArgs } from "./getVendor";
+export const getVendor: typeof import("./getVendor").getVendor = null as any;
+export const getVendorOutput: typeof import("./getVendor").getVendorOutput = null as any;
+utilities.lazyLoad(exports, ["getVendor","getVendorOutput"], () => require("./getVendor"));
+
+export { GetVendorSkuPreviewArgs, GetVendorSkuPreviewResult, GetVendorSkuPreviewOutputArgs } from "./getVendorSkuPreview";
+export const getVendorSkuPreview: typeof import("./getVendorSkuPreview").getVendorSkuPreview = null as any;
+export const getVendorSkuPreviewOutput: typeof import("./getVendorSkuPreview").getVendorSkuPreviewOutput = null as any;
+utilities.lazyLoad(exports, ["getVendorSkuPreview","getVendorSkuPreviewOutput"], () => require("./getVendorSkuPreview"));
+
+export { GetVendorSkusArgs, GetVendorSkusResult, GetVendorSkusOutputArgs } from "./getVendorSkus";
+export const getVendorSkus: typeof import("./getVendorSkus").getVendorSkus = null as any;
+export const getVendorSkusOutput: typeof import("./getVendorSkus").getVendorSkusOutput = null as any;
+utilities.lazyLoad(exports, ["getVendorSkus","getVendorSkusOutput"], () => require("./getVendorSkus"));
+
 export { ListDeviceRegistrationKeyArgs, ListDeviceRegistrationKeyResult, ListDeviceRegistrationKeyOutputArgs } from "./listDeviceRegistrationKey";
 export const listDeviceRegistrationKey: typeof import("./listDeviceRegistrationKey").listDeviceRegistrationKey = null as any;
 export const listDeviceRegistrationKeyOutput: typeof import("./listDeviceRegistrationKey").listDeviceRegistrationKeyOutput = null as any;
 utilities.lazyLoad(exports, ["listDeviceRegistrationKey","listDeviceRegistrationKeyOutput"], () => require("./listDeviceRegistrationKey"));
 
+
+// Export enums:
+export * from "../../types/enums/hybridnetwork/v20210501";

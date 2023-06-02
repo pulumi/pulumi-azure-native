@@ -15,6 +15,11 @@ export type EventHubConnection = import("./eventHubConnection").EventHubConnecti
 export const EventHubConnection: typeof import("./eventHubConnection").EventHubConnection = null as any;
 utilities.lazyLoad(exports, ["EventHubConnection"], () => require("./eventHubConnection"));
 
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;

@@ -2,6 +2,121 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const DiskCreateOption = {
+    /**
+     * Create an empty data disk of a size given by diskSizeGB.
+     */
+    Empty: "Empty",
+    /**
+     * Disk will be attached to a VM.
+     */
+    Attach: "Attach",
+    /**
+     * Create a new disk from a platform image specified by the given imageReference or galleryImageReference.
+     */
+    FromImage: "FromImage",
+    /**
+     * Create a disk by importing from a blob specified by a sourceUri in a storage account specified by storageAccountId.
+     */
+    Import: "Import",
+    /**
+     * Create a new disk or snapshot by copying from a disk or snapshot specified by the given sourceResourceId.
+     */
+    Copy: "Copy",
+    /**
+     * Create a new disk by copying from a backup recovery point.
+     */
+    Restore: "Restore",
+    /**
+     * Create a new disk by obtaining a write token and using it to directly upload the contents of the disk.
+     */
+    Upload: "Upload",
+} as const;
+
+/**
+ * This enumerates the possible sources of a disk's creation.
+ */
+export type DiskCreateOption = (typeof DiskCreateOption)[keyof typeof DiskCreateOption];
+
+export const DiskEncryptionSetIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
+ */
+export type DiskEncryptionSetIdentityType = (typeof DiskEncryptionSetIdentityType)[keyof typeof DiskEncryptionSetIdentityType];
+
+export const DiskEncryptionSetType = {
+    /**
+     * Resource using diskEncryptionSet would be encrypted at rest with Customer managed key that can be changed and revoked by a customer.
+     */
+    EncryptionAtRestWithCustomerKey: "EncryptionAtRestWithCustomerKey",
+    /**
+     * Resource using diskEncryptionSet would be encrypted at rest with two layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
+     */
+    EncryptionAtRestWithPlatformAndCustomerKeys: "EncryptionAtRestWithPlatformAndCustomerKeys",
+} as const;
+
+/**
+ * The type of key used to encrypt the data of the disk.
+ */
+export type DiskEncryptionSetType = (typeof DiskEncryptionSetType)[keyof typeof DiskEncryptionSetType];
+
+export const DiskStorageAccountTypes = {
+    /**
+     * Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access.
+     */
+    Standard_LRS: "Standard_LRS",
+    /**
+     * Premium SSD locally redundant storage. Best for production and performance sensitive workloads.
+     */
+    Premium_LRS: "Premium_LRS",
+    /**
+     * Standard SSD locally redundant storage. Best for web servers, lightly used enterprise applications and dev/test.
+     */
+    StandardSSD_LRS: "StandardSSD_LRS",
+    /**
+     * Ultra SSD locally redundant storage. Best for IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.
+     */
+    UltraSSD_LRS: "UltraSSD_LRS",
+} as const;
+
+/**
+ * The sku name.
+ */
+export type DiskStorageAccountTypes = (typeof DiskStorageAccountTypes)[keyof typeof DiskStorageAccountTypes];
+
+export const EncryptionType = {
+    /**
+     * Disk is encrypted at rest with Platform managed key. It is the default encryption type. This is not a valid encryption type for disk encryption sets.
+     */
+    EncryptionAtRestWithPlatformKey: "EncryptionAtRestWithPlatformKey",
+    /**
+     * Disk is encrypted at rest with Customer managed key that can be changed and revoked by a customer.
+     */
+    EncryptionAtRestWithCustomerKey: "EncryptionAtRestWithCustomerKey",
+    /**
+     * Disk is encrypted at rest with 2 layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
+     */
+    EncryptionAtRestWithPlatformAndCustomerKeys: "EncryptionAtRestWithPlatformAndCustomerKeys",
+} as const;
+
+/**
+ * The type of key used to encrypt the data of the disk.
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+export const ExtendedLocationTypes = {
+    EdgeZone: "EdgeZone",
+} as const;
+
+/**
+ * The type of the extended location.
+ */
+export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
+
 export const GallerySharingPermissionTypes = {
     Private: "Private",
     Groups: "Groups",
@@ -33,6 +148,26 @@ export const HyperVGeneration = {
  */
 export type HyperVGeneration = (typeof HyperVGeneration)[keyof typeof HyperVGeneration];
 
+export const NetworkAccessPolicy = {
+    /**
+     * The disk can be exported or uploaded to from any network.
+     */
+    AllowAll: "AllowAll",
+    /**
+     * The disk can be exported or uploaded to using a DiskAccess resource's private endpoints.
+     */
+    AllowPrivate: "AllowPrivate",
+    /**
+     * The disk cannot be exported.
+     */
+    DenyAll: "DenyAll",
+} as const;
+
+/**
+ * Policy for accessing the disk via network.
+ */
+export type NetworkAccessPolicy = (typeof NetworkAccessPolicy)[keyof typeof NetworkAccessPolicy];
+
 export const OperatingSystemStateTypes = {
     Generalized: "Generalized",
     Specialized: "Specialized",
@@ -49,9 +184,40 @@ export const OperatingSystemTypes = {
 } as const;
 
 /**
- * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+ * The Operating System type.
  */
 export type OperatingSystemTypes = (typeof OperatingSystemTypes)[keyof typeof OperatingSystemTypes];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const SnapshotStorageAccountTypes = {
+    /**
+     * Standard HDD locally redundant storage
+     */
+    Standard_LRS: "Standard_LRS",
+    /**
+     * Premium SSD locally redundant storage
+     */
+    Premium_LRS: "Premium_LRS",
+    /**
+     * Standard zone redundant storage
+     */
+    Standard_ZRS: "Standard_ZRS",
+} as const;
+
+/**
+ * The sku name.
+ */
+export type SnapshotStorageAccountTypes = (typeof SnapshotStorageAccountTypes)[keyof typeof SnapshotStorageAccountTypes];
 
 export const StorageAccountType = {
     Standard_LRS: "Standard_LRS",

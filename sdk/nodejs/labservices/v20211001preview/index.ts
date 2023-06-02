@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetLabArgs, GetLabResult, GetLabOutputArgs } from "./getLab";
+export const getLab: typeof import("./getLab").getLab = null as any;
+export const getLabOutput: typeof import("./getLab").getLabOutput = null as any;
+utilities.lazyLoad(exports, ["getLab","getLabOutput"], () => require("./getLab"));
+
 export { GetLabPlanArgs, GetLabPlanResult, GetLabPlanOutputArgs } from "./getLabPlan";
 export const getLabPlan: typeof import("./getLabPlan").getLabPlan = null as any;
 export const getLabPlanOutput: typeof import("./getLabPlan").getLabPlanOutput = null as any;
@@ -14,6 +19,11 @@ export { GetScheduleArgs, GetScheduleResult, GetScheduleOutputArgs } from "./get
 export const getSchedule: typeof import("./getSchedule").getSchedule = null as any;
 export const getScheduleOutput: typeof import("./getSchedule").getScheduleOutput = null as any;
 utilities.lazyLoad(exports, ["getSchedule","getScheduleOutput"], () => require("./getSchedule"));
+
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
 export { LabPlanArgs } from "./labPlan";
 export type LabPlan = import("./labPlan").LabPlan;

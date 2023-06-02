@@ -7,9 +7,15 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .application_group import *
+from .get_application import *
 from .get_application_group import *
 from .get_host_pool import *
+from .get_msix_package import *
+from .get_private_endpoint_connection_by_host_pool import *
+from .get_private_endpoint_connection_by_workspace import *
+from .get_scaling_plan import *
 from .get_scaling_plan_pooled_schedule import *
+from .get_workspace import *
 from .host_pool import *
 from .scaling_plan_pooled_schedule import *
 from ._inputs import *

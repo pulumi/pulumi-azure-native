@@ -300,6 +300,11 @@ export const getSyncMember: typeof import("./getSyncMember").getSyncMember = nul
 export const getSyncMemberOutput: typeof import("./getSyncMember").getSyncMemberOutput = null as any;
 utilities.lazyLoad(exports, ["getSyncMember","getSyncMemberOutput"], () => require("./getSyncMember"));
 
+export { GetTransparentDataEncryptionArgs, GetTransparentDataEncryptionResult, GetTransparentDataEncryptionOutputArgs } from "./getTransparentDataEncryption";
+export const getTransparentDataEncryption: typeof import("./getTransparentDataEncryption").getTransparentDataEncryption = null as any;
+export const getTransparentDataEncryptionOutput: typeof import("./getTransparentDataEncryption").getTransparentDataEncryptionOutput = null as any;
+utilities.lazyLoad(exports, ["getTransparentDataEncryption","getTransparentDataEncryptionOutput"], () => require("./getTransparentDataEncryption"));
+
 export { GetVirtualNetworkRuleArgs, GetVirtualNetworkRuleResult, GetVirtualNetworkRuleOutputArgs } from "./getVirtualNetworkRule";
 export const getVirtualNetworkRule: typeof import("./getVirtualNetworkRule").getVirtualNetworkRule = null as any;
 export const getVirtualNetworkRuleOutput: typeof import("./getVirtualNetworkRule").getVirtualNetworkRuleOutput = null as any;

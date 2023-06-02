@@ -15,8 +15,14 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.scheduler.v20140801preview as __v20140801preview
+    v20140801preview = __v20140801preview
+    import pulumi_azure_native.scheduler.v20160101 as __v20160101
+    v20160101 = __v20160101
     import pulumi_azure_native.scheduler.v20160301 as __v20160301
     v20160301 = __v20160301
 else:
+    v20140801preview = _utilities.lazy_import('pulumi_azure_native.scheduler.v20140801preview')
+    v20160101 = _utilities.lazy_import('pulumi_azure_native.scheduler.v20160101')
     v20160301 = _utilities.lazy_import('pulumi_azure_native.scheduler.v20160301')
 

@@ -50,6 +50,11 @@ export type DatabaseAccountTable = import("./databaseAccountTable").DatabaseAcco
 export const DatabaseAccountTable: typeof import("./databaseAccountTable").DatabaseAccountTable = null as any;
 utilities.lazyLoad(exports, ["DatabaseAccountTable"], () => require("./databaseAccountTable"));
 
+export { GetDatabaseAccountArgs, GetDatabaseAccountResult, GetDatabaseAccountOutputArgs } from "./getDatabaseAccount";
+export const getDatabaseAccount: typeof import("./getDatabaseAccount").getDatabaseAccount = null as any;
+export const getDatabaseAccountOutput: typeof import("./getDatabaseAccount").getDatabaseAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAccount","getDatabaseAccountOutput"], () => require("./getDatabaseAccount"));
+
 export { GetDatabaseAccountCassandraKeyspaceArgs, GetDatabaseAccountCassandraKeyspaceResult, GetDatabaseAccountCassandraKeyspaceOutputArgs } from "./getDatabaseAccountCassandraKeyspace";
 export const getDatabaseAccountCassandraKeyspace: typeof import("./getDatabaseAccountCassandraKeyspace").getDatabaseAccountCassandraKeyspace = null as any;
 export const getDatabaseAccountCassandraKeyspaceOutput: typeof import("./getDatabaseAccountCassandraKeyspace").getDatabaseAccountCassandraKeyspaceOutput = null as any;

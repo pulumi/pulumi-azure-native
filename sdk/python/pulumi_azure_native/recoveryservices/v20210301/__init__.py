@@ -5,8 +5,23 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .get_private_endpoint_connection import *
+from .get_protected_item import *
+from .get_protection_container import *
+from .get_protection_intent import *
+from .get_protection_policy import *
+from .get_replication_fabric import *
+from .get_replication_migration_item import *
 from .get_replication_network_mapping import *
+from .get_replication_policy import *
+from .get_replication_protected_item import *
+from .get_replication_protection_container_mapping import *
+from .get_replication_recovery_plan import *
+from .get_replication_recovery_services_provider import *
+from .get_replication_storage_classification_mapping import *
 from .get_replicationv_center import *
+from .get_vault import *
 from .replication_network_mapping import *
 from .replicationv_center import *
 from ._inputs import *

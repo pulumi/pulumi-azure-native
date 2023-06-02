@@ -6,5 +6,9 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_peer_asn import *
+from .get_peering import *
+from .get_peering_service import *
 from .get_peering_service_prefix import *
 from .peering_service_prefix import *
+from . import outputs

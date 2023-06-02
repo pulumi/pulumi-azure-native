@@ -10,6 +10,21 @@ export const getPeerAsn: typeof import("./getPeerAsn").getPeerAsn = null as any;
 export const getPeerAsnOutput: typeof import("./getPeerAsn").getPeerAsnOutput = null as any;
 utilities.lazyLoad(exports, ["getPeerAsn","getPeerAsnOutput"], () => require("./getPeerAsn"));
 
+export { GetPeeringArgs, GetPeeringResult, GetPeeringOutputArgs } from "./getPeering";
+export const getPeering: typeof import("./getPeering").getPeering = null as any;
+export const getPeeringOutput: typeof import("./getPeering").getPeeringOutput = null as any;
+utilities.lazyLoad(exports, ["getPeering","getPeeringOutput"], () => require("./getPeering"));
+
+export { GetPeeringServiceArgs, GetPeeringServiceResult, GetPeeringServiceOutputArgs } from "./getPeeringService";
+export const getPeeringService: typeof import("./getPeeringService").getPeeringService = null as any;
+export const getPeeringServiceOutput: typeof import("./getPeeringService").getPeeringServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getPeeringService","getPeeringServiceOutput"], () => require("./getPeeringService"));
+
+export { GetPrefixArgs, GetPrefixResult, GetPrefixOutputArgs } from "./getPrefix";
+export const getPrefix: typeof import("./getPrefix").getPrefix = null as any;
+export const getPrefixOutput: typeof import("./getPrefix").getPrefixOutput = null as any;
+utilities.lazyLoad(exports, ["getPrefix","getPrefixOutput"], () => require("./getPrefix"));
+
 export { PeerAsnArgs } from "./peerAsn";
 export type PeerAsn = import("./peerAsn").PeerAsn;
 export const PeerAsn: typeof import("./peerAsn").PeerAsn = null as any;

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Network.V20220501.Inputs
         /// Name of the pricing tier.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNative.Network.V20220501.SkuName>? Name { get; set; }
+        public object? Name { get; set; }
 
         public SkuArgs()
         {

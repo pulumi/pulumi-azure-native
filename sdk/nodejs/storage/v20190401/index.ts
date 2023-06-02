@@ -10,10 +10,40 @@ export type BlobContainerImmutabilityPolicy = import("./blobContainerImmutabilit
 export const BlobContainerImmutabilityPolicy: typeof import("./blobContainerImmutabilityPolicy").BlobContainerImmutabilityPolicy = null as any;
 utilities.lazyLoad(exports, ["BlobContainerImmutabilityPolicy"], () => require("./blobContainerImmutabilityPolicy"));
 
+export { GetBlobContainerArgs, GetBlobContainerResult, GetBlobContainerOutputArgs } from "./getBlobContainer";
+export const getBlobContainer: typeof import("./getBlobContainer").getBlobContainer = null as any;
+export const getBlobContainerOutput: typeof import("./getBlobContainer").getBlobContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getBlobContainer","getBlobContainerOutput"], () => require("./getBlobContainer"));
+
 export { GetBlobContainerImmutabilityPolicyArgs, GetBlobContainerImmutabilityPolicyResult, GetBlobContainerImmutabilityPolicyOutputArgs } from "./getBlobContainerImmutabilityPolicy";
 export const getBlobContainerImmutabilityPolicy: typeof import("./getBlobContainerImmutabilityPolicy").getBlobContainerImmutabilityPolicy = null as any;
 export const getBlobContainerImmutabilityPolicyOutput: typeof import("./getBlobContainerImmutabilityPolicy").getBlobContainerImmutabilityPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getBlobContainerImmutabilityPolicy","getBlobContainerImmutabilityPolicyOutput"], () => require("./getBlobContainerImmutabilityPolicy"));
+
+export { GetBlobServicePropertiesArgs, GetBlobServicePropertiesResult, GetBlobServicePropertiesOutputArgs } from "./getBlobServiceProperties";
+export const getBlobServiceProperties: typeof import("./getBlobServiceProperties").getBlobServiceProperties = null as any;
+export const getBlobServicePropertiesOutput: typeof import("./getBlobServiceProperties").getBlobServicePropertiesOutput = null as any;
+utilities.lazyLoad(exports, ["getBlobServiceProperties","getBlobServicePropertiesOutput"], () => require("./getBlobServiceProperties"));
+
+export { GetFileServicePropertiesArgs, GetFileServicePropertiesResult, GetFileServicePropertiesOutputArgs } from "./getFileServiceProperties";
+export const getFileServiceProperties: typeof import("./getFileServiceProperties").getFileServiceProperties = null as any;
+export const getFileServicePropertiesOutput: typeof import("./getFileServiceProperties").getFileServicePropertiesOutput = null as any;
+utilities.lazyLoad(exports, ["getFileServiceProperties","getFileServicePropertiesOutput"], () => require("./getFileServiceProperties"));
+
+export { GetFileShareArgs, GetFileShareResult, GetFileShareOutputArgs } from "./getFileShare";
+export const getFileShare: typeof import("./getFileShare").getFileShare = null as any;
+export const getFileShareOutput: typeof import("./getFileShare").getFileShareOutput = null as any;
+utilities.lazyLoad(exports, ["getFileShare","getFileShareOutput"], () => require("./getFileShare"));
+
+export { GetManagementPolicyArgs, GetManagementPolicyResult, GetManagementPolicyOutputArgs } from "./getManagementPolicy";
+export const getManagementPolicy: typeof import("./getManagementPolicy").getManagementPolicy = null as any;
+export const getManagementPolicyOutput: typeof import("./getManagementPolicy").getManagementPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getManagementPolicy","getManagementPolicyOutput"], () => require("./getManagementPolicy"));
+
+export { GetStorageAccountArgs, GetStorageAccountResult, GetStorageAccountOutputArgs } from "./getStorageAccount";
+export const getStorageAccount: typeof import("./getStorageAccount").getStorageAccount = null as any;
+export const getStorageAccountOutput: typeof import("./getStorageAccount").getStorageAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageAccount","getStorageAccountOutput"], () => require("./getStorageAccount"));
 
 export { ListStorageAccountKeysArgs, ListStorageAccountKeysResult, ListStorageAccountKeysOutputArgs } from "./listStorageAccountKeys";
 export const listStorageAccountKeys: typeof import("./listStorageAccountKeys").listStorageAccountKeys = null as any;

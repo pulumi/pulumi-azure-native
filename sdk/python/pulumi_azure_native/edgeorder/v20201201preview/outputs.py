@@ -12,24 +12,110 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AddressDetailsResponse',
+    'AddressPropertiesResponse',
     'AvailabilityInformationResponse',
     'BillingMeterDetailsResponse',
     'ConfigurationResponse',
+    'ContactDetailsResponse',
     'CostInformationResponse',
     'DescriptionResponse',
+    'DeviceDetailsResponse',
     'DimensionsResponse',
+    'DisplayInfoResponse',
+    'EncryptionPreferencesResponse',
+    'ErrorAdditionalInfoResponse',
+    'ErrorDetailResponse',
     'FilterablePropertyResponse',
+    'ForwardShippingDetailsResponse',
     'HierarchyInformationResponse',
     'ImageInformationResponse',
     'LinkResponse',
+    'ManagementResourcePreferencesResponse',
+    'NotificationPreferenceResponse',
+    'OrderItemDetailsResponse',
     'Pav2MeterDetailsResponse',
+    'PreferencesResponse',
+    'ProductDetailsResponse',
     'ProductFamilyResponse',
     'ProductLineResponse',
     'ProductResponse',
     'PurchaseMeterDetailsResponse',
     'ResourceProviderDetailsResponse',
+    'ReverseShippingDetailsResponse',
+    'ShippingAddressResponse',
     'SpecificationResponse',
+    'StageDetailsResponse',
+    'SystemDataResponse',
+    'TransportPreferencesResponse',
 ]
+
+@pulumi.output_type
+class AddressDetailsResponse(dict):
+    """
+    Address details for an order item.
+    """
+    def __init__(__self__, *,
+                 forward_address: 'outputs.AddressPropertiesResponse',
+                 return_address: 'outputs.AddressPropertiesResponse'):
+        """
+        Address details for an order item.
+        :param 'AddressPropertiesResponse' forward_address: Customer address and contact details. It should be address resource
+        :param 'AddressPropertiesResponse' return_address: Return shipping address
+        """
+        pulumi.set(__self__, "forward_address", forward_address)
+        pulumi.set(__self__, "return_address", return_address)
+
+    @property
+    @pulumi.getter(name="forwardAddress")
+    def forward_address(self) -> 'outputs.AddressPropertiesResponse':
+        """
+        Customer address and contact details. It should be address resource
+        """
+        return pulumi.get(self, "forward_address")
+
+    @property
+    @pulumi.getter(name="returnAddress")
+    def return_address(self) -> 'outputs.AddressPropertiesResponse':
+        """
+        Return shipping address
+        """
+        return pulumi.get(self, "return_address")
+
+
+@pulumi.output_type
+class AddressPropertiesResponse(dict):
+    """
+    Address Properties
+    """
+    def __init__(__self__, *,
+                 contact_details: 'outputs.ContactDetailsResponse',
+                 shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
+        """
+        Address Properties
+        :param 'ContactDetailsResponse' contact_details: Contact details for the address
+        :param 'ShippingAddressResponse' shipping_address: Shipping details for the address
+        """
+        pulumi.set(__self__, "contact_details", contact_details)
+        if shipping_address is not None:
+            pulumi.set(__self__, "shipping_address", shipping_address)
+
+    @property
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> 'outputs.ContactDetailsResponse':
+        """
+        Contact details for the address
+        """
+        return pulumi.get(self, "contact_details")
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> Optional['outputs.ShippingAddressResponse']:
+        """
+        Shipping details for the address
+        """
+        return pulumi.get(self, "shipping_address")
+
 
 @pulumi.output_type
 class AvailabilityInformationResponse(dict):
@@ -241,6 +327,74 @@ class ConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class ContactDetailsResponse(dict):
+    """
+    Contact Details.
+    """
+    def __init__(__self__, *,
+                 contact_name: str,
+                 email_list: Sequence[str],
+                 phone: str,
+                 mobile: Optional[str] = None,
+                 phone_extension: Optional[str] = None):
+        """
+        Contact Details.
+        :param str contact_name: Contact name of the person.
+        :param Sequence[str] email_list: List of Email-ids to be notified about job progress.
+        :param str phone: Phone number of the contact person.
+        :param str mobile: Mobile number of the contact person.
+        :param str phone_extension: Phone extension number of the contact person.
+        """
+        pulumi.set(__self__, "contact_name", contact_name)
+        pulumi.set(__self__, "email_list", email_list)
+        pulumi.set(__self__, "phone", phone)
+        if mobile is not None:
+            pulumi.set(__self__, "mobile", mobile)
+        if phone_extension is not None:
+            pulumi.set(__self__, "phone_extension", phone_extension)
+
+    @property
+    @pulumi.getter(name="contactName")
+    def contact_name(self) -> str:
+        """
+        Contact name of the person.
+        """
+        return pulumi.get(self, "contact_name")
+
+    @property
+    @pulumi.getter(name="emailList")
+    def email_list(self) -> Sequence[str]:
+        """
+        List of Email-ids to be notified about job progress.
+        """
+        return pulumi.get(self, "email_list")
+
+    @property
+    @pulumi.getter
+    def phone(self) -> str:
+        """
+        Phone number of the contact person.
+        """
+        return pulumi.get(self, "phone")
+
+    @property
+    @pulumi.getter
+    def mobile(self) -> Optional[str]:
+        """
+        Mobile number of the contact person.
+        """
+        return pulumi.get(self, "mobile")
+
+    @property
+    @pulumi.getter(name="phoneExtension")
+    def phone_extension(self) -> Optional[str]:
+        """
+        Phone extension number of the contact person.
+        """
+        return pulumi.get(self, "phone_extension")
+
+
+@pulumi.output_type
 class CostInformationResponse(dict):
     """
     Cost information for the product system
@@ -351,6 +505,50 @@ class DescriptionResponse(dict):
 
 
 @pulumi.output_type
+class DeviceDetailsResponse(dict):
+    """
+    Device details.
+    """
+    def __init__(__self__, *,
+                 management_resource_id: str,
+                 management_resource_tenant_id: str,
+                 serial_number: str):
+        """
+        Device details.
+        :param str management_resource_id: Management Resource Id
+        :param str management_resource_tenant_id: Management Resource Tenant ID
+        :param str serial_number: device serial number
+        """
+        pulumi.set(__self__, "management_resource_id", management_resource_id)
+        pulumi.set(__self__, "management_resource_tenant_id", management_resource_tenant_id)
+        pulumi.set(__self__, "serial_number", serial_number)
+
+    @property
+    @pulumi.getter(name="managementResourceId")
+    def management_resource_id(self) -> str:
+        """
+        Management Resource Id
+        """
+        return pulumi.get(self, "management_resource_id")
+
+    @property
+    @pulumi.getter(name="managementResourceTenantId")
+    def management_resource_tenant_id(self) -> str:
+        """
+        Management Resource Tenant ID
+        """
+        return pulumi.get(self, "management_resource_tenant_id")
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> str:
+        """
+        device serial number
+        """
+        return pulumi.get(self, "serial_number")
+
+
+@pulumi.output_type
 class DimensionsResponse(dict):
     """
     Dimensions of a configuration.
@@ -439,6 +637,161 @@ class DimensionsResponse(dict):
 
 
 @pulumi.output_type
+class DisplayInfoResponse(dict):
+    """
+    Describes product display information
+    """
+    def __init__(__self__, *,
+                 configuration_display_name: str,
+                 product_family_display_name: str):
+        """
+        Describes product display information
+        :param str configuration_display_name: Configuration display name
+        :param str product_family_display_name: Product family display name
+        """
+        pulumi.set(__self__, "configuration_display_name", configuration_display_name)
+        pulumi.set(__self__, "product_family_display_name", product_family_display_name)
+
+    @property
+    @pulumi.getter(name="configurationDisplayName")
+    def configuration_display_name(self) -> str:
+        """
+        Configuration display name
+        """
+        return pulumi.get(self, "configuration_display_name")
+
+    @property
+    @pulumi.getter(name="productFamilyDisplayName")
+    def product_family_display_name(self) -> str:
+        """
+        Product family display name
+        """
+        return pulumi.get(self, "product_family_display_name")
+
+
+@pulumi.output_type
+class EncryptionPreferencesResponse(dict):
+    """
+    Preferences related to the double encryption
+    """
+    def __init__(__self__, *,
+                 double_encryption_status: Optional[str] = None):
+        """
+        Preferences related to the double encryption
+        :param str double_encryption_status: Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
+        """
+        if double_encryption_status is not None:
+            pulumi.set(__self__, "double_encryption_status", double_encryption_status)
+
+    @property
+    @pulumi.getter(name="doubleEncryptionStatus")
+    def double_encryption_status(self) -> Optional[str]:
+        """
+        Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
+        """
+        return pulumi.get(self, "double_encryption_status")
+
+
+@pulumi.output_type
+class ErrorAdditionalInfoResponse(dict):
+    """
+    The resource management error additional info.
+    """
+    def __init__(__self__, *,
+                 info: Any,
+                 type: str):
+        """
+        The resource management error additional info.
+        :param Any info: The additional info.
+        :param str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
+                 message: str,
+                 target: str):
+        """
+        The error detail.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param str message: The error message.
+        :param str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
 class FilterablePropertyResponse(dict):
     """
     Different types of filters supported and its values.
@@ -469,6 +822,61 @@ class FilterablePropertyResponse(dict):
         Type of product filter.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ForwardShippingDetailsResponse(dict):
+    """
+    Forward shipment details.
+    """
+    def __init__(__self__, *,
+                 carrier_display_name: str,
+                 carrier_name: str,
+                 tracking_id: str,
+                 tracking_url: str):
+        """
+        Forward shipment details.
+        :param str carrier_display_name: Carrier Name for display purpose. Not to be used for any processing.
+        :param str carrier_name: Name of the carrier.
+        :param str tracking_id: TrackingId of the package
+        :param str tracking_url: TrackingUrl of the package.
+        """
+        pulumi.set(__self__, "carrier_display_name", carrier_display_name)
+        pulumi.set(__self__, "carrier_name", carrier_name)
+        pulumi.set(__self__, "tracking_id", tracking_id)
+        pulumi.set(__self__, "tracking_url", tracking_url)
+
+    @property
+    @pulumi.getter(name="carrierDisplayName")
+    def carrier_display_name(self) -> str:
+        """
+        Carrier Name for display purpose. Not to be used for any processing.
+        """
+        return pulumi.get(self, "carrier_display_name")
+
+    @property
+    @pulumi.getter(name="carrierName")
+    def carrier_name(self) -> str:
+        """
+        Name of the carrier.
+        """
+        return pulumi.get(self, "carrier_name")
+
+    @property
+    @pulumi.getter(name="trackingId")
+    def tracking_id(self) -> str:
+        """
+        TrackingId of the package
+        """
+        return pulumi.get(self, "tracking_id")
+
+    @property
+    @pulumi.getter(name="trackingUrl")
+    def tracking_url(self) -> str:
+        """
+        TrackingUrl of the package.
+        """
+        return pulumi.get(self, "tracking_url")
 
 
 @pulumi.output_type
@@ -597,6 +1005,251 @@ class LinkResponse(dict):
 
 
 @pulumi.output_type
+class ManagementResourcePreferencesResponse(dict):
+    """
+    Management resource preference to link device
+    """
+    def __init__(__self__, *,
+                 preferred_management_resource_id: Optional[str] = None):
+        """
+        Management resource preference to link device
+        :param str preferred_management_resource_id: Customer preferred Management resource ARM ID
+        """
+        if preferred_management_resource_id is not None:
+            pulumi.set(__self__, "preferred_management_resource_id", preferred_management_resource_id)
+
+    @property
+    @pulumi.getter(name="preferredManagementResourceId")
+    def preferred_management_resource_id(self) -> Optional[str]:
+        """
+        Customer preferred Management resource ARM ID
+        """
+        return pulumi.get(self, "preferred_management_resource_id")
+
+
+@pulumi.output_type
+class NotificationPreferenceResponse(dict):
+    """
+    Notification preference for a job stage.
+    """
+    def __init__(__self__, *,
+                 send_notification: bool,
+                 stage_name: str):
+        """
+        Notification preference for a job stage.
+        :param bool send_notification: Notification is required or not.
+        :param str stage_name: Name of the stage.
+        """
+        pulumi.set(__self__, "send_notification", send_notification)
+        pulumi.set(__self__, "stage_name", stage_name)
+
+    @property
+    @pulumi.getter(name="sendNotification")
+    def send_notification(self) -> bool:
+        """
+        Notification is required or not.
+        """
+        return pulumi.get(self, "send_notification")
+
+    @property
+    @pulumi.getter(name="stageName")
+    def stage_name(self) -> str:
+        """
+        Name of the stage.
+        """
+        return pulumi.get(self, "stage_name")
+
+
+@pulumi.output_type
+class OrderItemDetailsResponse(dict):
+    """
+    Order item details
+    """
+    def __init__(__self__, *,
+                 cancellation_reason: str,
+                 cancellation_status: str,
+                 current_stage: 'outputs.StageDetailsResponse',
+                 deletion_status: str,
+                 error: 'outputs.ErrorDetailResponse',
+                 forward_shipping_details: 'outputs.ForwardShippingDetailsResponse',
+                 management_rp_details: 'outputs.ResourceProviderDetailsResponse',
+                 management_rp_details_list: Sequence['outputs.ResourceProviderDetailsResponse'],
+                 order_item_stage_history: Sequence['outputs.StageDetailsResponse'],
+                 order_item_type: str,
+                 product_details: 'outputs.ProductDetailsResponse',
+                 return_reason: str,
+                 return_status: str,
+                 reverse_shipping_details: 'outputs.ReverseShippingDetailsResponse',
+                 notification_email_list: Optional[Sequence[str]] = None,
+                 preferences: Optional['outputs.PreferencesResponse'] = None):
+        """
+        Order item details
+        :param str cancellation_reason: Cancellation reason.
+        :param str cancellation_status: Describes whether the order item is cancellable or not.
+        :param 'StageDetailsResponse' current_stage: Current Order item Status
+        :param str deletion_status: Describes whether the order item is deletable or not.
+        :param 'ErrorDetailResponse' error: Top level error for the job.
+        :param 'ForwardShippingDetailsResponse' forward_shipping_details: Forward Package Shipping details
+        :param 'ResourceProviderDetailsResponse' management_rp_details: Parent RP details - this returns only the first or default parent RP from the entire list
+        :param Sequence['ResourceProviderDetailsResponse'] management_rp_details_list: List of parent RP details supported for configuration.
+        :param Sequence['StageDetailsResponse'] order_item_stage_history: Order item status history
+        :param str order_item_type: Order item type.
+        :param 'ProductDetailsResponse' product_details: Unique identifier for configuration.
+        :param str return_reason: Return reason.
+        :param str return_status: Describes whether the order item is returnable or not.
+        :param 'ReverseShippingDetailsResponse' reverse_shipping_details: Reverse Package Shipping details
+        :param Sequence[str] notification_email_list: Additional notification email list
+        :param 'PreferencesResponse' preferences: Customer notification Preferences
+        """
+        pulumi.set(__self__, "cancellation_reason", cancellation_reason)
+        pulumi.set(__self__, "cancellation_status", cancellation_status)
+        pulumi.set(__self__, "current_stage", current_stage)
+        pulumi.set(__self__, "deletion_status", deletion_status)
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "forward_shipping_details", forward_shipping_details)
+        pulumi.set(__self__, "management_rp_details", management_rp_details)
+        pulumi.set(__self__, "management_rp_details_list", management_rp_details_list)
+        pulumi.set(__self__, "order_item_stage_history", order_item_stage_history)
+        pulumi.set(__self__, "order_item_type", order_item_type)
+        pulumi.set(__self__, "product_details", product_details)
+        pulumi.set(__self__, "return_reason", return_reason)
+        pulumi.set(__self__, "return_status", return_status)
+        pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
+        if notification_email_list is not None:
+            pulumi.set(__self__, "notification_email_list", notification_email_list)
+        if preferences is not None:
+            pulumi.set(__self__, "preferences", preferences)
+
+    @property
+    @pulumi.getter(name="cancellationReason")
+    def cancellation_reason(self) -> str:
+        """
+        Cancellation reason.
+        """
+        return pulumi.get(self, "cancellation_reason")
+
+    @property
+    @pulumi.getter(name="cancellationStatus")
+    def cancellation_status(self) -> str:
+        """
+        Describes whether the order item is cancellable or not.
+        """
+        return pulumi.get(self, "cancellation_status")
+
+    @property
+    @pulumi.getter(name="currentStage")
+    def current_stage(self) -> 'outputs.StageDetailsResponse':
+        """
+        Current Order item Status
+        """
+        return pulumi.get(self, "current_stage")
+
+    @property
+    @pulumi.getter(name="deletionStatus")
+    def deletion_status(self) -> str:
+        """
+        Describes whether the order item is deletable or not.
+        """
+        return pulumi.get(self, "deletion_status")
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.ErrorDetailResponse':
+        """
+        Top level error for the job.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="forwardShippingDetails")
+    def forward_shipping_details(self) -> 'outputs.ForwardShippingDetailsResponse':
+        """
+        Forward Package Shipping details
+        """
+        return pulumi.get(self, "forward_shipping_details")
+
+    @property
+    @pulumi.getter(name="managementRpDetails")
+    def management_rp_details(self) -> 'outputs.ResourceProviderDetailsResponse':
+        """
+        Parent RP details - this returns only the first or default parent RP from the entire list
+        """
+        return pulumi.get(self, "management_rp_details")
+
+    @property
+    @pulumi.getter(name="managementRpDetailsList")
+    def management_rp_details_list(self) -> Sequence['outputs.ResourceProviderDetailsResponse']:
+        """
+        List of parent RP details supported for configuration.
+        """
+        return pulumi.get(self, "management_rp_details_list")
+
+    @property
+    @pulumi.getter(name="orderItemStageHistory")
+    def order_item_stage_history(self) -> Sequence['outputs.StageDetailsResponse']:
+        """
+        Order item status history
+        """
+        return pulumi.get(self, "order_item_stage_history")
+
+    @property
+    @pulumi.getter(name="orderItemType")
+    def order_item_type(self) -> str:
+        """
+        Order item type.
+        """
+        return pulumi.get(self, "order_item_type")
+
+    @property
+    @pulumi.getter(name="productDetails")
+    def product_details(self) -> 'outputs.ProductDetailsResponse':
+        """
+        Unique identifier for configuration.
+        """
+        return pulumi.get(self, "product_details")
+
+    @property
+    @pulumi.getter(name="returnReason")
+    def return_reason(self) -> str:
+        """
+        Return reason.
+        """
+        return pulumi.get(self, "return_reason")
+
+    @property
+    @pulumi.getter(name="returnStatus")
+    def return_status(self) -> str:
+        """
+        Describes whether the order item is returnable or not.
+        """
+        return pulumi.get(self, "return_status")
+
+    @property
+    @pulumi.getter(name="reverseShippingDetails")
+    def reverse_shipping_details(self) -> 'outputs.ReverseShippingDetailsResponse':
+        """
+        Reverse Package Shipping details
+        """
+        return pulumi.get(self, "reverse_shipping_details")
+
+    @property
+    @pulumi.getter(name="notificationEmailList")
+    def notification_email_list(self) -> Optional[Sequence[str]]:
+        """
+        Additional notification email list
+        """
+        return pulumi.get(self, "notification_email_list")
+
+    @property
+    @pulumi.getter
+    def preferences(self) -> Optional['outputs.PreferencesResponse']:
+        """
+        Customer notification Preferences
+        """
+        return pulumi.get(self, "preferences")
+
+
+@pulumi.output_type
 class Pav2MeterDetailsResponse(dict):
     """
     Billing type PAV2 meter details
@@ -651,6 +1304,132 @@ class Pav2MeterDetailsResponse(dict):
         Billing unit applicable for Pav2 billing
         """
         return pulumi.get(self, "multiplier")
+
+
+@pulumi.output_type
+class PreferencesResponse(dict):
+    """
+    Preferences related to the order
+    """
+    def __init__(__self__, *,
+                 encryption_preferences: Optional['outputs.EncryptionPreferencesResponse'] = None,
+                 management_resource_preferences: Optional['outputs.ManagementResourcePreferencesResponse'] = None,
+                 notification_preferences: Optional[Sequence['outputs.NotificationPreferenceResponse']] = None,
+                 transport_preferences: Optional['outputs.TransportPreferencesResponse'] = None):
+        """
+        Preferences related to the order
+        :param 'EncryptionPreferencesResponse' encryption_preferences: Preferences related to the Encryption.
+        :param 'ManagementResourcePreferencesResponse' management_resource_preferences: Preferences related to the Management resource.
+        :param Sequence['NotificationPreferenceResponse'] notification_preferences: Notification preferences.
+        :param 'TransportPreferencesResponse' transport_preferences: Preferences related to the shipment logistics of the order.
+        """
+        if encryption_preferences is not None:
+            pulumi.set(__self__, "encryption_preferences", encryption_preferences)
+        if management_resource_preferences is not None:
+            pulumi.set(__self__, "management_resource_preferences", management_resource_preferences)
+        if notification_preferences is not None:
+            pulumi.set(__self__, "notification_preferences", notification_preferences)
+        if transport_preferences is not None:
+            pulumi.set(__self__, "transport_preferences", transport_preferences)
+
+    @property
+    @pulumi.getter(name="encryptionPreferences")
+    def encryption_preferences(self) -> Optional['outputs.EncryptionPreferencesResponse']:
+        """
+        Preferences related to the Encryption.
+        """
+        return pulumi.get(self, "encryption_preferences")
+
+    @property
+    @pulumi.getter(name="managementResourcePreferences")
+    def management_resource_preferences(self) -> Optional['outputs.ManagementResourcePreferencesResponse']:
+        """
+        Preferences related to the Management resource.
+        """
+        return pulumi.get(self, "management_resource_preferences")
+
+    @property
+    @pulumi.getter(name="notificationPreferences")
+    def notification_preferences(self) -> Optional[Sequence['outputs.NotificationPreferenceResponse']]:
+        """
+        Notification preferences.
+        """
+        return pulumi.get(self, "notification_preferences")
+
+    @property
+    @pulumi.getter(name="transportPreferences")
+    def transport_preferences(self) -> Optional['outputs.TransportPreferencesResponse']:
+        """
+        Preferences related to the shipment logistics of the order.
+        """
+        return pulumi.get(self, "transport_preferences")
+
+
+@pulumi.output_type
+class ProductDetailsResponse(dict):
+    """
+    Represents product details
+    """
+    def __init__(__self__, *,
+                 count: int,
+                 device_details: Sequence['outputs.DeviceDetailsResponse'],
+                 hierarchy_information: 'outputs.HierarchyInformationResponse',
+                 product_double_encryption_status: str,
+                 display_info: Optional['outputs.DisplayInfoResponse'] = None):
+        """
+        Represents product details
+        :param int count: Quantity of the product
+        :param Sequence['DeviceDetailsResponse'] device_details: list of device details
+        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy of the product which uniquely identifies the product
+        :param str product_double_encryption_status: Double encryption status of the configuration. Read-only field.
+        :param 'DisplayInfoResponse' display_info: Display details of the product
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "device_details", device_details)
+        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
+        pulumi.set(__self__, "product_double_encryption_status", product_double_encryption_status)
+        if display_info is not None:
+            pulumi.set(__self__, "display_info", display_info)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        """
+        Quantity of the product
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="deviceDetails")
+    def device_details(self) -> Sequence['outputs.DeviceDetailsResponse']:
+        """
+        list of device details
+        """
+        return pulumi.get(self, "device_details")
+
+    @property
+    @pulumi.getter(name="hierarchyInformation")
+    def hierarchy_information(self) -> 'outputs.HierarchyInformationResponse':
+        """
+        Hierarchy of the product which uniquely identifies the product
+        """
+        return pulumi.get(self, "hierarchy_information")
+
+    @property
+    @pulumi.getter(name="productDoubleEncryptionStatus")
+    def product_double_encryption_status(self) -> str:
+        """
+        Double encryption status of the configuration. Read-only field.
+        """
+        return pulumi.get(self, "product_double_encryption_status")
+
+    @property
+    @pulumi.getter(name="displayInfo")
+    def display_info(self) -> Optional['outputs.DisplayInfoResponse']:
+        """
+        Display details of the product
+        """
+        return pulumi.get(self, "display_info")
 
 
 @pulumi.output_type
@@ -1064,6 +1843,201 @@ class ResourceProviderDetailsResponse(dict):
 
 
 @pulumi.output_type
+class ReverseShippingDetailsResponse(dict):
+    """
+    Reverse shipment details.
+    """
+    def __init__(__self__, *,
+                 carrier_display_name: str,
+                 carrier_name: str,
+                 sas_key_for_label: str,
+                 tracking_id: str,
+                 tracking_url: str):
+        """
+        Reverse shipment details.
+        :param str carrier_display_name: Carrier Name for display purpose. Not to be used for any processing.
+        :param str carrier_name: Name of the carrier.
+        :param str sas_key_for_label: SAS key to download the reverse shipment label of the package.
+        :param str tracking_id: TrackingId of the package
+        :param str tracking_url: TrackingUrl of the package.
+        """
+        pulumi.set(__self__, "carrier_display_name", carrier_display_name)
+        pulumi.set(__self__, "carrier_name", carrier_name)
+        pulumi.set(__self__, "sas_key_for_label", sas_key_for_label)
+        pulumi.set(__self__, "tracking_id", tracking_id)
+        pulumi.set(__self__, "tracking_url", tracking_url)
+
+    @property
+    @pulumi.getter(name="carrierDisplayName")
+    def carrier_display_name(self) -> str:
+        """
+        Carrier Name for display purpose. Not to be used for any processing.
+        """
+        return pulumi.get(self, "carrier_display_name")
+
+    @property
+    @pulumi.getter(name="carrierName")
+    def carrier_name(self) -> str:
+        """
+        Name of the carrier.
+        """
+        return pulumi.get(self, "carrier_name")
+
+    @property
+    @pulumi.getter(name="sasKeyForLabel")
+    def sas_key_for_label(self) -> str:
+        """
+        SAS key to download the reverse shipment label of the package.
+        """
+        return pulumi.get(self, "sas_key_for_label")
+
+    @property
+    @pulumi.getter(name="trackingId")
+    def tracking_id(self) -> str:
+        """
+        TrackingId of the package
+        """
+        return pulumi.get(self, "tracking_id")
+
+    @property
+    @pulumi.getter(name="trackingUrl")
+    def tracking_url(self) -> str:
+        """
+        TrackingUrl of the package.
+        """
+        return pulumi.get(self, "tracking_url")
+
+
+@pulumi.output_type
+class ShippingAddressResponse(dict):
+    """
+    Shipping address where customer wishes to receive the device.
+    """
+    def __init__(__self__, *,
+                 country: str,
+                 street_address1: str,
+                 address_type: Optional[str] = None,
+                 city: Optional[str] = None,
+                 company_name: Optional[str] = None,
+                 postal_code: Optional[str] = None,
+                 state_or_province: Optional[str] = None,
+                 street_address2: Optional[str] = None,
+                 street_address3: Optional[str] = None,
+                 zip_extended_code: Optional[str] = None):
+        """
+        Shipping address where customer wishes to receive the device.
+        :param str country: Name of the Country.
+        :param str street_address1: Street Address line 1.
+        :param str address_type: Type of address.
+        :param str city: Name of the City.
+        :param str company_name: Name of the company.
+        :param str postal_code: Postal code.
+        :param str state_or_province: Name of the State or Province.
+        :param str street_address2: Street Address line 2.
+        :param str street_address3: Street Address line 3.
+        :param str zip_extended_code: Extended Zip Code.
+        """
+        pulumi.set(__self__, "country", country)
+        pulumi.set(__self__, "street_address1", street_address1)
+        if address_type is not None:
+            pulumi.set(__self__, "address_type", address_type)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if company_name is not None:
+            pulumi.set(__self__, "company_name", company_name)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if state_or_province is not None:
+            pulumi.set(__self__, "state_or_province", state_or_province)
+        if street_address2 is not None:
+            pulumi.set(__self__, "street_address2", street_address2)
+        if street_address3 is not None:
+            pulumi.set(__self__, "street_address3", street_address3)
+        if zip_extended_code is not None:
+            pulumi.set(__self__, "zip_extended_code", zip_extended_code)
+
+    @property
+    @pulumi.getter
+    def country(self) -> str:
+        """
+        Name of the Country.
+        """
+        return pulumi.get(self, "country")
+
+    @property
+    @pulumi.getter(name="streetAddress1")
+    def street_address1(self) -> str:
+        """
+        Street Address line 1.
+        """
+        return pulumi.get(self, "street_address1")
+
+    @property
+    @pulumi.getter(name="addressType")
+    def address_type(self) -> Optional[str]:
+        """
+        Type of address.
+        """
+        return pulumi.get(self, "address_type")
+
+    @property
+    @pulumi.getter
+    def city(self) -> Optional[str]:
+        """
+        Name of the City.
+        """
+        return pulumi.get(self, "city")
+
+    @property
+    @pulumi.getter(name="companyName")
+    def company_name(self) -> Optional[str]:
+        """
+        Name of the company.
+        """
+        return pulumi.get(self, "company_name")
+
+    @property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> Optional[str]:
+        """
+        Postal code.
+        """
+        return pulumi.get(self, "postal_code")
+
+    @property
+    @pulumi.getter(name="stateOrProvince")
+    def state_or_province(self) -> Optional[str]:
+        """
+        Name of the State or Province.
+        """
+        return pulumi.get(self, "state_or_province")
+
+    @property
+    @pulumi.getter(name="streetAddress2")
+    def street_address2(self) -> Optional[str]:
+        """
+        Street Address line 2.
+        """
+        return pulumi.get(self, "street_address2")
+
+    @property
+    @pulumi.getter(name="streetAddress3")
+    def street_address3(self) -> Optional[str]:
+        """
+        Street Address line 3.
+        """
+        return pulumi.get(self, "street_address3")
+
+    @property
+    @pulumi.getter(name="zipExtendedCode")
+    def zip_extended_code(self) -> Optional[str]:
+        """
+        Extended Zip Code.
+        """
+        return pulumi.get(self, "zip_extended_code")
+
+
+@pulumi.output_type
 class SpecificationResponse(dict):
     """
     Specifications of the configurations
@@ -1094,5 +2068,165 @@ class SpecificationResponse(dict):
         Value of the specification
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class StageDetailsResponse(dict):
+    """
+    Resource stage details.
+    """
+    def __init__(__self__, *,
+                 display_name: str,
+                 stage_name: str,
+                 stage_status: str,
+                 start_time: str):
+        """
+        Resource stage details.
+        :param str display_name: Display name of the resource stage.
+        :param str stage_name: Stage name
+        :param str stage_status: Stage status.
+        :param str start_time: Stage start time
+        """
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "stage_name", stage_name)
+        pulumi.set(__self__, "stage_status", stage_status)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Display name of the resource stage.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="stageName")
+    def stage_name(self) -> str:
+        """
+        Stage name
+        """
+        return pulumi.get(self, "stage_name")
+
+    @property
+    @pulumi.getter(name="stageStatus")
+    def stage_status(self) -> str:
+        """
+        Stage status.
+        """
+        return pulumi.get(self, "stage_status")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Stage start time
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TransportPreferencesResponse(dict):
+    """
+    Preferences related to the shipment logistics of the sku
+    """
+    def __init__(__self__, *,
+                 preferred_shipment_type: str):
+        """
+        Preferences related to the shipment logistics of the sku
+        :param str preferred_shipment_type: Indicates Shipment Logistics type that the customer preferred.
+        """
+        pulumi.set(__self__, "preferred_shipment_type", preferred_shipment_type)
+
+    @property
+    @pulumi.getter(name="preferredShipmentType")
+    def preferred_shipment_type(self) -> str:
+        """
+        Indicates Shipment Logistics type that the customer preferred.
+        """
+        return pulumi.get(self, "preferred_shipment_type")
 
 

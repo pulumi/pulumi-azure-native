@@ -5,6 +5,20 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .get_automation_account import *
+from .get_certificate import *
+from .get_connection import *
+from .get_connection_type import *
+from .get_credential import *
+from .get_dsc_configuration import *
+from .get_dsc_node_configuration import *
+from .get_job_schedule import *
+from .get_module import *
+from .get_runbook import *
+from .get_schedule import *
+from .get_variable import *
+from .get_watcher import *
 from .get_webhook import *
 from .list_key_by_automation_account import *
 from .webhook import *

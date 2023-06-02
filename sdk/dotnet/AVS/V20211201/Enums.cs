@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.AVS.V20211201
 {
     /// <summary>
+    /// The type of private cloud addon
+    /// </summary>
+    [EnumType]
+    public readonly struct AddonType : IEquatable<AddonType>
+    {
+        private readonly string _value;
+
+        private AddonType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AddonType SRM { get; } = new AddonType("SRM");
+        public static AddonType VR { get; } = new AddonType("VR");
+        public static AddonType HCX { get; } = new AddonType("HCX");
+
+        public static bool operator ==(AddonType left, AddonType right) => left.Equals(right);
+        public static bool operator !=(AddonType left, AddonType right) => !left.Equals(right);
+
+        public static explicit operator string(AddonType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AddonType other && Equals(other);
+        public bool Equals(AddonType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// placement policy affinity type
     /// </summary>
     [EnumType]
@@ -31,6 +63,195 @@ namespace Pulumi.AzureNative.AVS.V20211201
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AffinityType other && Equals(other);
         public bool Equals(AffinityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The availability strategy for the private cloud
+    /// </summary>
+    [EnumType]
+    public readonly struct AvailabilityStrategy : IEquatable<AvailabilityStrategy>
+    {
+        private readonly string _value;
+
+        private AvailabilityStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AvailabilityStrategy SingleZone { get; } = new AvailabilityStrategy("SingleZone");
+        public static AvailabilityStrategy DualZone { get; } = new AvailabilityStrategy("DualZone");
+
+        public static bool operator ==(AvailabilityStrategy left, AvailabilityStrategy right) => left.Equals(right);
+        public static bool operator !=(AvailabilityStrategy left, AvailabilityStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(AvailabilityStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AvailabilityStrategy other && Equals(other);
+        public bool Equals(AvailabilityStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of DHCP: SERVER or RELAY.
+    /// </summary>
+    [EnumType]
+    public readonly struct DhcpTypeEnum : IEquatable<DhcpTypeEnum>
+    {
+        private readonly string _value;
+
+        private DhcpTypeEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DhcpTypeEnum SERVER { get; } = new DhcpTypeEnum("SERVER");
+        public static DhcpTypeEnum RELAY { get; } = new DhcpTypeEnum("RELAY");
+
+        public static bool operator ==(DhcpTypeEnum left, DhcpTypeEnum right) => left.Equals(right);
+        public static bool operator !=(DhcpTypeEnum left, DhcpTypeEnum right) => !left.Equals(right);
+
+        public static explicit operator string(DhcpTypeEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DhcpTypeEnum other && Equals(other);
+        public bool Equals(DhcpTypeEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// DNS Service log level.
+    /// </summary>
+    [EnumType]
+    public readonly struct DnsServiceLogLevelEnum : IEquatable<DnsServiceLogLevelEnum>
+    {
+        private readonly string _value;
+
+        private DnsServiceLogLevelEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DnsServiceLogLevelEnum DEBUG { get; } = new DnsServiceLogLevelEnum("DEBUG");
+        public static DnsServiceLogLevelEnum INFO { get; } = new DnsServiceLogLevelEnum("INFO");
+        public static DnsServiceLogLevelEnum WARNING { get; } = new DnsServiceLogLevelEnum("WARNING");
+        public static DnsServiceLogLevelEnum ERROR { get; } = new DnsServiceLogLevelEnum("ERROR");
+        public static DnsServiceLogLevelEnum FATAL { get; } = new DnsServiceLogLevelEnum("FATAL");
+
+        public static bool operator ==(DnsServiceLogLevelEnum left, DnsServiceLogLevelEnum right) => left.Equals(right);
+        public static bool operator !=(DnsServiceLogLevelEnum left, DnsServiceLogLevelEnum right) => !left.Equals(right);
+
+        public static explicit operator string(DnsServiceLogLevelEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DnsServiceLogLevelEnum other && Equals(other);
+        public bool Equals(DnsServiceLogLevelEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of customer managed encryption key
+    /// </summary>
+    [EnumType]
+    public readonly struct EncryptionState : IEquatable<EncryptionState>
+    {
+        private readonly string _value;
+
+        private EncryptionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EncryptionState Enabled { get; } = new EncryptionState("Enabled");
+        public static EncryptionState Disabled { get; } = new EncryptionState("Disabled");
+
+        public static bool operator ==(EncryptionState left, EncryptionState right) => left.Equals(right);
+        public static bool operator !=(EncryptionState left, EncryptionState right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionState other && Equals(other);
+        public bool Equals(EncryptionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Connectivity to internet is enabled or disabled
+    /// </summary>
+    [EnumType]
+    public readonly struct InternetEnum : IEquatable<InternetEnum>
+    {
+        private readonly string _value;
+
+        private InternetEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InternetEnum Enabled { get; } = new InternetEnum("Enabled");
+        public static InternetEnum Disabled { get; } = new InternetEnum("Disabled");
+
+        public static bool operator ==(InternetEnum left, InternetEnum right) => left.Equals(right);
+        public static bool operator !=(InternetEnum left, InternetEnum right) => !left.Equals(right);
+
+        public static explicit operator string(InternetEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InternetEnum other && Equals(other);
+        public bool Equals(InternetEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+    /// </summary>
+    [EnumType]
+    public readonly struct MountOptionEnum : IEquatable<MountOptionEnum>
+    {
+        private readonly string _value;
+
+        private MountOptionEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MountOptionEnum MOUNT { get; } = new MountOptionEnum("MOUNT");
+        public static MountOptionEnum ATTACH { get; } = new MountOptionEnum("ATTACH");
+
+        public static bool operator ==(MountOptionEnum left, MountOptionEnum right) => left.Equals(right);
+        public static bool operator !=(MountOptionEnum left, MountOptionEnum right) => !left.Equals(right);
+
+        public static explicit operator string(MountOptionEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MountOptionEnum other && Equals(other);
+        public bool Equals(MountOptionEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -93,6 +314,132 @@ namespace Pulumi.AzureNative.AVS.V20211201
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PlacementPolicyType other && Equals(other);
         public bool Equals(PlacementPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Direction of port mirroring profile.
+    /// </summary>
+    [EnumType]
+    public readonly struct PortMirroringDirectionEnum : IEquatable<PortMirroringDirectionEnum>
+    {
+        private readonly string _value;
+
+        private PortMirroringDirectionEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PortMirroringDirectionEnum INGRESS { get; } = new PortMirroringDirectionEnum("INGRESS");
+        public static PortMirroringDirectionEnum EGRESS { get; } = new PortMirroringDirectionEnum("EGRESS");
+        public static PortMirroringDirectionEnum BIDIRECTIONAL { get; } = new PortMirroringDirectionEnum("BIDIRECTIONAL");
+
+        public static bool operator ==(PortMirroringDirectionEnum left, PortMirroringDirectionEnum right) => left.Equals(right);
+        public static bool operator !=(PortMirroringDirectionEnum left, PortMirroringDirectionEnum right) => !left.Equals(right);
+
+        public static explicit operator string(PortMirroringDirectionEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PortMirroringDirectionEnum other && Equals(other);
+        public bool Equals(PortMirroringDirectionEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
+
+        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
+        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of execution parameter
+    /// </summary>
+    [EnumType]
+    public readonly struct ScriptExecutionParameterType : IEquatable<ScriptExecutionParameterType>
+    {
+        private readonly string _value;
+
+        private ScriptExecutionParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScriptExecutionParameterType Value { get; } = new ScriptExecutionParameterType("Value");
+        public static ScriptExecutionParameterType SecureValue { get; } = new ScriptExecutionParameterType("SecureValue");
+        public static ScriptExecutionParameterType Credential { get; } = new ScriptExecutionParameterType("Credential");
+
+        public static bool operator ==(ScriptExecutionParameterType left, ScriptExecutionParameterType right) => left.Equals(right);
+        public static bool operator !=(ScriptExecutionParameterType left, ScriptExecutionParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(ScriptExecutionParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScriptExecutionParameterType other && Equals(other);
+        public bool Equals(ScriptExecutionParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Protect LDAP communication using SSL certificate (LDAPS)
+    /// </summary>
+    [EnumType]
+    public readonly struct SslEnum : IEquatable<SslEnum>
+    {
+        private readonly string _value;
+
+        private SslEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SslEnum Enabled { get; } = new SslEnum("Enabled");
+        public static SslEnum Disabled { get; } = new SslEnum("Disabled");
+
+        public static bool operator ==(SslEnum left, SslEnum right) => left.Equals(right);
+        public static bool operator !=(SslEnum left, SslEnum right) => !left.Equals(right);
+
+        public static explicit operator string(SslEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SslEnum other && Equals(other);
+        public bool Equals(SslEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

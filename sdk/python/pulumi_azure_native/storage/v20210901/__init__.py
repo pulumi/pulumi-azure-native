@@ -6,6 +6,22 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_blob_container import *
+from .get_blob_container_immutability_policy import *
+from .get_blob_inventory_policy import *
+from .get_blob_service_properties import *
+from .get_encryption_scope import *
+from .get_file_service_properties import *
+from .get_file_share import *
+from .get_local_user import *
+from .get_management_policy import *
+from .get_object_replication_policy import *
+from .get_private_endpoint_connection import *
+from .get_queue import *
+from .get_queue_service_properties import *
+from .get_storage_account import *
+from .get_table import *
+from .get_table_service_properties import *
 from .list_local_user_keys import *
 from .list_storage_account_keys import *
 from .list_storage_account_sas import *

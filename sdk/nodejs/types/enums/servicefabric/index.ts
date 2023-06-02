@@ -2,21 +2,47 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20170701preview from "./v20170701preview";
+import * as v20190301 from "./v20190301";
+import * as v20190301preview from "./v20190301preview";
+import * as v20190601preview from "./v20190601preview";
+import * as v20191101preview from "./v20191101preview";
 import * as v20200101preview from "./v20200101preview";
 import * as v20200301 from "./v20200301";
+import * as v20201201preview from "./v20201201preview";
+import * as v20210101preview from "./v20210101preview";
+import * as v20210501 from "./v20210501";
 import * as v20210601 from "./v20210601";
+import * as v20210701preview from "./v20210701preview";
 import * as v20210901privatepreview from "./v20210901privatepreview";
+import * as v20211101preview from "./v20211101preview";
 import * as v20220101 from "./v20220101";
+import * as v20220201preview from "./v20220201preview";
+import * as v20220601preview from "./v20220601preview";
+import * as v20220801preview from "./v20220801preview";
 import * as v20221001preview from "./v20221001preview";
 import * as v20230201preview from "./v20230201preview";
 import * as v20230301preview from "./v20230301preview";
 
 export {
+    v20170701preview,
+    v20190301,
+    v20190301preview,
+    v20190601preview,
+    v20191101preview,
     v20200101preview,
     v20200301,
+    v20201201preview,
+    v20210101preview,
+    v20210501,
     v20210601,
+    v20210701preview,
     v20210901privatepreview,
+    v20211101preview,
     v20220101,
+    v20220201preview,
+    v20220601preview,
+    v20220801preview,
     v20221001preview,
     v20230201preview,
     v20230301preview,

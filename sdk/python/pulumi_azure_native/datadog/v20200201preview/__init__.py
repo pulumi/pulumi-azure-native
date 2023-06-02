@@ -5,6 +5,8 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .get_monitor import *
 from .get_monitor_default_key import *
 from .list_monitor_api_keys import *
 from .list_monitor_hosts import *

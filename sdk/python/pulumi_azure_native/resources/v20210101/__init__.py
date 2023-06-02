@@ -16,5 +16,8 @@ from .get_deployment_at_management_group_scope import *
 from .get_deployment_at_scope import *
 from .get_deployment_at_subscription_scope import *
 from .get_deployment_at_tenant_scope import *
+from .get_resource import *
+from .get_resource_group import *
+from .get_tag_at_scope import *
 from ._inputs import *
 from . import outputs

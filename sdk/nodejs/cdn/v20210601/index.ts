@@ -4,8 +4,86 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetAFDCustomDomainArgs, GetAFDCustomDomainResult, GetAFDCustomDomainOutputArgs } from "./getAFDCustomDomain";
+export const getAFDCustomDomain: typeof import("./getAFDCustomDomain").getAFDCustomDomain = null as any;
+export const getAFDCustomDomainOutput: typeof import("./getAFDCustomDomain").getAFDCustomDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getAFDCustomDomain","getAFDCustomDomainOutput"], () => require("./getAFDCustomDomain"));
+
+export { GetAFDEndpointArgs, GetAFDEndpointResult, GetAFDEndpointOutputArgs } from "./getAFDEndpoint";
+export const getAFDEndpoint: typeof import("./getAFDEndpoint").getAFDEndpoint = null as any;
+export const getAFDEndpointOutput: typeof import("./getAFDEndpoint").getAFDEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getAFDEndpoint","getAFDEndpointOutput"], () => require("./getAFDEndpoint"));
+
+export { GetAFDOriginArgs, GetAFDOriginResult, GetAFDOriginOutputArgs } from "./getAFDOrigin";
+export const getAFDOrigin: typeof import("./getAFDOrigin").getAFDOrigin = null as any;
+export const getAFDOriginOutput: typeof import("./getAFDOrigin").getAFDOriginOutput = null as any;
+utilities.lazyLoad(exports, ["getAFDOrigin","getAFDOriginOutput"], () => require("./getAFDOrigin"));
+
+export { GetAFDOriginGroupArgs, GetAFDOriginGroupResult, GetAFDOriginGroupOutputArgs } from "./getAFDOriginGroup";
+export const getAFDOriginGroup: typeof import("./getAFDOriginGroup").getAFDOriginGroup = null as any;
+export const getAFDOriginGroupOutput: typeof import("./getAFDOriginGroup").getAFDOriginGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getAFDOriginGroup","getAFDOriginGroupOutput"], () => require("./getAFDOriginGroup"));
+
+export { GetCustomDomainArgs, GetCustomDomainResult, GetCustomDomainOutputArgs } from "./getCustomDomain";
+export const getCustomDomain: typeof import("./getCustomDomain").getCustomDomain = null as any;
+export const getCustomDomainOutput: typeof import("./getCustomDomain").getCustomDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomDomain","getCustomDomainOutput"], () => require("./getCustomDomain"));
+
+export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
+export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
+export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
+
+export { GetOriginArgs, GetOriginResult, GetOriginOutputArgs } from "./getOrigin";
+export const getOrigin: typeof import("./getOrigin").getOrigin = null as any;
+export const getOriginOutput: typeof import("./getOrigin").getOriginOutput = null as any;
+utilities.lazyLoad(exports, ["getOrigin","getOriginOutput"], () => require("./getOrigin"));
+
+export { GetOriginGroupArgs, GetOriginGroupResult, GetOriginGroupOutputArgs } from "./getOriginGroup";
+export const getOriginGroup: typeof import("./getOriginGroup").getOriginGroup = null as any;
+export const getOriginGroupOutput: typeof import("./getOriginGroup").getOriginGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getOriginGroup","getOriginGroupOutput"], () => require("./getOriginGroup"));
+
+export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
+export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
+export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+
+export { GetProfileArgs, GetProfileResult, GetProfileOutputArgs } from "./getProfile";
+export const getProfile: typeof import("./getProfile").getProfile = null as any;
+export const getProfileOutput: typeof import("./getProfile").getProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getProfile","getProfileOutput"], () => require("./getProfile"));
+
 export { GetProfileSupportedOptimizationTypesArgs, GetProfileSupportedOptimizationTypesResult, GetProfileSupportedOptimizationTypesOutputArgs } from "./getProfileSupportedOptimizationTypes";
 export const getProfileSupportedOptimizationTypes: typeof import("./getProfileSupportedOptimizationTypes").getProfileSupportedOptimizationTypes = null as any;
 export const getProfileSupportedOptimizationTypesOutput: typeof import("./getProfileSupportedOptimizationTypes").getProfileSupportedOptimizationTypesOutput = null as any;
 utilities.lazyLoad(exports, ["getProfileSupportedOptimizationTypes","getProfileSupportedOptimizationTypesOutput"], () => require("./getProfileSupportedOptimizationTypes"));
 
+export { GetRouteArgs, GetRouteResult, GetRouteOutputArgs } from "./getRoute";
+export const getRoute: typeof import("./getRoute").getRoute = null as any;
+export const getRouteOutput: typeof import("./getRoute").getRouteOutput = null as any;
+utilities.lazyLoad(exports, ["getRoute","getRouteOutput"], () => require("./getRoute"));
+
+export { GetRuleArgs, GetRuleResult, GetRuleOutputArgs } from "./getRule";
+export const getRule: typeof import("./getRule").getRule = null as any;
+export const getRuleOutput: typeof import("./getRule").getRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getRule","getRuleOutput"], () => require("./getRule"));
+
+export { GetRuleSetArgs, GetRuleSetResult, GetRuleSetOutputArgs } from "./getRuleSet";
+export const getRuleSet: typeof import("./getRuleSet").getRuleSet = null as any;
+export const getRuleSetOutput: typeof import("./getRuleSet").getRuleSetOutput = null as any;
+utilities.lazyLoad(exports, ["getRuleSet","getRuleSetOutput"], () => require("./getRuleSet"));
+
+export { GetSecretArgs, GetSecretResult, GetSecretOutputArgs } from "./getSecret";
+export const getSecret: typeof import("./getSecret").getSecret = null as any;
+export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
+utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
+
+export { GetSecurityPolicyArgs, GetSecurityPolicyResult, GetSecurityPolicyOutputArgs } from "./getSecurityPolicy";
+export const getSecurityPolicy: typeof import("./getSecurityPolicy").getSecurityPolicy = null as any;
+export const getSecurityPolicyOutput: typeof import("./getSecurityPolicy").getSecurityPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityPolicy","getSecurityPolicyOutput"], () => require("./getSecurityPolicy"));
+
+
+// Export enums:
+export * from "../../types/enums/cdn/v20210601";

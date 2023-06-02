@@ -8,7 +8,11 @@ import typing
 from ._enums import *
 from .cluster import *
 from .get_cluster import *
+from .get_function import *
+from .get_input import *
+from .get_output import *
 from .get_private_endpoint import *
+from .get_streaming_job import *
 from .list_cluster_streaming_jobs import *
 from .private_endpoint import *
 from ._inputs import *

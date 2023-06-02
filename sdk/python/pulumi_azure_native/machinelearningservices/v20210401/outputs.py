@@ -42,20 +42,24 @@ __all__ = [
     'ComputeInstanceResponseProperties',
     'ComputeInstanceSshSettingsResponse',
     'ContainerResourceRequirementsResponse',
+    'CosmosDbSettingsResponse',
     'DataFactoryResponse',
     'DataLakeAnalyticsResponse',
     'DataLakeAnalyticsResponseProperties',
     'DatabricksResponse',
     'DatabricksResponseProperties',
     'DatasetReferenceResponse',
+    'EncryptionPropertyResponse',
     'EnvironmentImageResponseResponseEnvironment',
     'EnvironmentImageResponseResponseEnvironmentReference',
     'ErrorDetailResponse',
     'ErrorResponseResponse',
     'HDInsightResponse',
     'HDInsightResponseProperties',
+    'IdentityForCmkResponse',
     'IdentityResponse',
     'ImageAssetResponse',
+    'KeyVaultPropertiesResponse',
     'ListNotebookKeysResultResponse',
     'MachineLearningServiceErrorResponse',
     'ModelDockerSectionResponseResponseBaseImageRegistry',
@@ -65,8 +69,13 @@ __all__ = [
     'ModelEnvironmentDefinitionResponseResponseSpark',
     'ModelResponse',
     'NodeStateCountsResponse',
+    'NotebookPreparationErrorResponse',
+    'NotebookResourceInfoResponse',
     'PasswordResponse',
     'PersonalComputeInstanceSettingsResponse',
+    'PrivateEndpointConnectionResponse',
+    'PrivateEndpointResponse',
+    'PrivateLinkServiceConnectionStateResponse',
     'RCranPackageResponse',
     'RGitHubPackageResponseResponse',
     'RegistryListCredentialsResultResponse',
@@ -74,8 +83,10 @@ __all__ = [
     'ScaleSettingsResponse',
     'ScriptReferenceResponse',
     'ScriptsToExecuteResponse',
+    'ServiceManagedResourcesSettingsResponse',
     'ServiceResponseBaseResponseError',
     'SetupScriptsResponse',
+    'SharedPrivateLinkResourceResponse',
     'SkuResponse',
     'SparkMavenPackageResponse',
     'SslConfigurationResponse',
@@ -3604,6 +3615,25 @@ class ContainerResourceRequirementsResponse(dict):
 
 
 @pulumi.output_type
+class CosmosDbSettingsResponse(dict):
+    def __init__(__self__, *,
+                 collections_throughput: Optional[int] = None):
+        """
+        :param int collections_throughput: The throughput of the collections in cosmosdb database
+        """
+        if collections_throughput is not None:
+            pulumi.set(__self__, "collections_throughput", collections_throughput)
+
+    @property
+    @pulumi.getter(name="collectionsThroughput")
+    def collections_throughput(self) -> Optional[int]:
+        """
+        The throughput of the collections in cosmosdb database
+        """
+        return pulumi.get(self, "collections_throughput")
+
+
+@pulumi.output_type
 class DataFactoryResponse(dict):
     """
     A DataFactory compute.
@@ -4221,6 +4251,47 @@ class DatasetReferenceResponse(dict):
 
 
 @pulumi.output_type
+class EncryptionPropertyResponse(dict):
+    def __init__(__self__, *,
+                 key_vault_properties: 'outputs.KeyVaultPropertiesResponse',
+                 status: str,
+                 identity: Optional['outputs.IdentityForCmkResponse'] = None):
+        """
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Customer Key vault properties.
+        :param str status: Indicates whether or not the encryption is enabled for the workspace.
+        :param 'IdentityForCmkResponse' identity: The identity that will be used to access the key vault for encryption at rest.
+        """
+        pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        pulumi.set(__self__, "status", status)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> 'outputs.KeyVaultPropertiesResponse':
+        """
+        Customer Key vault properties.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Indicates whether or not the encryption is enabled for the workspace.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityForCmkResponse']:
+        """
+        The identity that will be used to access the key vault for encryption at rest.
+        """
+        return pulumi.get(self, "identity")
+
+
+@pulumi.output_type
 class EnvironmentImageResponseResponseEnvironment(dict):
     """
     The details of the AZURE ML environment.
@@ -4700,6 +4771,29 @@ class HDInsightResponseProperties(dict):
 
 
 @pulumi.output_type
+class IdentityForCmkResponse(dict):
+    """
+    Identity that will be used to access key vault for encryption at rest
+    """
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        Identity that will be used to access key vault for encryption at rest
+        :param str user_assigned_identity: The ArmId of the user assigned identity that will be used to access the customer managed key vault
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        The ArmId of the user assigned identity that will be used to access the customer managed key vault
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
 class IdentityResponse(dict):
     """
     Identity for the resource.
@@ -4851,6 +4945,47 @@ class ImageAssetResponse(dict):
         The Url of the Asset.
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class KeyVaultPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 key_identifier: str,
+                 key_vault_arm_id: str,
+                 identity_client_id: Optional[str] = None):
+        """
+        :param str key_identifier: Key vault uri to access the encryption key.
+        :param str key_vault_arm_id: The ArmId of the keyVault where the customer owned encryption key is present.
+        :param str identity_client_id: For future use - The client id of the identity which will be used to access key vault.
+        """
+        pulumi.set(__self__, "key_identifier", key_identifier)
+        pulumi.set(__self__, "key_vault_arm_id", key_vault_arm_id)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> str:
+        """
+        Key vault uri to access the encryption key.
+        """
+        return pulumi.get(self, "key_identifier")
+
+    @property
+    @pulumi.getter(name="keyVaultArmId")
+    def key_vault_arm_id(self) -> str:
+        """
+        The ArmId of the keyVault where the customer owned encryption key is present.
+        """
+        return pulumi.get(self, "key_vault_arm_id")
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[str]:
+        """
+        For future use - The client id of the identity which will be used to access key vault.
+        """
+        return pulumi.get(self, "identity_client_id")
 
 
 @pulumi.output_type
@@ -5667,6 +5802,66 @@ class NodeStateCountsResponse(dict):
 
 
 @pulumi.output_type
+class NotebookPreparationErrorResponse(dict):
+    def __init__(__self__, *,
+                 error_message: Optional[str] = None,
+                 status_code: Optional[int] = None):
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[str]:
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[int]:
+        return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
+class NotebookResourceInfoResponse(dict):
+    def __init__(__self__, *,
+                 fqdn: Optional[str] = None,
+                 notebook_preparation_error: Optional['outputs.NotebookPreparationErrorResponse'] = None,
+                 resource_id: Optional[str] = None):
+        """
+        :param 'NotebookPreparationErrorResponse' notebook_preparation_error: The error that occurs when preparing notebook.
+        :param str resource_id: the data plane resourceId that used to initialize notebook component
+        """
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if notebook_preparation_error is not None:
+            pulumi.set(__self__, "notebook_preparation_error", notebook_preparation_error)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[str]:
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="notebookPreparationError")
+    def notebook_preparation_error(self) -> Optional['outputs.NotebookPreparationErrorResponse']:
+        """
+        The error that occurs when preparing notebook.
+        """
+        return pulumi.get(self, "notebook_preparation_error")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        the data plane resourceId that used to initialize notebook component
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
 class PasswordResponse(dict):
     def __init__(__self__, *,
                  name: str,
@@ -5723,6 +5918,223 @@ class PersonalComputeInstanceSettingsResponse(dict):
         A user explicitly assigned to a personal compute instance.
         """
         return pulumi.get(self, "assigned_user")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The Private Endpoint Connection resource.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 identity: Optional['outputs.IdentityResponse'] = None,
+                 location: Optional[str] = None,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+                 sku: Optional['outputs.SkuResponse'] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        The Private Endpoint Connection resource.
+        :param str id: Specifies the resource ID.
+        :param str name: Specifies the name of the resource.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Read only system data
+        :param str type: Specifies the type of the resource.
+        :param 'IdentityResponse' identity: The identity of the resource.
+        :param str location: Specifies the location of the resource.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        :param 'SkuResponse' sku: The sku of the workspace.
+        :param Mapping[str, str] tags: Contains resource tags defined as key/value pairs.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Specifies the resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The resource of private end point.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The sku of the workspace.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Contains resource tags defined as key/value pairs.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class PrivateEndpointResponse(dict):
+    """
+    The Private Endpoint resource.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 subnet_arm_id: str):
+        """
+        The Private Endpoint resource.
+        :param str id: The ARM identifier for Private Endpoint
+        :param str subnet_arm_id: The ARM identifier for Subnet resource that private endpoint links to
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "subnet_arm_id", subnet_arm_id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ARM identifier for Private Endpoint
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="subnetArmId")
+    def subnet_arm_id(self) -> str:
+        """
+        The ARM identifier for Subnet resource that private endpoint links to
+        """
+        return pulumi.get(self, "subnet_arm_id")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateResponse(dict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    def __init__(__self__, *,
+                 actions_required: Optional[str] = None,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param str description: The reason for approval/rejection of the connection.
+        :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -6028,6 +6440,25 @@ class ScriptsToExecuteResponse(dict):
 
 
 @pulumi.output_type
+class ServiceManagedResourcesSettingsResponse(dict):
+    def __init__(__self__, *,
+                 cosmos_db: Optional['outputs.CosmosDbSettingsResponse'] = None):
+        """
+        :param 'CosmosDbSettingsResponse' cosmos_db: The settings for the service managed cosmosdb account.
+        """
+        if cosmos_db is not None:
+            pulumi.set(__self__, "cosmos_db", cosmos_db)
+
+    @property
+    @pulumi.getter(name="cosmosDb")
+    def cosmos_db(self) -> Optional['outputs.CosmosDbSettingsResponse']:
+        """
+        The settings for the service managed cosmosdb account.
+        """
+        return pulumi.get(self, "cosmos_db")
+
+
+@pulumi.output_type
 class ServiceResponseBaseResponseError(dict):
     """
     The error details.
@@ -6070,6 +6501,73 @@ class SetupScriptsResponse(dict):
         Customized setup scripts
         """
         return pulumi.get(self, "scripts")
+
+
+@pulumi.output_type
+class SharedPrivateLinkResourceResponse(dict):
+    def __init__(__self__, *,
+                 group_id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 private_link_resource_id: Optional[str] = None,
+                 request_message: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        :param str group_id: The private link resource group id.
+        :param str name: Unique name of the private link.
+        :param str private_link_resource_id: The resource id that private link links to.
+        :param str request_message: Request message.
+        :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_link_resource_id is not None:
+            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+        if request_message is not None:
+            pulumi.set(__self__, "request_message", request_message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[str]:
+        """
+        The private link resource group id.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Unique name of the private link.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkResourceId")
+    def private_link_resource_id(self) -> Optional[str]:
+        """
+        The resource id that private link links to.
+        """
+        return pulumi.get(self, "private_link_resource_id")
+
+    @property
+    @pulumi.getter(name="requestMessage")
+    def request_message(self) -> Optional[str]:
+        """
+        Request message.
+        """
+        return pulumi.get(self, "request_message")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

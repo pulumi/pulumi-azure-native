@@ -4,6 +4,16 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetBigDataPoolArgs, GetBigDataPoolResult, GetBigDataPoolOutputArgs } from "./getBigDataPool";
+export const getBigDataPool: typeof import("./getBigDataPool").getBigDataPool = null as any;
+export const getBigDataPoolOutput: typeof import("./getBigDataPool").getBigDataPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getBigDataPool","getBigDataPoolOutput"], () => require("./getBigDataPool"));
+
+export { GetIntegrationRuntimeArgs, GetIntegrationRuntimeResult, GetIntegrationRuntimeOutputArgs } from "./getIntegrationRuntime";
+export const getIntegrationRuntime: typeof import("./getIntegrationRuntime").getIntegrationRuntime = null as any;
+export const getIntegrationRuntimeOutput: typeof import("./getIntegrationRuntime").getIntegrationRuntimeOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationRuntime","getIntegrationRuntimeOutput"], () => require("./getIntegrationRuntime"));
+
 export { GetIntegrationRuntimeConnectionInfoArgs, GetIntegrationRuntimeConnectionInfoResult, GetIntegrationRuntimeConnectionInfoOutputArgs } from "./getIntegrationRuntimeConnectionInfo";
 export const getIntegrationRuntimeConnectionInfo: typeof import("./getIntegrationRuntimeConnectionInfo").getIntegrationRuntimeConnectionInfo = null as any;
 export const getIntegrationRuntimeConnectionInfoOutput: typeof import("./getIntegrationRuntimeConnectionInfo").getIntegrationRuntimeConnectionInfoOutput = null as any;
@@ -19,8 +29,86 @@ export const getIntegrationRuntimeStatus: typeof import("./getIntegrationRuntime
 export const getIntegrationRuntimeStatusOutput: typeof import("./getIntegrationRuntimeStatus").getIntegrationRuntimeStatusOutput = null as any;
 utilities.lazyLoad(exports, ["getIntegrationRuntimeStatus","getIntegrationRuntimeStatusOutput"], () => require("./getIntegrationRuntimeStatus"));
 
+export { GetIpFirewallRuleArgs, GetIpFirewallRuleResult, GetIpFirewallRuleOutputArgs } from "./getIpFirewallRule";
+export const getIpFirewallRule: typeof import("./getIpFirewallRule").getIpFirewallRule = null as any;
+export const getIpFirewallRuleOutput: typeof import("./getIpFirewallRule").getIpFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getIpFirewallRule","getIpFirewallRuleOutput"], () => require("./getIpFirewallRule"));
+
+export { GetKeyArgs, GetKeyResult, GetKeyOutputArgs } from "./getKey";
+export const getKey: typeof import("./getKey").getKey = null as any;
+export const getKeyOutput: typeof import("./getKey").getKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getKey","getKeyOutput"], () => require("./getKey"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetPrivateLinkHubArgs, GetPrivateLinkHubResult, GetPrivateLinkHubOutputArgs } from "./getPrivateLinkHub";
+export const getPrivateLinkHub: typeof import("./getPrivateLinkHub").getPrivateLinkHub = null as any;
+export const getPrivateLinkHubOutput: typeof import("./getPrivateLinkHub").getPrivateLinkHubOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLinkHub","getPrivateLinkHubOutput"], () => require("./getPrivateLinkHub"));
+
+export { GetSqlPoolArgs, GetSqlPoolResult, GetSqlPoolOutputArgs } from "./getSqlPool";
+export const getSqlPool: typeof import("./getSqlPool").getSqlPool = null as any;
+export const getSqlPoolOutput: typeof import("./getSqlPool").getSqlPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlPool","getSqlPoolOutput"], () => require("./getSqlPool"));
+
+export { GetSqlPoolSensitivityLabelArgs, GetSqlPoolSensitivityLabelResult, GetSqlPoolSensitivityLabelOutputArgs } from "./getSqlPoolSensitivityLabel";
+export const getSqlPoolSensitivityLabel: typeof import("./getSqlPoolSensitivityLabel").getSqlPoolSensitivityLabel = null as any;
+export const getSqlPoolSensitivityLabelOutput: typeof import("./getSqlPoolSensitivityLabel").getSqlPoolSensitivityLabelOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlPoolSensitivityLabel","getSqlPoolSensitivityLabelOutput"], () => require("./getSqlPoolSensitivityLabel"));
+
+export { GetSqlPoolTransparentDataEncryptionArgs, GetSqlPoolTransparentDataEncryptionResult, GetSqlPoolTransparentDataEncryptionOutputArgs } from "./getSqlPoolTransparentDataEncryption";
+export const getSqlPoolTransparentDataEncryption: typeof import("./getSqlPoolTransparentDataEncryption").getSqlPoolTransparentDataEncryption = null as any;
+export const getSqlPoolTransparentDataEncryptionOutput: typeof import("./getSqlPoolTransparentDataEncryption").getSqlPoolTransparentDataEncryptionOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlPoolTransparentDataEncryption","getSqlPoolTransparentDataEncryptionOutput"], () => require("./getSqlPoolTransparentDataEncryption"));
+
+export { GetSqlPoolVulnerabilityAssessmentArgs, GetSqlPoolVulnerabilityAssessmentResult, GetSqlPoolVulnerabilityAssessmentOutputArgs } from "./getSqlPoolVulnerabilityAssessment";
+export const getSqlPoolVulnerabilityAssessment: typeof import("./getSqlPoolVulnerabilityAssessment").getSqlPoolVulnerabilityAssessment = null as any;
+export const getSqlPoolVulnerabilityAssessmentOutput: typeof import("./getSqlPoolVulnerabilityAssessment").getSqlPoolVulnerabilityAssessmentOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlPoolVulnerabilityAssessment","getSqlPoolVulnerabilityAssessmentOutput"], () => require("./getSqlPoolVulnerabilityAssessment"));
+
+export { GetSqlPoolVulnerabilityAssessmentRuleBaselineArgs, GetSqlPoolVulnerabilityAssessmentRuleBaselineResult, GetSqlPoolVulnerabilityAssessmentRuleBaselineOutputArgs } from "./getSqlPoolVulnerabilityAssessmentRuleBaseline";
+export const getSqlPoolVulnerabilityAssessmentRuleBaseline: typeof import("./getSqlPoolVulnerabilityAssessmentRuleBaseline").getSqlPoolVulnerabilityAssessmentRuleBaseline = null as any;
+export const getSqlPoolVulnerabilityAssessmentRuleBaselineOutput: typeof import("./getSqlPoolVulnerabilityAssessmentRuleBaseline").getSqlPoolVulnerabilityAssessmentRuleBaselineOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlPoolVulnerabilityAssessmentRuleBaseline","getSqlPoolVulnerabilityAssessmentRuleBaselineOutput"], () => require("./getSqlPoolVulnerabilityAssessmentRuleBaseline"));
+
+export { GetSqlPoolWorkloadClassifierArgs, GetSqlPoolWorkloadClassifierResult, GetSqlPoolWorkloadClassifierOutputArgs } from "./getSqlPoolWorkloadClassifier";
+export const getSqlPoolWorkloadClassifier: typeof import("./getSqlPoolWorkloadClassifier").getSqlPoolWorkloadClassifier = null as any;
+export const getSqlPoolWorkloadClassifierOutput: typeof import("./getSqlPoolWorkloadClassifier").getSqlPoolWorkloadClassifierOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlPoolWorkloadClassifier","getSqlPoolWorkloadClassifierOutput"], () => require("./getSqlPoolWorkloadClassifier"));
+
+export { GetSqlPoolWorkloadGroupArgs, GetSqlPoolWorkloadGroupResult, GetSqlPoolWorkloadGroupOutputArgs } from "./getSqlPoolWorkloadGroup";
+export const getSqlPoolWorkloadGroup: typeof import("./getSqlPoolWorkloadGroup").getSqlPoolWorkloadGroup = null as any;
+export const getSqlPoolWorkloadGroupOutput: typeof import("./getSqlPoolWorkloadGroup").getSqlPoolWorkloadGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlPoolWorkloadGroup","getSqlPoolWorkloadGroupOutput"], () => require("./getSqlPoolWorkloadGroup"));
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+
+export { GetWorkspaceAadAdminArgs, GetWorkspaceAadAdminResult, GetWorkspaceAadAdminOutputArgs } from "./getWorkspaceAadAdmin";
+export const getWorkspaceAadAdmin: typeof import("./getWorkspaceAadAdmin").getWorkspaceAadAdmin = null as any;
+export const getWorkspaceAadAdminOutput: typeof import("./getWorkspaceAadAdmin").getWorkspaceAadAdminOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceAadAdmin","getWorkspaceAadAdminOutput"], () => require("./getWorkspaceAadAdmin"));
+
+export { GetWorkspaceManagedSqlServerVulnerabilityAssessmentArgs, GetWorkspaceManagedSqlServerVulnerabilityAssessmentResult, GetWorkspaceManagedSqlServerVulnerabilityAssessmentOutputArgs } from "./getWorkspaceManagedSqlServerVulnerabilityAssessment";
+export const getWorkspaceManagedSqlServerVulnerabilityAssessment: typeof import("./getWorkspaceManagedSqlServerVulnerabilityAssessment").getWorkspaceManagedSqlServerVulnerabilityAssessment = null as any;
+export const getWorkspaceManagedSqlServerVulnerabilityAssessmentOutput: typeof import("./getWorkspaceManagedSqlServerVulnerabilityAssessment").getWorkspaceManagedSqlServerVulnerabilityAssessmentOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceManagedSqlServerVulnerabilityAssessment","getWorkspaceManagedSqlServerVulnerabilityAssessmentOutput"], () => require("./getWorkspaceManagedSqlServerVulnerabilityAssessment"));
+
+export { GetWorkspaceSqlAadAdminArgs, GetWorkspaceSqlAadAdminResult, GetWorkspaceSqlAadAdminOutputArgs } from "./getWorkspaceSqlAadAdmin";
+export const getWorkspaceSqlAadAdmin: typeof import("./getWorkspaceSqlAadAdmin").getWorkspaceSqlAadAdmin = null as any;
+export const getWorkspaceSqlAadAdminOutput: typeof import("./getWorkspaceSqlAadAdmin").getWorkspaceSqlAadAdminOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceSqlAadAdmin","getWorkspaceSqlAadAdminOutput"], () => require("./getWorkspaceSqlAadAdmin"));
+
 export { ListIntegrationRuntimeAuthKeyArgs, ListIntegrationRuntimeAuthKeyResult, ListIntegrationRuntimeAuthKeyOutputArgs } from "./listIntegrationRuntimeAuthKey";
 export const listIntegrationRuntimeAuthKey: typeof import("./listIntegrationRuntimeAuthKey").listIntegrationRuntimeAuthKey = null as any;
 export const listIntegrationRuntimeAuthKeyOutput: typeof import("./listIntegrationRuntimeAuthKey").listIntegrationRuntimeAuthKeyOutput = null as any;
 utilities.lazyLoad(exports, ["listIntegrationRuntimeAuthKey","listIntegrationRuntimeAuthKeyOutput"], () => require("./listIntegrationRuntimeAuthKey"));
 
+
+// Export enums:
+export * from "../../types/enums/synapse/v20201201";

@@ -92,6 +92,43 @@ namespace Pulumi.AzureNative.Batch.V20200501
     }
 
     /// <summary>
+    /// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+    /// </summary>
+    [EnumType]
+    public readonly struct CertificateFormat : IEquatable<CertificateFormat>
+    {
+        private readonly string _value;
+
+        private CertificateFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The certificate is a PFX (PKCS#12) formatted certificate or certificate chain.
+        /// </summary>
+        public static CertificateFormat Pfx { get; } = new CertificateFormat("Pfx");
+        /// <summary>
+        /// The certificate is a base64-encoded X.509 certificate.
+        /// </summary>
+        public static CertificateFormat Cer { get; } = new CertificateFormat("Cer");
+
+        public static bool operator ==(CertificateFormat left, CertificateFormat right) => left.Equals(right);
+        public static bool operator !=(CertificateFormat left, CertificateFormat right) => !left.Equals(right);
+
+        public static explicit operator string(CertificateFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CertificateFormat other && Equals(other);
+        public bool Equals(CertificateFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
     /// </summary>
     [EnumType]
@@ -496,6 +533,43 @@ namespace Pulumi.AzureNative.Batch.V20200501
     }
 
     /// <summary>
+    /// Type of the key source.
+    /// </summary>
+    [EnumType]
+    public readonly struct KeySource : IEquatable<KeySource>
+    {
+        private readonly string _value;
+
+        private KeySource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Batch creates and manages the encryption keys used to protect the account data.
+        /// </summary>
+        public static KeySource Microsoft_Batch { get; } = new KeySource("Microsoft.Batch");
+        /// <summary>
+        /// The encryption keys used to protect the account data are stored in an external key vault. If this is set then the Batch Account identity must be set to `SystemAssigned` and a valid Key Identifier must also be supplied under the keyVaultProperties.
+        /// </summary>
+        public static KeySource Microsoft_KeyVault { get; } = new KeySource("Microsoft.KeyVault");
+
+        public static bool operator ==(KeySource left, KeySource right) => left.Equals(right);
+        public static bool operator !=(KeySource left, KeySource right) => !left.Equals(right);
+
+        public static explicit operator string(KeySource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KeySource other && Equals(other);
+        public bool Equals(KeySource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
     /// </summary>
     [EnumType]
@@ -559,6 +633,117 @@ namespace Pulumi.AzureNative.Batch.V20200501
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NetworkSecurityGroupRuleAccess other && Equals(other);
         public bool Equals(NetworkSecurityGroupRuleAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+    /// </summary>
+    [EnumType]
+    public readonly struct PoolAllocationMode : IEquatable<PoolAllocationMode>
+    {
+        private readonly string _value;
+
+        private PoolAllocationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Pools will be allocated in subscriptions owned by the Batch service.
+        /// </summary>
+        public static PoolAllocationMode BatchService { get; } = new PoolAllocationMode("BatchService");
+        /// <summary>
+        /// Pools will be allocated in a subscription owned by the user.
+        /// </summary>
+        public static PoolAllocationMode UserSubscription { get; } = new PoolAllocationMode("UserSubscription");
+
+        public static bool operator ==(PoolAllocationMode left, PoolAllocationMode right) => left.Equals(right);
+        public static bool operator !=(PoolAllocationMode left, PoolAllocationMode right) => !left.Equals(right);
+
+        public static explicit operator string(PoolAllocationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PoolAllocationMode other && Equals(other);
+        public bool Equals(PoolAllocationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// If not specified, the default value is 'enabled'.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccessType : IEquatable<PublicNetworkAccessType>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccessType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Enables connectivity to Azure Batch through public DNS.
+        /// </summary>
+        public static PublicNetworkAccessType Enabled { get; } = new PublicNetworkAccessType("Enabled");
+        /// <summary>
+        /// Disables public connectivity and enables private connectivity to Azure Batch Service through private endpoint resource.
+        /// </summary>
+        public static PublicNetworkAccessType Disabled { get; } = new PublicNetworkAccessType("Disabled");
+
+        public static bool operator ==(PublicNetworkAccessType left, PublicNetworkAccessType right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccessType left, PublicNetworkAccessType right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccessType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccessType other && Equals(other);
+        public bool Equals(PublicNetworkAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of identity used for the Batch account.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Batch account has a system assigned identity with it.
+        /// </summary>
+        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        /// <summary>
+        /// Batch account has no identity associated with it. Setting `None` in update account will remove existing identities.
+        /// </summary>
+        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
+
+        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
+        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

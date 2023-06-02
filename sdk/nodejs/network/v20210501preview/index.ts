@@ -70,6 +70,11 @@ export const getNetworkManager: typeof import("./getNetworkManager").getNetworkM
 export const getNetworkManagerOutput: typeof import("./getNetworkManager").getNetworkManagerOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkManager","getNetworkManagerOutput"], () => require("./getNetworkManager"));
 
+export { GetScopeConnectionArgs, GetScopeConnectionResult, GetScopeConnectionOutputArgs } from "./getScopeConnection";
+export const getScopeConnection: typeof import("./getScopeConnection").getScopeConnection = null as any;
+export const getScopeConnectionOutput: typeof import("./getScopeConnection").getScopeConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getScopeConnection","getScopeConnectionOutput"], () => require("./getScopeConnection"));
+
 export { GetSecurityAdminConfigurationArgs, GetSecurityAdminConfigurationResult, GetSecurityAdminConfigurationOutputArgs } from "./getSecurityAdminConfiguration";
 export const getSecurityAdminConfiguration: typeof import("./getSecurityAdminConfiguration").getSecurityAdminConfiguration = null as any;
 export const getSecurityAdminConfigurationOutput: typeof import("./getSecurityAdminConfiguration").getSecurityAdminConfigurationOutput = null as any;
@@ -79,6 +84,16 @@ export { GetSecurityUserConfigurationArgs, GetSecurityUserConfigurationResult, G
 export const getSecurityUserConfiguration: typeof import("./getSecurityUserConfiguration").getSecurityUserConfiguration = null as any;
 export const getSecurityUserConfigurationOutput: typeof import("./getSecurityUserConfiguration").getSecurityUserConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityUserConfiguration","getSecurityUserConfigurationOutput"], () => require("./getSecurityUserConfiguration"));
+
+export { GetStaticMemberArgs, GetStaticMemberResult, GetStaticMemberOutputArgs } from "./getStaticMember";
+export const getStaticMember: typeof import("./getStaticMember").getStaticMember = null as any;
+export const getStaticMemberOutput: typeof import("./getStaticMember").getStaticMemberOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticMember","getStaticMemberOutput"], () => require("./getStaticMember"));
+
+export { GetSubscriptionNetworkManagerConnectionArgs, GetSubscriptionNetworkManagerConnectionResult, GetSubscriptionNetworkManagerConnectionOutputArgs } from "./getSubscriptionNetworkManagerConnection";
+export const getSubscriptionNetworkManagerConnection: typeof import("./getSubscriptionNetworkManagerConnection").getSubscriptionNetworkManagerConnection = null as any;
+export const getSubscriptionNetworkManagerConnectionOutput: typeof import("./getSubscriptionNetworkManagerConnection").getSubscriptionNetworkManagerConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscriptionNetworkManagerConnection","getSubscriptionNetworkManagerConnectionOutput"], () => require("./getSubscriptionNetworkManagerConnection"));
 
 export { GetUserRuleArgs, GetUserRuleResult, GetUserRuleOutputArgs } from "./getUserRule";
 export const getUserRule: typeof import("./getUserRule").getUserRule = null as any;

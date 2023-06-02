@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetDeploymentArgs, GetDeploymentResult, GetDeploymentOutputArgs } from "./getDeployment";
+export const getDeployment: typeof import("./getDeployment").getDeployment = null as any;
+export const getDeploymentOutput: typeof import("./getDeployment").getDeploymentOutput = null as any;
+utilities.lazyLoad(exports, ["getDeployment","getDeploymentOutput"], () => require("./getDeployment"));
+
+export { GetDeploymentAtManagementGroupScopeArgs, GetDeploymentAtManagementGroupScopeResult, GetDeploymentAtManagementGroupScopeOutputArgs } from "./getDeploymentAtManagementGroupScope";
+export const getDeploymentAtManagementGroupScope: typeof import("./getDeploymentAtManagementGroupScope").getDeploymentAtManagementGroupScope = null as any;
+export const getDeploymentAtManagementGroupScopeOutput: typeof import("./getDeploymentAtManagementGroupScope").getDeploymentAtManagementGroupScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getDeploymentAtManagementGroupScope","getDeploymentAtManagementGroupScopeOutput"], () => require("./getDeploymentAtManagementGroupScope"));
+
+export { GetDeploymentAtSubscriptionScopeArgs, GetDeploymentAtSubscriptionScopeResult, GetDeploymentAtSubscriptionScopeOutputArgs } from "./getDeploymentAtSubscriptionScope";
+export const getDeploymentAtSubscriptionScope: typeof import("./getDeploymentAtSubscriptionScope").getDeploymentAtSubscriptionScope = null as any;
+export const getDeploymentAtSubscriptionScopeOutput: typeof import("./getDeploymentAtSubscriptionScope").getDeploymentAtSubscriptionScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getDeploymentAtSubscriptionScope","getDeploymentAtSubscriptionScopeOutput"], () => require("./getDeploymentAtSubscriptionScope"));
+
 export { GetResourceArgs, GetResourceResult, GetResourceOutputArgs } from "./getResource";
 export const getResource: typeof import("./getResource").getResource = null as any;
 export const getResourceOutput: typeof import("./getResource").getResourceOutput = null as any;

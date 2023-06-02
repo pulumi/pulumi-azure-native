@@ -10,6 +10,11 @@ export const getProtectionPolicy: typeof import("./getProtectionPolicy").getProt
 export const getProtectionPolicyOutput: typeof import("./getProtectionPolicy").getProtectionPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getProtectionPolicy","getProtectionPolicyOutput"], () => require("./getProtectionPolicy"));
 
+export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
+export const getVault: typeof import("./getVault").getVault = null as any;
+export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
+
 export { ProtectionPolicyArgs } from "./protectionPolicy";
 export type ProtectionPolicy = import("./protectionPolicy").ProtectionPolicy;
 export const ProtectionPolicy: typeof import("./protectionPolicy").ProtectionPolicy = null as any;

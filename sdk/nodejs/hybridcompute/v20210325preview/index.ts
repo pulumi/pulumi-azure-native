@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetMachineArgs, GetMachineResult, GetMachineOutputArgs } from "./getMachine";
+export const getMachine: typeof import("./getMachine").getMachine = null as any;
+export const getMachineOutput: typeof import("./getMachine").getMachineOutput = null as any;
+utilities.lazyLoad(exports, ["getMachine","getMachineOutput"], () => require("./getMachine"));
+
+export { GetMachineExtensionArgs, GetMachineExtensionResult, GetMachineExtensionOutputArgs } from "./getMachineExtension";
+export const getMachineExtension: typeof import("./getMachineExtension").getMachineExtension = null as any;
+export const getMachineExtensionOutput: typeof import("./getMachineExtension").getMachineExtensionOutput = null as any;
+utilities.lazyLoad(exports, ["getMachineExtension","getMachineExtensionOutput"], () => require("./getMachineExtension"));
+
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;

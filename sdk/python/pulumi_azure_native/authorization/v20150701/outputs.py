@@ -10,8 +10,44 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
+    'PermissionResponse',
     'RoleAssignmentPropertiesWithScopeResponse',
 ]
+
+@pulumi.output_type
+class PermissionResponse(dict):
+    """
+    Role definition permissions.
+    """
+    def __init__(__self__, *,
+                 actions: Optional[Sequence[str]] = None,
+                 not_actions: Optional[Sequence[str]] = None):
+        """
+        Role definition permissions.
+        :param Sequence[str] actions: Allowed actions.
+        :param Sequence[str] not_actions: Denied actions.
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if not_actions is not None:
+            pulumi.set(__self__, "not_actions", not_actions)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence[str]]:
+        """
+        Allowed actions.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="notActions")
+    def not_actions(self) -> Optional[Sequence[str]]:
+        """
+        Denied actions.
+        """
+        return pulumi.get(self, "not_actions")
+
 
 @pulumi.output_type
 class RoleAssignmentPropertiesWithScopeResponse(dict):

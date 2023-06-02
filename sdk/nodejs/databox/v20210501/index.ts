@@ -4,8 +4,16 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
+export const getJob: typeof import("./getJob").getJob = null as any;
+export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
+utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
+
 export { ListJobCredentialsArgs, ListJobCredentialsResult, ListJobCredentialsOutputArgs } from "./listJobCredentials";
 export const listJobCredentials: typeof import("./listJobCredentials").listJobCredentials = null as any;
 export const listJobCredentialsOutput: typeof import("./listJobCredentials").listJobCredentialsOutput = null as any;
 utilities.lazyLoad(exports, ["listJobCredentials","listJobCredentialsOutput"], () => require("./listJobCredentials"));
 
+
+// Export enums:
+export * from "../../types/enums/databox/v20210501";

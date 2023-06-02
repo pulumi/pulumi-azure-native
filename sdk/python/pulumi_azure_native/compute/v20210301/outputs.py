@@ -35,6 +35,11 @@ __all__ = [
     'CloudServiceVaultCertificateResponse',
     'CloudServiceVaultSecretGroupResponse',
     'DataDiskResponse',
+    'DedicatedHostAllocatableVMResponse',
+    'DedicatedHostAvailableCapacityResponse',
+    'DedicatedHostGroupInstanceViewResponse',
+    'DedicatedHostInstanceViewResponse',
+    'DedicatedHostInstanceViewWithNameResponse',
     'DiagnosticsProfileResponse',
     'DiffDiskSettingsResponse',
     'DiskEncryptionSetParametersResponse',
@@ -43,7 +48,10 @@ __all__ = [
     'ExtendedLocationResponse',
     'ExtensionResponse',
     'HardwareProfileResponse',
+    'ImageDataDiskResponse',
+    'ImageOSDiskResponse',
     'ImageReferenceResponse',
+    'ImageStorageProfileResponse',
     'InnerErrorResponse',
     'InstanceViewStatusResponse',
     'KeyVaultKeyReferenceResponse',
@@ -80,7 +88,9 @@ __all__ = [
     'SshConfigurationResponse',
     'SshPublicKeyResponse',
     'StorageProfileResponse',
+    'SubResourceReadOnlyResponse',
     'SubResourceResponse',
+    'SubResourceWithColocationStatusResponse',
     'TerminateNotificationProfileResponse',
     'UefiSettingsResponse',
     'UpgradePolicyResponse',
@@ -1690,6 +1700,186 @@ class DataDiskResponse(dict):
 
 
 @pulumi.output_type
+class DedicatedHostAllocatableVMResponse(dict):
+    """
+    Represents the dedicated host unutilized capacity in terms of a specific VM size.
+    """
+    def __init__(__self__, *,
+                 count: Optional[float] = None,
+                 vm_size: Optional[str] = None):
+        """
+        Represents the dedicated host unutilized capacity in terms of a specific VM size.
+        :param float count: Maximum number of VMs of size vmSize that can fit in the dedicated host's remaining capacity.
+        :param str vm_size: VM size in terms of which the unutilized capacity is represented.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[float]:
+        """
+        Maximum number of VMs of size vmSize that can fit in the dedicated host's remaining capacity.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[str]:
+        """
+        VM size in terms of which the unutilized capacity is represented.
+        """
+        return pulumi.get(self, "vm_size")
+
+
+@pulumi.output_type
+class DedicatedHostAvailableCapacityResponse(dict):
+    """
+    Dedicated host unutilized capacity.
+    """
+    def __init__(__self__, *,
+                 allocatable_vms: Optional[Sequence['outputs.DedicatedHostAllocatableVMResponse']] = None):
+        """
+        Dedicated host unutilized capacity.
+        :param Sequence['DedicatedHostAllocatableVMResponse'] allocatable_vms: The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.
+        """
+        if allocatable_vms is not None:
+            pulumi.set(__self__, "allocatable_vms", allocatable_vms)
+
+    @property
+    @pulumi.getter(name="allocatableVMs")
+    def allocatable_vms(self) -> Optional[Sequence['outputs.DedicatedHostAllocatableVMResponse']]:
+        """
+        The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.
+        """
+        return pulumi.get(self, "allocatable_vms")
+
+
+@pulumi.output_type
+class DedicatedHostGroupInstanceViewResponse(dict):
+    def __init__(__self__, *,
+                 hosts: Optional[Sequence['outputs.DedicatedHostInstanceViewWithNameResponse']] = None):
+        """
+        :param Sequence['DedicatedHostInstanceViewWithNameResponse'] hosts: List of instance view of the dedicated hosts under the dedicated host group.
+        """
+        if hosts is not None:
+            pulumi.set(__self__, "hosts", hosts)
+
+    @property
+    @pulumi.getter
+    def hosts(self) -> Optional[Sequence['outputs.DedicatedHostInstanceViewWithNameResponse']]:
+        """
+        List of instance view of the dedicated hosts under the dedicated host group.
+        """
+        return pulumi.get(self, "hosts")
+
+
+@pulumi.output_type
+class DedicatedHostInstanceViewResponse(dict):
+    """
+    The instance view of a dedicated host.
+    """
+    def __init__(__self__, *,
+                 asset_id: str,
+                 available_capacity: Optional['outputs.DedicatedHostAvailableCapacityResponse'] = None,
+                 statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None):
+        """
+        The instance view of a dedicated host.
+        :param str asset_id: Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
+        :param 'DedicatedHostAvailableCapacityResponse' available_capacity: Unutilized capacity of the dedicated host.
+        :param Sequence['InstanceViewStatusResponse'] statuses: The resource status information.
+        """
+        pulumi.set(__self__, "asset_id", asset_id)
+        if available_capacity is not None:
+            pulumi.set(__self__, "available_capacity", available_capacity)
+        if statuses is not None:
+            pulumi.set(__self__, "statuses", statuses)
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> str:
+        """
+        Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
+        """
+        return pulumi.get(self, "asset_id")
+
+    @property
+    @pulumi.getter(name="availableCapacity")
+    def available_capacity(self) -> Optional['outputs.DedicatedHostAvailableCapacityResponse']:
+        """
+        Unutilized capacity of the dedicated host.
+        """
+        return pulumi.get(self, "available_capacity")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Optional[Sequence['outputs.InstanceViewStatusResponse']]:
+        """
+        The resource status information.
+        """
+        return pulumi.get(self, "statuses")
+
+
+@pulumi.output_type
+class DedicatedHostInstanceViewWithNameResponse(dict):
+    """
+    The instance view of a dedicated host that includes the name of the dedicated host. It is used for the response to the instance view of a dedicated host group.
+    """
+    def __init__(__self__, *,
+                 asset_id: str,
+                 name: str,
+                 available_capacity: Optional['outputs.DedicatedHostAvailableCapacityResponse'] = None,
+                 statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None):
+        """
+        The instance view of a dedicated host that includes the name of the dedicated host. It is used for the response to the instance view of a dedicated host group.
+        :param str asset_id: Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
+        :param str name: The name of the dedicated host.
+        :param 'DedicatedHostAvailableCapacityResponse' available_capacity: Unutilized capacity of the dedicated host.
+        :param Sequence['InstanceViewStatusResponse'] statuses: The resource status information.
+        """
+        pulumi.set(__self__, "asset_id", asset_id)
+        pulumi.set(__self__, "name", name)
+        if available_capacity is not None:
+            pulumi.set(__self__, "available_capacity", available_capacity)
+        if statuses is not None:
+            pulumi.set(__self__, "statuses", statuses)
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> str:
+        """
+        Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
+        """
+        return pulumi.get(self, "asset_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the dedicated host.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="availableCapacity")
+    def available_capacity(self) -> Optional['outputs.DedicatedHostAvailableCapacityResponse']:
+        """
+        Unutilized capacity of the dedicated host.
+        """
+        return pulumi.get(self, "available_capacity")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Optional[Sequence['outputs.InstanceViewStatusResponse']]:
+        """
+        The resource status information.
+        """
+        return pulumi.get(self, "statuses")
+
+
+@pulumi.output_type
 class DiagnosticsProfileResponse(dict):
     """
     Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
@@ -2028,6 +2218,229 @@ class HardwareProfileResponse(dict):
 
 
 @pulumi.output_type
+class ImageDataDiskResponse(dict):
+    """
+    Describes a data disk.
+    """
+    def __init__(__self__, *,
+                 lun: int,
+                 blob_uri: Optional[str] = None,
+                 caching: Optional[str] = None,
+                 disk_encryption_set: Optional['outputs.DiskEncryptionSetParametersResponse'] = None,
+                 disk_size_gb: Optional[int] = None,
+                 managed_disk: Optional['outputs.SubResourceResponse'] = None,
+                 snapshot: Optional['outputs.SubResourceResponse'] = None,
+                 storage_account_type: Optional[str] = None):
+        """
+        Describes a data disk.
+        :param int lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+        :param str blob_uri: The Virtual Hard Disk.
+        :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+        :param 'DiskEncryptionSetParametersResponse' disk_encryption_set: Specifies the customer managed disk encryption set resource id for the managed image disk.
+        :param int disk_size_gb: Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+        :param 'SubResourceResponse' managed_disk: The managedDisk.
+        :param 'SubResourceResponse' snapshot: The snapshot.
+        :param str storage_account_type: Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        """
+        pulumi.set(__self__, "lun", lun)
+        if blob_uri is not None:
+            pulumi.set(__self__, "blob_uri", blob_uri)
+        if caching is not None:
+            pulumi.set(__self__, "caching", caching)
+        if disk_encryption_set is not None:
+            pulumi.set(__self__, "disk_encryption_set", disk_encryption_set)
+        if disk_size_gb is not None:
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if managed_disk is not None:
+            pulumi.set(__self__, "managed_disk", managed_disk)
+        if snapshot is not None:
+            pulumi.set(__self__, "snapshot", snapshot)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+
+    @property
+    @pulumi.getter
+    def lun(self) -> int:
+        """
+        Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+        """
+        return pulumi.get(self, "lun")
+
+    @property
+    @pulumi.getter(name="blobUri")
+    def blob_uri(self) -> Optional[str]:
+        """
+        The Virtual Hard Disk.
+        """
+        return pulumi.get(self, "blob_uri")
+
+    @property
+    @pulumi.getter
+    def caching(self) -> Optional[str]:
+        """
+        Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+        """
+        return pulumi.get(self, "caching")
+
+    @property
+    @pulumi.getter(name="diskEncryptionSet")
+    def disk_encryption_set(self) -> Optional['outputs.DiskEncryptionSetParametersResponse']:
+        """
+        Specifies the customer managed disk encryption set resource id for the managed image disk.
+        """
+        return pulumi.get(self, "disk_encryption_set")
+
+    @property
+    @pulumi.getter(name="diskSizeGB")
+    def disk_size_gb(self) -> Optional[int]:
+        """
+        Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+        """
+        return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter(name="managedDisk")
+    def managed_disk(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The managedDisk.
+        """
+        return pulumi.get(self, "managed_disk")
+
+    @property
+    @pulumi.getter
+    def snapshot(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The snapshot.
+        """
+        return pulumi.get(self, "snapshot")
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[str]:
+        """
+        Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+
+@pulumi.output_type
+class ImageOSDiskResponse(dict):
+    """
+    Describes an Operating System disk.
+    """
+    def __init__(__self__, *,
+                 os_state: str,
+                 os_type: str,
+                 blob_uri: Optional[str] = None,
+                 caching: Optional[str] = None,
+                 disk_encryption_set: Optional['outputs.DiskEncryptionSetParametersResponse'] = None,
+                 disk_size_gb: Optional[int] = None,
+                 managed_disk: Optional['outputs.SubResourceResponse'] = None,
+                 snapshot: Optional['outputs.SubResourceResponse'] = None,
+                 storage_account_type: Optional[str] = None):
+        """
+        Describes an Operating System disk.
+        :param str os_state: The OS State.
+        :param str os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        :param str blob_uri: The Virtual Hard Disk.
+        :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+        :param 'DiskEncryptionSetParametersResponse' disk_encryption_set: Specifies the customer managed disk encryption set resource id for the managed image disk.
+        :param int disk_size_gb: Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+        :param 'SubResourceResponse' managed_disk: The managedDisk.
+        :param 'SubResourceResponse' snapshot: The snapshot.
+        :param str storage_account_type: Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        """
+        pulumi.set(__self__, "os_state", os_state)
+        pulumi.set(__self__, "os_type", os_type)
+        if blob_uri is not None:
+            pulumi.set(__self__, "blob_uri", blob_uri)
+        if caching is not None:
+            pulumi.set(__self__, "caching", caching)
+        if disk_encryption_set is not None:
+            pulumi.set(__self__, "disk_encryption_set", disk_encryption_set)
+        if disk_size_gb is not None:
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if managed_disk is not None:
+            pulumi.set(__self__, "managed_disk", managed_disk)
+        if snapshot is not None:
+            pulumi.set(__self__, "snapshot", snapshot)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+
+    @property
+    @pulumi.getter(name="osState")
+    def os_state(self) -> str:
+        """
+        The OS State.
+        """
+        return pulumi.get(self, "os_state")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
+        """
+        This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="blobUri")
+    def blob_uri(self) -> Optional[str]:
+        """
+        The Virtual Hard Disk.
+        """
+        return pulumi.get(self, "blob_uri")
+
+    @property
+    @pulumi.getter
+    def caching(self) -> Optional[str]:
+        """
+        Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+        """
+        return pulumi.get(self, "caching")
+
+    @property
+    @pulumi.getter(name="diskEncryptionSet")
+    def disk_encryption_set(self) -> Optional['outputs.DiskEncryptionSetParametersResponse']:
+        """
+        Specifies the customer managed disk encryption set resource id for the managed image disk.
+        """
+        return pulumi.get(self, "disk_encryption_set")
+
+    @property
+    @pulumi.getter(name="diskSizeGB")
+    def disk_size_gb(self) -> Optional[int]:
+        """
+        Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+        """
+        return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter(name="managedDisk")
+    def managed_disk(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The managedDisk.
+        """
+        return pulumi.get(self, "managed_disk")
+
+    @property
+    @pulumi.getter
+    def snapshot(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The snapshot.
+        """
+        return pulumi.get(self, "snapshot")
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[str]:
+        """
+        Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+
+@pulumi.output_type
 class ImageReferenceResponse(dict):
     """
     Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
@@ -2124,6 +2537,53 @@ class ImageReferenceResponse(dict):
         Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ImageStorageProfileResponse(dict):
+    """
+    Describes a storage profile.
+    """
+    def __init__(__self__, *,
+                 data_disks: Optional[Sequence['outputs.ImageDataDiskResponse']] = None,
+                 os_disk: Optional['outputs.ImageOSDiskResponse'] = None,
+                 zone_resilient: Optional[bool] = None):
+        """
+        Describes a storage profile.
+        :param Sequence['ImageDataDiskResponse'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        :param 'ImageOSDiskResponse' os_disk: Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        :param bool zone_resilient: Specifies whether an image is zone resilient or not. Default is false. Zone resilient images can be created only in regions that provide Zone Redundant Storage (ZRS).
+        """
+        if data_disks is not None:
+            pulumi.set(__self__, "data_disks", data_disks)
+        if os_disk is not None:
+            pulumi.set(__self__, "os_disk", os_disk)
+        if zone_resilient is not None:
+            pulumi.set(__self__, "zone_resilient", zone_resilient)
+
+    @property
+    @pulumi.getter(name="dataDisks")
+    def data_disks(self) -> Optional[Sequence['outputs.ImageDataDiskResponse']]:
+        """
+        Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        """
+        return pulumi.get(self, "data_disks")
+
+    @property
+    @pulumi.getter(name="osDisk")
+    def os_disk(self) -> Optional['outputs.ImageOSDiskResponse']:
+        """
+        Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        """
+        return pulumi.get(self, "os_disk")
+
+    @property
+    @pulumi.getter(name="zoneResilient")
+    def zone_resilient(self) -> Optional[bool]:
+        """
+        Specifies whether an image is zone resilient or not. Default is false. Zone resilient images can be created only in regions that provide Zone Redundant Storage (ZRS).
+        """
+        return pulumi.get(self, "zone_resilient")
 
 
 @pulumi.output_type
@@ -4737,6 +5197,24 @@ class StorageProfileResponse(dict):
 
 
 @pulumi.output_type
+class SubResourceReadOnlyResponse(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: Resource Id
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class SubResourceResponse(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None):
@@ -4745,6 +5223,37 @@ class SubResourceResponse(dict):
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SubResourceWithColocationStatusResponse(dict):
+    def __init__(__self__, *,
+                 colocation_status: Optional['outputs.InstanceViewStatusResponse'] = None,
+                 id: Optional[str] = None):
+        """
+        :param 'InstanceViewStatusResponse' colocation_status: Describes colocation status of a resource in the Proximity Placement Group.
+        :param str id: Resource Id
+        """
+        if colocation_status is not None:
+            pulumi.set(__self__, "colocation_status", colocation_status)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="colocationStatus")
+    def colocation_status(self) -> Optional['outputs.InstanceViewStatusResponse']:
+        """
+        Describes colocation status of a resource in the Proximity Placement Group.
+        """
+        return pulumi.get(self, "colocation_status")
 
     @property
     @pulumi.getter

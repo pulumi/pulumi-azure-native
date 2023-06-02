@@ -22,6 +22,7 @@ from .get_notification_channel import *
 from .get_policy import *
 from .get_schedule import *
 from .get_secret import *
+from .get_service_runner import *
 from .get_user import *
 from .get_virtual_machine import *
 from .get_virtual_machine_schedule import *

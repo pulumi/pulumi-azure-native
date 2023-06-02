@@ -10,6 +10,11 @@ export const getSoftwareUpdateConfigurationByName: typeof import("./getSoftwareU
 export const getSoftwareUpdateConfigurationByNameOutput: typeof import("./getSoftwareUpdateConfigurationByName").getSoftwareUpdateConfigurationByNameOutput = null as any;
 utilities.lazyLoad(exports, ["getSoftwareUpdateConfigurationByName","getSoftwareUpdateConfigurationByNameOutput"], () => require("./getSoftwareUpdateConfigurationByName"));
 
+export { GetSourceControlArgs, GetSourceControlResult, GetSourceControlOutputArgs } from "./getSourceControl";
+export const getSourceControl: typeof import("./getSourceControl").getSourceControl = null as any;
+export const getSourceControlOutput: typeof import("./getSourceControl").getSourceControlOutput = null as any;
+utilities.lazyLoad(exports, ["getSourceControl","getSourceControlOutput"], () => require("./getSourceControl"));
+
 export { SoftwareUpdateConfigurationByNameArgs } from "./softwareUpdateConfigurationByName";
 export type SoftwareUpdateConfigurationByName = import("./softwareUpdateConfigurationByName").SoftwareUpdateConfigurationByName;
 export const SoftwareUpdateConfigurationByName: typeof import("./softwareUpdateConfigurationByName").SoftwareUpdateConfigurationByName = null as any;

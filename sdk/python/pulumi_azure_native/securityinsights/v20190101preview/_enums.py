@@ -483,7 +483,7 @@ class IncidentClassification(str, Enum):
 
 class IncidentClassificationReason(str, Enum):
     """
-    The classification reason to close the incident with
+    The classification reason the incident was closed with
     """
     SUSPICIOUS_ACTIVITY = "SuspiciousActivity"
     """

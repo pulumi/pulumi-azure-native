@@ -5,16 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetComponentArgs, GetComponentResult, GetComponentOutputArgs } from "./getComponent";
+export const getComponent: typeof import("./getComponent").getComponent = null as any;
+export const getComponentOutput: typeof import("./getComponent").getComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getComponent","getComponentOutput"], () => require("./getComponent"));
+
 export { GetProactiveDetectionConfigurationArgs, GetProactiveDetectionConfigurationResult, GetProactiveDetectionConfigurationOutputArgs } from "./getProactiveDetectionConfiguration";
 export const getProactiveDetectionConfiguration: typeof import("./getProactiveDetectionConfiguration").getProactiveDetectionConfiguration = null as any;
 export const getProactiveDetectionConfigurationOutput: typeof import("./getProactiveDetectionConfiguration").getProactiveDetectionConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getProactiveDetectionConfiguration","getProactiveDetectionConfigurationOutput"], () => require("./getProactiveDetectionConfiguration"));
+
+export { GetWebTestArgs, GetWebTestResult, GetWebTestOutputArgs } from "./getWebTest";
+export const getWebTest: typeof import("./getWebTest").getWebTest = null as any;
+export const getWebTestOutput: typeof import("./getWebTest").getWebTestOutput = null as any;
+utilities.lazyLoad(exports, ["getWebTest","getWebTestOutput"], () => require("./getWebTest"));
 
 export { ProactiveDetectionConfigurationArgs } from "./proactiveDetectionConfiguration";
 export type ProactiveDetectionConfiguration = import("./proactiveDetectionConfiguration").ProactiveDetectionConfiguration;
 export const ProactiveDetectionConfiguration: typeof import("./proactiveDetectionConfiguration").ProactiveDetectionConfiguration = null as any;
 utilities.lazyLoad(exports, ["ProactiveDetectionConfiguration"], () => require("./proactiveDetectionConfiguration"));
 
+
+// Export enums:
+export * from "../../types/enums/insights/v20180501preview";
 
 const _module = {
     version: utilities.getVersion(),

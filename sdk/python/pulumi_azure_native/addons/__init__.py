@@ -10,8 +10,11 @@ from .support_plan_type import *
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.addons.v20170515 as __v20170515
+    v20170515 = __v20170515
     import pulumi_azure_native.addons.v20180301 as __v20180301
     v20180301 = __v20180301
 else:
+    v20170515 = _utilities.lazy_import('pulumi_azure_native.addons.v20170515')
     v20180301 = _utilities.lazy_import('pulumi_azure_native.addons.v20180301')
 

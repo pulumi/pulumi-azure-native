@@ -10,7 +10,10 @@ from .availability_set import *
 from .disk import *
 from .get_availability_set import *
 from .get_disk import *
+from .get_image import *
 from .get_snapshot import *
+from .get_virtual_machine import *
+from .get_virtual_machine_extension import *
 from .get_virtual_machine_scale_set import *
 from .snapshot import *
 from .virtual_machine_scale_set import *

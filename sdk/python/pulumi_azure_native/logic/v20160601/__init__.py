@@ -10,6 +10,9 @@ from .agreement import *
 from .certificate import *
 from .get_agreement import *
 from .get_certificate import *
+from .get_integration_account import *
+from .get_integration_account_assembly import *
+from .get_integration_account_batch_configuration import *
 from .get_map import *
 from .get_partner import *
 from .get_rosetta_net_process_configuration import *

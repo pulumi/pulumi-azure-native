@@ -5,7 +5,9 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .diagnostic_setting import *
+from .get_autoscale_setting import *
 from .get_diagnostic_setting import *
 from .get_management_group_diagnostic_setting import *
 from .get_subscription_diagnostic_setting import *

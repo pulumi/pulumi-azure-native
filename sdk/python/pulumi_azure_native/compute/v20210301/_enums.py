@@ -8,6 +8,7 @@ __all__ = [
     'CachingTypes',
     'CloudServiceUpgradeMode',
     'ComponentNames',
+    'DedicatedHostLicenseTypes',
     'DeleteOptions',
     'DiffDiskOptions',
     'DiffDiskPlacement',
@@ -15,16 +16,19 @@ __all__ = [
     'DiskDeleteOptionTypes',
     'DiskDetachOptionTypes',
     'ExtendedLocationTypes',
+    'HyperVGenerationTypes',
     'IPVersion',
     'IPVersions',
     'IntervalInMins',
     'LinuxPatchAssessmentMode',
     'LinuxVMGuestPatchMode',
     'NetworkApiVersion',
+    'OperatingSystemStateTypes',
     'OperatingSystemTypes',
     'OrchestrationMode',
     'PassNames',
     'ProtocolTypes',
+    'ProximityPlacementGroupType',
     'PublicIPAddressSkuName',
     'PublicIPAddressSkuTier',
     'PublicIPAllocationMethod',
@@ -68,6 +72,15 @@ class ComponentNames(str, Enum):
     The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
     """
     MICROSOFT_WINDOWS_SHELL_SETUP = "Microsoft-Windows-Shell-Setup"
+
+
+class DedicatedHostLicenseTypes(str, Enum):
+    """
+    Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+    """
+    NONE = "None"
+    WINDOWS_SERVER_HYBRID = "Windows_Server_Hybrid"
+    WINDOWS_SERVER_PERPETUAL = "Windows_Server_Perpetual"
 
 
 class DeleteOptions(str, Enum):
@@ -124,6 +137,14 @@ class ExtendedLocationTypes(str, Enum):
     EDGE_ZONE = "EdgeZone"
 
 
+class HyperVGenerationTypes(str, Enum):
+    """
+    Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
+    """
+    V1 = "V1"
+    V2 = "V2"
+
+
 class IPVersion(str, Enum):
     """
     Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
@@ -173,6 +194,20 @@ class NetworkApiVersion(str, Enum):
     NETWORK_API_VERSION_2020_11_01 = "2020-11-01"
 
 
+class OperatingSystemStateTypes(str, Enum):
+    """
+    The OS State.
+    """
+    GENERALIZED = "Generalized"
+    """
+    Generalized image. Needs to be provisioned during deployment time.
+    """
+    SPECIALIZED = "Specialized"
+    """
+    Specialized image. Contains already provisioned OS Disk.
+    """
+
+
 class OperatingSystemTypes(str, Enum):
     """
     This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
@@ -202,6 +237,14 @@ class ProtocolTypes(str, Enum):
     """
     HTTP = "Http"
     HTTPS = "Https"
+
+
+class ProximityPlacementGroupType(str, Enum):
+    """
+    Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+    """
+    STANDARD = "Standard"
+    ULTRA = "Ultra"
 
 
 class PublicIPAddressSkuName(str, Enum):

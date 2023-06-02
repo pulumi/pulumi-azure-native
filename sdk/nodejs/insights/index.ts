@@ -219,6 +219,7 @@ utilities.lazyLoad(exports, ["WorkbookTemplate"], () => require("./workbookTempl
 export * from "../types/enums/insights";
 
 // Export sub-modules:
+import * as v20140401 from "./v20140401";
 import * as v20150401 from "./v20150401";
 import * as v20150501 from "./v20150501";
 import * as v20160301 from "./v20160301";
@@ -229,6 +230,9 @@ import * as v20180301 from "./v20180301";
 import * as v20180416 from "./v20180416";
 import * as v20180501preview from "./v20180501preview";
 import * as v20180601preview from "./v20180601preview";
+import * as v20180617preview from "./v20180617preview";
+import * as v20180901 from "./v20180901";
+import * as v20190301 from "./v20190301";
 import * as v20190601 from "./v20190601";
 import * as v20191017preview from "./v20191017preview";
 import * as v20191101preview from "./v20191101preview";
@@ -243,11 +247,14 @@ import * as v20201001 from "./v20201001";
 import * as v20201005preview from "./v20201005preview";
 import * as v20201020 from "./v20201020";
 import * as v20201120 from "./v20201120";
+import * as v20210201preview from "./v20210201preview";
 import * as v20210303preview from "./v20210303preview";
 import * as v20210308 from "./v20210308";
+import * as v20210401 from "./v20210401";
 import * as v20210501preview from "./v20210501preview";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801 from "./v20210801";
+import * as v20210901 from "./v20210901";
 import * as v20210901preview from "./v20210901preview";
 import * as v20211014 from "./v20211014";
 import * as v20220401 from "./v20220401";
@@ -261,6 +268,7 @@ import * as v20230301preview from "./v20230301preview";
 import * as v20230315preview from "./v20230315preview";
 
 export {
+    v20140401,
     v20150401,
     v20150501,
     v20160301,
@@ -271,6 +279,9 @@ export {
     v20180416,
     v20180501preview,
     v20180601preview,
+    v20180617preview,
+    v20180901,
+    v20190301,
     v20190601,
     v20191017preview,
     v20191101preview,
@@ -285,11 +296,14 @@ export {
     v20201005preview,
     v20201020,
     v20201120,
+    v20210201preview,
     v20210303preview,
     v20210308,
+    v20210401,
     v20210501preview,
     v20210701preview,
     v20210801,
+    v20210901,
     v20210901preview,
     v20211014,
     v20220401,

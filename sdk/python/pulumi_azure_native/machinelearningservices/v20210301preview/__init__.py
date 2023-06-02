@@ -19,6 +19,7 @@ from .get_batch_deployment import *
 from .get_batch_endpoint import *
 from .get_code_container import *
 from .get_code_version import *
+from .get_compute import *
 from .get_data_container import *
 from .get_data_version import *
 from .get_datastore import *
@@ -32,6 +33,9 @@ from .get_online_deployment import *
 from .get_online_deployment_logs import *
 from .get_online_endpoint import *
 from .get_online_endpoint_token import *
+from .get_private_endpoint_connection import *
+from .get_workspace import *
+from .get_workspace_connection import *
 from .job import *
 from .labeling_job import *
 from .list_batch_endpoint_keys import *

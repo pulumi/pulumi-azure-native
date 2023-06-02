@@ -10,10 +10,20 @@ export type Factory = import("./factory").Factory;
 export const Factory: typeof import("./factory").Factory = null as any;
 utilities.lazyLoad(exports, ["Factory"], () => require("./factory"));
 
+export { GetDatasetArgs, GetDatasetResult, GetDatasetOutputArgs } from "./getDataset";
+export const getDataset: typeof import("./getDataset").getDataset = null as any;
+export const getDatasetOutput: typeof import("./getDataset").getDatasetOutput = null as any;
+utilities.lazyLoad(exports, ["getDataset","getDatasetOutput"], () => require("./getDataset"));
+
 export { GetFactoryArgs, GetFactoryResult, GetFactoryOutputArgs } from "./getFactory";
 export const getFactory: typeof import("./getFactory").getFactory = null as any;
 export const getFactoryOutput: typeof import("./getFactory").getFactoryOutput = null as any;
 utilities.lazyLoad(exports, ["getFactory","getFactoryOutput"], () => require("./getFactory"));
+
+export { GetIntegrationRuntimeArgs, GetIntegrationRuntimeResult, GetIntegrationRuntimeOutputArgs } from "./getIntegrationRuntime";
+export const getIntegrationRuntime: typeof import("./getIntegrationRuntime").getIntegrationRuntime = null as any;
+export const getIntegrationRuntimeOutput: typeof import("./getIntegrationRuntime").getIntegrationRuntimeOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationRuntime","getIntegrationRuntimeOutput"], () => require("./getIntegrationRuntime"));
 
 export { GetIntegrationRuntimeConnectionInfoArgs, GetIntegrationRuntimeConnectionInfoResult, GetIntegrationRuntimeConnectionInfoOutputArgs } from "./getIntegrationRuntimeConnectionInfo";
 export const getIntegrationRuntimeConnectionInfo: typeof import("./getIntegrationRuntimeConnectionInfo").getIntegrationRuntimeConnectionInfo = null as any;
@@ -24,6 +34,21 @@ export { GetIntegrationRuntimeStatusArgs, GetIntegrationRuntimeStatusResult, Get
 export const getIntegrationRuntimeStatus: typeof import("./getIntegrationRuntimeStatus").getIntegrationRuntimeStatus = null as any;
 export const getIntegrationRuntimeStatusOutput: typeof import("./getIntegrationRuntimeStatus").getIntegrationRuntimeStatusOutput = null as any;
 utilities.lazyLoad(exports, ["getIntegrationRuntimeStatus","getIntegrationRuntimeStatusOutput"], () => require("./getIntegrationRuntimeStatus"));
+
+export { GetLinkedServiceArgs, GetLinkedServiceResult, GetLinkedServiceOutputArgs } from "./getLinkedService";
+export const getLinkedService: typeof import("./getLinkedService").getLinkedService = null as any;
+export const getLinkedServiceOutput: typeof import("./getLinkedService").getLinkedServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getLinkedService","getLinkedServiceOutput"], () => require("./getLinkedService"));
+
+export { GetPipelineArgs, GetPipelineResult, GetPipelineOutputArgs } from "./getPipeline";
+export const getPipeline: typeof import("./getPipeline").getPipeline = null as any;
+export const getPipelineOutput: typeof import("./getPipeline").getPipelineOutput = null as any;
+utilities.lazyLoad(exports, ["getPipeline","getPipelineOutput"], () => require("./getPipeline"));
+
+export { GetTriggerArgs, GetTriggerResult, GetTriggerOutputArgs } from "./getTrigger";
+export const getTrigger: typeof import("./getTrigger").getTrigger = null as any;
+export const getTriggerOutput: typeof import("./getTrigger").getTriggerOutput = null as any;
+utilities.lazyLoad(exports, ["getTrigger","getTriggerOutput"], () => require("./getTrigger"));
 
 export { ListIntegrationRuntimeAuthKeysArgs, ListIntegrationRuntimeAuthKeysResult, ListIntegrationRuntimeAuthKeysOutputArgs } from "./listIntegrationRuntimeAuthKeys";
 export const listIntegrationRuntimeAuthKeys: typeof import("./listIntegrationRuntimeAuthKeys").listIntegrationRuntimeAuthKeys = null as any;

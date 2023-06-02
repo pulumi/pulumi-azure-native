@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetDigitalTwinArgs, GetDigitalTwinResult, GetDigitalTwinOutputArgs } from "./getDigitalTwin";
+export const getDigitalTwin: typeof import("./getDigitalTwin").getDigitalTwin = null as any;
+export const getDigitalTwinOutput: typeof import("./getDigitalTwin").getDigitalTwinOutput = null as any;
+utilities.lazyLoad(exports, ["getDigitalTwin","getDigitalTwinOutput"], () => require("./getDigitalTwin"));
+
+export { GetDigitalTwinsEndpointArgs, GetDigitalTwinsEndpointResult, GetDigitalTwinsEndpointOutputArgs } from "./getDigitalTwinsEndpoint";
+export const getDigitalTwinsEndpoint: typeof import("./getDigitalTwinsEndpoint").getDigitalTwinsEndpoint = null as any;
+export const getDigitalTwinsEndpointOutput: typeof import("./getDigitalTwinsEndpoint").getDigitalTwinsEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getDigitalTwinsEndpoint","getDigitalTwinsEndpointOutput"], () => require("./getDigitalTwinsEndpoint"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
 export { GetTimeSeriesDatabaseConnectionArgs, GetTimeSeriesDatabaseConnectionResult, GetTimeSeriesDatabaseConnectionOutputArgs } from "./getTimeSeriesDatabaseConnection";
 export const getTimeSeriesDatabaseConnection: typeof import("./getTimeSeriesDatabaseConnection").getTimeSeriesDatabaseConnection = null as any;
 export const getTimeSeriesDatabaseConnectionOutput: typeof import("./getTimeSeriesDatabaseConnection").getTimeSeriesDatabaseConnectionOutput = null as any;

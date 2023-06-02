@@ -5,10 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetWebPubSubArgs, GetWebPubSubResult, GetWebPubSubOutputArgs } from "./getWebPubSub";
+export const getWebPubSub: typeof import("./getWebPubSub").getWebPubSub = null as any;
+export const getWebPubSubOutput: typeof import("./getWebPubSub").getWebPubSubOutput = null as any;
+utilities.lazyLoad(exports, ["getWebPubSub","getWebPubSubOutput"], () => require("./getWebPubSub"));
+
 export { GetWebPubSubHubArgs, GetWebPubSubHubResult, GetWebPubSubHubOutputArgs } from "./getWebPubSubHub";
 export const getWebPubSubHub: typeof import("./getWebPubSubHub").getWebPubSubHub = null as any;
 export const getWebPubSubHubOutput: typeof import("./getWebPubSubHub").getWebPubSubHubOutput = null as any;
 utilities.lazyLoad(exports, ["getWebPubSubHub","getWebPubSubHubOutput"], () => require("./getWebPubSubHub"));
+
+export { GetWebPubSubPrivateEndpointConnectionArgs, GetWebPubSubPrivateEndpointConnectionResult, GetWebPubSubPrivateEndpointConnectionOutputArgs } from "./getWebPubSubPrivateEndpointConnection";
+export const getWebPubSubPrivateEndpointConnection: typeof import("./getWebPubSubPrivateEndpointConnection").getWebPubSubPrivateEndpointConnection = null as any;
+export const getWebPubSubPrivateEndpointConnectionOutput: typeof import("./getWebPubSubPrivateEndpointConnection").getWebPubSubPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getWebPubSubPrivateEndpointConnection","getWebPubSubPrivateEndpointConnectionOutput"], () => require("./getWebPubSubPrivateEndpointConnection"));
+
+export { GetWebPubSubSharedPrivateLinkResourceArgs, GetWebPubSubSharedPrivateLinkResourceResult, GetWebPubSubSharedPrivateLinkResourceOutputArgs } from "./getWebPubSubSharedPrivateLinkResource";
+export const getWebPubSubSharedPrivateLinkResource: typeof import("./getWebPubSubSharedPrivateLinkResource").getWebPubSubSharedPrivateLinkResource = null as any;
+export const getWebPubSubSharedPrivateLinkResourceOutput: typeof import("./getWebPubSubSharedPrivateLinkResource").getWebPubSubSharedPrivateLinkResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getWebPubSubSharedPrivateLinkResource","getWebPubSubSharedPrivateLinkResourceOutput"], () => require("./getWebPubSubSharedPrivateLinkResource"));
 
 export { ListWebPubSubKeysArgs, ListWebPubSubKeysResult, ListWebPubSubKeysOutputArgs } from "./listWebPubSubKeys";
 export const listWebPubSubKeys: typeof import("./listWebPubSubKeys").listWebPubSubKeys = null as any;

@@ -25,6 +25,11 @@ export const getAlertsSuppressionRule: typeof import("./getAlertsSuppressionRule
 export const getAlertsSuppressionRuleOutput: typeof import("./getAlertsSuppressionRule").getAlertsSuppressionRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getAlertsSuppressionRule","getAlertsSuppressionRuleOutput"], () => require("./getAlertsSuppressionRule"));
 
+export { GetAssessmentArgs, GetAssessmentResult, GetAssessmentOutputArgs } from "./getAssessment";
+export const getAssessment: typeof import("./getAssessment").getAssessment = null as any;
+export const getAssessmentOutput: typeof import("./getAssessment").getAssessmentOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessment","getAssessmentOutput"], () => require("./getAssessment"));
+
 export { GetAssessmentsMetadataSubscriptionArgs, GetAssessmentsMetadataSubscriptionResult, GetAssessmentsMetadataSubscriptionOutputArgs } from "./getAssessmentsMetadataSubscription";
 export const getAssessmentsMetadataSubscription: typeof import("./getAssessmentsMetadataSubscription").getAssessmentsMetadataSubscription = null as any;
 export const getAssessmentsMetadataSubscriptionOutput: typeof import("./getAssessmentsMetadataSubscription").getAssessmentsMetadataSubscriptionOutput = null as any;

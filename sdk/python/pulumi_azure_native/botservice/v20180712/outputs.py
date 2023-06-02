@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'BotPropertiesResponse',
     'ConnectionSettingParameterResponse',
     'ConnectionSettingPropertiesResponse',
     'DirectLineChannelPropertiesResponse',
@@ -44,6 +45,167 @@ __all__ = [
     'WebChatChannelResponse',
     'WebChatSiteResponse',
 ]
+
+@pulumi.output_type
+class BotPropertiesResponse(dict):
+    """
+    The parameters to provide for the Bot.
+    """
+    def __init__(__self__, *,
+                 configured_channels: Sequence[str],
+                 display_name: str,
+                 enabled_channels: Sequence[str],
+                 endpoint: str,
+                 endpoint_version: str,
+                 msa_app_id: str,
+                 description: Optional[str] = None,
+                 developer_app_insight_key: Optional[str] = None,
+                 developer_app_insights_api_key: Optional[str] = None,
+                 developer_app_insights_application_id: Optional[str] = None,
+                 icon_url: Optional[str] = None,
+                 luis_app_ids: Optional[Sequence[str]] = None,
+                 luis_key: Optional[str] = None):
+        """
+        The parameters to provide for the Bot.
+        :param Sequence[str] configured_channels: Collection of channels for which the bot is configured
+        :param str display_name: The Name of the bot
+        :param Sequence[str] enabled_channels: Collection of channels for which the bot is enabled
+        :param str endpoint: The bot's endpoint
+        :param str endpoint_version: The bot's endpoint version
+        :param str msa_app_id: Microsoft App Id for the bot
+        :param str description: The description of the bot
+        :param str developer_app_insight_key: The Application Insights key
+        :param str developer_app_insights_api_key: The Application Insights Api Key
+        :param str developer_app_insights_application_id: The Application Insights App Id
+        :param str icon_url: The Icon Url of the bot
+        :param Sequence[str] luis_app_ids: Collection of LUIS App Ids
+        :param str luis_key: The LUIS Key
+        """
+        pulumi.set(__self__, "configured_channels", configured_channels)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "enabled_channels", enabled_channels)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "endpoint_version", endpoint_version)
+        pulumi.set(__self__, "msa_app_id", msa_app_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if developer_app_insight_key is not None:
+            pulumi.set(__self__, "developer_app_insight_key", developer_app_insight_key)
+        if developer_app_insights_api_key is not None:
+            pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
+        if developer_app_insights_application_id is not None:
+            pulumi.set(__self__, "developer_app_insights_application_id", developer_app_insights_application_id)
+        if icon_url is not None:
+            pulumi.set(__self__, "icon_url", icon_url)
+        if luis_app_ids is not None:
+            pulumi.set(__self__, "luis_app_ids", luis_app_ids)
+        if luis_key is not None:
+            pulumi.set(__self__, "luis_key", luis_key)
+
+    @property
+    @pulumi.getter(name="configuredChannels")
+    def configured_channels(self) -> Sequence[str]:
+        """
+        Collection of channels for which the bot is configured
+        """
+        return pulumi.get(self, "configured_channels")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        The Name of the bot
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="enabledChannels")
+    def enabled_channels(self) -> Sequence[str]:
+        """
+        Collection of channels for which the bot is enabled
+        """
+        return pulumi.get(self, "enabled_channels")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        The bot's endpoint
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="endpointVersion")
+    def endpoint_version(self) -> str:
+        """
+        The bot's endpoint version
+        """
+        return pulumi.get(self, "endpoint_version")
+
+    @property
+    @pulumi.getter(name="msaAppId")
+    def msa_app_id(self) -> str:
+        """
+        Microsoft App Id for the bot
+        """
+        return pulumi.get(self, "msa_app_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the bot
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="developerAppInsightKey")
+    def developer_app_insight_key(self) -> Optional[str]:
+        """
+        The Application Insights key
+        """
+        return pulumi.get(self, "developer_app_insight_key")
+
+    @property
+    @pulumi.getter(name="developerAppInsightsApiKey")
+    def developer_app_insights_api_key(self) -> Optional[str]:
+        """
+        The Application Insights Api Key
+        """
+        return pulumi.get(self, "developer_app_insights_api_key")
+
+    @property
+    @pulumi.getter(name="developerAppInsightsApplicationId")
+    def developer_app_insights_application_id(self) -> Optional[str]:
+        """
+        The Application Insights App Id
+        """
+        return pulumi.get(self, "developer_app_insights_application_id")
+
+    @property
+    @pulumi.getter(name="iconUrl")
+    def icon_url(self) -> Optional[str]:
+        """
+        The Icon Url of the bot
+        """
+        return pulumi.get(self, "icon_url")
+
+    @property
+    @pulumi.getter(name="luisAppIds")
+    def luis_app_ids(self) -> Optional[Sequence[str]]:
+        """
+        Collection of LUIS App Ids
+        """
+        return pulumi.get(self, "luis_app_ids")
+
+    @property
+    @pulumi.getter(name="luisKey")
+    def luis_key(self) -> Optional[str]:
+        """
+        The LUIS Key
+        """
+        return pulumi.get(self, "luis_key")
+
 
 @pulumi.output_type
 class ConnectionSettingParameterResponse(dict):

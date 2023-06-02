@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetSignalRArgs, GetSignalRResult, GetSignalROutputArgs } from "./getSignalR";
+export const getSignalR: typeof import("./getSignalR").getSignalR = null as any;
+export const getSignalROutput: typeof import("./getSignalR").getSignalROutput = null as any;
+utilities.lazyLoad(exports, ["getSignalR","getSignalROutput"], () => require("./getSignalR"));
+
 export { GetSignalRCustomCertificateArgs, GetSignalRCustomCertificateResult, GetSignalRCustomCertificateOutputArgs } from "./getSignalRCustomCertificate";
 export const getSignalRCustomCertificate: typeof import("./getSignalRCustomCertificate").getSignalRCustomCertificate = null as any;
 export const getSignalRCustomCertificateOutput: typeof import("./getSignalRCustomCertificate").getSignalRCustomCertificateOutput = null as any;
@@ -14,6 +19,16 @@ export { GetSignalRCustomDomainArgs, GetSignalRCustomDomainResult, GetSignalRCus
 export const getSignalRCustomDomain: typeof import("./getSignalRCustomDomain").getSignalRCustomDomain = null as any;
 export const getSignalRCustomDomainOutput: typeof import("./getSignalRCustomDomain").getSignalRCustomDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getSignalRCustomDomain","getSignalRCustomDomainOutput"], () => require("./getSignalRCustomDomain"));
+
+export { GetSignalRPrivateEndpointConnectionArgs, GetSignalRPrivateEndpointConnectionResult, GetSignalRPrivateEndpointConnectionOutputArgs } from "./getSignalRPrivateEndpointConnection";
+export const getSignalRPrivateEndpointConnection: typeof import("./getSignalRPrivateEndpointConnection").getSignalRPrivateEndpointConnection = null as any;
+export const getSignalRPrivateEndpointConnectionOutput: typeof import("./getSignalRPrivateEndpointConnection").getSignalRPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getSignalRPrivateEndpointConnection","getSignalRPrivateEndpointConnectionOutput"], () => require("./getSignalRPrivateEndpointConnection"));
+
+export { GetSignalRSharedPrivateLinkResourceArgs, GetSignalRSharedPrivateLinkResourceResult, GetSignalRSharedPrivateLinkResourceOutputArgs } from "./getSignalRSharedPrivateLinkResource";
+export const getSignalRSharedPrivateLinkResource: typeof import("./getSignalRSharedPrivateLinkResource").getSignalRSharedPrivateLinkResource = null as any;
+export const getSignalRSharedPrivateLinkResourceOutput: typeof import("./getSignalRSharedPrivateLinkResource").getSignalRSharedPrivateLinkResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getSignalRSharedPrivateLinkResource","getSignalRSharedPrivateLinkResourceOutput"], () => require("./getSignalRSharedPrivateLinkResource"));
 
 export { ListSignalRKeysArgs, ListSignalRKeysResult, ListSignalRKeysOutputArgs } from "./listSignalRKeys";
 export const listSignalRKeys: typeof import("./listSignalRKeys").listSignalRKeys = null as any;
@@ -30,6 +45,9 @@ export type SignalRCustomDomain = import("./signalRCustomDomain").SignalRCustomD
 export const SignalRCustomDomain: typeof import("./signalRCustomDomain").SignalRCustomDomain = null as any;
 utilities.lazyLoad(exports, ["SignalRCustomDomain"], () => require("./signalRCustomDomain"));
 
+
+// Export enums:
+export * from "../../types/enums/signalrservice/v20220201";
 
 const _module = {
     version: utilities.getVersion(),

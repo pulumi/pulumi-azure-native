@@ -7,6 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_tag_inheritance_setting import *
-from .tag_inheritance_setting import *
-from ._inputs import *
+from .get_view import *
+from .get_view_by_scope import *
 from . import outputs

@@ -65,23 +65,6 @@ class EnvironmentStatusResponse(dict):
     """
     An object that represents the status of the environment, and its internal state in the Time Series Insights service.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "warmStorage":
-            suggest = "warm_storage"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EnvironmentStatusResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EnvironmentStatusResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EnvironmentStatusResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  ingress: 'outputs.IngressEnvironmentStatusResponse',
                  warm_storage: 'outputs.WarmStorageEnvironmentStatusResponse'):
@@ -115,23 +98,6 @@ class Gen2StorageConfigurationOutputResponse(dict):
     """
     The storage configuration provides the non-secret connection details about the customer storage account that is used to store the environment's data.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "accountName":
-            suggest = "account_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Gen2StorageConfigurationOutputResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        Gen2StorageConfigurationOutputResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        Gen2StorageConfigurationOutputResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  account_name: str):
         """
@@ -154,23 +120,6 @@ class IngressEnvironmentStatusResponse(dict):
     """
     An object that represents the status of ingress on an environment.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "stateDetails":
-            suggest = "state_details"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IngressEnvironmentStatusResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IngressEnvironmentStatusResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IngressEnvironmentStatusResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  state_details: 'outputs.EnvironmentStateDetailsResponse',
                  state: Optional[str] = None):
@@ -205,23 +154,6 @@ class LocalTimestampResponse(dict):
     """
     An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "timeZoneOffset":
-            suggest = "time_zone_offset"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LocalTimestampResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LocalTimestampResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LocalTimestampResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  format: Optional[str] = None,
                  time_zone_offset: Optional['outputs.LocalTimestampResponseTimeZoneOffset'] = None):
@@ -257,23 +189,6 @@ class LocalTimestampResponseTimeZoneOffset(dict):
     """
     An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "propertyName":
-            suggest = "property_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LocalTimestampResponseTimeZoneOffset. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LocalTimestampResponseTimeZoneOffset.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LocalTimestampResponseTimeZoneOffset.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  property_name: Optional[str] = None):
         """
@@ -400,25 +315,6 @@ class WarmStorageEnvironmentStatusResponse(dict):
     """
     An object that represents the status of warm storage on an environment.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "currentCount":
-            suggest = "current_count"
-        elif key == "maxCount":
-            suggest = "max_count"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WarmStorageEnvironmentStatusResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WarmStorageEnvironmentStatusResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WarmStorageEnvironmentStatusResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  current_count: Optional[int] = None,
                  max_count: Optional[int] = None,
@@ -466,23 +362,6 @@ class WarmStoreConfigurationPropertiesResponse(dict):
     """
     The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dataRetention":
-            suggest = "data_retention"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WarmStoreConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WarmStoreConfigurationPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WarmStoreConfigurationPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  data_retention: str):
         """

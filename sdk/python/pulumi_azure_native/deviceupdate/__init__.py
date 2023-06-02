@@ -21,9 +21,15 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.deviceupdate.v20200301preview as __v20200301preview
     v20200301preview = __v20200301preview
+    import pulumi_azure_native.deviceupdate.v20220401preview as __v20220401preview
+    v20220401preview = __v20220401preview
+    import pulumi_azure_native.deviceupdate.v20221001 as __v20221001
+    v20221001 = __v20221001
     import pulumi_azure_native.deviceupdate.v20221201preview as __v20221201preview
     v20221201preview = __v20221201preview
 else:
     v20200301preview = _utilities.lazy_import('pulumi_azure_native.deviceupdate.v20200301preview')
+    v20220401preview = _utilities.lazy_import('pulumi_azure_native.deviceupdate.v20220401preview')
+    v20221001 = _utilities.lazy_import('pulumi_azure_native.deviceupdate.v20221001')
     v20221201preview = _utilities.lazy_import('pulumi_azure_native.deviceupdate.v20221201preview')
 

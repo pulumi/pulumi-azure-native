@@ -4,6 +4,81 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetBlobContainerArgs, GetBlobContainerResult, GetBlobContainerOutputArgs } from "./getBlobContainer";
+export const getBlobContainer: typeof import("./getBlobContainer").getBlobContainer = null as any;
+export const getBlobContainerOutput: typeof import("./getBlobContainer").getBlobContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getBlobContainer","getBlobContainerOutput"], () => require("./getBlobContainer"));
+
+export { GetBlobContainerImmutabilityPolicyArgs, GetBlobContainerImmutabilityPolicyResult, GetBlobContainerImmutabilityPolicyOutputArgs } from "./getBlobContainerImmutabilityPolicy";
+export const getBlobContainerImmutabilityPolicy: typeof import("./getBlobContainerImmutabilityPolicy").getBlobContainerImmutabilityPolicy = null as any;
+export const getBlobContainerImmutabilityPolicyOutput: typeof import("./getBlobContainerImmutabilityPolicy").getBlobContainerImmutabilityPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getBlobContainerImmutabilityPolicy","getBlobContainerImmutabilityPolicyOutput"], () => require("./getBlobContainerImmutabilityPolicy"));
+
+export { GetBlobInventoryPolicyArgs, GetBlobInventoryPolicyResult, GetBlobInventoryPolicyOutputArgs } from "./getBlobInventoryPolicy";
+export const getBlobInventoryPolicy: typeof import("./getBlobInventoryPolicy").getBlobInventoryPolicy = null as any;
+export const getBlobInventoryPolicyOutput: typeof import("./getBlobInventoryPolicy").getBlobInventoryPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getBlobInventoryPolicy","getBlobInventoryPolicyOutput"], () => require("./getBlobInventoryPolicy"));
+
+export { GetBlobServicePropertiesArgs, GetBlobServicePropertiesResult, GetBlobServicePropertiesOutputArgs } from "./getBlobServiceProperties";
+export const getBlobServiceProperties: typeof import("./getBlobServiceProperties").getBlobServiceProperties = null as any;
+export const getBlobServicePropertiesOutput: typeof import("./getBlobServiceProperties").getBlobServicePropertiesOutput = null as any;
+utilities.lazyLoad(exports, ["getBlobServiceProperties","getBlobServicePropertiesOutput"], () => require("./getBlobServiceProperties"));
+
+export { GetEncryptionScopeArgs, GetEncryptionScopeResult, GetEncryptionScopeOutputArgs } from "./getEncryptionScope";
+export const getEncryptionScope: typeof import("./getEncryptionScope").getEncryptionScope = null as any;
+export const getEncryptionScopeOutput: typeof import("./getEncryptionScope").getEncryptionScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getEncryptionScope","getEncryptionScopeOutput"], () => require("./getEncryptionScope"));
+
+export { GetFileServicePropertiesArgs, GetFileServicePropertiesResult, GetFileServicePropertiesOutputArgs } from "./getFileServiceProperties";
+export const getFileServiceProperties: typeof import("./getFileServiceProperties").getFileServiceProperties = null as any;
+export const getFileServicePropertiesOutput: typeof import("./getFileServiceProperties").getFileServicePropertiesOutput = null as any;
+utilities.lazyLoad(exports, ["getFileServiceProperties","getFileServicePropertiesOutput"], () => require("./getFileServiceProperties"));
+
+export { GetFileShareArgs, GetFileShareResult, GetFileShareOutputArgs } from "./getFileShare";
+export const getFileShare: typeof import("./getFileShare").getFileShare = null as any;
+export const getFileShareOutput: typeof import("./getFileShare").getFileShareOutput = null as any;
+utilities.lazyLoad(exports, ["getFileShare","getFileShareOutput"], () => require("./getFileShare"));
+
+export { GetManagementPolicyArgs, GetManagementPolicyResult, GetManagementPolicyOutputArgs } from "./getManagementPolicy";
+export const getManagementPolicy: typeof import("./getManagementPolicy").getManagementPolicy = null as any;
+export const getManagementPolicyOutput: typeof import("./getManagementPolicy").getManagementPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getManagementPolicy","getManagementPolicyOutput"], () => require("./getManagementPolicy"));
+
+export { GetObjectReplicationPolicyArgs, GetObjectReplicationPolicyResult, GetObjectReplicationPolicyOutputArgs } from "./getObjectReplicationPolicy";
+export const getObjectReplicationPolicy: typeof import("./getObjectReplicationPolicy").getObjectReplicationPolicy = null as any;
+export const getObjectReplicationPolicyOutput: typeof import("./getObjectReplicationPolicy").getObjectReplicationPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getObjectReplicationPolicy","getObjectReplicationPolicyOutput"], () => require("./getObjectReplicationPolicy"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
+export const getQueue: typeof import("./getQueue").getQueue = null as any;
+export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
+utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
+
+export { GetQueueServicePropertiesArgs, GetQueueServicePropertiesResult, GetQueueServicePropertiesOutputArgs } from "./getQueueServiceProperties";
+export const getQueueServiceProperties: typeof import("./getQueueServiceProperties").getQueueServiceProperties = null as any;
+export const getQueueServicePropertiesOutput: typeof import("./getQueueServiceProperties").getQueueServicePropertiesOutput = null as any;
+utilities.lazyLoad(exports, ["getQueueServiceProperties","getQueueServicePropertiesOutput"], () => require("./getQueueServiceProperties"));
+
+export { GetStorageAccountArgs, GetStorageAccountResult, GetStorageAccountOutputArgs } from "./getStorageAccount";
+export const getStorageAccount: typeof import("./getStorageAccount").getStorageAccount = null as any;
+export const getStorageAccountOutput: typeof import("./getStorageAccount").getStorageAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageAccount","getStorageAccountOutput"], () => require("./getStorageAccount"));
+
+export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
+export const getTable: typeof import("./getTable").getTable = null as any;
+export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
+utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
+
+export { GetTableServicePropertiesArgs, GetTableServicePropertiesResult, GetTableServicePropertiesOutputArgs } from "./getTableServiceProperties";
+export const getTableServiceProperties: typeof import("./getTableServiceProperties").getTableServiceProperties = null as any;
+export const getTableServicePropertiesOutput: typeof import("./getTableServiceProperties").getTableServicePropertiesOutput = null as any;
+utilities.lazyLoad(exports, ["getTableServiceProperties","getTableServicePropertiesOutput"], () => require("./getTableServiceProperties"));
+
 export { ListStorageAccountKeysArgs, ListStorageAccountKeysResult, ListStorageAccountKeysOutputArgs } from "./listStorageAccountKeys";
 export const listStorageAccountKeys: typeof import("./listStorageAccountKeys").listStorageAccountKeys = null as any;
 export const listStorageAccountKeysOutput: typeof import("./listStorageAccountKeys").listStorageAccountKeysOutput = null as any;

@@ -5,6 +5,13 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .get_agent_pool import *
+from .get_maintenance_configuration import *
+from .get_managed_cluster import *
+from .get_managed_cluster_snapshot import *
+from .get_private_endpoint_connection import *
+from .get_snapshot import *
 from .list_managed_cluster_admin_credentials import *
 from .list_managed_cluster_monitoring_user_credentials import *
 from .list_managed_cluster_user_credentials import *

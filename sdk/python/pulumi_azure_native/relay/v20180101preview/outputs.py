@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'SkuResponse',
 ]
 
 @pulumi.output_type
@@ -100,5 +101,39 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class SkuResponse(dict):
+    """
+    SKU of the namespace.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: Optional[str] = None):
+        """
+        SKU of the namespace.
+        :param str name: Name of this SKU.
+        :param str tier: The tier of this SKU.
+        """
+        pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of this SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        The tier of this SKU.
+        """
+        return pulumi.get(self, "tier")
 
 

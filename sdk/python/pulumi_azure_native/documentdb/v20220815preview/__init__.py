@@ -10,6 +10,8 @@ from .cassandra_resource_cassandra_keyspace import *
 from .cassandra_resource_cassandra_table import *
 from .cassandra_resource_cassandra_view import *
 from .database_account import *
+from .get_cassandra_cluster import *
+from .get_cassandra_data_center import *
 from .get_cassandra_resource_cassandra_keyspace import *
 from .get_cassandra_resource_cassandra_table import *
 from .get_cassandra_resource_cassandra_view import *
@@ -19,8 +21,15 @@ from .get_gremlin_resource_gremlin_database import *
 from .get_gremlin_resource_gremlin_graph import *
 from .get_mongo_db_resource_mongo_db_collection import *
 from .get_mongo_db_resource_mongo_db_database import *
+from .get_mongo_db_resource_mongo_role_definition import *
+from .get_mongo_db_resource_mongo_user_definition import *
+from .get_notebook_workspace import *
+from .get_private_endpoint_connection import *
+from .get_service import *
 from .get_sql_resource_sql_container import *
 from .get_sql_resource_sql_database import *
+from .get_sql_resource_sql_role_assignment import *
+from .get_sql_resource_sql_role_definition import *
 from .get_sql_resource_sql_stored_procedure import *
 from .get_sql_resource_sql_trigger import *
 from .get_sql_resource_sql_user_defined_function import *

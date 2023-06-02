@@ -4,6 +4,16 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetAddressByNameArgs, GetAddressByNameResult, GetAddressByNameOutputArgs } from "./getAddressByName";
+export const getAddressByName: typeof import("./getAddressByName").getAddressByName = null as any;
+export const getAddressByNameOutput: typeof import("./getAddressByName").getAddressByNameOutput = null as any;
+utilities.lazyLoad(exports, ["getAddressByName","getAddressByNameOutput"], () => require("./getAddressByName"));
+
+export { GetOrderItemByNameArgs, GetOrderItemByNameResult, GetOrderItemByNameOutputArgs } from "./getOrderItemByName";
+export const getOrderItemByName: typeof import("./getOrderItemByName").getOrderItemByName = null as any;
+export const getOrderItemByNameOutput: typeof import("./getOrderItemByName").getOrderItemByNameOutput = null as any;
+utilities.lazyLoad(exports, ["getOrderItemByName","getOrderItemByNameOutput"], () => require("./getOrderItemByName"));
+
 export { ListConfigurationsArgs, ListConfigurationsResult, ListConfigurationsOutputArgs } from "./listConfigurations";
 export const listConfigurations: typeof import("./listConfigurations").listConfigurations = null as any;
 export const listConfigurationsOutput: typeof import("./listConfigurations").listConfigurationsOutput = null as any;

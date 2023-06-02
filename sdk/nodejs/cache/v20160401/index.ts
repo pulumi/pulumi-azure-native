@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetPatchScheduleArgs, GetPatchScheduleResult, GetPatchScheduleOutputArgs } from "./getPatchSchedule";
+export const getPatchSchedule: typeof import("./getPatchSchedule").getPatchSchedule = null as any;
+export const getPatchScheduleOutput: typeof import("./getPatchSchedule").getPatchScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getPatchSchedule","getPatchScheduleOutput"], () => require("./getPatchSchedule"));
+
+export { GetRedisArgs, GetRedisResult, GetRedisOutputArgs } from "./getRedis";
+export const getRedis: typeof import("./getRedis").getRedis = null as any;
+export const getRedisOutput: typeof import("./getRedis").getRedisOutput = null as any;
+utilities.lazyLoad(exports, ["getRedis","getRedisOutput"], () => require("./getRedis"));
+
 export { GetRedisFirewallRuleArgs, GetRedisFirewallRuleResult, GetRedisFirewallRuleOutputArgs } from "./getRedisFirewallRule";
 export const getRedisFirewallRule: typeof import("./getRedisFirewallRule").getRedisFirewallRule = null as any;
 export const getRedisFirewallRuleOutput: typeof import("./getRedisFirewallRule").getRedisFirewallRuleOutput = null as any;
@@ -20,6 +30,9 @@ export type RedisFirewallRule = import("./redisFirewallRule").RedisFirewallRule;
 export const RedisFirewallRule: typeof import("./redisFirewallRule").RedisFirewallRule = null as any;
 utilities.lazyLoad(exports, ["RedisFirewallRule"], () => require("./redisFirewallRule"));
 
+
+// Export enums:
+export * from "../../types/enums/cache/v20160401";
 
 const _module = {
     version: utilities.getVersion(),

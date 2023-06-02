@@ -27,10 +27,14 @@ if typing.TYPE_CHECKING:
     v20180531 = __v20180531
     import pulumi_azure_native.costmanagement.v20180801preview as __v20180801preview
     v20180801preview = __v20180801preview
+    import pulumi_azure_native.costmanagement.v20190101 as __v20190101
+    v20190101 = __v20190101
     import pulumi_azure_native.costmanagement.v20190301preview as __v20190301preview
     v20190301preview = __v20190301preview
     import pulumi_azure_native.costmanagement.v20190401preview as __v20190401preview
     v20190401preview = __v20190401preview
+    import pulumi_azure_native.costmanagement.v20190901 as __v20190901
+    v20190901 = __v20190901
     import pulumi_azure_native.costmanagement.v20191001 as __v20191001
     v20191001 = __v20191001
     import pulumi_azure_native.costmanagement.v20191101 as __v20191101
@@ -39,8 +43,18 @@ if typing.TYPE_CHECKING:
     v20200301preview = __v20200301preview
     import pulumi_azure_native.costmanagement.v20200601 as __v20200601
     v20200601 = __v20200601
+    import pulumi_azure_native.costmanagement.v20201201preview as __v20201201preview
+    v20201201preview = __v20201201preview
+    import pulumi_azure_native.costmanagement.v20210101 as __v20210101
+    v20210101 = __v20210101
+    import pulumi_azure_native.costmanagement.v20211001 as __v20211001
+    v20211001 = __v20211001
     import pulumi_azure_native.costmanagement.v20220401preview as __v20220401preview
     v20220401preview = __v20220401preview
+    import pulumi_azure_native.costmanagement.v20220601preview as __v20220601preview
+    v20220601preview = __v20220601preview
+    import pulumi_azure_native.costmanagement.v20220801preview as __v20220801preview
+    v20220801preview = __v20220801preview
     import pulumi_azure_native.costmanagement.v20221001 as __v20221001
     v20221001 = __v20221001
     import pulumi_azure_native.costmanagement.v20221001preview as __v20221001preview
@@ -52,13 +66,20 @@ if typing.TYPE_CHECKING:
 else:
     v20180531 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20180531')
     v20180801preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20180801preview')
+    v20190101 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20190101')
     v20190301preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20190301preview')
     v20190401preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20190401preview')
+    v20190901 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20190901')
     v20191001 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20191001')
     v20191101 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20191101')
     v20200301preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20200301preview')
     v20200601 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20200601')
+    v20201201preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20201201preview')
+    v20210101 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20210101')
+    v20211001 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20211001')
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20220401preview')
+    v20220601preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20220601preview')
+    v20220801preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20220801preview')
     v20221001 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20221001')
     v20221001preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20221001preview')
     v20221005preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20221005preview')

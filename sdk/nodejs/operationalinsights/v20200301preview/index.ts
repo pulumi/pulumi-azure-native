@@ -4,8 +4,51 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+
+export { GetDataExportArgs, GetDataExportResult, GetDataExportOutputArgs } from "./getDataExport";
+export const getDataExport: typeof import("./getDataExport").getDataExport = null as any;
+export const getDataExportOutput: typeof import("./getDataExport").getDataExportOutput = null as any;
+utilities.lazyLoad(exports, ["getDataExport","getDataExportOutput"], () => require("./getDataExport"));
+
+export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
+export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
+export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
+utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
+
+export { GetLinkedServiceArgs, GetLinkedServiceResult, GetLinkedServiceOutputArgs } from "./getLinkedService";
+export const getLinkedService: typeof import("./getLinkedService").getLinkedService = null as any;
+export const getLinkedServiceOutput: typeof import("./getLinkedService").getLinkedServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getLinkedService","getLinkedServiceOutput"], () => require("./getLinkedService"));
+
+export { GetLinkedStorageAccountArgs, GetLinkedStorageAccountResult, GetLinkedStorageAccountOutputArgs } from "./getLinkedStorageAccount";
+export const getLinkedStorageAccount: typeof import("./getLinkedStorageAccount").getLinkedStorageAccount = null as any;
+export const getLinkedStorageAccountOutput: typeof import("./getLinkedStorageAccount").getLinkedStorageAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getLinkedStorageAccount","getLinkedStorageAccountOutput"], () => require("./getLinkedStorageAccount"));
+
+export { GetSavedSearchArgs, GetSavedSearchResult, GetSavedSearchOutputArgs } from "./getSavedSearch";
+export const getSavedSearch: typeof import("./getSavedSearch").getSavedSearch = null as any;
+export const getSavedSearchOutput: typeof import("./getSavedSearch").getSavedSearchOutput = null as any;
+utilities.lazyLoad(exports, ["getSavedSearch","getSavedSearchOutput"], () => require("./getSavedSearch"));
+
 export { GetSharedKeysArgs, GetSharedKeysResult, GetSharedKeysOutputArgs } from "./getSharedKeys";
 export const getSharedKeys: typeof import("./getSharedKeys").getSharedKeys = null as any;
 export const getSharedKeysOutput: typeof import("./getSharedKeys").getSharedKeysOutput = null as any;
 utilities.lazyLoad(exports, ["getSharedKeys","getSharedKeysOutput"], () => require("./getSharedKeys"));
 
+export { GetStorageInsightConfigArgs, GetStorageInsightConfigResult, GetStorageInsightConfigOutputArgs } from "./getStorageInsightConfig";
+export const getStorageInsightConfig: typeof import("./getStorageInsightConfig").getStorageInsightConfig = null as any;
+export const getStorageInsightConfigOutput: typeof import("./getStorageInsightConfig").getStorageInsightConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageInsightConfig","getStorageInsightConfigOutput"], () => require("./getStorageInsightConfig"));
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+
+
+// Export enums:
+export * from "../../types/enums/operationalinsights/v20200301preview";

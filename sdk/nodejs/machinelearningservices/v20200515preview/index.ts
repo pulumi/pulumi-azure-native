@@ -5,21 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ACIServiceArgs } from "./aciservice";
-export type ACIService = import("./aciservice").ACIService;
-export const ACIService: typeof import("./aciservice").ACIService = null as any;
-utilities.lazyLoad(exports, ["ACIService"], () => require("./aciservice"));
-
-export { AKSServiceArgs } from "./aksservice";
-export type AKSService = import("./aksservice").AKSService;
-export const AKSService: typeof import("./aksservice").AKSService = null as any;
-utilities.lazyLoad(exports, ["AKSService"], () => require("./aksservice"));
-
-export { EndpointVariantArgs } from "./endpointVariant";
-export type EndpointVariant = import("./endpointVariant").EndpointVariant;
-export const EndpointVariant: typeof import("./endpointVariant").EndpointVariant = null as any;
-utilities.lazyLoad(exports, ["EndpointVariant"], () => require("./endpointVariant"));
-
 export { GetACIServiceArgs, GetACIServiceResult, GetACIServiceOutputArgs } from "./getACIService";
 export const getACIService: typeof import("./getACIService").getACIService = null as any;
 export const getACIServiceOutput: typeof import("./getACIService").getACIServiceOutput = null as any;
@@ -39,6 +24,21 @@ export { GetLinkedWorkspaceArgs, GetLinkedWorkspaceResult, GetLinkedWorkspaceOut
 export const getLinkedWorkspace: typeof import("./getLinkedWorkspace").getLinkedWorkspace = null as any;
 export const getLinkedWorkspaceOutput: typeof import("./getLinkedWorkspace").getLinkedWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getLinkedWorkspace","getLinkedWorkspaceOutput"], () => require("./getLinkedWorkspace"));
+
+export { GetMachineLearningComputeArgs, GetMachineLearningComputeResult, GetMachineLearningComputeOutputArgs } from "./getMachineLearningCompute";
+export const getMachineLearningCompute: typeof import("./getMachineLearningCompute").getMachineLearningCompute = null as any;
+export const getMachineLearningComputeOutput: typeof import("./getMachineLearningCompute").getMachineLearningComputeOutput = null as any;
+utilities.lazyLoad(exports, ["getMachineLearningCompute","getMachineLearningComputeOutput"], () => require("./getMachineLearningCompute"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 
 export { LinkedWorkspaceArgs } from "./linkedWorkspace";
 export type LinkedWorkspace = import("./linkedWorkspace").LinkedWorkspace;
@@ -68,12 +68,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:machinelearningservices/v20200515preview:ACIService":
-                return new ACIService(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20200515preview:AKSService":
-                return new AKSService(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20200515preview:EndpointVariant":
-                return new EndpointVariant(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200515preview:LinkedWorkspace":
                 return new LinkedWorkspace(name, <any>undefined, { urn })
             default:

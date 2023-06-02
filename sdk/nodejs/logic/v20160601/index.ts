@@ -25,6 +25,21 @@ export const getCertificate: typeof import("./getCertificate").getCertificate = 
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
+export { GetIntegrationAccountArgs, GetIntegrationAccountResult, GetIntegrationAccountOutputArgs } from "./getIntegrationAccount";
+export const getIntegrationAccount: typeof import("./getIntegrationAccount").getIntegrationAccount = null as any;
+export const getIntegrationAccountOutput: typeof import("./getIntegrationAccount").getIntegrationAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationAccount","getIntegrationAccountOutput"], () => require("./getIntegrationAccount"));
+
+export { GetIntegrationAccountAssemblyArgs, GetIntegrationAccountAssemblyResult, GetIntegrationAccountAssemblyOutputArgs } from "./getIntegrationAccountAssembly";
+export const getIntegrationAccountAssembly: typeof import("./getIntegrationAccountAssembly").getIntegrationAccountAssembly = null as any;
+export const getIntegrationAccountAssemblyOutput: typeof import("./getIntegrationAccountAssembly").getIntegrationAccountAssemblyOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationAccountAssembly","getIntegrationAccountAssemblyOutput"], () => require("./getIntegrationAccountAssembly"));
+
+export { GetIntegrationAccountBatchConfigurationArgs, GetIntegrationAccountBatchConfigurationResult, GetIntegrationAccountBatchConfigurationOutputArgs } from "./getIntegrationAccountBatchConfiguration";
+export const getIntegrationAccountBatchConfiguration: typeof import("./getIntegrationAccountBatchConfiguration").getIntegrationAccountBatchConfiguration = null as any;
+export const getIntegrationAccountBatchConfigurationOutput: typeof import("./getIntegrationAccountBatchConfiguration").getIntegrationAccountBatchConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationAccountBatchConfiguration","getIntegrationAccountBatchConfigurationOutput"], () => require("./getIntegrationAccountBatchConfiguration"));
+
 export { GetMapArgs, GetMapResult, GetMapOutputArgs } from "./getMap";
 export const getMap: typeof import("./getMap").getMap = null as any;
 export const getMapOutput: typeof import("./getMap").getMapOutput = null as any;

@@ -6,6 +6,9 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_firewall_rule import *
+from .get_linked_server import *
+from .get_patch_schedule import *
 from .get_redis import *
 from .list_redis_keys import *
 from .redis import *

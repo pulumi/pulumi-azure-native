@@ -10,10 +10,12 @@ from .cassandra_resource_cassandra_keyspace import *
 from .cassandra_resource_cassandra_table import *
 from .get_cassandra_resource_cassandra_keyspace import *
 from .get_cassandra_resource_cassandra_table import *
+from .get_database_account import *
 from .get_gremlin_resource_gremlin_database import *
 from .get_gremlin_resource_gremlin_graph import *
 from .get_mongo_db_resource_mongo_db_collection import *
 from .get_mongo_db_resource_mongo_db_database import *
+from .get_notebook_workspace import *
 from .get_sql_resource_sql_container import *
 from .get_sql_resource_sql_database import *
 from .get_sql_resource_sql_stored_procedure import *

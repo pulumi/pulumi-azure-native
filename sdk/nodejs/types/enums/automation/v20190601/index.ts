@@ -82,6 +82,16 @@ export const ScheduleFrequency = {
  */
 export type ScheduleFrequency = (typeof ScheduleFrequency)[keyof typeof ScheduleFrequency];
 
+export const SkuNameEnum = {
+    Free: "Free",
+    Basic: "Basic",
+} as const;
+
+/**
+ * Gets or sets the SKU name of the account.
+ */
+export type SkuNameEnum = (typeof SkuNameEnum)[keyof typeof SkuNameEnum];
+
 export const SourceType = {
     VsoGit: "VsoGit",
     VsoTfvc: "VsoTfvc",

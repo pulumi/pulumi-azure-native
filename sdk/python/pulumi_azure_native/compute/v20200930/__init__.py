@@ -11,10 +11,15 @@ from .gallery_application import *
 from .gallery_application_version import *
 from .gallery_image import *
 from .gallery_image_version import *
+from .get_disk import *
+from .get_disk_access import *
+from .get_disk_access_a_private_endpoint_connection import *
+from .get_disk_encryption_set import *
 from .get_gallery import *
 from .get_gallery_application import *
 from .get_gallery_application_version import *
 from .get_gallery_image import *
 from .get_gallery_image_version import *
+from .get_snapshot import *
 from ._inputs import *
 from . import outputs

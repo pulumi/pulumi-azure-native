@@ -4,6 +4,21 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+
+export { GetApplicationDefinitionArgs, GetApplicationDefinitionResult, GetApplicationDefinitionOutputArgs } from "./getApplicationDefinition";
+export const getApplicationDefinition: typeof import("./getApplicationDefinition").getApplicationDefinition = null as any;
+export const getApplicationDefinitionOutput: typeof import("./getApplicationDefinition").getApplicationDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationDefinition","getApplicationDefinitionOutput"], () => require("./getApplicationDefinition"));
+
+export { GetJitRequestArgs, GetJitRequestResult, GetJitRequestOutputArgs } from "./getJitRequest";
+export const getJitRequest: typeof import("./getJitRequest").getJitRequest = null as any;
+export const getJitRequestOutput: typeof import("./getJitRequest").getJitRequestOutput = null as any;
+utilities.lazyLoad(exports, ["getJitRequest","getJitRequestOutput"], () => require("./getJitRequest"));
+
 export { ListApplicationAllowedUpgradePlansArgs, ListApplicationAllowedUpgradePlansResult, ListApplicationAllowedUpgradePlansOutputArgs } from "./listApplicationAllowedUpgradePlans";
 export const listApplicationAllowedUpgradePlans: typeof import("./listApplicationAllowedUpgradePlans").listApplicationAllowedUpgradePlans = null as any;
 export const listApplicationAllowedUpgradePlansOutput: typeof import("./listApplicationAllowedUpgradePlans").listApplicationAllowedUpgradePlansOutput = null as any;
@@ -14,3 +29,6 @@ export const listApplicationTokens: typeof import("./listApplicationTokens").lis
 export const listApplicationTokensOutput: typeof import("./listApplicationTokens").listApplicationTokensOutput = null as any;
 utilities.lazyLoad(exports, ["listApplicationTokens","listApplicationTokensOutput"], () => require("./listApplicationTokens"));
 
+
+// Export enums:
+export * from "../../types/enums/solutions/v20200821preview";

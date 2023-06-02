@@ -19,6 +19,7 @@ __all__ = [
     'ResourceIdentityType',
     'SoftDeleteEnabled',
     'SshPublicAccess',
+    'ValueFormat',
     'VmPriority',
 ]
 
@@ -147,6 +148,13 @@ class SshPublicAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class ValueFormat(str, Enum):
+    """
+    format for the workspace connection value
+    """
+    JSON = "JSON"
 
 
 class VmPriority(str, Enum):

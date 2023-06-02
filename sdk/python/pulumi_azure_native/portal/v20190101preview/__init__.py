@@ -7,5 +7,6 @@ import typing
 # Export this package's modules as members:
 from .dashboard import *
 from .get_dashboard import *
+from .get_tenant_configuration import *
 from ._inputs import *
 from . import outputs

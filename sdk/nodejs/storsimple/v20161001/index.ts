@@ -25,6 +25,11 @@ export type FileShare = import("./fileShare").FileShare;
 export const FileShare: typeof import("./fileShare").FileShare = null as any;
 utilities.lazyLoad(exports, ["FileShare"], () => require("./fileShare"));
 
+export { GetAccessControlRecordArgs, GetAccessControlRecordResult, GetAccessControlRecordOutputArgs } from "./getAccessControlRecord";
+export const getAccessControlRecord: typeof import("./getAccessControlRecord").getAccessControlRecord = null as any;
+export const getAccessControlRecordOutput: typeof import("./getAccessControlRecord").getAccessControlRecordOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessControlRecord","getAccessControlRecordOutput"], () => require("./getAccessControlRecord"));
+
 export { GetBackupScheduleGroupArgs, GetBackupScheduleGroupResult, GetBackupScheduleGroupOutputArgs } from "./getBackupScheduleGroup";
 export const getBackupScheduleGroup: typeof import("./getBackupScheduleGroup").getBackupScheduleGroup = null as any;
 export const getBackupScheduleGroupOutput: typeof import("./getBackupScheduleGroup").getBackupScheduleGroupOutput = null as any;
@@ -64,6 +69,11 @@ export { GetManagerEncryptionKeyArgs, GetManagerEncryptionKeyResult, GetManagerE
 export const getManagerEncryptionKey: typeof import("./getManagerEncryptionKey").getManagerEncryptionKey = null as any;
 export const getManagerEncryptionKeyOutput: typeof import("./getManagerEncryptionKey").getManagerEncryptionKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getManagerEncryptionKey","getManagerEncryptionKeyOutput"], () => require("./getManagerEncryptionKey"));
+
+export { GetManagerExtendedInfoArgs, GetManagerExtendedInfoResult, GetManagerExtendedInfoOutputArgs } from "./getManagerExtendedInfo";
+export const getManagerExtendedInfo: typeof import("./getManagerExtendedInfo").getManagerExtendedInfo = null as any;
+export const getManagerExtendedInfoOutput: typeof import("./getManagerExtendedInfo").getManagerExtendedInfoOutput = null as any;
+utilities.lazyLoad(exports, ["getManagerExtendedInfo","getManagerExtendedInfoOutput"], () => require("./getManagerExtendedInfo"));
 
 export { GetStorageAccountCredentialArgs, GetStorageAccountCredentialResult, GetStorageAccountCredentialOutputArgs } from "./getStorageAccountCredential";
 export const getStorageAccountCredential: typeof import("./getStorageAccountCredential").getStorageAccountCredential = null as any;

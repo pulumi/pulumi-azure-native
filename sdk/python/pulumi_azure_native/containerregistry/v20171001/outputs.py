@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ActorResponse',
@@ -16,10 +17,16 @@ __all__ = [
     'EventRequestMessageResponse',
     'EventResponse',
     'EventResponseMessageResponse',
+    'IPRuleResponse',
+    'NetworkRuleSetResponse',
     'RegistryPasswordResponse',
     'RequestResponse',
+    'SkuResponse',
     'SourceResponse',
+    'StatusResponse',
+    'StorageAccountPropertiesResponse',
     'TargetResponse',
+    'VirtualNetworkRuleResponse',
 ]
 
 @pulumi.output_type
@@ -330,6 +337,90 @@ class EventResponseMessageResponse(dict):
 
 
 @pulumi.output_type
+class IPRuleResponse(dict):
+    """
+    IP rule with specific IP or IP range in CIDR format.
+    """
+    def __init__(__self__, *,
+                 i_p_address_or_range: str,
+                 action: Optional[str] = None):
+        """
+        IP rule with specific IP or IP range in CIDR format.
+        :param str i_p_address_or_range: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        :param str action: The action of IP ACL rule.
+        """
+        pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        if action is None:
+            action = 'Allow'
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="iPAddressOrRange")
+    def i_p_address_or_range(self) -> str:
+        """
+        Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        """
+        return pulumi.get(self, "i_p_address_or_range")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action of IP ACL rule.
+        """
+        return pulumi.get(self, "action")
+
+
+@pulumi.output_type
+class NetworkRuleSetResponse(dict):
+    """
+    The network rule set for a container registry.
+    """
+    def __init__(__self__, *,
+                 default_action: str,
+                 ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
+                 virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
+        """
+        The network rule set for a container registry.
+        :param str default_action: The default action of allow or deny when no other rules match.
+        :param Sequence['IPRuleResponse'] ip_rules: The IP ACL rules.
+        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: The virtual network rules.
+        """
+        if default_action is None:
+            default_action = 'Allow'
+        pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+        if virtual_network_rules is not None:
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> str:
+        """
+        The default action of allow or deny when no other rules match.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[Sequence['outputs.IPRuleResponse']]:
+        """
+        The IP ACL rules.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.VirtualNetworkRuleResponse']]:
+        """
+        The virtual network rules.
+        """
+        return pulumi.get(self, "virtual_network_rules")
+
+
+@pulumi.output_type
 class RegistryPasswordResponse(dict):
     """
     The login password for the container registry.
@@ -436,6 +527,39 @@ class RequestResponse(dict):
 
 
 @pulumi.output_type
+class SkuResponse(dict):
+    """
+    The SKU of a container registry.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str):
+        """
+        The SKU of a container registry.
+        :param str name: The SKU name of the container registry. Required for registry creation.
+        :param str tier: The SKU tier based on the SKU name.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The SKU name of the container registry. Required for registry creation.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        The SKU tier based on the SKU name.
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
 class SourceResponse(dict):
     """
     The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
@@ -468,6 +592,72 @@ class SourceResponse(dict):
         The running instance of an application. Changes after each restart.
         """
         return pulumi.get(self, "instance_id")
+
+
+@pulumi.output_type
+class StatusResponse(dict):
+    """
+    The status of an Azure resource at the time the operation was called.
+    """
+    def __init__(__self__, *,
+                 display_status: str,
+                 message: str,
+                 timestamp: str):
+        """
+        The status of an Azure resource at the time the operation was called.
+        :param str display_status: The short label for the status.
+        :param str message: The detailed message for the status, including alerts and error messages.
+        :param str timestamp: The timestamp when the status was changed to the current value.
+        """
+        pulumi.set(__self__, "display_status", display_status)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="displayStatus")
+    def display_status(self) -> str:
+        """
+        The short label for the status.
+        """
+        return pulumi.get(self, "display_status")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The detailed message for the status, including alerts and error messages.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> str:
+        """
+        The timestamp when the status was changed to the current value.
+        """
+        return pulumi.get(self, "timestamp")
+
+
+@pulumi.output_type
+class StorageAccountPropertiesResponse(dict):
+    """
+    The properties of a storage account for a container registry. Only applicable to Classic SKU.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        The properties of a storage account for a container registry. Only applicable to Classic SKU.
+        :param str id: The resource ID of the storage account.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID of the storage account.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -587,5 +777,41 @@ class TargetResponse(dict):
         The version of the artifact.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class VirtualNetworkRuleResponse(dict):
+    """
+    Virtual network rule.
+    """
+    def __init__(__self__, *,
+                 virtual_network_resource_id: str,
+                 action: Optional[str] = None):
+        """
+        Virtual network rule.
+        :param str virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        :param str action: The action of virtual network rule.
+        """
+        pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        if action is None:
+            action = 'Allow'
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="virtualNetworkResourceId")
+    def virtual_network_resource_id(self) -> str:
+        """
+        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        """
+        return pulumi.get(self, "virtual_network_resource_id")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action of virtual network rule.
+        """
+        return pulumi.get(self, "action")
 
 

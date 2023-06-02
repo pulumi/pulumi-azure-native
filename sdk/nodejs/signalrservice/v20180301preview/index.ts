@@ -4,8 +4,16 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetSignalRArgs, GetSignalRResult, GetSignalROutputArgs } from "./getSignalR";
+export const getSignalR: typeof import("./getSignalR").getSignalR = null as any;
+export const getSignalROutput: typeof import("./getSignalR").getSignalROutput = null as any;
+utilities.lazyLoad(exports, ["getSignalR","getSignalROutput"], () => require("./getSignalR"));
+
 export { ListSignalRKeysArgs, ListSignalRKeysResult, ListSignalRKeysOutputArgs } from "./listSignalRKeys";
 export const listSignalRKeys: typeof import("./listSignalRKeys").listSignalRKeys = null as any;
 export const listSignalRKeysOutput: typeof import("./listSignalRKeys").listSignalRKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listSignalRKeys","listSignalRKeysOutput"], () => require("./listSignalRKeys"));
 
+
+// Export enums:
+export * from "../../types/enums/signalrservice/v20180301preview";

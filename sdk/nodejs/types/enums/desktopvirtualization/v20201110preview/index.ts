@@ -12,6 +12,17 @@ export const ApplicationGroupType = {
  */
 export type ApplicationGroupType = (typeof ApplicationGroupType)[keyof typeof ApplicationGroupType];
 
+export const CommandLineSetting = {
+    DoNotAllow: "DoNotAllow",
+    Allow: "Allow",
+    Require: "Require",
+} as const;
+
+/**
+ * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
+ */
+export type CommandLineSetting = (typeof CommandLineSetting)[keyof typeof CommandLineSetting];
+
 export const HostPoolType = {
     Personal: "Personal",
     Pooled: "Pooled",
@@ -64,6 +75,16 @@ export const RegistrationTokenOperation = {
  * The type of resetting the token.
  */
 export type RegistrationTokenOperation = (typeof RegistrationTokenOperation)[keyof typeof RegistrationTokenOperation];
+
+export const RemoteApplicationType = {
+    InBuilt: "InBuilt",
+    MsixApplication: "MsixApplication",
+} as const;
+
+/**
+ * Resource Type of Application.
+ */
+export type RemoteApplicationType = (typeof RemoteApplicationType)[keyof typeof RemoteApplicationType];
 
 export const SSOSecretType = {
     SharedKey: "SharedKey",

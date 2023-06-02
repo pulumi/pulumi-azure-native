@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_live_event import *
+from .get_live_output import *
+from .get_streaming_endpoint import *
 from .live_event import *
 from ._inputs import *
 from . import outputs

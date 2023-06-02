@@ -12,6 +12,17 @@ export const ApplicationGroupType = {
  */
 export type ApplicationGroupType = (typeof ApplicationGroupType)[keyof typeof ApplicationGroupType];
 
+export const CommandLineSetting = {
+    DoNotAllow: "DoNotAllow",
+    Allow: "Allow",
+    Require: "Require",
+} as const;
+
+/**
+ * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
+ */
+export type CommandLineSetting = (typeof CommandLineSetting)[keyof typeof CommandLineSetting];
+
 export const DayOfWeek = {
     Monday: "Monday",
     Tuesday: "Tuesday",
@@ -116,6 +127,27 @@ export const PreferredAppGroupType = {
  */
 export type PreferredAppGroupType = (typeof PreferredAppGroupType)[keyof typeof PreferredAppGroupType];
 
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
 export const RegistrationTokenOperation = {
     Delete: "Delete",
     None: "None",
@@ -126,6 +158,16 @@ export const RegistrationTokenOperation = {
  * The type of resetting the token.
  */
 export type RegistrationTokenOperation = (typeof RegistrationTokenOperation)[keyof typeof RegistrationTokenOperation];
+
+export const RemoteApplicationType = {
+    InBuilt: "InBuilt",
+    MsixApplication: "MsixApplication",
+} as const;
+
+/**
+ * Resource Type of Application.
+ */
+export type RemoteApplicationType = (typeof RemoteApplicationType)[keyof typeof RemoteApplicationType];
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
@@ -147,6 +189,18 @@ export const SSOSecretType = {
  * The type of single sign on Secret Type.
  */
 export type SSOSecretType = (typeof SSOSecretType)[keyof typeof SSOSecretType];
+
+export const ScalingHostPoolType = {
+    /**
+     * Users get a new (random) SessionHost every time it connects to the HostPool.
+     */
+    Pooled: "Pooled",
+} as const;
+
+/**
+ * HostPool type for desktop.
+ */
+export type ScalingHostPoolType = (typeof ScalingHostPoolType)[keyof typeof ScalingHostPoolType];
 
 export const SessionHostComponentUpdateType = {
     /**

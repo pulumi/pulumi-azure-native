@@ -76,4 +76,224 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Whether NAPT is enabled for connections to this attachedDataNetwork.
+    /// </summary>
+    [EnumType]
+    public readonly struct NaptEnabled : IEquatable<NaptEnabled>
+    {
+        private readonly string _value;
+
+        private NaptEnabled(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// NAPT is enabled
+        /// </summary>
+        public static NaptEnabled Enabled { get; } = new NaptEnabled("Enabled");
+        /// <summary>
+        /// NAPT is disabled
+        /// </summary>
+        public static NaptEnabled Disabled { get; } = new NaptEnabled("Disabled");
+
+        public static bool operator ==(NaptEnabled left, NaptEnabled right) => left.Equals(right);
+        public static bool operator !=(NaptEnabled left, NaptEnabled right) => !left.Equals(right);
+
+        public static explicit operator string(NaptEnabled value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NaptEnabled other && Equals(other);
+        public bool Equals(NaptEnabled other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The default PDU session type, which is used if the UE does not request a specific session type.
+    /// </summary>
+    [EnumType]
+    public readonly struct PduSessionType : IEquatable<PduSessionType>
+    {
+        private readonly string _value;
+
+        private PduSessionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PduSessionType IPv4 { get; } = new PduSessionType("IPv4");
+        public static PduSessionType IPv6 { get; } = new PduSessionType("IPv6");
+
+        public static bool operator ==(PduSessionType left, PduSessionType right) => left.Equals(right);
+        public static bool operator !=(PduSessionType left, PduSessionType right) => !left.Equals(right);
+
+        public static explicit operator string(PduSessionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PduSessionType other && Equals(other);
+        public bool Equals(PduSessionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Default QoS Flow preemption capability.  The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+    /// </summary>
+    [EnumType]
+    public readonly struct PreemptionCapability : IEquatable<PreemptionCapability>
+    {
+        private readonly string _value;
+
+        private PreemptionCapability(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Cannot preempt
+        /// </summary>
+        public static PreemptionCapability NotPreempt { get; } = new PreemptionCapability("NotPreempt");
+        /// <summary>
+        /// May preempt
+        /// </summary>
+        public static PreemptionCapability MayPreempt { get; } = new PreemptionCapability("MayPreempt");
+
+        public static bool operator ==(PreemptionCapability left, PreemptionCapability right) => left.Equals(right);
+        public static bool operator !=(PreemptionCapability left, PreemptionCapability right) => !left.Equals(right);
+
+        public static explicit operator string(PreemptionCapability value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PreemptionCapability other && Equals(other);
+        public bool Equals(PreemptionCapability other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Default QoS Flow preemption vulnerability.  The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+    /// </summary>
+    [EnumType]
+    public readonly struct PreemptionVulnerability : IEquatable<PreemptionVulnerability>
+    {
+        private readonly string _value;
+
+        private PreemptionVulnerability(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Cannot be preempted
+        /// </summary>
+        public static PreemptionVulnerability NotPreemptable { get; } = new PreemptionVulnerability("NotPreemptable");
+        /// <summary>
+        /// May be preempted
+        /// </summary>
+        public static PreemptionVulnerability Preemptable { get; } = new PreemptionVulnerability("Preemptable");
+
+        public static bool operator ==(PreemptionVulnerability left, PreemptionVulnerability right) => left.Equals(right);
+        public static bool operator !=(PreemptionVulnerability left, PreemptionVulnerability right) => !left.Equals(right);
+
+        public static explicit operator string(PreemptionVulnerability value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PreemptionVulnerability other && Equals(other);
+        public bool Equals(PreemptionVulnerability other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The direction of this flow.
+    /// </summary>
+    [EnumType]
+    public readonly struct SdfDirection : IEquatable<SdfDirection>
+    {
+        private readonly string _value;
+
+        private SdfDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Traffic flowing from the UE to the data network.
+        /// </summary>
+        public static SdfDirection Uplink { get; } = new SdfDirection("Uplink");
+        /// <summary>
+        /// Traffic flowing from the data network to the UE.
+        /// </summary>
+        public static SdfDirection Downlink { get; } = new SdfDirection("Downlink");
+        /// <summary>
+        /// Traffic flowing both to and from the UE.
+        /// </summary>
+        public static SdfDirection Bidirectional { get; } = new SdfDirection("Bidirectional");
+
+        public static bool operator ==(SdfDirection left, SdfDirection right) => left.Equals(right);
+        public static bool operator !=(SdfDirection left, SdfDirection right) => !left.Equals(right);
+
+        public static explicit operator string(SdfDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SdfDirection other && Equals(other);
+        public bool Equals(SdfDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Determines whether flows that match this PCC Rule are permitted.
+    /// </summary>
+    [EnumType]
+    public readonly struct TrafficControlPermission : IEquatable<TrafficControlPermission>
+    {
+        private readonly string _value;
+
+        private TrafficControlPermission(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Traffic matching this rule is allowed to flow.
+        /// </summary>
+        public static TrafficControlPermission Enabled { get; } = new TrafficControlPermission("Enabled");
+        /// <summary>
+        /// Traffic matching this rule is not allowed to flow.
+        /// </summary>
+        public static TrafficControlPermission Blocked { get; } = new TrafficControlPermission("Blocked");
+
+        public static bool operator ==(TrafficControlPermission left, TrafficControlPermission right) => left.Equals(right);
+        public static bool operator !=(TrafficControlPermission left, TrafficControlPermission right) => !left.Equals(right);
+
+        public static explicit operator string(TrafficControlPermission value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrafficControlPermission other && Equals(other);
+        public bool Equals(TrafficControlPermission other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

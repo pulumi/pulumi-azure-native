@@ -4,6 +4,11 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetFluidRelayServerArgs, GetFluidRelayServerResult, GetFluidRelayServerOutputArgs } from "./getFluidRelayServer";
+export const getFluidRelayServer: typeof import("./getFluidRelayServer").getFluidRelayServer = null as any;
+export const getFluidRelayServerOutput: typeof import("./getFluidRelayServer").getFluidRelayServerOutput = null as any;
+utilities.lazyLoad(exports, ["getFluidRelayServer","getFluidRelayServerOutput"], () => require("./getFluidRelayServer"));
+
 export { GetFluidRelayServerKeysArgs, GetFluidRelayServerKeysResult, GetFluidRelayServerKeysOutputArgs } from "./getFluidRelayServerKeys";
 export const getFluidRelayServerKeys: typeof import("./getFluidRelayServerKeys").getFluidRelayServerKeys = null as any;
 export const getFluidRelayServerKeysOutput: typeof import("./getFluidRelayServerKeys").getFluidRelayServerKeysOutput = null as any;
@@ -14,3 +19,6 @@ export const listFluidRelayServerKeys: typeof import("./listFluidRelayServerKeys
 export const listFluidRelayServerKeysOutput: typeof import("./listFluidRelayServerKeys").listFluidRelayServerKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listFluidRelayServerKeys","listFluidRelayServerKeysOutput"], () => require("./listFluidRelayServerKeys"));
 
+
+// Export enums:
+export * from "../../types/enums/fluidrelay/v20220526";

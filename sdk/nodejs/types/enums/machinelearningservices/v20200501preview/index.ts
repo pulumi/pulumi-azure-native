@@ -12,6 +12,21 @@ export const ComputeEnvironmentType = {
  */
 export type ComputeEnvironmentType = (typeof ComputeEnvironmentType)[keyof typeof ComputeEnvironmentType];
 
+export const ComputeType = {
+    AKS: "AKS",
+    AmlCompute: "AmlCompute",
+    DataFactory: "DataFactory",
+    VirtualMachine: "VirtualMachine",
+    HDInsight: "HDInsight",
+    Databricks: "Databricks",
+    DataLakeAnalytics: "DataLakeAnalytics",
+} as const;
+
+/**
+ * The type of compute
+ */
+export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
+
 export const DatasetType = {
     Tabular: "tabular",
     File: "file",
@@ -38,6 +53,16 @@ export const DatastoreTypeArm = {
  */
 export type DatastoreTypeArm = (typeof DatastoreTypeArm)[keyof typeof DatastoreTypeArm];
 
+export const EncryptionStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether or not the encryption is enabled for the workspace.
+ */
+export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
+
 export const Header = {
     All_files_have_same_headers: "all_files_have_same_headers",
     Only_first_file_has_headers: "only_first_file_has_headers",
@@ -49,6 +74,42 @@ export const Header = {
  * Header type.
  */
 export type Header = (typeof Header)[keyof typeof Header];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+    Timeout: "Timeout",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const RemoteLoginPortPublicAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    NotSpecified: "NotSpecified",
+} as const;
+
+/**
+ * State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
+ */
+export type RemoteLoginPortPublicAccess = (typeof RemoteLoginPortPublicAccess)[keyof typeof RemoteLoginPortPublicAccess];
+
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+    UserAssigned: "UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const SourceType = {
     Delimited_files: "delimited_files",
@@ -70,3 +131,13 @@ export const VariantType = {
  * The type of the variant.
  */
 export type VariantType = (typeof VariantType)[keyof typeof VariantType];
+
+export const VmPriority = {
+    Dedicated: "Dedicated",
+    LowPriority: "LowPriority",
+} as const;
+
+/**
+ * Virtual Machine priority
+ */
+export type VmPriority = (typeof VmPriority)[keyof typeof VmPriority];
