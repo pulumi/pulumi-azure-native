@@ -70,26 +70,6 @@ export const getServer: typeof import("./getServer").getServer = null as any;
 export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
 utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
 
-export { GetServerAdministratorArgs, GetServerAdministratorResult, GetServerAdministratorOutputArgs } from "./getServerAdministrator";
-export const getServerAdministrator: typeof import("./getServerAdministrator").getServerAdministrator = null as any;
-export const getServerAdministratorOutput: typeof import("./getServerAdministrator").getServerAdministratorOutput = null as any;
-utilities.lazyLoad(exports, ["getServerAdministrator","getServerAdministratorOutput"], () => require("./getServerAdministrator"));
-
-export { GetServerKeyArgs, GetServerKeyResult, GetServerKeyOutputArgs } from "./getServerKey";
-export const getServerKey: typeof import("./getServerKey").getServerKey = null as any;
-export const getServerKeyOutput: typeof import("./getServerKey").getServerKeyOutput = null as any;
-utilities.lazyLoad(exports, ["getServerKey","getServerKeyOutput"], () => require("./getServerKey"));
-
-export { GetServerSecurityAlertPolicyArgs, GetServerSecurityAlertPolicyResult, GetServerSecurityAlertPolicyOutputArgs } from "./getServerSecurityAlertPolicy";
-export const getServerSecurityAlertPolicy: typeof import("./getServerSecurityAlertPolicy").getServerSecurityAlertPolicy = null as any;
-export const getServerSecurityAlertPolicyOutput: typeof import("./getServerSecurityAlertPolicy").getServerSecurityAlertPolicyOutput = null as any;
-utilities.lazyLoad(exports, ["getServerSecurityAlertPolicy","getServerSecurityAlertPolicyOutput"], () => require("./getServerSecurityAlertPolicy"));
-
-export { GetVirtualNetworkRuleArgs, GetVirtualNetworkRuleResult, GetVirtualNetworkRuleOutputArgs } from "./getVirtualNetworkRule";
-export const getVirtualNetworkRule: typeof import("./getVirtualNetworkRule").getVirtualNetworkRule = null as any;
-export const getVirtualNetworkRuleOutput: typeof import("./getVirtualNetworkRule").getVirtualNetworkRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkRule","getVirtualNetworkRuleOutput"], () => require("./getVirtualNetworkRule"));
-
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
@@ -104,26 +84,6 @@ export { ServerArgs } from "./server";
 export type Server = import("./server").Server;
 export const Server: typeof import("./server").Server = null as any;
 utilities.lazyLoad(exports, ["Server"], () => require("./server"));
-
-export { ServerAdministratorArgs } from "./serverAdministrator";
-export type ServerAdministrator = import("./serverAdministrator").ServerAdministrator;
-export const ServerAdministrator: typeof import("./serverAdministrator").ServerAdministrator = null as any;
-utilities.lazyLoad(exports, ["ServerAdministrator"], () => require("./serverAdministrator"));
-
-export { ServerKeyArgs } from "./serverKey";
-export type ServerKey = import("./serverKey").ServerKey;
-export const ServerKey: typeof import("./serverKey").ServerKey = null as any;
-utilities.lazyLoad(exports, ["ServerKey"], () => require("./serverKey"));
-
-export { ServerSecurityAlertPolicyArgs } from "./serverSecurityAlertPolicy";
-export type ServerSecurityAlertPolicy = import("./serverSecurityAlertPolicy").ServerSecurityAlertPolicy;
-export const ServerSecurityAlertPolicy: typeof import("./serverSecurityAlertPolicy").ServerSecurityAlertPolicy = null as any;
-utilities.lazyLoad(exports, ["ServerSecurityAlertPolicy"], () => require("./serverSecurityAlertPolicy"));
-
-export { VirtualNetworkRuleArgs } from "./virtualNetworkRule";
-export type VirtualNetworkRule = import("./virtualNetworkRule").VirtualNetworkRule;
-export const VirtualNetworkRule: typeof import("./virtualNetworkRule").VirtualNetworkRule = null as any;
-utilities.lazyLoad(exports, ["VirtualNetworkRule"], () => require("./virtualNetworkRule"));
 
 
 // Export enums:
@@ -182,14 +142,6 @@ const _module = {
                 return new Role(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-native:dbforpostgresql:ServerAdministrator":
-                return new ServerAdministrator(name, <any>undefined, { urn })
-            case "azure-native:dbforpostgresql:ServerKey":
-                return new ServerKey(name, <any>undefined, { urn })
-            case "azure-native:dbforpostgresql:ServerSecurityAlertPolicy":
-                return new ServerSecurityAlertPolicy(name, <any>undefined, { urn })
-            case "azure-native:dbforpostgresql:VirtualNetworkRule":
-                return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

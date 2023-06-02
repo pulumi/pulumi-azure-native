@@ -19,6 +19,7 @@ from .get_inbound_endpoint import *
 from .get_outbound_endpoint import *
 from .get_p2s_vpn_gateway_p2s_vpn_connection_health import *
 from .get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed import *
+from .get_private_resolver_virtual_network_link import *
 from .get_security_rule import *
 from .get_subnet import *
 from .get_virtual_network_gateway_advertised_routes import *
@@ -26,7 +27,6 @@ from .get_virtual_network_gateway_bgp_peer_status import *
 from .get_virtual_network_gateway_learned_routes import *
 from .get_virtual_network_gateway_vpnclient_connection_health import *
 from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
-from .get_virtual_network_link import *
 from .inbound_endpoint import *
 from .list_active_connectivity_configurations import *
 from .list_active_security_admin_rules import *
@@ -38,8 +38,8 @@ from .list_network_manager_deployment_status import *
 from .list_network_manager_effective_connectivity_configurations import *
 from .list_network_manager_effective_security_admin_rules import *
 from .outbound_endpoint import *
+from .private_resolver_virtual_network_link import *
 from .security_rule import *
 from .subnet import *
-from .virtual_network_link import *
 from ._inputs import *
 from . import outputs

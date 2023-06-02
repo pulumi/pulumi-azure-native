@@ -153,18 +153,21 @@ class AwaitableGetCommitmentPlanResult(GetCommitmentPlanResult):
             type=self.type)
 
 
-def get_commitment_plan(commitment_plan_name: Optional[str] = None,
+def get_commitment_plan(account_name: Optional[str] = None,
+                        commitment_plan_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommitmentPlanResult:
     """
-    Returns a Cognitive Services commitment plan specified by the parameters.
+    Gets the specified commitmentPlans associated with the Cognitive Services account.
     API Version: 2022-12-01.
 
 
+    :param str account_name: The name of Cognitive Services account.
     :param str commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
+    __args__['accountName'] = account_name
     __args__['commitmentPlanName'] = commitment_plan_name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -184,14 +187,16 @@ def get_commitment_plan(commitment_plan_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_commitment_plan)
-def get_commitment_plan_output(commitment_plan_name: Optional[pulumi.Input[str]] = None,
+def get_commitment_plan_output(account_name: Optional[pulumi.Input[str]] = None,
+                               commitment_plan_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommitmentPlanResult]:
     """
-    Returns a Cognitive Services commitment plan specified by the parameters.
+    Gets the specified commitmentPlans associated with the Cognitive Services account.
     API Version: 2022-12-01.
 
 
+    :param str account_name: The name of Cognitive Services account.
     :param str commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """

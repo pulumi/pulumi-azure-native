@@ -50,6 +50,11 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
+export { GetSharedCommitmentPlanArgs, GetSharedCommitmentPlanResult, GetSharedCommitmentPlanOutputArgs } from "./getSharedCommitmentPlan";
+export const getSharedCommitmentPlan: typeof import("./getSharedCommitmentPlan").getSharedCommitmentPlan = null as any;
+export const getSharedCommitmentPlanOutput: typeof import("./getSharedCommitmentPlan").getSharedCommitmentPlanOutput = null as any;
+utilities.lazyLoad(exports, ["getSharedCommitmentPlan","getSharedCommitmentPlanOutput"], () => require("./getSharedCommitmentPlan"));
+
 export { ListAccountKeysArgs, ListAccountKeysResult, ListAccountKeysOutputArgs } from "./listAccountKeys";
 export const listAccountKeys: typeof import("./listAccountKeys").listAccountKeys = null as any;
 export const listAccountKeysOutput: typeof import("./listAccountKeys").listAccountKeysOutput = null as any;
@@ -59,6 +64,11 @@ export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
+export { SharedCommitmentPlanArgs } from "./sharedCommitmentPlan";
+export type SharedCommitmentPlan = import("./sharedCommitmentPlan").SharedCommitmentPlan;
+export const SharedCommitmentPlan: typeof import("./sharedCommitmentPlan").SharedCommitmentPlan = null as any;
+utilities.lazyLoad(exports, ["SharedCommitmentPlan"], () => require("./sharedCommitmentPlan"));
 
 
 // Export enums:
@@ -97,6 +107,8 @@ const _module = {
                 return new Deployment(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:cognitiveservices:SharedCommitmentPlan":
+                return new SharedCommitmentPlan(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

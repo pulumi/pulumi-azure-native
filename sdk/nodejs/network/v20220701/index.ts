@@ -70,6 +70,11 @@ export const getP2sVpnGatewayP2sVpnConnectionHealthDetailed: typeof import("./ge
 export const getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput: typeof import("./getP2sVpnGatewayP2sVpnConnectionHealthDetailed").getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput = null as any;
 utilities.lazyLoad(exports, ["getP2sVpnGatewayP2sVpnConnectionHealthDetailed","getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput"], () => require("./getP2sVpnGatewayP2sVpnConnectionHealthDetailed"));
 
+export { GetPrivateResolverVirtualNetworkLinkArgs, GetPrivateResolverVirtualNetworkLinkResult, GetPrivateResolverVirtualNetworkLinkOutputArgs } from "./getPrivateResolverVirtualNetworkLink";
+export const getPrivateResolverVirtualNetworkLink: typeof import("./getPrivateResolverVirtualNetworkLink").getPrivateResolverVirtualNetworkLink = null as any;
+export const getPrivateResolverVirtualNetworkLinkOutput: typeof import("./getPrivateResolverVirtualNetworkLink").getPrivateResolverVirtualNetworkLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateResolverVirtualNetworkLink","getPrivateResolverVirtualNetworkLinkOutput"], () => require("./getPrivateResolverVirtualNetworkLink"));
+
 export { GetSecurityRuleArgs, GetSecurityRuleResult, GetSecurityRuleOutputArgs } from "./getSecurityRule";
 export const getSecurityRule: typeof import("./getSecurityRule").getSecurityRule = null as any;
 export const getSecurityRuleOutput: typeof import("./getSecurityRule").getSecurityRuleOutput = null as any;
@@ -104,11 +109,6 @@ export { GetVirtualNetworkGatewayVpnclientIpsecParametersArgs, GetVirtualNetwork
 export const getVirtualNetworkGatewayVpnclientIpsecParameters: typeof import("./getVirtualNetworkGatewayVpnclientIpsecParameters").getVirtualNetworkGatewayVpnclientIpsecParameters = null as any;
 export const getVirtualNetworkGatewayVpnclientIpsecParametersOutput: typeof import("./getVirtualNetworkGatewayVpnclientIpsecParameters").getVirtualNetworkGatewayVpnclientIpsecParametersOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualNetworkGatewayVpnclientIpsecParameters","getVirtualNetworkGatewayVpnclientIpsecParametersOutput"], () => require("./getVirtualNetworkGatewayVpnclientIpsecParameters"));
-
-export { GetVirtualNetworkLinkArgs, GetVirtualNetworkLinkResult, GetVirtualNetworkLinkOutputArgs } from "./getVirtualNetworkLink";
-export const getVirtualNetworkLink: typeof import("./getVirtualNetworkLink").getVirtualNetworkLink = null as any;
-export const getVirtualNetworkLinkOutput: typeof import("./getVirtualNetworkLink").getVirtualNetworkLinkOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkLink","getVirtualNetworkLinkOutput"], () => require("./getVirtualNetworkLink"));
 
 export { InboundEndpointArgs } from "./inboundEndpoint";
 export type InboundEndpoint = import("./inboundEndpoint").InboundEndpoint;
@@ -165,6 +165,11 @@ export type OutboundEndpoint = import("./outboundEndpoint").OutboundEndpoint;
 export const OutboundEndpoint: typeof import("./outboundEndpoint").OutboundEndpoint = null as any;
 utilities.lazyLoad(exports, ["OutboundEndpoint"], () => require("./outboundEndpoint"));
 
+export { PrivateResolverVirtualNetworkLinkArgs } from "./privateResolverVirtualNetworkLink";
+export type PrivateResolverVirtualNetworkLink = import("./privateResolverVirtualNetworkLink").PrivateResolverVirtualNetworkLink;
+export const PrivateResolverVirtualNetworkLink: typeof import("./privateResolverVirtualNetworkLink").PrivateResolverVirtualNetworkLink = null as any;
+utilities.lazyLoad(exports, ["PrivateResolverVirtualNetworkLink"], () => require("./privateResolverVirtualNetworkLink"));
+
 export { SecurityRuleArgs } from "./securityRule";
 export type SecurityRule = import("./securityRule").SecurityRule;
 export const SecurityRule: typeof import("./securityRule").SecurityRule = null as any;
@@ -174,11 +179,6 @@ export { SubnetArgs } from "./subnet";
 export type Subnet = import("./subnet").Subnet;
 export const Subnet: typeof import("./subnet").Subnet = null as any;
 utilities.lazyLoad(exports, ["Subnet"], () => require("./subnet"));
-
-export { VirtualNetworkLinkArgs } from "./virtualNetworkLink";
-export type VirtualNetworkLink = import("./virtualNetworkLink").VirtualNetworkLink;
-export const VirtualNetworkLink: typeof import("./virtualNetworkLink").VirtualNetworkLink = null as any;
-utilities.lazyLoad(exports, ["VirtualNetworkLink"], () => require("./virtualNetworkLink"));
 
 
 // Export enums:
@@ -198,12 +198,12 @@ const _module = {
                 return new InboundEndpoint(name, <any>undefined, { urn })
             case "azure-native:network/v20220701:OutboundEndpoint":
                 return new OutboundEndpoint(name, <any>undefined, { urn })
+            case "azure-native:network/v20220701:PrivateResolverVirtualNetworkLink":
+                return new PrivateResolverVirtualNetworkLink(name, <any>undefined, { urn })
             case "azure-native:network/v20220701:SecurityRule":
                 return new SecurityRule(name, <any>undefined, { urn })
             case "azure-native:network/v20220701:Subnet":
                 return new Subnet(name, <any>undefined, { urn })
-            case "azure-native:network/v20220701:VirtualNetworkLink":
-                return new VirtualNetworkLink(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -7,8 +7,10 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .database import *
+from .enterprise_private_endpoint_connection import *
 from .firewall_rule import *
 from .get_database import *
+from .get_enterprise_private_endpoint_connection import *
 from .get_firewall_rule import *
 from .get_linked_server import *
 from .get_patch_schedule import *

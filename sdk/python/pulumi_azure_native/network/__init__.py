@@ -113,6 +113,7 @@ from .get_private_endpoint import *
 from .get_private_link_service import *
 from .get_private_link_service_private_endpoint_connection import *
 from .get_private_record_set import *
+from .get_private_resolver_virtual_network_link import *
 from .get_private_zone import *
 from .get_profile import *
 from .get_public_ip_address import *
@@ -149,7 +150,6 @@ from .get_virtual_network_gateway_learned_routes import *
 from .get_virtual_network_gateway_nat_rule import *
 from .get_virtual_network_gateway_vpnclient_connection_health import *
 from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
-from .get_virtual_network_link import *
 from .get_virtual_network_peering import *
 from .get_virtual_network_tap import *
 from .get_virtual_router import *
@@ -203,6 +203,7 @@ from .private_endpoint import *
 from .private_link_service import *
 from .private_link_service_private_endpoint_connection import *
 from .private_record_set import *
+from .private_resolver_virtual_network_link import *
 from .private_zone import *
 from .profile import *
 from .public_ip_address import *
@@ -234,7 +235,6 @@ from .virtual_network import *
 from .virtual_network_gateway import *
 from .virtual_network_gateway_connection import *
 from .virtual_network_gateway_nat_rule import *
-from .virtual_network_link import *
 from .virtual_network_peering import *
 from .virtual_network_tap import *
 from .virtual_router import *

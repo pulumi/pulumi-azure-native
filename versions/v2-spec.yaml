@@ -92,6 +92,7 @@ Cache:
     tracking: "2022-06-01"
     additions:
         Database: "2022-01-01"
+        EnterprisePrivateEndpointConnection: "2022-01-01"
         RedisEnterprise: "2022-01-01"
         listDatabaseKeys: "2022-01-01"
 Capacity: {}
@@ -528,6 +529,7 @@ Network:
         PrivateLinkService: "2022-09-01"
         PrivateLinkServicePrivateEndpointConnection: "2022-09-01"
         PrivateRecordSet: "2020-06-01"
+        PrivateResolverVirtualNetworkLink: "2022-07-01"
         PrivateZone: "2020-06-01"
         Profile: "2018-08-01"
         PublicIPAddress: "2022-09-01"

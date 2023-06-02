@@ -27,7 +27,7 @@ export const AdministratorType = {
 } as const;
 
 /**
- * The type of administrator.
+ * Type of the sever administrator.
  */
 export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
 
@@ -103,15 +103,6 @@ export const ReplicationRole = {
  * The replication role.
  */
 export type ReplicationRole = (typeof ReplicationRole)[keyof typeof ReplicationRole];
-
-export const ServerKeyType = {
-    AzureKeyVault: "AzureKeyVault",
-} as const;
-
-/**
- * The key type like 'AzureKeyVault'.
- */
-export type ServerKeyType = (typeof ServerKeyType)[keyof typeof ServerKeyType];
 
 export const ServerVersion = {
     ServerVersion_5_7: "5.7",

@@ -321,6 +321,7 @@
   },
   "Cache": {
     "Database": "2022-01-01",
+    "EnterprisePrivateEndpointConnection": "2022-01-01",
     "FirewallRule": "2022-06-01",
     "LinkedServer": "2022-06-01",
     "PatchSchedule": "2022-06-01",
@@ -367,6 +368,7 @@
     "CommitmentPlanAssociation": "2022-12-01",
     "Deployment": "2022-12-01",
     "PrivateEndpointConnection": "2022-12-01",
+    "SharedCommitmentPlan": "2022-12-01",
     "listAccountKeys": "2022-12-01"
   },
   "Commerce": {},
@@ -1359,6 +1361,7 @@
     "PrivateLinkService": "2022-09-01",
     "PrivateLinkServicePrivateEndpointConnection": "2022-09-01",
     "PrivateRecordSet": "2020-06-01",
+    "PrivateResolverVirtualNetworkLink": "2022-07-01",
     "PrivateZone": "2020-06-01",
     "Profile": "2018-08-01",
     "PublicIPAddress": "2022-09-01",

@@ -15,8 +15,10 @@ from .get_commitment_plan import *
 from .get_commitment_plan_association import *
 from .get_deployment import *
 from .get_private_endpoint_connection import *
+from .get_shared_commitment_plan import *
 from .list_account_keys import *
 from .private_endpoint_connection import *
+from .shared_commitment_plan import *
 from ._inputs import *
 from . import outputs
 

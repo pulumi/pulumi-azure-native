@@ -540,6 +540,11 @@ export const getPrivateRecordSet: typeof import("./getPrivateRecordSet").getPriv
 export const getPrivateRecordSetOutput: typeof import("./getPrivateRecordSet").getPrivateRecordSetOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateRecordSet","getPrivateRecordSetOutput"], () => require("./getPrivateRecordSet"));
 
+export { GetPrivateResolverVirtualNetworkLinkArgs, GetPrivateResolverVirtualNetworkLinkResult, GetPrivateResolverVirtualNetworkLinkOutputArgs } from "./getPrivateResolverVirtualNetworkLink";
+export const getPrivateResolverVirtualNetworkLink: typeof import("./getPrivateResolverVirtualNetworkLink").getPrivateResolverVirtualNetworkLink = null as any;
+export const getPrivateResolverVirtualNetworkLinkOutput: typeof import("./getPrivateResolverVirtualNetworkLink").getPrivateResolverVirtualNetworkLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateResolverVirtualNetworkLink","getPrivateResolverVirtualNetworkLinkOutput"], () => require("./getPrivateResolverVirtualNetworkLink"));
+
 export { GetPrivateZoneArgs, GetPrivateZoneResult, GetPrivateZoneOutputArgs } from "./getPrivateZone";
 export const getPrivateZone: typeof import("./getPrivateZone").getPrivateZone = null as any;
 export const getPrivateZoneOutput: typeof import("./getPrivateZone").getPrivateZoneOutput = null as any;
@@ -718,11 +723,6 @@ export { GetVirtualNetworkGatewayVpnclientIpsecParametersArgs, GetVirtualNetwork
 export const getVirtualNetworkGatewayVpnclientIpsecParameters: typeof import("./getVirtualNetworkGatewayVpnclientIpsecParameters").getVirtualNetworkGatewayVpnclientIpsecParameters = null as any;
 export const getVirtualNetworkGatewayVpnclientIpsecParametersOutput: typeof import("./getVirtualNetworkGatewayVpnclientIpsecParameters").getVirtualNetworkGatewayVpnclientIpsecParametersOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualNetworkGatewayVpnclientIpsecParameters","getVirtualNetworkGatewayVpnclientIpsecParametersOutput"], () => require("./getVirtualNetworkGatewayVpnclientIpsecParameters"));
-
-export { GetVirtualNetworkLinkArgs, GetVirtualNetworkLinkResult, GetVirtualNetworkLinkOutputArgs } from "./getVirtualNetworkLink";
-export const getVirtualNetworkLink: typeof import("./getVirtualNetworkLink").getVirtualNetworkLink = null as any;
-export const getVirtualNetworkLinkOutput: typeof import("./getVirtualNetworkLink").getVirtualNetworkLinkOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkLink","getVirtualNetworkLinkOutput"], () => require("./getVirtualNetworkLink"));
 
 export { GetVirtualNetworkPeeringArgs, GetVirtualNetworkPeeringResult, GetVirtualNetworkPeeringOutputArgs } from "./getVirtualNetworkPeering";
 export const getVirtualNetworkPeering: typeof import("./getVirtualNetworkPeering").getVirtualNetworkPeering = null as any;
@@ -989,6 +989,11 @@ export type PrivateRecordSet = import("./privateRecordSet").PrivateRecordSet;
 export const PrivateRecordSet: typeof import("./privateRecordSet").PrivateRecordSet = null as any;
 utilities.lazyLoad(exports, ["PrivateRecordSet"], () => require("./privateRecordSet"));
 
+export { PrivateResolverVirtualNetworkLinkArgs } from "./privateResolverVirtualNetworkLink";
+export type PrivateResolverVirtualNetworkLink = import("./privateResolverVirtualNetworkLink").PrivateResolverVirtualNetworkLink;
+export const PrivateResolverVirtualNetworkLink: typeof import("./privateResolverVirtualNetworkLink").PrivateResolverVirtualNetworkLink = null as any;
+utilities.lazyLoad(exports, ["PrivateResolverVirtualNetworkLink"], () => require("./privateResolverVirtualNetworkLink"));
+
 export { PrivateZoneArgs } from "./privateZone";
 export type PrivateZone = import("./privateZone").PrivateZone;
 export const PrivateZone: typeof import("./privateZone").PrivateZone = null as any;
@@ -1143,11 +1148,6 @@ export { VirtualNetworkGatewayNatRuleArgs } from "./virtualNetworkGatewayNatRule
 export type VirtualNetworkGatewayNatRule = import("./virtualNetworkGatewayNatRule").VirtualNetworkGatewayNatRule;
 export const VirtualNetworkGatewayNatRule: typeof import("./virtualNetworkGatewayNatRule").VirtualNetworkGatewayNatRule = null as any;
 utilities.lazyLoad(exports, ["VirtualNetworkGatewayNatRule"], () => require("./virtualNetworkGatewayNatRule"));
-
-export { VirtualNetworkLinkArgs } from "./virtualNetworkLink";
-export type VirtualNetworkLink = import("./virtualNetworkLink").VirtualNetworkLink;
-export const VirtualNetworkLink: typeof import("./virtualNetworkLink").VirtualNetworkLink = null as any;
-utilities.lazyLoad(exports, ["VirtualNetworkLink"], () => require("./virtualNetworkLink"));
 
 export { VirtualNetworkPeeringArgs } from "./virtualNetworkPeering";
 export type VirtualNetworkPeering = import("./virtualNetworkPeering").VirtualNetworkPeering;
@@ -1461,6 +1461,8 @@ const _module = {
                 return new PrivateLinkServicePrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:network:PrivateRecordSet":
                 return new PrivateRecordSet(name, <any>undefined, { urn })
+            case "azure-native:network:PrivateResolverVirtualNetworkLink":
+                return new PrivateResolverVirtualNetworkLink(name, <any>undefined, { urn })
             case "azure-native:network:PrivateZone":
                 return new PrivateZone(name, <any>undefined, { urn })
             case "azure-native:network:Profile":
@@ -1523,8 +1525,6 @@ const _module = {
                 return new VirtualNetworkGatewayConnection(name, <any>undefined, { urn })
             case "azure-native:network:VirtualNetworkGatewayNatRule":
                 return new VirtualNetworkGatewayNatRule(name, <any>undefined, { urn })
-            case "azure-native:network:VirtualNetworkLink":
-                return new VirtualNetworkLink(name, <any>undefined, { urn })
             case "azure-native:network:VirtualNetworkPeering":
                 return new VirtualNetworkPeering(name, <any>undefined, { urn })
             case "azure-native:network:VirtualNetworkTap":

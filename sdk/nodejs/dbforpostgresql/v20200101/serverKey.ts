@@ -100,7 +100,7 @@ export class ServerKey extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql:ServerKey" }, { type: "azure-native:dbforpostgresql/v20200101privatepreview:ServerKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20200101privatepreview:ServerKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerKey.__pulumiType, name, resourceInputs, opts);
     }

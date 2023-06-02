@@ -2421,7 +2421,7 @@
     ],
     "2020-10-01-preview": [
       "Database",
-      "PrivateEndpointConnection",
+      "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
     ],
@@ -2435,13 +2435,13 @@
     ],
     "2021-02-01-preview": [
       "Database",
-      "PrivateEndpointConnection",
+      "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
     ],
     "2021-03-01": [
       "Database",
-      "PrivateEndpointConnection",
+      "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
     ],
@@ -2455,13 +2455,13 @@
     ],
     "2021-08-01": [
       "Database",
-      "PrivateEndpointConnection",
+      "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
     ],
     "2022-01-01": [
       "Database",
-      "PrivateEndpointConnection",
+      "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
     ],
@@ -2483,13 +2483,13 @@
     ],
     "2022-11-01-preview": [
       "Database",
-      "PrivateEndpointConnection",
+      "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
     ],
     "2023-03-01-preview": [
       "Database",
-      "PrivateEndpointConnection",
+      "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
     ],
@@ -2794,6 +2794,7 @@
       "CommitmentPlanAssociation",
       "Deployment",
       "PrivateEndpointConnection",
+      "SharedCommitmentPlan",
       "listAccountKeys"
     ]
   },
@@ -11304,7 +11305,7 @@
       "ForwardingRule",
       "InboundEndpoint",
       "OutboundEndpoint",
-      "VirtualNetworkLink",
+      "PrivateResolverVirtualNetworkLink",
       "listDnsForwardingRulesetByVirtualNetwork",
       "listDnsResolverByVirtualNetwork"
     ],
@@ -12476,6 +12477,7 @@
       "PrivateEndpoint",
       "PrivateLinkService",
       "PrivateLinkServicePrivateEndpointConnection",
+      "PrivateResolverVirtualNetworkLink",
       "PublicIPAddress",
       "PublicIPPrefix",
       "Route",
@@ -12502,7 +12504,6 @@
       "VirtualNetworkGateway",
       "VirtualNetworkGatewayConnection",
       "VirtualNetworkGatewayNatRule",
-      "VirtualNetworkLink",
       "VirtualNetworkPeering",
       "VirtualNetworkTap",
       "VirtualRouter",

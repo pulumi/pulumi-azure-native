@@ -17,6 +17,7 @@ __all__ = ['CommitmentPlanArgs', 'CommitmentPlan']
 @pulumi.input_type
 class CommitmentPlanArgs:
     def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  commitment_plan_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class CommitmentPlanArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CommitmentPlan resource.
+        :param pulumi.Input[str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
         :param pulumi.Input[str] kind: The Kind of the resource.
@@ -34,6 +36,7 @@ class CommitmentPlanArgs:
         :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if commitment_plan_name is not None:
             pulumi.set(__self__, "commitment_plan_name", commitment_plan_name)
@@ -47,6 +50,18 @@ class CommitmentPlanArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The name of Cognitive Services account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -138,6 +153,7 @@ class CommitmentPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
                  commitment_plan_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -153,6 +169,7 @@ class CommitmentPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[str] commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
         :param pulumi.Input[str] kind: The Kind of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -187,6 +204,7 @@ class CommitmentPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
                  commitment_plan_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -203,6 +221,9 @@ class CommitmentPlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CommitmentPlanArgs.__new__(CommitmentPlanArgs)
 
+            if account_name is None and not opts.urn:
+                raise TypeError("Missing required property 'account_name'")
+            __props__.__dict__["account_name"] = account_name
             __props__.__dict__["commitment_plan_name"] = commitment_plan_name
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
@@ -216,7 +237,7 @@ class CommitmentPlan(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20221201:CommitmentPlan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20211001:CommitmentPlan"), pulumi.Alias(type_="azure-native:cognitiveservices/v20220301:CommitmentPlan"), pulumi.Alias(type_="azure-native:cognitiveservices/v20221001:CommitmentPlan"), pulumi.Alias(type_="azure-native:cognitiveservices/v20221201:CommitmentPlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CommitmentPlan, __self__).__init__(
             'azure-native:cognitiveservices:CommitmentPlan',

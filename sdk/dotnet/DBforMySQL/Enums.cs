@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
-    /// The type of administrator.
+    /// Type of the sever administrator.
     /// </summary>
     [EnumType]
     public readonly struct AdministratorType : IEquatable<AdministratorType>
@@ -250,36 +250,6 @@ namespace Pulumi.AzureNative.DBforMySQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ReplicationRole other && Equals(other);
         public bool Equals(ReplicationRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The key type like 'AzureKeyVault'.
-    /// </summary>
-    [EnumType]
-    public readonly struct ServerKeyType : IEquatable<ServerKeyType>
-    {
-        private readonly string _value;
-
-        private ServerKeyType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ServerKeyType AzureKeyVault { get; } = new ServerKeyType("AzureKeyVault");
-
-        public static bool operator ==(ServerKeyType left, ServerKeyType right) => left.Equals(right);
-        public static bool operator !=(ServerKeyType left, ServerKeyType right) => !left.Equals(right);
-
-        public static explicit operator string(ServerKeyType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServerKeyType other && Equals(other);
-        public bool Equals(ServerKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
