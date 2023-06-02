@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"path"
+	"regexp"
 	"strings"
 	"text/template"
 	"time"
@@ -277,7 +278,7 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 		case "dotnet":
 			files, err = recoverableProgramGen(programBody, program, dotnet.GenerateProgram)
 		case "go":
-			files, err = recoverableProgramGen(programBody, program, gogen.GenerateProgram)
+			files, err = recoverableProgramGen(programBody, program, GeneratePatchedGoProgram)
 		case "nodejs":
 			files, err = recoverableProgramGen(programBody, program, nodejs.GenerateProgram)
 		case "python":
@@ -427,4 +428,25 @@ $ pulumi import {{ .Token }} {{ .SampleResName }} {{ .SampleResID }}
 	res.Description += b.String()
 	pkgSpec.Resources[resourceName] = res
 	return nil
+}
+
+// GeneratePatchedGoProgram generates a Go program from the given HCL2 program, but patches the
+// generated import paths to adjust for the submodules being their own modules. For example:
+// "github.com/pulumi/pulumi-azure-native-sdk/v2/resources" -> "github.com/pulumi/pulumi-azure-native-sdk/resources/v2"
+// "github.com/pulumi/pulumi-azure-native-sdk/v2/resources/v20210203" -> "github.com/pulumi/pulumi-azure-native-sdk/resources/v2/v20210203"
+func GeneratePatchedGoProgram(program *hcl2.Program) (map[string][]byte, hcl.Diagnostics, error) {
+	prog, diags, err := gogen.GenerateProgram(program)
+	if err != nil {
+		return nil, diags, err
+	}
+	// Match prefix: github.com/pulumi/pulumi-azure-native-sdk
+	// Capture version segment `\/v\d+`
+	// Capture next path segment: `/[^"\/]*`
+	// Capture rest of path: `[^"]*"`
+	matchModuleImports := regexp.MustCompile(`"github\.com\/pulumi\/pulumi-azure-native-sdk(\/v\d+)(\/[^"\/]*)([^"]*)"`)
+	for k, v := range prog {
+		// Move version to after the module segment
+		prog[k] = matchModuleImports.ReplaceAll(v, []byte(`"github.com/pulumi/pulumi-azure-native-sdk${2}${1}${3}"`))
+	}
+	return prog, diags, nil
 }

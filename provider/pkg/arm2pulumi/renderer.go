@@ -18,7 +18,6 @@ import (
 	"github.com/pulumi/pulumi-java/pkg/codegen/java"
 	yaml "github.com/pulumi/pulumi-yaml/pkg/pulumiyaml/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
-	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/syntax"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
 	hcl2 "github.com/pulumi/pulumi/pkg/v3/codegen/pcl"
@@ -389,25 +388,25 @@ func (r *Renderer) RenderPrograms(body *model.Body, languages []string) (map[str
 
 	var errs []error
 	for _, lang := range languages {
-		var gen programGenFn
+		var genFn programGenFn
 
 		switch lang {
 		case "dotnet":
-			gen = dotnet.GenerateProgram
+			genFn = dotnet.GenerateProgram
 		case "go":
-			gen = gogen.GenerateProgram
+			genFn = gen.GeneratePatchedGoProgram
 		case "nodejs":
-			gen = nodejs.GenerateProgram
+			genFn = nodejs.GenerateProgram
 		case "python":
-			gen = python.GenerateProgram
+			genFn = python.GenerateProgram
 		case "java":
-			gen = java.GenerateProgram
+			genFn = java.GenerateProgram
 		case "yaml":
-			gen = yaml.GenerateProgram
+			genFn = yaml.GenerateProgram
 		default:
 			continue
 		}
-		files, err := recoverableProgramGen(program, gen)
+		files, err := recoverableProgramGen(program, genFn)
 		if err != nil {
 			log.Printf("Program generation failed for language: %s, %+v", lang, err)
 			err = fmt.Errorf("generating program for language %s: %w", lang, err)
