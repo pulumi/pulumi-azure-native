@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20210201
     /// <summary>
     /// A Kubernetes cluster specialized for web workloads by Azure App Service
     /// </summary>
+    [Obsolete(@"azure-native:web/v20210201:KubeEnvironment is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:KubeEnvironment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20210201:KubeEnvironment")]
     public partial class KubeEnvironment : global::Pulumi.CustomResource
     {

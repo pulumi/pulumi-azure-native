@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     /// <summary>
     /// SecurityPolicy association for AzureFrontDoor profile
     /// </summary>
+    [Obsolete(@"azure-native:cdn/v20210601:SecurityPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:SecurityPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20210601:SecurityPolicy")]
     public partial class SecurityPolicy : global::Pulumi.CustomResource
     {

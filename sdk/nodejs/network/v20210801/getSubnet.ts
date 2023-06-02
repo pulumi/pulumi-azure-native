@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified subnet by virtual network and resource group.
  */
+/** @deprecated azure-native:network/v20210801:Subnet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220701:Subnet to guarantee forwards compatibility. */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
+    pulumi.log.warn("getSubnet is deprecated: azure-native:network/v20210801:Subnet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220701:Subnet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210801:getSubnet", {
@@ -140,6 +142,7 @@ export interface GetSubnetResult {
 /**
  * Gets the specified subnet by virtual network and resource group.
  */
+/** @deprecated azure-native:network/v20210801:Subnet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220701:Subnet to guarantee forwards compatibility. */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
     return pulumi.output(args).apply((a: any) => getSubnet(a, opts))
 }

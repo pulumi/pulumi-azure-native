@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
     /// <summary>
     /// Config Server resource
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20220101preview:ConfigServer is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ConfigServer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20220101preview:ConfigServer")]
     public partial class ConfigServer : global::Pulumi.CustomResource
     {

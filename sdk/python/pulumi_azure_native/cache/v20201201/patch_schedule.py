@@ -83,7 +83,12 @@ class PatchScheduleArgs:
         pulumi.set(self, "default", value)
 
 
+warnings.warn("""azure-native:cache/v20201201:PatchSchedule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class PatchSchedule(pulumi.CustomResource):
+    warnings.warn("""azure-native:cache/v20201201:PatchSchedule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,6 +137,7 @@ class PatchSchedule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""PatchSchedule is deprecated: azure-native:cache/v20201201:PatchSchedule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -152,7 +158,7 @@ class PatchSchedule(pulumi.CustomResource):
             __props__.__dict__["schedule_entries"] = schedule_entries
             __props__.__dict__["location"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20171001:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20180301:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20190701:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20200601:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20210601:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20220501:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20220601:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20230401:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20230501preview:PatchSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20171001:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20180301:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20190701:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20200601:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20210601:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20220501:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20220601:PatchSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PatchSchedule, __self__).__init__(
             'azure-native:cache/v20201201:PatchSchedule',

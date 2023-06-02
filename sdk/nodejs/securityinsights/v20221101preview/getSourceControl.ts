@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a source control byt its identifier.
  */
+/** @deprecated azure-native:securityinsights/v20221101preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SourceControl to guarantee forwards compatibility. */
 export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlResult> {
+    pulumi.log.warn("getSourceControl is deprecated: azure-native:securityinsights/v20221101preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SourceControl to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20221101preview:getSourceControl", {
@@ -95,6 +97,7 @@ export interface GetSourceControlResult {
 /**
  * Gets a source control byt its identifier.
  */
+/** @deprecated azure-native:securityinsights/v20221101preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SourceControl to guarantee forwards compatibility. */
 export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlResult> {
     return pulumi.output(args).apply((a: any) => getSourceControl(a, opts))
 }

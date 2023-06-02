@@ -17,7 +17,8 @@ __all__ = [
     'get_local_network_gateway_output',
 ]
 
-warnings.warn("""Version 2017-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-08-01 will be removed in v2 of the provider.
+azure-native:network/v20170801:LocalNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:LocalNetworkGateway to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetLocalNetworkGatewayResult:
@@ -177,7 +178,8 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
     :param str local_network_gateway_name: The name of the local network gateway.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_local_network_gateway is deprecated: Version 2017-08-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_local_network_gateway is deprecated: Version 2017-08-01 will be removed in v2 of the provider.
+azure-native:network/v20170801:LocalNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:LocalNetworkGateway to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['localNetworkGatewayName'] = local_network_gateway_name
     __args__['resourceGroupName'] = resource_group_name
@@ -209,5 +211,6 @@ def get_local_network_gateway_output(local_network_gateway_name: Optional[pulumi
     :param str local_network_gateway_name: The name of the local network gateway.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_local_network_gateway is deprecated: Version 2017-08-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_local_network_gateway is deprecated: Version 2017-08-01 will be removed in v2 of the provider.
+azure-native:network/v20170801:LocalNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:LocalNetworkGateway to guarantee forwards compatibility.""")
     ...

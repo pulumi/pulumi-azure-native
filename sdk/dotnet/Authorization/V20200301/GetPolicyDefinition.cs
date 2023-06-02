@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Authorization.V20200301
 {
+    [Obsolete(@"azure-native:authorization/v20200301:PolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20210601:PolicyDefinition to guarantee forwards compatibility.")]
     public static class GetPolicyDefinition
     {
         /// <summary>

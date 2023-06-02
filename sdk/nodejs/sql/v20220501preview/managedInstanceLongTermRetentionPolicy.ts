@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A long term retention policy.
+ *
+ * @deprecated azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy to guarantee forwards compatibility.
  */
 export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResourc
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagedInstanceLongTermRetentionPolicy {
+        pulumi.log.warn("ManagedInstanceLongTermRetentionPolicy is deprecated: azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy to guarantee forwards compatibility.")
         return new ManagedInstanceLongTermRetentionPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -66,7 +69,9 @@ export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy to guarantee forwards compatibility. */
     constructor(name: string, args: ManagedInstanceLongTermRetentionPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ManagedInstanceLongTermRetentionPolicy is deprecated: azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

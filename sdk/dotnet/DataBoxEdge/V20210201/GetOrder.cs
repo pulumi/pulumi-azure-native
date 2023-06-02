@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20210201
 {
+    [Obsolete(@"azure-native:databoxedge/v20210201:Order is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220401preview:Order to guarantee forwards compatibility.")]
     public static class GetOrder
     {
         /// <summary>

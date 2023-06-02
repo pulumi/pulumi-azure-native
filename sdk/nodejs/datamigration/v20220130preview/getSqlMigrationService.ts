@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve the Database Migration Service
  */
+/** @deprecated azure-native:datamigration/v20220130preview:SqlMigrationService is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20220330preview:SqlMigrationService to guarantee forwards compatibility. */
 export function getSqlMigrationService(args: GetSqlMigrationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlMigrationServiceResult> {
+    pulumi.log.warn("getSqlMigrationService is deprecated: azure-native:datamigration/v20220130preview:SqlMigrationService is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20220330preview:SqlMigrationService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20220130preview:getSqlMigrationService", {
@@ -52,6 +54,7 @@ export interface GetSqlMigrationServiceResult {
 /**
  * Retrieve the Database Migration Service
  */
+/** @deprecated azure-native:datamigration/v20220130preview:SqlMigrationService is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20220330preview:SqlMigrationService to guarantee forwards compatibility. */
 export function getSqlMigrationServiceOutput(args: GetSqlMigrationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlMigrationServiceResult> {
     return pulumi.output(args).apply((a: any) => getSqlMigrationService(a, opts))
 }

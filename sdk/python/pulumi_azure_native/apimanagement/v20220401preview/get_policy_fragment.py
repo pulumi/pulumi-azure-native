@@ -16,6 +16,8 @@ __all__ = [
     'get_policy_fragment_output',
 ]
 
+warnings.warn("""azure-native:apimanagement/v20220401preview:PolicyFragment is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:PolicyFragment to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPolicyFragmentResult:
     """
@@ -118,6 +120,7 @@ def get_policy_fragment(format: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("""get_policy_fragment is deprecated: azure-native:apimanagement/v20220401preview:PolicyFragment is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:PolicyFragment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['format'] = format
     __args__['id'] = id
@@ -150,4 +153,5 @@ def get_policy_fragment_output(format: Optional[pulumi.Input[Optional[str]]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("""get_policy_fragment is deprecated: azure-native:apimanagement/v20220401preview:PolicyFragment is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:PolicyFragment to guarantee forwards compatibility.""")
     ...

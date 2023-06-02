@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
     /// <summary>
     /// Description of Rule Resource.
     /// </summary>
+    [Obsolete(@"azure-native:servicebus/v20210101preview:Rule is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20220101preview:Rule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicebus/v20210101preview:Rule")]
     public partial class Rule : global::Pulumi.CustomResource
     {

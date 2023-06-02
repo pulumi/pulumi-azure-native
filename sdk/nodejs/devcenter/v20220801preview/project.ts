@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a project resource.
+ *
+ * @deprecated azure-native:devcenter/v20220801preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Project to guarantee forwards compatibility.
  */
 export class Project extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Project extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Project {
+        pulumi.log.warn("Project is deprecated: azure-native:devcenter/v20220801preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Project to guarantee forwards compatibility.")
         return new Project(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,7 +80,9 @@ export class Project extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:devcenter/v20220801preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Project to guarantee forwards compatibility. */
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Project is deprecated: azure-native:devcenter/v20220801preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Project to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -105,7 +110,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:Project" }, { type: "azure-native:devcenter/v20220901preview:Project" }, { type: "azure-native:devcenter/v20221012preview:Project" }, { type: "azure-native:devcenter/v20221111preview:Project" }, { type: "azure-native:devcenter/v20230401:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:Project" }, { type: "azure-native:devcenter/v20220901preview:Project" }, { type: "azure-native:devcenter/v20221012preview:Project" }, { type: "azure-native:devcenter/v20221111preview:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Description for Gets a Swift Virtual Network connection.
  */
+/** @deprecated azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility. */
 export function getWebAppSwiftVirtualNetworkConnection(args: GetWebAppSwiftVirtualNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSwiftVirtualNetworkConnectionResult> {
+    pulumi.log.warn("getWebAppSwiftVirtualNetworkConnection is deprecated: azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220301:getWebAppSwiftVirtualNetworkConnection", {
@@ -59,6 +61,7 @@ export interface GetWebAppSwiftVirtualNetworkConnectionResult {
 /**
  * Description for Gets a Swift Virtual Network connection.
  */
+/** @deprecated azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility. */
 export function getWebAppSwiftVirtualNetworkConnectionOutput(args: GetWebAppSwiftVirtualNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSwiftVirtualNetworkConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSwiftVirtualNetworkConnection(a, opts))
 }

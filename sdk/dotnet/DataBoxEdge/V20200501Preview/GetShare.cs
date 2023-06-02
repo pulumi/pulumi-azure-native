@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
 {
-    [Obsolete(@"Version 2020-05-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-05-01-preview will be removed in v2 of the provider.
+azure-native:databoxedge/v20200501preview:Share is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:Share to guarantee forwards compatibility.")]
     public static class GetShare
     {
         /// <summary>

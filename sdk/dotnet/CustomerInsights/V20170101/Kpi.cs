@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
     /// <summary>
     /// The KPI resource format.
     /// </summary>
-    [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:Kpi is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Kpi to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:customerinsights/v20170101:Kpi")]
     public partial class Kpi : global::Pulumi.CustomResource
     {

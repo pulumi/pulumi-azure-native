@@ -17,6 +17,8 @@ __all__ = [
     'get_collector_policy_output',
 ]
 
+warnings.warn("""azure-native:networkfunction/v20220801:CollectorPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20221101:CollectorPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCollectorPolicyResult:
     """
@@ -165,6 +167,7 @@ def get_collector_policy(azure_traffic_collector_name: Optional[str] = None,
     :param str collector_policy_name: Collector Policy Name
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_collector_policy is deprecated: azure-native:networkfunction/v20220801:CollectorPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20221101:CollectorPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['azureTrafficCollectorName'] = azure_traffic_collector_name
     __args__['collectorPolicyName'] = collector_policy_name
@@ -198,4 +201,5 @@ def get_collector_policy_output(azure_traffic_collector_name: Optional[pulumi.In
     :param str collector_policy_name: Collector Policy Name
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_collector_policy is deprecated: azure-native:networkfunction/v20220801:CollectorPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20221101:CollectorPolicy to guarantee forwards compatibility.""")
     ...

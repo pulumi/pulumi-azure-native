@@ -129,7 +129,12 @@ class ConnectionArgs:
         pulumi.set(self, "field_definition_values", value)
 
 
+warnings.warn("""azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Connection to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Connection(pulumi.CustomResource):
+    warnings.warn("""azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Connection to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -187,6 +192,7 @@ class Connection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Connection is deprecated: azure-native:automation/v20200113preview:Connection is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Connection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

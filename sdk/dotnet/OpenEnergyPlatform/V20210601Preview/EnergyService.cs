@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.OpenEnergyPlatform.V20210601Preview
 {
+    [Obsolete(@"azure-native:openenergyplatform/v20210601preview:EnergyService is being removed in the next major version of this provider. Please upgrade to azure-native:openenergyplatform/v20220404preview:EnergyService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:openenergyplatform/v20210601preview:EnergyService")]
     public partial class EnergyService : global::Pulumi.CustomResource
     {

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the logger specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20180601preview:Logger is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20191201preview:Logger to guarantee forwards compatibility. */
 export function getLogger(args: GetLoggerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerResult> {
+    pulumi.log.warn("getLogger is deprecated: azure-native:apimanagement/v20180601preview:Logger is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20191201preview:Logger to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20180601preview:getLogger", {
@@ -73,6 +75,7 @@ export interface GetLoggerResult {
 /**
  * Gets the details of the logger specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20180601preview:Logger is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20191201preview:Logger to guarantee forwards compatibility. */
 export function getLoggerOutput(args: GetLoggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggerResult> {
     return pulumi.output(args).apply((a: any) => getLogger(a, opts))
 }

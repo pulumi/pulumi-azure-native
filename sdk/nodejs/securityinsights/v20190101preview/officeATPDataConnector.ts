@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents OfficeATP (Office 365 Advanced Threat Protection) data connector.
+ *
+ * @deprecated azure-native:securityinsights/v20190101preview:OfficeATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:OfficeATPDataConnector to guarantee forwards compatibility.
  */
 export class OfficeATPDataConnector extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class OfficeATPDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OfficeATPDataConnector {
+        pulumi.log.warn("OfficeATPDataConnector is deprecated: azure-native:securityinsights/v20190101preview:OfficeATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:OfficeATPDataConnector to guarantee forwards compatibility.")
         return new OfficeATPDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -70,7 +73,9 @@ export class OfficeATPDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20190101preview:OfficeATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:OfficeATPDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: OfficeATPDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("OfficeATPDataConnector is deprecated: azure-native:securityinsights/v20190101preview:OfficeATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:OfficeATPDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -108,7 +113,7 @@ export class OfficeATPDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20200101:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20211001:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220801:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20221101:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20230201:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:OfficeATPDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20200101:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20211001:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220801:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20221101:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20230201:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:OfficeATPDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OfficeATPDataConnector.__pulumiType, name, resourceInputs, opts);
     }

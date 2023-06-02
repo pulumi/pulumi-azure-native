@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets properties of a live event.
  */
+/** @deprecated azure-native:media/v20210601:LiveEvent is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:LiveEvent to guarantee forwards compatibility. */
 export function getLiveEvent(args: GetLiveEventArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventResult> {
+    pulumi.log.warn("getLiveEvent is deprecated: azure-native:media/v20210601:LiveEvent is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:LiveEvent to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20210601:getLiveEvent", {
@@ -119,6 +121,7 @@ export interface GetLiveEventResult {
 /**
  * Gets properties of a live event.
  */
+/** @deprecated azure-native:media/v20210601:LiveEvent is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:LiveEvent to guarantee forwards compatibility. */
 export function getLiveEventOutput(args: GetLiveEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventResult> {
     return pulumi.output(args).apply((a: any) => getLiveEvent(a, opts))
 }

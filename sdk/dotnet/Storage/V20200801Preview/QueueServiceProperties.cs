@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
     /// <summary>
     /// The properties of a storage account’s Queue service.
     /// </summary>
-    [Obsolete(@"Version 2020-08-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-08-01-preview will be removed in v2 of the provider.
+azure-native:storage/v20200801preview:QueueServiceProperties is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:QueueServiceProperties to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storage/v20200801preview:QueueServiceProperties")]
     public partial class QueueServiceProperties : global::Pulumi.CustomResource
     {

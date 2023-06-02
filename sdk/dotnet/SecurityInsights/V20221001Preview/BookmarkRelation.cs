@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221001Preview
     /// <summary>
     /// Represents a relation between two resources
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20221001preview:BookmarkRelation is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:BookmarkRelation to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20221001preview:BookmarkRelation")]
     public partial class BookmarkRelation : global::Pulumi.CustomResource
     {
@@ -103,7 +104,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221001Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:BookmarkRelation"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:BookmarkRelation"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:BookmarkRelation"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:BookmarkRelation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

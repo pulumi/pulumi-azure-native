@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a server trust group.
  */
+/** @deprecated azure-native:sql/v20200202preview:ServerTrustGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerTrustGroup to guarantee forwards compatibility. */
 export function getServerTrustGroup(args: GetServerTrustGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTrustGroupResult> {
+    pulumi.log.warn("getServerTrustGroup is deprecated: azure-native:sql/v20200202preview:ServerTrustGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerTrustGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20200202preview:getServerTrustGroup", {
@@ -63,6 +65,7 @@ export interface GetServerTrustGroupResult {
 /**
  * Gets a server trust group.
  */
+/** @deprecated azure-native:sql/v20200202preview:ServerTrustGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerTrustGroup to guarantee forwards compatibility. */
 export function getServerTrustGroupOutput(args: GetServerTrustGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTrustGroupResult> {
     return pulumi.output(args).apply((a: any) => getServerTrustGroup(a, opts))
 }

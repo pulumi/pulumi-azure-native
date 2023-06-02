@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Insights.V20180901
 {
+    [Obsolete(@"azure-native:insights/v20180901:ActionGroup is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20230101:ActionGroup to guarantee forwards compatibility.")]
     public static class GetActionGroup
     {
         /// <summary>

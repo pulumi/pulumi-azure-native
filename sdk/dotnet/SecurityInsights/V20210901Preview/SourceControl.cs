@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     /// <summary>
     /// Represents a SourceControl in Azure Security Insights.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20210901preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SourceControl to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20210901preview:SourceControl")]
     public partial class SourceControl : global::Pulumi.CustomResource
     {
@@ -109,7 +110,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:SourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:SourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:SourceControl"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:SourceControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

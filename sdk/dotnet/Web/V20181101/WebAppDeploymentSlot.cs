@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20181101
     /// <summary>
     /// User credentials used for publishing activity.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20181101:WebAppDeploymentSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppDeploymentSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20181101:WebAppDeploymentSlot")]
     public partial class WebAppDeploymentSlot : global::Pulumi.CustomResource
     {

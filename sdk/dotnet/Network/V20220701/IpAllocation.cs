@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220701
     /// <summary>
     /// IpAllocation resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20220701:IpAllocation is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:IpAllocation to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220701:IpAllocation")]
     public partial class IpAllocation : global::Pulumi.CustomResource
     {

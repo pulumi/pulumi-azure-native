@@ -197,11 +197,13 @@ class VirtualNetworkArgs:
         pulumi.set(self, "virtual_network_peerings", value)
 
 
-warnings.warn("""Version 2016-12-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-12-01 will be removed in v2 of the provider.
+azure-native:network/v20161201:VirtualNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetwork to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class VirtualNetwork(pulumi.CustomResource):
-    warnings.warn("""Version 2016-12-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2016-12-01 will be removed in v2 of the provider.
+azure-native:network/v20161201:VirtualNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetwork to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -272,7 +274,8 @@ class VirtualNetwork(pulumi.CustomResource):
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""VirtualNetwork is deprecated: Version 2016-12-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""VirtualNetwork is deprecated: Version 2016-12-01 will be removed in v2 of the provider.
+azure-native:network/v20161201:VirtualNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetwork to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -324,7 +324,12 @@ class VirtualMachineScaleSetVMArgs:
         pulumi.set(self, "user_data", value)
 
 
+warnings.warn("""azure-native:compute/v20220801:VirtualMachineScaleSetVM is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSetVM to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class VirtualMachineScaleSetVM(pulumi.CustomResource):
+    warnings.warn("""azure-native:compute/v20220801:VirtualMachineScaleSetVM is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSetVM to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -418,6 +423,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  user_data: Optional[pulumi.Input[str]] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""VirtualMachineScaleSetVM is deprecated: azure-native:compute/v20220801:VirtualMachineScaleSetVM is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSetVM to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

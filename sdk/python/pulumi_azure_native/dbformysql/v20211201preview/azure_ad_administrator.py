@@ -147,7 +147,12 @@ class AzureADAdministratorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+warnings.warn("""azure-native:dbformysql/v20211201preview:AzureADAdministrator is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20220101:AzureADAdministrator to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AzureADAdministrator(pulumi.CustomResource):
+    warnings.warn("""azure-native:dbformysql/v20211201preview:AzureADAdministrator is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20220101:AzureADAdministrator to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -208,6 +213,7 @@ class AzureADAdministrator(pulumi.CustomResource):
                  sid: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""AzureADAdministrator is deprecated: azure-native:dbformysql/v20211201preview:AzureADAdministrator is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20220101:AzureADAdministrator to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

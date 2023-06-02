@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Authorization.V20180901Preview
 {
+    [Obsolete(@"azure-native:authorization/v20180901preview:RoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200301preview:RoleAssignment to guarantee forwards compatibility.")]
     public static class GetRoleAssignment
     {
         /// <summary>

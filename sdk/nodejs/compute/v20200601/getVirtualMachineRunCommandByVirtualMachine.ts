@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * The operation to get the run command.
  */
-/** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine to guarantee forwards compatibility. */
 export function getVirtualMachineRunCommandByVirtualMachine(args: GetVirtualMachineRunCommandByVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineRunCommandByVirtualMachineResult> {
-    pulumi.log.warn("getVirtualMachineRunCommandByVirtualMachine is deprecated: Version 2020-06-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getVirtualMachineRunCommandByVirtualMachine is deprecated: Version 2020-06-01 will be removed in v2 of the provider.\nazure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20200601:getVirtualMachineRunCommandByVirtualMachine", {
@@ -114,7 +115,8 @@ export interface GetVirtualMachineRunCommandByVirtualMachineResult {
 /**
  * The operation to get the run command.
  */
-/** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine to guarantee forwards compatibility. */
 export function getVirtualMachineRunCommandByVirtualMachineOutput(args: GetVirtualMachineRunCommandByVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineRunCommandByVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineRunCommandByVirtualMachine(a, opts))
 }

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a DataSetMapping in a shareSubscription
  */
+/** @deprecated azure-native:datashare/v20191101:ADLSGen2FolderDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping to guarantee forwards compatibility. */
 export function getADLSGen2FolderDataSetMapping(args: GetADLSGen2FolderDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FolderDataSetMappingResult> {
+    pulumi.log.warn("getADLSGen2FolderDataSetMapping is deprecated: azure-native:datashare/v20191101:ADLSGen2FolderDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20191101:getADLSGen2FolderDataSetMapping", {
@@ -94,6 +96,7 @@ export interface GetADLSGen2FolderDataSetMappingResult {
 /**
  * Get a DataSetMapping in a shareSubscription
  */
+/** @deprecated azure-native:datashare/v20191101:ADLSGen2FolderDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping to guarantee forwards compatibility. */
 export function getADLSGen2FolderDataSetMappingOutput(args: GetADLSGen2FolderDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FolderDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getADLSGen2FolderDataSetMapping(a, opts))
 }

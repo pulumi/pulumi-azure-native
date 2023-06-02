@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.CostManagement.V20190401Preview
 {
+    [Obsolete(@"azure-native:costmanagement/v20190401preview:ViewByScope is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20191101:ViewByScope to guarantee forwards compatibility.")]
     public static class GetViewByScope
     {
         /// <summary>

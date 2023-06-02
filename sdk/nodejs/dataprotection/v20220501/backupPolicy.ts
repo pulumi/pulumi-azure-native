@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * BaseBackupPolicy resource
+ *
+ * @deprecated azure-native:dataprotection/v20220501:BackupPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupPolicy to guarantee forwards compatibility.
  */
 export class BackupPolicy extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class BackupPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BackupPolicy {
+        pulumi.log.warn("BackupPolicy is deprecated: azure-native:dataprotection/v20220501:BackupPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupPolicy to guarantee forwards compatibility.")
         return new BackupPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,7 +64,9 @@ export class BackupPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:dataprotection/v20220501:BackupPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupPolicy to guarantee forwards compatibility. */
     constructor(name: string, args: BackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BackupPolicy is deprecated: azure-native:dataprotection/v20220501:BackupPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupPolicy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -85,7 +90,7 @@ export class BackupPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dataprotection:BackupPolicy" }, { type: "azure-native:dataprotection/v20210101:BackupPolicy" }, { type: "azure-native:dataprotection/v20210201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20210601preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20210701:BackupPolicy" }, { type: "azure-native:dataprotection/v20211001preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20211201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20220101:BackupPolicy" }, { type: "azure-native:dataprotection/v20220201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20220301:BackupPolicy" }, { type: "azure-native:dataprotection/v20220331preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20220401:BackupPolicy" }, { type: "azure-native:dataprotection/v20220901preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20221001preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20221101preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20221201:BackupPolicy" }, { type: "azure-native:dataprotection/v20230101:BackupPolicy" }, { type: "azure-native:dataprotection/v20230401preview:BackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dataprotection:BackupPolicy" }, { type: "azure-native:dataprotection/v20210101:BackupPolicy" }, { type: "azure-native:dataprotection/v20210201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20210601preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20210701:BackupPolicy" }, { type: "azure-native:dataprotection/v20211001preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20211201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20220101:BackupPolicy" }, { type: "azure-native:dataprotection/v20220201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20220301:BackupPolicy" }, { type: "azure-native:dataprotection/v20220331preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20220401:BackupPolicy" }, { type: "azure-native:dataprotection/v20220901preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20221001preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20221101preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20221201:BackupPolicy" }, { type: "azure-native:dataprotection/v20230101:BackupPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupPolicy.__pulumiType, name, resourceInputs, opts);
     }

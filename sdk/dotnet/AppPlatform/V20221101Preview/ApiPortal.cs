@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20221101Preview
     /// <summary>
     /// API portal resource
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20221101preview:ApiPortal is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ApiPortal to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20221101preview:ApiPortal")]
     public partial class ApiPortal : global::Pulumi.CustomResource
     {

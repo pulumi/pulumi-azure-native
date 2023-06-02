@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
     /// <summary>
     /// Information about workspace.
     /// </summary>
+    [Obsolete(@"azure-native:databricks/v20210401preview:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:databricks/v20230201:Workspace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databricks/v20210401preview:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {

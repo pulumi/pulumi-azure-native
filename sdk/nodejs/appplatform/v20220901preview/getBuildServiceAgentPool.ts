@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get build service agent pool.
  */
+/** @deprecated azure-native:appplatform/v20220901preview:BuildServiceAgentPool is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:BuildServiceAgentPool to guarantee forwards compatibility. */
 export function getBuildServiceAgentPool(args: GetBuildServiceAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceAgentPoolResult> {
+    pulumi.log.warn("getBuildServiceAgentPool is deprecated: azure-native:appplatform/v20220901preview:BuildServiceAgentPool is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:BuildServiceAgentPool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220901preview:getBuildServiceAgentPool", {
@@ -68,6 +70,7 @@ export interface GetBuildServiceAgentPoolResult {
 /**
  * Get build service agent pool.
  */
+/** @deprecated azure-native:appplatform/v20220901preview:BuildServiceAgentPool is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:BuildServiceAgentPool to guarantee forwards compatibility. */
 export function getBuildServiceAgentPoolOutput(args: GetBuildServiceAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceAgentPoolResult> {
     return pulumi.output(args).apply((a: any) => getBuildServiceAgentPool(a, opts))
 }

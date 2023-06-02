@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an outbound firewall rule.
  */
+/** @deprecated azure-native:sql/v20220501preview:OutboundFirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:OutboundFirewallRule to guarantee forwards compatibility. */
 export function getOutboundFirewallRule(args: GetOutboundFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetOutboundFirewallRuleResult> {
+    pulumi.log.warn("getOutboundFirewallRule is deprecated: azure-native:sql/v20220501preview:OutboundFirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:OutboundFirewallRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20220501preview:getOutboundFirewallRule", {
@@ -53,6 +55,7 @@ export interface GetOutboundFirewallRuleResult {
 /**
  * Gets an outbound firewall rule.
  */
+/** @deprecated azure-native:sql/v20220501preview:OutboundFirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:OutboundFirewallRule to guarantee forwards compatibility. */
 export function getOutboundFirewallRuleOutput(args: GetOutboundFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutboundFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getOutboundFirewallRule(a, opts))
 }

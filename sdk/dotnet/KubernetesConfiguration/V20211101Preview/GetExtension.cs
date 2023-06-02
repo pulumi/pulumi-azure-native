@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.KubernetesConfiguration.V20211101Preview
 {
+    [Obsolete(@"azure-native:kubernetesconfiguration/v20211101preview:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility.")]
     public static class GetExtension
     {
         /// <summary>

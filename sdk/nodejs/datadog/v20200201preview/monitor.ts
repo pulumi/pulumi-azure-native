@@ -9,6 +9,7 @@ import * as utilities from "../../utilities";
 
 /**
  * @deprecated Version 2020-02-01-preview will be removed in v2 of the provider.
+azure-native:datadog/v20200201preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:datadog/v20220601:Monitor to guarantee forwards compatibility.
  */
 export class Monitor extends pulumi.CustomResource {
     /**
@@ -20,7 +21,7 @@ export class Monitor extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Monitor {
-        pulumi.log.warn("Monitor is deprecated: Version 2020-02-01-preview will be removed in v2 of the provider.")
+        pulumi.log.warn("Monitor is deprecated: Version 2020-02-01-preview will be removed in v2 of the provider.\nazure-native:datadog/v20200201preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:datadog/v20220601:Monitor to guarantee forwards compatibility.")
         return new Monitor(name, undefined as any, { ...opts, id: id });
     }
 
@@ -62,9 +63,10 @@ export class Monitor extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2020-02-01-preview will be removed in v2 of the provider. */
+    /** @deprecated Version 2020-02-01-preview will be removed in v2 of the provider.
+azure-native:datadog/v20200201preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:datadog/v20220601:Monitor to guarantee forwards compatibility. */
     constructor(name: string, args: MonitorArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Monitor is deprecated: Version 2020-02-01-preview will be removed in v2 of the provider.")
+        pulumi.log.warn("Monitor is deprecated: Version 2020-02-01-preview will be removed in v2 of the provider.\nazure-native:datadog/v20200201preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:datadog/v20220601:Monitor to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

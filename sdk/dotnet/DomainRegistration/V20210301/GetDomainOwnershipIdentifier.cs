@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DomainRegistration.V20210301
 {
+    [Obsolete(@"azure-native:domainregistration/v20210301:DomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility.")]
     public static class GetDomainOwnershipIdentifier
     {
         /// <summary>

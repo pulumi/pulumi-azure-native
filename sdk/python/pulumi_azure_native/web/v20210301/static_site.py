@@ -277,7 +277,12 @@ class StaticSiteArgs:
         pulumi.set(self, "template_properties", value)
 
 
+warnings.warn("""azure-native:web/v20210301:StaticSite is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSite to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class StaticSite(pulumi.CustomResource):
+    warnings.warn("""azure-native:web/v20210301:StaticSite is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSite to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -362,6 +367,7 @@ class StaticSite(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_properties: Optional[pulumi.Input[pulumi.InputType['StaticSiteTemplateOptionsArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""StaticSite is deprecated: azure-native:web/v20210301:StaticSite is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSite to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get site extension information by its ID for a web site, or a deployment slot.
  */
+/** @deprecated azure-native:web/v20210115:WebAppSiteExtensionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSiteExtensionSlot to guarantee forwards compatibility. */
 export function getWebAppSiteExtensionSlot(args: GetWebAppSiteExtensionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteExtensionSlotResult> {
+    pulumi.log.warn("getWebAppSiteExtensionSlot is deprecated: azure-native:web/v20210115:WebAppSiteExtensionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSiteExtensionSlot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210115:getWebAppSiteExtensionSlot", {
@@ -138,6 +140,7 @@ export interface GetWebAppSiteExtensionSlotResult {
 /**
  * Get site extension information by its ID for a web site, or a deployment slot.
  */
+/** @deprecated azure-native:web/v20210115:WebAppSiteExtensionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSiteExtensionSlot to guarantee forwards compatibility. */
 export function getWebAppSiteExtensionSlotOutput(args: GetWebAppSiteExtensionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteExtensionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSiteExtensionSlot(a, opts))
 }

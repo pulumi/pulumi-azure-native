@@ -17,6 +17,8 @@ __all__ = [
     'get_application_gateway_output',
 ]
 
+warnings.warn("""azure-native:network/v20220701:ApplicationGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ApplicationGateway to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationGatewayResult:
     """
@@ -559,6 +561,7 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
     :param str application_gateway_name: The name of the application gateway.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_application_gateway is deprecated: azure-native:network/v20220701:ApplicationGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ApplicationGateway to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['applicationGatewayName'] = application_gateway_name
     __args__['resourceGroupName'] = resource_group_name
@@ -622,4 +625,5 @@ def get_application_gateway_output(application_gateway_name: Optional[pulumi.Inp
     :param str application_gateway_name: The name of the application gateway.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_application_gateway is deprecated: azure-native:network/v20220701:ApplicationGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ApplicationGateway to guarantee forwards compatibility.""")
     ...

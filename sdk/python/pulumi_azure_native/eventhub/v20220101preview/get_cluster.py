@@ -17,6 +17,8 @@ __all__ = [
     'get_cluster_output',
 ]
 
+warnings.warn("""azure-native:eventhub/v20220101preview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:Cluster to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetClusterResult:
     """
@@ -187,6 +189,7 @@ def get_cluster(cluster_name: Optional[str] = None,
     :param str cluster_name: The name of the Event Hubs Cluster.
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
+    pulumi.log.warn("""get_cluster is deprecated: azure-native:eventhub/v20220101preview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:Cluster to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
@@ -219,4 +222,5 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the Event Hubs Cluster.
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
+    pulumi.log.warn("""get_cluster is deprecated: azure-native:eventhub/v20220101preview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:Cluster to guarantee forwards compatibility.""")
     ...

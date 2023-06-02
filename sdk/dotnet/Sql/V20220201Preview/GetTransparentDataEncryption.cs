@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20220201Preview
 {
+    [Obsolete(@"azure-native:sql/v20220201preview:TransparentDataEncryption is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:TransparentDataEncryption to guarantee forwards compatibility.")]
     public static class GetTransparentDataEncryption
     {
         /// <summary>

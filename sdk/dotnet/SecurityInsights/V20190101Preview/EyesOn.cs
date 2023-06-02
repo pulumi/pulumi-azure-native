@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     /// <summary>
     /// Settings with single toggle.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20190101preview:EyesOn is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:EyesOn to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:EyesOn")]
     public partial class EyesOn : global::Pulumi.CustomResource
     {
@@ -94,7 +95,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:EyesOn"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:EyesOn"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:EyesOn"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:EyesOn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

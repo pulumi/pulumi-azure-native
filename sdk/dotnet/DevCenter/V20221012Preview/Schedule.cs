@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevCenter.V20221012Preview
     /// <summary>
     /// Represents a Schedule to execute a task.
     /// </summary>
+    [Obsolete(@"azure-native:devcenter/v20221012preview:Schedule is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Schedule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devcenter/v20221012preview:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource
     {
@@ -92,7 +93,6 @@ namespace Pulumi.AzureNative.DevCenter.V20221012Preview
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:Schedule"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Schedule"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:Schedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

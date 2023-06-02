@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
 {
+    [Obsolete(@"azure-native:dbforpostgresql/v20200214privatepreview:Server is being removed in the next major version of this provider. Please upgrade to azure-native:dbforpostgresql/v20210410privatepreview:Server to guarantee forwards compatibility.")]
     public static class GetServer
     {
         /// <summary>

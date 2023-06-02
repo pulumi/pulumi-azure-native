@@ -17,6 +17,8 @@ __all__ = [
     'get_data_network_output',
 ]
 
+warnings.warn("""azure-native:mobilenetwork/v20220301preview:DataNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:DataNetwork to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataNetworkResult:
     """
@@ -213,6 +215,7 @@ def get_data_network(data_network_name: Optional[str] = None,
     :param str mobile_network_name: The name of the mobile network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_data_network is deprecated: azure-native:mobilenetwork/v20220301preview:DataNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:DataNetwork to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dataNetworkName'] = data_network_name
     __args__['mobileNetworkName'] = mobile_network_name
@@ -250,4 +253,5 @@ def get_data_network_output(data_network_name: Optional[pulumi.Input[str]] = Non
     :param str mobile_network_name: The name of the mobile network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_data_network is deprecated: azure-native:mobilenetwork/v20220301preview:DataNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:DataNetwork to guarantee forwards compatibility.""")
     ...

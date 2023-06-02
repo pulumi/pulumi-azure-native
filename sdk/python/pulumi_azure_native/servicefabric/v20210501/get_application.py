@@ -17,6 +17,8 @@ __all__ = [
     'get_application_output',
 ]
 
+warnings.warn("""azure-native:servicefabric/v20210501:Application is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:Application to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationResult:
     """
@@ -190,6 +192,7 @@ def get_application(application_name: Optional[str] = None,
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_application is deprecated: azure-native:servicefabric/v20210501:Application is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:Application to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['applicationName'] = application_name
     __args__['clusterName'] = cluster_name
@@ -225,4 +228,5 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_application is deprecated: azure-native:servicefabric/v20210501:Application is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:Application to guarantee forwards compatibility.""")
     ...

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20180201
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20180201:WebApp is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20181101:WebApp to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20180201:WebApp")]
     public partial class WebApp : global::Pulumi.CustomResource
     {

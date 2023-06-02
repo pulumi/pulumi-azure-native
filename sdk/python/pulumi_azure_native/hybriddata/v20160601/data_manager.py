@@ -106,11 +106,13 @@ class DataManagerArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:hybriddata/v20160601:DataManager is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataManager to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class DataManager(pulumi.CustomResource):
-    warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:hybriddata/v20160601:DataManager is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataManager to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -166,7 +168,8 @@ class DataManager(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""DataManager is deprecated: Version 2016-06-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""DataManager is deprecated: Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:hybriddata/v20160601:DataManager is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataManager to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

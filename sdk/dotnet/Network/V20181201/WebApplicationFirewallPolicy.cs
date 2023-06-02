@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20181201
     /// <summary>
     /// Defines web application firewall policy.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20181201:WebApplicationFirewallPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190701:WebApplicationFirewallPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20181201:WebApplicationFirewallPolicy")]
     public partial class WebApplicationFirewallPolicy : global::Pulumi.CustomResource
     {

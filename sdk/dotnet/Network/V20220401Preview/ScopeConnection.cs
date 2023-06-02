@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
     /// <summary>
     /// The Scope Connections resource
     /// </summary>
+    [Obsolete(@"azure-native:network/v20220401preview:ScopeConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ScopeConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220401preview:ScopeConnection")]
     public partial class ScopeConnection : global::Pulumi.CustomResource
     {

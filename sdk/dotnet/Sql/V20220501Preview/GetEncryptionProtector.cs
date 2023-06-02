@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20220501Preview
 {
+    [Obsolete(@"azure-native:sql/v20220501preview:EncryptionProtector is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:EncryptionProtector to guarantee forwards compatibility.")]
     public static class GetEncryptionProtector
     {
         /// <summary>

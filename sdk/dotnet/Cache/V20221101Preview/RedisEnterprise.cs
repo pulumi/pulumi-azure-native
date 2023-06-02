@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Cache.V20221101Preview
     /// <summary>
     /// Describes the RedisEnterprise cluster
     /// </summary>
+    [Obsolete(@"azure-native:cache/v20221101preview:RedisEnterprise is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20230301preview:RedisEnterprise to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cache/v20221101preview:RedisEnterprise")]
     public partial class RedisEnterprise : global::Pulumi.CustomResource
     {

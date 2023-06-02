@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
  */
+/** @deprecated azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility. */
 export function getSapLandscapeMonitor(args: GetSapLandscapeMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetSapLandscapeMonitorResult> {
+    pulumi.log.warn("getSapLandscapeMonitor is deprecated: azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20221101preview:getSapLandscapeMonitor", {
@@ -66,6 +68,7 @@ export interface GetSapLandscapeMonitorResult {
 /**
  * Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
  */
+/** @deprecated azure-native:workloads/v20221101preview:SapLandscapeMonitor is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SapLandscapeMonitor to guarantee forwards compatibility. */
 export function getSapLandscapeMonitorOutput(args: GetSapLandscapeMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapLandscapeMonitorResult> {
     return pulumi.output(args).apply((a: any) => getSapLandscapeMonitor(a, opts))
 }

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Peering.V20220601
 {
+    [Obsolete(@"azure-native:peering/v20220601:PeeringService is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeeringService to guarantee forwards compatibility.")]
     public static class GetPeeringService
     {
         /// <summary>

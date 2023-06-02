@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.LabServices.V20211001Preview
 {
+    [Obsolete(@"azure-native:labservices/v20211001preview:Lab is being removed in the next major version of this provider. Please upgrade to azure-native:labservices/v20220801:Lab to guarantee forwards compatibility.")]
     public static class GetLab
     {
         /// <summary>

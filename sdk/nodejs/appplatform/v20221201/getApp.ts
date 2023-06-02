@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get an App and its properties.
  */
+/** @deprecated azure-native:appplatform/v20221201:App is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:App to guarantee forwards compatibility. */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
+    pulumi.log.warn("getApp is deprecated: azure-native:appplatform/v20221201:App is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:App to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20221201:getApp", {
@@ -76,6 +78,7 @@ export interface GetAppResult {
 /**
  * Get an App and its properties.
  */
+/** @deprecated azure-native:appplatform/v20221201:App is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:App to guarantee forwards compatibility. */
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
     return pulumi.output(args).apply((a: any) => getApp(a, opts))
 }

@@ -16,7 +16,8 @@ __all__ = [
     'get_route_filter_rule_output',
 ]
 
-warnings.warn("""Version 2018-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-01-01 will be removed in v2 of the provider.
+azure-native:network/v20180101:RouteFilterRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RouteFilterRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRouteFilterRuleResult:
@@ -142,7 +143,8 @@ def get_route_filter_rule(resource_group_name: Optional[str] = None,
     :param str route_filter_name: The name of the route filter.
     :param str rule_name: The name of the rule.
     """
-    pulumi.log.warn("""get_route_filter_rule is deprecated: Version 2018-01-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_route_filter_rule is deprecated: Version 2018-01-01 will be removed in v2 of the provider.
+azure-native:network/v20180101:RouteFilterRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RouteFilterRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeFilterName'] = route_filter_name
@@ -174,5 +176,6 @@ def get_route_filter_rule_output(resource_group_name: Optional[pulumi.Input[str]
     :param str route_filter_name: The name of the route filter.
     :param str rule_name: The name of the rule.
     """
-    pulumi.log.warn("""get_route_filter_rule is deprecated: Version 2018-01-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_route_filter_rule is deprecated: Version 2018-01-01 will be removed in v2 of the provider.
+azure-native:network/v20180101:RouteFilterRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RouteFilterRule to guarantee forwards compatibility.""")
     ...

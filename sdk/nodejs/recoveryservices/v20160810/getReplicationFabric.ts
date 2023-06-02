@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of an Azure Site Recovery fabric.
  */
-/** @deprecated Version 2016-08-10 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-08-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20160810:ReplicationFabric is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationFabric to guarantee forwards compatibility. */
 export function getReplicationFabric(args: GetReplicationFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationFabricResult> {
-    pulumi.log.warn("getReplicationFabric is deprecated: Version 2016-08-10 will be removed in v2 of the provider.")
+    pulumi.log.warn("getReplicationFabric is deprecated: Version 2016-08-10 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20160810:ReplicationFabric is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationFabric to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20160810:getReplicationFabric", {
@@ -65,7 +66,8 @@ export interface GetReplicationFabricResult {
 /**
  * Gets the details of an Azure Site Recovery fabric.
  */
-/** @deprecated Version 2016-08-10 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-08-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20160810:ReplicationFabric is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationFabric to guarantee forwards compatibility. */
 export function getReplicationFabricOutput(args: GetReplicationFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationFabricResult> {
     return pulumi.output(args).apply((a: any) => getReplicationFabric(a, opts))
 }

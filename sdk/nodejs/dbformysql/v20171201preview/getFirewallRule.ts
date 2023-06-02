@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a server firewall rule.
  */
+/** @deprecated azure-native:dbformysql/v20171201preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20220101:FirewallRule to guarantee forwards compatibility. */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
+    pulumi.log.warn("getFirewallRule is deprecated: azure-native:dbformysql/v20171201preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20220101:FirewallRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbformysql/v20171201preview:getFirewallRule", {
@@ -60,6 +62,7 @@ export interface GetFirewallRuleResult {
 /**
  * Gets information about a server firewall rule.
  */
+/** @deprecated azure-native:dbformysql/v20171201preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20220101:FirewallRule to guarantee forwards compatibility. */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))
 }

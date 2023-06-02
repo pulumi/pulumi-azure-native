@@ -192,7 +192,12 @@ class LiveOutputArgs:
         pulumi.set(self, "rewind_window_length", value)
 
 
+warnings.warn("""azure-native:media/v20220801:LiveOutput is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:LiveOutput to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class LiveOutput(pulumi.CustomResource):
+    warnings.warn("""azure-native:media/v20220801:LiveOutput is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:LiveOutput to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -262,6 +267,7 @@ class LiveOutput(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rewind_window_length: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""LiveOutput is deprecated: azure-native:media/v20220801:LiveOutput is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:LiveOutput to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

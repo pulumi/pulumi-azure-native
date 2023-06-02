@@ -17,6 +17,8 @@ __all__ = [
     'get_private_link_service_private_endpoint_connection_output',
 ]
 
+warnings.warn("""azure-native:network/v20210201:PrivateLinkServicePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:PrivateLinkServicePrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateLinkServicePrivateEndpointConnectionResult:
     """
@@ -143,6 +145,7 @@ def get_private_link_service_private_endpoint_connection(expand: Optional[str] =
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the private link service.
     """
+    pulumi.log.warn("""get_private_link_service_private_endpoint_connection is deprecated: azure-native:network/v20210201:PrivateLinkServicePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:PrivateLinkServicePrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['peConnectionName'] = pe_connection_name
@@ -177,4 +180,5 @@ def get_private_link_service_private_endpoint_connection_output(expand: Optional
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the private link service.
     """
+    pulumi.log.warn("""get_private_link_service_private_endpoint_connection is deprecated: azure-native:network/v20210201:PrivateLinkServicePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:PrivateLinkServicePrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

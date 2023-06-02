@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a share
  */
+/** @deprecated azure-native:datashare/v20201001preview:Share is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Share to guarantee forwards compatibility. */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
+    pulumi.log.warn("getShare is deprecated: azure-native:datashare/v20201001preview:Share is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Share to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:getShare", {
@@ -87,6 +89,7 @@ export interface GetShareResult {
 /**
  * Get a share
  */
+/** @deprecated azure-native:datashare/v20201001preview:Share is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Share to guarantee forwards compatibility. */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
     return pulumi.output(args).apply((a: any) => getShare(a, opts))
 }

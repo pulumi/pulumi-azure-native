@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview
     /// <summary>
     /// An object that represents an import pipeline for a container registry.
     /// </summary>
+    [Obsolete(@"azure-native:containerregistry/v20211201preview:ImportPipeline is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ImportPipeline to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerregistry/v20211201preview:ImportPipeline")]
     public partial class ImportPipeline : global::Pulumi.CustomResource
     {

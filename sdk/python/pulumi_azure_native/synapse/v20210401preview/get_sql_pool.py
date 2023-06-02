@@ -17,6 +17,8 @@ __all__ = [
     'get_sql_pool_output',
 ]
 
+warnings.warn("""azure-native:synapse/v20210401preview:SqlPool is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlPoolResult:
     """
@@ -245,6 +247,7 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
     :param str sql_pool_name: SQL pool name
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("""get_sql_pool is deprecated: azure-native:synapse/v20210401preview:SqlPool is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlPoolName'] = sql_pool_name
@@ -284,4 +287,5 @@ def get_sql_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str sql_pool_name: SQL pool name
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("""get_sql_pool is deprecated: azure-native:synapse/v20210401preview:SqlPool is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility.""")
     ...

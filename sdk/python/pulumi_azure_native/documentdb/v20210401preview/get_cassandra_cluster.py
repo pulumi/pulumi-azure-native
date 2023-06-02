@@ -17,6 +17,8 @@ __all__ = [
     'get_cassandra_cluster_output',
 ]
 
+warnings.warn("""azure-native:documentdb/v20210401preview:CassandraCluster is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20210701preview:CassandraCluster to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCassandraClusterResult:
     """
@@ -127,6 +129,7 @@ def get_cassandra_cluster(cluster_name: Optional[str] = None,
     :param str cluster_name: Managed Cassandra cluster name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_cassandra_cluster is deprecated: azure-native:documentdb/v20210401preview:CassandraCluster is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20210701preview:CassandraCluster to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
@@ -154,4 +157,5 @@ def get_cassandra_cluster_output(cluster_name: Optional[pulumi.Input[str]] = Non
     :param str cluster_name: Managed Cassandra cluster name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_cassandra_cluster is deprecated: azure-native:documentdb/v20210401preview:CassandraCluster is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20210701preview:CassandraCluster to guarantee forwards compatibility.""")
     ...

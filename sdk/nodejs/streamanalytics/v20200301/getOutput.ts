@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets details about the specified output.
  */
+/** @deprecated azure-native:streamanalytics/v20200301:Output is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility. */
 export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetOutputResult> {
+    pulumi.log.warn("getOutput is deprecated: azure-native:streamanalytics/v20200301:Output is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:streamanalytics/v20200301:getOutput", {
@@ -79,6 +81,7 @@ export interface GetOutputResult {
 /**
  * Gets details about the specified output.
  */
+/** @deprecated azure-native:streamanalytics/v20200301:Output is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility. */
 export function getOutputOutput(args: GetOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutputResult> {
     return pulumi.output(args).apply((a: any) => getOutput(a, opts))
 }

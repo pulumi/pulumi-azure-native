@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210701
     /// <summary>
     /// Backup Vault Resource
     /// </summary>
+    [Obsolete(@"azure-native:dataprotection/v20210701:BackupVault is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dataprotection/v20210701:BackupVault")]
     public partial class BackupVault : global::Pulumi.CustomResource
     {
@@ -105,7 +106,6 @@ namespace Pulumi.AzureNative.DataProtection.V20210701
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221101preview:BackupVault"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221201:BackupVault"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230101:BackupVault"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230401preview:BackupVault"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the alert rule.
  */
+/** @deprecated azure-native:securityinsights/v20200101:FusionAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:FusionAlertRule to guarantee forwards compatibility. */
 export function getFusionAlertRule(args: GetFusionAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFusionAlertRuleResult> {
+    pulumi.log.warn("getFusionAlertRule is deprecated: azure-native:securityinsights/v20200101:FusionAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:FusionAlertRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20200101:getFusionAlertRule", {
@@ -89,6 +91,7 @@ export interface GetFusionAlertRuleResult {
 /**
  * Gets the alert rule.
  */
+/** @deprecated azure-native:securityinsights/v20200101:FusionAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:FusionAlertRule to guarantee forwards compatibility. */
 export function getFusionAlertRuleOutput(args: GetFusionAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFusionAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getFusionAlertRule(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20190801
     /// <summary>
     /// Function information.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20190801:WebAppFunction is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppFunction to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20190801:WebAppFunction")]
     public partial class WebAppFunction : global::Pulumi.CustomResource
     {

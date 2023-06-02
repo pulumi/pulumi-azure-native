@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * The resource that defines the source location where the artifacts are located.
  */
-/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:deploymentmanager/v20180901preview:ArtifactSource is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:ArtifactSource to guarantee forwards compatibility. */
 export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactSourceResult> {
-    pulumi.log.warn("getArtifactSource is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getArtifactSource is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.\nazure-native:deploymentmanager/v20180901preview:ArtifactSource is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:ArtifactSource to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deploymentmanager/v20180901preview:getArtifactSource", {
@@ -72,7 +73,8 @@ export interface GetArtifactSourceResult {
 /**
  * The resource that defines the source location where the artifacts are located.
  */
-/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:deploymentmanager/v20180901preview:ArtifactSource is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:ArtifactSource to guarantee forwards compatibility. */
 export function getArtifactSourceOutput(args: GetArtifactSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactSourceResult> {
     return pulumi.output(args).apply((a: any) => getArtifactSource(a, opts))
 }

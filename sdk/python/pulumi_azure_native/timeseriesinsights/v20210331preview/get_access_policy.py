@@ -16,6 +16,8 @@ __all__ = [
     'get_access_policy_output',
 ]
 
+warnings.warn("""azure-native:timeseriesinsights/v20210331preview:AccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAccessPolicyResult:
     """
@@ -116,6 +118,7 @@ def get_access_policy(access_policy_name: Optional[str] = None,
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_access_policy is deprecated: azure-native:timeseriesinsights/v20210331preview:AccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accessPolicyName'] = access_policy_name
     __args__['environmentName'] = environment_name
@@ -145,4 +148,5 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_access_policy is deprecated: azure-native:timeseriesinsights/v20210331preview:AccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility.""")
     ...

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20210801
     /// <summary>
     /// Service End point policy resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20210801:ServiceEndpointPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20210801:ServiceEndpointPolicy")]
     public partial class ServiceEndpointPolicy : global::Pulumi.CustomResource
     {

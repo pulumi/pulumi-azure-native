@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the view for the defined scope by view name.
  */
+/** @deprecated azure-native:costmanagement/v20221001preview:ViewByScope is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221005preview:ViewByScope to guarantee forwards compatibility. */
 export function getViewByScope(args: GetViewByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetViewByScopeResult> {
+    pulumi.log.warn("getViewByScope is deprecated: azure-native:costmanagement/v20221001preview:ViewByScope is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221005preview:ViewByScope to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20221001preview:getViewByScope", {
@@ -114,6 +116,7 @@ export interface GetViewByScopeResult {
 /**
  * Gets the view for the defined scope by view name.
  */
+/** @deprecated azure-native:costmanagement/v20221001preview:ViewByScope is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221005preview:ViewByScope to guarantee forwards compatibility. */
 export function getViewByScopeOutput(args: GetViewByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewByScopeResult> {
     return pulumi.output(args).apply((a: any) => getViewByScope(a, opts))
 }

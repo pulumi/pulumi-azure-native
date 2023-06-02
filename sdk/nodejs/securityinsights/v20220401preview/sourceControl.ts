@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a SourceControl in Azure Security Insights.
+ *
+ * @deprecated azure-native:securityinsights/v20220401preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SourceControl to guarantee forwards compatibility.
  */
 export class SourceControl extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class SourceControl extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SourceControl {
+        pulumi.log.warn("SourceControl is deprecated: azure-native:securityinsights/v20220401preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SourceControl to guarantee forwards compatibility.")
         return new SourceControl(name, undefined as any, { ...opts, id: id });
     }
 
@@ -93,7 +96,9 @@ export class SourceControl extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20220401preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SourceControl to guarantee forwards compatibility. */
     constructor(name: string, args: SourceControlArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SourceControl is deprecated: azure-native:securityinsights/v20220401preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SourceControl to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -146,7 +151,7 @@ export class SourceControl extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:SourceControl" }, { type: "azure-native:securityinsights/v20210301preview:SourceControl" }, { type: "azure-native:securityinsights/v20210901preview:SourceControl" }, { type: "azure-native:securityinsights/v20211001preview:SourceControl" }, { type: "azure-native:securityinsights/v20220101preview:SourceControl" }, { type: "azure-native:securityinsights/v20220501preview:SourceControl" }, { type: "azure-native:securityinsights/v20220601preview:SourceControl" }, { type: "azure-native:securityinsights/v20220701preview:SourceControl" }, { type: "azure-native:securityinsights/v20220801preview:SourceControl" }, { type: "azure-native:securityinsights/v20220901preview:SourceControl" }, { type: "azure-native:securityinsights/v20221001preview:SourceControl" }, { type: "azure-native:securityinsights/v20221101preview:SourceControl" }, { type: "azure-native:securityinsights/v20221201preview:SourceControl" }, { type: "azure-native:securityinsights/v20230201preview:SourceControl" }, { type: "azure-native:securityinsights/v20230401preview:SourceControl" }, { type: "azure-native:securityinsights/v20230501preview:SourceControl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:SourceControl" }, { type: "azure-native:securityinsights/v20210301preview:SourceControl" }, { type: "azure-native:securityinsights/v20210901preview:SourceControl" }, { type: "azure-native:securityinsights/v20211001preview:SourceControl" }, { type: "azure-native:securityinsights/v20220101preview:SourceControl" }, { type: "azure-native:securityinsights/v20220501preview:SourceControl" }, { type: "azure-native:securityinsights/v20220601preview:SourceControl" }, { type: "azure-native:securityinsights/v20220701preview:SourceControl" }, { type: "azure-native:securityinsights/v20220801preview:SourceControl" }, { type: "azure-native:securityinsights/v20220901preview:SourceControl" }, { type: "azure-native:securityinsights/v20221001preview:SourceControl" }, { type: "azure-native:securityinsights/v20221101preview:SourceControl" }, { type: "azure-native:securityinsights/v20221201preview:SourceControl" }, { type: "azure-native:securityinsights/v20230201preview:SourceControl" }, { type: "azure-native:securityinsights/v20230401preview:SourceControl" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SourceControl.__pulumiType, name, resourceInputs, opts);
     }

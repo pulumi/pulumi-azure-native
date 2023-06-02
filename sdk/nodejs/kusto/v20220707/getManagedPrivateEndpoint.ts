@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a managed private endpoint.
  */
+/** @deprecated azure-native:kusto/v20220707:ManagedPrivateEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ManagedPrivateEndpoint to guarantee forwards compatibility. */
 export function getManagedPrivateEndpoint(args: GetManagedPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrivateEndpointResult> {
+    pulumi.log.warn("getManagedPrivateEndpoint is deprecated: azure-native:kusto/v20220707:ManagedPrivateEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ManagedPrivateEndpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20220707:getManagedPrivateEndpoint", {
@@ -79,6 +81,7 @@ export interface GetManagedPrivateEndpointResult {
 /**
  * Gets a managed private endpoint.
  */
+/** @deprecated azure-native:kusto/v20220707:ManagedPrivateEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ManagedPrivateEndpoint to guarantee forwards compatibility. */
 export function getManagedPrivateEndpointOutput(args: GetManagedPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrivateEndpointResult> {
     return pulumi.output(args).apply((a: any) => getManagedPrivateEndpoint(a, opts))
 }

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the issue Attachment for an API specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20200601preview:ApiIssueAttachment is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiIssueAttachment to guarantee forwards compatibility. */
 export function getApiIssueAttachment(args: GetApiIssueAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueAttachmentResult> {
+    pulumi.log.warn("getApiIssueAttachment is deprecated: azure-native:apimanagement/v20200601preview:ApiIssueAttachment is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiIssueAttachment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20200601preview:getApiIssueAttachment", {
@@ -74,6 +76,7 @@ export interface GetApiIssueAttachmentResult {
 /**
  * Gets the details of the issue Attachment for an API specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20200601preview:ApiIssueAttachment is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiIssueAttachment to guarantee forwards compatibility. */
 export function getApiIssueAttachmentOutput(args: GetApiIssueAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getApiIssueAttachment(a, opts))
 }

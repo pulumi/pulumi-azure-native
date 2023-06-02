@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the details of a Media Graph in the Media Services account
  */
+/** @deprecated azure-native:media/v20190901preview:MediaGraph is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20200201preview:MediaGraph to guarantee forwards compatibility. */
 export function getMediaGraph(args: GetMediaGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetMediaGraphResult> {
+    pulumi.log.warn("getMediaGraph is deprecated: azure-native:media/v20190901preview:MediaGraph is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20200201preview:MediaGraph to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20190901preview:getMediaGraph", {
@@ -79,6 +81,7 @@ export interface GetMediaGraphResult {
 /**
  * Get the details of a Media Graph in the Media Services account
  */
+/** @deprecated azure-native:media/v20190901preview:MediaGraph is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20200201preview:MediaGraph to guarantee forwards compatibility. */
 export function getMediaGraphOutput(args: GetMediaGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaGraphResult> {
     return pulumi.output(args).apply((a: any) => getMediaGraph(a, opts))
 }

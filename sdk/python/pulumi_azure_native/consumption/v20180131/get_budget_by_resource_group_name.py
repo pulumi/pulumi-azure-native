@@ -17,7 +17,8 @@ __all__ = [
     'get_budget_by_resource_group_name_output',
 ]
 
-warnings.warn("""Version 2018-01-31 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-01-31 will be removed in v2 of the provider.
+azure-native:consumption/v20180131:BudgetByResourceGroupName is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20181001:BudgetByResourceGroupName to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetBudgetByResourceGroupNameResult:
@@ -177,7 +178,8 @@ def get_budget_by_resource_group_name(budget_name: Optional[str] = None,
     :param str budget_name: Budget Name.
     :param str resource_group_name: Azure Resource Group Name.
     """
-    pulumi.log.warn("""get_budget_by_resource_group_name is deprecated: Version 2018-01-31 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_budget_by_resource_group_name is deprecated: Version 2018-01-31 will be removed in v2 of the provider.
+azure-native:consumption/v20180131:BudgetByResourceGroupName is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20181001:BudgetByResourceGroupName to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['budgetName'] = budget_name
     __args__['resourceGroupName'] = resource_group_name
@@ -209,5 +211,6 @@ def get_budget_by_resource_group_name_output(budget_name: Optional[pulumi.Input[
     :param str budget_name: Budget Name.
     :param str resource_group_name: Azure Resource Group Name.
     """
-    pulumi.log.warn("""get_budget_by_resource_group_name is deprecated: Version 2018-01-31 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_budget_by_resource_group_name is deprecated: Version 2018-01-31 will be removed in v2 of the provider.
+azure-native:consumption/v20180131:BudgetByResourceGroupName is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20181001:BudgetByResourceGroupName to guarantee forwards compatibility.""")
     ...

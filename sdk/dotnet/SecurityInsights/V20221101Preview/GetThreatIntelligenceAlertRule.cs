@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20221101Preview
 {
+    [Obsolete(@"azure-native:securityinsights/v20221101preview:ThreatIntelligenceAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:ThreatIntelligenceAlertRule to guarantee forwards compatibility.")]
     public static class GetThreatIntelligenceAlertRule
     {
         /// <summary>

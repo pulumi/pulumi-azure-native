@@ -287,11 +287,13 @@ class KpiArgs:
         pulumi.set(self, "unit", value)
 
 
-warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:Kpi is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Kpi to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Kpi(pulumi.CustomResource):
-    warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:Kpi is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Kpi to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -380,7 +382,8 @@ class Kpi(pulumi.CustomResource):
                  thres_holds: Optional[pulumi.Input[pulumi.InputType['KpiThresholdsArgs']]] = None,
                  unit: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Kpi is deprecated: Version 2017-01-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""Kpi is deprecated: Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:Kpi is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Kpi to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

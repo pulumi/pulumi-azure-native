@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     /// <summary>
     /// A type of synchronization setting based on schedule
     /// </summary>
+    [Obsolete(@"azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ScheduledSynchronizationSetting to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting")]
     public partial class ScheduledSynchronizationSetting : global::Pulumi.CustomResource
     {

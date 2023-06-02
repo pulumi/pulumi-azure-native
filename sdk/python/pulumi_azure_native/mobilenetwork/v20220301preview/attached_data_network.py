@@ -282,7 +282,12 @@ class AttachedDataNetworkArgs:
         pulumi.set(self, "user_equipment_static_address_pool_prefix", value)
 
 
+warnings.warn("""azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AttachedDataNetwork(pulumi.CustomResource):
+    warnings.warn("""azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -371,6 +376,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
                  user_equipment_static_address_pool_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_plane_data_interface: Optional[pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""AttachedDataNetwork is deprecated: azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

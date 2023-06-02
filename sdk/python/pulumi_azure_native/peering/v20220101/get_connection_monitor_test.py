@@ -16,6 +16,8 @@ __all__ = [
     'get_connection_monitor_test_output',
 ]
 
+warnings.warn("""azure-native:peering/v20220101:ConnectionMonitorTest is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:ConnectionMonitorTest to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConnectionMonitorTestResult:
     """
@@ -164,6 +166,7 @@ def get_connection_monitor_test(connection_monitor_test_name: Optional[str] = No
     :param str peering_service_name: The name of the peering service.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_connection_monitor_test is deprecated: azure-native:peering/v20220101:ConnectionMonitorTest is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:ConnectionMonitorTest to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['connectionMonitorTestName'] = connection_monitor_test_name
     __args__['peeringServiceName'] = peering_service_name
@@ -197,4 +200,5 @@ def get_connection_monitor_test_output(connection_monitor_test_name: Optional[pu
     :param str peering_service_name: The name of the peering service.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_connection_monitor_test is deprecated: azure-native:peering/v20220101:ConnectionMonitorTest is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:ConnectionMonitorTest to guarantee forwards compatibility.""")
     ...

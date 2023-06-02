@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20171001
     /// <summary>
     /// An object that represents a container registry.
     /// </summary>
+    [Obsolete(@"azure-native:containerregistry/v20171001:Registry is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20190501:Registry to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerregistry/v20171001:Registry")]
     public partial class Registry : global::Pulumi.CustomResource
     {

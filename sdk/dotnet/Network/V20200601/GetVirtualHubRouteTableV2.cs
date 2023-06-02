@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20200601
 {
+    [Obsolete(@"azure-native:network/v20200601:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualHubRouteTableV2 to guarantee forwards compatibility.")]
     public static class GetVirtualHubRouteTableV2
     {
         /// <summary>

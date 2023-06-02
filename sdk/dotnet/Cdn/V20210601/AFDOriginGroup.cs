@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     /// <summary>
     /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     /// </summary>
+    [Obsolete(@"azure-native:cdn/v20210601:AFDOriginGroup is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20210601:AFDOriginGroup")]
     public partial class AFDOriginGroup : global::Pulumi.CustomResource
     {

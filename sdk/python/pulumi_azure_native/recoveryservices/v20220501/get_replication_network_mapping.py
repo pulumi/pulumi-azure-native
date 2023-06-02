@@ -17,6 +17,8 @@ __all__ = [
     'get_replication_network_mapping_output',
 ]
 
+warnings.warn("""azure-native:recoveryservices/v20220501:ReplicationNetworkMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationNetworkMapping to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReplicationNetworkMappingResult:
     """
@@ -109,6 +111,7 @@ def get_replication_network_mapping(fabric_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("""get_replication_network_mapping is deprecated: azure-native:recoveryservices/v20220501:ReplicationNetworkMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationNetworkMapping to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['networkMappingName'] = network_mapping_name
@@ -143,4 +146,5 @@ def get_replication_network_mapping_output(fabric_name: Optional[pulumi.Input[st
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("""get_replication_network_mapping is deprecated: azure-native:recoveryservices/v20220501:ReplicationNetworkMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationNetworkMapping to guarantee forwards compatibility.""")
     ...

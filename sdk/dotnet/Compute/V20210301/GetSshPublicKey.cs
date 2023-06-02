@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20210301
 {
+    [Obsolete(@"azure-native:compute/v20210301:SshPublicKey is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.")]
     public static class GetSshPublicKey
     {
         /// <summary>

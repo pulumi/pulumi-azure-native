@@ -97,7 +97,12 @@ class WebAppDomainOwnershipIdentifierArgs:
         pulumi.set(self, "value", value)
 
 
+warnings.warn("""azure-native:web/v20210301:WebAppDomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppDomainOwnershipIdentifier to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WebAppDomainOwnershipIdentifier(pulumi.CustomResource):
+    warnings.warn("""azure-native:web/v20210301:WebAppDomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppDomainOwnershipIdentifier to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -149,6 +154,7 @@ class WebAppDomainOwnershipIdentifier(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebAppDomainOwnershipIdentifier is deprecated: azure-native:web/v20210301:WebAppDomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppDomainOwnershipIdentifier to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

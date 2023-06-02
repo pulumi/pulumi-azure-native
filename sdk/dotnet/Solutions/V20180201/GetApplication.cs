@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Solutions.V20180201
 {
-    [Obsolete(@"Version 2018-02-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-02-01 will be removed in v2 of the provider.
+azure-native:solutions/v20180201:Application is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20180601:Application to guarantee forwards compatibility.")]
     public static class GetApplication
     {
         /// <summary>

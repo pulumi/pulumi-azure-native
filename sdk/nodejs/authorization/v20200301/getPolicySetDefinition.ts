@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * This operation retrieves the policy set definition in the given subscription with the given name.
  */
+/** @deprecated azure-native:authorization/v20200301:PolicySetDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20210601:PolicySetDefinition to guarantee forwards compatibility. */
 export function getPolicySetDefinition(args: GetPolicySetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionResult> {
+    pulumi.log.warn("getPolicySetDefinition is deprecated: azure-native:authorization/v20200301:PolicySetDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20210601:PolicySetDefinition to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20200301:getPolicySetDefinition", {
@@ -73,6 +75,7 @@ export interface GetPolicySetDefinitionResult {
 /**
  * This operation retrieves the policy set definition in the given subscription with the given name.
  */
+/** @deprecated azure-native:authorization/v20200301:PolicySetDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20210601:PolicySetDefinition to guarantee forwards compatibility. */
 export function getPolicySetDefinitionOutput(args: GetPolicySetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getPolicySetDefinition(a, opts))
 }

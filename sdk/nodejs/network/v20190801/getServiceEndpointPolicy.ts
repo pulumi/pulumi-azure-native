@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified service Endpoint Policies in a specified resource group.
  */
+/** @deprecated azure-native:network/v20190801:ServiceEndpointPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility. */
 export function getServiceEndpointPolicy(args: GetServiceEndpointPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointPolicyResult> {
+    pulumi.log.warn("getServiceEndpointPolicy is deprecated: azure-native:network/v20190801:ServiceEndpointPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190801:getServiceEndpointPolicy", {
@@ -83,6 +85,7 @@ export interface GetServiceEndpointPolicyResult {
 /**
  * Gets the specified service Endpoint Policies in a specified resource group.
  */
+/** @deprecated azure-native:network/v20190801:ServiceEndpointPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility. */
 export function getServiceEndpointPolicyOutput(args: GetServiceEndpointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointPolicyResult> {
     return pulumi.output(args).apply((a: any) => getServiceEndpointPolicy(a, opts))
 }

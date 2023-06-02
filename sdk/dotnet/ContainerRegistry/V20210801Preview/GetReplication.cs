@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
 {
+    [Obsolete(@"azure-native:containerregistry/v20210801preview:Replication is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:Replication to guarantee forwards compatibility.")]
     public static class GetReplication
     {
         /// <summary>

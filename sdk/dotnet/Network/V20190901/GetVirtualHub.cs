@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20190901
 {
+    [Obsolete(@"azure-native:network/v20190901:VirtualHub is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401:VirtualHub to guarantee forwards compatibility.")]
     public static class GetVirtualHub
     {
         /// <summary>

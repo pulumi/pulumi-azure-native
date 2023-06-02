@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
     /// <summary>
     /// An elastic pool.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20211101preview:ElasticPool is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ElasticPool to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20211101preview:ElasticPool")]
     public partial class ElasticPool : global::Pulumi.CustomResource
     {

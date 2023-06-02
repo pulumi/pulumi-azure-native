@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901
 {
-    [Obsolete(@"Version 2020-09-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20200901:StorageAccountCredential is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:StorageAccountCredential to guarantee forwards compatibility.")]
     public static class GetStorageAccountCredential
     {
         /// <summary>

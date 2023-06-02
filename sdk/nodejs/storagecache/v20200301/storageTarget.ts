@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Type of the Storage Target.
  *
  * @deprecated Version 2020-03-01 will be removed in v2 of the provider.
+azure-native:storagecache/v20200301:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.
  */
 export class StorageTarget extends pulumi.CustomResource {
     /**
@@ -22,7 +23,7 @@ export class StorageTarget extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageTarget {
-        pulumi.log.warn("StorageTarget is deprecated: Version 2020-03-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("StorageTarget is deprecated: Version 2020-03-01 will be removed in v2 of the provider.\nazure-native:storagecache/v20200301:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.")
         return new StorageTarget(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,9 +89,10 @@ export class StorageTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2020-03-01 will be removed in v2 of the provider. */
+    /** @deprecated Version 2020-03-01 will be removed in v2 of the provider.
+azure-native:storagecache/v20200301:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility. */
     constructor(name: string, args: StorageTargetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("StorageTarget is deprecated: Version 2020-03-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("StorageTarget is deprecated: Version 2020-03-01 will be removed in v2 of the provider.\nazure-native:storagecache/v20200301:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

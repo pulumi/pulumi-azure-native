@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ResourceConnector.V20220415Preview
     /// <summary>
     /// Appliances definition.
     /// </summary>
+    [Obsolete(@"azure-native:resourceconnector/v20220415preview:Appliance is being removed in the next major version of this provider. Please upgrade to azure-native:resourceconnector/v20221027:Appliance to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:resourceconnector/v20220415preview:Appliance")]
     public partial class Appliance : global::Pulumi.CustomResource
     {

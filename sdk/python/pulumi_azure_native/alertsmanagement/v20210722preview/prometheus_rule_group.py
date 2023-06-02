@@ -178,7 +178,12 @@ class PrometheusRuleGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup is being removed in the next major version of this provider. Please upgrade to azure-native:alertsmanagement/v20230301:PrometheusRuleGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class PrometheusRuleGroup(pulumi.CustomResource):
+    warnings.warn("""azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup is being removed in the next major version of this provider. Please upgrade to azure-native:alertsmanagement/v20230301:PrometheusRuleGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -245,6 +250,7 @@ class PrometheusRuleGroup(pulumi.CustomResource):
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""PrometheusRuleGroup is deprecated: azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup is being removed in the next major version of this provider. Please upgrade to azure-native:alertsmanagement/v20230301:PrometheusRuleGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

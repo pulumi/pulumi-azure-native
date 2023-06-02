@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20220201
 {
+    [Obsolete(@"azure-native:recoveryservices/v20220201:ReplicationStorageClassificationMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationStorageClassificationMapping to guarantee forwards compatibility.")]
     public static class GetReplicationStorageClassificationMapping
     {
         /// <summary>

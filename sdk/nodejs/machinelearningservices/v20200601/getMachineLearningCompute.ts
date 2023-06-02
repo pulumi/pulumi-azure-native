@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
  */
+/** @deprecated azure-native:machinelearningservices/v20200601:MachineLearningCompute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:MachineLearningCompute to guarantee forwards compatibility. */
 export function getMachineLearningCompute(args: GetMachineLearningComputeArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningComputeResult> {
+    pulumi.log.warn("getMachineLearningCompute is deprecated: azure-native:machinelearningservices/v20200601:MachineLearningCompute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:MachineLearningCompute to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200601:getMachineLearningCompute", {
@@ -75,6 +77,7 @@ export interface GetMachineLearningComputeResult {
 /**
  * Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
  */
+/** @deprecated azure-native:machinelearningservices/v20200601:MachineLearningCompute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:MachineLearningCompute to guarantee forwards compatibility. */
 export function getMachineLearningComputeOutput(args: GetMachineLearningComputeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningComputeResult> {
     return pulumi.output(args).apply((a: any) => getMachineLearningCompute(a, opts))
 }

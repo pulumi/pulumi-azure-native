@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20210401
     /// <summary>
     /// Snapshot resource.
     /// </summary>
+    [Obsolete(@"azure-native:compute/v20210401:Snapshot is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:Snapshot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20210401:Snapshot")]
     public partial class Snapshot : global::Pulumi.CustomResource
     {

@@ -17,6 +17,8 @@ __all__ = [
     'get_configuration_profiles_version_output',
 ]
 
+warnings.warn("""azure-native:automanage/v20210430preview:ConfigurationProfilesVersion is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfilesVersion to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConfigurationProfilesVersionResult:
     """
@@ -129,6 +131,7 @@ def get_configuration_profiles_version(configuration_profile_name: Optional[str]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str version_name: The configuration profile version name.
     """
+    pulumi.log.warn("""get_configuration_profiles_version is deprecated: azure-native:automanage/v20210430preview:ConfigurationProfilesVersion is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfilesVersion to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['configurationProfileName'] = configuration_profile_name
     __args__['resourceGroupName'] = resource_group_name
@@ -159,4 +162,5 @@ def get_configuration_profiles_version_output(configuration_profile_name: Option
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str version_name: The configuration profile version name.
     """
+    pulumi.log.warn("""get_configuration_profiles_version is deprecated: azure-native:automanage/v20210430preview:ConfigurationProfilesVersion is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfilesVersion to guarantee forwards compatibility.""")
     ...

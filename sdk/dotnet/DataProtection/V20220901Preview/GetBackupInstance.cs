@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataProtection.V20220901Preview
 {
+    [Obsolete(@"azure-native:dataprotection/v20220901preview:BackupInstance is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupInstance to guarantee forwards compatibility.")]
     public static class GetBackupInstance
     {
         /// <summary>

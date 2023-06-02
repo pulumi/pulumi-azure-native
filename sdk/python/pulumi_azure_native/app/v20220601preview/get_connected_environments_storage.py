@@ -17,6 +17,8 @@ __all__ = [
     'get_connected_environments_storage_output',
 ]
 
+warnings.warn("""azure-native:app/v20220601preview:ConnectedEnvironmentsStorage is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ConnectedEnvironmentsStorage to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConnectedEnvironmentsStorageResult:
     """
@@ -105,6 +107,7 @@ def get_connected_environments_storage(connected_environment_name: Optional[str]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_name: Name of the storage.
     """
+    pulumi.log.warn("""get_connected_environments_storage is deprecated: azure-native:app/v20220601preview:ConnectedEnvironmentsStorage is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ConnectedEnvironmentsStorage to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['connectedEnvironmentName'] = connected_environment_name
     __args__['resourceGroupName'] = resource_group_name
@@ -133,4 +136,5 @@ def get_connected_environments_storage_output(connected_environment_name: Option
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_name: Name of the storage.
     """
+    pulumi.log.warn("""get_connected_environments_storage is deprecated: azure-native:app/v20220601preview:ConnectedEnvironmentsStorage is being removed in the next major version of this provider. Please upgrade to azure-native:app/v20221001:ConnectedEnvironmentsStorage to guarantee forwards compatibility.""")
     ...

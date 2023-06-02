@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB MongoDB collection.
+ *
+ * @deprecated azure-native:documentdb/v20210701preview:MongoDBResourceMongoDBCollection is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection to guarantee forwards compatibility.
  */
 export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MongoDBResourceMongoDBCollection {
+        pulumi.log.warn("MongoDBResourceMongoDBCollection is deprecated: azure-native:documentdb/v20210701preview:MongoDBResourceMongoDBCollection is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection to guarantee forwards compatibility.")
         return new MongoDBResourceMongoDBCollection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -67,7 +70,9 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:documentdb/v20210701preview:MongoDBResourceMongoDBCollection is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection to guarantee forwards compatibility. */
     constructor(name: string, args: MongoDBResourceMongoDBCollectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MongoDBResourceMongoDBCollection is deprecated: azure-native:documentdb/v20210701preview:MongoDBResourceMongoDBCollection is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

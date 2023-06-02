@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Deployment information.
+ *
+ * @deprecated azure-native:resources/v20200801:DeploymentAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility.
  */
 export class DeploymentAtScope extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class DeploymentAtScope extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DeploymentAtScope {
+        pulumi.log.warn("DeploymentAtScope is deprecated: azure-native:resources/v20200801:DeploymentAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility.")
         return new DeploymentAtScope(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,7 +68,9 @@ export class DeploymentAtScope extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:resources/v20200801:DeploymentAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility. */
     constructor(name: string, args: DeploymentAtScopeArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DeploymentAtScope is deprecated: azure-native:resources/v20200801:DeploymentAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtScope to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

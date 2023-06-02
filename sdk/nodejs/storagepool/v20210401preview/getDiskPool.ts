@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Disk pool.
  */
+/** @deprecated azure-native:storagepool/v20210401preview:DiskPool is being removed in the next major version of this provider. Please upgrade to azure-native:storagepool/v20210801:DiskPool to guarantee forwards compatibility. */
 export function getDiskPool(args: GetDiskPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskPoolResult> {
+    pulumi.log.warn("getDiskPool is deprecated: azure-native:storagepool/v20210401preview:DiskPool is being removed in the next major version of this provider. Please upgrade to azure-native:storagepool/v20210801:DiskPool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagepool/v20210401preview:getDiskPool", {
@@ -90,6 +92,7 @@ export interface GetDiskPoolResult {
 /**
  * Get a Disk pool.
  */
+/** @deprecated azure-native:storagepool/v20210401preview:DiskPool is being removed in the next major version of this provider. Please upgrade to azure-native:storagepool/v20210801:DiskPool to guarantee forwards compatibility. */
 export function getDiskPoolOutput(args: GetDiskPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskPoolResult> {
     return pulumi.output(args).apply((a: any) => getDiskPool(a, opts))
 }

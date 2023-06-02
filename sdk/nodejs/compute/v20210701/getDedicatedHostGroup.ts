@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about a dedicated host group.
  */
+/** @deprecated azure-native:compute/v20210701:DedicatedHostGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility. */
 export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostGroupResult> {
+    pulumi.log.warn("getDedicatedHostGroup is deprecated: azure-native:compute/v20210701:DedicatedHostGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20210701:getDedicatedHostGroup", {
@@ -83,6 +85,7 @@ export interface GetDedicatedHostGroupResult {
 /**
  * Retrieves information about a dedicated host group.
  */
+/** @deprecated azure-native:compute/v20210701:DedicatedHostGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility. */
 export function getDedicatedHostGroupOutput(args: GetDedicatedHostGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostGroupResult> {
     return pulumi.output(args).apply((a: any) => getDedicatedHostGroup(a, opts))
 }

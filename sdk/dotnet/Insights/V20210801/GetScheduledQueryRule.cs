@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Insights.V20210801
 {
+    [Obsolete(@"azure-native:insights/v20210801:ScheduledQueryRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility.")]
     public static class GetScheduledQueryRule
     {
         /// <summary>

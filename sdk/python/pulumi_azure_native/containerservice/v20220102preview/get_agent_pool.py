@@ -17,6 +17,8 @@ __all__ = [
     'get_agent_pool_output',
 ]
 
+warnings.warn("""azure-native:containerservice/v20220102preview:AgentPool is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20220402preview:AgentPool to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAgentPoolResult:
     """
@@ -573,6 +575,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
+    pulumi.log.warn("""get_agent_pool is deprecated: azure-native:containerservice/v20220102preview:AgentPool is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20220402preview:AgentPool to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['agentPoolName'] = agent_pool_name
     __args__['resourceGroupName'] = resource_group_name
@@ -640,4 +643,5 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
+    pulumi.log.warn("""get_agent_pool is deprecated: azure-native:containerservice/v20220102preview:AgentPool is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20220402preview:AgentPool to guarantee forwards compatibility.""")
     ...

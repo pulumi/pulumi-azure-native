@@ -16,6 +16,8 @@ __all__ = [
     'get_linked_service_output',
 ]
 
+warnings.warn("""azure-native:operationalinsights/v20200301preview:LinkedService is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:LinkedService to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLinkedServiceResult:
     """
@@ -128,6 +130,7 @@ def get_linked_service(linked_service_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_linked_service is deprecated: azure-native:operationalinsights/v20200301preview:LinkedService is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:LinkedService to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['linkedServiceName'] = linked_service_name
     __args__['resourceGroupName'] = resource_group_name
@@ -158,4 +161,5 @@ def get_linked_service_output(linked_service_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_linked_service is deprecated: azure-native:operationalinsights/v20200301preview:LinkedService is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:LinkedService to guarantee forwards compatibility.""")
     ...

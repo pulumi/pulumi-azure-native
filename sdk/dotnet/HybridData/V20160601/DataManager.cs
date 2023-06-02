@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.HybridData.V20160601
     /// <summary>
     /// The DataManager resource.
     /// </summary>
-    [Obsolete(@"Version 2016-06-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:hybriddata/v20160601:DataManager is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataManager to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hybriddata/v20160601:DataManager")]
     public partial class DataManager : global::Pulumi.CustomResource
     {

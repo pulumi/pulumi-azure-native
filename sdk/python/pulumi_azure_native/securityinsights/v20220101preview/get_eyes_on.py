@@ -17,6 +17,8 @@ __all__ = [
     'get_eyes_on_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20220101preview:EyesOn is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:EyesOn to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEyesOnResult:
     """
@@ -130,6 +132,7 @@ def get_eyes_on(resource_group_name: Optional[str] = None,
     :param str settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_eyes_on is deprecated: azure-native:securityinsights/v20220101preview:EyesOn is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:EyesOn to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['settingsName'] = settings_name
@@ -160,4 +163,5 @@ def get_eyes_on_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_eyes_on is deprecated: azure-native:securityinsights/v20220101preview:EyesOn is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:EyesOn to guarantee forwards compatibility.""")
     ...

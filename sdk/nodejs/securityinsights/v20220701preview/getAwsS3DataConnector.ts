@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20220701preview:AwsS3DataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AwsS3DataConnector to guarantee forwards compatibility. */
 export function getAwsS3DataConnector(args: GetAwsS3DataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsS3DataConnectorResult> {
+    pulumi.log.warn("getAwsS3DataConnector is deprecated: azure-native:securityinsights/v20220701preview:AwsS3DataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AwsS3DataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220701preview:getAwsS3DataConnector", {
@@ -84,6 +86,7 @@ export interface GetAwsS3DataConnectorResult {
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20220701preview:AwsS3DataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AwsS3DataConnector to guarantee forwards compatibility. */
 export function getAwsS3DataConnectorOutput(args: GetAwsS3DataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsS3DataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getAwsS3DataConnector(a, opts))
 }

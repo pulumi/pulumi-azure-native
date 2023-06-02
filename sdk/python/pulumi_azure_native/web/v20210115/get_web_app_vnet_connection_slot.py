@@ -17,6 +17,8 @@ __all__ = [
     'get_web_app_vnet_connection_slot_output',
 ]
 
+warnings.warn("""azure-native:web/v20210115:WebAppVnetConnectionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppVnetConnectionSlot to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppVnetConnectionSlotResult:
     """
@@ -180,6 +182,7 @@ def get_web_app_vnet_connection_slot(name: Optional[str] = None,
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get the named virtual network for the production slot.
     :param str vnet_name: Name of the virtual network.
     """
+    pulumi.log.warn("""get_web_app_vnet_connection_slot is deprecated: azure-native:web/v20210115:WebAppVnetConnectionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppVnetConnectionSlot to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -217,4 +220,5 @@ def get_web_app_vnet_connection_slot_output(name: Optional[pulumi.Input[str]] = 
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get the named virtual network for the production slot.
     :param str vnet_name: Name of the virtual network.
     """
+    pulumi.log.warn("""get_web_app_vnet_connection_slot is deprecated: azure-native:web/v20210115:WebAppVnetConnectionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppVnetConnectionSlot to guarantee forwards compatibility.""")
     ...

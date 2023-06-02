@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20221001
     /// <summary>
     /// Cognitive Services account deployment.
     /// </summary>
+    [Obsolete(@"azure-native:cognitiveservices/v20221001:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:cognitiveservices/v20221201:Deployment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cognitiveservices/v20221001:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource
     {

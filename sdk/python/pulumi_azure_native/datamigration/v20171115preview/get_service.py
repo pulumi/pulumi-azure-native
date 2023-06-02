@@ -17,7 +17,8 @@ __all__ = [
     'get_service_output',
 ]
 
-warnings.warn("""Version 2017-11-15-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-11-15-preview will be removed in v2 of the provider.
+azure-native:datamigration/v20171115preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20210630:Service to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetServiceResult:
@@ -177,7 +178,8 @@ def get_service(group_name: Optional[str] = None,
     :param str group_name: Name of the resource group
     :param str service_name: Name of the service
     """
-    pulumi.log.warn("""get_service is deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_service is deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.
+azure-native:datamigration/v20171115preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20210630:Service to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['groupName'] = group_name
     __args__['serviceName'] = service_name
@@ -209,5 +211,6 @@ def get_service_output(group_name: Optional[pulumi.Input[str]] = None,
     :param str group_name: Name of the resource group
     :param str service_name: Name of the service
     """
-    pulumi.log.warn("""get_service is deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_service is deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.
+azure-native:datamigration/v20171115preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20210630:Service to guarantee forwards compatibility.""")
     ...

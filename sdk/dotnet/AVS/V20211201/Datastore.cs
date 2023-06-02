@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
     /// <summary>
     /// A datastore resource
     /// </summary>
+    [Obsolete(@"azure-native:avs/v20211201:Datastore is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Datastore to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20211201:Datastore")]
     public partial class Datastore : global::Pulumi.CustomResource
     {

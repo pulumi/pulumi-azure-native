@@ -17,6 +17,8 @@ __all__ = [
     'get_scheduled_query_rule_output',
 ]
 
+warnings.warn("""azure-native:insights/v20220615:ScheduledQueryRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetScheduledQueryRuleResult:
     """
@@ -355,6 +357,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
     """
+    pulumi.log.warn("""get_scheduled_query_rule is deprecated: azure-native:insights/v20220615:ScheduledQueryRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name
@@ -401,4 +404,5 @@ def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
     """
+    pulumi.log.warn("""get_scheduled_query_rule is deprecated: azure-native:insights/v20220615:ScheduledQueryRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility.""")
     ...

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.EventGrid.V20201015Preview
 {
+    [Obsolete(@"azure-native:eventgrid/v20201015preview:PartnerNamespace is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:PartnerNamespace to guarantee forwards compatibility.")]
     public static class GetPartnerNamespace
     {
         /// <summary>

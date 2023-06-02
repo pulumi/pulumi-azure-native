@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20211201
 {
+    [Obsolete(@"azure-native:compute/v20211201:DiskAccess is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:DiskAccess to guarantee forwards compatibility.")]
     public static class GetDiskAccess
     {
         /// <summary>

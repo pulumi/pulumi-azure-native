@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Maintenance.V20220701Preview
 {
+    [Obsolete(@"azure-native:maintenance/v20220701preview:ConfigurationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:ConfigurationAssignment to guarantee forwards compatibility.")]
     public static class GetConfigurationAssignment
     {
         /// <summary>

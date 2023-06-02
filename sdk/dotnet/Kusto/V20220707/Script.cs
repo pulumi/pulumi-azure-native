@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20220707
     /// <summary>
     /// Class representing a database script.
     /// </summary>
+    [Obsolete(@"azure-native:kusto/v20220707:Script is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:Script to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kusto/v20220707:Script")]
     public partial class Script : global::Pulumi.CustomResource
     {

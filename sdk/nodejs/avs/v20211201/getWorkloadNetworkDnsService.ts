@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * NSX DNS Service
  */
+/** @deprecated azure-native:avs/v20211201:WorkloadNetworkDnsService is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkDnsService to guarantee forwards compatibility. */
 export function getWorkloadNetworkDnsService(args: GetWorkloadNetworkDnsServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDnsServiceResult> {
+    pulumi.log.warn("getWorkloadNetworkDnsService is deprecated: azure-native:avs/v20211201:WorkloadNetworkDnsService is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkDnsService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getWorkloadNetworkDnsService", {
@@ -84,6 +86,7 @@ export interface GetWorkloadNetworkDnsServiceResult {
 /**
  * NSX DNS Service
  */
+/** @deprecated azure-native:avs/v20211201:WorkloadNetworkDnsService is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkDnsService to guarantee forwards compatibility. */
 export function getWorkloadNetworkDnsServiceOutput(args: GetWorkloadNetworkDnsServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDnsServiceResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadNetworkDnsService(a, opts))
 }

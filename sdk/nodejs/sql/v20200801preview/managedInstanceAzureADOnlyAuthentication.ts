@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Active Directory only authentication.
+ *
+ * @deprecated azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceAzureADOnlyAuthentication to guarantee forwards compatibility.
  */
 export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagedInstanceAzureADOnlyAuthentication {
+        pulumi.log.warn("ManagedInstanceAzureADOnlyAuthentication is deprecated: azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceAzureADOnlyAuthentication to guarantee forwards compatibility.")
         return new ManagedInstanceAzureADOnlyAuthentication(name, undefined as any, { ...opts, id: id });
     }
 
@@ -54,7 +57,9 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceAzureADOnlyAuthentication to guarantee forwards compatibility. */
     constructor(name: string, args: ManagedInstanceAzureADOnlyAuthenticationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ManagedInstanceAzureADOnlyAuthentication is deprecated: azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceAzureADOnlyAuthentication to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

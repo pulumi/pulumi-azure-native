@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Returns whether or not the canonical support plan of type {type} is enabled for the subscription.
  */
-/** @deprecated Version 2017-05-15 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-05-15 will be removed in v2 of the provider.
+azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Please upgrade to azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility. */
 export function getSupportPlanType(args: GetSupportPlanTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSupportPlanTypeResult> {
-    pulumi.log.warn("getSupportPlanType is deprecated: Version 2017-05-15 will be removed in v2 of the provider.")
+    pulumi.log.warn("getSupportPlanType is deprecated: Version 2017-05-15 will be removed in v2 of the provider.\nazure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Please upgrade to azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:addons/v20170515:getSupportPlanType", {
@@ -53,7 +54,8 @@ export interface GetSupportPlanTypeResult {
 /**
  * Returns whether or not the canonical support plan of type {type} is enabled for the subscription.
  */
-/** @deprecated Version 2017-05-15 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-05-15 will be removed in v2 of the provider.
+azure-native:addons/v20170515:SupportPlanType is being removed in the next major version of this provider. Please upgrade to azure-native:addons/v20180301:SupportPlanType to guarantee forwards compatibility. */
 export function getSupportPlanTypeOutput(args: GetSupportPlanTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSupportPlanTypeResult> {
     return pulumi.output(args).apply((a: any) => getSupportPlanType(a, opts))
 }

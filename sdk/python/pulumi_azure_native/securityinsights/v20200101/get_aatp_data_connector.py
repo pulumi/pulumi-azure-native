@@ -17,6 +17,8 @@ __all__ = [
     'get_aatp_data_connector_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20200101:AATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:AATPDataConnector to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAATPDataConnectorResult:
     """
@@ -130,6 +132,7 @@ def get_aatp_data_connector(data_connector_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_aatp_data_connector is deprecated: azure-native:securityinsights/v20200101:AATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:AATPDataConnector to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dataConnectorId'] = data_connector_id
     __args__['resourceGroupName'] = resource_group_name
@@ -160,4 +163,5 @@ def get_aatp_data_connector_output(data_connector_id: Optional[pulumi.Input[str]
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_aatp_data_connector is deprecated: azure-native:securityinsights/v20200101:AATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:AATPDataConnector to guarantee forwards compatibility.""")
     ...

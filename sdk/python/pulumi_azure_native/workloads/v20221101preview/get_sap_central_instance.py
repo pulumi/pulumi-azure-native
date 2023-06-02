@@ -17,6 +17,8 @@ __all__ = [
     'get_sap_central_instance_output',
 ]
 
+warnings.warn("""azure-native:workloads/v20221101preview:SAPCentralInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SAPCentralInstance to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSAPCentralInstanceResult:
     """
@@ -285,6 +287,7 @@ def get_sap_central_instance(central_instance_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
     """
+    pulumi.log.warn("""get_sap_central_instance is deprecated: azure-native:workloads/v20221101preview:SAPCentralInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SAPCentralInstance to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['centralInstanceName'] = central_instance_name
     __args__['resourceGroupName'] = resource_group_name
@@ -328,4 +331,5 @@ def get_sap_central_instance_output(central_instance_name: Optional[pulumi.Input
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
     """
+    pulumi.log.warn("""get_sap_central_instance is deprecated: azure-native:workloads/v20221101preview:SAPCentralInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SAPCentralInstance to guarantee forwards compatibility.""")
     ...

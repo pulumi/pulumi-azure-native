@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
     /// <summary>
     /// The top level Workspace resource container.
     /// </summary>
+    [Obsolete(@"azure-native:operationalinsights/v20200301preview:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:Workspace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:operationalinsights/v20200301preview:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {

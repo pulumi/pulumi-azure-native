@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
 {
+    [Obsolete(@"azure-native:appplatform/v20220501preview:GatewayRouteConfig is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:GatewayRouteConfig to guarantee forwards compatibility.")]
     public static class GetGatewayRouteConfig
     {
         /// <summary>

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20210201
 {
+    [Obsolete(@"azure-native:network/v20210201:Subnet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220701:Subnet to guarantee forwards compatibility.")]
     public static class GetSubnet
     {
         /// <summary>

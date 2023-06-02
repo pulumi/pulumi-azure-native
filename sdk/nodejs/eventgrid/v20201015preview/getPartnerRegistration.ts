@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a partner registration with the specified parameters.
  */
+/** @deprecated azure-native:eventgrid/v20201015preview:PartnerRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20211015preview:PartnerRegistration to guarantee forwards compatibility. */
 export function getPartnerRegistration(args: GetPartnerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerRegistrationResult> {
+    pulumi.log.warn("getPartnerRegistration is deprecated: azure-native:eventgrid/v20201015preview:PartnerRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20211015preview:PartnerRegistration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20201015preview:getPartnerRegistration", {
@@ -122,6 +124,7 @@ export interface GetPartnerRegistrationResult {
 /**
  * Gets a partner registration with the specified parameters.
  */
+/** @deprecated azure-native:eventgrid/v20201015preview:PartnerRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20211015preview:PartnerRegistration to guarantee forwards compatibility. */
 export function getPartnerRegistrationOutput(args: GetPartnerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getPartnerRegistration(a, opts))
 }

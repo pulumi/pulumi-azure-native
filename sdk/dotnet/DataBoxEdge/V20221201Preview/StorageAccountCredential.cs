@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20221201Preview
     /// <summary>
     /// The storage account credential.
     /// </summary>
+    [Obsolete(@"azure-native:databoxedge/v20221201preview:StorageAccountCredential is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:StorageAccountCredential to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20221201preview:StorageAccountCredential")]
     public partial class StorageAccountCredential : global::Pulumi.CustomResource
     {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Network Manager.
  */
+/** @deprecated azure-native:network/v20220701:NetworkManager is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NetworkManager to guarantee forwards compatibility. */
 export function getNetworkManager(args: GetNetworkManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkManagerResult> {
+    pulumi.log.warn("getNetworkManager is deprecated: azure-native:network/v20220701:NetworkManager is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NetworkManager to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220701:getNetworkManager", {
@@ -82,6 +84,7 @@ export interface GetNetworkManagerResult {
 /**
  * Gets the specified Network Manager.
  */
+/** @deprecated azure-native:network/v20220701:NetworkManager is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NetworkManager to guarantee forwards compatibility. */
 export function getNetworkManagerOutput(args: GetNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerResult> {
     return pulumi.output(args).apply((a: any) => getNetworkManager(a, opts))
 }

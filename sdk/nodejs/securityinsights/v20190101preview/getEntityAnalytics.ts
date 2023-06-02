@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a setting.
  */
+/** @deprecated azure-native:securityinsights/v20190101preview:EntityAnalytics is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:EntityAnalytics to guarantee forwards compatibility. */
 export function getEntityAnalytics(args: GetEntityAnalyticsArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityAnalyticsResult> {
+    pulumi.log.warn("getEntityAnalytics is deprecated: azure-native:securityinsights/v20190101preview:EntityAnalytics is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:EntityAnalytics to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getEntityAnalytics", {
@@ -70,6 +72,7 @@ export interface GetEntityAnalyticsResult {
 /**
  * Gets a setting.
  */
+/** @deprecated azure-native:securityinsights/v20190101preview:EntityAnalytics is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:EntityAnalytics to guarantee forwards compatibility. */
 export function getEntityAnalyticsOutput(args: GetEntityAnalyticsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityAnalyticsResult> {
     return pulumi.output(args).apply((a: any) => getEntityAnalytics(a, opts))
 }

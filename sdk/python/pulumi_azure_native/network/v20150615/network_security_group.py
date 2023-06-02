@@ -197,11 +197,13 @@ class NetworkSecurityGroupInitArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2015-06-15 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2015-06-15 will be removed in v2 of the provider.
+azure-native:network/v20150615:NetworkSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20160330:NetworkSecurityGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class NetworkSecurityGroup(pulumi.CustomResource):
-    warnings.warn("""Version 2015-06-15 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2015-06-15 will be removed in v2 of the provider.
+azure-native:network/v20150615:NetworkSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20160330:NetworkSecurityGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -272,7 +274,8 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""NetworkSecurityGroup is deprecated: Version 2015-06-15 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""NetworkSecurityGroup is deprecated: Version 2015-06-15 will be removed in v2 of the provider.
+azure-native:network/v20150615:NetworkSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20160330:NetworkSecurityGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

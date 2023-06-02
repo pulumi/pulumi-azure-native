@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20180601Preview
 {
+    [Obsolete(@"azure-native:sql/v20180601preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.")]
     public static class GetManagedDatabaseSensitivityLabel
     {
         /// <summary>

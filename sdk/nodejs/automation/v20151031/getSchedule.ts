@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve the schedule identified by schedule name.
  */
+/** @deprecated azure-native:automation/v20151031:Schedule is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Schedule to guarantee forwards compatibility. */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
+    pulumi.log.warn("getSchedule is deprecated: azure-native:automation/v20151031:Schedule is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Schedule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20151031:getSchedule", {
@@ -111,6 +113,7 @@ export interface GetScheduleResult {
 /**
  * Retrieve the schedule identified by schedule name.
  */
+/** @deprecated azure-native:automation/v20151031:Schedule is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Schedule to guarantee forwards compatibility. */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
     return pulumi.output(args).apply((a: any) => getSchedule(a, opts))
 }

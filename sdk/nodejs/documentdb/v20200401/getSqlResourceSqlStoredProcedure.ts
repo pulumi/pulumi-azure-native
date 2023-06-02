@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2020-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-04-01 will be removed in v2 of the provider.
+azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility. */
 export function getSqlResourceSqlStoredProcedure(args: GetSqlResourceSqlStoredProcedureArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlStoredProcedureResult> {
-    pulumi.log.warn("getSqlResourceSqlStoredProcedure is deprecated: Version 2020-04-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getSqlResourceSqlStoredProcedure is deprecated: Version 2020-04-01 will be removed in v2 of the provider.\nazure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20200401:getSqlResourceSqlStoredProcedure", {
@@ -76,7 +77,8 @@ export interface GetSqlResourceSqlStoredProcedureResult {
 /**
  * Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2020-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-04-01 will be removed in v2 of the provider.
+azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility. */
 export function getSqlResourceSqlStoredProcedureOutput(args: GetSqlResourceSqlStoredProcedureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlStoredProcedureResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlStoredProcedure(a, opts))
 }

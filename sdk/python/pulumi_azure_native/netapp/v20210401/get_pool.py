@@ -16,6 +16,8 @@ __all__ = [
     'get_pool_output',
 ]
 
+warnings.warn("""azure-native:netapp/v20210401:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Pool to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPoolResult:
     """
@@ -224,6 +226,7 @@ def get_pool(account_name: Optional[str] = None,
     :param str pool_name: The name of the capacity pool
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_pool is deprecated: azure-native:netapp/v20210401:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Pool to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['poolName'] = pool_name
@@ -262,4 +265,5 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str pool_name: The name of the capacity pool
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_pool is deprecated: azure-native:netapp/v20210401:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Pool to guarantee forwards compatibility.""")
     ...

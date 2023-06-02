@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Cdn.V20191231
     /// <summary>
     /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     /// </summary>
-    [Obsolete(@"Version 2019-12-31 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-12-31 will be removed in v2 of the provider.
+azure-native:cdn/v20191231:Origin is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Origin to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20191231:Origin")]
     public partial class Origin : global::Pulumi.CustomResource
     {

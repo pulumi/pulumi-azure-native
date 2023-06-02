@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
 {
+    [Obsolete(@"azure-native:documentdb/v20210701preview:SqlResourceSqlRoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:SqlResourceSqlRoleAssignment to guarantee forwards compatibility.")]
     public static class GetSqlResourceSqlRoleAssignment
     {
         /// <summary>

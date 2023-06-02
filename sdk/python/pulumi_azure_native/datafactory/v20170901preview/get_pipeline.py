@@ -17,7 +17,8 @@ __all__ = [
     'get_pipeline_output',
 ]
 
-warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Pipeline is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:Pipeline to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPipelineResult:
@@ -155,7 +156,8 @@ def get_pipeline(factory_name: Optional[str] = None,
     :param str pipeline_name: The pipeline name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_pipeline is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_pipeline is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Pipeline is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:Pipeline to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['pipelineName'] = pipeline_name
@@ -188,5 +190,6 @@ def get_pipeline_output(factory_name: Optional[pulumi.Input[str]] = None,
     :param str pipeline_name: The pipeline name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_pipeline is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_pipeline is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Pipeline is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:Pipeline to guarantee forwards compatibility.""")
     ...

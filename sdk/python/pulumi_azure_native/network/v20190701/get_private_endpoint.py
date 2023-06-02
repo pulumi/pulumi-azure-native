@@ -17,6 +17,8 @@ __all__ = [
     'get_private_endpoint_output',
 ]
 
+warnings.warn("""azure-native:network/v20190701:PrivateEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210201:PrivateEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointResult:
     """
@@ -177,6 +179,7 @@ def get_private_endpoint(expand: Optional[str] = None,
     :param str private_endpoint_name: The name of the private endpoint.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_private_endpoint is deprecated: azure-native:network/v20190701:PrivateEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210201:PrivateEndpoint to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['privateEndpointName'] = private_endpoint_name
@@ -211,4 +214,5 @@ def get_private_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     :param str private_endpoint_name: The name of the private endpoint.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_private_endpoint is deprecated: azure-native:network/v20190701:PrivateEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210201:PrivateEndpoint to guarantee forwards compatibility.""")
     ...

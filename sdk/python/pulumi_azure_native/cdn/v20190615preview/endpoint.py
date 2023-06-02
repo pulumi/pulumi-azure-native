@@ -307,11 +307,13 @@ class EndpointArgs:
         pulumi.set(self, "web_application_firewall_policy_link", value)
 
 
-warnings.warn("""Version 2019-06-15-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-06-15-preview will be removed in v2 of the provider.
+azure-native:cdn/v20190615preview:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Endpoint to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Endpoint(pulumi.CustomResource):
-    warnings.warn("""Version 2019-06-15-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2019-06-15-preview will be removed in v2 of the provider.
+azure-native:cdn/v20190615preview:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Endpoint to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -403,7 +405,8 @@ class Endpoint(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  web_application_firewall_policy_link: Optional[pulumi.Input[pulumi.InputType['EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Endpoint is deprecated: Version 2019-06-15-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""Endpoint is deprecated: Version 2019-06-15-preview will be removed in v2 of the provider.
+azure-native:cdn/v20190615preview:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Endpoint to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

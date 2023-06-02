@@ -17,6 +17,8 @@ __all__ = [
     'get_skus_output',
 ]
 
+warnings.warn("""azure-native:providerhub/v20210601preview:Skus is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:Skus to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSkusResult:
     def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
@@ -99,6 +101,7 @@ def get_skus(provider_namespace: Optional[str] = None,
     :param str resource_type: The resource type.
     :param str sku: The SKU.
     """
+    pulumi.log.warn("""get_skus is deprecated: azure-native:providerhub/v20210601preview:Skus is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:Skus to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['providerNamespace'] = provider_namespace
     __args__['resourceType'] = resource_type
@@ -127,4 +130,5 @@ def get_skus_output(provider_namespace: Optional[pulumi.Input[str]] = None,
     :param str resource_type: The resource type.
     :param str sku: The SKU.
     """
+    pulumi.log.warn("""get_skus is deprecated: azure-native:providerhub/v20210601preview:Skus is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:Skus to guarantee forwards compatibility.""")
     ...

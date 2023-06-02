@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Maps.V20210201
     /// <summary>
     /// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
     /// </summary>
+    [Obsolete(@"azure-native:maps/v20210201:Creator is being removed in the next major version of this provider. Please upgrade to azure-native:maps/v20211201preview:Creator to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:maps/v20210201:Creator")]
     public partial class Creator : global::Pulumi.CustomResource
     {

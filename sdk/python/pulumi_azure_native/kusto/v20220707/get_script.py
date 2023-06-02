@@ -17,6 +17,8 @@ __all__ = [
     'get_script_output',
 ]
 
+warnings.warn("""azure-native:kusto/v20220707:Script is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:Script to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetScriptResult:
     """
@@ -143,6 +145,7 @@ def get_script(cluster_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     :param str script_name: The name of the Kusto database script.
     """
+    pulumi.log.warn("""get_script is deprecated: azure-native:kusto/v20220707:Script is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:Script to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['databaseName'] = database_name
@@ -177,4 +180,5 @@ def get_script_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     :param str script_name: The name of the Kusto database script.
     """
+    pulumi.log.warn("""get_script is deprecated: azure-native:kusto/v20220707:Script is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:Script to guarantee forwards compatibility.""")
     ...

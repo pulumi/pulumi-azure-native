@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Storage.V20210601
 {
+    [Obsolete(@"azure-native:storage/v20210601:Queue is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Queue to guarantee forwards compatibility.")]
     public static class GetQueue
     {
         /// <summary>

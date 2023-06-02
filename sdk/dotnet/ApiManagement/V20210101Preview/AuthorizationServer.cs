@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
     /// <summary>
     /// External OAuth authorization server settings.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20210101preview:AuthorizationServer is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:AuthorizationServer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20210101preview:AuthorizationServer")]
     public partial class AuthorizationServer : global::Pulumi.CustomResource
     {

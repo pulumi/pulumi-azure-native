@@ -113,7 +113,12 @@ class FirewallRuleArgs:
         pulumi.set(self, "start_ip_address", value)
 
 
+warnings.warn("""azure-native:sql/v20220201preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:FirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class FirewallRule(pulumi.CustomResource):
+    warnings.warn("""azure-native:sql/v20220201preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:FirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -168,6 +173,7 @@ class FirewallRule(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  start_ip_address: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""FirewallRule is deprecated: azure-native:sql/v20220201preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:FirewallRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

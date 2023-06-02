@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a job.
  */
-/** @deprecated Version 2014-08-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2014-08-01-preview will be removed in v2 of the provider.
+azure-native:scheduler/v20140801preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:scheduler/v20160301:Job to guarantee forwards compatibility. */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    pulumi.log.warn("getJob is deprecated: Version 2014-08-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getJob is deprecated: Version 2014-08-01-preview will be removed in v2 of the provider.\nazure-native:scheduler/v20140801preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:scheduler/v20160301:Job to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scheduler/v20140801preview:getJob", {
@@ -58,7 +59,8 @@ export interface GetJobResult {
 /**
  * Gets a job.
  */
-/** @deprecated Version 2014-08-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2014-08-01-preview will be removed in v2 of the provider.
+azure-native:scheduler/v20140801preview:Job is being removed in the next major version of this provider. Please upgrade to azure-native:scheduler/v20160301:Job to guarantee forwards compatibility. */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))
 }

@@ -17,7 +17,8 @@ __all__ = [
     'get_topic_output',
 ]
 
-warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:servicebus/v20140901:Topic is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Topic to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetTopicResult:
@@ -332,7 +333,8 @@ def get_topic(namespace_name: Optional[str] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str topic_name: The topic name.
     """
-    pulumi.log.warn("""get_topic is deprecated: Version 2014-09-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_topic is deprecated: Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:servicebus/v20140901:Topic is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Topic to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
@@ -380,5 +382,6 @@ def get_topic_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str topic_name: The topic name.
     """
-    pulumi.log.warn("""get_topic is deprecated: Version 2014-09-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_topic is deprecated: Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:servicebus/v20140901:Topic is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20150801:Topic to guarantee forwards compatibility.""")
     ...

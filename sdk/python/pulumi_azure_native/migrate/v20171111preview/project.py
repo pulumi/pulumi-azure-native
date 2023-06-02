@@ -131,11 +131,13 @@ class ProjectArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.
+azure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20180202:Project to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Project(pulumi.CustomResource):
-    warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.
+azure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20180202:Project to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -194,7 +196,8 @@ class Project(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""Project is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""Project is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.
+azure-native:migrate/v20171111preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20180202:Project to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

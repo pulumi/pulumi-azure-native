@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
     /// <summary>
     /// Certificate details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20180101:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Certificate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20180101:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * String dictionary resource.
+ *
+ * @deprecated azure-native:web/v20200901:WebAppMetadataSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppMetadataSlot to guarantee forwards compatibility.
  */
 export class WebAppMetadataSlot extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class WebAppMetadataSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppMetadataSlot {
+        pulumi.log.warn("WebAppMetadataSlot is deprecated: azure-native:web/v20200901:WebAppMetadataSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppMetadataSlot to guarantee forwards compatibility.")
         return new WebAppMetadataSlot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,7 +68,9 @@ export class WebAppMetadataSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:web/v20200901:WebAppMetadataSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppMetadataSlot to guarantee forwards compatibility. */
     constructor(name: string, args: WebAppMetadataSlotArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppMetadataSlot is deprecated: azure-native:web/v20200901:WebAppMetadataSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppMetadataSlot to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

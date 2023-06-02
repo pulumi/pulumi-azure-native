@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a private endpoint connection.
  */
-/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider.
+azure-native:synapse/v20190601preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getPrivateEndpointConnection is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getPrivateEndpointConnection is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.\nazure-native:synapse/v20190601preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:PrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20190601preview:getPrivateEndpointConnection", {
@@ -69,7 +70,8 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * Gets a private endpoint connection.
  */
-/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider.
+azure-native:synapse/v20190601preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
 }

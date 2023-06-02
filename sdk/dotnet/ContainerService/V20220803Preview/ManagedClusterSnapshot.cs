@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220803Preview
     /// <summary>
     /// A managed cluster snapshot resource.
     /// </summary>
+    [Obsolete(@"azure-native:containerservice/v20220803preview:ManagedClusterSnapshot is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20230102preview:ManagedClusterSnapshot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerservice/v20220803preview:ManagedClusterSnapshot")]
     public partial class ManagedClusterSnapshot : global::Pulumi.CustomResource
     {

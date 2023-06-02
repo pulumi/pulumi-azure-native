@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
     /// <summary>
     /// Diagnostic details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20191201:ApiDiagnostic is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiDiagnostic to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20191201:ApiDiagnostic")]
     public partial class ApiDiagnostic : global::Pulumi.CustomResource
     {

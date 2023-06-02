@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Cdn.V20220501Preview
 {
+    [Obsolete(@"azure-native:cdn/v20220501preview:Rule is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Rule to guarantee forwards compatibility.")]
     public static class GetRule
     {
         /// <summary>

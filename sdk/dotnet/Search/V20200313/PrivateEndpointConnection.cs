@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Search.V20200313
     /// <summary>
     /// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
     /// </summary>
-    [Obsolete(@"Version 2020-03-13 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-03-13 will be removed in v2 of the provider.
+azure-native:search/v20200313:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20220901:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:search/v20200313:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

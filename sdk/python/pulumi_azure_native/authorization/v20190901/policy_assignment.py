@@ -213,7 +213,12 @@ class PolicyAssignmentArgs:
         pulumi.set(self, "sku", value)
 
 
+warnings.warn("""azure-native:authorization/v20190901:PolicyAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200301:PolicyAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class PolicyAssignment(pulumi.CustomResource):
+    warnings.warn("""azure-native:authorization/v20190901:PolicyAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200301:PolicyAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -286,6 +291,7 @@ class PolicyAssignment(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['PolicySkuArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""PolicyAssignment is deprecated: azure-native:authorization/v20190901:PolicyAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200301:PolicyAssignment to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

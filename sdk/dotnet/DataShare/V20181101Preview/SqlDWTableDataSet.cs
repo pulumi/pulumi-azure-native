@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     /// <summary>
     /// A SQL DW table data set.
     /// </summary>
+    [Obsolete(@"azure-native:datashare/v20181101preview:SqlDWTableDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SqlDWTableDataSet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datashare/v20181101preview:SqlDWTableDataSet")]
     public partial class SqlDWTableDataSet : global::Pulumi.CustomResource
     {

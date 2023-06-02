@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     /// <summary>
     /// Pool of backend IP addresses.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20220101:LoadBalancerBackendAddressPool is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:LoadBalancerBackendAddressPool to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220101:LoadBalancerBackendAddressPool")]
     public partial class LoadBalancerBackendAddressPool : global::Pulumi.CustomResource
     {

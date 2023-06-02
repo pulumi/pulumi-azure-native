@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve the connection type identified by connection type name.
  */
+/** @deprecated azure-native:automation/v20200113preview:ConnectionType is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility. */
 export function getConnectionType(args: GetConnectionTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionTypeResult> {
+    pulumi.log.warn("getConnectionType is deprecated: azure-native:automation/v20200113preview:ConnectionType is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20200113preview:getConnectionType", {
@@ -75,6 +77,7 @@ export interface GetConnectionTypeResult {
 /**
  * Retrieve the connection type identified by connection type name.
  */
+/** @deprecated azure-native:automation/v20200113preview:ConnectionType is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility. */
 export function getConnectionTypeOutput(args: GetConnectionTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionTypeResult> {
     return pulumi.output(args).apply((a: any) => getConnectionType(a, opts))
 }

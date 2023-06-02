@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
     /// <summary>
     /// Represents ASC (Azure Security Center) data connector.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20220601preview:ASCDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:ASCDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20220601preview:ASCDataConnector")]
     public partial class ASCDataConnector : global::Pulumi.CustomResource
     {
@@ -111,7 +112,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:ASCDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:ASCDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:ASCDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:ASCDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

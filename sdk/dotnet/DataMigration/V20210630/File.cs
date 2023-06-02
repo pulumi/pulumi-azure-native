@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630
     /// <summary>
     /// A file resource
     /// </summary>
+    [Obsolete(@"azure-native:datamigration/v20210630:File is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20220330preview:File to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datamigration/v20210630:File")]
     public partial class File : global::Pulumi.CustomResource
     {

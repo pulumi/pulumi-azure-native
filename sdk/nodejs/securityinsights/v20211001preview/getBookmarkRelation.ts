@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a bookmark relation.
  */
+/** @deprecated azure-native:securityinsights/v20211001preview:BookmarkRelation is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:BookmarkRelation to guarantee forwards compatibility. */
 export function getBookmarkRelation(args: GetBookmarkRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetBookmarkRelationResult> {
+    pulumi.log.warn("getBookmarkRelation is deprecated: azure-native:securityinsights/v20211001preview:BookmarkRelation is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:BookmarkRelation to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20211001preview:getBookmarkRelation", {
@@ -84,6 +86,7 @@ export interface GetBookmarkRelationResult {
 /**
  * Gets a bookmark relation.
  */
+/** @deprecated azure-native:securityinsights/v20211001preview:BookmarkRelation is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:BookmarkRelation to guarantee forwards compatibility. */
 export function getBookmarkRelationOutput(args: GetBookmarkRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkRelationResult> {
     return pulumi.output(args).apply((a: any) => getBookmarkRelation(a, opts))
 }

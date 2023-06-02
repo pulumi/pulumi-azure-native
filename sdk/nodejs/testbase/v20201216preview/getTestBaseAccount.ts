@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Test Base Account.
  */
-/** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider.
+azure-native:testbase/v20201216preview:TestBaseAccount is being removed in the next major version of this provider. Please upgrade to azure-native:testbase/v20220401preview:TestBaseAccount to guarantee forwards compatibility. */
 export function getTestBaseAccount(args: GetTestBaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetTestBaseAccountResult> {
-    pulumi.log.warn("getTestBaseAccount is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getTestBaseAccount is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.\nazure-native:testbase/v20201216preview:TestBaseAccount is being removed in the next major version of this provider. Please upgrade to azure-native:testbase/v20220401preview:TestBaseAccount to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20201216preview:getTestBaseAccount", {
@@ -80,7 +81,8 @@ export interface GetTestBaseAccountResult {
 /**
  * Gets a Test Base Account.
  */
-/** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider.
+azure-native:testbase/v20201216preview:TestBaseAccount is being removed in the next major version of this provider. Please upgrade to azure-native:testbase/v20220401preview:TestBaseAccount to guarantee forwards compatibility. */
 export function getTestBaseAccountOutput(args: GetTestBaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestBaseAccountResult> {
     return pulumi.output(args).apply((a: any) => getTestBaseAccount(a, opts))
 }

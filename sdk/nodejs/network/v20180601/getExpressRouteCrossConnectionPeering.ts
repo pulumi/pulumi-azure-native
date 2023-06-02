@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified peering for the ExpressRouteCrossConnection.
  */
+/** @deprecated azure-native:network/v20180601:ExpressRouteCrossConnectionPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:ExpressRouteCrossConnectionPeering to guarantee forwards compatibility. */
 export function getExpressRouteCrossConnectionPeering(args: GetExpressRouteCrossConnectionPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCrossConnectionPeeringResult> {
+    pulumi.log.warn("getExpressRouteCrossConnectionPeering is deprecated: azure-native:network/v20180601:ExpressRouteCrossConnectionPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:ExpressRouteCrossConnectionPeering to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180601:getExpressRouteCrossConnectionPeering", {
@@ -115,6 +117,7 @@ export interface GetExpressRouteCrossConnectionPeeringResult {
 /**
  * Gets the specified peering for the ExpressRouteCrossConnection.
  */
+/** @deprecated azure-native:network/v20180601:ExpressRouteCrossConnectionPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:ExpressRouteCrossConnectionPeering to guarantee forwards compatibility. */
 export function getExpressRouteCrossConnectionPeeringOutput(args: GetExpressRouteCrossConnectionPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCrossConnectionPeeringResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCrossConnectionPeering(a, opts))
 }

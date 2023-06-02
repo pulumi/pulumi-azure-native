@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
     /// <summary>
     /// Linked service resource type.
     /// </summary>
-    [Obsolete(@"Version 2017-09-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:LinkedService is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:LinkedService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datafactory/v20170901preview:LinkedService")]
     public partial class LinkedService : global::Pulumi.CustomResource
     {

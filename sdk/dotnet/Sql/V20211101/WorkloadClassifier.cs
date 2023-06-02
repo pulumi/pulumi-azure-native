@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
     /// <summary>
     /// Workload classifier operations for a data warehouse
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20211101:WorkloadClassifier is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:WorkloadClassifier to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20211101:WorkloadClassifier")]
     public partial class WorkloadClassifier : global::Pulumi.CustomResource
     {

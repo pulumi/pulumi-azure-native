@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20220707
     /// <summary>
     /// A private endpoint connection
     /// </summary>
+    [Obsolete(@"azure-native:kusto/v20220707:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kusto/v20220707:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

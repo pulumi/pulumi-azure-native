@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20210601
 {
+    [Obsolete(@"azure-native:databoxedge/v20210601:MECRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:MECRole to guarantee forwards compatibility.")]
     public static class GetMECRole
     {
         /// <summary>

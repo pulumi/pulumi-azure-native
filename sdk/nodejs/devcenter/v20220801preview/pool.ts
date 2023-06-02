@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A pool of Virtual Machines.
+ *
+ * @deprecated azure-native:devcenter/v20220801preview:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Pool to guarantee forwards compatibility.
  */
 export class Pool extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Pool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Pool {
+        pulumi.log.warn("Pool is deprecated: azure-native:devcenter/v20220801preview:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Pool to guarantee forwards compatibility.")
         return new Pool(name, undefined as any, { ...opts, id: id });
     }
 
@@ -85,7 +88,9 @@ export class Pool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:devcenter/v20220801preview:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Pool to guarantee forwards compatibility. */
     constructor(name: string, args: PoolArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Pool is deprecated: azure-native:devcenter/v20220801preview:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Pool to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -133,7 +138,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:Pool" }, { type: "azure-native:devcenter/v20220901preview:Pool" }, { type: "azure-native:devcenter/v20221012preview:Pool" }, { type: "azure-native:devcenter/v20221111preview:Pool" }, { type: "azure-native:devcenter/v20230401:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:Pool" }, { type: "azure-native:devcenter/v20220901preview:Pool" }, { type: "azure-native:devcenter/v20221012preview:Pool" }, { type: "azure-native:devcenter/v20221111preview:Pool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pool.__pulumiType, name, resourceInputs, opts);
     }

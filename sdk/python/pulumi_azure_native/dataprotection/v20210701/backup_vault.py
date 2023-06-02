@@ -132,7 +132,12 @@ class BackupVaultInitArgs:
         pulumi.set(self, "vault_name", value)
 
 
+warnings.warn("""azure-native:dataprotection/v20210701:BackupVault is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class BackupVault(pulumi.CustomResource):
+    warnings.warn("""azure-native:dataprotection/v20210701:BackupVault is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -190,6 +195,7 @@ class BackupVault(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""BackupVault is deprecated: azure-native:dataprotection/v20210701:BackupVault is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -212,7 +218,7 @@ class BackupVault(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210601preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20211001preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20211201preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220101:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220201preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220301:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220331preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220401:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220501:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20221001preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20221201:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20230401preview:BackupVault")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210601preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20211001preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20211201preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220101:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220201preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220301:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220331preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220401:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220501:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20221001preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20221201:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:BackupVault")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupVault, __self__).__init__(
             'azure-native:dataprotection/v20210701:BackupVault',

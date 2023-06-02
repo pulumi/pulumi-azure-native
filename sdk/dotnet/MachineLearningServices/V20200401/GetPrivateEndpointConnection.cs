@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20200401
 {
+    [Obsolete(@"azure-native:machinelearningservices/v20200401:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20220101preview:PrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnection
     {
         /// <summary>

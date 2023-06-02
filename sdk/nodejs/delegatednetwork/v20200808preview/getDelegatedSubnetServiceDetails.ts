@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets details about the specified dnc DelegatedSubnet Link.
  */
-/** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider.
+azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails is being removed in the next major version of this provider. Please upgrade to azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails to guarantee forwards compatibility. */
 export function getDelegatedSubnetServiceDetails(args: GetDelegatedSubnetServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedSubnetServiceDetailsResult> {
-    pulumi.log.warn("getDelegatedSubnetServiceDetails is deprecated: Version 2020-08-08-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getDelegatedSubnetServiceDetails is deprecated: Version 2020-08-08-preview will be removed in v2 of the provider.\nazure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails is being removed in the next major version of this provider. Please upgrade to azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:delegatednetwork/v20200808preview:getDelegatedSubnetServiceDetails", {
@@ -76,7 +77,8 @@ export interface GetDelegatedSubnetServiceDetailsResult {
 /**
  * Gets details about the specified dnc DelegatedSubnet Link.
  */
-/** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider.
+azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails is being removed in the next major version of this provider. Please upgrade to azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails to guarantee forwards compatibility. */
 export function getDelegatedSubnetServiceDetailsOutput(args: GetDelegatedSubnetServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedSubnetServiceDetailsResult> {
     return pulumi.output(args).apply((a: any) => getDelegatedSubnetServiceDetails(a, opts))
 }

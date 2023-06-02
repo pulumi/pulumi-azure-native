@@ -17,7 +17,8 @@ __all__ = [
     'get_subnet_output',
 ]
 
-warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:network/v20160901:Subnet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190201:Subnet to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSubnetResult:
@@ -157,7 +158,8 @@ def get_subnet(expand: Optional[str] = None,
     :param str subnet_name: The name of the subnet.
     :param str virtual_network_name: The name of the virtual network.
     """
-    pulumi.log.warn("""get_subnet is deprecated: Version 2016-09-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_subnet is deprecated: Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:network/v20160901:Subnet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190201:Subnet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -193,5 +195,6 @@ def get_subnet_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str subnet_name: The name of the subnet.
     :param str virtual_network_name: The name of the virtual network.
     """
-    pulumi.log.warn("""get_subnet is deprecated: Version 2016-09-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_subnet is deprecated: Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:network/v20160901:Subnet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190201:Subnet to guarantee forwards compatibility.""")
     ...

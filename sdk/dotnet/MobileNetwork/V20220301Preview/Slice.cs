@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     /// <summary>
     /// Network slice resource.
     /// </summary>
+    [Obsolete(@"azure-native:mobilenetwork/v20220301preview:Slice is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Slice to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220301preview:Slice")]
     public partial class Slice : global::Pulumi.CustomResource
     {

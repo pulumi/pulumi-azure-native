@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
  */
+/** @deprecated azure-native:documentdb/v20211115preview:GraphResourceGraph is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:GraphResourceGraph to guarantee forwards compatibility. */
 export function getGraphResourceGraph(args: GetGraphResourceGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphResourceGraphResult> {
+    pulumi.log.warn("getGraphResourceGraph is deprecated: azure-native:documentdb/v20211115preview:GraphResourceGraph is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:GraphResourceGraph to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20211115preview:getGraphResourceGraph", {
@@ -69,6 +71,7 @@ export interface GetGraphResourceGraphResult {
 /**
  * Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
  */
+/** @deprecated azure-native:documentdb/v20211115preview:GraphResourceGraph is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:GraphResourceGraph to guarantee forwards compatibility. */
 export function getGraphResourceGraphOutput(args: GetGraphResourceGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphResourceGraphResult> {
     return pulumi.output(args).apply((a: any) => getGraphResourceGraph(a, opts))
 }

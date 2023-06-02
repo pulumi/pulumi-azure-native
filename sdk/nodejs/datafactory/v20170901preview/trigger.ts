@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Trigger resource type.
  *
  * @deprecated Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Trigger is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:Trigger to guarantee forwards compatibility.
  */
 export class Trigger extends pulumi.CustomResource {
     /**
@@ -22,7 +23,7 @@ export class Trigger extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Trigger {
-        pulumi.log.warn("Trigger is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.")
+        pulumi.log.warn("Trigger is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.\nazure-native:datafactory/v20170901preview:Trigger is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:Trigger to guarantee forwards compatibility.")
         return new Trigger(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,9 +65,10 @@ export class Trigger extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
+    /** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Trigger is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:Trigger to guarantee forwards compatibility. */
     constructor(name: string, args: TriggerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Trigger is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.")
+        pulumi.log.warn("Trigger is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.\nazure-native:datafactory/v20170901preview:Trigger is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:Trigger to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

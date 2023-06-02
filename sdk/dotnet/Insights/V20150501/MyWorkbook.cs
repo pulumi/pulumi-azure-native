@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
     /// <summary>
     /// An Application Insights private workbook definition.
     /// </summary>
+    [Obsolete(@"azure-native:insights/v20150501:MyWorkbook is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20210308:MyWorkbook to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:insights/v20150501:MyWorkbook")]
     public partial class MyWorkbook : global::Pulumi.CustomResource
     {

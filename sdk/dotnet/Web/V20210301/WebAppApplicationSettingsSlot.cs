@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20210301
     /// <summary>
     /// String dictionary resource.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20210301:WebAppApplicationSettingsSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppApplicationSettingsSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20210301:WebAppApplicationSettingsSlot")]
     public partial class WebAppApplicationSettingsSlot : global::Pulumi.CustomResource
     {

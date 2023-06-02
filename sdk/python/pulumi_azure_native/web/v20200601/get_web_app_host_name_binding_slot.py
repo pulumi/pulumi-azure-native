@@ -16,6 +16,8 @@ __all__ = [
     'get_web_app_host_name_binding_slot_output',
 ]
 
+warnings.warn("""azure-native:web/v20200601:WebAppHostNameBindingSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppHostNameBindingSlot to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppHostNameBindingSlotResult:
     """
@@ -202,6 +204,7 @@ def get_web_app_host_name_binding_slot(host_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.
     """
+    pulumi.log.warn("""get_web_app_host_name_binding_slot is deprecated: azure-native:web/v20200601:WebAppHostNameBindingSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppHostNameBindingSlot to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['hostName'] = host_name
     __args__['name'] = name
@@ -241,4 +244,5 @@ def get_web_app_host_name_binding_slot_output(host_name: Optional[pulumi.Input[s
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.
     """
+    pulumi.log.warn("""get_web_app_host_name_binding_slot is deprecated: azure-native:web/v20200601:WebAppHostNameBindingSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppHostNameBindingSlot to guarantee forwards compatibility.""")
     ...

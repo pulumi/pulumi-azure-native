@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20200801Preview
 {
+    [Obsolete(@"azure-native:sql/v20200801preview:JobCredential is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:JobCredential to guarantee forwards compatibility.")]
     public static class GetJobCredential
     {
         /// <summary>

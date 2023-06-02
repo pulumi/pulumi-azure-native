@@ -271,7 +271,12 @@ class EventHubEventSourceArgs:
         pulumi.set(self, "type", value)
 
 
+warnings.warn("""azure-native:timeseriesinsights/v20210331preview:EventHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:EventHubEventSource to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class EventHubEventSource(pulumi.CustomResource):
+    warnings.warn("""azure-native:timeseriesinsights/v20210331preview:EventHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:EventHubEventSource to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -357,6 +362,7 @@ class EventHubEventSource(pulumi.CustomResource):
                  timestamp_property_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'IngressStartAtType']]] = None,
                  __props__=None):
+        pulumi.log.warn("""EventHubEventSource is deprecated: azure-native:timeseriesinsights/v20210331preview:EventHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:EventHubEventSource to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

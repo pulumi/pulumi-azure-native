@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20221111
     /// <summary>
     /// Class representing a CosmosDb data connection.
     /// </summary>
+    [Obsolete(@"azure-native:kusto/v20221111:CosmosDbDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:CosmosDbDataConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kusto/v20221111:CosmosDbDataConnection")]
     public partial class CosmosDbDataConnection : global::Pulumi.CustomResource
     {

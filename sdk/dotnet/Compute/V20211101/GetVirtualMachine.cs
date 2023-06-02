@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20211101
 {
+    [Obsolete(@"azure-native:compute/v20211101:VirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility.")]
     public static class GetVirtualMachine
     {
         /// <summary>

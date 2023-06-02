@@ -16,6 +16,8 @@ __all__ = [
     'get_route_output',
 ]
 
+warnings.warn("""azure-native:network/v20220701:Route is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:Route to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRouteResult:
     """
@@ -152,6 +154,7 @@ def get_route(resource_group_name: Optional[str] = None,
     :param str route_name: The name of the route.
     :param str route_table_name: The name of the route table.
     """
+    pulumi.log.warn("""get_route is deprecated: azure-native:network/v20220701:Route is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:Route to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeName'] = route_name
@@ -184,4 +187,5 @@ def get_route_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str route_name: The name of the route.
     :param str route_table_name: The name of the route table.
     """
+    pulumi.log.warn("""get_route is deprecated: azure-native:network/v20220701:Route is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:Route to guarantee forwards compatibility.""")
     ...

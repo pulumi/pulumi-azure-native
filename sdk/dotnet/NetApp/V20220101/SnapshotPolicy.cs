@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.NetApp.V20220101
     /// <summary>
     /// Snapshot policy information
     /// </summary>
+    [Obsolete(@"azure-native:netapp/v20220101:SnapshotPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:netapp/v20220101:SnapshotPolicy")]
     public partial class SnapshotPolicy : global::Pulumi.CustomResource
     {

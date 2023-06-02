@@ -17,6 +17,8 @@ __all__ = [
     'get_time_series_database_connection_output',
 ]
 
+warnings.warn("""azure-native:digitaltwins/v20221031:TimeSeriesDatabaseConnection is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:TimeSeriesDatabaseConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTimeSeriesDatabaseConnectionResult:
     """
@@ -105,6 +107,7 @@ def get_time_series_database_connection(resource_group_name: Optional[str] = Non
     :param str resource_name: The name of the DigitalTwinsInstance.
     :param str time_series_database_connection_name: Name of time series database connection.
     """
+    pulumi.log.warn("""get_time_series_database_connection is deprecated: azure-native:digitaltwins/v20221031:TimeSeriesDatabaseConnection is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:TimeSeriesDatabaseConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -133,4 +136,5 @@ def get_time_series_database_connection_output(resource_group_name: Optional[pul
     :param str resource_name: The name of the DigitalTwinsInstance.
     :param str time_series_database_connection_name: Name of time series database connection.
     """
+    pulumi.log.warn("""get_time_series_database_connection is deprecated: azure-native:digitaltwins/v20221031:TimeSeriesDatabaseConnection is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:TimeSeriesDatabaseConnection to guarantee forwards compatibility.""")
     ...

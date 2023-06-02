@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20181001
 {
+    [Obsolete(@"azure-native:network/v20181001:LoadBalancer is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:LoadBalancer to guarantee forwards compatibility.")]
     public static class GetLoadBalancer
     {
         /// <summary>

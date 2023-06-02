@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
  */
+/** @deprecated azure-native:logz/v20201001preview:SubAccountTagRule is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:SubAccountTagRule to guarantee forwards compatibility. */
 export function getSubAccountTagRule(args: GetSubAccountTagRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSubAccountTagRuleResult> {
+    pulumi.log.warn("getSubAccountTagRule is deprecated: azure-native:logz/v20201001preview:SubAccountTagRule is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:SubAccountTagRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz/v20201001preview:getSubAccountTagRule", {
@@ -65,6 +67,7 @@ export interface GetSubAccountTagRuleResult {
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
  */
+/** @deprecated azure-native:logz/v20201001preview:SubAccountTagRule is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:SubAccountTagRule to guarantee forwards compatibility. */
 export function getSubAccountTagRuleOutput(args: GetSubAccountTagRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubAccountTagRuleResult> {
     return pulumi.output(args).apply((a: any) => getSubAccountTagRule(a, opts))
 }

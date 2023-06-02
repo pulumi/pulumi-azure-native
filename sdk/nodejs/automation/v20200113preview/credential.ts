@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the credential.
+ *
+ * @deprecated azure-native:automation/v20200113preview:Credential is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Credential to guarantee forwards compatibility.
  */
 export class Credential extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class Credential extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Credential {
+        pulumi.log.warn("Credential is deprecated: azure-native:automation/v20200113preview:Credential is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Credential to guarantee forwards compatibility.")
         return new Credential(name, undefined as any, { ...opts, id: id });
     }
 
@@ -66,7 +69,9 @@ export class Credential extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:automation/v20200113preview:Credential is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Credential to guarantee forwards compatibility. */
     constructor(name: string, args: CredentialArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Credential is deprecated: azure-native:automation/v20200113preview:Credential is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:Credential to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

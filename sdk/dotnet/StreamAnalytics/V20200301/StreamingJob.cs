@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
     /// <summary>
     /// A streaming job object, containing all information associated with the named streaming job.
     /// </summary>
+    [Obsolete(@"azure-native:streamanalytics/v20200301:StreamingJob is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:StreamingJob to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:streamanalytics/v20200301:StreamingJob")]
     public partial class StreamingJob : global::Pulumi.CustomResource
     {

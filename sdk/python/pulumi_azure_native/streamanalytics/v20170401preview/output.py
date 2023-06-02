@@ -144,7 +144,12 @@ class OutputInitArgs:
         pulumi.set(self, "time_window", value)
 
 
+warnings.warn("""azure-native:streamanalytics/v20170401preview:Output is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Output(pulumi.CustomResource):
+    warnings.warn("""azure-native:streamanalytics/v20170401preview:Output is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -204,6 +209,7 @@ class Output(pulumi.CustomResource):
                  size_window: Optional[pulumi.Input[int]] = None,
                  time_window: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Output is deprecated: azure-native:streamanalytics/v20170401preview:Output is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

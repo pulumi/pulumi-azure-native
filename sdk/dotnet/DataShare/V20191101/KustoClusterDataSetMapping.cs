@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataShare.V20191101
     /// <summary>
     /// A Kusto cluster data set mapping
     /// </summary>
+    [Obsolete(@"azure-native:datashare/v20191101:KustoClusterDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoClusterDataSetMapping to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datashare/v20191101:KustoClusterDataSetMapping")]
     public partial class KustoClusterDataSetMapping : global::Pulumi.CustomResource
     {

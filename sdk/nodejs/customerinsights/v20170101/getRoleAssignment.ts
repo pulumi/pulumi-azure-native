@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the role assignment in the hub.
  */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:RoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:RoleAssignment to guarantee forwards compatibility. */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
-    pulumi.log.warn("getRoleAssignment is deprecated: Version 2017-01-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getRoleAssignment is deprecated: Version 2017-01-01 will be removed in v2 of the provider.\nazure-native:customerinsights/v20170101:RoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:RoleAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170101:getRoleAssignment", {
@@ -137,7 +138,8 @@ export interface GetRoleAssignmentResult {
 /**
  * Gets the role assignment in the hub.
  */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:RoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:RoleAssignment to guarantee forwards compatibility. */
 export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getRoleAssignment(a, opts))
 }

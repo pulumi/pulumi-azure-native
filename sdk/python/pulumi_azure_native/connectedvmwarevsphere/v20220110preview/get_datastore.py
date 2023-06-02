@@ -17,6 +17,8 @@ __all__ = [
     'get_datastore_output',
 ]
 
+warnings.warn("""azure-native:connectedvmwarevsphere/v20220110preview:Datastore is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:Datastore to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDatastoreResult:
     """
@@ -235,6 +237,7 @@ def get_datastore(datastore_name: Optional[str] = None,
     :param str datastore_name: Name of the datastore.
     :param str resource_group_name: The Resource Group Name.
     """
+    pulumi.log.warn("""get_datastore is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:Datastore is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:Datastore to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['datastoreName'] = datastore_name
     __args__['resourceGroupName'] = resource_group_name
@@ -271,4 +274,5 @@ def get_datastore_output(datastore_name: Optional[pulumi.Input[str]] = None,
     :param str datastore_name: Name of the datastore.
     :param str resource_group_name: The Resource Group Name.
     """
+    pulumi.log.warn("""get_datastore is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:Datastore is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:Datastore to guarantee forwards compatibility.""")
     ...

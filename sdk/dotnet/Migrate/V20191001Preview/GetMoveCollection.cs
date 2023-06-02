@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Migrate.V20191001Preview
 {
+    [Obsolete(@"azure-native:migrate/v20191001preview:MoveCollection is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20220801:MoveCollection to guarantee forwards compatibility.")]
     public static class GetMoveCollection
     {
         /// <summary>

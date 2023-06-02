@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
     /// </summary>
+    [Obsolete(@"azure-native:eventhub/v20210601preview:EventHubAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:EventHubAuthorizationRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventhub/v20210601preview:EventHubAuthorizationRule")]
     public partial class EventHubAuthorizationRule : global::Pulumi.CustomResource
     {

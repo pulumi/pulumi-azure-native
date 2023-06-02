@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Traffic Manager endpoint.
  */
-/** @deprecated Version 2017-05-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-05-01 will be removed in v2 of the provider.
+azure-native:network/v20170501:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180201:Endpoint to guarantee forwards compatibility. */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
-    pulumi.log.warn("getEndpoint is deprecated: Version 2017-05-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getEndpoint is deprecated: Version 2017-05-01 will be removed in v2 of the provider.\nazure-native:network/v20170501:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180201:Endpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20170501:getEndpoint", {
@@ -95,7 +96,8 @@ export interface GetEndpointResult {
 /**
  * Gets a Traffic Manager endpoint.
  */
-/** @deprecated Version 2017-05-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-05-01 will be removed in v2 of the provider.
+azure-native:network/v20170501:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180201:Endpoint to guarantee forwards compatibility. */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))
 }

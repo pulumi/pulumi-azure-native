@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
     /// <summary>
     /// Defines the security admin configuration
     /// </summary>
+    [Obsolete(@"azure-native:network/v20220401preview:SecurityAdminConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:SecurityAdminConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220401preview:SecurityAdminConfiguration")]
     public partial class SecurityAdminConfiguration : global::Pulumi.CustomResource
     {

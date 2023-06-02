@@ -173,7 +173,12 @@ class WorkloadGroupArgs:
         pulumi.set(self, "workload_group_name", value)
 
 
+warnings.warn("""azure-native:sql/v20190601preview:WorkloadGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:WorkloadGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WorkloadGroup(pulumi.CustomResource):
+    warnings.warn("""azure-native:sql/v20190601preview:WorkloadGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:WorkloadGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -240,6 +245,7 @@ class WorkloadGroup(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  workload_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WorkloadGroup is deprecated: azure-native:sql/v20190601preview:WorkloadGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:WorkloadGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

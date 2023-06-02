@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
     /// <summary>
     /// An Azure Cosmos DB Table.
     /// </summary>
-    [Obsolete(@"Version 2015-04-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2015-04-01 will be removed in v2 of the provider.
+azure-native:documentdb/v20150401:DatabaseAccountTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountTable to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20150401:DatabaseAccountTable")]
     public partial class DatabaseAccountTable : global::Pulumi.CustomResource
     {

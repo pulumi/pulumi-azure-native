@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Bastion Host.
  */
+/** @deprecated azure-native:network/v20210301:BastionHost is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:BastionHost to guarantee forwards compatibility. */
 export function getBastionHost(args: GetBastionHostArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionHostResult> {
+    pulumi.log.warn("getBastionHost is deprecated: azure-native:network/v20210301:BastionHost is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:BastionHost to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210301:getBastionHost", {
@@ -102,6 +104,7 @@ export interface GetBastionHostResult {
 /**
  * Gets the specified Bastion Host.
  */
+/** @deprecated azure-native:network/v20210301:BastionHost is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:BastionHost to guarantee forwards compatibility. */
 export function getBastionHostOutput(args: GetBastionHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionHostResult> {
     return pulumi.output(args).apply((a: any) => getBastionHost(a, opts))
 }

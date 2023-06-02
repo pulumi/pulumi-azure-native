@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of a domain topic.
  */
+/** @deprecated azure-native:eventgrid/v20211015preview:DomainTopic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:DomainTopic to guarantee forwards compatibility. */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
+    pulumi.log.warn("getDomainTopic is deprecated: azure-native:eventgrid/v20211015preview:DomainTopic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:DomainTopic to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20211015preview:getDomainTopic", {
@@ -63,6 +65,7 @@ export interface GetDomainTopicResult {
 /**
  * Get properties of a domain topic.
  */
+/** @deprecated azure-native:eventgrid/v20211015preview:DomainTopic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:DomainTopic to guarantee forwards compatibility. */
 export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicResult> {
     return pulumi.output(args).apply((a: any) => getDomainTopic(a, opts))
 }

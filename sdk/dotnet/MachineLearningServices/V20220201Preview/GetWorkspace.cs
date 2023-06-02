@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
 {
+    [Obsolete(@"azure-native:machinelearningservices/v20220201preview:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Workspace to guarantee forwards compatibility.")]
     public static class GetWorkspace
     {
         /// <summary>

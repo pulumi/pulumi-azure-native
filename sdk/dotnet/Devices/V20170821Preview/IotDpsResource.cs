@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Devices.V20170821Preview
     /// <summary>
     /// The description of the provisioning service.
     /// </summary>
-    [Obsolete(@"Version 2017-08-21-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-08-21-preview will be removed in v2 of the provider.
+azure-native:devices/v20170821preview:IotDpsResource is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devices/v20170821preview:IotDpsResource")]
     public partial class IotDpsResource : global::Pulumi.CustomResource
     {

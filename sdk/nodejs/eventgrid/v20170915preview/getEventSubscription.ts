@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of an event subscription
  */
-/** @deprecated Version 2017-09-15-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2017-09-15-preview will be removed in v2 of the provider.
+azure-native:eventgrid/v20170915preview:EventSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility. */
 export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
-    pulumi.log.warn("getEventSubscription is deprecated: Version 2017-09-15-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getEventSubscription is deprecated: Version 2017-09-15-preview will be removed in v2 of the provider.\nazure-native:eventgrid/v20170915preview:EventSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20170915preview:getEventSubscription", {
@@ -72,7 +73,8 @@ export interface GetEventSubscriptionResult {
 /**
  * Get properties of an event subscription
  */
-/** @deprecated Version 2017-09-15-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2017-09-15-preview will be removed in v2 of the provider.
+azure-native:eventgrid/v20170915preview:EventSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:EventSubscription to guarantee forwards compatibility. */
 export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getEventSubscription(a, opts))
 }

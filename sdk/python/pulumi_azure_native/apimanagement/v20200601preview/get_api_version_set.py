@@ -16,6 +16,8 @@ __all__ = [
     'get_api_version_set_output',
 ]
 
+warnings.warn("""azure-native:apimanagement/v20200601preview:ApiVersionSet is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiVersionSet to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApiVersionSetResult:
     """
@@ -140,6 +142,7 @@ def get_api_version_set(resource_group_name: Optional[str] = None,
     :param str service_name: The name of the API Management service.
     :param str version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
     """
+    pulumi.log.warn("""get_api_version_set is deprecated: azure-native:apimanagement/v20200601preview:ApiVersionSet is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiVersionSet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
@@ -171,4 +174,5 @@ def get_api_version_set_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str service_name: The name of the API Management service.
     :param str version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
     """
+    pulumi.log.warn("""get_api_version_set is deprecated: azure-native:apimanagement/v20200601preview:ApiVersionSet is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiVersionSet to guarantee forwards compatibility.""")
     ...

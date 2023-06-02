@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20211001
 {
+    [Obsolete(@"azure-native:securityinsights/v20211001:MCASDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:MCASDataConnector to guarantee forwards compatibility.")]
     public static class GetMCASDataConnector
     {
         /// <summary>

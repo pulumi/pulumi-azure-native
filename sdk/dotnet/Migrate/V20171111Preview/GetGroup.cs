@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Migrate.V20171111Preview
 {
-    [Obsolete(@"Version 2017-11-11-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-11-11-preview will be removed in v2 of the provider.
+azure-native:migrate/v20171111preview:Group is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20180202:Group to guarantee forwards compatibility.")]
     public static class GetGroup
     {
         /// <summary>

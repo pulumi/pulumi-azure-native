@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Swift Virtual Network connection.
  */
+/** @deprecated azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot to guarantee forwards compatibility. */
 export function getWebAppSwiftVirtualNetworkConnectionSlot(args: GetWebAppSwiftVirtualNetworkConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSwiftVirtualNetworkConnectionSlotResult> {
+    pulumi.log.warn("getWebAppSwiftVirtualNetworkConnectionSlot is deprecated: azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20200901:getWebAppSwiftVirtualNetworkConnectionSlot", {
@@ -71,6 +73,7 @@ export interface GetWebAppSwiftVirtualNetworkConnectionSlotResult {
 /**
  * Gets a Swift Virtual Network connection.
  */
+/** @deprecated azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot to guarantee forwards compatibility. */
 export function getWebAppSwiftVirtualNetworkConnectionSlotOutput(args: GetWebAppSwiftVirtualNetworkConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSwiftVirtualNetworkConnectionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSwiftVirtualNetworkConnectionSlot(a, opts))
 }

@@ -17,6 +17,8 @@ __all__ = [
     'get_table_resource_table_output',
 ]
 
+warnings.warn("""azure-native:documentdb/v20210415:TableResourceTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:TableResourceTable to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTableResourceTableResult:
     """
@@ -123,6 +125,7 @@ def get_table_resource_table(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str table_name: Cosmos DB table name.
     """
+    pulumi.log.warn("""get_table_resource_table is deprecated: azure-native:documentdb/v20210415:TableResourceTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:TableResourceTable to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -153,4 +156,5 @@ def get_table_resource_table_output(account_name: Optional[pulumi.Input[str]] = 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str table_name: Cosmos DB table name.
     """
+    pulumi.log.warn("""get_table_resource_table is deprecated: azure-native:documentdb/v20210415:TableResourceTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:TableResourceTable to guarantee forwards compatibility.""")
     ...

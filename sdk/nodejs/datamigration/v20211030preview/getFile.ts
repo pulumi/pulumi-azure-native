@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
  */
+/** @deprecated azure-native:datamigration/v20211030preview:File is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20220330preview:File to guarantee forwards compatibility. */
 export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise<GetFileResult> {
+    pulumi.log.warn("getFile is deprecated: azure-native:datamigration/v20211030preview:File is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20220330preview:File to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20211030preview:getFile", {
@@ -72,6 +74,7 @@ export interface GetFileResult {
 /**
  * The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
  */
+/** @deprecated azure-native:datamigration/v20211030preview:File is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20220330preview:File to guarantee forwards compatibility. */
 export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {
     return pulumi.output(args).apply((a: any) => getFile(a, opts))
 }

@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
  */
-/** @deprecated Version 2015-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2015-06-01 will be removed in v2 of the provider.
+azure-native:cdn/v20150601:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20160402:Profile to guarantee forwards compatibility. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    pulumi.log.warn("getProfile is deprecated: Version 2015-06-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getProfile is deprecated: Version 2015-06-01 will be removed in v2 of the provider.\nazure-native:cdn/v20150601:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20160402:Profile to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20150601:getProfile", {
@@ -72,7 +73,8 @@ export interface GetProfileResult {
 /**
  * CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
  */
-/** @deprecated Version 2015-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2015-06-01 will be removed in v2 of the provider.
+azure-native:cdn/v20150601:Profile is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20160402:Profile to guarantee forwards compatibility. */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
     return pulumi.output(args).apply((a: any) => getProfile(a, opts))
 }

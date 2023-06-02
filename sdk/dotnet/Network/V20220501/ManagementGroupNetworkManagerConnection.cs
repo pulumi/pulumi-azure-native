@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220501
     /// <summary>
     /// The Network Manager Connection resource
     /// </summary>
+    [Obsolete(@"azure-native:network/v20220501:ManagementGroupNetworkManagerConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ManagementGroupNetworkManagerConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220501:ManagementGroupNetworkManagerConnection")]
     public partial class ManagementGroupNetworkManagerConnection : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20210301
     /// <summary>
     /// VpnGatewayNatRule Resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20210301:NatRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NatRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20210301:NatRule")]
     public partial class NatRule : global::Pulumi.CustomResource
     {

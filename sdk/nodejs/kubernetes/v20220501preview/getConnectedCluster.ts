@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
  */
+/** @deprecated azure-native:kubernetes/v20220501preview:ConnectedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetes/v20221001preview:ConnectedCluster to guarantee forwards compatibility. */
 export function getConnectedCluster(args: GetConnectedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedClusterResult> {
+    pulumi.log.warn("getConnectedCluster is deprecated: azure-native:kubernetes/v20220501preview:ConnectedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetes/v20221001preview:ConnectedCluster to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetes/v20220501preview:getConnectedCluster", {
@@ -122,6 +124,7 @@ export interface GetConnectedClusterResult {
 /**
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
  */
+/** @deprecated azure-native:kubernetes/v20220501preview:ConnectedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetes/v20221001preview:ConnectedCluster to guarantee forwards compatibility. */
 export function getConnectedClusterOutput(args: GetConnectedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedClusterResult> {
     return pulumi.output(args).apply((a: any) => getConnectedCluster(a, opts))
 }

@@ -83,7 +83,12 @@ class PrivateEndpointConnectionsForEDMArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
+warnings.warn("""azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForEDM is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForEDM to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class PrivateEndpointConnectionsForEDM(pulumi.CustomResource):
+    warnings.warn("""azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForEDM is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForEDM to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,6 +137,7 @@ class PrivateEndpointConnectionsForEDM(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""PrivateEndpointConnectionsForEDM is deprecated: azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForEDM is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForEDM to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

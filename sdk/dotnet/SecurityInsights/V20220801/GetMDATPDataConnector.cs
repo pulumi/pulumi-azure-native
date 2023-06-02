@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20220801
 {
+    [Obsolete(@"azure-native:securityinsights/v20220801:MDATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:MDATPDataConnector to guarantee forwards compatibility.")]
     public static class GetMDATPDataConnector
     {
         /// <summary>

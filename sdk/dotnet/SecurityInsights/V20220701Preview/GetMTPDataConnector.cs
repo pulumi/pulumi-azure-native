@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
 {
+    [Obsolete(@"azure-native:securityinsights/v20220701preview:MTPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:MTPDataConnector to guarantee forwards compatibility.")]
     public static class GetMTPDataConnector
     {
         /// <summary>

@@ -84,7 +84,12 @@ class ResourceGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:resources/v20210101:ResourceGroup is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:ResourceGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ResourceGroup(pulumi.CustomResource):
+    warnings.warn("""azure-native:resources/v20210101:ResourceGroup is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:ResourceGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -133,6 +138,7 @@ class ResourceGroup(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""ResourceGroup is deprecated: azure-native:resources/v20210101:ResourceGroup is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:ResourceGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

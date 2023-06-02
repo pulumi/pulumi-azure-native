@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Cassandra table under an existing Azure Cosmos DB database account.
  */
+/** @deprecated azure-native:documentdb/v20220815:CassandraResourceCassandraTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:CassandraResourceCassandraTable to guarantee forwards compatibility. */
 export function getCassandraResourceCassandraTable(args: GetCassandraResourceCassandraTableArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraTableResult> {
+    pulumi.log.warn("getCassandraResourceCassandraTable is deprecated: azure-native:documentdb/v20220815:CassandraResourceCassandraTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:CassandraResourceCassandraTable to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20220815:getCassandraResourceCassandraTable", {
@@ -70,6 +72,7 @@ export interface GetCassandraResourceCassandraTableResult {
 /**
  * Gets the Cassandra table under an existing Azure Cosmos DB database account.
  */
+/** @deprecated azure-native:documentdb/v20220815:CassandraResourceCassandraTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:CassandraResourceCassandraTable to guarantee forwards compatibility. */
 export function getCassandraResourceCassandraTableOutput(args: GetCassandraResourceCassandraTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraTableResult> {
     return pulumi.output(args).apply((a: any) => getCassandraResourceCassandraTable(a, opts))
 }

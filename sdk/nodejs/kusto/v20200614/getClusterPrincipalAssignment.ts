@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Kusto cluster principalAssignment.
  */
+/** @deprecated azure-native:kusto/v20200614:ClusterPrincipalAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ClusterPrincipalAssignment to guarantee forwards compatibility. */
 export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterPrincipalAssignmentResult> {
+    pulumi.log.warn("getClusterPrincipalAssignment is deprecated: azure-native:kusto/v20200614:ClusterPrincipalAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ClusterPrincipalAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20200614:getClusterPrincipalAssignment", {
@@ -80,6 +82,7 @@ export interface GetClusterPrincipalAssignmentResult {
 /**
  * Gets a Kusto cluster principalAssignment.
  */
+/** @deprecated azure-native:kusto/v20200614:ClusterPrincipalAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ClusterPrincipalAssignment to guarantee forwards compatibility. */
 export function getClusterPrincipalAssignmentOutput(args: GetClusterPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPrincipalAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getClusterPrincipalAssignment(a, opts))
 }

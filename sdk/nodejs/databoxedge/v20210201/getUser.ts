@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified user.
  */
+/** @deprecated azure-native:databoxedge/v20210201:User is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20210201preview:User to guarantee forwards compatibility. */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
+    pulumi.log.warn("getUser is deprecated: azure-native:databoxedge/v20210201:User is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20210201preview:User to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210201:getUser", {
@@ -71,6 +73,7 @@ export interface GetUserResult {
 /**
  * Gets the properties of the specified user.
  */
+/** @deprecated azure-native:databoxedge/v20210201:User is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20210201preview:User to guarantee forwards compatibility. */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }

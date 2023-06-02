@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
     /// <summary>
     /// Issue Contract details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20190101:ApiIssue is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiIssue to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20190101:ApiIssue")]
     public partial class ApiIssue : global::Pulumi.CustomResource
     {

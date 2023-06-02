@@ -17,6 +17,8 @@ __all__ = [
     'get_vpn_connection_output',
 ]
 
+warnings.warn("""azure-native:network/v20210801:VpnConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVpnConnectionResult:
     """
@@ -309,6 +311,7 @@ def get_vpn_connection(connection_name: Optional[str] = None,
     :param str gateway_name: The name of the gateway.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
+    pulumi.log.warn("""get_vpn_connection is deprecated: azure-native:network/v20210801:VpnConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['gatewayName'] = gateway_name
@@ -354,4 +357,5 @@ def get_vpn_connection_output(connection_name: Optional[pulumi.Input[str]] = Non
     :param str gateway_name: The name of the gateway.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
+    pulumi.log.warn("""get_vpn_connection is deprecated: azure-native:network/v20210801:VpnConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility.""")
     ...

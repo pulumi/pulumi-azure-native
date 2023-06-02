@@ -16,7 +16,8 @@ __all__ = [
     'get_event_hub_authorization_rule_output',
 ]
 
-warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:eventhub/v20140901:EventHubAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20150801:EventHubAuthorizationRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetEventHubAuthorizationRuleResult:
@@ -108,7 +109,8 @@ def get_event_hub_authorization_rule(authorization_rule_name: Optional[str] = No
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("""get_event_hub_authorization_rule is deprecated: Version 2014-09-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_event_hub_authorization_rule is deprecated: Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:eventhub/v20140901:EventHubAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20150801:EventHubAuthorizationRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['eventHubName'] = event_hub_name
@@ -140,5 +142,6 @@ def get_event_hub_authorization_rule_output(authorization_rule_name: Optional[pu
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("""get_event_hub_authorization_rule is deprecated: Version 2014-09-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_event_hub_authorization_rule is deprecated: Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:eventhub/v20140901:EventHubAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20150801:EventHubAuthorizationRule to guarantee forwards compatibility.""")
     ...

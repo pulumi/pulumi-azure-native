@@ -163,7 +163,12 @@ class RoleAssignmentArgs:
         pulumi.set(self, "role_assignment_name", value)
 
 
+warnings.warn("""azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class RoleAssignment(pulumi.CustomResource):
+    warnings.warn("""azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -227,6 +232,7 @@ class RoleAssignment(pulumi.CustomResource):
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""RoleAssignment is deprecated: azure-native:authorization/v20200801preview:RoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

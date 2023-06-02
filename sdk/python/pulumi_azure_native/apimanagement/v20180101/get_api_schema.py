@@ -16,6 +16,8 @@ __all__ = [
     'get_api_schema_output',
 ]
 
+warnings.warn("""azure-native:apimanagement/v20180101:ApiSchema is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20190101:ApiSchema to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApiSchemaResult:
     """
@@ -106,6 +108,7 @@ def get_api_schema(api_id: Optional[str] = None,
     :param str schema_id: Schema identifier within an API. Must be unique in the current API Management service instance.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("""get_api_schema is deprecated: azure-native:apimanagement/v20180101:ApiSchema is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20190101:ApiSchema to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['resourceGroupName'] = resource_group_name
@@ -137,4 +140,5 @@ def get_api_schema_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str schema_id: Schema identifier within an API. Must be unique in the current API Management service instance.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("""get_api_schema is deprecated: azure-native:apimanagement/v20180101:ApiSchema is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20190101:ApiSchema to guarantee forwards compatibility.""")
     ...

@@ -116,11 +116,13 @@ class GuestConfigurationAssignmentArgs:
         pulumi.set(self, "properties", value)
 
 
-warnings.warn("""Version 2018-06-30-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-06-30-preview will be removed in v2 of the provider.
+azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class GuestConfigurationAssignment(pulumi.CustomResource):
-    warnings.warn("""Version 2018-06-30-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2018-06-30-preview will be removed in v2 of the provider.
+azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -176,7 +178,8 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""GuestConfigurationAssignment is deprecated: Version 2018-06-30-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""GuestConfigurationAssignment is deprecated: Version 2018-06-30-preview will be removed in v2 of the provider.
+azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

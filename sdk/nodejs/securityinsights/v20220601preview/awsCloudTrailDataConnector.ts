@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents Amazon Web Services CloudTrail data connector.
+ *
+ * @deprecated azure-native:securityinsights/v20220601preview:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector to guarantee forwards compatibility.
  */
 export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AwsCloudTrailDataConnector {
+        pulumi.log.warn("AwsCloudTrailDataConnector is deprecated: azure-native:securityinsights/v20220601preview:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector to guarantee forwards compatibility.")
         return new AwsCloudTrailDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,7 +77,9 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20220601preview:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: AwsCloudTrailDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AwsCloudTrailDataConnector is deprecated: azure-native:securityinsights/v20220601preview:AwsCloudTrailDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -110,7 +115,7 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20211001:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220801:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221101:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:AwsCloudTrailDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20211001:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220801:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221101:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:AwsCloudTrailDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AwsCloudTrailDataConnector.__pulumiType, name, resourceInputs, opts);
     }

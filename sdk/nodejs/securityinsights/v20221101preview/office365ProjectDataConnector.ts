@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents Office Microsoft Project data connector.
+ *
+ * @deprecated azure-native:securityinsights/v20221101preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility.
  */
 export class Office365ProjectDataConnector extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Office365ProjectDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Office365ProjectDataConnector {
+        pulumi.log.warn("Office365ProjectDataConnector is deprecated: azure-native:securityinsights/v20221101preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility.")
         return new Office365ProjectDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,7 +77,9 @@ export class Office365ProjectDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20221101preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: Office365ProjectDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Office365ProjectDataConnector is deprecated: azure-native:securityinsights/v20221101preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -113,7 +118,7 @@ export class Office365ProjectDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20200101:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20211001:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220801:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20221101:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20230201:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:Office365ProjectDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20200101:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20211001:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220801:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20221101:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20230201:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Office365ProjectDataConnector.__pulumiType, name, resourceInputs, opts);
     }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20190701
     /// <summary>
     /// ExpressRoutePort resource definition.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20190701:ExpressRoutePort is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:ExpressRoutePort to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20190701:ExpressRoutePort")]
     public partial class ExpressRoutePort : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
     /// <summary>
     /// Properties of the PrivateEndpointConnection.
     /// </summary>
+    [Obsolete(@"azure-native:servicebus/v20210601preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicebus/v20210601preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

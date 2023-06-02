@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
 {
+    [Obsolete(@"azure-native:azurestackhci/v20210701preview:galleryimageRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:galleryimageRetrieve to guarantee forwards compatibility.")]
     public static class GetgalleryimageRetrieve
     {
         /// <summary>

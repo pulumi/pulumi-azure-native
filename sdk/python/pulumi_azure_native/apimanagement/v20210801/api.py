@@ -459,7 +459,12 @@ class ApiArgs:
         pulumi.set(self, "wsdl_selector", value)
 
 
+warnings.warn("""azure-native:apimanagement/v20210801:Api is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Api to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Api(pulumi.CustomResource):
+    warnings.warn("""azure-native:apimanagement/v20210801:Api is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Api to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -581,6 +586,7 @@ class Api(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  wsdl_selector: Optional[pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""Api is deprecated: azure-native:apimanagement/v20210801:Api is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Api to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

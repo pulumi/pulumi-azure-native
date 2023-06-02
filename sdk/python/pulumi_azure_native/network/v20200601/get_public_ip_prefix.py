@@ -17,6 +17,8 @@ __all__ = [
     'get_public_ip_prefix_output',
 ]
 
+warnings.warn("""azure-native:network/v20200601:PublicIPPrefix is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:PublicIPPrefix to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPublicIPPrefixResult:
     """
@@ -249,6 +251,7 @@ def get_public_ip_prefix(expand: Optional[str] = None,
     :param str public_ip_prefix_name: The name of the public IP prefix.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_public_ip_prefix is deprecated: azure-native:network/v20200601:PublicIPPrefix is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:PublicIPPrefix to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['publicIpPrefixName'] = public_ip_prefix_name
@@ -289,4 +292,5 @@ def get_public_ip_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     :param str public_ip_prefix_name: The name of the public IP prefix.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_public_ip_prefix is deprecated: azure-native:network/v20200601:PublicIPPrefix is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:PublicIPPrefix to guarantee forwards compatibility.""")
     ...

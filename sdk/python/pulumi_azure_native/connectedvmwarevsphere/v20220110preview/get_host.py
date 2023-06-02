@@ -17,6 +17,8 @@ __all__ = [
     'get_host_output',
 ]
 
+warnings.warn("""azure-native:connectedvmwarevsphere/v20220110preview:Host is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:Host to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHostResult:
     """
@@ -235,6 +237,7 @@ def get_host(host_name: Optional[str] = None,
     :param str host_name: Name of the host.
     :param str resource_group_name: The Resource Group Name.
     """
+    pulumi.log.warn("""get_host is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:Host is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:Host to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['hostName'] = host_name
     __args__['resourceGroupName'] = resource_group_name
@@ -271,4 +274,5 @@ def get_host_output(host_name: Optional[pulumi.Input[str]] = None,
     :param str host_name: Name of the host.
     :param str resource_group_name: The Resource Group Name.
     """
+    pulumi.log.warn("""get_host is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:Host is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:Host to guarantee forwards compatibility.""")
     ...

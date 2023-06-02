@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
 {
+    [Obsolete(@"azure-native:dbforpostgresql/v20210615privatepreview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:dbforpostgresql/v20221108:FirewallRule to guarantee forwards compatibility.")]
     public static class GetFirewallRule
     {
         /// <summary>

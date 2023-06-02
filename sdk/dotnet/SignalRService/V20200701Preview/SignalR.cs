@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SignalRService.V20200701Preview
     /// <summary>
     /// A class represent a resource.
     /// </summary>
+    [Obsolete(@"azure-native:signalrservice/v20200701preview:SignalR is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalR to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:signalrservice/v20200701preview:SignalR")]
     public partial class SignalR : global::Pulumi.CustomResource
     {

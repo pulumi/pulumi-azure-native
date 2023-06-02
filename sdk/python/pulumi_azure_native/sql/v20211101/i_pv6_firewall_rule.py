@@ -113,7 +113,12 @@ class IPv6FirewallRuleArgs:
         pulumi.set(self, "start_i_pv6_address", value)
 
 
+warnings.warn("""azure-native:sql/v20211101:IPv6FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:IPv6FirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class IPv6FirewallRule(pulumi.CustomResource):
+    warnings.warn("""azure-native:sql/v20211101:IPv6FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:IPv6FirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -168,6 +173,7 @@ class IPv6FirewallRule(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  start_i_pv6_address: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""IPv6FirewallRule is deprecated: azure-native:sql/v20211101:IPv6FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:IPv6FirewallRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines the vCenter.
+ *
+ * @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VCenter is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VCenter to guarantee forwards compatibility.
  */
 export class VCenter extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class VCenter extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VCenter {
+        pulumi.log.warn("VCenter is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VCenter is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VCenter to guarantee forwards compatibility.")
         return new VCenter(name, undefined as any, { ...opts, id: id });
     }
 
@@ -113,7 +116,9 @@ export class VCenter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:VCenter is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VCenter to guarantee forwards compatibility. */
     constructor(name: string, args: VCenterArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VCenter is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:VCenter is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VCenter to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

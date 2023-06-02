@@ -17,7 +17,8 @@ __all__ = [
     'get_virtual_machine_output',
 ]
 
-warnings.warn("""Version 2019-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-03-01 will be removed in v2 of the provider.
+azure-native:compute/v20190301:VirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualMachineResult:
@@ -359,7 +360,8 @@ def get_virtual_machine(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str vm_name: The name of the virtual machine.
     """
-    pulumi.log.warn("""get_virtual_machine is deprecated: Version 2019-03-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_virtual_machine is deprecated: Version 2019-03-01 will be removed in v2 of the provider.
+azure-native:compute/v20190301:VirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -409,5 +411,6 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str resource_group_name: The name of the resource group.
     :param str vm_name: The name of the virtual machine.
     """
-    pulumi.log.warn("""get_virtual_machine is deprecated: Version 2019-03-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_virtual_machine is deprecated: Version 2019-03-01 will be removed in v2 of the provider.
+azure-native:compute/v20190301:VirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility.""")
     ...

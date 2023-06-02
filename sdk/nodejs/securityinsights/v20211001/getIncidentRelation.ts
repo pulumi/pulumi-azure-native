@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a relation for a given incident.
  */
+/** @deprecated azure-native:securityinsights/v20211001:IncidentRelation is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:IncidentRelation to guarantee forwards compatibility. */
 export function getIncidentRelation(args: GetIncidentRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentRelationResult> {
+    pulumi.log.warn("getIncidentRelation is deprecated: azure-native:securityinsights/v20211001:IncidentRelation is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:IncidentRelation to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20211001:getIncidentRelation", {
@@ -84,6 +86,7 @@ export interface GetIncidentRelationResult {
 /**
  * Gets a relation for a given incident.
  */
+/** @deprecated azure-native:securityinsights/v20211001:IncidentRelation is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:IncidentRelation to guarantee forwards compatibility. */
 export function getIncidentRelationOutput(args: GetIncidentRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentRelationResult> {
     return pulumi.output(args).apply((a: any) => getIncidentRelation(a, opts))
 }

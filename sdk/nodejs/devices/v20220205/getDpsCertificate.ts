@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the certificate from the provisioning service.
  */
+/** @deprecated azure-native:devices/v20220205:DpsCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:DpsCertificate to guarantee forwards compatibility. */
 export function getDpsCertificate(args: GetDpsCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsCertificateResult> {
+    pulumi.log.warn("getDpsCertificate is deprecated: azure-native:devices/v20220205:DpsCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:DpsCertificate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices/v20220205:getDpsCertificate", {
@@ -67,6 +69,7 @@ export interface GetDpsCertificateResult {
 /**
  * Get the certificate from the provisioning service.
  */
+/** @deprecated azure-native:devices/v20220205:DpsCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:DpsCertificate to guarantee forwards compatibility. */
 export function getDpsCertificateOutput(args: GetDpsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsCertificateResult> {
     return pulumi.output(args).apply((a: any) => getDpsCertificate(a, opts))
 }

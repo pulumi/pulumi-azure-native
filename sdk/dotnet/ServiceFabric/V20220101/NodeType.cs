@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101
     /// <summary>
     /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     /// </summary>
+    [Obsolete(@"azure-native:servicefabric/v20220101:NodeType is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20230201preview:NodeType to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicefabric/v20220101:NodeType")]
     public partial class NodeType : global::Pulumi.CustomResource
     {
@@ -250,7 +251,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220801preview:NodeType"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20221001preview:NodeType"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230201preview:NodeType"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230301preview:NodeType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

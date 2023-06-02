@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Devices.V20200401
 {
+    [Obsolete(@"azure-native:devices/v20200401:IotHubResourceEventHubConsumerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20210303preview:IotHubResourceEventHubConsumerGroup to guarantee forwards compatibility.")]
     public static class GetIotHubResourceEventHubConsumerGroup
     {
         /// <summary>

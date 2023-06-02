@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a managed instance.
  */
+/** @deprecated azure-native:sql/v20150501preview:ManagedInstance is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20210201preview:ManagedInstance to guarantee forwards compatibility. */
 export function getManagedInstance(args: GetManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceResult> {
+    pulumi.log.warn("getManagedInstance is deprecated: azure-native:sql/v20150501preview:ManagedInstance is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20210201preview:ManagedInstance to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20150501preview:getManagedInstance", {
@@ -131,6 +133,7 @@ export interface GetManagedInstanceResult {
 /**
  * Gets a managed instance.
  */
+/** @deprecated azure-native:sql/v20150501preview:ManagedInstance is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20210201preview:ManagedInstance to guarantee forwards compatibility. */
 export function getManagedInstanceOutput(args: GetManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceResult> {
     return pulumi.output(args).apply((a: any) => getManagedInstance(a, opts))
 }

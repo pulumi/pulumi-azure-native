@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ProviderHub.V20210501Preview
 {
+    [Obsolete(@"azure-native:providerhub/v20210501preview:DefaultRollout is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:DefaultRollout to guarantee forwards compatibility.")]
     public static class GetDefaultRollout
     {
         /// <summary>

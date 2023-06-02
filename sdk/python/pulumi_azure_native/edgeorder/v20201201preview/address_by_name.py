@@ -116,11 +116,13 @@ class AddressByNameArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2020-12-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-12-01-preview will be removed in v2 of the provider.
+azure-native:edgeorder/v20201201preview:AddressByName is being removed in the next major version of this provider. Please upgrade to azure-native:edgeorder/v20211201:AddressByName to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class AddressByName(pulumi.CustomResource):
-    warnings.warn("""Version 2020-12-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2020-12-01-preview will be removed in v2 of the provider.
+azure-native:edgeorder/v20201201preview:AddressByName is being removed in the next major version of this provider. Please upgrade to azure-native:edgeorder/v20211201:AddressByName to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -176,7 +178,8 @@ class AddressByName(pulumi.CustomResource):
                  shipping_address: Optional[pulumi.Input[pulumi.InputType['ShippingAddressArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""AddressByName is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""AddressByName is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.
+azure-native:edgeorder/v20201201preview:AddressByName is being removed in the next major version of this provider. Please upgrade to azure-native:edgeorder/v20211201:AddressByName to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

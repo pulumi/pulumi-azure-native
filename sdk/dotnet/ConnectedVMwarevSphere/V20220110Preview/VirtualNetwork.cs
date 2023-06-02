@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     /// <summary>
     /// Define the virtualNetwork.
     /// </summary>
+    [Obsolete(@"azure-native:connectedvmwarevsphere/v20220110preview:VirtualNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:VirtualNetwork to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20220110preview:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource
     {

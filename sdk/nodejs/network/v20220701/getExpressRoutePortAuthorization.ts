@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified authorization from the specified express route port.
  */
+/** @deprecated azure-native:network/v20220701:ExpressRoutePortAuthorization is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRoutePortAuthorization to guarantee forwards compatibility. */
 export function getExpressRoutePortAuthorization(args: GetExpressRoutePortAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRoutePortAuthorizationResult> {
+    pulumi.log.warn("getExpressRoutePortAuthorization is deprecated: azure-native:network/v20220701:ExpressRoutePortAuthorization is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRoutePortAuthorization to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220701:getExpressRoutePortAuthorization", {
@@ -72,6 +74,7 @@ export interface GetExpressRoutePortAuthorizationResult {
 /**
  * Gets the specified authorization from the specified express route port.
  */
+/** @deprecated azure-native:network/v20220701:ExpressRoutePortAuthorization is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRoutePortAuthorization to guarantee forwards compatibility. */
 export function getExpressRoutePortAuthorizationOutput(args: GetExpressRoutePortAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRoutePortAuthorizationResult> {
     return pulumi.output(args).apply((a: any) => getExpressRoutePortAuthorization(a, opts))
 }

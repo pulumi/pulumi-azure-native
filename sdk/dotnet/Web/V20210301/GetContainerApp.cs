@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Web.V20210301
 {
+    [Obsolete(@"azure-native:web/v20210301:ContainerApp is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:ContainerApp to guarantee forwards compatibility.")]
     public static class GetContainerApp
     {
         /// <summary>

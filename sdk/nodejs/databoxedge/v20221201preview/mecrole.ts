@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * MEC role.
+ *
+ * @deprecated azure-native:databoxedge/v20221201preview:MECRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:MECRole to guarantee forwards compatibility.
  */
 export class MECRole extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class MECRole extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MECRole {
+        pulumi.log.warn("MECRole is deprecated: azure-native:databoxedge/v20221201preview:MECRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:MECRole to guarantee forwards compatibility.")
         return new MECRole(name, undefined as any, { ...opts, id: id });
     }
 
@@ -78,7 +81,9 @@ export class MECRole extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:databoxedge/v20221201preview:MECRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:MECRole to guarantee forwards compatibility. */
     constructor(name: string, args: MECRoleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MECRole is deprecated: azure-native:databoxedge/v20221201preview:MECRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:MECRole to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

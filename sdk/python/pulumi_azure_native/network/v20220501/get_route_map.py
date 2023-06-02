@@ -17,6 +17,8 @@ __all__ = [
     'get_route_map_output',
 ]
 
+warnings.warn("""azure-native:network/v20220501:RouteMap is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RouteMap to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRouteMapResult:
     """
@@ -141,6 +143,7 @@ def get_route_map(resource_group_name: Optional[str] = None,
     :param str route_map_name: The name of the RouteMap.
     :param str virtual_hub_name: The name of the VirtualHub containing the RouteMap.
     """
+    pulumi.log.warn("""get_route_map is deprecated: azure-native:network/v20220501:RouteMap is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RouteMap to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeMapName'] = route_map_name
@@ -172,4 +175,5 @@ def get_route_map_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str route_map_name: The name of the RouteMap.
     :param str virtual_hub_name: The name of the VirtualHub containing the RouteMap.
     """
+    pulumi.log.warn("""get_route_map is deprecated: azure-native:network/v20220501:RouteMap is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RouteMap to guarantee forwards compatibility.""")
     ...

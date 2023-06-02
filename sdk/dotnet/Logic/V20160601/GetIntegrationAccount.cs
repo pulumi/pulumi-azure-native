@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Logic.V20160601
 {
+    [Obsolete(@"azure-native:logic/v20160601:IntegrationAccount is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccount to guarantee forwards compatibility.")]
     public static class GetIntegrationAccount
     {
         /// <summary>

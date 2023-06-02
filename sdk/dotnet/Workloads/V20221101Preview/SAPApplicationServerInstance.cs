@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Workloads.V20221101Preview
     /// <summary>
     /// Define the SAP Application Server Instance resource.
     /// </summary>
+    [Obsolete(@"azure-native:workloads/v20221101preview:SAPApplicationServerInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:SAPApplicationServerInstance to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:workloads/v20221101preview:SAPApplicationServerInstance")]
     public partial class SAPApplicationServerInstance : global::Pulumi.CustomResource
     {

@@ -17,6 +17,8 @@ __all__ = [
     'get_office365_project_data_connector_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20220601preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetOffice365ProjectDataConnectorResult:
     """
@@ -142,6 +144,7 @@ def get_office365_project_data_connector(data_connector_id: Optional[str] = None
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_office365_project_data_connector is deprecated: azure-native:securityinsights/v20220601preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dataConnectorId'] = data_connector_id
     __args__['resourceGroupName'] = resource_group_name
@@ -173,4 +176,5 @@ def get_office365_project_data_connector_output(data_connector_id: Optional[pulu
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_office365_project_data_connector is deprecated: azure-native:securityinsights/v20220601preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility.""")
     ...

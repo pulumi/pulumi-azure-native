@@ -83,11 +83,13 @@ class DatasetArgs:
         pulumi.set(self, "dataset_name", value)
 
 
-warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Dataset is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:Dataset to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Dataset(pulumi.CustomResource):
-    warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Dataset is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:Dataset to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -137,7 +139,8 @@ class Dataset(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[Union[pulumi.InputType['AmazonMWSObjectDatasetArgs'], pulumi.InputType['AmazonS3DatasetArgs'], pulumi.InputType['AzureBlobDatasetArgs'], pulumi.InputType['AzureDataLakeStoreDatasetArgs'], pulumi.InputType['AzureMySqlTableDatasetArgs'], pulumi.InputType['AzurePostgreSqlTableDatasetArgs'], pulumi.InputType['AzureSearchIndexDatasetArgs'], pulumi.InputType['AzureSqlDWTableDatasetArgs'], pulumi.InputType['AzureSqlTableDatasetArgs'], pulumi.InputType['AzureTableDatasetArgs'], pulumi.InputType['CassandraTableDatasetArgs'], pulumi.InputType['ConcurObjectDatasetArgs'], pulumi.InputType['CouchbaseTableDatasetArgs'], pulumi.InputType['CustomDatasetArgs'], pulumi.InputType['DocumentDbCollectionDatasetArgs'], pulumi.InputType['DrillTableDatasetArgs'], pulumi.InputType['DynamicsEntityDatasetArgs'], pulumi.InputType['EloquaObjectDatasetArgs'], pulumi.InputType['FileShareDatasetArgs'], pulumi.InputType['GoogleBigQueryObjectDatasetArgs'], pulumi.InputType['GreenplumTableDatasetArgs'], pulumi.InputType['HBaseObjectDatasetArgs'], pulumi.InputType['HiveObjectDatasetArgs'], pulumi.InputType['HttpDatasetArgs'], pulumi.InputType['HubspotObjectDatasetArgs'], pulumi.InputType['ImpalaObjectDatasetArgs'], pulumi.InputType['JiraObjectDatasetArgs'], pulumi.InputType['MagentoObjectDatasetArgs'], pulumi.InputType['MariaDBTableDatasetArgs'], pulumi.InputType['MarketoObjectDatasetArgs'], pulumi.InputType['MongoDbCollectionDatasetArgs'], pulumi.InputType['NetezzaTableDatasetArgs'], pulumi.InputType['ODataResourceDatasetArgs'], pulumi.InputType['OracleTableDatasetArgs'], pulumi.InputType['PaypalObjectDatasetArgs'], pulumi.InputType['PhoenixObjectDatasetArgs'], pulumi.InputType['PrestoObjectDatasetArgs'], pulumi.InputType['QuickBooksObjectDatasetArgs'], pulumi.InputType['RelationalTableDatasetArgs'], pulumi.InputType['ResponsysObjectDatasetArgs'], pulumi.InputType['SalesforceMarketingCloudObjectDatasetArgs'], pulumi.InputType['SalesforceObjectDatasetArgs'], pulumi.InputType['SapCloudForCustomerResourceDatasetArgs'], pulumi.InputType['SapEccResourceDatasetArgs'], pulumi.InputType['ServiceNowObjectDatasetArgs'], pulumi.InputType['ShopifyObjectDatasetArgs'], pulumi.InputType['SparkObjectDatasetArgs'], pulumi.InputType['SqlServerTableDatasetArgs'], pulumi.InputType['SquareObjectDatasetArgs'], pulumi.InputType['VerticaTableDatasetArgs'], pulumi.InputType['WebTableDatasetArgs'], pulumi.InputType['XeroObjectDatasetArgs'], pulumi.InputType['ZohoObjectDatasetArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Dataset is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""Dataset is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.
+azure-native:datafactory/v20170901preview:Dataset is being removed in the next major version of this provider. Please upgrade to azure-native:datafactory/v20180601:Dataset to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

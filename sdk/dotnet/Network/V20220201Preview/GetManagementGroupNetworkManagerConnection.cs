@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20220201Preview
 {
+    [Obsolete(@"azure-native:network/v20220201preview:ManagementGroupNetworkManagerConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ManagementGroupNetworkManagerConnection to guarantee forwards compatibility.")]
     public static class GetManagementGroupNetworkManagerConnection
     {
         /// <summary>

@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An event source that receives its data from an Azure IoTHub.
+ *
+ * @deprecated azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource to guarantee forwards compatibility.
  */
 export class IoTHubEventSource extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class IoTHubEventSource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IoTHubEventSource {
+        pulumi.log.warn("IoTHubEventSource is deprecated: azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource to guarantee forwards compatibility.")
         return new IoTHubEventSource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -91,7 +94,9 @@ export class IoTHubEventSource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource to guarantee forwards compatibility. */
     constructor(name: string, args: IoTHubEventSourceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("IoTHubEventSource is deprecated: azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

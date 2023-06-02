@@ -17,7 +17,8 @@ __all__ = [
     'get_machine_extension_output',
 ]
 
-warnings.warn("""Version 2019-12-12 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-12-12 will be removed in v2 of the provider.
+azure-native:hybridcompute/v20191212:MachineExtension is being removed in the next major version of this provider. Please upgrade to azure-native:hybridcompute/v20200815preview:MachineExtension to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetMachineExtensionResult:
@@ -203,7 +204,8 @@ def get_machine_extension(extension_name: Optional[str] = None,
     :param str name: The name of the machine containing the extension.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_machine_extension is deprecated: Version 2019-12-12 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_machine_extension is deprecated: Version 2019-12-12 will be removed in v2 of the provider.
+azure-native:hybridcompute/v20191212:MachineExtension is being removed in the next major version of this provider. Please upgrade to azure-native:hybridcompute/v20200815preview:MachineExtension to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['extensionName'] = extension_name
     __args__['name'] = name
@@ -240,5 +242,6 @@ def get_machine_extension_output(extension_name: Optional[pulumi.Input[str]] = N
     :param str name: The name of the machine containing the extension.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_machine_extension is deprecated: Version 2019-12-12 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_machine_extension is deprecated: Version 2019-12-12 will be removed in v2 of the provider.
+azure-native:hybridcompute/v20191212:MachineExtension is being removed in the next major version of this provider. Please upgrade to azure-native:hybridcompute/v20200815preview:MachineExtension to guarantee forwards compatibility.""")
     ...

@@ -17,6 +17,8 @@ __all__ = [
     'get_replication_storage_classification_mapping_output',
 ]
 
+warnings.warn("""azure-native:recoveryservices/v20230101:ReplicationStorageClassificationMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationStorageClassificationMapping to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReplicationStorageClassificationMappingResult:
     """
@@ -109,6 +111,7 @@ def get_replication_storage_classification_mapping(fabric_name: Optional[str] = 
     :param str storage_classification_mapping_name: Storage classification mapping name.
     :param str storage_classification_name: Storage classification name.
     """
+    pulumi.log.warn("""get_replication_storage_classification_mapping is deprecated: azure-native:recoveryservices/v20230101:ReplicationStorageClassificationMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationStorageClassificationMapping to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['resourceGroupName'] = resource_group_name
@@ -143,4 +146,5 @@ def get_replication_storage_classification_mapping_output(fabric_name: Optional[
     :param str storage_classification_mapping_name: Storage classification mapping name.
     :param str storage_classification_name: Storage classification name.
     """
+    pulumi.log.warn("""get_replication_storage_classification_mapping is deprecated: azure-native:recoveryservices/v20230101:ReplicationStorageClassificationMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationStorageClassificationMapping to guarantee forwards compatibility.""")
     ...

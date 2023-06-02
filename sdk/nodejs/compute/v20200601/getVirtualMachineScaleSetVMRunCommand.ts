@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * The operation to get the VMSS VM run command.
  */
-/** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSetVMRunCommand to guarantee forwards compatibility. */
 export function getVirtualMachineScaleSetVMRunCommand(args: GetVirtualMachineScaleSetVMRunCommandArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMRunCommandResult> {
-    pulumi.log.warn("getVirtualMachineScaleSetVMRunCommand is deprecated: Version 2020-06-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getVirtualMachineScaleSetVMRunCommand is deprecated: Version 2020-06-01 will be removed in v2 of the provider.\nazure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSetVMRunCommand to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20200601:getVirtualMachineScaleSetVMRunCommand", {
@@ -119,7 +120,8 @@ export interface GetVirtualMachineScaleSetVMRunCommandResult {
 /**
  * The operation to get the VMSS VM run command.
  */
-/** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSetVMRunCommand to guarantee forwards compatibility. */
 export function getVirtualMachineScaleSetVMRunCommandOutput(args: GetVirtualMachineScaleSetVMRunCommandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMRunCommandResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVMRunCommand(a, opts))
 }

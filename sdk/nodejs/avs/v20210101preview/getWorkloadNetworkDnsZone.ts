@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * NSX DNS Zone
  */
+/** @deprecated azure-native:avs/v20210101preview:WorkloadNetworkDnsZone is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkDnsZone to guarantee forwards compatibility. */
 export function getWorkloadNetworkDnsZone(args: GetWorkloadNetworkDnsZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDnsZoneResult> {
+    pulumi.log.warn("getWorkloadNetworkDnsZone is deprecated: azure-native:avs/v20210101preview:WorkloadNetworkDnsZone is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkDnsZone to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20210101preview:getWorkloadNetworkDnsZone", {
@@ -80,6 +82,7 @@ export interface GetWorkloadNetworkDnsZoneResult {
 /**
  * NSX DNS Zone
  */
+/** @deprecated azure-native:avs/v20210101preview:WorkloadNetworkDnsZone is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkDnsZone to guarantee forwards compatibility. */
 export function getWorkloadNetworkDnsZoneOutput(args: GetWorkloadNetworkDnsZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDnsZoneResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadNetworkDnsZone(a, opts))
 }

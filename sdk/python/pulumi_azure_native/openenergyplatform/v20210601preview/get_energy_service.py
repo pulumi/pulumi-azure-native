@@ -17,6 +17,8 @@ __all__ = [
     'get_energy_service_output',
 ]
 
+warnings.warn("""azure-native:openenergyplatform/v20210601preview:EnergyService is being removed in the next major version of this provider. Please upgrade to azure-native:openenergyplatform/v20220404preview:EnergyService to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEnergyServiceResult:
     def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
@@ -121,6 +123,7 @@ def get_energy_service(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The resource name.
     """
+    pulumi.log.warn("""get_energy_service is deprecated: azure-native:openenergyplatform/v20210601preview:EnergyService is being removed in the next major version of this provider. Please upgrade to azure-native:openenergyplatform/v20220404preview:EnergyService to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -148,4 +151,5 @@ def get_energy_service_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The resource name.
     """
+    pulumi.log.warn("""get_energy_service is deprecated: azure-native:openenergyplatform/v20210601preview:EnergyService is being removed in the next major version of this provider. Please upgrade to azure-native:openenergyplatform/v20220404preview:EnergyService to guarantee forwards compatibility.""")
     ...

@@ -16,6 +16,8 @@ __all__ = [
     'get_workload_network_dns_service_output',
 ]
 
+warnings.warn("""azure-native:avs/v20210101preview:WorkloadNetworkDnsService is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkDnsService to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWorkloadNetworkDnsServiceResult:
     """
@@ -176,6 +178,7 @@ def get_workload_network_dns_service(dns_service_id: Optional[str] = None,
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_workload_network_dns_service is deprecated: azure-native:avs/v20210101preview:WorkloadNetworkDnsService is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkDnsService to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dnsServiceId'] = dns_service_id
     __args__['privateCloudName'] = private_cloud_name
@@ -210,4 +213,5 @@ def get_workload_network_dns_service_output(dns_service_id: Optional[pulumi.Inpu
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_workload_network_dns_service is deprecated: azure-native:avs/v20210101preview:WorkloadNetworkDnsService is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkDnsService to guarantee forwards compatibility.""")
     ...

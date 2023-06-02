@@ -17,6 +17,8 @@ __all__ = [
     'get_configuration_profile_hcrpassignment_output',
 ]
 
+warnings.warn("""azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConfigurationProfileHCRPAssignmentResult:
     """
@@ -105,6 +107,7 @@ def get_configuration_profile_hcrpassignment(configuration_profile_assignment_na
     :param str machine_name: The name of the Arc machine.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_configuration_profile_hcrpassignment is deprecated: azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['configurationProfileAssignmentName'] = configuration_profile_assignment_name
     __args__['machineName'] = machine_name
@@ -133,4 +136,5 @@ def get_configuration_profile_hcrpassignment_output(configuration_profile_assign
     :param str machine_name: The name of the Arc machine.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_configuration_profile_hcrpassignment is deprecated: azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment to guarantee forwards compatibility.""")
     ...

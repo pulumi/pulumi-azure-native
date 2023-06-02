@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
+    [Obsolete(@"azure-native:machinelearningservices/v20200901preview:EndpointVariant is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:EndpointVariant to guarantee forwards compatibility.")]
     public static class GetEndpointVariant
     {
         /// <summary>

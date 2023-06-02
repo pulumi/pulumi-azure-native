@@ -146,11 +146,13 @@ class DataStoreArgs:
         pulumi.set(self, "repository_id", value)
 
 
-warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:hybriddata/v20160601:DataStore is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataStore to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class DataStore(pulumi.CustomResource):
-    warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:hybriddata/v20160601:DataStore is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataStore to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -212,7 +214,8 @@ class DataStore(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['State']] = None,
                  __props__=None):
-        pulumi.log.warn("""DataStore is deprecated: Version 2016-06-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""DataStore is deprecated: Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:hybriddata/v20160601:DataStore is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataStore to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

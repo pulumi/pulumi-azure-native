@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.CognitiveServices.V20220301
 {
+    [Obsolete(@"azure-native:cognitiveservices/v20220301:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:cognitiveservices/v20221201:Deployment to guarantee forwards compatibility.")]
     public static class GetDeployment
     {
         /// <summary>

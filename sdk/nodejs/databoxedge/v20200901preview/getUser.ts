@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified user.
  */
-/** @deprecated Version 2020-09-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-09-01-preview will be removed in v2 of the provider.
+azure-native:databoxedge/v20200901preview:User is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20210201preview:User to guarantee forwards compatibility. */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    pulumi.log.warn("getUser is deprecated: Version 2020-09-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getUser is deprecated: Version 2020-09-01-preview will be removed in v2 of the provider.\nazure-native:databoxedge/v20200901preview:User is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20210201preview:User to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20200901preview:getUser", {
@@ -73,7 +74,8 @@ export interface GetUserResult {
 /**
  * Gets the properties of the specified user.
  */
-/** @deprecated Version 2020-09-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-09-01-preview will be removed in v2 of the provider.
+azure-native:databoxedge/v20200901preview:User is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20210201preview:User to guarantee forwards compatibility. */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }

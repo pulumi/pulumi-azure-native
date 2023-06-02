@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20220401Preview
 {
+    [Obsolete(@"azure-native:apimanagement/v20220401preview:PolicyFragment is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:PolicyFragment to guarantee forwards compatibility.")]
     public static class GetPolicyFragment
     {
         /// <summary>

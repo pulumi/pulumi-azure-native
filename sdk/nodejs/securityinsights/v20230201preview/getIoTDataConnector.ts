@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20230201preview:IoTDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:IoTDataConnector to guarantee forwards compatibility. */
 export function getIoTDataConnector(args: GetIoTDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTDataConnectorResult> {
+    pulumi.log.warn("getIoTDataConnector is deprecated: azure-native:securityinsights/v20230201preview:IoTDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:IoTDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230201preview:getIoTDataConnector", {
@@ -76,6 +78,7 @@ export interface GetIoTDataConnectorResult {
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20230201preview:IoTDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:IoTDataConnector to guarantee forwards compatibility. */
 export function getIoTDataConnectorOutput(args: GetIoTDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getIoTDataConnector(a, opts))
 }

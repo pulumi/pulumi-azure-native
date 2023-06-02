@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB database account.
+ *
+ * @deprecated azure-native:documentdb/v20210515:DatabaseAccount is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:DatabaseAccount to guarantee forwards compatibility.
  */
 export class DatabaseAccount extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccount {
+        pulumi.log.warn("DatabaseAccount is deprecated: azure-native:documentdb/v20210515:DatabaseAccount is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:DatabaseAccount to guarantee forwards compatibility.")
         return new DatabaseAccount(name, undefined as any, { ...opts, id: id });
     }
 
@@ -185,7 +188,9 @@ export class DatabaseAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:documentdb/v20210515:DatabaseAccount is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:DatabaseAccount to guarantee forwards compatibility. */
     constructor(name: string, args: DatabaseAccountArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DatabaseAccount is deprecated: azure-native:documentdb/v20210515:DatabaseAccount is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:DatabaseAccount to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

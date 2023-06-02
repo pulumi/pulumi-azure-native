@@ -17,6 +17,8 @@ __all__ = [
     'get_signal_r_output',
 ]
 
+warnings.warn("""azure-native:signalrservice/v20220801preview:SignalR is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalR to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSignalRResult:
     """
@@ -402,6 +404,7 @@ def get_signal_r(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the resource.
     """
+    pulumi.log.warn("""get_signal_r is deprecated: azure-native:signalrservice/v20220801preview:SignalR is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalR to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -451,4 +454,5 @@ def get_signal_r_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the resource.
     """
+    pulumi.log.warn("""get_signal_r is deprecated: azure-native:signalrservice/v20220801preview:SignalR is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalR to guarantee forwards compatibility.""")
     ...

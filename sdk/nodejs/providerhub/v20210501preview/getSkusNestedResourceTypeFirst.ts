@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the sku details for the given resource type and sku name.
  */
+/** @deprecated azure-native:providerhub/v20210501preview:SkusNestedResourceTypeFirst is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:SkusNestedResourceTypeFirst to guarantee forwards compatibility. */
 export function getSkusNestedResourceTypeFirst(args: GetSkusNestedResourceTypeFirstArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusNestedResourceTypeFirstResult> {
+    pulumi.log.warn("getSkusNestedResourceTypeFirst is deprecated: azure-native:providerhub/v20210501preview:SkusNestedResourceTypeFirst is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:SkusNestedResourceTypeFirst to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub/v20210501preview:getSkusNestedResourceTypeFirst", {
@@ -58,6 +60,7 @@ export interface GetSkusNestedResourceTypeFirstResult {
 /**
  * Gets the sku details for the given resource type and sku name.
  */
+/** @deprecated azure-native:providerhub/v20210501preview:SkusNestedResourceTypeFirst is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:SkusNestedResourceTypeFirst to guarantee forwards compatibility. */
 export function getSkusNestedResourceTypeFirstOutput(args: GetSkusNestedResourceTypeFirstOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusNestedResourceTypeFirstResult> {
     return pulumi.output(args).apply((a: any) => getSkusNestedResourceTypeFirst(a, opts))
 }

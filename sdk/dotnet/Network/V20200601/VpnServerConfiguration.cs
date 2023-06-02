@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20200601
     /// <summary>
     /// VpnServerConfiguration Resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20200601:VpnServerConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnServerConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20200601:VpnServerConfiguration")]
     public partial class VpnServerConfiguration : global::Pulumi.CustomResource
     {

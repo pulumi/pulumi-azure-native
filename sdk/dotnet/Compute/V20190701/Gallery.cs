@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Compute.V20190701
     /// <summary>
     /// Specifies information about the Shared Image Gallery that you want to create or update.
     /// </summary>
-    [Obsolete(@"Version 2019-07-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-07-01 will be removed in v2 of the provider.
+azure-native:compute/v20190701:Gallery is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:Gallery to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20190701:Gallery")]
     public partial class Gallery : global::Pulumi.CustomResource
     {

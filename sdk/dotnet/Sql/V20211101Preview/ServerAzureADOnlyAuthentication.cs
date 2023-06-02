@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
     /// <summary>
     /// Azure Active Directory only authentication.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20211101preview:ServerAzureADOnlyAuthentication is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerAzureADOnlyAuthentication to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20211101preview:ServerAzureADOnlyAuthentication")]
     public partial class ServerAzureADOnlyAuthentication : global::Pulumi.CustomResource
     {

@@ -204,7 +204,12 @@ class BlobDataSetMappingArgs:
         pulumi.set(self, "output_type", value)
 
 
+warnings.warn("""azure-native:datashare/v20181101preview:BlobDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobDataSetMapping to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class BlobDataSetMapping(pulumi.CustomResource):
+    warnings.warn("""azure-native:datashare/v20181101preview:BlobDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobDataSetMapping to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -278,6 +283,7 @@ class BlobDataSetMapping(pulumi.CustomResource):
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""BlobDataSetMapping is deprecated: azure-native:datashare/v20181101preview:BlobDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobDataSetMapping to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

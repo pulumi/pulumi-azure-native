@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of a domain.
  */
+/** @deprecated azure-native:eventgrid/v20201015preview:Domain is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20211015preview:Domain to guarantee forwards compatibility. */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
+    pulumi.log.warn("getDomain is deprecated: azure-native:eventgrid/v20201015preview:Domain is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20211015preview:Domain to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20201015preview:getDomain", {
@@ -103,6 +105,7 @@ export interface GetDomainResult {
 /**
  * Get properties of a domain.
  */
+/** @deprecated azure-native:eventgrid/v20201015preview:Domain is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20211015preview:Domain to guarantee forwards compatibility. */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply((a: any) => getDomain(a, opts))
 }

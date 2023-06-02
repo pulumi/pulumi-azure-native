@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
  *
  * @deprecated Version 2020-04-01 will be removed in v2 of the provider.
+azure-native:peering/v20200401:Peering is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:Peering to guarantee forwards compatibility.
  */
 export class Peering extends pulumi.CustomResource {
     /**
@@ -22,7 +23,7 @@ export class Peering extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Peering {
-        pulumi.log.warn("Peering is deprecated: Version 2020-04-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("Peering is deprecated: Version 2020-04-01 will be removed in v2 of the provider.\nazure-native:peering/v20200401:Peering is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:Peering to guarantee forwards compatibility.")
         return new Peering(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,9 +89,10 @@ export class Peering extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2020-04-01 will be removed in v2 of the provider. */
+    /** @deprecated Version 2020-04-01 will be removed in v2 of the provider.
+azure-native:peering/v20200401:Peering is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:Peering to guarantee forwards compatibility. */
     constructor(name: string, args: PeeringArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Peering is deprecated: Version 2020-04-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("Peering is deprecated: Version 2020-04-01 will be removed in v2 of the provider.\nazure-native:peering/v20200401:Peering is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:Peering to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

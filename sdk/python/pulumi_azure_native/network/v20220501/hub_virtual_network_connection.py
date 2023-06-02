@@ -180,7 +180,12 @@ class HubVirtualNetworkConnectionArgs:
         pulumi.set(self, "routing_configuration", value)
 
 
+warnings.warn("""azure-native:network/v20220501:HubVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:HubVirtualNetworkConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class HubVirtualNetworkConnection(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20220501:HubVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:HubVirtualNetworkConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -247,6 +252,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
                  routing_configuration: Optional[pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""HubVirtualNetworkConnection is deprecated: azure-native:network/v20220501:HubVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:HubVirtualNetworkConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

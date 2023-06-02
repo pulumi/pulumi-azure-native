@@ -17,6 +17,8 @@ __all__ = [
     'get_cassandra_resource_cassandra_keyspace_output',
 ]
 
+warnings.warn("""azure-native:documentdb/v20220215preview:CassandraResourceCassandraKeyspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:CassandraResourceCassandraKeyspace to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCassandraResourceCassandraKeyspaceResult:
     """
@@ -135,6 +137,7 @@ def get_cassandra_resource_cassandra_keyspace(account_name: Optional[str] = None
     :param str keyspace_name: Cosmos DB keyspace name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_cassandra_resource_cassandra_keyspace is deprecated: azure-native:documentdb/v20220215preview:CassandraResourceCassandraKeyspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:CassandraResourceCassandraKeyspace to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['keyspaceName'] = keyspace_name
@@ -166,4 +169,5 @@ def get_cassandra_resource_cassandra_keyspace_output(account_name: Optional[pulu
     :param str keyspace_name: Cosmos DB keyspace name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_cassandra_resource_cassandra_keyspace is deprecated: azure-native:documentdb/v20220215preview:CassandraResourceCassandraKeyspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:CassandraResourceCassandraKeyspace to guarantee forwards compatibility.""")
     ...

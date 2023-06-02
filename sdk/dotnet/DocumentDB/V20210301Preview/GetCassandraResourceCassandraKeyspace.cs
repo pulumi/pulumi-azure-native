@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
 {
+    [Obsolete(@"azure-native:documentdb/v20210301preview:CassandraResourceCassandraKeyspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:CassandraResourceCassandraKeyspace to guarantee forwards compatibility.")]
     public static class GetCassandraResourceCassandraKeyspace
     {
         /// <summary>

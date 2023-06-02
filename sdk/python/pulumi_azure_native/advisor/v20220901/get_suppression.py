@@ -16,6 +16,8 @@ __all__ = [
     'get_suppression_output',
 ]
 
+warnings.warn("""azure-native:advisor/v20220901:Suppression is being removed in the next major version of this provider. Please upgrade to azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSuppressionResult:
     """
@@ -116,6 +118,7 @@ def get_suppression(name: Optional[str] = None,
     :param str recommendation_id: The recommendation ID.
     :param str resource_uri: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
     """
+    pulumi.log.warn("""get_suppression is deprecated: azure-native:advisor/v20220901:Suppression is being removed in the next major version of this provider. Please upgrade to azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['recommendationId'] = recommendation_id
@@ -145,4 +148,5 @@ def get_suppression_output(name: Optional[pulumi.Input[str]] = None,
     :param str recommendation_id: The recommendation ID.
     :param str resource_uri: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
     """
+    pulumi.log.warn("""get_suppression is deprecated: azure-native:advisor/v20220901:Suppression is being removed in the next major version of this provider. Please upgrade to azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.""")
     ...

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview
     /// <summary>
     /// The HDInsight cluster.
     /// </summary>
-    [Obsolete(@"Version 2015-03-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2015-03-01-preview will be removed in v2 of the provider.
+azure-native:hdinsight/v20150301preview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:hdinsight/v20210601:Cluster to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hdinsight/v20150301preview:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
@@ -86,7 +87,6 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230415preview:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

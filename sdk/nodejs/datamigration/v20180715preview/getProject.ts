@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
  */
+/** @deprecated azure-native:datamigration/v20180715preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20210630:Project to guarantee forwards compatibility. */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
+    pulumi.log.warn("getProject is deprecated: azure-native:datamigration/v20180715preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20210630:Project to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20180715preview:getProject", {
@@ -91,6 +93,7 @@ export interface GetProjectResult {
 /**
  * The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
  */
+/** @deprecated azure-native:datamigration/v20180715preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20210630:Project to guarantee forwards compatibility. */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
     return pulumi.output(args).apply((a: any) => getProject(a, opts))
 }

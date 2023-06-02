@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the properties of an existing Azure Cosmos DB SQL Role Assignment with the given Id.
  */
+/** @deprecated azure-native:documentdb/v20220215preview:SqlResourceSqlRoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:SqlResourceSqlRoleAssignment to guarantee forwards compatibility. */
 export function getSqlResourceSqlRoleAssignment(args: GetSqlResourceSqlRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlRoleAssignmentResult> {
+    pulumi.log.warn("getSqlResourceSqlRoleAssignment is deprecated: azure-native:documentdb/v20220215preview:SqlResourceSqlRoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:SqlResourceSqlRoleAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20220215preview:getSqlResourceSqlRoleAssignment", {
@@ -64,6 +66,7 @@ export interface GetSqlResourceSqlRoleAssignmentResult {
 /**
  * Retrieves the properties of an existing Azure Cosmos DB SQL Role Assignment with the given Id.
  */
+/** @deprecated azure-native:documentdb/v20220215preview:SqlResourceSqlRoleAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:SqlResourceSqlRoleAssignment to guarantee forwards compatibility. */
 export function getSqlResourceSqlRoleAssignmentOutput(args: GetSqlResourceSqlRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlRoleAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlRoleAssignment(a, opts))
 }

@@ -248,7 +248,12 @@ class ConnectionMonitorArgs:
         pulumi.set(self, "test_groups", value)
 
 
+warnings.warn("""azure-native:network/v20200401:ConnectionMonitor is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ConnectionMonitor to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ConnectionMonitor(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20200401:ConnectionMonitor is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ConnectionMonitor to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -327,6 +332,7 @@ class ConnectionMonitor(pulumi.CustomResource):
                  test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorTestConfigurationArgs']]]]] = None,
                  test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorTestGroupArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""ConnectionMonitor is deprecated: azure-native:network/v20200401:ConnectionMonitor is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ConnectionMonitor to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

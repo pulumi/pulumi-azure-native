@@ -17,7 +17,8 @@ __all__ = [
     'get_machine_learning_compute_output',
 ]
 
-warnings.warn("""Version 2020-02-18-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-02-18-preview will be removed in v2 of the provider.
+azure-native:machinelearningservices/v20200218preview:MachineLearningCompute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:MachineLearningCompute to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetMachineLearningComputeResult:
@@ -143,7 +144,8 @@ def get_machine_learning_compute(compute_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    pulumi.log.warn("""get_machine_learning_compute is deprecated: Version 2020-02-18-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_machine_learning_compute is deprecated: Version 2020-02-18-preview will be removed in v2 of the provider.
+azure-native:machinelearningservices/v20200218preview:MachineLearningCompute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:MachineLearningCompute to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['computeName'] = compute_name
     __args__['resourceGroupName'] = resource_group_name
@@ -175,5 +177,6 @@ def get_machine_learning_compute_output(compute_name: Optional[pulumi.Input[str]
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    pulumi.log.warn("""get_machine_learning_compute is deprecated: Version 2020-02-18-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_machine_learning_compute is deprecated: Version 2020-02-18-preview will be removed in v2 of the provider.
+azure-native:machinelearningservices/v20200218preview:MachineLearningCompute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:MachineLearningCompute to guarantee forwards compatibility.""")
     ...

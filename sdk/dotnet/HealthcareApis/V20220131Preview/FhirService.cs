@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
     /// <summary>
     /// The description of Fhir Service
     /// </summary>
+    [Obsolete(@"azure-native:healthcareapis/v20220131preview:FhirService is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:FhirService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20220131preview:FhirService")]
     public partial class FhirService : global::Pulumi.CustomResource
     {

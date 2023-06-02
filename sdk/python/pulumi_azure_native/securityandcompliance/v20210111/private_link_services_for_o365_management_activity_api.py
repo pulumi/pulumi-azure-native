@@ -132,7 +132,12 @@ class PrivateLinkServicesForO365ManagementActivityAPIArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class PrivateLinkServicesForO365ManagementActivityAPI(pulumi.CustomResource):
+    warnings.warn("""azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -190,6 +195,7 @@ class PrivateLinkServicesForO365ManagementActivityAPI(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""PrivateLinkServicesForO365ManagementActivityAPI is deprecated: azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

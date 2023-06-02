@@ -16,6 +16,8 @@ __all__ = [
     'get_scheduled_synchronization_setting_output',
 ]
 
+warnings.warn("""azure-native:datashare/v20191101:ScheduledSynchronizationSetting is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ScheduledSynchronizationSetting to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetScheduledSynchronizationSettingResult:
     """
@@ -155,6 +157,7 @@ def get_scheduled_synchronization_setting(account_name: Optional[str] = None,
     :param str share_name: The name of the share.
     :param str synchronization_setting_name: The name of the synchronizationSetting.
     """
+    pulumi.log.warn("""get_scheduled_synchronization_setting is deprecated: azure-native:datashare/v20191101:ScheduledSynchronizationSetting is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ScheduledSynchronizationSetting to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -190,4 +193,5 @@ def get_scheduled_synchronization_setting_output(account_name: Optional[pulumi.I
     :param str share_name: The name of the share.
     :param str synchronization_setting_name: The name of the synchronizationSetting.
     """
+    pulumi.log.warn("""get_scheduled_synchronization_setting is deprecated: azure-native:datashare/v20191101:ScheduledSynchronizationSetting is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ScheduledSynchronizationSetting to guarantee forwards compatibility.""")
     ...

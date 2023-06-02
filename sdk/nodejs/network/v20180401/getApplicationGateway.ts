@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified application gateway.
  */
-/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:ApplicationGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:ApplicationGateway to guarantee forwards compatibility. */
 export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayResult> {
-    pulumi.log.warn("getApplicationGateway is deprecated: Version 2018-04-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getApplicationGateway is deprecated: Version 2018-04-01 will be removed in v2 of the provider.\nazure-native:network/v20180401:ApplicationGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:ApplicationGateway to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180401:getApplicationGateway", {
@@ -152,7 +153,8 @@ export interface GetApplicationGatewayResult {
 /**
  * Gets the specified application gateway.
  */
-/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:ApplicationGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:ApplicationGateway to guarantee forwards compatibility. */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
     return pulumi.output(args).apply((a: any) => getApplicationGateway(a, opts))
 }

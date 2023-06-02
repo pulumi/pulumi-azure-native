@@ -179,7 +179,12 @@ class IntegrationAccountMapArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:logic/v20180701preview:IntegrationAccountMap is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountMap to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class IntegrationAccountMap(pulumi.CustomResource):
+    warnings.warn("""azure-native:logic/v20180701preview:IntegrationAccountMap is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountMap to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -246,6 +251,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""IntegrationAccountMap is deprecated: azure-native:logic/v20180701preview:IntegrationAccountMap is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountMap to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

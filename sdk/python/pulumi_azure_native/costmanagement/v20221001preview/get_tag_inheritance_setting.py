@@ -17,6 +17,8 @@ __all__ = [
     'get_tag_inheritance_setting_output',
 ]
 
+warnings.warn("""azure-native:costmanagement/v20221001preview:TagInheritanceSetting is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221005preview:TagInheritanceSetting to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTagInheritanceSettingResult:
     """
@@ -116,6 +118,7 @@ def get_tag_inheritance_setting(scope: Optional[str] = None,
     :param str scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
     :param str type: Setting type.
     """
+    pulumi.log.warn("""get_tag_inheritance_setting is deprecated: azure-native:costmanagement/v20221001preview:TagInheritanceSetting is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221005preview:TagInheritanceSetting to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['scope'] = scope
     __args__['type'] = type
@@ -142,4 +145,5 @@ def get_tag_inheritance_setting_output(scope: Optional[pulumi.Input[str]] = None
     :param str scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
     :param str type: Setting type.
     """
+    pulumi.log.warn("""get_tag_inheritance_setting is deprecated: azure-native:costmanagement/v20221001preview:TagInheritanceSetting is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221005preview:TagInheritanceSetting to guarantee forwards compatibility.""")
     ...

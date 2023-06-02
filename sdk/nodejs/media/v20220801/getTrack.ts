@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the details of a Track in the Asset
  */
+/** @deprecated azure-native:media/v20220801:Track is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:Track to guarantee forwards compatibility. */
 export function getTrack(args: GetTrackArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackResult> {
+    pulumi.log.warn("getTrack is deprecated: azure-native:media/v20220801:Track is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:Track to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20220801:getTrack", {
@@ -68,6 +70,7 @@ export interface GetTrackResult {
 /**
  * Get the details of a Track in the Asset
  */
+/** @deprecated azure-native:media/v20220801:Track is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:Track to guarantee forwards compatibility. */
 export function getTrackOutput(args: GetTrackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackResult> {
     return pulumi.output(args).apply((a: any) => getTrack(a, opts))
 }

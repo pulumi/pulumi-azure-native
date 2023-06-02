@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
     /// <summary>
     /// Vendor resource.
     /// </summary>
+    [Obsolete(@"azure-native:hybridnetwork/v20210501:Vendor is being removed in the next major version of this provider. Please upgrade to azure-native:hybridnetwork/v20220101preview:Vendor to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hybridnetwork/v20210501:Vendor")]
     public partial class Vendor : global::Pulumi.CustomResource
     {

@@ -16,6 +16,8 @@ __all__ = [
     'get_static_site_user_provided_function_app_for_static_site_build_output',
 ]
 
+warnings.warn("""azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSiteBuild to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult:
     """
@@ -130,6 +132,7 @@ def get_static_site_user_provided_function_app_for_static_site_build(environment
     :param str name: Name of the static site.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_static_site_user_provided_function_app_for_static_site_build is deprecated: azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSiteBuild to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['functionAppName'] = function_app_name
@@ -163,4 +166,5 @@ def get_static_site_user_provided_function_app_for_static_site_build_output(envi
     :param str name: Name of the static site.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_static_site_user_provided_function_app_for_static_site_build is deprecated: azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSiteBuild to guarantee forwards compatibility.""")
     ...

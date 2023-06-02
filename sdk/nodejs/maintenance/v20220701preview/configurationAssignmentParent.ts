@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Configuration Assignment
+ *
+ * @deprecated azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility.
  */
 export class ConfigurationAssignmentParent extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ConfigurationAssignmentParent extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ConfigurationAssignmentParent {
+        pulumi.log.warn("ConfigurationAssignmentParent is deprecated: azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility.")
         return new ConfigurationAssignmentParent(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,7 +72,9 @@ export class ConfigurationAssignmentParent extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility. */
     constructor(name: string, args: ConfigurationAssignmentParentArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ConfigurationAssignmentParent is deprecated: azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -113,7 +118,7 @@ export class ConfigurationAssignmentParent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maintenance:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20230401:ConfigurationAssignmentParent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maintenance:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationAssignmentParent.__pulumiType, name, resourceInputs, opts);
     }

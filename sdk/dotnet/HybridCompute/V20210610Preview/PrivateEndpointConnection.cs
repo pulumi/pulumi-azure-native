@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20210610Preview
     /// <summary>
     /// A private endpoint connection
     /// </summary>
+    [Obsolete(@"azure-native:hybridcompute/v20210610preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:hybridcompute/v20221227preview:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hybridcompute/v20210610preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

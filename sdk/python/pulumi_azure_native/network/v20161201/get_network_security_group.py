@@ -17,7 +17,8 @@ __all__ = [
     'get_network_security_group_output',
 ]
 
-warnings.warn("""Version 2016-12-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-12-01 will be removed in v2 of the provider.
+azure-native:network/v20161201:NetworkSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetNetworkSecurityGroupResult:
@@ -191,7 +192,8 @@ def get_network_security_group(expand: Optional[str] = None,
     :param str network_security_group_name: The name of the network security group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_network_security_group is deprecated: Version 2016-12-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_network_security_group is deprecated: Version 2016-12-01 will be removed in v2 of the provider.
+azure-native:network/v20161201:NetworkSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['networkSecurityGroupName'] = network_security_group_name
@@ -227,5 +229,6 @@ def get_network_security_group_output(expand: Optional[pulumi.Input[Optional[str
     :param str network_security_group_name: The name of the network security group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_network_security_group is deprecated: Version 2016-12-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_network_security_group is deprecated: Version 2016-12-01 will be removed in v2 of the provider.
+azure-native:network/v20161201:NetworkSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:NetworkSecurityGroup to guarantee forwards compatibility.""")
     ...

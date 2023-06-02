@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
     /// <summary>
     /// Subscription details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20170301:Subscription is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20180101:Subscription to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20170301:Subscription")]
     public partial class Subscription : global::Pulumi.CustomResource
     {

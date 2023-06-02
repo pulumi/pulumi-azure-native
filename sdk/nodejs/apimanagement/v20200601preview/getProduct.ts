@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the product specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20200601preview:Product is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Product to guarantee forwards compatibility. */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
+    pulumi.log.warn("getProduct is deprecated: azure-native:apimanagement/v20200601preview:Product is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Product to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20200601preview:getProduct", {
@@ -80,6 +82,7 @@ export interface GetProductResult {
 /**
  * Gets the details of the product specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20200601preview:Product is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Product to guarantee forwards compatibility. */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
     return pulumi.output(args).apply((a: any) => getProduct(a, opts))
 }

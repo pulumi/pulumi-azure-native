@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20210801
 {
+    [Obsolete(@"azure-native:recoveryservices/v20210801:ReplicationvCenter is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationvCenter to guarantee forwards compatibility.")]
     public static class GetReplicationvCenter
     {
         /// <summary>

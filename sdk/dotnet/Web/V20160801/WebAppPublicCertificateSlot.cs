@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20160801
     /// <summary>
     /// Public certificate object
     /// </summary>
+    [Obsolete(@"azure-native:web/v20160801:WebAppPublicCertificateSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppPublicCertificateSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20160801:WebAppPublicCertificateSlot")]
     public partial class WebAppPublicCertificateSlot : global::Pulumi.CustomResource
     {

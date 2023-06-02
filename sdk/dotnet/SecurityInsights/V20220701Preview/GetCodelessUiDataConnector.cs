@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
 {
+    [Obsolete(@"azure-native:securityinsights/v20220701preview:CodelessUiDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:CodelessUiDataConnector to guarantee forwards compatibility.")]
     public static class GetCodelessUiDataConnector
     {
         /// <summary>

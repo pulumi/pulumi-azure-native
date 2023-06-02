@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a database.
  */
+/** @deprecated azure-native:kusto/v20221111:ReadWriteDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ReadWriteDatabase to guarantee forwards compatibility. */
 export function getReadWriteDatabase(args: GetReadWriteDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadWriteDatabaseResult> {
+    pulumi.log.warn("getReadWriteDatabase is deprecated: azure-native:kusto/v20221111:ReadWriteDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ReadWriteDatabase to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20221111:getReadWriteDatabase", {
@@ -84,6 +86,7 @@ export interface GetReadWriteDatabaseResult {
 /**
  * Returns a database.
  */
+/** @deprecated azure-native:kusto/v20221111:ReadWriteDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ReadWriteDatabase to guarantee forwards compatibility. */
 export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadWriteDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getReadWriteDatabase(a, opts))
 }

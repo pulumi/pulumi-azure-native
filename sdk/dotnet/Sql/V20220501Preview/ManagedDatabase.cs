@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20220501Preview
     /// <summary>
     /// A managed database resource.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20220501preview:ManagedDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedDatabase to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20220501preview:ManagedDatabase")]
     public partial class ManagedDatabase : global::Pulumi.CustomResource
     {

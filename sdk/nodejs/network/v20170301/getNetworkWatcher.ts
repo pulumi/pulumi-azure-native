@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified network watcher by resource group.
  */
-/** @deprecated Version 2017-03-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-03-01 will be removed in v2 of the provider.
+azure-native:network/v20170301:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180101:NetworkWatcher to guarantee forwards compatibility. */
 export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkWatcherResult> {
-    pulumi.log.warn("getNetworkWatcher is deprecated: Version 2017-03-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getNetworkWatcher is deprecated: Version 2017-03-01 will be removed in v2 of the provider.\nazure-native:network/v20170301:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180101:NetworkWatcher to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20170301:getNetworkWatcher", {
@@ -65,7 +66,8 @@ export interface GetNetworkWatcherResult {
 /**
  * Gets the specified network watcher by resource group.
  */
-/** @deprecated Version 2017-03-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-03-01 will be removed in v2 of the provider.
+azure-native:network/v20170301:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180101:NetworkWatcher to guarantee forwards compatibility. */
 export function getNetworkWatcherOutput(args: GetNetworkWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkWatcherResult> {
     return pulumi.output(args).apply((a: any) => getNetworkWatcher(a, opts))
 }

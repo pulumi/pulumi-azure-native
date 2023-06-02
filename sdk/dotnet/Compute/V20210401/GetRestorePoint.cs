@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20210401
 {
+    [Obsolete(@"azure-native:compute/v20210401:RestorePoint is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20211101:RestorePoint to guarantee forwards compatibility.")]
     public static class GetRestorePoint
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
     /// <summary>
     /// A private cloud resource
     /// </summary>
+    [Obsolete(@"azure-native:avs/v20210601:PrivateCloud is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:PrivateCloud to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20210601:PrivateCloud")]
     public partial class PrivateCloud : global::Pulumi.CustomResource
     {

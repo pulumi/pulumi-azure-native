@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified peering for the express route circuit.
  */
+/** @deprecated azure-native:network/v20181101:ExpressRouteCircuitPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190201:ExpressRouteCircuitPeering to guarantee forwards compatibility. */
 export function getExpressRouteCircuitPeering(args: GetExpressRouteCircuitPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitPeeringResult> {
+    pulumi.log.warn("getExpressRouteCircuitPeering is deprecated: azure-native:network/v20181101:ExpressRouteCircuitPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190201:ExpressRouteCircuitPeering to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20181101:getExpressRouteCircuitPeering", {
@@ -131,6 +133,7 @@ export interface GetExpressRouteCircuitPeeringResult {
 /**
  * Gets the specified peering for the express route circuit.
  */
+/** @deprecated azure-native:network/v20181101:ExpressRouteCircuitPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190201:ExpressRouteCircuitPeering to guarantee forwards compatibility. */
 export function getExpressRouteCircuitPeeringOutput(args: GetExpressRouteCircuitPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitPeeringResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCircuitPeering(a, opts))
 }

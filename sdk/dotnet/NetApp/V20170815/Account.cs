@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.NetApp.V20170815
     /// <summary>
     /// NetApp account resource
     /// </summary>
-    [Obsolete(@"Version 2017-08-15 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-08-15 will be removed in v2 of the provider.
+azure-native:netapp/v20170815:Account is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20190701:Account to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:netapp/v20170815:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {

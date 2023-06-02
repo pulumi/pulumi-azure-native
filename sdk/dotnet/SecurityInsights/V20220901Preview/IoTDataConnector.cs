@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220901Preview
     /// <summary>
     /// Represents IoT data connector.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20220901preview:IoTDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:IoTDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20220901preview:IoTDataConnector")]
     public partial class IoTDataConnector : global::Pulumi.CustomResource
     {
@@ -111,7 +112,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220901Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:IoTDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:IoTDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:IoTDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:IoTDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

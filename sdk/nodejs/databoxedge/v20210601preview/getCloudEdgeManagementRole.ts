@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a specific role by name.
  */
+/** @deprecated azure-native:databoxedge/v20210601preview:CloudEdgeManagementRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:CloudEdgeManagementRole to guarantee forwards compatibility. */
 export function getCloudEdgeManagementRole(args: GetCloudEdgeManagementRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEdgeManagementRoleResult> {
+    pulumi.log.warn("getCloudEdgeManagementRole is deprecated: azure-native:databoxedge/v20210601preview:CloudEdgeManagementRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:CloudEdgeManagementRole to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210601preview:getCloudEdgeManagementRole", {
@@ -76,6 +78,7 @@ export interface GetCloudEdgeManagementRoleResult {
 /**
  * Gets a specific role by name.
  */
+/** @deprecated azure-native:databoxedge/v20210601preview:CloudEdgeManagementRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:CloudEdgeManagementRole to guarantee forwards compatibility. */
 export function getCloudEdgeManagementRoleOutput(args: GetCloudEdgeManagementRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudEdgeManagementRoleResult> {
     return pulumi.output(args).apply((a: any) => getCloudEdgeManagementRole(a, opts))
 }

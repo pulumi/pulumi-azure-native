@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataProtection.V20221201
 {
+    [Obsolete(@"azure-native:dataprotection/v20221201:ResourceGuard is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:ResourceGuard to guarantee forwards compatibility.")]
     public static class GetResourceGuard
     {
         public static Task<GetResourceGuardResult> InvokeAsync(GetResourceGuardArgs args, InvokeOptions? options = null)

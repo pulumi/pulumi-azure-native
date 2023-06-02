@@ -17,6 +17,8 @@ __all__ = [
     'get_tag_rule_output',
 ]
 
+warnings.warn("""azure-native:elastic/v20200701preview:TagRule is being removed in the next major version of this provider. Please upgrade to azure-native:elastic/v20220901preview:TagRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTagRuleResult:
     """
@@ -105,6 +107,7 @@ def get_tag_rule(monitor_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
     :param str rule_set_name: Tag Rule Set resource name
     """
+    pulumi.log.warn("""get_tag_rule is deprecated: azure-native:elastic/v20200701preview:TagRule is being removed in the next major version of this provider. Please upgrade to azure-native:elastic/v20220901preview:TagRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
@@ -133,4 +136,5 @@ def get_tag_rule_output(monitor_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
     :param str rule_set_name: Tag Rule Set resource name
     """
+    pulumi.log.warn("""get_tag_rule is deprecated: azure-native:elastic/v20200701preview:TagRule is being removed in the next major version of this provider. Please upgrade to azure-native:elastic/v20220901preview:TagRule to guarantee forwards compatibility.""")
     ...

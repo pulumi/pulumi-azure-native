@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
     /// <summary>
     /// Recipient Email details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20180101:NotificationRecipientEmail is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:NotificationRecipientEmail to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20180101:NotificationRecipientEmail")]
     public partial class NotificationRecipientEmail : global::Pulumi.CustomResource
     {

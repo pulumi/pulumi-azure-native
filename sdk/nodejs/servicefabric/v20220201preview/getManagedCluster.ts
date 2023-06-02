@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
  */
+/** @deprecated azure-native:servicefabric/v20220201preview:ManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20221001preview:ManagedCluster to guarantee forwards compatibility. */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
+    pulumi.log.warn("getManagedCluster is deprecated: azure-native:servicefabric/v20220201preview:ManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20221001preview:ManagedCluster to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20220201preview:getManagedCluster", {
@@ -194,6 +196,7 @@ export interface GetManagedClusterResult {
 /**
  * Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
  */
+/** @deprecated azure-native:servicefabric/v20220201preview:ManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20221001preview:ManagedCluster to guarantee forwards compatibility. */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
     return pulumi.output(args).apply((a: any) => getManagedCluster(a, opts))
 }

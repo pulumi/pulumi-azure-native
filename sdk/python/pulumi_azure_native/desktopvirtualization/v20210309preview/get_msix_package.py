@@ -17,6 +17,8 @@ __all__ = [
     'get_msix_package_output',
 ]
 
+warnings.warn("""azure-native:desktopvirtualization/v20210309preview:MSIXPackage is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:MSIXPackage to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMSIXPackageResult:
     """
@@ -213,6 +215,7 @@ def get_msix_package(host_pool_name: Optional[str] = None,
     :param str msix_package_full_name: The version specific package full name of the MSIX package within specified hostpool
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_msix_package is deprecated: azure-native:desktopvirtualization/v20210309preview:MSIXPackage is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:MSIXPackage to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['hostPoolName'] = host_pool_name
     __args__['msixPackageFullName'] = msix_package_full_name
@@ -250,4 +253,5 @@ def get_msix_package_output(host_pool_name: Optional[pulumi.Input[str]] = None,
     :param str msix_package_full_name: The version specific package full name of the MSIX package within specified hostpool
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_msix_package is deprecated: azure-native:desktopvirtualization/v20210309preview:MSIXPackage is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:MSIXPackage to guarantee forwards compatibility.""")
     ...

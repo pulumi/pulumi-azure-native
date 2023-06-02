@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a DataSetMapping in a shareSubscription
  */
+/** @deprecated azure-native:datashare/v20181101preview:SqlDBTableDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SqlDBTableDataSetMapping to guarantee forwards compatibility. */
 export function getSqlDBTableDataSetMapping(args: GetSqlDBTableDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDBTableDataSetMappingResult> {
+    pulumi.log.warn("getSqlDBTableDataSetMapping is deprecated: azure-native:datashare/v20181101preview:SqlDBTableDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SqlDBTableDataSetMapping to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20181101preview:getSqlDBTableDataSetMapping", {
@@ -90,6 +92,7 @@ export interface GetSqlDBTableDataSetMappingResult {
 /**
  * Get a DataSetMapping in a shareSubscription
  */
+/** @deprecated azure-native:datashare/v20181101preview:SqlDBTableDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:SqlDBTableDataSetMapping to guarantee forwards compatibility. */
 export function getSqlDBTableDataSetMappingOutput(args: GetSqlDBTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDBTableDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getSqlDBTableDataSetMapping(a, opts))
 }

@@ -16,7 +16,8 @@ __all__ = [
     'get_application_type_version_output',
 ]
 
-warnings.warn("""Version 2017-07-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-07-01-preview will be removed in v2 of the provider.
+azure-native:servicefabric/v20170701preview:ApplicationTypeVersion is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:ApplicationTypeVersion to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetApplicationTypeVersionResult:
@@ -132,7 +133,8 @@ def get_application_type_version(application_type_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str version: The application type version.
     """
-    pulumi.log.warn("""get_application_type_version is deprecated: Version 2017-07-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_application_type_version is deprecated: Version 2017-07-01-preview will be removed in v2 of the provider.
+azure-native:servicefabric/v20170701preview:ApplicationTypeVersion is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:ApplicationTypeVersion to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['applicationTypeName'] = application_type_name
     __args__['clusterName'] = cluster_name
@@ -166,5 +168,6 @@ def get_application_type_version_output(application_type_name: Optional[pulumi.I
     :param str resource_group_name: The name of the resource group.
     :param str version: The application type version.
     """
-    pulumi.log.warn("""get_application_type_version is deprecated: Version 2017-07-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_application_type_version is deprecated: Version 2017-07-01-preview will be removed in v2 of the provider.
+azure-native:servicefabric/v20170701preview:ApplicationTypeVersion is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:ApplicationTypeVersion to guarantee forwards compatibility.""")
     ...

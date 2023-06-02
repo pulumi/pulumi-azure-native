@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Contains information about an application in a Batch account.
  *
  * @deprecated Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:batch/v20200901:Application is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20221001:Application to guarantee forwards compatibility.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -19,7 +20,7 @@ export class Application extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Application {
-        pulumi.log.warn("Application is deprecated: Version 2020-09-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("Application is deprecated: Version 2020-09-01 will be removed in v2 of the provider.\nazure-native:batch/v20200901:Application is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20221001:Application to guarantee forwards compatibility.")
         return new Application(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,9 +70,10 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
+    /** @deprecated Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:batch/v20200901:Application is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20221001:Application to guarantee forwards compatibility. */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Application is deprecated: Version 2020-09-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("Application is deprecated: Version 2020-09-01 will be removed in v2 of the provider.\nazure-native:batch/v20200901:Application is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20221001:Application to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

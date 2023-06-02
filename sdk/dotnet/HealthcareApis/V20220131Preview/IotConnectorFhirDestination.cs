@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220131Preview
     /// <summary>
     /// IoT Connector FHIR destination definition.
     /// </summary>
+    [Obsolete(@"azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:IotConnectorFhirDestination to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination")]
     public partial class IotConnectorFhirDestination : global::Pulumi.CustomResource
     {

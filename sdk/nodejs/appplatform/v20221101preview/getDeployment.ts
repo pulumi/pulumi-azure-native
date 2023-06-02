@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Deployment and its properties.
  */
+/** @deprecated azure-native:appplatform/v20221101preview:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Deployment to guarantee forwards compatibility. */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
+    pulumi.log.warn("getDeployment is deprecated: azure-native:appplatform/v20221101preview:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Deployment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20221101preview:getDeployment", {
@@ -72,6 +74,7 @@ export interface GetDeploymentResult {
 /**
  * Get a Deployment and its properties.
  */
+/** @deprecated azure-native:appplatform/v20221101preview:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Deployment to guarantee forwards compatibility. */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getDeployment(a, opts))
 }

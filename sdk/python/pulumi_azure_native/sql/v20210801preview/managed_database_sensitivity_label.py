@@ -202,7 +202,12 @@ class ManagedDatabaseSensitivityLabelArgs:
         pulumi.set(self, "sensitivity_label_source", value)
 
 
+warnings.warn("""azure-native:sql/v20210801preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
+    warnings.warn("""azure-native:sql/v20210801preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -274,6 +279,7 @@ class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
                  sensitivity_label_source: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ManagedDatabaseSensitivityLabel is deprecated: azure-native:sql/v20210801preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

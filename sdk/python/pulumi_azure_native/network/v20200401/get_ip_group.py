@@ -17,6 +17,8 @@ __all__ = [
     'get_ip_group_output',
 ]
 
+warnings.warn("""azure-native:network/v20200401:IpGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:IpGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIpGroupResult:
     """
@@ -153,6 +155,7 @@ def get_ip_group(expand: Optional[str] = None,
     :param str ip_groups_name: The name of the ipGroups.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_ip_group is deprecated: azure-native:network/v20200401:IpGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:IpGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['ipGroupsName'] = ip_groups_name
@@ -185,4 +188,5 @@ def get_ip_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str ip_groups_name: The name of the ipGroups.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_ip_group is deprecated: azure-native:network/v20200401:IpGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:IpGroup to guarantee forwards compatibility.""")
     ...

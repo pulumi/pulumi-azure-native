@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the registration definition details.
  */
-/** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-06-01 will be removed in v2 of the provider.
+azure-native:managedservices/v20190601:RegistrationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationDefinition to guarantee forwards compatibility. */
 export function getRegistrationDefinition(args: GetRegistrationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationDefinitionResult> {
-    pulumi.log.warn("getRegistrationDefinition is deprecated: Version 2019-06-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getRegistrationDefinition is deprecated: Version 2019-06-01 will be removed in v2 of the provider.\nazure-native:managedservices/v20190601:RegistrationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationDefinition to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedservices/v20190601:getRegistrationDefinition", {
@@ -60,7 +61,8 @@ export interface GetRegistrationDefinitionResult {
 /**
  * Gets the registration definition details.
  */
-/** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-06-01 will be removed in v2 of the provider.
+azure-native:managedservices/v20190601:RegistrationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationDefinition to guarantee forwards compatibility. */
 export function getRegistrationDefinitionOutput(args: GetRegistrationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getRegistrationDefinition(a, opts))
 }

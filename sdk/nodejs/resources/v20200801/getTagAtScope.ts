@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Wrapper resource for tags API requests and responses.
  */
+/** @deprecated azure-native:resources/v20200801:TagAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:TagAtScope to guarantee forwards compatibility. */
 export function getTagAtScope(args: GetTagAtScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetTagAtScopeResult> {
+    pulumi.log.warn("getTagAtScope is deprecated: azure-native:resources/v20200801:TagAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:TagAtScope to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20200801:getTagAtScope", {
@@ -49,6 +51,7 @@ export interface GetTagAtScopeResult {
 /**
  * Wrapper resource for tags API requests and responses.
  */
+/** @deprecated azure-native:resources/v20200801:TagAtScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:TagAtScope to guarantee forwards compatibility. */
 export function getTagAtScopeOutput(args: GetTagAtScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagAtScopeResult> {
     return pulumi.output(args).apply((a: any) => getTagAtScope(a, opts))
 }

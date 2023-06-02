@@ -17,6 +17,8 @@ __all__ = [
     'get_kubernetes_role_output',
 ]
 
+warnings.warn("""azure-native:databoxedge/v20210601preview:KubernetesRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetKubernetesRoleResult:
     """
@@ -178,6 +180,7 @@ def get_kubernetes_role(device_name: Optional[str] = None,
     :param str name: The role name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_kubernetes_role is deprecated: azure-native:databoxedge/v20210601preview:KubernetesRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name
@@ -212,4 +215,5 @@ def get_kubernetes_role_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str name: The role name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_kubernetes_role is deprecated: azure-native:databoxedge/v20210601preview:KubernetesRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility.""")
     ...

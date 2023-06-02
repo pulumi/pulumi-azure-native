@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the SQL database under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2015-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2015-04-01 will be removed in v2 of the provider.
+azure-native:documentdb/v20150401:DatabaseAccountSqlDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountSqlDatabase to guarantee forwards compatibility. */
 export function getDatabaseAccountSqlDatabase(args: GetDatabaseAccountSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountSqlDatabaseResult> {
-    pulumi.log.warn("getDatabaseAccountSqlDatabase is deprecated: Version 2015-04-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getDatabaseAccountSqlDatabase is deprecated: Version 2015-04-01 will be removed in v2 of the provider.\nazure-native:documentdb/v20150401:DatabaseAccountSqlDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountSqlDatabase to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20150401:getDatabaseAccountSqlDatabase", {
@@ -82,7 +83,8 @@ export interface GetDatabaseAccountSqlDatabaseResult {
 /**
  * Gets the SQL database under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2015-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2015-04-01 will be removed in v2 of the provider.
+azure-native:documentdb/v20150401:DatabaseAccountSqlDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountSqlDatabase to guarantee forwards compatibility. */
 export function getDatabaseAccountSqlDatabaseOutput(args: GetDatabaseAccountSqlDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountSqlDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccountSqlDatabase(a, opts))
 }

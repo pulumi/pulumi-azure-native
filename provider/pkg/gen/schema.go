@@ -196,6 +196,11 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 	}
 	sort.Strings(providers)
 
+	upgradePathMap, err := GenerateUpgradeWarnings()
+	if err != nil {
+		return nil, nil, nil, err
+	}
+
 	exampleMap := make(map[string][]resources.AzureAPIExample)
 	for _, providerName := range providers {
 		versionMap := providerMap[providerName]
@@ -207,10 +212,11 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 
 		for _, version := range versions {
 			gen := packageGenerator{
-				pkg:        &pkg,
-				metadata:   &metadata,
-				apiVersion: version,
-				examples:   exampleMap,
+				pkg:             &pkg,
+				metadata:        &metadata,
+				apiVersion:      version,
+				examples:        exampleMap,
+				upgradeWarnings: upgradePathMap,
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
@@ -255,7 +261,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 		}
 	}
 
-	err := genMixins(&pkg, &metadata)
+	err = genMixins(&pkg, &metadata)
 	if err != nil {
 		return nil, nil, nil, err
 	}
@@ -411,10 +417,11 @@ const (
 )
 
 type packageGenerator struct {
-	pkg        *pschema.PackageSpec
-	metadata   *resources.AzureAPIMetadata
-	examples   map[string][]resources.AzureAPIExample
-	apiVersion string
+	pkg             *pschema.PackageSpec
+	metadata        *resources.AzureAPIMetadata
+	examples        map[string][]resources.AzureAPIExample
+	apiVersion      string
+	upgradeWarnings map[string]string
 }
 
 func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec) error {
@@ -590,6 +597,14 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 		moduleName := providerApiToModule(prov, version)
 		alias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, moduleName, resource.typeName)
 		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
+	}
+
+	if upgradeMessage, ok := g.upgradeWarnings[resourceTok]; ok {
+		if resource.deprecationMessage == "" {
+			resource.deprecationMessage = upgradeMessage
+		} else {
+			resource.deprecationMessage = resource.deprecationMessage + "\n" + upgradeMessage
+		}
 	}
 
 	resourceSpec := pschema.ResourceSpec{

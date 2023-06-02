@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20220515Preview
 {
+    [Obsolete(@"azure-native:documentdb/v20220515preview:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility.")]
     public static class GetSqlResourceSqlStoredProcedure
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
     /// <summary>
     /// An event source that receives its data from an Azure IoTHub.
     /// </summary>
+    [Obsolete(@"azure-native:timeseriesinsights/v20200515:IoTHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20200515:IoTHubEventSource")]
     public partial class IoTHubEventSource : global::Pulumi.CustomResource
     {

@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * The operation to get the extension.
  */
-/** @deprecated Version 2017-12-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-12-01 will be removed in v2 of the provider.
+azure-native:compute/v20171201:VirtualMachineScaleSetExtension is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20211101:VirtualMachineScaleSetExtension to guarantee forwards compatibility. */
 export function getVirtualMachineScaleSetExtension(args: GetVirtualMachineScaleSetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetExtensionResult> {
-    pulumi.log.warn("getVirtualMachineScaleSetExtension is deprecated: Version 2017-12-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getVirtualMachineScaleSetExtension is deprecated: Version 2017-12-01 will be removed in v2 of the provider.\nazure-native:compute/v20171201:VirtualMachineScaleSetExtension is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20211101:VirtualMachineScaleSetExtension to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20171201:getVirtualMachineScaleSetExtension", {
@@ -87,7 +88,8 @@ export interface GetVirtualMachineScaleSetExtensionResult {
 /**
  * The operation to get the extension.
  */
-/** @deprecated Version 2017-12-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-12-01 will be removed in v2 of the provider.
+azure-native:compute/v20171201:VirtualMachineScaleSetExtension is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20211101:VirtualMachineScaleSetExtension to guarantee forwards compatibility. */
 export function getVirtualMachineScaleSetExtensionOutput(args: GetVirtualMachineScaleSetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetExtension(a, opts))
 }

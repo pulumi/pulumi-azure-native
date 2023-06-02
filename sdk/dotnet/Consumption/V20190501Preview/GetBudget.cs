@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Consumption.V20190501Preview
 {
-    [Obsolete(@"Version 2019-05-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-05-01-preview will be removed in v2 of the provider.
+azure-native:consumption/v20190501preview:Budget is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20190601:Budget to guarantee forwards compatibility.")]
     public static class GetBudget
     {
         /// <summary>

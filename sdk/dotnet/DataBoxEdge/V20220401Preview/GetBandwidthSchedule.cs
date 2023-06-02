@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
 {
+    [Obsolete(@"azure-native:databoxedge/v20220401preview:BandwidthSchedule is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:BandwidthSchedule to guarantee forwards compatibility.")]
     public static class GetBandwidthSchedule
     {
         /// <summary>

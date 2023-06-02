@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220901Preview
     /// <summary>
     /// Spring Cloud Gateway resource
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20220901preview:Gateway is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Gateway to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20220901preview:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20220707
     /// <summary>
     /// Class representing an Event Grid data connection.
     /// </summary>
+    [Obsolete(@"azure-native:kusto/v20220707:EventGridDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:EventGridDataConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kusto/v20220707:EventGridDataConnection")]
     public partial class EventGridDataConnection : global::Pulumi.CustomResource
     {

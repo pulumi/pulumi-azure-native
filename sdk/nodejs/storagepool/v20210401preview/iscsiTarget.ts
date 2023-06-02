@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Response for iSCSI Target requests.
+ *
+ * @deprecated azure-native:storagepool/v20210401preview:IscsiTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagepool/v20210801:IscsiTarget to guarantee forwards compatibility.
  */
 export class IscsiTarget extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class IscsiTarget extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IscsiTarget {
+        pulumi.log.warn("IscsiTarget is deprecated: azure-native:storagepool/v20210401preview:IscsiTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagepool/v20210801:IscsiTarget to guarantee forwards compatibility.")
         return new IscsiTarget(name, undefined as any, { ...opts, id: id });
     }
 
@@ -89,7 +92,9 @@ export class IscsiTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:storagepool/v20210401preview:IscsiTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagepool/v20210801:IscsiTarget to guarantee forwards compatibility. */
     constructor(name: string, args: IscsiTargetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("IscsiTarget is deprecated: azure-native:storagepool/v20210401preview:IscsiTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagepool/v20210801:IscsiTarget to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

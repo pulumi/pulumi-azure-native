@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Web.V20180201
 {
+    [Obsolete(@"azure-native:web/v20180201:WebAppHybridConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppHybridConnection to guarantee forwards compatibility.")]
     public static class GetWebAppHybridConnection
     {
         /// <summary>

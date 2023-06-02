@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211101
     /// <summary>
     /// Protection profile details.
     /// </summary>
+    [Obsolete(@"azure-native:recoveryservices/v20211101:ReplicationPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20211101:ReplicationPolicy")]
     public partial class ReplicationPolicy : global::Pulumi.CustomResource
     {

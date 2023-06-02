@@ -176,11 +176,13 @@ class ConnectorMappingArgs:
         pulumi.set(self, "mapping_name", value)
 
 
-warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:ConnectorMapping is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:ConnectorMapping to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ConnectorMapping(pulumi.CustomResource):
-    warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:ConnectorMapping is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:ConnectorMapping to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -248,7 +250,8 @@ class ConnectorMapping(pulumi.CustomResource):
                  mapping_properties: Optional[pulumi.Input[pulumi.InputType['ConnectorMappingPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ConnectorMapping is deprecated: Version 2017-01-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""ConnectorMapping is deprecated: Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:ConnectorMapping is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:ConnectorMapping to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

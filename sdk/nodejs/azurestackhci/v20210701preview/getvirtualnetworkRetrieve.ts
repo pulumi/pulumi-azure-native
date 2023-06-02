@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The virtualnetworks resource definition.
  */
+/** @deprecated azure-native:azurestackhci/v20210701preview:virtualnetworkRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve to guarantee forwards compatibility. */
 export function getvirtualnetworkRetrieve(args: GetvirtualnetworkRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetvirtualnetworkRetrieveResult> {
+    pulumi.log.warn("getvirtualnetworkRetrieve is deprecated: azure-native:azurestackhci/v20210701preview:virtualnetworkRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210701preview:getvirtualnetworkRetrieve", {
@@ -80,6 +82,7 @@ export interface GetvirtualnetworkRetrieveResult {
 /**
  * The virtualnetworks resource definition.
  */
+/** @deprecated azure-native:azurestackhci/v20210701preview:virtualnetworkRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve to guarantee forwards compatibility. */
 export function getvirtualnetworkRetrieveOutput(args: GetvirtualnetworkRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvirtualnetworkRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getvirtualnetworkRetrieve(a, opts))
 }

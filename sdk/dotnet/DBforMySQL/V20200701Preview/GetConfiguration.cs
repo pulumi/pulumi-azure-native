@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
 {
+    [Obsolete(@"azure-native:dbformysql/v20200701preview:Configuration is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20200701privatepreview:Configuration to guarantee forwards compatibility.")]
     public static class GetConfiguration
     {
         /// <summary>

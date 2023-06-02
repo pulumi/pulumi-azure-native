@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20190701
 {
-    [Obsolete(@"Version 2019-07-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-07-01 will be removed in v2 of the provider.
+azure-native:compute/v20190701:GalleryImage is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImage to guarantee forwards compatibility.")]
     public static class GetGalleryImage
     {
         /// <summary>

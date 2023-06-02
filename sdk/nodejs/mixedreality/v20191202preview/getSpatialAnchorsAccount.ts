@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve a Spatial Anchors Account.
  */
-/** @deprecated Version 2019-12-02-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-12-02-preview will be removed in v2 of the provider.
+azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount is being removed in the next major version of this provider. Please upgrade to azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount to guarantee forwards compatibility. */
 export function getSpatialAnchorsAccount(args: GetSpatialAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSpatialAnchorsAccountResult> {
-    pulumi.log.warn("getSpatialAnchorsAccount is deprecated: Version 2019-12-02-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getSpatialAnchorsAccount is deprecated: Version 2019-12-02-preview will be removed in v2 of the provider.\nazure-native:mixedreality/v20191202preview:SpatialAnchorsAccount is being removed in the next major version of this provider. Please upgrade to azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mixedreality/v20191202preview:getSpatialAnchorsAccount", {
@@ -72,7 +73,8 @@ export interface GetSpatialAnchorsAccountResult {
 /**
  * Retrieve a Spatial Anchors Account.
  */
-/** @deprecated Version 2019-12-02-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-12-02-preview will be removed in v2 of the provider.
+azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount is being removed in the next major version of this provider. Please upgrade to azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount to guarantee forwards compatibility. */
 export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
     return pulumi.output(args).apply((a: any) => getSpatialAnchorsAccount(a, opts))
 }

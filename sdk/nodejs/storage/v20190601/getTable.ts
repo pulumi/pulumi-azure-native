@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the table with the specified table name, under the specified account if it exists.
  */
-/** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-06-01 will be removed in v2 of the provider.
+azure-native:storage/v20190601:Table is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Table to guarantee forwards compatibility. */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-    pulumi.log.warn("getTable is deprecated: Version 2019-06-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getTable is deprecated: Version 2019-06-01 will be removed in v2 of the provider.\nazure-native:storage/v20190601:Table is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Table to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20190601:getTable", {
@@ -58,7 +59,8 @@ export interface GetTableResult {
 /**
  * Gets the table with the specified table name, under the specified account if it exists.
  */
-/** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-06-01 will be removed in v2 of the provider.
+azure-native:storage/v20190601:Table is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Table to guarantee forwards compatibility. */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
     return pulumi.output(args).apply((a: any) => getTable(a, opts))
 }

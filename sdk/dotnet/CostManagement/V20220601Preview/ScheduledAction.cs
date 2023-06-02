@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.CostManagement.V20220601Preview
     /// <summary>
     /// Scheduled action definition.
     /// </summary>
+    [Obsolete(@"azure-native:costmanagement/v20220601preview:ScheduledAction is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221001:ScheduledAction to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:costmanagement/v20220601preview:ScheduledAction")]
     public partial class ScheduledAction : global::Pulumi.CustomResource
     {
@@ -115,7 +116,6 @@ namespace Pulumi.AzureNative.CostManagement.V20220601Preview
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement:ScheduledAction"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20220401preview:ScheduledAction"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001:ScheduledAction"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230401preview:ScheduledAction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

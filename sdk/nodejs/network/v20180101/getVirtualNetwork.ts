@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified virtual network by resource group.
  */
-/** @deprecated Version 2018-01-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-01-01 will be removed in v2 of the provider.
+azure-native:network/v20180101:VirtualNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetwork to guarantee forwards compatibility. */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
-    pulumi.log.warn("getVirtualNetwork is deprecated: Version 2018-01-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getVirtualNetwork is deprecated: Version 2018-01-01 will be removed in v2 of the provider.\nazure-native:network/v20180101:VirtualNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetwork to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180101:getVirtualNetwork", {
@@ -101,7 +102,8 @@ export interface GetVirtualNetworkResult {
 /**
  * Gets the specified virtual network by resource group.
  */
-/** @deprecated Version 2018-01-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-01-01 will be removed in v2 of the provider.
+azure-native:network/v20180101:VirtualNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetwork to guarantee forwards compatibility. */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))
 }

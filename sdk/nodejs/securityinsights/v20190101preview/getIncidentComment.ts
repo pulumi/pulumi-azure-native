@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an incident comment.
  */
+/** @deprecated azure-native:securityinsights/v20190101preview:IncidentComment is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:IncidentComment to guarantee forwards compatibility. */
 export function getIncidentComment(args: GetIncidentCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentCommentResult> {
+    pulumi.log.warn("getIncidentComment is deprecated: azure-native:securityinsights/v20190101preview:IncidentComment is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:IncidentComment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getIncidentComment", {
@@ -85,6 +87,7 @@ export interface GetIncidentCommentResult {
 /**
  * Gets an incident comment.
  */
+/** @deprecated azure-native:securityinsights/v20190101preview:IncidentComment is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:IncidentComment to guarantee forwards compatibility. */
 export function getIncidentCommentOutput(args: GetIncidentCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentCommentResult> {
     return pulumi.output(args).apply((a: any) => getIncidentComment(a, opts))
 }

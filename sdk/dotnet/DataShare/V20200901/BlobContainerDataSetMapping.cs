@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataShare.V20200901
     /// <summary>
     /// A Blob container data set mapping.
     /// </summary>
+    [Obsolete(@"azure-native:datashare/v20200901:BlobContainerDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobContainerDataSetMapping to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datashare/v20200901:BlobContainerDataSetMapping")]
     public partial class BlobContainerDataSetMapping : global::Pulumi.CustomResource
     {

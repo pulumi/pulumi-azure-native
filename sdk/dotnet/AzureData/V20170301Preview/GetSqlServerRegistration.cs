@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureData.V20170301Preview
 {
-    [Obsolete(@"Version 2017-03-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-03-01-preview will be removed in v2 of the provider.
+azure-native:azuredata/v20170301preview:SqlServerRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:azuredata/v20190724preview:SqlServerRegistration to guarantee forwards compatibility.")]
     public static class GetSqlServerRegistration
     {
         /// <summary>

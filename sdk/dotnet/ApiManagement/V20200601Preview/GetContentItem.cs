@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
+    [Obsolete(@"azure-native:apimanagement/v20200601preview:ContentItem is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ContentItem to guarantee forwards compatibility.")]
     public static class GetContentItem
     {
         /// <summary>

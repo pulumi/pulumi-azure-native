@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
     /// <summary>
     /// Represents an instance of a orchestrator.
     /// </summary>
-    [Obsolete(@"Version 2020-08-08-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-08-08-preview will be removed in v2 of the provider.
+azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails is being removed in the next major version of this provider. Please upgrade to azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails")]
     public partial class OrchestratorInstanceServiceDetails : global::Pulumi.CustomResource
     {

@@ -84,7 +84,12 @@ class BackupInstanceInitArgs:
         pulumi.set(self, "properties", value)
 
 
+warnings.warn("""azure-native:dataprotection/v20211201preview:BackupInstance is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupInstance to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class BackupInstance(pulumi.CustomResource):
+    warnings.warn("""azure-native:dataprotection/v20211201preview:BackupInstance is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupInstance to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -133,6 +138,7 @@ class BackupInstance(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""BackupInstance is deprecated: azure-native:dataprotection/v20211201preview:BackupInstance is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:BackupInstance to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -152,7 +158,7 @@ class BackupInstance(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210601preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210701:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20211001preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220101:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220201preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220301:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220331preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220401:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220501:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20221001preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20221201:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20230401preview:BackupInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210601preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210701:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20211001preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220101:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220201preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220301:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220331preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220401:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220501:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20221001preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20221201:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:BackupInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupInstance, __self__).__init__(
             'azure-native:dataprotection/v20211201preview:BackupInstance',

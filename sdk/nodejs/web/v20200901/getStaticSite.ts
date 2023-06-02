@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of a static site.
  */
+/** @deprecated azure-native:web/v20200901:StaticSite is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:StaticSite to guarantee forwards compatibility. */
 export function getStaticSite(args: GetStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteResult> {
+    pulumi.log.warn("getStaticSite is deprecated: azure-native:web/v20200901:StaticSite is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:StaticSite to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20200901:getStaticSite", {
@@ -94,6 +96,7 @@ export interface GetStaticSiteResult {
 /**
  * Gets the details of a static site.
  */
+/** @deprecated azure-native:web/v20200901:StaticSite is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:StaticSite to guarantee forwards compatibility. */
 export function getStaticSiteOutput(args: GetStaticSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteResult> {
     return pulumi.output(args).apply((a: any) => getStaticSite(a, opts))
 }

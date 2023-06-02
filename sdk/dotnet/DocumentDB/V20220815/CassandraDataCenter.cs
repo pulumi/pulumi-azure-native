@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220815
     /// <summary>
     /// A managed Cassandra data center.
     /// </summary>
+    [Obsolete(@"azure-native:documentdb/v20220815:CassandraDataCenter is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:CassandraDataCenter to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20220815:CassandraDataCenter")]
     public partial class CassandraDataCenter : global::Pulumi.CustomResource
     {

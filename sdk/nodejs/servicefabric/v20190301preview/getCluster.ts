@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get a Service Fabric cluster resource created or in the process of being created in the specified resource group.
  */
-/** @deprecated Version 2019-03-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-03-01-preview will be removed in v2 of the provider.
+azure-native:servicefabric/v20190301preview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20201201preview:Cluster to guarantee forwards compatibility. */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    pulumi.log.warn("getCluster is deprecated: Version 2019-03-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getCluster is deprecated: Version 2019-03-01-preview will be removed in v2 of the provider.\nazure-native:servicefabric/v20190301preview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20201201preview:Cluster to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20190301preview:getCluster", {
@@ -176,7 +177,8 @@ export interface GetClusterResult {
 /**
  * Get a Service Fabric cluster resource created or in the process of being created in the specified resource group.
  */
-/** @deprecated Version 2019-03-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-03-01-preview will be removed in v2 of the provider.
+azure-native:servicefabric/v20190301preview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20201201preview:Cluster to guarantee forwards compatibility. */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }

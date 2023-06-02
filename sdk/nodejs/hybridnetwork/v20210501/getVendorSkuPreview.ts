@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the preview information of a vendor sku.
  */
+/** @deprecated azure-native:hybridnetwork/v20210501:VendorSkuPreview is being removed in the next major version of this provider. Please upgrade to azure-native:hybridnetwork/v20220101preview:VendorSkuPreview to guarantee forwards compatibility. */
 export function getVendorSkuPreview(args: GetVendorSkuPreviewArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkuPreviewResult> {
+    pulumi.log.warn("getVendorSkuPreview is deprecated: azure-native:hybridnetwork/v20210501:VendorSkuPreview is being removed in the next major version of this provider. Please upgrade to azure-native:hybridnetwork/v20220101preview:VendorSkuPreview to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20210501:getVendorSkuPreview", {
@@ -63,6 +65,7 @@ export interface GetVendorSkuPreviewResult {
 /**
  * Gets the preview information of a vendor sku.
  */
+/** @deprecated azure-native:hybridnetwork/v20210501:VendorSkuPreview is being removed in the next major version of this provider. Please upgrade to azure-native:hybridnetwork/v20220101preview:VendorSkuPreview to guarantee forwards compatibility. */
 export function getVendorSkuPreviewOutput(args: GetVendorSkuPreviewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkuPreviewResult> {
     return pulumi.output(args).apply((a: any) => getVendorSkuPreview(a, opts))
 }

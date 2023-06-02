@@ -17,7 +17,8 @@ __all__ = [
     'get_data_store_output',
 ]
 
-warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:hybriddata/v20160601:DataStore is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataStore to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDataStoreResult:
@@ -143,7 +144,8 @@ def get_data_store(data_manager_name: Optional[str] = None,
     :param str data_store_name: The data store/repository name queried.
     :param str resource_group_name: The Resource Group Name
     """
-    pulumi.log.warn("""get_data_store is deprecated: Version 2016-06-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_data_store is deprecated: Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:hybriddata/v20160601:DataStore is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataStore to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dataManagerName'] = data_manager_name
     __args__['dataStoreName'] = data_store_name
@@ -175,5 +177,6 @@ def get_data_store_output(data_manager_name: Optional[pulumi.Input[str]] = None,
     :param str data_store_name: The data store/repository name queried.
     :param str resource_group_name: The Resource Group Name
     """
-    pulumi.log.warn("""get_data_store is deprecated: Version 2016-06-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_data_store is deprecated: Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:hybriddata/v20160601:DataStore is being removed in the next major version of this provider. Please upgrade to azure-native:hybriddata/v20190601:DataStore to guarantee forwards compatibility.""")
     ...

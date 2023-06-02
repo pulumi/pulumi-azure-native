@@ -98,7 +98,12 @@ class ApplicationTypeArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:servicefabric/v20221001preview:ApplicationType is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20230201preview:ApplicationType to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ApplicationType(pulumi.CustomResource):
+    warnings.warn("""azure-native:servicefabric/v20221001preview:ApplicationType is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20230201preview:ApplicationType to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -150,6 +155,7 @@ class ApplicationType(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""ApplicationType is deprecated: azure-native:servicefabric/v20221001preview:ApplicationType is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20230201preview:ApplicationType to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -171,7 +177,7 @@ class ApplicationType(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20210901privatepreview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20211101preview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20220101:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20220201preview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20220601preview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20220801preview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20230201preview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20230301preview:ApplicationType")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20210901privatepreview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20211101preview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20220101:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20220201preview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20220601preview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20220801preview:ApplicationType"), pulumi.Alias(type_="azure-native:servicefabric/v20230201preview:ApplicationType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationType, __self__).__init__(
             'azure-native:servicefabric/v20221001preview:ApplicationType',

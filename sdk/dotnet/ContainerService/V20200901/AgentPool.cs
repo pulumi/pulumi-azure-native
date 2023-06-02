@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerService.V20200901
     /// <summary>
     /// Agent Pool.
     /// </summary>
+    [Obsolete(@"azure-native:containerservice/v20200901:AgentPool is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20210201:AgentPool to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerservice/v20200901:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Automation.V20151031
     /// <summary>
     /// Definition of the automation account type.
     /// </summary>
+    [Obsolete(@"azure-native:automation/v20151031:AutomationAccount is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:AutomationAccount to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automation/v20151031:AutomationAccount")]
     public partial class AutomationAccount : global::Pulumi.CustomResource
     {

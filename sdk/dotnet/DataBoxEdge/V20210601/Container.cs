@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
     /// <summary>
     /// Represents a container on the  Data Box Edge/Gateway device.
     /// </summary>
+    [Obsolete(@"azure-native:databoxedge/v20210601:Container is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:Container to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20210601:Container")]
     public partial class Container : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Cache.V20210801
     /// <summary>
     /// Describes a database on the RedisEnterprise cluster
     /// </summary>
+    [Obsolete(@"azure-native:cache/v20210801:Database is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20230301preview:Database to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cache/v20210801:Database")]
     public partial class Database : global::Pulumi.CustomResource
     {

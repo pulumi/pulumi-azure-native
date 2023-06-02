@@ -17,6 +17,8 @@ __all__ = [
     'get_account_output',
 ]
 
+warnings.warn("""azure-native:datashare/v20201001preview:Account is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Account to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAccountResult:
     """
@@ -175,6 +177,7 @@ def get_account(account_name: Optional[str] = None,
     :param str account_name: The name of the share account.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_account is deprecated: azure-native:datashare/v20201001preview:Account is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Account to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -206,4 +209,5 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str account_name: The name of the share account.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_account is deprecated: azure-native:datashare/v20201001preview:Account is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Account to guarantee forwards compatibility.""")
     ...

@@ -17,6 +17,8 @@ __all__ = [
     'get_private_endpoint_connection_output',
 ]
 
+warnings.warn("""azure-native:cache/v20200601:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
@@ -117,6 +119,7 @@ def get_private_endpoint_connection(cache_name: Optional[str] = None,
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:cache/v20200601:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:PrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
@@ -146,4 +149,5 @@ def get_private_endpoint_connection_output(cache_name: Optional[pulumi.Input[str
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:cache/v20200601:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:PrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

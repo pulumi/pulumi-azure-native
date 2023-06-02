@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
     /// <summary>
     /// Single item in List or Get Migration Config operation
     /// </summary>
+    [Obsolete(@"azure-native:servicebus/v20180101preview:MigrationConfig is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:MigrationConfig to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicebus/v20180101preview:MigrationConfig")]
     public partial class MigrationConfig : global::Pulumi.CustomResource
     {

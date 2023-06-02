@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20210115
     /// <summary>
     /// Static Site Custom Domain Overview ARM resource.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20210115:StaticSiteCustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteCustomDomain to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20210115:StaticSiteCustomDomain")]
     public partial class StaticSiteCustomDomain : global::Pulumi.CustomResource
     {

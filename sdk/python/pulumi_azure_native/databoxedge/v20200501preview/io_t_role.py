@@ -177,7 +177,12 @@ class IoTRoleArgs:
         pulumi.set(self, "share_mappings", value)
 
 
+warnings.warn("""azure-native:databoxedge/v20200501preview:IoTRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:IoTRole to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class IoTRole(pulumi.CustomResource):
+    warnings.warn("""azure-native:databoxedge/v20200501preview:IoTRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:IoTRole to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -245,6 +250,7 @@ class IoTRole(pulumi.CustomResource):
                  role_status: Optional[pulumi.Input[Union[str, 'RoleStatus']]] = None,
                  share_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountPointMapArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""IoTRole is deprecated: azure-native:databoxedge/v20200501preview:IoTRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:IoTRole to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

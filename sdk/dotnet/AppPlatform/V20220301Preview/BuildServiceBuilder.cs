@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
     /// <summary>
     /// KPack Builder resource
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20220301preview:BuildServiceBuilder is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:BuildServiceBuilder to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20220301preview:BuildServiceBuilder")]
     public partial class BuildServiceBuilder : global::Pulumi.CustomResource
     {

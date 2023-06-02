@@ -17,6 +17,8 @@ __all__ = [
     'get_web_app_function_output',
 ]
 
+warnings.warn("""azure-native:web/v20200901:WebAppFunction is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppFunction to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppFunctionResult:
     """
@@ -261,6 +263,7 @@ def get_web_app_function(function_name: Optional[str] = None,
     :param str name: Site name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_web_app_function is deprecated: azure-native:web/v20200901:WebAppFunction is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppFunction to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['name'] = name
@@ -302,4 +305,5 @@ def get_web_app_function_output(function_name: Optional[pulumi.Input[str]] = Non
     :param str name: Site name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_web_app_function is deprecated: azure-native:web/v20200901:WebAppFunction is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppFunction to guarantee forwards compatibility.""")
     ...

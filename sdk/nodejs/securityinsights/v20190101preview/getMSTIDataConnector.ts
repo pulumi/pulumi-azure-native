@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20190101preview:MSTIDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:MSTIDataConnector to guarantee forwards compatibility. */
 export function getMSTIDataConnector(args: GetMSTIDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMSTIDataConnectorResult> {
+    pulumi.log.warn("getMSTIDataConnector is deprecated: azure-native:securityinsights/v20190101preview:MSTIDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:MSTIDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getMSTIDataConnector", {
@@ -77,6 +79,7 @@ export interface GetMSTIDataConnectorResult {
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20190101preview:MSTIDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:MSTIDataConnector to guarantee forwards compatibility. */
 export function getMSTIDataConnectorOutput(args: GetMSTIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMSTIDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getMSTIDataConnector(a, opts))
 }

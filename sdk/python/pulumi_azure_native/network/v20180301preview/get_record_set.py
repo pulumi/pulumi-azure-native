@@ -17,7 +17,8 @@ __all__ = [
     'get_record_set_output',
 ]
 
-warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.
+azure-native:network/v20180301preview:RecordSet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:RecordSet to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRecordSetResult:
@@ -253,7 +254,8 @@ def get_record_set(record_type: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
-    pulumi.log.warn("""get_record_set is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_record_set is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.
+azure-native:network/v20180301preview:RecordSet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:RecordSet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['recordType'] = record_type
     __args__['relativeRecordSetName'] = relative_record_set_name
@@ -297,5 +299,6 @@ def get_record_set_output(record_type: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
-    pulumi.log.warn("""get_record_set is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_record_set is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.
+azure-native:network/v20180301preview:RecordSet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:RecordSet to guarantee forwards compatibility.""")
     ...

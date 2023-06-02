@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20221115
     /// <summary>
     /// An Azure Cosmos DB Cassandra keyspace.
     /// </summary>
+    [Obsolete(@"azure-native:documentdb/v20221115:CassandraResourceCassandraKeyspace is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:CassandraResourceCassandraKeyspace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20221115:CassandraResourceCassandraKeyspace")]
     public partial class CassandraResourceCassandraKeyspace : global::Pulumi.CustomResource
     {

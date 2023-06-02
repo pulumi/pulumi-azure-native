@@ -65,7 +65,12 @@ class TableArgs:
         pulumi.set(self, "table_name", value)
 
 
+warnings.warn("""azure-native:storage/v20210101:Table is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Table to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Table(pulumi.CustomResource):
+    warnings.warn("""azure-native:storage/v20210101:Table is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Table to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -111,6 +116,7 @@ class Table(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Table is deprecated: azure-native:storage/v20210101:Table is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Table to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

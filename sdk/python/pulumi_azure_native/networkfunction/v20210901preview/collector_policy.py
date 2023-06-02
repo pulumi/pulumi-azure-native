@@ -100,7 +100,12 @@ class CollectorPolicyInitArgs:
         pulumi.set(self, "ingestion_policy", value)
 
 
+warnings.warn("""azure-native:networkfunction/v20210901preview:CollectorPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20220501:CollectorPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class CollectorPolicy(pulumi.CustomResource):
+    warnings.warn("""azure-native:networkfunction/v20210901preview:CollectorPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20220501:CollectorPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -152,6 +157,7 @@ class CollectorPolicy(pulumi.CustomResource):
                  ingestion_policy: Optional[pulumi.Input[pulumi.InputType['IngestionPolicyPropertiesFormatArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""CollectorPolicy is deprecated: azure-native:networkfunction/v20210901preview:CollectorPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20220501:CollectorPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

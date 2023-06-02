@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The operation that retrieves information about the capacity reservation.
  */
+/** @deprecated azure-native:compute/v20211101:CapacityReservation is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:CapacityReservation to guarantee forwards compatibility. */
 export function getCapacityReservation(args: GetCapacityReservationArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationResult> {
+    pulumi.log.warn("getCapacityReservation is deprecated: azure-native:compute/v20211101:CapacityReservation is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:CapacityReservation to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20211101:getCapacityReservation", {
@@ -100,6 +102,7 @@ export interface GetCapacityReservationResult {
 /**
  * The operation that retrieves information about the capacity reservation.
  */
+/** @deprecated azure-native:compute/v20211101:CapacityReservation is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:CapacityReservation to guarantee forwards compatibility. */
 export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationResult> {
     return pulumi.output(args).apply((a: any) => getCapacityReservation(a, opts))
 }

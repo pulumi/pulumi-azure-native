@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Storage.V20190401
     /// <summary>
     /// The storage account.
     /// </summary>
-    [Obsolete(@"Version 2019-04-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-04-01 will be removed in v2 of the provider.
+azure-native:storage/v20190401:StorageAccount is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:StorageAccount to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storage/v20190401:StorageAccount")]
     public partial class StorageAccount : global::Pulumi.CustomResource
     {

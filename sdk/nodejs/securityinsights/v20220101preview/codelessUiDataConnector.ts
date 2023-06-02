@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents Codeless UI data connector.
+ *
+ * @deprecated azure-native:securityinsights/v20220101preview:CodelessUiDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:CodelessUiDataConnector to guarantee forwards compatibility.
  */
 export class CodelessUiDataConnector extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class CodelessUiDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CodelessUiDataConnector {
+        pulumi.log.warn("CodelessUiDataConnector is deprecated: azure-native:securityinsights/v20220101preview:CodelessUiDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:CodelessUiDataConnector to guarantee forwards compatibility.")
         return new CodelessUiDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -70,7 +73,9 @@ export class CodelessUiDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20220101preview:CodelessUiDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:CodelessUiDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: CodelessUiDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("CodelessUiDataConnector is deprecated: azure-native:securityinsights/v20220101preview:CodelessUiDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:CodelessUiDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -101,7 +106,7 @@ export class CodelessUiDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20200101:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20211001:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20220801:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20221101:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20230201:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:CodelessUiDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20200101:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20211001:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20220801:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20221101:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20230201:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:CodelessUiDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CodelessUiDataConnector.__pulumiType, name, resourceInputs, opts);
     }

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a scaling plan definition.
+ *
+ * @deprecated azure-native:desktopvirtualization/v20210114preview:ScalingPlan is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20210201preview:ScalingPlan to guarantee forwards compatibility.
  */
 export class ScalingPlan extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ScalingPlan extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ScalingPlan {
+        pulumi.log.warn("ScalingPlan is deprecated: azure-native:desktopvirtualization/v20210114preview:ScalingPlan is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20210201preview:ScalingPlan to guarantee forwards compatibility.")
         return new ScalingPlan(name, undefined as any, { ...opts, id: id });
     }
 
@@ -112,7 +115,9 @@ export class ScalingPlan extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:desktopvirtualization/v20210114preview:ScalingPlan is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20210201preview:ScalingPlan to guarantee forwards compatibility. */
     constructor(name: string, args: ScalingPlanArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ScalingPlan is deprecated: azure-native:desktopvirtualization/v20210114preview:ScalingPlan is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20210201preview:ScalingPlan to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

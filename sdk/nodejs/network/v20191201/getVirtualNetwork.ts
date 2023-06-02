@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified virtual network by resource group.
  */
+/** @deprecated azure-native:network/v20191201:VirtualNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualNetwork to guarantee forwards compatibility. */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
+    pulumi.log.warn("getVirtualNetwork is deprecated: azure-native:network/v20191201:VirtualNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualNetwork to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20191201:getVirtualNetwork", {
@@ -107,6 +109,7 @@ export interface GetVirtualNetworkResult {
 /**
  * Gets the specified virtual network by resource group.
  */
+/** @deprecated azure-native:network/v20191201:VirtualNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualNetwork to guarantee forwards compatibility. */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))
 }

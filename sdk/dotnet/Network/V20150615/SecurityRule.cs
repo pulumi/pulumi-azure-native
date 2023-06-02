@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Network.V20150615
     /// <summary>
     /// Network security rule.
     /// </summary>
-    [Obsolete(@"Version 2015-06-15 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2015-06-15 will be removed in v2 of the provider.
+azure-native:network/v20150615:SecurityRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20170301:SecurityRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20150615:SecurityRule")]
     public partial class SecurityRule : global::Pulumi.CustomResource
     {

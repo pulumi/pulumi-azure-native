@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview
     /// <summary>
     /// Default rollout definition.
     /// </summary>
+    [Obsolete(@"azure-native:providerhub/v20210501preview:DefaultRollout is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:DefaultRollout to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:providerhub/v20210501preview:DefaultRollout")]
     public partial class DefaultRollout : global::Pulumi.CustomResource
     {

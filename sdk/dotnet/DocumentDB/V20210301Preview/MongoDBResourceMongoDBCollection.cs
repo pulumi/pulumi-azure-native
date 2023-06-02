@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
     /// <summary>
     /// An Azure Cosmos DB MongoDB collection.
     /// </summary>
+    [Obsolete(@"azure-native:documentdb/v20210301preview:MongoDBResourceMongoDBCollection is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20210301preview:MongoDBResourceMongoDBCollection")]
     public partial class MongoDBResourceMongoDBCollection : global::Pulumi.CustomResource
     {

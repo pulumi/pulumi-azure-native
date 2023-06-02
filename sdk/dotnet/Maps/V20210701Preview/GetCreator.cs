@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Maps.V20210701Preview
 {
+    [Obsolete(@"azure-native:maps/v20210701preview:Creator is being removed in the next major version of this provider. Please upgrade to azure-native:maps/v20211201preview:Creator to guarantee forwards compatibility.")]
     public static class GetCreator
     {
         /// <summary>

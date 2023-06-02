@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20160810
 {
-    [Obsolete(@"Version 2016-08-10 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2016-08-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20160810:ReplicationNetworkMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20210301:ReplicationNetworkMapping to guarantee forwards compatibility.")]
     public static class GetReplicationNetworkMapping
     {
         /// <summary>

@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Policies for protecting resources using Just-in-Time access control for the subscription, location
  */
-/** @deprecated Version 2015-06-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2015-06-01-preview will be removed in v2 of the provider.
+azure-native:security/v20150601preview:JitNetworkAccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20200101:JitNetworkAccessPolicy to guarantee forwards compatibility. */
 export function getJitNetworkAccessPolicy(args: GetJitNetworkAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetJitNetworkAccessPolicyResult> {
-    pulumi.log.warn("getJitNetworkAccessPolicy is deprecated: Version 2015-06-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getJitNetworkAccessPolicy is deprecated: Version 2015-06-01-preview will be removed in v2 of the provider.\nazure-native:security/v20150601preview:JitNetworkAccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20200101:JitNetworkAccessPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20150601preview:getJitNetworkAccessPolicy", {
@@ -71,7 +72,8 @@ export interface GetJitNetworkAccessPolicyResult {
 /**
  * Policies for protecting resources using Just-in-Time access control for the subscription, location
  */
-/** @deprecated Version 2015-06-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2015-06-01-preview will be removed in v2 of the provider.
+azure-native:security/v20150601preview:JitNetworkAccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20200101:JitNetworkAccessPolicy to guarantee forwards compatibility. */
 export function getJitNetworkAccessPolicyOutput(args: GetJitNetworkAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitNetworkAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getJitNetworkAccessPolicy(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20210827
     /// <summary>
     /// Class representing an attached database configuration.
     /// </summary>
+    [Obsolete(@"azure-native:kusto/v20210827:AttachedDatabaseConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:AttachedDatabaseConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kusto/v20210827:AttachedDatabaseConfiguration")]
     public partial class AttachedDatabaseConfiguration : global::Pulumi.CustomResource
     {

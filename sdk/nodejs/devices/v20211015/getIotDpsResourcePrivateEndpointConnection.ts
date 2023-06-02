@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get private endpoint connection properties
  */
+/** @deprecated azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection to guarantee forwards compatibility. */
 export function getIotDpsResourcePrivateEndpointConnection(args: GetIotDpsResourcePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourcePrivateEndpointConnectionResult> {
+    pulumi.log.warn("getIotDpsResourcePrivateEndpointConnection is deprecated: azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices/v20211015:getIotDpsResourcePrivateEndpointConnection", {
@@ -63,6 +65,7 @@ export interface GetIotDpsResourcePrivateEndpointConnectionResult {
 /**
  * Get private endpoint connection properties
  */
+/** @deprecated azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection to guarantee forwards compatibility. */
 export function getIotDpsResourcePrivateEndpointConnectionOutput(args: GetIotDpsResourcePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotDpsResourcePrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getIotDpsResourcePrivateEndpointConnection(a, opts))
 }

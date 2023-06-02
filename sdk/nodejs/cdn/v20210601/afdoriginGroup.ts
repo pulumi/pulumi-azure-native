@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+ *
+ * @deprecated azure-native:cdn/v20210601:AFDOriginGroup is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility.
  */
 export class AFDOriginGroup extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class AFDOriginGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AFDOriginGroup {
+        pulumi.log.warn("AFDOriginGroup is deprecated: azure-native:cdn/v20210601:AFDOriginGroup is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility.")
         return new AFDOriginGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -82,7 +85,9 @@ export class AFDOriginGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:cdn/v20210601:AFDOriginGroup is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility. */
     constructor(name: string, args: AFDOriginGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AFDOriginGroup is deprecated: azure-native:cdn/v20210601:AFDOriginGroup is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

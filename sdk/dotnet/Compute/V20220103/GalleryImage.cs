@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20220103
     /// <summary>
     /// Specifies information about the gallery image definition that you want to create or update.
     /// </summary>
+    [Obsolete(@"azure-native:compute/v20220103:GalleryImage is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImage to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20220103:GalleryImage")]
     public partial class GalleryImage : global::Pulumi.CustomResource
     {

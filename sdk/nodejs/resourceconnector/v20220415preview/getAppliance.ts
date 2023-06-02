@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of an Appliance with a specified resource group and name.
  */
+/** @deprecated azure-native:resourceconnector/v20220415preview:Appliance is being removed in the next major version of this provider. Please upgrade to azure-native:resourceconnector/v20221027:Appliance to guarantee forwards compatibility. */
 export function getAppliance(args: GetApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplianceResult> {
+    pulumi.log.warn("getAppliance is deprecated: azure-native:resourceconnector/v20220415preview:Appliance is being removed in the next major version of this provider. Please upgrade to azure-native:resourceconnector/v20221027:Appliance to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resourceconnector/v20220415preview:getAppliance", {
@@ -90,6 +92,7 @@ export interface GetApplianceResult {
 /**
  * Gets the details of an Appliance with a specified resource group and name.
  */
+/** @deprecated azure-native:resourceconnector/v20220415preview:Appliance is being removed in the next major version of this provider. Please upgrade to azure-native:resourceconnector/v20221027:Appliance to guarantee forwards compatibility. */
 export function getApplianceOutput(args: GetApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplianceResult> {
     return pulumi.output(args).apply((a: any) => getAppliance(a, opts))
 }

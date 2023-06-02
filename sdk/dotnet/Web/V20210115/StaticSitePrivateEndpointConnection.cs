@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20210115
     /// <summary>
     /// Remote Private Endpoint Connection ARM resource.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20210115:StaticSitePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSitePrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20210115:StaticSitePrivateEndpointConnection")]
     public partial class StaticSitePrivateEndpointConnection : global::Pulumi.CustomResource
     {

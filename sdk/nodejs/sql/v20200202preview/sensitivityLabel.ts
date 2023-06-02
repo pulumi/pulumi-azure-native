@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A sensitivity label.
+ *
+ * @deprecated azure-native:sql/v20200202preview:SensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility.
  */
 export class SensitivityLabel extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class SensitivityLabel extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SensitivityLabel {
+        pulumi.log.warn("SensitivityLabel is deprecated: azure-native:sql/v20200202preview:SensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility.")
         return new SensitivityLabel(name, undefined as any, { ...opts, id: id });
     }
 
@@ -90,7 +93,9 @@ export class SensitivityLabel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:sql/v20200202preview:SensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility. */
     constructor(name: string, args: SensitivityLabelArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SensitivityLabel is deprecated: azure-native:sql/v20200202preview:SensitivityLabel is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:SensitivityLabel to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

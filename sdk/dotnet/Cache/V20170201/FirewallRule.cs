@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Cache.V20170201
     /// <summary>
     /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
     /// </summary>
-    [Obsolete(@"Version 2017-02-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-02-01 will be removed in v2 of the provider.
+azure-native:cache/v20170201:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cache/v20170201:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource
     {
@@ -75,8 +76,6 @@ namespace Pulumi.AzureNative.Cache.V20170201
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220601:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230401:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230501preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

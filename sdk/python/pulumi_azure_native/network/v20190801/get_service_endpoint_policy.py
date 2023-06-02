@@ -17,6 +17,8 @@ __all__ = [
     'get_service_endpoint_policy_output',
 ]
 
+warnings.warn("""azure-native:network/v20190801:ServiceEndpointPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServiceEndpointPolicyResult:
     """
@@ -165,6 +167,7 @@ def get_service_endpoint_policy(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_endpoint_policy_name: The name of the service endpoint policy.
     """
+    pulumi.log.warn("""get_service_endpoint_policy is deprecated: azure-native:network/v20190801:ServiceEndpointPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -198,4 +201,5 @@ def get_service_endpoint_policy_output(expand: Optional[pulumi.Input[Optional[st
     :param str resource_group_name: The name of the resource group.
     :param str service_endpoint_policy_name: The name of the service endpoint policy.
     """
+    pulumi.log.warn("""get_service_endpoint_policy is deprecated: azure-native:network/v20190801:ServiceEndpointPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility.""")
     ...

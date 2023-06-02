@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20210101
     /// <summary>
     /// Key Vault container ARM resource for a certificate that is purchased through Azure.
     /// </summary>
+    [Obsolete(@"azure-native:certificateregistration/v20210101:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20220901:AppServiceCertificateOrderCertificate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:certificateregistration/v20210101:AppServiceCertificateOrderCertificate")]
     public partial class AppServiceCertificateOrderCertificate : global::Pulumi.CustomResource
     {

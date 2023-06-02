@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20210801
 {
+    [Obsolete(@"azure-native:apimanagement/v20210801:ApiTagDescription is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiTagDescription to guarantee forwards compatibility.")]
     public static class GetApiTagDescription
     {
         /// <summary>

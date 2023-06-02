@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Media.V20180601Preview
 {
+    [Obsolete(@"azure-native:media/v20180601preview:ContentKeyPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:ContentKeyPolicy to guarantee forwards compatibility.")]
     public static class GetContentKeyPolicy
     {
         /// <summary>

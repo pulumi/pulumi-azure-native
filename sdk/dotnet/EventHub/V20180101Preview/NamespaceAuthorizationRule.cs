@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
     /// </summary>
+    [Obsolete(@"azure-native:eventhub/v20180101preview:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:NamespaceAuthorizationRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventhub/v20180101preview:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource
     {

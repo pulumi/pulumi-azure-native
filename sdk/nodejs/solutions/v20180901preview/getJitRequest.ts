@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the JIT request.
  */
-/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:solutions/v20180901preview:JitRequest is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:JitRequest to guarantee forwards compatibility. */
 export function getJitRequest(args: GetJitRequestArgs, opts?: pulumi.InvokeOptions): Promise<GetJitRequestResult> {
-    pulumi.log.warn("getJitRequest is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getJitRequest is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.\nazure-native:solutions/v20180901preview:JitRequest is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:JitRequest to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:solutions/v20180901preview:getJitRequest", {
@@ -92,7 +93,8 @@ export interface GetJitRequestResult {
 /**
  * Gets the JIT request.
  */
-/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:solutions/v20180901preview:JitRequest is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20210701:JitRequest to guarantee forwards compatibility. */
 export function getJitRequestOutput(args: GetJitRequestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitRequestResult> {
     return pulumi.output(args).apply((a: any) => getJitRequest(a, opts))
 }

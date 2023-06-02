@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents OfficeIRM (Microsoft Insider Risk Management) data connector.
+ *
+ * @deprecated azure-native:securityinsights/v20220901preview:OfficeIRMDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:OfficeIRMDataConnector to guarantee forwards compatibility.
  */
 export class OfficeIRMDataConnector extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class OfficeIRMDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OfficeIRMDataConnector {
+        pulumi.log.warn("OfficeIRMDataConnector is deprecated: azure-native:securityinsights/v20220901preview:OfficeIRMDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:OfficeIRMDataConnector to guarantee forwards compatibility.")
         return new OfficeIRMDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,7 +77,9 @@ export class OfficeIRMDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20220901preview:OfficeIRMDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:OfficeIRMDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: OfficeIRMDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("OfficeIRMDataConnector is deprecated: azure-native:securityinsights/v20220901preview:OfficeIRMDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:OfficeIRMDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -110,7 +115,7 @@ export class OfficeIRMDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20200101:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20211001:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20220801:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20221101:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20230201:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:OfficeIRMDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20200101:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20211001:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20220801:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20221101:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20230201:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:OfficeIRMDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OfficeIRMDataConnector.__pulumiType, name, resourceInputs, opts);
     }

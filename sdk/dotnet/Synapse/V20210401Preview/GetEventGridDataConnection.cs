@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Synapse.V20210401Preview
 {
+    [Obsolete(@"azure-native:synapse/v20210401preview:EventGridDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:EventGridDataConnection to guarantee forwards compatibility.")]
     public static class GetEventGridDataConnection
     {
         /// <summary>

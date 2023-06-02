@@ -17,7 +17,8 @@ __all__ = [
     'get_data_pool_output',
 ]
 
-warnings.warn("""Version 2020-07-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-07-01-preview will be removed in v2 of the provider.
+azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Please upgrade to azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDataPoolResult:
@@ -131,7 +132,8 @@ def get_data_pool(account_name: Optional[str] = None,
     :param str data_pool_name: The name of the Data Pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_data_pool is deprecated: Version 2020-07-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_data_pool is deprecated: Version 2020-07-01-preview will be removed in v2 of the provider.
+azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Please upgrade to azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['dataPoolName'] = data_pool_name
@@ -162,5 +164,6 @@ def get_data_pool_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str data_pool_name: The name of the Data Pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_data_pool is deprecated: Version 2020-07-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_data_pool is deprecated: Version 2020-07-01-preview will be removed in v2 of the provider.
+azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool is being removed in the next major version of this provider. Please upgrade to azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool to guarantee forwards compatibility.""")
     ...

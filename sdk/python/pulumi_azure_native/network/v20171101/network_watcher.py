@@ -98,11 +98,13 @@ class NetworkWatcherArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2017-11-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-11-01 will be removed in v2 of the provider.
+azure-native:network/v20171101:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180101:NetworkWatcher to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class NetworkWatcher(pulumi.CustomResource):
-    warnings.warn("""Version 2017-11-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2017-11-01 will be removed in v2 of the provider.
+azure-native:network/v20171101:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180101:NetworkWatcher to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -155,7 +157,8 @@ class NetworkWatcher(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""NetworkWatcher is deprecated: Version 2017-11-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""NetworkWatcher is deprecated: Version 2017-11-01 will be removed in v2 of the provider.
+azure-native:network/v20171101:NetworkWatcher is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180101:NetworkWatcher to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

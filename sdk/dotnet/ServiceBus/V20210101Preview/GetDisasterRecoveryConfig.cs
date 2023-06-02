@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
 {
+    [Obsolete(@"azure-native:servicebus/v20210101preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility.")]
     public static class GetDisasterRecoveryConfig
     {
         /// <summary>

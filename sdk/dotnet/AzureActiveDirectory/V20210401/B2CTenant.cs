@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureActiveDirectory.V20210401
 {
+    [Obsolete(@"azure-native:azureactivedirectory/v20210401:B2CTenant is being removed in the next major version of this provider. Please upgrade to azure-native:azureactivedirectory/v20230118preview:B2CTenant to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azureactivedirectory/v20210401:B2CTenant")]
     public partial class B2CTenant : global::Pulumi.CustomResource
     {

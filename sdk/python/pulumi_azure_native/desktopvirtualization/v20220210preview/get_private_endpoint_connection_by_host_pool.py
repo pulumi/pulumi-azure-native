@@ -17,6 +17,8 @@ __all__ = [
     'get_private_endpoint_connection_by_host_pool_output',
 ]
 
+warnings.warn("""azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionByHostPoolResult:
     """
@@ -129,6 +131,7 @@ def get_private_endpoint_connection_by_host_pool(host_pool_name: Optional[str] =
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_private_endpoint_connection_by_host_pool is deprecated: azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['hostPoolName'] = host_pool_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
@@ -159,4 +162,5 @@ def get_private_endpoint_connection_by_host_pool_output(host_pool_name: Optional
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_private_endpoint_connection_by_host_pool is deprecated: azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.""")
     ...

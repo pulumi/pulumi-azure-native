@@ -17,6 +17,8 @@ __all__ = [
     'get_organization_output',
 ]
 
+warnings.warn("""azure-native:confluent/v20210901preview:Organization is being removed in the next major version of this provider. Please upgrade to azure-native:confluent/v20211201:Organization to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetOrganizationResult:
     """
@@ -187,6 +189,7 @@ def get_organization(organization_name: Optional[str] = None,
     :param str organization_name: Organization resource name
     :param str resource_group_name: Resource group name
     """
+    pulumi.log.warn("""get_organization is deprecated: azure-native:confluent/v20210901preview:Organization is being removed in the next major version of this provider. Please upgrade to azure-native:confluent/v20211201:Organization to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['organizationName'] = organization_name
     __args__['resourceGroupName'] = resource_group_name
@@ -219,4 +222,5 @@ def get_organization_output(organization_name: Optional[pulumi.Input[str]] = Non
     :param str organization_name: Organization resource name
     :param str resource_group_name: Resource group name
     """
+    pulumi.log.warn("""get_organization is deprecated: azure-native:confluent/v20210901preview:Organization is being removed in the next major version of this provider. Please upgrade to azure-native:confluent/v20211201:Organization to guarantee forwards compatibility.""")
     ...

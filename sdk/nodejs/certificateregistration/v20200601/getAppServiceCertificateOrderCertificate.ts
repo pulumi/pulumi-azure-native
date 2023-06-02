@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Get the certificate associated with a certificate order.
  */
-/** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility. */
 export function getAppServiceCertificateOrderCertificate(args: GetAppServiceCertificateOrderCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderCertificateResult> {
-    pulumi.log.warn("getAppServiceCertificateOrderCertificate is deprecated: Version 2020-06-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getAppServiceCertificateOrderCertificate is deprecated: Version 2020-06-01 will be removed in v2 of the provider.\nazure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:certificateregistration/v20200601:getAppServiceCertificateOrderCertificate", {
@@ -78,7 +79,8 @@ export interface GetAppServiceCertificateOrderCertificateResult {
 /**
  * Get the certificate associated with a certificate order.
  */
-/** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate to guarantee forwards compatibility. */
 export function getAppServiceCertificateOrderCertificateOutput(args: GetAppServiceCertificateOrderCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderCertificateResult> {
     return pulumi.output(args).apply((a: any) => getAppServiceCertificateOrderCertificate(a, opts))
 }

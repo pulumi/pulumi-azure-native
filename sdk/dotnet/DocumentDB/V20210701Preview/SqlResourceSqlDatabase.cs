@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
     /// <summary>
     /// An Azure Cosmos DB SQL database.
     /// </summary>
+    [Obsolete(@"azure-native:documentdb/v20210701preview:SqlResourceSqlDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20210701preview:SqlResourceSqlDatabase")]
     public partial class SqlResourceSqlDatabase : global::Pulumi.CustomResource
     {

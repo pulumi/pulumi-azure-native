@@ -16,6 +16,8 @@ __all__ = [
     'get_web_app_public_certificate_output',
 ]
 
+warnings.warn("""azure-native:web/v20210101:WebAppPublicCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppPublicCertificate to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppPublicCertificateResult:
     """
@@ -128,6 +130,7 @@ def get_web_app_public_certificate(name: Optional[str] = None,
     :param str public_certificate_name: Public certificate name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_web_app_public_certificate is deprecated: azure-native:web/v20210101:WebAppPublicCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppPublicCertificate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['publicCertificateName'] = public_certificate_name
@@ -158,4 +161,5 @@ def get_web_app_public_certificate_output(name: Optional[pulumi.Input[str]] = No
     :param str public_certificate_name: Public certificate name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_web_app_public_certificate is deprecated: azure-native:web/v20210101:WebAppPublicCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppPublicCertificate to guarantee forwards compatibility.""")
     ...

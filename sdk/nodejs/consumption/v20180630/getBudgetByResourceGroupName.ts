@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the budget for a resource group under a subscription by budget name.
  */
-/** @deprecated Version 2018-06-30 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-06-30 will be removed in v2 of the provider.
+azure-native:consumption/v20180630:BudgetByResourceGroupName is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20181001:BudgetByResourceGroupName to guarantee forwards compatibility. */
 export function getBudgetByResourceGroupName(args: GetBudgetByResourceGroupNameArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetByResourceGroupNameResult> {
-    pulumi.log.warn("getBudgetByResourceGroupName is deprecated: Version 2018-06-30 will be removed in v2 of the provider.")
+    pulumi.log.warn("getBudgetByResourceGroupName is deprecated: Version 2018-06-30 will be removed in v2 of the provider.\nazure-native:consumption/v20180630:BudgetByResourceGroupName is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20181001:BudgetByResourceGroupName to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:consumption/v20180630:getBudgetByResourceGroupName", {
@@ -84,7 +85,8 @@ export interface GetBudgetByResourceGroupNameResult {
 /**
  * Gets the budget for a resource group under a subscription by budget name.
  */
-/** @deprecated Version 2018-06-30 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-06-30 will be removed in v2 of the provider.
+azure-native:consumption/v20180630:BudgetByResourceGroupName is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20181001:BudgetByResourceGroupName to guarantee forwards compatibility. */
 export function getBudgetByResourceGroupNameOutput(args: GetBudgetByResourceGroupNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetByResourceGroupNameResult> {
     return pulumi.output(args).apply((a: any) => getBudgetByResourceGroupName(a, opts))
 }

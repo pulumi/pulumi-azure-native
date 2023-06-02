@@ -16,6 +16,8 @@ __all__ = [
     'get_cosmos_db_data_connection_output',
 ]
 
+warnings.warn("""azure-native:kusto/v20221111:CosmosDbDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:CosmosDbDataConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCosmosDbDataConnectionResult:
     """
@@ -215,6 +217,7 @@ def get_cosmos_db_data_connection(cluster_name: Optional[str] = None,
     :param str database_name: The name of the database in the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
+    pulumi.log.warn("""get_cosmos_db_data_connection is deprecated: azure-native:kusto/v20221111:CosmosDbDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:CosmosDbDataConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['dataConnectionName'] = data_connection_name
@@ -255,4 +258,5 @@ def get_cosmos_db_data_connection_output(cluster_name: Optional[pulumi.Input[str
     :param str database_name: The name of the database in the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
+    pulumi.log.warn("""get_cosmos_db_data_connection is deprecated: azure-native:kusto/v20221111:CosmosDbDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:CosmosDbDataConnection to guarantee forwards compatibility.""")
     ...

@@ -83,7 +83,12 @@ class PrivateEndpointConnectionByHostPoolArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
+warnings.warn("""azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class PrivateEndpointConnectionByHostPool(pulumi.CustomResource):
+    warnings.warn("""azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,6 +137,7 @@ class PrivateEndpointConnectionByHostPool(pulumi.CustomResource):
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""PrivateEndpointConnectionByHostPool is deprecated: azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

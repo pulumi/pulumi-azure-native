@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the SQL container under an existing Azure Cosmos DB database account.
  */
+/** @deprecated azure-native:documentdb/v20220515preview:SqlResourceSqlContainer is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlContainer to guarantee forwards compatibility. */
 export function getSqlResourceSqlContainer(args: GetSqlResourceSqlContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlContainerResult> {
+    pulumi.log.warn("getSqlResourceSqlContainer is deprecated: azure-native:documentdb/v20220515preview:SqlResourceSqlContainer is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlContainer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20220515preview:getSqlResourceSqlContainer", {
@@ -74,6 +76,7 @@ export interface GetSqlResourceSqlContainerResult {
 /**
  * Gets the SQL container under an existing Azure Cosmos DB database account.
  */
+/** @deprecated azure-native:documentdb/v20220515preview:SqlResourceSqlContainer is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlContainer to guarantee forwards compatibility. */
 export function getSqlResourceSqlContainerOutput(args: GetSqlResourceSqlContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlContainerResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlContainer(a, opts))
 }

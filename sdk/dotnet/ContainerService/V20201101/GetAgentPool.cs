@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ContainerService.V20201101
 {
+    [Obsolete(@"azure-native:containerservice/v20201101:AgentPool is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20210201:AgentPool to guarantee forwards compatibility.")]
     public static class GetAgentPool
     {
         /// <summary>

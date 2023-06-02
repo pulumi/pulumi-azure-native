@@ -17,6 +17,8 @@ __all__ = [
     'get_hub_virtual_network_connection_output',
 ]
 
+warnings.warn("""azure-native:network/v20200501:HubVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:HubVirtualNetworkConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHubVirtualNetworkConnectionResult:
     """
@@ -153,6 +155,7 @@ def get_hub_virtual_network_connection(connection_name: Optional[str] = None,
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
+    pulumi.log.warn("""get_hub_virtual_network_connection is deprecated: azure-native:network/v20200501:HubVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:HubVirtualNetworkConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -185,4 +188,5 @@ def get_hub_virtual_network_connection_output(connection_name: Optional[pulumi.I
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
+    pulumi.log.warn("""get_hub_virtual_network_connection is deprecated: azure-native:network/v20200501:HubVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:HubVirtualNetworkConnection to guarantee forwards compatibility.""")
     ...

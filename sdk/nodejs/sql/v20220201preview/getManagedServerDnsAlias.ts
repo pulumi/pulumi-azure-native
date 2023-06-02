@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a server DNS alias.
  */
+/** @deprecated azure-native:sql/v20220201preview:ManagedServerDnsAlias is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedServerDnsAlias to guarantee forwards compatibility. */
 export function getManagedServerDnsAlias(args: GetManagedServerDnsAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedServerDnsAliasResult> {
+    pulumi.log.warn("getManagedServerDnsAlias is deprecated: azure-native:sql/v20220201preview:ManagedServerDnsAlias is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedServerDnsAlias to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20220201preview:getManagedServerDnsAlias", {
@@ -57,6 +59,7 @@ export interface GetManagedServerDnsAliasResult {
 /**
  * Gets a server DNS alias.
  */
+/** @deprecated azure-native:sql/v20220201preview:ManagedServerDnsAlias is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedServerDnsAlias to guarantee forwards compatibility. */
 export function getManagedServerDnsAliasOutput(args: GetManagedServerDnsAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedServerDnsAliasResult> {
     return pulumi.output(args).apply((a: any) => getManagedServerDnsAlias(a, opts))
 }

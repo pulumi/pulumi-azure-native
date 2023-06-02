@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
     /// <summary>
     /// Class representing an event hub data connection.
     /// </summary>
+    [Obsolete(@"azure-native:synapse/v20210401preview:EventHubDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:EventHubDataConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:synapse/v20210401preview:EventHubDataConnection")]
     public partial class EventHubDataConnection : global::Pulumi.CustomResource
     {

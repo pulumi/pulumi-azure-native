@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Description for Get the named hostname binding for an app (or deployment slot, if specified).
  */
+/** @deprecated azure-native:web/v20220301:WebAppHostNameBindingSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppHostNameBindingSlot to guarantee forwards compatibility. */
 export function getWebAppHostNameBindingSlot(args: GetWebAppHostNameBindingSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHostNameBindingSlotResult> {
+    pulumi.log.warn("getWebAppHostNameBindingSlot is deprecated: azure-native:web/v20220301:WebAppHostNameBindingSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppHostNameBindingSlot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220301:getWebAppHostNameBindingSlot", {
@@ -97,6 +99,7 @@ export interface GetWebAppHostNameBindingSlotResult {
 /**
  * Description for Get the named hostname binding for an app (or deployment slot, if specified).
  */
+/** @deprecated azure-native:web/v20220301:WebAppHostNameBindingSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppHostNameBindingSlot to guarantee forwards compatibility. */
 export function getWebAppHostNameBindingSlotOutput(args: GetWebAppHostNameBindingSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHostNameBindingSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppHostNameBindingSlot(a, opts))
 }

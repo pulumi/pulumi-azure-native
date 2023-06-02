@@ -135,11 +135,13 @@ class ZoneArgs:
         pulumi.set(self, "zone_type", value)
 
 
-warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.
+azure-native:network/v20180301preview:Zone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:Zone to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Zone(pulumi.CustomResource):
-    warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.
+azure-native:network/v20180301preview:Zone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:Zone to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -198,7 +200,8 @@ class Zone(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  zone_type: Optional[pulumi.Input['ZoneType']] = None,
                  __props__=None):
-        pulumi.log.warn("""Zone is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""Zone is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.
+azure-native:network/v20180301preview:Zone is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180501:Zone to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

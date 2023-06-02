@@ -17,6 +17,8 @@ __all__ = [
     'getgalleryimage_retrieve_output',
 ]
 
+warnings.warn("""azure-native:azurestackhci/v20210701preview:galleryimageRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:galleryimageRetrieve to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetgalleryimageRetrieveResult:
     """
@@ -199,6 +201,7 @@ def getgalleryimage_retrieve(galleryimages_name: Optional[str] = None,
     :param str galleryimages_name: Name of the gallery image
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""getgalleryimage_retrieve is deprecated: azure-native:azurestackhci/v20210701preview:galleryimageRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:galleryimageRetrieve to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['galleryimagesName'] = galleryimages_name
     __args__['resourceGroupName'] = resource_group_name
@@ -232,4 +235,5 @@ def getgalleryimage_retrieve_output(galleryimages_name: Optional[pulumi.Input[st
     :param str galleryimages_name: Name of the gallery image
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""getgalleryimage_retrieve is deprecated: azure-native:azurestackhci/v20210701preview:galleryimageRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:galleryimageRetrieve to guarantee forwards compatibility.""")
     ...

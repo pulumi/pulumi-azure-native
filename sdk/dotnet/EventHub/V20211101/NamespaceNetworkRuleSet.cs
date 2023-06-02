@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventHub.V20211101
     /// <summary>
     /// Description of topic resource.
     /// </summary>
+    [Obsolete(@"azure-native:eventhub/v20211101:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventhub/v20211101:NamespaceNetworkRuleSet")]
     public partial class NamespaceNetworkRuleSet : global::Pulumi.CustomResource
     {

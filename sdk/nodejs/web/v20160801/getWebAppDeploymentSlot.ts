@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a deployment by its ID for an app, or a deployment slot.
  */
+/** @deprecated azure-native:web/v20160801:WebAppDeploymentSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppDeploymentSlot to guarantee forwards compatibility. */
 export function getWebAppDeploymentSlot(args: GetWebAppDeploymentSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDeploymentSlotResult> {
+    pulumi.log.warn("getWebAppDeploymentSlot is deprecated: azure-native:web/v20160801:WebAppDeploymentSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppDeploymentSlot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20160801:getWebAppDeploymentSlot", {
@@ -97,6 +99,7 @@ export interface GetWebAppDeploymentSlotResult {
 /**
  * Get a deployment by its ID for an app, or a deployment slot.
  */
+/** @deprecated azure-native:web/v20160801:WebAppDeploymentSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppDeploymentSlot to guarantee forwards compatibility. */
 export function getWebAppDeploymentSlotOutput(args: GetWebAppDeploymentSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDeploymentSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppDeploymentSlot(a, opts))
 }

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
 {
+    [Obsolete(@"azure-native:documentdb/v20220215preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:Service to guarantee forwards compatibility.")]
     public static class GetService
     {
         /// <summary>

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a database's security alert policy.
  */
+/** @deprecated azure-native:sql/v20210801preview:DatabaseSecurityAlertPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:DatabaseSecurityAlertPolicy to guarantee forwards compatibility. */
 export function getDatabaseSecurityAlertPolicy(args: GetDatabaseSecurityAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseSecurityAlertPolicyResult> {
+    pulumi.log.warn("getDatabaseSecurityAlertPolicy is deprecated: azure-native:sql/v20210801preview:DatabaseSecurityAlertPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:DatabaseSecurityAlertPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20210801preview:getDatabaseSecurityAlertPolicy", {
@@ -96,6 +98,7 @@ export interface GetDatabaseSecurityAlertPolicyResult {
 /**
  * Gets a database's security alert policy.
  */
+/** @deprecated azure-native:sql/v20210801preview:DatabaseSecurityAlertPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:DatabaseSecurityAlertPolicy to guarantee forwards compatibility. */
 export function getDatabaseSecurityAlertPolicyOutput(args: GetDatabaseSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseSecurityAlertPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseSecurityAlertPolicy(a, opts))
 }

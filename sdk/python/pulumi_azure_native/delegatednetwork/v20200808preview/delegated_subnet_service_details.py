@@ -116,11 +116,13 @@ class DelegatedSubnetServiceDetailsArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2020-08-08-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-08-08-preview will be removed in v2 of the provider.
+azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails is being removed in the next major version of this provider. Please upgrade to azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class DelegatedSubnetServiceDetails(pulumi.CustomResource):
-    warnings.warn("""Version 2020-08-08-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2020-08-08-preview will be removed in v2 of the provider.
+azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails is being removed in the next major version of this provider. Please upgrade to azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -176,7 +178,8 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
                  subnet_details: Optional[pulumi.Input[pulumi.InputType['SubnetDetailsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""DelegatedSubnetServiceDetails is deprecated: Version 2020-08-08-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""DelegatedSubnetServiceDetails is deprecated: Version 2020-08-08-preview will be removed in v2 of the provider.
+azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails is being removed in the next major version of this provider. Please upgrade to azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.ContainerService.V20180331
     /// <summary>
     /// Managed cluster.
     /// </summary>
-    [Obsolete(@"Version 2018-03-31 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-03-31 will be removed in v2 of the provider.
+azure-native:containerservice/v20180331:ManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20190201:ManagedCluster to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerservice/v20180331:ManagedCluster")]
     public partial class ManagedCluster : global::Pulumi.CustomResource
     {

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
+ *
+ * @deprecated azure-native:cognitiveservices/v20211001:Account is being removed in the next major version of this provider. Please upgrade to azure-native:cognitiveservices/v20221201:Account to guarantee forwards compatibility.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Account extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Account {
+        pulumi.log.warn("Account is deprecated: azure-native:cognitiveservices/v20211001:Account is being removed in the next major version of this provider. Please upgrade to azure-native:cognitiveservices/v20221201:Account to guarantee forwards compatibility.")
         return new Account(name, undefined as any, { ...opts, id: id });
     }
 
@@ -85,7 +88,9 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:cognitiveservices/v20211001:Account is being removed in the next major version of this provider. Please upgrade to azure-native:cognitiveservices/v20221201:Account to guarantee forwards compatibility. */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Account is deprecated: azure-native:cognitiveservices/v20211001:Account is being removed in the next major version of this provider. Please upgrade to azure-native:cognitiveservices/v20221201:Account to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

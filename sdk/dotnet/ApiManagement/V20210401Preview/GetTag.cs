@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
 {
+    [Obsolete(@"azure-native:apimanagement/v20210401preview:Tag is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Tag to guarantee forwards compatibility.")]
     public static class GetTag
     {
         /// <summary>

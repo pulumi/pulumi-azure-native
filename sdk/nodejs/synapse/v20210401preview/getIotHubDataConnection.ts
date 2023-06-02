@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a data connection.
  */
+/** @deprecated azure-native:synapse/v20210401preview:IotHubDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:IotHubDataConnection to guarantee forwards compatibility. */
 export function getIotHubDataConnection(args: GetIotHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubDataConnectionResult> {
+    pulumi.log.warn("getIotHubDataConnection is deprecated: azure-native:synapse/v20210401preview:IotHubDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:IotHubDataConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210401preview:getIotHubDataConnection", {
@@ -110,6 +112,7 @@ export interface GetIotHubDataConnectionResult {
 /**
  * Returns a data connection.
  */
+/** @deprecated azure-native:synapse/v20210401preview:IotHubDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:IotHubDataConnection to guarantee forwards compatibility. */
 export function getIotHubDataConnectionOutput(args: GetIotHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubDataConnectionResult> {
     return pulumi.output(args).apply((a: any) => getIotHubDataConnection(a, opts))
 }

@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Authorization rule for a namespace by name.
  */
-/** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-07-01 will be removed in v2 of the provider.
+azure-native:relay/v20160701:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20170401:NamespaceAuthorizationRule to guarantee forwards compatibility. */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
-    pulumi.log.warn("getNamespaceAuthorizationRule is deprecated: Version 2016-07-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getNamespaceAuthorizationRule is deprecated: Version 2016-07-01 will be removed in v2 of the provider.\nazure-native:relay/v20160701:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20170401:NamespaceAuthorizationRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay/v20160701:getNamespaceAuthorizationRule", {
@@ -58,7 +59,8 @@ export interface GetNamespaceAuthorizationRuleResult {
 /**
  * Authorization rule for a namespace by name.
  */
-/** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-07-01 will be removed in v2 of the provider.
+azure-native:relay/v20160701:NamespaceAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20170401:NamespaceAuthorizationRule to guarantee forwards compatibility. */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Security.V20220501Preview
     /// <summary>
     /// The security connector resource.
     /// </summary>
+    [Obsolete(@"azure-native:security/v20220501preview:SecurityConnector is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20220801preview:SecurityConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:security/v20220501preview:SecurityConnector")]
     public partial class SecurityConnector : global::Pulumi.CustomResource
     {

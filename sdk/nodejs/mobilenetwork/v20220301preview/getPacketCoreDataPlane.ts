@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified packet core data plane.
  */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane to guarantee forwards compatibility. */
 export function getPacketCoreDataPlane(args: GetPacketCoreDataPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCoreDataPlaneResult> {
+    pulumi.log.warn("getPacketCoreDataPlane is deprecated: azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220301preview:getPacketCoreDataPlane", {
@@ -99,6 +101,7 @@ export interface GetPacketCoreDataPlaneResult {
 /**
  * Gets information about the specified packet core data plane.
  */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane to guarantee forwards compatibility. */
 export function getPacketCoreDataPlaneOutput(args: GetPacketCoreDataPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCoreDataPlaneResult> {
     return pulumi.output(args).apply((a: any) => getPacketCoreDataPlane(a, opts))
 }

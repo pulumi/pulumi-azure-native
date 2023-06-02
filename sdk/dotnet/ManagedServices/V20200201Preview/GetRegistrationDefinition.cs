@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ManagedServices.V20200201Preview
 {
+    [Obsolete(@"azure-native:managedservices/v20200201preview:RegistrationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationDefinition to guarantee forwards compatibility.")]
     public static class GetRegistrationDefinition
     {
         /// <summary>

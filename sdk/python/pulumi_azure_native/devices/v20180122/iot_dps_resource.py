@@ -115,11 +115,13 @@ class IotDpsResourceArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2018-01-22 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-01-22 will be removed in v2 of the provider.
+azure-native:devices/v20180122:IotDpsResource is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class IotDpsResource(pulumi.CustomResource):
-    warnings.warn("""Version 2018-01-22 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2018-01-22 will be removed in v2 of the provider.
+azure-native:devices/v20180122:IotDpsResource is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -175,7 +177,8 @@ class IotDpsResource(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['IotDpsSkuInfoArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""IotDpsResource is deprecated: Version 2018-01-22 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""IotDpsResource is deprecated: Version 2018-01-22 will be removed in v2 of the provider.
+azure-native:devices/v20180122:IotDpsResource is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20200901preview:IotDpsResource to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

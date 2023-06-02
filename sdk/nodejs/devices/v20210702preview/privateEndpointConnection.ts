@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The private endpoint connection of an IotHub
+ *
+ * @deprecated azure-native:devices/v20210702preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20220430preview:PrivateEndpointConnection to guarantee forwards compatibility.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpointConnection {
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: azure-native:devices/v20210702preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20220430preview:PrivateEndpointConnection to guarantee forwards compatibility.")
         return new PrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -57,7 +60,9 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:devices/v20210702preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20220430preview:PrivateEndpointConnection to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: azure-native:devices/v20210702preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20220430preview:PrivateEndpointConnection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

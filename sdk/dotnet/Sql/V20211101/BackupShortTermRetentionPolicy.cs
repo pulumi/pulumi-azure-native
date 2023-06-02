@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
     /// <summary>
     /// A short term retention policy.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20211101:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20211101:BackupShortTermRetentionPolicy")]
     public partial class BackupShortTermRetentionPolicy : global::Pulumi.CustomResource
     {

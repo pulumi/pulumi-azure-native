@@ -17,6 +17,8 @@ __all__ = [
     'get_server_security_alert_policy_output',
 ]
 
+warnings.warn("""azure-native:sql/v20211101:ServerSecurityAlertPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerSecurityAlertPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServerSecurityAlertPolicyResult:
     """
@@ -189,6 +191,7 @@ def get_server_security_alert_policy(resource_group_name: Optional[str] = None,
     :param str security_alert_policy_name: The name of the security alert policy.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("""get_server_security_alert_policy is deprecated: azure-native:sql/v20211101:ServerSecurityAlertPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerSecurityAlertPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['securityAlertPolicyName'] = security_alert_policy_name
@@ -224,4 +227,5 @@ def get_server_security_alert_policy_output(resource_group_name: Optional[pulumi
     :param str security_alert_policy_name: The name of the security alert policy.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("""get_server_security_alert_policy is deprecated: azure-native:sql/v20211101:ServerSecurityAlertPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerSecurityAlertPolicy to guarantee forwards compatibility.""")
     ...

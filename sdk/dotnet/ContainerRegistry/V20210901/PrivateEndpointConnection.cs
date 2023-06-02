@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210901
     /// <summary>
     /// An object that represents a private endpoint connection for a container registry.
     /// </summary>
+    [Obsolete(@"azure-native:containerregistry/v20210901:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerregistry/v20210901:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

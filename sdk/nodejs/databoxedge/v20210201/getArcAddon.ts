@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a specific addon by name.
  */
+/** @deprecated azure-native:databoxedge/v20210201:ArcAddon is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:ArcAddon to guarantee forwards compatibility. */
 export function getArcAddon(args: GetArcAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetArcAddonResult> {
+    pulumi.log.warn("getArcAddon is deprecated: azure-native:databoxedge/v20210201:ArcAddon is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:ArcAddon to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210201:getArcAddon", {
@@ -101,6 +103,7 @@ export interface GetArcAddonResult {
 /**
  * Gets a specific addon by name.
  */
+/** @deprecated azure-native:databoxedge/v20210201:ArcAddon is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:ArcAddon to guarantee forwards compatibility. */
 export function getArcAddonOutput(args: GetArcAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcAddonResult> {
     return pulumi.output(args).apply((a: any) => getArcAddon(a, opts))
 }

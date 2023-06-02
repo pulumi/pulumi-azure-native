@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
 {
+    [Obsolete(@"azure-native:timeseriesinsights/v20180815preview:EventHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:EventHubEventSource to guarantee forwards compatibility.")]
     public static class GetEventHubEventSource
     {
         /// <summary>

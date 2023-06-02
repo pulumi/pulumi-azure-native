@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20210115
     /// <summary>
     /// Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20210115:WebAppAuthSettingsV2Slot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20210201:WebAppAuthSettingsV2Slot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20210115:WebAppAuthSettingsV2Slot")]
     public partial class WebAppAuthSettingsV2Slot : global::Pulumi.CustomResource
     {

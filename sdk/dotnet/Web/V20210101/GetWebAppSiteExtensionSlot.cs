@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Web.V20210101
 {
+    [Obsolete(@"azure-native:web/v20210101:WebAppSiteExtensionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSiteExtensionSlot to guarantee forwards compatibility.")]
     public static class GetWebAppSiteExtensionSlot
     {
         /// <summary>

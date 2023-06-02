@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Synapse.V20201201
 {
-    [Obsolete(@"Version 2020-12-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-12-01 will be removed in v2 of the provider.
+azure-native:synapse/v20201201:SqlPoolWorkloadClassifier is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolWorkloadClassifier to guarantee forwards compatibility.")]
     public static class GetSqlPoolWorkloadClassifier
     {
         /// <summary>

@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Push settings for the App.
+ *
+ * @deprecated azure-native:web/v20210201:WebAppSitePushSettings is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSitePushSettings to guarantee forwards compatibility.
  */
 export class WebAppSitePushSettings extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class WebAppSitePushSettings extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppSitePushSettings {
+        pulumi.log.warn("WebAppSitePushSettings is deprecated: azure-native:web/v20210201:WebAppSitePushSettings is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSitePushSettings to guarantee forwards compatibility.")
         return new WebAppSitePushSettings(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,7 +76,9 @@ export class WebAppSitePushSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:web/v20210201:WebAppSitePushSettings is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSitePushSettings to guarantee forwards compatibility. */
     constructor(name: string, args: WebAppSitePushSettingsArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppSitePushSettings is deprecated: azure-native:web/v20210201:WebAppSitePushSettings is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSitePushSettings to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

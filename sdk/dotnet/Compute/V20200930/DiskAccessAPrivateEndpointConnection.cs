@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20200930
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
+    [Obsolete(@"azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection")]
     public partial class DiskAccessAPrivateEndpointConnection : global::Pulumi.CustomResource
     {

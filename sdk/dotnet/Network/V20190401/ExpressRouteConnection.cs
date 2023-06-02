@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20190401
     /// <summary>
     /// ExpressRouteConnection resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20190401:ExpressRouteConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20190401:ExpressRouteConnection")]
     public partial class ExpressRouteConnection : global::Pulumi.CustomResource
     {

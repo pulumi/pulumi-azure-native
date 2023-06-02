@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Cache.V20210601
     /// <summary>
     /// Response to put/get patch schedules for Redis cache.
     /// </summary>
+    [Obsolete(@"azure-native:cache/v20210601:PatchSchedule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cache/v20210601:PatchSchedule")]
     public partial class PatchSchedule : global::Pulumi.CustomResource
     {
@@ -72,8 +73,6 @@ namespace Pulumi.AzureNative.Cache.V20210601
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20201201:PatchSchedule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:PatchSchedule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220601:PatchSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230401:PatchSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230501preview:PatchSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

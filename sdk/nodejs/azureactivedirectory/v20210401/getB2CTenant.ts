@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the Azure AD B2C tenant resource.
  */
+/** @deprecated azure-native:azureactivedirectory/v20210401:B2CTenant is being removed in the next major version of this provider. Please upgrade to azure-native:azureactivedirectory/v20230118preview:B2CTenant to guarantee forwards compatibility. */
 export function getB2CTenant(args: GetB2CTenantArgs, opts?: pulumi.InvokeOptions): Promise<GetB2CTenantResult> {
+    pulumi.log.warn("getB2CTenant is deprecated: azure-native:azureactivedirectory/v20210401:B2CTenant is being removed in the next major version of this provider. Please upgrade to azure-native:azureactivedirectory/v20230118preview:B2CTenant to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azureactivedirectory/v20210401:getB2CTenant", {
@@ -71,6 +73,7 @@ export interface GetB2CTenantResult {
 /**
  * Get the Azure AD B2C tenant resource.
  */
+/** @deprecated azure-native:azureactivedirectory/v20210401:B2CTenant is being removed in the next major version of this provider. Please upgrade to azure-native:azureactivedirectory/v20230118preview:B2CTenant to guarantee forwards compatibility. */
 export function getB2CTenantOutput(args: GetB2CTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetB2CTenantResult> {
     return pulumi.output(args).apply((a: any) => getB2CTenant(a, opts))
 }

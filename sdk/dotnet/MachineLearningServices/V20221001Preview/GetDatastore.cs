@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20221001Preview
 {
+    [Obsolete(@"azure-native:machinelearningservices/v20221001preview:Datastore is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Datastore to guarantee forwards compatibility.")]
     public static class GetDatastore
     {
         /// <summary>

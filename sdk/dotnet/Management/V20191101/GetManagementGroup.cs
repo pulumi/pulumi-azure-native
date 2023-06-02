@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Management.V20191101
 {
-    [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.
+azure-native:management/v20191101:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility.")]
     public static class GetManagementGroup
     {
         /// <summary>

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Media.V20180330Preview
 {
+    [Obsolete(@"azure-native:media/v20180330preview:StreamingEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20180601preview:StreamingEndpoint to guarantee forwards compatibility.")]
     public static class GetStreamingEndpoint
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
     /// <summary>
     /// Represents a ApplicationGroup definition.
     /// </summary>
+    [Obsolete(@"azure-native:desktopvirtualization/v20220909:ApplicationGroup is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:ApplicationGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20220909:ApplicationGroup")]
     public partial class ApplicationGroup : global::Pulumi.CustomResource
     {

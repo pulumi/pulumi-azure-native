@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified load balancer.
  */
+/** @deprecated azure-native:network/v20200801:LoadBalancer is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:LoadBalancer to guarantee forwards compatibility. */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
+    pulumi.log.warn("getLoadBalancer is deprecated: azure-native:network/v20200801:LoadBalancer is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:LoadBalancer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200801:getLoadBalancer", {
@@ -111,6 +113,7 @@ export interface GetLoadBalancerResult {
 /**
  * Gets the specified load balancer.
  */
+/** @deprecated azure-native:network/v20200801:LoadBalancer is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:LoadBalancer to guarantee forwards compatibility. */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
     return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))
 }

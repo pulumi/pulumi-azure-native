@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Returns the description for the specified HybridConnection.
  */
-/** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-07-01 will be removed in v2 of the provider.
+azure-native:relay/v20160701:HybridConnection is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20211101:HybridConnection to guarantee forwards compatibility. */
 export function getHybridConnection(args: GetHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionResult> {
-    pulumi.log.warn("getHybridConnection is deprecated: Version 2016-07-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getHybridConnection is deprecated: Version 2016-07-01 will be removed in v2 of the provider.\nazure-native:relay/v20160701:HybridConnection is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20211101:HybridConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay/v20160701:getHybridConnection", {
@@ -74,7 +75,8 @@ export interface GetHybridConnectionResult {
 /**
  * Returns the description for the specified HybridConnection.
  */
-/** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-07-01 will be removed in v2 of the provider.
+azure-native:relay/v20160701:HybridConnection is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20211101:HybridConnection to guarantee forwards compatibility. */
 export function getHybridConnectionOutput(args: GetHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionResult> {
     return pulumi.output(args).apply((a: any) => getHybridConnection(a, opts))
 }

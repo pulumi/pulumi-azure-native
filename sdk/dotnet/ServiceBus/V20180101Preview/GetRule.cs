@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
+    [Obsolete(@"azure-native:servicebus/v20180101preview:Rule is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20220101preview:Rule to guarantee forwards compatibility.")]
     public static class GetRule
     {
         /// <summary>

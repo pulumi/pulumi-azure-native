@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the details of a Media Services account
  */
+/** @deprecated azure-native:media/v20180601preview:MediaService is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:MediaService to guarantee forwards compatibility. */
 export function getMediaService(args: GetMediaServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMediaServiceResult> {
+    pulumi.log.warn("getMediaService is deprecated: azure-native:media/v20180601preview:MediaService is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:MediaService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20180601preview:getMediaService", {
@@ -66,6 +68,7 @@ export interface GetMediaServiceResult {
 /**
  * Get the details of a Media Services account
  */
+/** @deprecated azure-native:media/v20180601preview:MediaService is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:MediaService to guarantee forwards compatibility. */
 export function getMediaServiceOutput(args: GetMediaServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaServiceResult> {
     return pulumi.output(args).apply((a: any) => getMediaService(a, opts))
 }

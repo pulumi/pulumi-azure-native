@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
 {
+    [Obsolete(@"azure-native:machinelearningservices/v20200501preview:AKSService is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:AKSService to guarantee forwards compatibility.")]
     public static class GetAKSService
     {
         /// <summary>

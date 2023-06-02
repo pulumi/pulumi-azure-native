@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
     /// <summary>
     /// Datasources under OMS Workspace.
     /// </summary>
+    [Obsolete(@"azure-native:operationalinsights/v20200301preview:DataSource is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:DataSource to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:operationalinsights/v20200301preview:DataSource")]
     public partial class DataSource : global::Pulumi.CustomResource
     {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20210301
 {
+    [Obsolete(@"azure-native:network/v20210301:ServiceEndpointPolicyDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ServiceEndpointPolicyDefinition to guarantee forwards compatibility.")]
     public static class GetServiceEndpointPolicyDefinition
     {
         /// <summary>

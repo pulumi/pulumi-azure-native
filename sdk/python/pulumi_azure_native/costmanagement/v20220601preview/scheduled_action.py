@@ -161,7 +161,12 @@ class ScheduledActionArgs:
         pulumi.set(self, "scope", value)
 
 
+warnings.warn("""azure-native:costmanagement/v20220601preview:ScheduledAction is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221001:ScheduledAction to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ScheduledAction(pulumi.CustomResource):
+    warnings.warn("""azure-native:costmanagement/v20220601preview:ScheduledAction is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221001:ScheduledAction to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -225,6 +230,7 @@ class ScheduledAction(pulumi.CustomResource):
                  status: Optional[pulumi.Input[Union[str, 'ScheduledActionStatus']]] = None,
                  view_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ScheduledAction is deprecated: azure-native:costmanagement/v20220601preview:ScheduledAction is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221001:ScheduledAction to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -255,7 +261,7 @@ class ScheduledAction(pulumi.CustomResource):
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20220401preview:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:ScheduledAction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20220401preview:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:ScheduledAction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScheduledAction, __self__).__init__(
             'azure-native:costmanagement/v20220601preview:ScheduledAction',

@@ -128,7 +128,12 @@ class AutomationRuleArgs:
         pulumi.set(self, "automation_rule_id", value)
 
 
+warnings.warn("""azure-native:securityinsights/v20221201preview:AutomationRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AutomationRule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AutomationRule(pulumi.CustomResource):
+    warnings.warn("""azure-native:securityinsights/v20221201preview:AutomationRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AutomationRule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -184,6 +189,7 @@ class AutomationRule(pulumi.CustomResource):
                  triggering_logic: Optional[pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""AutomationRule is deprecated: azure-native:securityinsights/v20221201preview:AutomationRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AutomationRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -219,7 +225,7 @@ class AutomationRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:AutomationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:AutomationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutomationRule, __self__).__init__(
             'azure-native:securityinsights/v20221201preview:AutomationRule',

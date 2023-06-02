@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20180930
 {
-    [Obsolete(@"Version 2018-09-30 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-09-30 will be removed in v2 of the provider.
+azure-native:compute/v20180930:Disk is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20190701:Disk to guarantee forwards compatibility.")]
     public static class GetDisk
     {
         /// <summary>

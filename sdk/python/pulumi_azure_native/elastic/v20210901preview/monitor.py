@@ -133,7 +133,12 @@ class MonitorArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:elastic/v20210901preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:elastic/v20220901preview:Monitor to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Monitor(pulumi.CustomResource):
+    warnings.warn("""azure-native:elastic/v20210901preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:elastic/v20220901preview:Monitor to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -191,6 +196,7 @@ class Monitor(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Monitor is deprecated: azure-native:elastic/v20210901preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:elastic/v20220901preview:Monitor to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

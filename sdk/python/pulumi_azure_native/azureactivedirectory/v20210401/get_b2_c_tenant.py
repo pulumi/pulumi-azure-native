@@ -17,6 +17,8 @@ __all__ = [
     'get_b2_c_tenant_output',
 ]
 
+warnings.warn("""azure-native:azureactivedirectory/v20210401:B2CTenant is being removed in the next major version of this provider. Please upgrade to azure-native:azureactivedirectory/v20230118preview:B2CTenant to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetB2CTenantResult:
     def __init__(__self__, billing_config=None, id=None, location=None, name=None, sku=None, system_data=None, tags=None, tenant_id=None, type=None):
@@ -148,6 +150,7 @@ def get_b2_c_tenant(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The initial domain name of the Azure AD B2C tenant.
     """
+    pulumi.log.warn("""get_b2_c_tenant is deprecated: azure-native:azureactivedirectory/v20210401:B2CTenant is being removed in the next major version of this provider. Please upgrade to azure-native:azureactivedirectory/v20230118preview:B2CTenant to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -177,4 +180,5 @@ def get_b2_c_tenant_output(resource_group_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The initial domain name of the Azure AD B2C tenant.
     """
+    pulumi.log.warn("""get_b2_c_tenant is deprecated: azure-native:azureactivedirectory/v20210401:B2CTenant is being removed in the next major version of this provider. Please upgrade to azure-native:azureactivedirectory/v20230118preview:B2CTenant to guarantee forwards compatibility.""")
     ...

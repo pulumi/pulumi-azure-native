@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Application gateway resource
  *
  * @deprecated Version 2017-10-01 will be removed in v2 of the provider.
+azure-native:network/v20171001:ApplicationGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:ApplicationGateway to guarantee forwards compatibility.
  */
 export class ApplicationGateway extends pulumi.CustomResource {
     /**
@@ -22,7 +23,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationGateway {
-        pulumi.log.warn("ApplicationGateway is deprecated: Version 2017-10-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("ApplicationGateway is deprecated: Version 2017-10-01 will be removed in v2 of the provider.\nazure-native:network/v20171001:ApplicationGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:ApplicationGateway to guarantee forwards compatibility.")
         return new ApplicationGateway(name, undefined as any, { ...opts, id: id });
     }
 
@@ -144,9 +145,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2017-10-01 will be removed in v2 of the provider. */
+    /** @deprecated Version 2017-10-01 will be removed in v2 of the provider.
+azure-native:network/v20171001:ApplicationGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:ApplicationGateway to guarantee forwards compatibility. */
     constructor(name: string, args: ApplicationGatewayArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApplicationGateway is deprecated: Version 2017-10-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("ApplicationGateway is deprecated: Version 2017-10-01 will be removed in v2 of the provider.\nazure-native:network/v20171001:ApplicationGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:ApplicationGateway to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

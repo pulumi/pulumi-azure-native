@@ -17,7 +17,8 @@ __all__ = [
     'get_peering_service_output',
 ]
 
-warnings.warn("""Version 2020-01-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-01-01-preview will be removed in v2 of the provider.
+azure-native:peering/v20200101preview:PeeringService is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeeringService to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPeeringServiceResult:
@@ -153,7 +154,8 @@ def get_peering_service(peering_service_name: Optional[str] = None,
     :param str peering_service_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_peering_service is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_peering_service is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.
+azure-native:peering/v20200101preview:PeeringService is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeeringService to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['peeringServiceName'] = peering_service_name
     __args__['resourceGroupName'] = resource_group_name
@@ -183,5 +185,6 @@ def get_peering_service_output(peering_service_name: Optional[pulumi.Input[str]]
     :param str peering_service_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_peering_service is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_peering_service is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.
+azure-native:peering/v20200101preview:PeeringService is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeeringService to guarantee forwards compatibility.""")
     ...

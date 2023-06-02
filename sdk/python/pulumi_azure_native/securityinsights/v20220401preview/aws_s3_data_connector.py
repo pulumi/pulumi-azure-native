@@ -145,7 +145,12 @@ class AwsS3DataConnectorArgs:
         pulumi.set(self, "data_connector_id", value)
 
 
+warnings.warn("""azure-native:securityinsights/v20220401preview:AwsS3DataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AwsS3DataConnector to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AwsS3DataConnector(pulumi.CustomResource):
+    warnings.warn("""azure-native:securityinsights/v20220401preview:AwsS3DataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AwsS3DataConnector to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -207,6 +212,7 @@ class AwsS3DataConnector(pulumi.CustomResource):
                  sqs_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""AwsS3DataConnector is deprecated: azure-native:securityinsights/v20220401preview:AwsS3DataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AwsS3DataConnector to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -241,7 +247,7 @@ class AwsS3DataConnector(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:AwsS3DataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:AwsS3DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:AwsS3DataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AwsS3DataConnector, __self__).__init__(
             'azure-native:securityinsights/v20220401preview:AwsS3DataConnector',

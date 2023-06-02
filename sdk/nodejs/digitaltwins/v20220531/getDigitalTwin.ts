@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get DigitalTwinsInstances resource.
  */
+/** @deprecated azure-native:digitaltwins/v20220531:DigitalTwin is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility. */
 export function getDigitalTwin(args: GetDigitalTwinArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinResult> {
+    pulumi.log.warn("getDigitalTwin is deprecated: azure-native:digitaltwins/v20220531:DigitalTwin is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:digitaltwins/v20220531:getDigitalTwin", {
@@ -90,6 +92,7 @@ export interface GetDigitalTwinResult {
 /**
  * Get DigitalTwinsInstances resource.
  */
+/** @deprecated azure-native:digitaltwins/v20220531:DigitalTwin is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility. */
 export function getDigitalTwinOutput(args: GetDigitalTwinOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinResult> {
     return pulumi.output(args).apply((a: any) => getDigitalTwin(a, opts))
 }

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Network.V20180401
     /// <summary>
     /// Azure Firewall resource
     /// </summary>
-    [Obsolete(@"Version 2018-04-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:AzureFirewall is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20180401:AzureFirewall")]
     public partial class AzureFirewall : global::Pulumi.CustomResource
     {

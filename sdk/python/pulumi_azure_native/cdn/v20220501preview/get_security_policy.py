@@ -17,6 +17,8 @@ __all__ = [
     'get_security_policy_output',
 ]
 
+warnings.warn("""azure-native:cdn/v20220501preview:SecurityPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:SecurityPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSecurityPolicyResult:
     """
@@ -138,6 +140,7 @@ def get_security_policy(profile_name: Optional[str] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str security_policy_name: Name of the security policy under the profile.
     """
+    pulumi.log.warn("""get_security_policy is deprecated: azure-native:cdn/v20220501preview:SecurityPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:SecurityPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
@@ -169,4 +172,5 @@ def get_security_policy_output(profile_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str security_policy_name: Name of the security policy under the profile.
     """
+    pulumi.log.warn("""get_security_policy is deprecated: azure-native:cdn/v20220501preview:SecurityPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:SecurityPolicy to guarantee forwards compatibility.""")
     ...

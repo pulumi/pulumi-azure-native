@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Solutions.V20170901
 {
-    [Obsolete(@"Version 2017-09-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-09-01 will be removed in v2 of the provider.
+azure-native:solutions/v20170901:ApplicationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:solutions/v20171201:ApplicationDefinition to guarantee forwards compatibility.")]
     public static class GetApplicationDefinition
     {
         /// <summary>

@@ -178,7 +178,12 @@ class ExpressRouteCircuitConnectionInitArgs:
         pulumi.set(self, "peer_express_route_circuit_peering", value)
 
 
+warnings.warn("""azure-native:network/v20180801:ExpressRouteCircuitConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteCircuitConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ExpressRouteCircuitConnection(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20180801:ExpressRouteCircuitConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteCircuitConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -245,6 +250,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
                  peering_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ExpressRouteCircuitConnection is deprecated: azure-native:network/v20180801:ExpressRouteCircuitConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteCircuitConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

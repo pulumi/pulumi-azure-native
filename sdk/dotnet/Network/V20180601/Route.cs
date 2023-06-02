@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20180601
     /// <summary>
     /// Route resource
     /// </summary>
+    [Obsolete(@"azure-native:network/v20180601:Route is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:Route to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20180601:Route")]
     public partial class Route : global::Pulumi.CustomResource
     {

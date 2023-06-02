@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
+    [Obsolete(@"azure-native:sql/v20200202preview:ServerAzureADAdministrator is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerAzureADAdministrator to guarantee forwards compatibility.")]
     public static class GetServerAzureADAdministrator
     {
         /// <summary>

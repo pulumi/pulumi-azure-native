@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview
 {
+    [Obsolete(@"azure-native:recoveryservices/v20210201preview:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:PrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnection
     {
         /// <summary>

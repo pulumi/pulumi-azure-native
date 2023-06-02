@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Web.V20200601
 {
+    [Obsolete(@"azure-native:web/v20200601:WebAppAuthSettingsV2Slot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppAuthSettingsV2Slot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20200601:WebAppAuthSettingsV2Slot")]
     public partial class WebAppAuthSettingsV2Slot : global::Pulumi.CustomResource
     {

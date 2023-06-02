@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
     /// <summary>
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
     /// </summary>
+    [Obsolete(@"azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment")]
     public partial class ConfigurationProfileHCIAssignment : global::Pulumi.CustomResource
     {

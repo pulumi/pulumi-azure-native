@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a LoadTest resource.
  */
+/** @deprecated azure-native:loadtestservice/v20220415preview:LoadTest is being removed in the next major version of this provider. Please upgrade to azure-native:loadtestservice/v20221201:LoadTest to guarantee forwards compatibility. */
 export function getLoadTest(args: GetLoadTestArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadTestResult> {
+    pulumi.log.warn("getLoadTest is deprecated: azure-native:loadtestservice/v20220415preview:LoadTest is being removed in the next major version of this provider. Please upgrade to azure-native:loadtestservice/v20221201:LoadTest to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:loadtestservice/v20220415preview:getLoadTest", {
@@ -82,6 +84,7 @@ export interface GetLoadTestResult {
 /**
  * Get a LoadTest resource.
  */
+/** @deprecated azure-native:loadtestservice/v20220415preview:LoadTest is being removed in the next major version of this provider. Please upgrade to azure-native:loadtestservice/v20221201:LoadTest to guarantee forwards compatibility. */
 export function getLoadTestOutput(args: GetLoadTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadTestResult> {
     return pulumi.output(args).apply((a: any) => getLoadTest(a, opts))
 }

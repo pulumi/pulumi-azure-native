@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
     /// <summary>
     /// Template Spec object.
     /// </summary>
+    [Obsolete(@"azure-native:resources/v20190601preview:TemplateSpec is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:resources/v20190601preview:TemplateSpec")]
     public partial class TemplateSpec : global::Pulumi.CustomResource
     {

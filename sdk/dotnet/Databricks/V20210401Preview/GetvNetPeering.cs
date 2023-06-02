@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Databricks.V20210401Preview
 {
+    [Obsolete(@"azure-native:databricks/v20210401preview:vNetPeering is being removed in the next major version of this provider. Please upgrade to azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.")]
     public static class GetvNetPeering
     {
         /// <summary>

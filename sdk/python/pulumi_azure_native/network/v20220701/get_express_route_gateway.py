@@ -17,6 +17,8 @@ __all__ = [
     'get_express_route_gateway_output',
 ]
 
+warnings.warn("""azure-native:network/v20220701:ExpressRouteGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteGateway to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExpressRouteGatewayResult:
     """
@@ -175,6 +177,7 @@ def get_express_route_gateway(express_route_gateway_name: Optional[str] = None,
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_express_route_gateway is deprecated: azure-native:network/v20220701:ExpressRouteGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteGateway to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expressRouteGatewayName'] = express_route_gateway_name
     __args__['resourceGroupName'] = resource_group_name
@@ -206,4 +209,5 @@ def get_express_route_gateway_output(express_route_gateway_name: Optional[pulumi
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_express_route_gateway is deprecated: azure-native:network/v20220701:ExpressRouteGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteGateway to guarantee forwards compatibility.""")
     ...

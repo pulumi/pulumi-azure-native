@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview
 {
+    [Obsolete(@"azure-native:containerregistry/v20211201preview:Webhook is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:Webhook to guarantee forwards compatibility.")]
     public static class GetWebhook
     {
         /// <summary>

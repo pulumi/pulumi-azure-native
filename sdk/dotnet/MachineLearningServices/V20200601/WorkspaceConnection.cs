@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200601
     /// <summary>
     /// Workspace connection.
     /// </summary>
+    [Obsolete(@"azure-native:machinelearningservices/v20200601:WorkspaceConnection is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:WorkspaceConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20200601:WorkspaceConnection")]
     public partial class WorkspaceConnection : global::Pulumi.CustomResource
     {

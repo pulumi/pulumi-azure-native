@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get an event subscription of a partner topic.
  */
+/** @deprecated azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:PartnerTopicEventSubscription to guarantee forwards compatibility. */
 export function getPartnerTopicEventSubscription(args: GetPartnerTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicEventSubscriptionResult> {
+    pulumi.log.warn("getPartnerTopicEventSubscription is deprecated: azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:PartnerTopicEventSubscription to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20210601preview:getPartnerTopicEventSubscription", {
@@ -107,6 +109,7 @@ export interface GetPartnerTopicEventSubscriptionResult {
 /**
  * Get an event subscription of a partner topic.
  */
+/** @deprecated azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:PartnerTopicEventSubscription to guarantee forwards compatibility. */
 export function getPartnerTopicEventSubscriptionOutput(args: GetPartnerTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getPartnerTopicEventSubscription(a, opts))
 }

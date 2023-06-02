@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     /// <summary>
     /// Defines the GuestAgent.
     /// </summary>
+    [Obsolete(@"azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent")]
     public partial class GuestAgent : global::Pulumi.CustomResource
     {

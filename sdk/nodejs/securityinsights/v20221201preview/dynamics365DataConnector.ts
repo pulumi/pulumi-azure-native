@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents Dynamics365 data connector.
+ *
+ * @deprecated azure-native:securityinsights/v20221201preview:Dynamics365DataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility.
  */
 export class Dynamics365DataConnector extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Dynamics365DataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Dynamics365DataConnector {
+        pulumi.log.warn("Dynamics365DataConnector is deprecated: azure-native:securityinsights/v20221201preview:Dynamics365DataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility.")
         return new Dynamics365DataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,7 +77,9 @@ export class Dynamics365DataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20221201preview:Dynamics365DataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: Dynamics365DataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Dynamics365DataConnector is deprecated: azure-native:securityinsights/v20221201preview:Dynamics365DataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -113,7 +118,7 @@ export class Dynamics365DataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20190101preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20200101:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20210301preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20210901preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20211001:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20211001preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220101preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220401preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220501preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220601preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220701preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220801:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220801preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220901preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20221001preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20221101:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20221101preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20230201:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20230201preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20230401preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20230501preview:Dynamics365DataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20190101preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20200101:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20210301preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20210901preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20211001:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20211001preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220101preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220401preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220501preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220601preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220701preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220801:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220801preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220901preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20221001preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20221101:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20221101preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20230201:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20230201preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20230401preview:Dynamics365DataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Dynamics365DataConnector.__pulumiType, name, resourceInputs, opts);
     }

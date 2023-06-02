@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified virtual network peering.
  */
+/** @deprecated azure-native:network/v20180801:VirtualNetworkPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility. */
 export function getVirtualNetworkPeering(args: GetVirtualNetworkPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkPeeringResult> {
+    pulumi.log.warn("getVirtualNetworkPeering is deprecated: azure-native:network/v20180801:VirtualNetworkPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180801:getVirtualNetworkPeering", {
@@ -87,6 +89,7 @@ export interface GetVirtualNetworkPeeringResult {
 /**
  * Gets the specified virtual network peering.
  */
+/** @deprecated azure-native:network/v20180801:VirtualNetworkPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetworkPeering to guarantee forwards compatibility. */
 export function getVirtualNetworkPeeringOutput(args: GetVirtualNetworkPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkPeeringResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkPeering(a, opts))
 }

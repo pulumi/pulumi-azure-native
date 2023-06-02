@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Azure Firewall.
  */
-/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:AzureFirewall is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility. */
 export function getAzureFirewall(args: GetAzureFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureFirewallResult> {
-    pulumi.log.warn("getAzureFirewall is deprecated: Version 2018-04-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getAzureFirewall is deprecated: Version 2018-04-01 will be removed in v2 of the provider.\nazure-native:network/v20180401:AzureFirewall is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180401:getAzureFirewall", {
@@ -80,7 +81,8 @@ export interface GetAzureFirewallResult {
 /**
  * Gets the specified Azure Firewall.
  */
-/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:AzureFirewall is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401:AzureFirewall to guarantee forwards compatibility. */
 export function getAzureFirewallOutput(args: GetAzureFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureFirewallResult> {
     return pulumi.output(args).apply((a: any) => getAzureFirewall(a, opts))
 }

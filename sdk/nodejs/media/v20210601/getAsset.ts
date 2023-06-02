@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the details of an Asset in the Media Services account
  */
+/** @deprecated azure-native:media/v20210601:Asset is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:Asset to guarantee forwards compatibility. */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
+    pulumi.log.warn("getAsset is deprecated: azure-native:media/v20210601:Asset is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:Asset to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20210601:getAsset", {
@@ -91,6 +93,7 @@ export interface GetAssetResult {
 /**
  * Get the details of an Asset in the Media Services account
  */
+/** @deprecated azure-native:media/v20210601:Asset is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:Asset to guarantee forwards compatibility. */
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
     return pulumi.output(args).apply((a: any) => getAsset(a, opts))
 }

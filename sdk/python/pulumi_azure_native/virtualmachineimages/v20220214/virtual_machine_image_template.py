@@ -212,7 +212,12 @@ class VirtualMachineImageTemplateArgs:
         pulumi.set(self, "vm_profile", value)
 
 
+warnings.warn("""azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class VirtualMachineImageTemplate(pulumi.CustomResource):
+    warnings.warn("""azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -285,6 +290,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  validate: Optional[pulumi.Input[pulumi.InputType['ImageTemplatePropertiesValidateArgs']]] = None,
                  vm_profile: Optional[pulumi.Input[pulumi.InputType['ImageTemplateVmProfileArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""VirtualMachineImageTemplate is deprecated: azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

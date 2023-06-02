@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An ADLS Gen 2 file data set.
+ *
+ * @deprecated azure-native:datashare/v20201001preview:ADLSGen2FileDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen2FileDataSet to guarantee forwards compatibility.
  */
 export class ADLSGen2FileDataSet extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ADLSGen2FileDataSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ADLSGen2FileDataSet {
+        pulumi.log.warn("ADLSGen2FileDataSet is deprecated: azure-native:datashare/v20201001preview:ADLSGen2FileDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen2FileDataSet to guarantee forwards compatibility.")
         return new ADLSGen2FileDataSet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -86,7 +89,9 @@ export class ADLSGen2FileDataSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:datashare/v20201001preview:ADLSGen2FileDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen2FileDataSet to guarantee forwards compatibility. */
     constructor(name: string, args: ADLSGen2FileDataSetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ADLSGen2FileDataSet is deprecated: azure-native:datashare/v20201001preview:ADLSGen2FileDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen2FileDataSet to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

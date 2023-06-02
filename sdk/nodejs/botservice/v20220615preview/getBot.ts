@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a BotService specified by the parameters.
  */
+/** @deprecated azure-native:botservice/v20220615preview:Bot is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:Bot to guarantee forwards compatibility. */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
+    pulumi.log.warn("getBot is deprecated: azure-native:botservice/v20220615preview:Bot is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:Bot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice/v20220615preview:getBot", {
@@ -78,6 +80,7 @@ export interface GetBotResult {
 /**
  * Returns a BotService specified by the parameters.
  */
+/** @deprecated azure-native:botservice/v20220615preview:Bot is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:Bot to guarantee forwards compatibility. */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
     return pulumi.output(args).apply((a: any) => getBot(a, opts))
 }

@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Display information about a virtual machine scale set.
  */
-/** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-07-01 will be removed in v2 of the provider.
+azure-native:compute/v20190701:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility. */
 export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetResult> {
-    pulumi.log.warn("getVirtualMachineScaleSet is deprecated: Version 2019-07-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getVirtualMachineScaleSet is deprecated: Version 2019-07-01 will be removed in v2 of the provider.\nazure-native:compute/v20190701:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20190701:getVirtualMachineScaleSet", {
@@ -128,7 +129,8 @@ export interface GetVirtualMachineScaleSetResult {
 /**
  * Display information about a virtual machine scale set.
  */
-/** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-07-01 will be removed in v2 of the provider.
+azure-native:compute/v20190701:VirtualMachineScaleSet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSet to guarantee forwards compatibility. */
 export function getVirtualMachineScaleSetOutput(args: GetVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSet(a, opts))
 }

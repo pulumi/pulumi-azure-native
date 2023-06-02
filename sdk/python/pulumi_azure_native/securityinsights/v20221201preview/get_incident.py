@@ -17,6 +17,8 @@ __all__ = [
     'get_incident_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20221201preview:Incident is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201preview:Incident to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIncidentResult:
     def __init__(__self__, additional_data=None, classification=None, classification_comment=None, classification_reason=None, created_time_utc=None, description=None, etag=None, first_activity_time_utc=None, id=None, incident_number=None, incident_url=None, labels=None, last_activity_time_utc=None, last_modified_time_utc=None, name=None, owner=None, provider_incident_id=None, provider_name=None, related_analytic_rule_ids=None, severity=None, status=None, system_data=None, team_information=None, title=None, type=None):
@@ -342,6 +344,7 @@ def get_incident(incident_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_incident is deprecated: azure-native:securityinsights/v20221201preview:Incident is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201preview:Incident to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['incidentId'] = incident_id
     __args__['resourceGroupName'] = resource_group_name
@@ -390,4 +393,5 @@ def get_incident_output(incident_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_incident is deprecated: azure-native:securityinsights/v20221201preview:Incident is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201preview:Incident to guarantee forwards compatibility.""")
     ...

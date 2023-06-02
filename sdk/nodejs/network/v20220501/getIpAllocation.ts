@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified IpAllocation by resource group.
  */
+/** @deprecated azure-native:network/v20220501:IpAllocation is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:IpAllocation to guarantee forwards compatibility. */
 export function getIpAllocation(args: GetIpAllocationArgs, opts?: pulumi.InvokeOptions): Promise<GetIpAllocationResult> {
+    pulumi.log.warn("getIpAllocation is deprecated: azure-native:network/v20220501:IpAllocation is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:IpAllocation to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220501:getIpAllocation", {
@@ -95,6 +97,7 @@ export interface GetIpAllocationResult {
 /**
  * Gets the specified IpAllocation by resource group.
  */
+/** @deprecated azure-native:network/v20220501:IpAllocation is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:IpAllocation to guarantee forwards compatibility. */
 export function getIpAllocationOutput(args: GetIpAllocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpAllocationResult> {
     return pulumi.output(args).apply((a: any) => getIpAllocation(a, opts))
 }

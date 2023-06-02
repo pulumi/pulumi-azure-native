@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190701
     /// <summary>
     /// Trigger details.
     /// </summary>
+    [Obsolete(@"azure-native:databoxedge/v20190701:PeriodicTimerEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:PeriodicTimerEventTrigger to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20190701:PeriodicTimerEventTrigger")]
     public partial class PeriodicTimerEventTrigger : global::Pulumi.CustomResource
     {

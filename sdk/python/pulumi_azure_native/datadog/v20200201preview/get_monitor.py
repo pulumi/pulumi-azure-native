@@ -17,7 +17,8 @@ __all__ = [
     'get_monitor_output',
 ]
 
-warnings.warn("""Version 2020-02-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-02-01-preview will be removed in v2 of the provider.
+azure-native:datadog/v20200201preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:datadog/v20220601:Monitor to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetMonitorResult:
@@ -125,7 +126,8 @@ def get_monitor(monitor_name: Optional[str] = None,
     :param str monitor_name: Monitor resource name
     :param str resource_group_name: The name of the resource group to which the Datadog resource belongs.
     """
-    pulumi.log.warn("""get_monitor is deprecated: Version 2020-02-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_monitor is deprecated: Version 2020-02-01-preview will be removed in v2 of the provider.
+azure-native:datadog/v20200201preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:datadog/v20220601:Monitor to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
@@ -153,5 +155,6 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
     :param str monitor_name: Monitor resource name
     :param str resource_group_name: The name of the resource group to which the Datadog resource belongs.
     """
-    pulumi.log.warn("""get_monitor is deprecated: Version 2020-02-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_monitor is deprecated: Version 2020-02-01-preview will be removed in v2 of the provider.
+azure-native:datadog/v20200201preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:datadog/v20220601:Monitor to guarantee forwards compatibility.""")
     ...

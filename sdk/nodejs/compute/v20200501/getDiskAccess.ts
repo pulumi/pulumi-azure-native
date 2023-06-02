@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a disk access resource.
  */
-/** @deprecated Version 2020-05-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-05-01 will be removed in v2 of the provider.
+azure-native:compute/v20200501:DiskAccess is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:DiskAccess to guarantee forwards compatibility. */
 export function getDiskAccess(args: GetDiskAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessResult> {
-    pulumi.log.warn("getDiskAccess is deprecated: Version 2020-05-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getDiskAccess is deprecated: Version 2020-05-01 will be removed in v2 of the provider.\nazure-native:compute/v20200501:DiskAccess is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:DiskAccess to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20200501:getDiskAccess", {
@@ -72,7 +73,8 @@ export interface GetDiskAccessResult {
 /**
  * Gets information about a disk access resource.
  */
-/** @deprecated Version 2020-05-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-05-01 will be removed in v2 of the provider.
+azure-native:compute/v20200501:DiskAccess is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:DiskAccess to guarantee forwards compatibility. */
 export function getDiskAccessOutput(args: GetDiskAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessResult> {
     return pulumi.output(args).apply((a: any) => getDiskAccess(a, opts))
 }

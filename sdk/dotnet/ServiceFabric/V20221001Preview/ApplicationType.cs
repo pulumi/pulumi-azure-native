@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20221001Preview
     /// <summary>
     /// The application type name resource
     /// </summary>
+    [Obsolete(@"azure-native:servicefabric/v20221001preview:ApplicationType is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20230201preview:ApplicationType to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicefabric/v20221001preview:ApplicationType")]
     public partial class ApplicationType : global::Pulumi.CustomResource
     {
@@ -86,7 +87,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20221001Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220601preview:ApplicationType"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220801preview:ApplicationType"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230201preview:ApplicationType"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230301preview:ApplicationType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20221001Preview
 {
+    [Obsolete(@"azure-native:securityinsights/v20221001preview:IoTDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:IoTDataConnector to guarantee forwards compatibility.")]
     public static class GetIoTDataConnector
     {
         /// <summary>

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20190101
 {
+    [Obsolete(@"azure-native:apimanagement/v20190101:Logger is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20191201preview:Logger to guarantee forwards compatibility.")]
     public static class GetLogger
     {
         /// <summary>

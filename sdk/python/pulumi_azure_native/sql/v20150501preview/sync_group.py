@@ -179,7 +179,12 @@ class SyncGroupArgs:
         pulumi.set(self, "sync_group_name", value)
 
 
+warnings.warn("""azure-native:sql/v20150501preview:SyncGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:SyncGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class SyncGroup(pulumi.CustomResource):
+    warnings.warn("""azure-native:sql/v20150501preview:SyncGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:SyncGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -246,6 +251,7 @@ class SyncGroup(pulumi.CustomResource):
                  sync_database_id: Optional[pulumi.Input[str]] = None,
                  sync_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""SyncGroup is deprecated: azure-native:sql/v20150501preview:SyncGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:SyncGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

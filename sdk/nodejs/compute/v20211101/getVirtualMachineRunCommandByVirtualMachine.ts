@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The operation to get the run command.
  */
+/** @deprecated azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine to guarantee forwards compatibility. */
 export function getVirtualMachineRunCommandByVirtualMachine(args: GetVirtualMachineRunCommandByVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineRunCommandByVirtualMachineResult> {
+    pulumi.log.warn("getVirtualMachineRunCommandByVirtualMachine is deprecated: azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20211101:getVirtualMachineRunCommandByVirtualMachine", {
@@ -112,6 +114,7 @@ export interface GetVirtualMachineRunCommandByVirtualMachineResult {
 /**
  * The operation to get the run command.
  */
+/** @deprecated azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine to guarantee forwards compatibility. */
 export function getVirtualMachineRunCommandByVirtualMachineOutput(args: GetVirtualMachineRunCommandByVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineRunCommandByVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineRunCommandByVirtualMachine(a, opts))
 }

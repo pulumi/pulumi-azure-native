@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MixedReality.V20191202Preview
 {
-    [Obsolete(@"Version 2019-12-02-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-12-02-preview will be removed in v2 of the provider.
+azure-native:mixedreality/v20191202preview:RemoteRenderingAccount is being removed in the next major version of this provider. Please upgrade to azure-native:mixedreality/v20210301preview:RemoteRenderingAccount to guarantee forwards compatibility.")]
     public static class GetRemoteRenderingAccount
     {
         /// <summary>

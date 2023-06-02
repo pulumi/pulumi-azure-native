@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20181101
     /// <summary>
     /// VpnConnection Resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20181101:VpnConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20181101:VpnConnection")]
     public partial class VpnConnection : global::Pulumi.CustomResource
     {

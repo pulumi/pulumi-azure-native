@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220601Preview
     /// <summary>
     /// Base class for backup items.
     /// </summary>
+    [Obsolete(@"azure-native:recoveryservices/v20220601preview:ProtectedItem is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectedItem to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20220601preview:ProtectedItem")]
     public partial class ProtectedItem : global::Pulumi.CustomResource
     {

@@ -181,11 +181,13 @@ class JobArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2020-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-04-01 will be removed in v2 of the provider.
+azure-native:databox/v20200401:Job is being removed in the next major version of this provider. Please upgrade to azure-native:databox/v20221201:Job to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Job(pulumi.CustomResource):
-    warnings.warn("""Version 2020-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2020-04-01 will be removed in v2 of the provider.
+azure-native:databox/v20200401:Job is being removed in the next major version of this provider. Please upgrade to azure-native:databox/v20221201:Job to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -253,7 +255,8 @@ class Job(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transfer_type: Optional[pulumi.Input[Union[str, 'TransferType']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Job is deprecated: Version 2020-04-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""Job is deprecated: Version 2020-04-01 will be removed in v2 of the provider.
+azure-native:databox/v20200401:Job is being removed in the next major version of this provider. Please upgrade to azure-native:databox/v20221201:Job to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

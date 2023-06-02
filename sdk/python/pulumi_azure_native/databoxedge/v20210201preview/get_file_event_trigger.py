@@ -17,6 +17,8 @@ __all__ = [
     'get_file_event_trigger_output',
 ]
 
+warnings.warn("""azure-native:databoxedge/v20210201preview:FileEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFileEventTriggerResult:
     """
@@ -142,6 +144,7 @@ def get_file_event_trigger(device_name: Optional[str] = None,
     :param str name: The trigger name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_file_event_trigger is deprecated: azure-native:databoxedge/v20210201preview:FileEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name
@@ -173,4 +176,5 @@ def get_file_event_trigger_output(device_name: Optional[pulumi.Input[str]] = Non
     :param str name: The trigger name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_file_event_trigger is deprecated: azure-native:databoxedge/v20210201preview:FileEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility.""")
     ...

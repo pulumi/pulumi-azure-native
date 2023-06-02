@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AVS.V20210601
 {
+    [Obsolete(@"azure-native:avs/v20210601:WorkloadNetworkSegment is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkSegment to guarantee forwards compatibility.")]
     public static class GetWorkloadNetworkSegment
     {
         /// <summary>

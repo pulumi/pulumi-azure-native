@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HybridNetwork.V20210501
 {
+    [Obsolete(@"azure-native:hybridnetwork/v20210501:NetworkFunction is being removed in the next major version of this provider. Please upgrade to azure-native:hybridnetwork/v20220101preview:NetworkFunction to guarantee forwards compatibility.")]
     public static class GetNetworkFunction
     {
         /// <summary>

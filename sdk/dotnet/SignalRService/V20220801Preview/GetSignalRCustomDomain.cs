@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SignalRService.V20220801Preview
 {
+    [Obsolete(@"azure-native:signalrservice/v20220801preview:SignalRCustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalRCustomDomain to guarantee forwards compatibility.")]
     public static class GetSignalRCustomDomain
     {
         /// <summary>

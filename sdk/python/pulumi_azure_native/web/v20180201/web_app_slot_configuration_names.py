@@ -113,7 +113,12 @@ class WebAppSlotConfigurationNamesArgs:
         pulumi.set(self, "kind", value)
 
 
+warnings.warn("""azure-native:web/v20180201:WebAppSlotConfigurationNames is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSlotConfigurationNames to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WebAppSlotConfigurationNames(pulumi.CustomResource):
+    warnings.warn("""azure-native:web/v20180201:WebAppSlotConfigurationNames is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSlotConfigurationNames to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -168,6 +173,7 @@ class WebAppSlotConfigurationNames(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebAppSlotConfigurationNames is deprecated: azure-native:web/v20180201:WebAppSlotConfigurationNames is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppSlotConfigurationNames to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

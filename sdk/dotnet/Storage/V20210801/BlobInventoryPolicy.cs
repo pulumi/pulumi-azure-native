@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Storage.V20210801
     /// <summary>
     /// The storage account blob inventory policy.
     /// </summary>
+    [Obsolete(@"azure-native:storage/v20210801:BlobInventoryPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storage/v20210801:BlobInventoryPolicy")]
     public partial class BlobInventoryPolicy : global::Pulumi.CustomResource
     {

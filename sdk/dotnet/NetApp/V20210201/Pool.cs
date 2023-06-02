@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.NetApp.V20210201
     /// <summary>
     /// Capacity pool resource
     /// </summary>
+    [Obsolete(@"azure-native:netapp/v20210201:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Pool to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:netapp/v20210201:Pool")]
     public partial class Pool : global::Pulumi.CustomResource
     {

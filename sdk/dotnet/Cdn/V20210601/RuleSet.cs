@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     /// <summary>
     /// Friendly RuleSet name mapping to the any RuleSet or secret related information.
     /// </summary>
+    [Obsolete(@"azure-native:cdn/v20210601:RuleSet is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:RuleSet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20210601:RuleSet")]
     public partial class RuleSet : global::Pulumi.CustomResource
     {

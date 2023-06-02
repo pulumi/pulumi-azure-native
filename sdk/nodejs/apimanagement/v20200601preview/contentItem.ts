@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Content type contract details.
+ *
+ * @deprecated azure-native:apimanagement/v20200601preview:ContentItem is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ContentItem to guarantee forwards compatibility.
  */
 export class ContentItem extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class ContentItem extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ContentItem {
+        pulumi.log.warn("ContentItem is deprecated: azure-native:apimanagement/v20200601preview:ContentItem is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ContentItem to guarantee forwards compatibility.")
         return new ContentItem(name, undefined as any, { ...opts, id: id });
     }
 
@@ -54,7 +57,9 @@ export class ContentItem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:apimanagement/v20200601preview:ContentItem is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ContentItem to guarantee forwards compatibility. */
     constructor(name: string, args: ContentItemArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ContentItem is deprecated: azure-native:apimanagement/v20200601preview:ContentItem is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ContentItem to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

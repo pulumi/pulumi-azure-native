@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * NSX Port Mirroring
+ *
+ * @deprecated azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility.
  */
 export class WorkloadNetworkPortMirroring extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class WorkloadNetworkPortMirroring extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WorkloadNetworkPortMirroring {
+        pulumi.log.warn("WorkloadNetworkPortMirroring is deprecated: azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility.")
         return new WorkloadNetworkPortMirroring(name, undefined as any, { ...opts, id: id });
     }
 
@@ -81,7 +84,9 @@ export class WorkloadNetworkPortMirroring extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility. */
     constructor(name: string, args: WorkloadNetworkPortMirroringArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WorkloadNetworkPortMirroring is deprecated: azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

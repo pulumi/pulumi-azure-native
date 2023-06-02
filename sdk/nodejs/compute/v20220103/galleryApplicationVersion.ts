@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the gallery Application Version that you want to create or update.
+ *
+ * @deprecated azure-native:compute/v20220103:GalleryApplicationVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryApplicationVersion to guarantee forwards compatibility.
  */
 export class GalleryApplicationVersion extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GalleryApplicationVersion {
+        pulumi.log.warn("GalleryApplicationVersion is deprecated: azure-native:compute/v20220103:GalleryApplicationVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryApplicationVersion to guarantee forwards compatibility.")
         return new GalleryApplicationVersion(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,7 +76,9 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:compute/v20220103:GalleryApplicationVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryApplicationVersion to guarantee forwards compatibility. */
     constructor(name: string, args: GalleryApplicationVersionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("GalleryApplicationVersion is deprecated: azure-native:compute/v20220103:GalleryApplicationVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryApplicationVersion to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

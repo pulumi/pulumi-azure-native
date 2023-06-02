@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets API Management content type details.
  */
+/** @deprecated azure-native:apimanagement/v20200601preview:ContentType is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ContentType to guarantee forwards compatibility. */
 export function getContentType(args: GetContentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetContentTypeResult> {
+    pulumi.log.warn("getContentType is deprecated: azure-native:apimanagement/v20200601preview:ContentType is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ContentType to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20200601preview:getContentType", {
@@ -64,6 +66,7 @@ export interface GetContentTypeResult {
 /**
  * Gets API Management content type details.
  */
+/** @deprecated azure-native:apimanagement/v20200601preview:ContentType is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ContentType to guarantee forwards compatibility. */
 export function getContentTypeOutput(args: GetContentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentTypeResult> {
     return pulumi.output(args).apply((a: any) => getContentType(a, opts))
 }

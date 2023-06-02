@@ -17,6 +17,8 @@ __all__ = [
     'get_environment_container_output',
 ]
 
+warnings.warn("""azure-native:machinelearningservices/v20220501:EnvironmentContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:EnvironmentContainer to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEnvironmentContainerResult:
     """
@@ -105,6 +107,7 @@ def get_environment_container(name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_environment_container is deprecated: azure-native:machinelearningservices/v20220501:EnvironmentContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:EnvironmentContainer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -133,4 +136,5 @@ def get_environment_container_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_environment_container is deprecated: azure-native:machinelearningservices/v20220501:EnvironmentContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:EnvironmentContainer to guarantee forwards compatibility.""")
     ...

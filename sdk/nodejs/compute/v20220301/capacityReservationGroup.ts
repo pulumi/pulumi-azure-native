@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the capacity reservation group that the capacity reservations should be assigned to. <br><br> Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
+ *
+ * @deprecated azure-native:compute/v20220301:CapacityReservationGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:CapacityReservationGroup to guarantee forwards compatibility.
  */
 export class CapacityReservationGroup extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class CapacityReservationGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CapacityReservationGroup {
+        pulumi.log.warn("CapacityReservationGroup is deprecated: azure-native:compute/v20220301:CapacityReservationGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:CapacityReservationGroup to guarantee forwards compatibility.")
         return new CapacityReservationGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,7 +80,9 @@ export class CapacityReservationGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:compute/v20220301:CapacityReservationGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:CapacityReservationGroup to guarantee forwards compatibility. */
     constructor(name: string, args: CapacityReservationGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("CapacityReservationGroup is deprecated: azure-native:compute/v20220301:CapacityReservationGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:CapacityReservationGroup to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

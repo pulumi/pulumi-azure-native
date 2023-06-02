@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20230101
 {
+    [Obsolete(@"azure-native:recoveryservices/v20230101:ProtectionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionPolicy to guarantee forwards compatibility.")]
     public static class GetProtectionPolicy
     {
         /// <summary>

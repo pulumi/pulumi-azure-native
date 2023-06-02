@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
     /// <summary>
     /// Definition of ARM tracked top level resource.
     /// </summary>
+    [Obsolete(@"azure-native:insights/v20210901preview:DataCollectionRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:insights/v20210901preview:DataCollectionRule")]
     public partial class DataCollectionRule : global::Pulumi.CustomResource
     {

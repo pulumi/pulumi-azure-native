@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the detail of a workspace connection.
  */
+/** @deprecated azure-native:machinelearningservices/v20220101preview:WorkspaceConnection is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20220201preview:WorkspaceConnection to guarantee forwards compatibility. */
 export function getWorkspaceConnection(args: GetWorkspaceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceConnectionResult> {
+    pulumi.log.warn("getWorkspaceConnection is deprecated: azure-native:machinelearningservices/v20220101preview:WorkspaceConnection is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20220201preview:WorkspaceConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220101preview:getWorkspaceConnection", {
@@ -72,6 +74,7 @@ export interface GetWorkspaceConnectionResult {
 /**
  * Get the detail of a workspace connection.
  */
+/** @deprecated azure-native:machinelearningservices/v20220101preview:WorkspaceConnection is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20220201preview:WorkspaceConnection to guarantee forwards compatibility. */
 export function getWorkspaceConnectionOutput(args: GetWorkspaceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceConnection(a, opts))
 }

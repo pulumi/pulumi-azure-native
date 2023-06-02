@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing origin group within an endpoint.
  */
-/** @deprecated Version 2020-04-15 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-04-15 will be removed in v2 of the provider.
+azure-native:cdn/v20200415:OriginGroup is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility. */
 export function getOriginGroup(args: GetOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginGroupResult> {
-    pulumi.log.warn("getOriginGroup is deprecated: Version 2020-04-15 will be removed in v2 of the provider.")
+    pulumi.log.warn("getOriginGroup is deprecated: Version 2020-04-15 will be removed in v2 of the provider.\nazure-native:cdn/v20200415:OriginGroup is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20200415:getOriginGroup", {
@@ -86,7 +87,8 @@ export interface GetOriginGroupResult {
 /**
  * Gets an existing origin group within an endpoint.
  */
-/** @deprecated Version 2020-04-15 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-04-15 will be removed in v2 of the provider.
+azure-native:cdn/v20200415:OriginGroup is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility. */
 export function getOriginGroupOutput(args: GetOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginGroupResult> {
     return pulumi.output(args).apply((a: any) => getOriginGroup(a, opts))
 }

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20150501Preview
 {
+    [Obsolete(@"azure-native:sql/v20150501preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:FirewallRule to guarantee forwards compatibility.")]
     public static class GetFirewallRule
     {
         /// <summary>

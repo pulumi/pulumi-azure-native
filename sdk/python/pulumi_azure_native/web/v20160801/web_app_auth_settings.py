@@ -516,7 +516,12 @@ class WebAppAuthSettingsArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+warnings.warn("""azure-native:web/v20160801:WebAppAuthSettings is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppAuthSettings to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WebAppAuthSettings(pulumi.CustomResource):
+    warnings.warn("""azure-native:web/v20160801:WebAppAuthSettings is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppAuthSettings to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -672,6 +677,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
                  twitter_consumer_secret: Optional[pulumi.Input[str]] = None,
                  unauthenticated_client_action: Optional[pulumi.Input['UnauthenticatedClientAction']] = None,
                  __props__=None):
+        pulumi.log.warn("""WebAppAuthSettings is deprecated: azure-native:web/v20160801:WebAppAuthSettings is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppAuthSettings to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

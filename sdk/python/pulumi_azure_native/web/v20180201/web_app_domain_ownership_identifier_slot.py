@@ -112,7 +112,12 @@ class WebAppDomainOwnershipIdentifierSlotArgs:
         pulumi.set(self, "kind", value)
 
 
+warnings.warn("""azure-native:web/v20180201:WebAppDomainOwnershipIdentifierSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20181101:WebAppDomainOwnershipIdentifierSlot to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
+    warnings.warn("""azure-native:web/v20180201:WebAppDomainOwnershipIdentifierSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20181101:WebAppDomainOwnershipIdentifierSlot to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,6 +172,7 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  slot: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebAppDomainOwnershipIdentifierSlot is deprecated: azure-native:web/v20180201:WebAppDomainOwnershipIdentifierSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20181101:WebAppDomainOwnershipIdentifierSlot to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

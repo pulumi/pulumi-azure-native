@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a deployment.
  */
+/** @deprecated azure-native:resources/v20190701:DeploymentAtManagementGroupScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtManagementGroupScope to guarantee forwards compatibility. */
 export function getDeploymentAtManagementGroupScope(args: GetDeploymentAtManagementGroupScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtManagementGroupScopeResult> {
+    pulumi.log.warn("getDeploymentAtManagementGroupScope is deprecated: azure-native:resources/v20190701:DeploymentAtManagementGroupScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtManagementGroupScope to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20190701:getDeploymentAtManagementGroupScope", {
@@ -58,6 +60,7 @@ export interface GetDeploymentAtManagementGroupScopeResult {
 /**
  * Gets a deployment.
  */
+/** @deprecated azure-native:resources/v20190701:DeploymentAtManagementGroupScope is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:DeploymentAtManagementGroupScope to guarantee forwards compatibility. */
 export function getDeploymentAtManagementGroupScopeOutput(args: GetDeploymentAtManagementGroupScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtManagementGroupScopeResult> {
     return pulumi.output(args).apply((a: any) => getDeploymentAtManagementGroupScope(a, opts))
 }

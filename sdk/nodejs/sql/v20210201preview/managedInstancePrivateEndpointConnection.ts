@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A private endpoint connection
+ *
+ * @deprecated azure-native:sql/v20210201preview:ManagedInstancePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstancePrivateEndpointConnection to guarantee forwards compatibility.
  */
 export class ManagedInstancePrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ManagedInstancePrivateEndpointConnection extends pulumi.CustomResou
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagedInstancePrivateEndpointConnection {
+        pulumi.log.warn("ManagedInstancePrivateEndpointConnection is deprecated: azure-native:sql/v20210201preview:ManagedInstancePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstancePrivateEndpointConnection to guarantee forwards compatibility.")
         return new ManagedInstancePrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,7 +68,9 @@ export class ManagedInstancePrivateEndpointConnection extends pulumi.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:sql/v20210201preview:ManagedInstancePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstancePrivateEndpointConnection to guarantee forwards compatibility. */
     constructor(name: string, args: ManagedInstancePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ManagedInstancePrivateEndpointConnection is deprecated: azure-native:sql/v20210201preview:ManagedInstancePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstancePrivateEndpointConnection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of an Azure Video Analyzer for Media account.
  */
+/** @deprecated azure-native:videoindexer/v20211110preview:Account is being removed in the next major version of this provider. Please upgrade to azure-native:videoindexer/v20220801:Account to guarantee forwards compatibility. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
+    pulumi.log.warn("getAccount is deprecated: azure-native:videoindexer/v20211110preview:Account is being removed in the next major version of this provider. Please upgrade to azure-native:videoindexer/v20220801:Account to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoindexer/v20211110preview:getAccount", {
@@ -90,6 +92,7 @@ export interface GetAccountResult {
 /**
  * Gets the properties of an Azure Video Analyzer for Media account.
  */
+/** @deprecated azure-native:videoindexer/v20211110preview:Account is being removed in the next major version of this provider. Please upgrade to azure-native:videoindexer/v20220801:Account to guarantee forwards compatibility. */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }

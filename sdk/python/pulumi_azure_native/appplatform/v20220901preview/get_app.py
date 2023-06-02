@@ -17,6 +17,8 @@ __all__ = [
     'get_app_output',
 ]
 
+warnings.warn("""azure-native:appplatform/v20220901preview:App is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:App to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAppResult:
     """
@@ -131,6 +133,7 @@ def get_app(app_name: Optional[str] = None,
     :param str service_name: The name of the Service resource.
     :param str sync_status: Indicates whether sync status
     """
+    pulumi.log.warn("""get_app is deprecated: azure-native:appplatform/v20220901preview:App is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:App to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['appName'] = app_name
     __args__['resourceGroupName'] = resource_group_name
@@ -164,4 +167,5 @@ def get_app_output(app_name: Optional[pulumi.Input[str]] = None,
     :param str service_name: The name of the Service resource.
     :param str sync_status: Indicates whether sync status
     """
+    pulumi.log.warn("""get_app is deprecated: azure-native:appplatform/v20220901preview:App is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:App to guarantee forwards compatibility.""")
     ...

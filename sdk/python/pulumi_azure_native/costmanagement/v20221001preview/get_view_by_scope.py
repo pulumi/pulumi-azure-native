@@ -17,6 +17,8 @@ __all__ = [
     'get_view_by_scope_output',
 ]
 
+warnings.warn("""azure-native:costmanagement/v20221001preview:ViewByScope is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221005preview:ViewByScope to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetViewByScopeResult:
     """
@@ -271,6 +273,7 @@ def get_view_by_scope(scope: Optional[str] = None,
     :param str scope: The scope associated with view operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope.
     :param str view_name: View name
     """
+    pulumi.log.warn("""get_view_by_scope is deprecated: azure-native:costmanagement/v20221001preview:ViewByScope is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221005preview:ViewByScope to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['scope'] = scope
     __args__['viewName'] = view_name
@@ -310,4 +313,5 @@ def get_view_by_scope_output(scope: Optional[pulumi.Input[str]] = None,
     :param str scope: The scope associated with view operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope.
     :param str view_name: View name
     """
+    pulumi.log.warn("""get_view_by_scope is deprecated: azure-native:costmanagement/v20221001preview:ViewByScope is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221005preview:ViewByScope to guarantee forwards compatibility.""")
     ...

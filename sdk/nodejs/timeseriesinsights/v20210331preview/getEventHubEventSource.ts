@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the event source with the specified name in the specified environment.
  */
+/** @deprecated azure-native:timeseriesinsights/v20210331preview:EventHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:EventHubEventSource to guarantee forwards compatibility. */
 export function getEventHubEventSource(args: GetEventHubEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubEventSourceResult> {
+    pulumi.log.warn("getEventHubEventSource is deprecated: azure-native:timeseriesinsights/v20210331preview:EventHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:EventHubEventSource to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20210331preview:getEventHubEventSource", {
@@ -108,6 +110,7 @@ export interface GetEventHubEventSourceResult {
 /**
  * Gets the event source with the specified name in the specified environment.
  */
+/** @deprecated azure-native:timeseriesinsights/v20210331preview:EventHubEventSource is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20210630preview:EventHubEventSource to guarantee forwards compatibility. */
 export function getEventHubEventSourceOutput(args: GetEventHubEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubEventSourceResult> {
     return pulumi.output(args).apply((a: any) => getEventHubEventSource(a, opts))
 }

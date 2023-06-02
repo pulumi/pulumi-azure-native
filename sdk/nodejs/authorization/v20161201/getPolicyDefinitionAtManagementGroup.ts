@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the policy definition at management group level.
  */
-/** @deprecated Version 2016-12-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-12-01 will be removed in v2 of the provider.
+azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility. */
 export function getPolicyDefinitionAtManagementGroup(args: GetPolicyDefinitionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionAtManagementGroupResult> {
-    pulumi.log.warn("getPolicyDefinitionAtManagementGroup is deprecated: Version 2016-12-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getPolicyDefinitionAtManagementGroup is deprecated: Version 2016-12-01 will be removed in v2 of the provider.\nazure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20161201:getPolicyDefinitionAtManagementGroup", {
@@ -73,7 +74,8 @@ export interface GetPolicyDefinitionAtManagementGroupResult {
 /**
  * Gets the policy definition at management group level.
  */
-/** @deprecated Version 2016-12-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-12-01 will be removed in v2 of the provider.
+azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup to guarantee forwards compatibility. */
 export function getPolicyDefinitionAtManagementGroupOutput(args: GetPolicyDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionAtManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getPolicyDefinitionAtManagementGroup(a, opts))
 }

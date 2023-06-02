@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
     /// <summary>
     /// NSX Port Mirroring
     /// </summary>
+    [Obsolete(@"azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring")]
     public partial class WorkloadNetworkPortMirroring : global::Pulumi.CustomResource
     {

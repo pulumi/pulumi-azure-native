@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20180201
     /// <summary>
     /// String dictionary resource.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20180201:WebAppConnectionStrings is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppConnectionStrings to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20180201:WebAppConnectionStrings")]
     public partial class WebAppConnectionStrings : global::Pulumi.CustomResource
     {

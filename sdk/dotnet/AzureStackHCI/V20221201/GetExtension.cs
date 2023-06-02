@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20221201
 {
+    [Obsolete(@"azure-native:azurestackhci/v20221201:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20230201:Extension to guarantee forwards compatibility.")]
     public static class GetExtension
     {
         /// <summary>

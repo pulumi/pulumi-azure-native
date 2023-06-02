@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A Kusto cluster data set mapping
+ *
+ * @deprecated azure-native:datashare/v20191101:KustoClusterDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoClusterDataSetMapping to guarantee forwards compatibility.
  */
 export class KustoClusterDataSetMapping extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class KustoClusterDataSetMapping extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): KustoClusterDataSetMapping {
+        pulumi.log.warn("KustoClusterDataSetMapping is deprecated: azure-native:datashare/v20191101:KustoClusterDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoClusterDataSetMapping to guarantee forwards compatibility.")
         return new KustoClusterDataSetMapping(name, undefined as any, { ...opts, id: id });
     }
 
@@ -75,7 +78,9 @@ export class KustoClusterDataSetMapping extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:datashare/v20191101:KustoClusterDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoClusterDataSetMapping to guarantee forwards compatibility. */
     constructor(name: string, args: KustoClusterDataSetMappingArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("KustoClusterDataSetMapping is deprecated: azure-native:datashare/v20191101:KustoClusterDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoClusterDataSetMapping to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

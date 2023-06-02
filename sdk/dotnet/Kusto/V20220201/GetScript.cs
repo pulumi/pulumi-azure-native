@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Kusto.V20220201
 {
+    [Obsolete(@"azure-native:kusto/v20220201:Script is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:Script to guarantee forwards compatibility.")]
     public static class GetScript
     {
         /// <summary>

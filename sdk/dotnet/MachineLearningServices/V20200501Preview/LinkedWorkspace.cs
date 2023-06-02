@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
     /// <summary>
     /// Linked workspace.
     /// </summary>
+    [Obsolete(@"azure-native:machinelearningservices/v20200501preview:LinkedWorkspace is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20200515preview:LinkedWorkspace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20200501preview:LinkedWorkspace")]
     public partial class LinkedWorkspace : global::Pulumi.CustomResource
     {

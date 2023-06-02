@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DigitalTwins.V20210630Preview
 {
+    [Obsolete(@"azure-native:digitaltwins/v20210630preview:DigitalTwinsEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint to guarantee forwards compatibility.")]
     public static class GetDigitalTwinsEndpoint
     {
         /// <summary>

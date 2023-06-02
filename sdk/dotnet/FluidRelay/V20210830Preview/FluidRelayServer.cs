@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.FluidRelay.V20210830Preview
     /// <summary>
     /// A FluidRelay Server.
     /// </summary>
+    [Obsolete(@"azure-native:fluidrelay/v20210830preview:FluidRelayServer is being removed in the next major version of this provider. Please upgrade to azure-native:fluidrelay/v20220601:FluidRelayServer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:fluidrelay/v20210830preview:FluidRelayServer")]
     public partial class FluidRelayServer : global::Pulumi.CustomResource
     {

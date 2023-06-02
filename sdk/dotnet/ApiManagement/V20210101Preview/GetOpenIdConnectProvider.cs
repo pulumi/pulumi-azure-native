@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
 {
+    [Obsolete(@"azure-native:apimanagement/v20210101preview:OpenIdConnectProvider is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:OpenIdConnectProvider to guarantee forwards compatibility.")]
     public static class GetOpenIdConnectProvider
     {
         /// <summary>

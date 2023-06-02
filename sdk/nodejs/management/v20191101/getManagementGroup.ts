@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get the details of the management group.
  */
-/** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-11-01 will be removed in v2 of the provider.
+azure-native:management/v20191101:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility. */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
-    pulumi.log.warn("getManagementGroup is deprecated: Version 2019-11-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getManagementGroup is deprecated: Version 2019-11-01 will be removed in v2 of the provider.\nazure-native:management/v20191101:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:management/v20191101:getManagementGroup", {
@@ -86,7 +87,8 @@ export interface GetManagementGroupResult {
 /**
  * Get the details of the management group.
  */
-/** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-11-01 will be removed in v2 of the provider.
+azure-native:management/v20191101:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility. */
 export function getManagementGroupOutput(args: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroup(a, opts))
 }

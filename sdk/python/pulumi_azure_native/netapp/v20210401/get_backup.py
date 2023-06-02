@@ -17,6 +17,8 @@ __all__ = [
     'get_backup_output',
 ]
 
+warnings.warn("""azure-native:netapp/v20210401:Backup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Backup to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBackupResult:
     """
@@ -217,6 +219,7 @@ def get_backup(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str volume_name: The name of the volume
     """
+    pulumi.log.warn("""get_backup is deprecated: azure-native:netapp/v20210401:Backup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Backup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['backupName'] = backup_name
@@ -260,4 +263,5 @@ def get_backup_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str volume_name: The name of the volume
     """
+    pulumi.log.warn("""get_backup is deprecated: azure-native:netapp/v20210401:Backup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Backup to guarantee forwards compatibility.""")
     ...

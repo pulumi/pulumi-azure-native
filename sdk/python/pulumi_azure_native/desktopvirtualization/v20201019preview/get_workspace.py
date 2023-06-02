@@ -16,7 +16,8 @@ __all__ = [
     'get_workspace_output',
 ]
 
-warnings.warn("""Version 2020-10-19-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-10-19-preview will be removed in v2 of the provider.
+azure-native:desktopvirtualization/v20201019preview:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20201110preview:Workspace to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetWorkspaceResult:
@@ -140,7 +141,8 @@ def get_workspace(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
-    pulumi.log.warn("""get_workspace is deprecated: Version 2020-10-19-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_workspace is deprecated: Version 2020-10-19-preview will be removed in v2 of the provider.
+azure-native:desktopvirtualization/v20201019preview:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20201110preview:Workspace to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
@@ -169,5 +171,6 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
-    pulumi.log.warn("""get_workspace is deprecated: Version 2020-10-19-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_workspace is deprecated: Version 2020-10-19-preview will be removed in v2 of the provider.
+azure-native:desktopvirtualization/v20201019preview:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20201110preview:Workspace to guarantee forwards compatibility.""")
     ...

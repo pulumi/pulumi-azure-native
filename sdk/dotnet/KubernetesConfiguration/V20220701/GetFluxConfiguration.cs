@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701
 {
+    [Obsolete(@"azure-native:kubernetesconfiguration/v20220701:FluxConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20221101:FluxConfiguration to guarantee forwards compatibility.")]
     public static class GetFluxConfiguration
     {
         /// <summary>

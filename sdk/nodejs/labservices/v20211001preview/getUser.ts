@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns the properties of a lab user.
  */
+/** @deprecated azure-native:labservices/v20211001preview:User is being removed in the next major version of this provider. Please upgrade to azure-native:labservices/v20220801:User to guarantee forwards compatibility. */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
+    pulumi.log.warn("getUser is deprecated: azure-native:labservices/v20211001preview:User is being removed in the next major version of this provider. Please upgrade to azure-native:labservices/v20220801:User to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices/v20211001preview:getUser", {
@@ -91,6 +93,7 @@ export interface GetUserResult {
 /**
  * Returns the properties of a lab user.
  */
+/** @deprecated azure-native:labservices/v20211001preview:User is being removed in the next major version of this provider. Please upgrade to azure-native:labservices/v20220801:User to guarantee forwards compatibility. */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }

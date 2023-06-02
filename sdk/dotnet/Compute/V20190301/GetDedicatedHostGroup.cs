@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20190301
 {
-    [Obsolete(@"Version 2019-03-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-03-01 will be removed in v2 of the provider.
+azure-native:compute/v20190301:DedicatedHostGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.")]
     public static class GetDedicatedHostGroup
     {
         /// <summary>

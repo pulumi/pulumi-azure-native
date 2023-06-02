@@ -17,6 +17,8 @@ __all__ = [
     'get_notification_registration_output',
 ]
 
+warnings.warn("""azure-native:providerhub/v20210601preview:NotificationRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:NotificationRegistration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNotificationRegistrationResult:
     """
@@ -100,6 +102,7 @@ def get_notification_registration(notification_registration_name: Optional[str] 
     :param str notification_registration_name: The notification registration.
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     """
+    pulumi.log.warn("""get_notification_registration is deprecated: azure-native:providerhub/v20210601preview:NotificationRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:NotificationRegistration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['notificationRegistrationName'] = notification_registration_name
     __args__['providerNamespace'] = provider_namespace
@@ -125,4 +128,5 @@ def get_notification_registration_output(notification_registration_name: Optiona
     :param str notification_registration_name: The notification registration.
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     """
+    pulumi.log.warn("""get_notification_registration is deprecated: azure-native:providerhub/v20210601preview:NotificationRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:NotificationRegistration to guarantee forwards compatibility.""")
     ...

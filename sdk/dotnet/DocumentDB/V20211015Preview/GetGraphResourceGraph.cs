@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20211015Preview
 {
+    [Obsolete(@"azure-native:documentdb/v20211015preview:GraphResourceGraph is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:GraphResourceGraph to guarantee forwards compatibility.")]
     public static class GetGraphResourceGraph
     {
         /// <summary>

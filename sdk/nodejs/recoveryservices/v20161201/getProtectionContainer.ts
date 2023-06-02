@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets details of the specific container registered to your Recovery Services Vault.
  */
-/** @deprecated Version 2016-12-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-12-01 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20161201:ProtectionContainer is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility. */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
-    pulumi.log.warn("getProtectionContainer is deprecated: Version 2016-12-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getProtectionContainer is deprecated: Version 2016-12-01 will be removed in v2 of the provider.\nazure-native:recoveryservices/v20161201:ProtectionContainer is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20161201:getProtectionContainer", {
@@ -78,7 +79,8 @@ export interface GetProtectionContainerResult {
 /**
  * Gets details of the specific container registered to your Recovery Services Vault.
  */
-/** @deprecated Version 2016-12-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-12-01 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20161201:ProtectionContainer is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility. */
 export function getProtectionContainerOutput(args: GetProtectionContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionContainerResult> {
     return pulumi.output(args).apply((a: any) => getProtectionContainer(a, opts))
 }

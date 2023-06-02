@@ -17,6 +17,8 @@ __all__ = [
     'get_endpoint_output',
 ]
 
+warnings.warn("""azure-native:cdn/v20210601:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Endpoint to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEndpointResult:
     """
@@ -357,6 +359,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_endpoint is deprecated: azure-native:cdn/v20210601:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Endpoint to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['profileName'] = profile_name
@@ -406,4 +409,5 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_endpoint is deprecated: azure-native:cdn/v20210601:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Endpoint to guarantee forwards compatibility.""")
     ...

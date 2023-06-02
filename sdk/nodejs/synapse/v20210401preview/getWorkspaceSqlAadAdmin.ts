@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a workspace SQL active directory admin
  */
+/** @deprecated azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin to guarantee forwards compatibility. */
 export function getWorkspaceSqlAadAdmin(args: GetWorkspaceSqlAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSqlAadAdminResult> {
+    pulumi.log.warn("getWorkspaceSqlAadAdmin is deprecated: azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210401preview:getWorkspaceSqlAadAdmin", {
@@ -63,6 +65,7 @@ export interface GetWorkspaceSqlAadAdminResult {
 /**
  * Gets a workspace SQL active directory admin
  */
+/** @deprecated azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin to guarantee forwards compatibility. */
 export function getWorkspaceSqlAadAdminOutput(args: GetWorkspaceSqlAadAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSqlAadAdminResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceSqlAadAdmin(a, opts))
 }

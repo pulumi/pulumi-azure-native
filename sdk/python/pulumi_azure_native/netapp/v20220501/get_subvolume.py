@@ -17,6 +17,8 @@ __all__ = [
     'get_subvolume_output',
 ]
 
+warnings.warn("""azure-native:netapp/v20220501:Subvolume is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Subvolume to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSubvolumeResult:
     """
@@ -133,6 +135,7 @@ def get_subvolume(account_name: Optional[str] = None,
     :param str subvolume_name: The name of the subvolume.
     :param str volume_name: The name of the volume
     """
+    pulumi.log.warn("""get_subvolume is deprecated: azure-native:netapp/v20220501:Subvolume is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Subvolume to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['poolName'] = pool_name
@@ -169,4 +172,5 @@ def get_subvolume_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str subvolume_name: The name of the subvolume.
     :param str volume_name: The name of the volume
     """
+    pulumi.log.warn("""get_subvolume is deprecated: azure-native:netapp/v20220501:Subvolume is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Subvolume to guarantee forwards compatibility.""")
     ...

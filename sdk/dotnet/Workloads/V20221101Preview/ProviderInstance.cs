@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Workloads.V20221101Preview
     /// <summary>
     /// A provider instance associated with SAP monitor.
     /// </summary>
+    [Obsolete(@"azure-native:workloads/v20221101preview:ProviderInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:ProviderInstance to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:workloads/v20221101preview:ProviderInstance")]
     public partial class ProviderInstance : global::Pulumi.CustomResource
     {

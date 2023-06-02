@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
     /// <summary>
     /// The top level Linked service resource container.
     /// </summary>
+    [Obsolete(@"azure-native:operationalinsights/v20190801preview:LinkedService is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:LinkedService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:operationalinsights/v20190801preview:LinkedService")]
     public partial class LinkedService : global::Pulumi.CustomResource
     {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the detail of a linked workspace.
  */
+/** @deprecated azure-native:machinelearningservices/v20200501preview:LinkedWorkspace is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20200515preview:LinkedWorkspace to guarantee forwards compatibility. */
 export function getLinkedWorkspace(args: GetLinkedWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedWorkspaceResult> {
+    pulumi.log.warn("getLinkedWorkspace is deprecated: azure-native:machinelearningservices/v20200501preview:LinkedWorkspace is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20200515preview:LinkedWorkspace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200501preview:getLinkedWorkspace", {
@@ -59,6 +61,7 @@ export interface GetLinkedWorkspaceResult {
 /**
  * Get the detail of a linked workspace.
  */
+/** @deprecated azure-native:machinelearningservices/v20200501preview:LinkedWorkspace is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20200515preview:LinkedWorkspace to guarantee forwards compatibility. */
 export function getLinkedWorkspaceOutput(args: GetLinkedWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getLinkedWorkspace(a, opts))
 }

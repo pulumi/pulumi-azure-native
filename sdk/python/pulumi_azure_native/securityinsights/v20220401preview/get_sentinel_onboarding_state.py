@@ -17,6 +17,8 @@ __all__ = [
     'get_sentinel_onboarding_state_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20220401preview:SentinelOnboardingState is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SentinelOnboardingState to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSentinelOnboardingStateResult:
     """
@@ -117,6 +119,7 @@ def get_sentinel_onboarding_state(resource_group_name: Optional[str] = None,
     :param str sentinel_onboarding_state_name: The Sentinel onboarding state name. Supports - default
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_sentinel_onboarding_state is deprecated: azure-native:securityinsights/v20220401preview:SentinelOnboardingState is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SentinelOnboardingState to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sentinelOnboardingStateName'] = sentinel_onboarding_state_name
@@ -146,4 +149,5 @@ def get_sentinel_onboarding_state_output(resource_group_name: Optional[pulumi.In
     :param str sentinel_onboarding_state_name: The Sentinel onboarding state name. Supports - default
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_sentinel_onboarding_state is deprecated: azure-native:securityinsights/v20220401preview:SentinelOnboardingState is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SentinelOnboardingState to guarantee forwards compatibility.""")
     ...

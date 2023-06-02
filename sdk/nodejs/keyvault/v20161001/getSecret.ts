@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified secret.  NOTE: This API is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-10-01 will be removed in v2 of the provider.
+azure-native:keyvault/v20161001:Secret is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:Secret to guarantee forwards compatibility. */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
-    pulumi.log.warn("getSecret is deprecated: Version 2016-10-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getSecret is deprecated: Version 2016-10-01 will be removed in v2 of the provider.\nazure-native:keyvault/v20161001:Secret is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:Secret to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:keyvault/v20161001:getSecret", {
@@ -69,7 +70,8 @@ export interface GetSecretResult {
 /**
  * Gets the specified secret.  NOTE: This API is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-10-01 will be removed in v2 of the provider.
+azure-native:keyvault/v20161001:Secret is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:Secret to guarantee forwards compatibility. */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
     return pulumi.output(args).apply((a: any) => getSecret(a, opts))
 }

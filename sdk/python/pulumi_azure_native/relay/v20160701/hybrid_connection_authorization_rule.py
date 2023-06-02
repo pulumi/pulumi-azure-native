@@ -96,11 +96,13 @@ class HybridConnectionAuthorizationRuleArgs:
         pulumi.set(self, "authorization_rule_name", value)
 
 
-warnings.warn("""Version 2016-07-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-07-01 will be removed in v2 of the provider.
+azure-native:relay/v20160701:HybridConnectionAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20170401:HybridConnectionAuthorizationRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class HybridConnectionAuthorizationRule(pulumi.CustomResource):
-    warnings.warn("""Version 2016-07-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2016-07-01 will be removed in v2 of the provider.
+azure-native:relay/v20160701:HybridConnectionAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20170401:HybridConnectionAuthorizationRule to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -153,7 +155,8 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""HybridConnectionAuthorizationRule is deprecated: Version 2016-07-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""HybridConnectionAuthorizationRule is deprecated: Version 2016-07-01 will be removed in v2 of the provider.
+azure-native:relay/v20160701:HybridConnectionAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20170401:HybridConnectionAuthorizationRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

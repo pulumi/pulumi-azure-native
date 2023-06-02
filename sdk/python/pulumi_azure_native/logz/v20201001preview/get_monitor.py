@@ -17,6 +17,8 @@ __all__ = [
     'get_monitor_output',
 ]
 
+warnings.warn("""azure-native:logz/v20201001preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:Monitor to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMonitorResult:
     def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
@@ -126,6 +128,7 @@ def get_monitor(monitor_name: Optional[str] = None,
     :param str monitor_name: Monitor resource name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_monitor is deprecated: azure-native:logz/v20201001preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:Monitor to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
@@ -153,4 +156,5 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
     :param str monitor_name: Monitor resource name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_monitor is deprecated: azure-native:logz/v20201001preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:Monitor to guarantee forwards compatibility.""")
     ...

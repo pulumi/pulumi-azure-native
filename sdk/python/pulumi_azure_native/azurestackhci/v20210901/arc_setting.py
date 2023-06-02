@@ -163,7 +163,12 @@ class ArcSettingArgs:
         pulumi.set(self, "last_modified_by_type", value)
 
 
+warnings.warn("""azure-native:azurestackhci/v20210901:ArcSetting is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:ArcSetting to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ArcSetting(pulumi.CustomResource):
+    warnings.warn("""azure-native:azurestackhci/v20210901:ArcSetting is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:ArcSetting to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -227,6 +232,7 @@ class ArcSetting(pulumi.CustomResource):
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ArcSetting is deprecated: azure-native:azurestackhci/v20210901:ArcSetting is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:ArcSetting to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

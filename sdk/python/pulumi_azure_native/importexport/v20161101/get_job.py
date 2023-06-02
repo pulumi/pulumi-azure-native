@@ -17,7 +17,8 @@ __all__ = [
     'get_job_output',
 ]
 
-warnings.warn("""Version 2016-11-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-11-01 will be removed in v2 of the provider.
+azure-native:importexport/v20161101:Job is being removed in the next major version of this provider. Please upgrade to azure-native:importexport/v20210101:Job to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetJobResult:
@@ -141,7 +142,8 @@ def get_job(job_name: Optional[str] = None,
     :param str job_name: The name of the import/export job.
     :param str resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
     """
-    pulumi.log.warn("""get_job is deprecated: Version 2016-11-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_job is deprecated: Version 2016-11-01 will be removed in v2 of the provider.
+azure-native:importexport/v20161101:Job is being removed in the next major version of this provider. Please upgrade to azure-native:importexport/v20210101:Job to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['jobName'] = job_name
     __args__['resourceGroupName'] = resource_group_name
@@ -170,5 +172,6 @@ def get_job_output(job_name: Optional[pulumi.Input[str]] = None,
     :param str job_name: The name of the import/export job.
     :param str resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
     """
-    pulumi.log.warn("""get_job is deprecated: Version 2016-11-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_job is deprecated: Version 2016-11-01 will be removed in v2 of the provider.
+azure-native:importexport/v20161101:Job is being removed in the next major version of this provider. Please upgrade to azure-native:importexport/v20210101:Job to guarantee forwards compatibility.""")
     ...

@@ -131,7 +131,12 @@ class PrivateStoreCollectionArgs:
         pulumi.set(self, "subscriptions_list", value)
 
 
+warnings.warn("""azure-native:marketplace/v20220301:PrivateStoreCollection is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class PrivateStoreCollection(pulumi.CustomResource):
+    warnings.warn("""azure-native:marketplace/v20220301:PrivateStoreCollection is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -189,6 +194,7 @@ class PrivateStoreCollection(pulumi.CustomResource):
                  private_store_id: Optional[pulumi.Input[str]] = None,
                  subscriptions_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""PrivateStoreCollection is deprecated: azure-native:marketplace/v20220301:PrivateStoreCollection is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
     /// <summary>
     /// NSX VM Group
     /// </summary>
+    [Obsolete(@"azure-native:avs/v20210601:WorkloadNetworkVMGroup is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkVMGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20210601:WorkloadNetworkVMGroup")]
     public partial class WorkloadNetworkVMGroup : global::Pulumi.CustomResource
     {

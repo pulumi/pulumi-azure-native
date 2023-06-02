@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve the Dsc node configurations by node configuration.
  */
+/** @deprecated azure-native:automation/v20180115:DscNodeConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:DscNodeConfiguration to guarantee forwards compatibility. */
 export function getDscNodeConfiguration(args: GetDscNodeConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscNodeConfigurationResult> {
+    pulumi.log.warn("getDscNodeConfiguration is deprecated: azure-native:automation/v20180115:DscNodeConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:DscNodeConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20180115:getDscNodeConfiguration", {
@@ -79,6 +81,7 @@ export interface GetDscNodeConfigurationResult {
 /**
  * Retrieve the Dsc node configurations by node configuration.
  */
+/** @deprecated azure-native:automation/v20180115:DscNodeConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20220808:DscNodeConfiguration to guarantee forwards compatibility. */
 export function getDscNodeConfigurationOutput(args: GetDscNodeConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscNodeConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getDscNodeConfiguration(a, opts))
 }

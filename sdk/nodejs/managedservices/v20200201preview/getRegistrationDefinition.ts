@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the registration definition details.
  */
+/** @deprecated azure-native:managedservices/v20200201preview:RegistrationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationDefinition to guarantee forwards compatibility. */
 export function getRegistrationDefinition(args: GetRegistrationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationDefinitionResult> {
+    pulumi.log.warn("getRegistrationDefinition is deprecated: azure-native:managedservices/v20200201preview:RegistrationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationDefinition to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedservices/v20200201preview:getRegistrationDefinition", {
@@ -58,6 +60,7 @@ export interface GetRegistrationDefinitionResult {
 /**
  * Gets the registration definition details.
  */
+/** @deprecated azure-native:managedservices/v20200201preview:RegistrationDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationDefinition to guarantee forwards compatibility. */
 export function getRegistrationDefinitionOutput(args: GetRegistrationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getRegistrationDefinition(a, opts))
 }

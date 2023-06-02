@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetApp.V20210201
 {
+    [Obsolete(@"azure-native:netapp/v20210201:Volume is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20211001:Volume to guarantee forwards compatibility.")]
     public static class GetVolume
     {
         /// <summary>

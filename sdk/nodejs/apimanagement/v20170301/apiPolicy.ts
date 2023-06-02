@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Policy Contract details.
+ *
+ * @deprecated azure-native:apimanagement/v20170301:ApiPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20180601preview:ApiPolicy to guarantee forwards compatibility.
  */
 export class ApiPolicy extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class ApiPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiPolicy {
+        pulumi.log.warn("ApiPolicy is deprecated: azure-native:apimanagement/v20170301:ApiPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20180601preview:ApiPolicy to guarantee forwards compatibility.")
         return new ApiPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -54,7 +57,9 @@ export class ApiPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:apimanagement/v20170301:ApiPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20180601preview:ApiPolicy to guarantee forwards compatibility. */
     constructor(name: string, args: ApiPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ApiPolicy is deprecated: azure-native:apimanagement/v20170301:ApiPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20180601preview:ApiPolicy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

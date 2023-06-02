@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a workload classifier
  */
+/** @deprecated azure-native:sql/v20210201preview:WorkloadClassifier is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:WorkloadClassifier to guarantee forwards compatibility. */
 export function getWorkloadClassifier(args: GetWorkloadClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadClassifierResult> {
+    pulumi.log.warn("getWorkloadClassifier is deprecated: azure-native:sql/v20210201preview:WorkloadClassifier is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:WorkloadClassifier to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20210201preview:getWorkloadClassifier", {
@@ -86,6 +88,7 @@ export interface GetWorkloadClassifierResult {
 /**
  * Gets a workload classifier
  */
+/** @deprecated azure-native:sql/v20210201preview:WorkloadClassifier is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:WorkloadClassifier to guarantee forwards compatibility. */
 export function getWorkloadClassifierOutput(args: GetWorkloadClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadClassifierResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadClassifier(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20190801
     /// <summary>
     /// String dictionary resource.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20190801:WebAppMetadataSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppMetadataSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20190801:WebAppMetadataSlot")]
     public partial class WebAppMetadataSlot : global::Pulumi.CustomResource
     {

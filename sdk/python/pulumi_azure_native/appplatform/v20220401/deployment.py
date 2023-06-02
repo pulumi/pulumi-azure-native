@@ -114,7 +114,12 @@ class DeploymentArgs:
         pulumi.set(self, "sku", value)
 
 
+warnings.warn("""azure-native:appplatform/v20220401:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Deployment to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Deployment(pulumi.CustomResource):
+    warnings.warn("""azure-native:appplatform/v20220401:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Deployment to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -169,6 +174,7 @@ class Deployment(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""Deployment is deprecated: azure-native:appplatform/v20220401:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Deployment to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

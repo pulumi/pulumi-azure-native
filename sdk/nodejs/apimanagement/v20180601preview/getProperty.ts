@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the property specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20180601preview:Property is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20190101:Property to guarantee forwards compatibility. */
 export function getProperty(args: GetPropertyArgs, opts?: pulumi.InvokeOptions): Promise<GetPropertyResult> {
+    pulumi.log.warn("getProperty is deprecated: azure-native:apimanagement/v20180601preview:Property is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20190101:Property to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20180601preview:getProperty", {
@@ -68,6 +70,7 @@ export interface GetPropertyResult {
 /**
  * Gets the details of the property specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20180601preview:Property is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20190101:Property to guarantee forwards compatibility. */
 export function getPropertyOutput(args: GetPropertyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPropertyResult> {
     return pulumi.output(args).apply((a: any) => getProperty(a, opts))
 }

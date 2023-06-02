@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221101Preview
     /// <summary>
     /// Settings with single toggle.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20221101preview:EntityAnalytics is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:EntityAnalytics to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20221101preview:EntityAnalytics")]
     public partial class EntityAnalytics : global::Pulumi.CustomResource
     {
@@ -100,7 +101,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:EntityAnalytics"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:EntityAnalytics"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:EntityAnalytics"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:EntityAnalytics"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a firewall rule
  */
+/** @deprecated azure-native:synapse/v20210501:IpFirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:IpFirewallRule to guarantee forwards compatibility. */
 export function getIpFirewallRule(args: GetIpFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetIpFirewallRuleResult> {
+    pulumi.log.warn("getIpFirewallRule is deprecated: azure-native:synapse/v20210501:IpFirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:IpFirewallRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210501:getIpFirewallRule", {
@@ -64,6 +66,7 @@ export interface GetIpFirewallRuleResult {
 /**
  * Get a firewall rule
  */
+/** @deprecated azure-native:synapse/v20210501:IpFirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:IpFirewallRule to guarantee forwards compatibility. */
 export function getIpFirewallRuleOutput(args: GetIpFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getIpFirewallRule(a, opts))
 }

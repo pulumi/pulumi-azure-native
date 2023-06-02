@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Chaos.V20221001Preview
     /// <summary>
     /// Model that represents a Experiment resource.
     /// </summary>
+    [Obsolete(@"azure-native:chaos/v20221001preview:Experiment is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Experiment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:chaos/v20221001preview:Experiment")]
     public partial class Experiment : global::Pulumi.CustomResource
     {

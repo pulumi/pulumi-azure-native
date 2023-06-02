@@ -99,7 +99,12 @@ class GatewayArgs:
         pulumi.set(self, "location_data", value)
 
 
+warnings.warn("""azure-native:apimanagement/v20191201:Gateway is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Gateway to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Gateway(pulumi.CustomResource):
+    warnings.warn("""azure-native:apimanagement/v20191201:Gateway is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Gateway to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -151,6 +156,7 @@ class Gateway(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Gateway is deprecated: azure-native:apimanagement/v20191201:Gateway is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Gateway to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified relationship.
  */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:Relationship is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Relationship to guarantee forwards compatibility. */
 export function getRelationship(args: GetRelationshipArgs, opts?: pulumi.InvokeOptions): Promise<GetRelationshipResult> {
-    pulumi.log.warn("getRelationship is deprecated: Version 2017-01-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getRelationship is deprecated: Version 2017-01-01 will be removed in v2 of the provider.\nazure-native:customerinsights/v20170101:Relationship is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Relationship to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170101:getRelationship", {
@@ -105,7 +106,8 @@ export interface GetRelationshipResult {
 /**
  * Gets information about the specified relationship.
  */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:Relationship is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Relationship to guarantee forwards compatibility. */
 export function getRelationshipOutput(args: GetRelationshipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRelationshipResult> {
     return pulumi.output(args).apply((a: any) => getRelationship(a, opts))
 }

@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about a gallery Application Version.
  */
-/** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-07-01 will be removed in v2 of the provider.
+azure-native:compute/v20190701:GalleryApplicationVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryApplicationVersion to guarantee forwards compatibility. */
 export function getGalleryApplicationVersion(args: GetGalleryApplicationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationVersionResult> {
-    pulumi.log.warn("getGalleryApplicationVersion is deprecated: Version 2019-07-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getGalleryApplicationVersion is deprecated: Version 2019-07-01 will be removed in v2 of the provider.\nazure-native:compute/v20190701:GalleryApplicationVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryApplicationVersion to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20190701:getGalleryApplicationVersion", {
@@ -87,7 +88,8 @@ export interface GetGalleryApplicationVersionResult {
 /**
  * Retrieves information about a gallery Application Version.
  */
-/** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-07-01 will be removed in v2 of the provider.
+azure-native:compute/v20190701:GalleryApplicationVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryApplicationVersion to guarantee forwards compatibility. */
 export function getGalleryApplicationVersionOutput(args: GetGalleryApplicationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationVersionResult> {
     return pulumi.output(args).apply((a: any) => getGalleryApplicationVersion(a, opts))
 }

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20170301
 {
+    [Obsolete(@"azure-native:apimanagement/v20170301:ApiSchema is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20190101:ApiSchema to guarantee forwards compatibility.")]
     public static class GetApiSchema
     {
         /// <summary>

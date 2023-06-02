@@ -17,6 +17,8 @@ __all__ = [
     'get_email_template_output',
 ]
 
+warnings.warn("""azure-native:apimanagement/v20180101:EmailTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:EmailTemplate to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEmailTemplateResult:
     """
@@ -153,6 +155,7 @@ def get_email_template(resource_group_name: Optional[str] = None,
     :param str service_name: The name of the API Management service.
     :param str template_name: Email Template Name Identifier.
     """
+    pulumi.log.warn("""get_email_template is deprecated: azure-native:apimanagement/v20180101:EmailTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:EmailTemplate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
@@ -185,4 +188,5 @@ def get_email_template_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str service_name: The name of the API Management service.
     :param str template_name: Email Template Name Identifier.
     """
+    pulumi.log.warn("""get_email_template is deprecated: azure-native:apimanagement/v20180101:EmailTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:EmailTemplate to guarantee forwards compatibility.""")
     ...

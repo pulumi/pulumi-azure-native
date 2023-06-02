@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Web.V20200901
 {
+    [Obsolete(@"azure-native:web/v20200901:WebAppPremierAddOnSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppPremierAddOnSlot to guarantee forwards compatibility.")]
     public static class GetWebAppPremierAddOnSlot
     {
         /// <summary>

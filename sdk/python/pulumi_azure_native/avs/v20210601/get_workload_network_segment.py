@@ -17,6 +17,8 @@ __all__ = [
     'get_workload_network_segment_output',
 ]
 
+warnings.warn("""azure-native:avs/v20210601:WorkloadNetworkSegment is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkSegment to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWorkloadNetworkSegmentResult:
     """
@@ -165,6 +167,7 @@ def get_workload_network_segment(private_cloud_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str segment_id: NSX Segment identifier. Generally the same as the Segment's display name
     """
+    pulumi.log.warn("""get_workload_network_segment is deprecated: azure-native:avs/v20210601:WorkloadNetworkSegment is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkSegment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
@@ -198,4 +201,5 @@ def get_workload_network_segment_output(private_cloud_name: Optional[pulumi.Inpu
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str segment_id: NSX Segment identifier. Generally the same as the Segment's display name
     """
+    pulumi.log.warn("""get_workload_network_segment is deprecated: azure-native:avs/v20210601:WorkloadNetworkSegment is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:WorkloadNetworkSegment to guarantee forwards compatibility.""")
     ...

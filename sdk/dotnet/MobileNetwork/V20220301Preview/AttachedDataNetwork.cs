@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     /// <summary>
     /// Attached data network resource.
     /// </summary>
+    [Obsolete(@"azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork")]
     public partial class AttachedDataNetwork : global::Pulumi.CustomResource
     {

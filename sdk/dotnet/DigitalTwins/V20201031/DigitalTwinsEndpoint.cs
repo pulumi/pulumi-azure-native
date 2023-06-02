@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031
     /// <summary>
     /// DigitalTwinsInstance endpoint resource.
     /// </summary>
-    [Obsolete(@"Version 2020-10-31 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-10-31 will be removed in v2 of the provider.
+azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint")]
     public partial class DigitalTwinsEndpoint : global::Pulumi.CustomResource
     {

@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * The Get network interface operation retrieves information about the specified network interface.
  */
-/** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-03-30 will be removed in v2 of the provider.
+azure-native:network/v20160330:LoadBalancer is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180601:LoadBalancer to guarantee forwards compatibility. */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
-    pulumi.log.warn("getLoadBalancer is deprecated: Version 2016-03-30 will be removed in v2 of the provider.")
+    pulumi.log.warn("getLoadBalancer is deprecated: Version 2016-03-30 will be removed in v2 of the provider.\nazure-native:network/v20160330:LoadBalancer is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180601:LoadBalancer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20160330:getLoadBalancer", {
@@ -105,7 +106,8 @@ export interface GetLoadBalancerResult {
 /**
  * The Get network interface operation retrieves information about the specified network interface.
  */
-/** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-03-30 will be removed in v2 of the provider.
+azure-native:network/v20160330:LoadBalancer is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180601:LoadBalancer to guarantee forwards compatibility. */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
     return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))
 }

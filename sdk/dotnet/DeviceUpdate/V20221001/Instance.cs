@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001
     /// <summary>
     /// Device Update instance details.
     /// </summary>
+    [Obsolete(@"azure-native:deviceupdate/v20221001:Instance is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:Instance to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:deviceupdate/v20221001:Instance")]
     public partial class Instance : global::Pulumi.CustomResource
     {

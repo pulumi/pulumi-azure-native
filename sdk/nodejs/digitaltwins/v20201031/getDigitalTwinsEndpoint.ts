@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get DigitalTwinsInstances Endpoint.
  */
-/** @deprecated Version 2020-10-31 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-10-31 will be removed in v2 of the provider.
+azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint to guarantee forwards compatibility. */
 export function getDigitalTwinsEndpoint(args: GetDigitalTwinsEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinsEndpointResult> {
-    pulumi.log.warn("getDigitalTwinsEndpoint is deprecated: Version 2020-10-31 will be removed in v2 of the provider.")
+    pulumi.log.warn("getDigitalTwinsEndpoint is deprecated: Version 2020-10-31 will be removed in v2 of the provider.\nazure-native:digitaltwins/v20201031:DigitalTwinsEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:digitaltwins/v20201031:getDigitalTwinsEndpoint", {
@@ -61,7 +62,8 @@ export interface GetDigitalTwinsEndpointResult {
 /**
  * Get DigitalTwinsInstances Endpoint.
  */
-/** @deprecated Version 2020-10-31 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-10-31 will be removed in v2 of the provider.
+azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint to guarantee forwards compatibility. */
 export function getDigitalTwinsEndpointOutput(args: GetDigitalTwinsEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinsEndpointResult> {
     return pulumi.output(args).apply((a: any) => getDigitalTwinsEndpoint(a, opts))
 }

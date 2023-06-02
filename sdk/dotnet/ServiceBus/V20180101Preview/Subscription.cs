@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
     /// <summary>
     /// Description of subscription resource.
     /// </summary>
+    [Obsolete(@"azure-native:servicebus/v20180101preview:Subscription is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:Subscription to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicebus/v20180101preview:Subscription")]
     public partial class Subscription : global::Pulumi.CustomResource
     {

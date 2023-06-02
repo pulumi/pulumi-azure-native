@@ -17,6 +17,8 @@ __all__ = [
     'get_custom_ip_prefix_output',
 ]
 
+warnings.warn("""azure-native:network/v20210201:CustomIPPrefix is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210301:CustomIPPrefix to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCustomIPPrefixResult:
     """
@@ -261,6 +263,7 @@ def get_custom_ip_prefix(custom_ip_prefix_name: Optional[str] = None,
     :param str expand: Expands referenced resources.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_custom_ip_prefix is deprecated: azure-native:network/v20210201:CustomIPPrefix is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210301:CustomIPPrefix to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['customIpPrefixName'] = custom_ip_prefix_name
     __args__['expand'] = expand
@@ -302,4 +305,5 @@ def get_custom_ip_prefix_output(custom_ip_prefix_name: Optional[pulumi.Input[str
     :param str expand: Expands referenced resources.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_custom_ip_prefix is deprecated: azure-native:network/v20210201:CustomIPPrefix is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210301:CustomIPPrefix to guarantee forwards compatibility.""")
     ...

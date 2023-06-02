@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20191201Preview
     /// <summary>
     /// An object that represents an export pipeline for a container registry.
     /// </summary>
+    [Obsolete(@"azure-native:containerregistry/v20191201preview:ExportPipeline is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ExportPipeline to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerregistry/v20191201preview:ExportPipeline")]
     public partial class ExportPipeline : global::Pulumi.CustomResource
     {

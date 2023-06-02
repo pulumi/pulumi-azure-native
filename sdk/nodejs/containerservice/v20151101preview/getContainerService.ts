@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * The operation to get a container service.
  */
-/** @deprecated Version 2015-11-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2015-11-01-preview will be removed in v2 of the provider.
+azure-native:containerservice/v20151101preview:ContainerService is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility. */
 export function getContainerService(args: GetContainerServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerServiceResult> {
-    pulumi.log.warn("getContainerService is deprecated: Version 2015-11-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getContainerService is deprecated: Version 2015-11-01-preview will be removed in v2 of the provider.\nazure-native:containerservice/v20151101preview:ContainerService is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20151101preview:getContainerService", {
@@ -88,7 +89,8 @@ export interface GetContainerServiceResult {
 /**
  * The operation to get a container service.
  */
-/** @deprecated Version 2015-11-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2015-11-01-preview will be removed in v2 of the provider.
+azure-native:containerservice/v20151101preview:ContainerService is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20170131:ContainerService to guarantee forwards compatibility. */
 export function getContainerServiceOutput(args: GetContainerServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerServiceResult> {
     return pulumi.output(args).apply((a: any) => getContainerService(a, opts))
 }

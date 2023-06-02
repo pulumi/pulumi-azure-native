@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
+    [Obsolete(@"azure-native:datashare/v20201001preview:KustoDatabaseDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoDatabaseDataSetMapping to guarantee forwards compatibility.")]
     public static class GetKustoDatabaseDataSetMapping
     {
         /// <summary>

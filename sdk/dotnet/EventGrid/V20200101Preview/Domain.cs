@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.EventGrid.V20200101Preview
     /// <summary>
     /// EventGrid Domain
     /// </summary>
-    [Obsolete(@"Version 2020-01-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-01-01-preview will be removed in v2 of the provider.
+azure-native:eventgrid/v20200101preview:Domain is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20200401preview:Domain to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20200101preview:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
     {

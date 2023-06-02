@@ -247,7 +247,12 @@ class WebPubSubArgs:
         pulumi.set(self, "tls", value)
 
 
+warnings.warn("""azure-native:webpubsub/v20220801preview:WebPubSub is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSub to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WebPubSub(pulumi.CustomResource):
+    warnings.warn("""azure-native:webpubsub/v20220801preview:WebPubSub is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSub to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -329,6 +334,7 @@ class WebPubSub(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tls: Optional[pulumi.Input[pulumi.InputType['WebPubSubTlsSettingsArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebPubSub is deprecated: azure-native:webpubsub/v20220801preview:WebPubSub is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSub to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

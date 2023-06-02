@@ -17,6 +17,8 @@ __all__ = [
     'get_target_output',
 ]
 
+warnings.warn("""azure-native:chaos/v20221001preview:Target is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Target to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTargetResult:
     """
@@ -121,6 +123,7 @@ def get_target(parent_provider_namespace: Optional[str] = None,
     :param str resource_group_name: String that represents an Azure resource group.
     :param str target_name: String that represents a Target resource name.
     """
+    pulumi.log.warn("""get_target is deprecated: azure-native:chaos/v20221001preview:Target is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Target to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['parentProviderNamespace'] = parent_provider_namespace
     __args__['parentResourceName'] = parent_resource_name
@@ -156,4 +159,5 @@ def get_target_output(parent_provider_namespace: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: String that represents an Azure resource group.
     :param str target_name: String that represents a Target resource name.
     """
+    pulumi.log.warn("""get_target is deprecated: azure-native:chaos/v20221001preview:Target is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Target to guarantee forwards compatibility.""")
     ...

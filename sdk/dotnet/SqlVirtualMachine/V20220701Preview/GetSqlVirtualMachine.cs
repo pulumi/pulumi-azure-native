@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20220701Preview
 {
+    [Obsolete(@"azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine is being removed in the next major version of this provider. Please upgrade to azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine to guarantee forwards compatibility.")]
     public static class GetSqlVirtualMachine
     {
         /// <summary>

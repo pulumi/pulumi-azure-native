@@ -163,11 +163,13 @@ class StorageTargetArgs:
         pulumi.set(self, "unknown", value)
 
 
-warnings.warn("""Version 2020-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-03-01 will be removed in v2 of the provider.
+azure-native:storagecache/v20200301:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class StorageTarget(pulumi.CustomResource):
-    warnings.warn("""Version 2020-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2020-03-01 will be removed in v2 of the provider.
+azure-native:storagecache/v20200301:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -232,7 +234,8 @@ class StorageTarget(pulumi.CustomResource):
                  target_type: Optional[pulumi.Input[Union[str, 'StorageTargetType']]] = None,
                  unknown: Optional[pulumi.Input[pulumi.InputType['UnknownTargetArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""StorageTarget is deprecated: Version 2020-03-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""StorageTarget is deprecated: Version 2020-03-01 will be removed in v2 of the provider.
+azure-native:storagecache/v20200301:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the API portal and its properties.
  */
+/** @deprecated azure-native:appplatform/v20220901preview:ApiPortal is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ApiPortal to guarantee forwards compatibility. */
 export function getApiPortal(args: GetApiPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetApiPortalResult> {
+    pulumi.log.warn("getApiPortal is deprecated: azure-native:appplatform/v20220901preview:ApiPortal is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ApiPortal to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220901preview:getApiPortal", {
@@ -67,6 +69,7 @@ export interface GetApiPortalResult {
 /**
  * Get the API portal and its properties.
  */
+/** @deprecated azure-native:appplatform/v20220901preview:ApiPortal is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ApiPortal to guarantee forwards compatibility. */
 export function getApiPortalOutput(args: GetApiPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPortalResult> {
     return pulumi.output(args).apply((a: any) => getApiPortal(a, opts))
 }

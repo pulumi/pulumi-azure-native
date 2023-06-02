@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20220301
 {
+    [Obsolete(@"azure-native:databoxedge/v20220301:User is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:User to guarantee forwards compatibility.")]
     public static class GetUser
     {
         /// <summary>

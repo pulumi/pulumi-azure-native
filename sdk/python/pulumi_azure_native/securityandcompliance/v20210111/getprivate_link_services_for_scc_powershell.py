@@ -17,6 +17,8 @@ __all__ = [
     'getprivate_link_services_for_scc_powershell_output',
 ]
 
+warnings.warn("""azure-native:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetprivateLinkServicesForSCCPowershellResult:
     """
@@ -163,6 +165,7 @@ def getprivate_link_services_for_scc_powershell(resource_group_name: Optional[st
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str resource_name: The name of the service instance.
     """
+    pulumi.log.warn("""getprivate_link_services_for_scc_powershell is deprecated: azure-native:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -193,4 +196,5 @@ def getprivate_link_services_for_scc_powershell_output(resource_group_name: Opti
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str resource_name: The name of the service instance.
     """
+    pulumi.log.warn("""getprivate_link_services_for_scc_powershell is deprecated: azure-native:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell to guarantee forwards compatibility.""")
     ...

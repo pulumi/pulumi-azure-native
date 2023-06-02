@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     /// <summary>
     /// Represents a definition for a Developer Machine.
     /// </summary>
+    [Obsolete(@"azure-native:devcenter/v20220801preview:DevBoxDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devcenter/v20220801preview:DevBoxDefinition")]
     public partial class DevBoxDefinition : global::Pulumi.CustomResource
     {
@@ -116,7 +117,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:DevBoxDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:DevBoxDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:DevBoxDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:DevBoxDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

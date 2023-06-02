@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the issue Comment for an API specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20220401preview:ApiIssueComment is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiIssueComment to guarantee forwards compatibility. */
 export function getApiIssueComment(args: GetApiIssueCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueCommentResult> {
+    pulumi.log.warn("getApiIssueComment is deprecated: azure-native:apimanagement/v20220401preview:ApiIssueComment is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiIssueComment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220401preview:getApiIssueComment", {
@@ -74,6 +76,7 @@ export interface GetApiIssueCommentResult {
 /**
  * Gets the details of the issue Comment for an API specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20220401preview:ApiIssueComment is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiIssueComment to guarantee forwards compatibility. */
 export function getApiIssueCommentOutput(args: GetApiIssueCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueCommentResult> {
     return pulumi.output(args).apply((a: any) => getApiIssueComment(a, opts))
 }

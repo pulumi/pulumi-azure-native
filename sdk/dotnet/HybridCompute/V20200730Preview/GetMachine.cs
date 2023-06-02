@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HybridCompute.V20200730Preview
 {
-    [Obsolete(@"Version 2020-07-30-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-07-30-preview will be removed in v2 of the provider.
+azure-native:hybridcompute/v20200730preview:Machine is being removed in the next major version of this provider. Please upgrade to azure-native:hybridcompute/v20200802:Machine to guarantee forwards compatibility.")]
     public static class GetMachine
     {
         /// <summary>

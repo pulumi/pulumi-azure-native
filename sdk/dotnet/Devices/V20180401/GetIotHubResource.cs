@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Devices.V20180401
 {
-    [Obsolete(@"Version 2018-04-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:devices/v20180401:IotHubResource is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20220430preview:IotHubResource to guarantee forwards compatibility.")]
     public static class GetIotHubResource
     {
         /// <summary>

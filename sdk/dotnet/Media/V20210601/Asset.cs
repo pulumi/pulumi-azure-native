@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Media.V20210601
     /// <summary>
     /// An Asset.
     /// </summary>
+    [Obsolete(@"azure-native:media/v20210601:Asset is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:Asset to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:media/v20210601:Asset")]
     public partial class Asset : global::Pulumi.CustomResource
     {

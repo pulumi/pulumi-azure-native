@@ -17,6 +17,8 @@ __all__ = [
     'get_provider_registration_output',
 ]
 
+warnings.warn("""azure-native:providerhub/v20210601preview:ProviderRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:ProviderRegistration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProviderRegistrationResult:
     def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
@@ -95,6 +97,7 @@ def get_provider_registration(provider_namespace: Optional[str] = None,
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     """
+    pulumi.log.warn("""get_provider_registration is deprecated: azure-native:providerhub/v20210601preview:ProviderRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:ProviderRegistration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['providerNamespace'] = provider_namespace
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -117,4 +120,5 @@ def get_provider_registration_output(provider_namespace: Optional[pulumi.Input[s
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     """
+    pulumi.log.warn("""get_provider_registration is deprecated: azure-native:providerhub/v20210601preview:ProviderRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:ProviderRegistration to guarantee forwards compatibility.""")
     ...

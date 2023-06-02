@@ -100,11 +100,13 @@ class ManagementLockByScopeArgs:
         pulumi.set(self, "owners", value)
 
 
-warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ManagementLockByScope(pulumi.CustomResource):
-    warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -157,7 +159,8 @@ class ManagementLockByScope(pulumi.CustomResource):
                  owners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ManagementLockByScope is deprecated: Version 2016-09-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""ManagementLockByScope is deprecated: Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:authorization/v20160901:ManagementLockByScope is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

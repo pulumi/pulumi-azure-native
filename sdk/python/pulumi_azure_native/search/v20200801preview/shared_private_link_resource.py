@@ -84,7 +84,12 @@ class SharedPrivateLinkResourceArgs:
         pulumi.set(self, "shared_private_link_resource_name", value)
 
 
+warnings.warn("""azure-native:search/v20200801preview:SharedPrivateLinkResource is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class SharedPrivateLinkResource(pulumi.CustomResource):
+    warnings.warn("""azure-native:search/v20200801preview:SharedPrivateLinkResource is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -133,6 +138,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                  search_service_name: Optional[pulumi.Input[str]] = None,
                  shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""SharedPrivateLinkResource is deprecated: azure-native:search/v20200801preview:SharedPrivateLinkResource is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.KeyVault.V20210401Preview
 {
+    [Obsolete(@"azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetMHSMPrivateEndpointConnection
     {
         /// <summary>

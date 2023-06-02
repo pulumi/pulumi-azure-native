@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a P2SVpnServerConfiguration.
  */
+/** @deprecated azure-native:network/v20190401:P2sVpnServerConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility. */
 export function getP2sVpnServerConfiguration(args: GetP2sVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnServerConfigurationResult> {
+    pulumi.log.warn("getP2sVpnServerConfiguration is deprecated: azure-native:network/v20190401:P2sVpnServerConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190401:getP2sVpnServerConfiguration", {
@@ -95,6 +97,7 @@ export interface GetP2sVpnServerConfigurationResult {
 /**
  * Retrieves the details of a P2SVpnServerConfiguration.
  */
+/** @deprecated azure-native:network/v20190401:P2sVpnServerConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190701:P2sVpnServerConfiguration to guarantee forwards compatibility. */
 export function getP2sVpnServerConfigurationOutput(args: GetP2sVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnServerConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getP2sVpnServerConfiguration(a, opts))
 }

@@ -17,7 +17,8 @@ __all__ = [
     'get_topic_output',
 ]
 
-warnings.warn("""Version 2020-01-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-01-01-preview will be removed in v2 of the provider.
+azure-native:eventgrid/v20200101preview:Topic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20200401preview:Topic to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetTopicResult:
@@ -165,7 +166,8 @@ def get_topic(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_name: Name of the topic
     """
-    pulumi.log.warn("""get_topic is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_topic is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.
+azure-native:eventgrid/v20200101preview:Topic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20200401preview:Topic to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['topicName'] = topic_name
@@ -196,5 +198,6 @@ def get_topic_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_name: Name of the topic
     """
-    pulumi.log.warn("""get_topic is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_topic is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.
+azure-native:eventgrid/v20200101preview:Topic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20200401preview:Topic to guarantee forwards compatibility.""")
     ...

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a linked service instance.
  */
+/** @deprecated azure-native:operationalinsights/v20200301preview:LinkedService is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:LinkedService to guarantee forwards compatibility. */
 export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServiceResult> {
+    pulumi.log.warn("getLinkedService is deprecated: azure-native:operationalinsights/v20200301preview:LinkedService is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:LinkedService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20200301preview:getLinkedService", {
@@ -68,6 +70,7 @@ export interface GetLinkedServiceResult {
 /**
  * Gets a linked service instance.
  */
+/** @deprecated azure-native:operationalinsights/v20200301preview:LinkedService is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:LinkedService to guarantee forwards compatibility. */
 export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServiceResult> {
     return pulumi.output(args).apply((a: any) => getLinkedService(a, opts))
 }

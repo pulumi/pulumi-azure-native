@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20221101Preview
     /// <summary>
     /// Custom domain of the API portal
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20221101preview:ApiPortalCustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ApiPortalCustomDomain to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20221101preview:ApiPortalCustomDomain")]
     public partial class ApiPortalCustomDomain : global::Pulumi.CustomResource
     {

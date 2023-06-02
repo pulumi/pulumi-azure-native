@@ -17,6 +17,8 @@ __all__ = [
     'get_user_rule_output',
 ]
 
+warnings.warn("""azure-native:network/v20220201preview:UserRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:UserRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetUserRuleResult:
     """
@@ -218,6 +220,7 @@ def get_user_rule(configuration_name: Optional[str] = None,
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.
     :param str rule_name: The name of the rule.
     """
+    pulumi.log.warn("""get_user_rule is deprecated: azure-native:network/v20220201preview:UserRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:UserRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['configurationName'] = configuration_name
     __args__['networkManagerName'] = network_manager_name
@@ -261,4 +264,5 @@ def get_user_rule_output(configuration_name: Optional[pulumi.Input[str]] = None,
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.
     :param str rule_name: The name of the rule.
     """
+    pulumi.log.warn("""get_user_rule is deprecated: azure-native:network/v20220201preview:UserRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:UserRule to guarantee forwards compatibility.""")
     ...

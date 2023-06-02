@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StorageCache.V20210901
 {
+    [Obsolete(@"azure-native:storagecache/v20210901:Cache is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20230301preview:Cache to guarantee forwards compatibility.")]
     public static class GetCache
     {
         /// <summary>

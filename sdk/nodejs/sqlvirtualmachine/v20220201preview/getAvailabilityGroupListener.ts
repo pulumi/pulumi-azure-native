@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an availability group listener.
  */
+/** @deprecated azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener is being removed in the next major version of this provider. Please upgrade to azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener to guarantee forwards compatibility. */
 export function getAvailabilityGroupListener(args: GetAvailabilityGroupListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityGroupListenerResult> {
+    pulumi.log.warn("getAvailabilityGroupListener is deprecated: azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener is being removed in the next major version of this provider. Please upgrade to azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sqlvirtualmachine/v20220201preview:getAvailabilityGroupListener", {
@@ -92,6 +94,7 @@ export interface GetAvailabilityGroupListenerResult {
 /**
  * Gets an availability group listener.
  */
+/** @deprecated azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener is being removed in the next major version of this provider. Please upgrade to azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener to guarantee forwards compatibility. */
 export function getAvailabilityGroupListenerOutput(args: GetAvailabilityGroupListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilityGroupListenerResult> {
     return pulumi.output(args).apply((a: any) => getAvailabilityGroupListener(a, opts))
 }

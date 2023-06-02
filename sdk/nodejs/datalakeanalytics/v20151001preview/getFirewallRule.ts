@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Data Lake Analytics firewall rule.
  */
-/** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider.
+azure-native:datalakeanalytics/v20151001preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:datalakeanalytics/v20191101preview:FirewallRule to guarantee forwards compatibility. */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
-    pulumi.log.warn("getFirewallRule is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getFirewallRule is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.\nazure-native:datalakeanalytics/v20151001preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:datalakeanalytics/v20191101preview:FirewallRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakeanalytics/v20151001preview:getFirewallRule", {
@@ -62,7 +63,8 @@ export interface GetFirewallRuleResult {
 /**
  * Gets the specified Data Lake Analytics firewall rule.
  */
-/** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider.
+azure-native:datalakeanalytics/v20151001preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:datalakeanalytics/v20191101preview:FirewallRule to guarantee forwards compatibility. */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))
 }

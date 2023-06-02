@@ -51,7 +51,12 @@ class TenantConfigurationArgs:
         pulumi.set(self, "enforce_private_markdown_storage", value)
 
 
+warnings.warn("""azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class TenantConfiguration(pulumi.CustomResource):
+    warnings.warn("""azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -94,6 +99,7 @@ class TenantConfiguration(pulumi.CustomResource):
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  enforce_private_markdown_storage: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
+        pulumi.log.warn("""TenantConfiguration is deprecated: azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

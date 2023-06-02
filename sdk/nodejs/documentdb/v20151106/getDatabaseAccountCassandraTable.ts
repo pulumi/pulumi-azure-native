@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Cassandra table under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2015-11-06 will be removed in v2 of the provider. */
+/** @deprecated Version 2015-11-06 will be removed in v2 of the provider.
+azure-native:documentdb/v20151106:DatabaseAccountCassandraTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountCassandraTable to guarantee forwards compatibility. */
 export function getDatabaseAccountCassandraTable(args: GetDatabaseAccountCassandraTableArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountCassandraTableResult> {
-    pulumi.log.warn("getDatabaseAccountCassandraTable is deprecated: Version 2015-11-06 will be removed in v2 of the provider.")
+    pulumi.log.warn("getDatabaseAccountCassandraTable is deprecated: Version 2015-11-06 will be removed in v2 of the provider.\nazure-native:documentdb/v20151106:DatabaseAccountCassandraTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountCassandraTable to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20151106:getDatabaseAccountCassandraTable", {
@@ -78,7 +79,8 @@ export interface GetDatabaseAccountCassandraTableResult {
 /**
  * Gets the Cassandra table under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2015-11-06 will be removed in v2 of the provider. */
+/** @deprecated Version 2015-11-06 will be removed in v2 of the provider.
+azure-native:documentdb/v20151106:DatabaseAccountCassandraTable is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20160331:DatabaseAccountCassandraTable to guarantee forwards compatibility. */
 export function getDatabaseAccountCassandraTableOutput(args: GetDatabaseAccountCassandraTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountCassandraTableResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccountCassandraTable(a, opts))
 }

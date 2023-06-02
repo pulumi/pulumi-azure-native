@@ -290,7 +290,12 @@ class ExtensionArgs:
         pulumi.set(self, "type_handler_version", value)
 
 
+warnings.warn("""azure-native:azurestackhci/v20220301:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20221001:Extension to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Extension(pulumi.CustomResource):
+    warnings.warn("""azure-native:azurestackhci/v20220301:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20221001:Extension to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -378,6 +383,7 @@ class Extension(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Extension is deprecated: azure-native:azurestackhci/v20220301:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20221001:Extension to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about a dedicated host.
  */
+/** @deprecated azure-native:compute/v20211101:DedicatedHost is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:DedicatedHost to guarantee forwards compatibility. */
 export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
+    pulumi.log.warn("getDedicatedHost is deprecated: azure-native:compute/v20211101:DedicatedHost is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:DedicatedHost to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20211101:getDedicatedHost", {
@@ -108,6 +110,7 @@ export interface GetDedicatedHostResult {
 /**
  * Retrieves information about a dedicated host.
  */
+/** @deprecated azure-native:compute/v20211101:DedicatedHost is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:DedicatedHost to guarantee forwards compatibility. */
 export function getDedicatedHostOutput(args: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {
     return pulumi.output(args).apply((a: any) => getDedicatedHost(a, opts))
 }

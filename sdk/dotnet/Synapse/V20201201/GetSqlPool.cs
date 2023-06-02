@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Synapse.V20201201
 {
-    [Obsolete(@"Version 2020-12-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-12-01 will be removed in v2 of the provider.
+azure-native:synapse/v20201201:SqlPool is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210501:SqlPool to guarantee forwards compatibility.")]
     public static class GetSqlPool
     {
         /// <summary>

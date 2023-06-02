@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
     /// <summary>
     /// Schedule for automatically turning virtual machines in a lab on and off at specified times.
     /// </summary>
+    [Obsolete(@"azure-native:labservices/v20211115preview:Schedule is being removed in the next major version of this provider. Please upgrade to azure-native:labservices/v20220801:Schedule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:labservices/v20211115preview:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource
     {

@@ -16,7 +16,8 @@ __all__ = [
     'get_policy_assignment_output',
 ]
 
-warnings.warn("""Version 2015-10-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2015-10-01-preview will be removed in v2 of the provider.
+azure-native:authorization/v20151001preview:PolicyAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20160401:PolicyAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPolicyAssignmentResult:
@@ -116,7 +117,8 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
     :param str policy_assignment_name: The name of the policy assignment to get.
     :param str scope: The scope of the policy assignment.
     """
-    pulumi.log.warn("""get_policy_assignment is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_policy_assignment is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.
+azure-native:authorization/v20151001preview:PolicyAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20160401:PolicyAssignment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['policyAssignmentName'] = policy_assignment_name
     __args__['scope'] = scope
@@ -143,5 +145,6 @@ def get_policy_assignment_output(policy_assignment_name: Optional[pulumi.Input[s
     :param str policy_assignment_name: The name of the policy assignment to get.
     :param str scope: The scope of the policy assignment.
     """
-    pulumi.log.warn("""get_policy_assignment is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_policy_assignment is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.
+azure-native:authorization/v20151001preview:PolicyAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20160401:PolicyAssignment to guarantee forwards compatibility.""")
     ...

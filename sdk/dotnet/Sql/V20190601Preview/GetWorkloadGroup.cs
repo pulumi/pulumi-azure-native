@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20190601Preview
 {
+    [Obsolete(@"azure-native:sql/v20190601preview:WorkloadGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:WorkloadGroup to guarantee forwards compatibility.")]
     public static class GetWorkloadGroup
     {
         /// <summary>

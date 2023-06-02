@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
     /// <summary>
     /// Contract details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20190101:Group is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Group to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20190101:Group")]
     public partial class Group : global::Pulumi.CustomResource
     {

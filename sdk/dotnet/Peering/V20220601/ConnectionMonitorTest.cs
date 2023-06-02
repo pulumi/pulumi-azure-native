@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Peering.V20220601
     /// <summary>
     /// The Connection Monitor Test class.
     /// </summary>
+    [Obsolete(@"azure-native:peering/v20220601:ConnectionMonitorTest is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:ConnectionMonitorTest to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:peering/v20220601:ConnectionMonitorTest")]
     public partial class ConnectionMonitorTest : global::Pulumi.CustomResource
     {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get Sentinel onboarding state
  */
+/** @deprecated azure-native:securityinsights/v20220701preview:SentinelOnboardingState is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SentinelOnboardingState to guarantee forwards compatibility. */
 export function getSentinelOnboardingState(args: GetSentinelOnboardingStateArgs, opts?: pulumi.InvokeOptions): Promise<GetSentinelOnboardingStateResult> {
+    pulumi.log.warn("getSentinelOnboardingState is deprecated: azure-native:securityinsights/v20220701preview:SentinelOnboardingState is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SentinelOnboardingState to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220701preview:getSentinelOnboardingState", {
@@ -67,6 +69,7 @@ export interface GetSentinelOnboardingStateResult {
 /**
  * Get Sentinel onboarding state
  */
+/** @deprecated azure-native:securityinsights/v20220701preview:SentinelOnboardingState is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SentinelOnboardingState to guarantee forwards compatibility. */
 export function getSentinelOnboardingStateOutput(args: GetSentinelOnboardingStateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSentinelOnboardingStateResult> {
     return pulumi.output(args).apply((a: any) => getSentinelOnboardingState(a, opts))
 }

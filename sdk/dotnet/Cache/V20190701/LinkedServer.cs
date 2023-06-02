@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Cache.V20190701
     /// <summary>
     /// Response to put/get linked server (with properties) for Redis cache.
     /// </summary>
-    [Obsolete(@"Version 2019-07-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-07-01 will be removed in v2 of the provider.
+azure-native:cache/v20190701:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cache/v20190701:LinkedServer")]
     public partial class LinkedServer : global::Pulumi.CustomResource
     {
@@ -86,8 +87,6 @@ namespace Pulumi.AzureNative.Cache.V20190701
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:LinkedServer"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:LinkedServer"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220601:LinkedServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230401:LinkedServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230501preview:LinkedServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

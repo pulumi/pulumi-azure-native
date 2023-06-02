@@ -97,7 +97,12 @@ class WebAppSwiftVirtualNetworkConnectionArgs:
         pulumi.set(self, "swift_supported", value)
 
 
+warnings.warn("""azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
+    warnings.warn("""azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -149,6 +154,7 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
                  subnet_resource_id: Optional[pulumi.Input[str]] = None,
                  swift_supported: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebAppSwiftVirtualNetworkConnection is deprecated: azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

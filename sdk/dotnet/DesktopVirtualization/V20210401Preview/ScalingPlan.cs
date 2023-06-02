@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210401Preview
     /// <summary>
     /// Represents a scaling plan definition.
     /// </summary>
+    [Obsolete(@"azure-native:desktopvirtualization/v20210401preview:ScalingPlan is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20220210preview:ScalingPlan to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20210401preview:ScalingPlan")]
     public partial class ScalingPlan : global::Pulumi.CustomResource
     {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get an invitation in a share
  */
+/** @deprecated azure-native:datashare/v20201001preview:Invitation is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Invitation to guarantee forwards compatibility. */
 export function getInvitation(args: GetInvitationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvitationResult> {
+    pulumi.log.warn("getInvitation is deprecated: azure-native:datashare/v20201001preview:Invitation is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Invitation to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:getInvitation", {
@@ -106,6 +108,7 @@ export interface GetInvitationResult {
 /**
  * Get an invitation in a share
  */
+/** @deprecated azure-native:datashare/v20201001preview:Invitation is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:Invitation to guarantee forwards compatibility. */
 export function getInvitationOutput(args: GetInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvitationResult> {
     return pulumi.output(args).apply((a: any) => getInvitation(a, opts))
 }

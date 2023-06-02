@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * A datastore resource
  */
+/** @deprecated azure-native:avs/v20211201:Datastore is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Datastore to guarantee forwards compatibility. */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
+    pulumi.log.warn("getDatastore is deprecated: azure-native:avs/v20211201:Datastore is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Datastore to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getDatastore", {
@@ -76,6 +78,7 @@ export interface GetDatastoreResult {
 /**
  * A datastore resource
  */
+/** @deprecated azure-native:avs/v20211201:Datastore is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Datastore to guarantee forwards compatibility. */
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
     return pulumi.output(args).apply((a: any) => getDatastore(a, opts))
 }

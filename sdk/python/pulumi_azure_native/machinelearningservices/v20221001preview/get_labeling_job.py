@@ -17,6 +17,8 @@ __all__ = [
     'get_labeling_job_output',
 ]
 
+warnings.warn("""azure-native:machinelearningservices/v20221001preview:LabelingJob is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:LabelingJob to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLabelingJobResult:
     """
@@ -109,6 +111,7 @@ def get_labeling_job(id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_labeling_job is deprecated: azure-native:machinelearningservices/v20221001preview:LabelingJob is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:LabelingJob to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['id'] = id
     __args__['includeJobInstructions'] = include_job_instructions
@@ -143,4 +146,5 @@ def get_labeling_job_output(id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_labeling_job is deprecated: azure-native:machinelearningservices/v20221001preview:LabelingJob is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:LabelingJob to guarantee forwards compatibility.""")
     ...

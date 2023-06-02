@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a shareSubscription in an account
  */
+/** @deprecated azure-native:datashare/v20201001preview:ShareSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ShareSubscription to guarantee forwards compatibility. */
 export function getShareSubscription(args: GetShareSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetShareSubscriptionResult> {
+    pulumi.log.warn("getShareSubscription is deprecated: azure-native:datashare/v20201001preview:ShareSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ShareSubscription to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:getShareSubscription", {
@@ -119,6 +121,7 @@ export interface GetShareSubscriptionResult {
 /**
  * Get a shareSubscription in an account
  */
+/** @deprecated azure-native:datashare/v20201001preview:ShareSubscription is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ShareSubscription to guarantee forwards compatibility. */
 export function getShareSubscriptionOutput(args: GetShareSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getShareSubscription(a, opts))
 }

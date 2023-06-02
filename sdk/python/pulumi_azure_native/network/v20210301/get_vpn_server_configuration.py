@@ -17,6 +17,8 @@ __all__ = [
     'get_vpn_server_configuration_output',
 ]
 
+warnings.warn("""azure-native:network/v20210301:VpnServerConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnServerConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVpnServerConfigurationResult:
     """
@@ -271,6 +273,7 @@ def get_vpn_server_configuration(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.
     :param str vpn_server_configuration_name: The name of the VpnServerConfiguration being retrieved.
     """
+    pulumi.log.warn("""get_vpn_server_configuration is deprecated: azure-native:network/v20210301:VpnServerConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnServerConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vpnServerConfigurationName'] = vpn_server_configuration_name
@@ -310,4 +313,5 @@ def get_vpn_server_configuration_output(resource_group_name: Optional[pulumi.Inp
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.
     :param str vpn_server_configuration_name: The name of the VpnServerConfiguration being retrieved.
     """
+    pulumi.log.warn("""get_vpn_server_configuration is deprecated: azure-native:network/v20210301:VpnServerConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnServerConfiguration to guarantee forwards compatibility.""")
     ...

@@ -180,7 +180,12 @@ class BlobContainerArgs:
         pulumi.set(self, "public_access", value)
 
 
+warnings.warn("""azure-native:storage/v20220501:BlobContainer is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobContainer to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class BlobContainer(pulumi.CustomResource):
+    warnings.warn("""azure-native:storage/v20220501:BlobContainer is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobContainer to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -247,6 +252,7 @@ class BlobContainer(pulumi.CustomResource):
                  public_access: Optional[pulumi.Input['PublicAccess']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""BlobContainer is deprecated: azure-native:storage/v20220501:BlobContainer is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobContainer to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

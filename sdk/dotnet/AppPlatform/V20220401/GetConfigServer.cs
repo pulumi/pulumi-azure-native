@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AppPlatform.V20220401
 {
+    [Obsolete(@"azure-native:appplatform/v20220401:ConfigServer is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ConfigServer to guarantee forwards compatibility.")]
     public static class GetConfigServer
     {
         /// <summary>

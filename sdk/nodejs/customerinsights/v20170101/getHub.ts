@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified hub.
  */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:Hub is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Hub to guarantee forwards compatibility. */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
-    pulumi.log.warn("getHub is deprecated: Version 2017-01-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getHub is deprecated: Version 2017-01-01 will be removed in v2 of the provider.\nazure-native:customerinsights/v20170101:Hub is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Hub to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170101:getHub", {
@@ -80,7 +81,8 @@ export interface GetHubResult {
 /**
  * Gets information about the specified hub.
  */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:Hub is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:Hub to guarantee forwards compatibility. */
 export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
     return pulumi.output(args).apply((a: any) => getHub(a, opts))
 }

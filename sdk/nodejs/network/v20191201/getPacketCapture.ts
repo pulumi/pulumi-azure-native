@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a packet capture session by name.
  */
+/** @deprecated azure-native:network/v20191201:PacketCapture is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200601:PacketCapture to guarantee forwards compatibility. */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
+    pulumi.log.warn("getPacketCapture is deprecated: azure-native:network/v20191201:PacketCapture is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200601:PacketCapture to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20191201:getPacketCapture", {
@@ -83,6 +85,7 @@ export interface GetPacketCaptureResult {
 /**
  * Gets a packet capture session by name.
  */
+/** @deprecated azure-native:network/v20191201:PacketCapture is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200601:PacketCapture to guarantee forwards compatibility. */
 export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCaptureResult> {
     return pulumi.output(args).apply((a: any) => getPacketCapture(a, opts))
 }

@@ -17,6 +17,8 @@ __all__ = [
     'get_custom_location_output',
 ]
 
+warnings.warn("""azure-native:extendedlocation/v20210815:CustomLocation is being removed in the next major version of this provider. Please upgrade to azure-native:extendedlocation/v20210831preview:CustomLocation to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCustomLocationResult:
     """
@@ -211,6 +213,7 @@ def get_custom_location(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: Custom Locations name.
     """
+    pulumi.log.warn("""get_custom_location is deprecated: azure-native:extendedlocation/v20210815:CustomLocation is being removed in the next major version of this provider. Please upgrade to azure-native:extendedlocation/v20210831preview:CustomLocation to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -245,4 +248,5 @@ def get_custom_location_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: Custom Locations name.
     """
+    pulumi.log.warn("""get_custom_location is deprecated: azure-native:extendedlocation/v20210815:CustomLocation is being removed in the next major version of this provider. Please upgrade to azure-native:extendedlocation/v20210831preview:CustomLocation to guarantee forwards compatibility.""")
     ...

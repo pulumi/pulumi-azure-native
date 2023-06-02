@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified private endpoint connection associated with the managed HSM Pool.
  */
+/** @deprecated azure-native:keyvault/v20221101:MHSMPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection to guarantee forwards compatibility. */
 export function getMHSMPrivateEndpointConnection(args: GetMHSMPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMHSMPrivateEndpointConnectionResult> {
+    pulumi.log.warn("getMHSMPrivateEndpointConnection is deprecated: azure-native:keyvault/v20221101:MHSMPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:keyvault/v20221101:getMHSMPrivateEndpointConnection", {
@@ -87,6 +89,7 @@ export interface GetMHSMPrivateEndpointConnectionResult {
 /**
  * Gets the specified private endpoint connection associated with the managed HSM Pool.
  */
+/** @deprecated azure-native:keyvault/v20221101:MHSMPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection to guarantee forwards compatibility. */
 export function getMHSMPrivateEndpointConnectionOutput(args: GetMHSMPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMHSMPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getMHSMPrivateEndpointConnection(a, opts))
 }

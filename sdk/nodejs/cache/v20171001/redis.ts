@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * A single Redis item in List or Get Operation.
  *
  * @deprecated Version 2017-10-01 will be removed in v2 of the provider.
+azure-native:cache/v20171001:Redis is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20190701:Redis to guarantee forwards compatibility.
  */
 export class Redis extends pulumi.CustomResource {
     /**
@@ -22,7 +23,7 @@ export class Redis extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Redis {
-        pulumi.log.warn("Redis is deprecated: Version 2017-10-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("Redis is deprecated: Version 2017-10-01 will be removed in v2 of the provider.\nazure-native:cache/v20171001:Redis is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20190701:Redis to guarantee forwards compatibility.")
         return new Redis(name, undefined as any, { ...opts, id: id });
     }
 
@@ -124,9 +125,10 @@ export class Redis extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2017-10-01 will be removed in v2 of the provider. */
+    /** @deprecated Version 2017-10-01 will be removed in v2 of the provider.
+azure-native:cache/v20171001:Redis is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20190701:Redis to guarantee forwards compatibility. */
     constructor(name: string, args: RedisArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Redis is deprecated: Version 2017-10-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("Redis is deprecated: Version 2017-10-01 will be removed in v2 of the provider.\nazure-native:cache/v20171001:Redis is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20190701:Redis to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -178,7 +180,7 @@ export class Redis extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache:Redis" }, { type: "azure-native:cache/v20150801:Redis" }, { type: "azure-native:cache/v20160401:Redis" }, { type: "azure-native:cache/v20170201:Redis" }, { type: "azure-native:cache/v20180301:Redis" }, { type: "azure-native:cache/v20190701:Redis" }, { type: "azure-native:cache/v20200601:Redis" }, { type: "azure-native:cache/v20201201:Redis" }, { type: "azure-native:cache/v20210601:Redis" }, { type: "azure-native:cache/v20220501:Redis" }, { type: "azure-native:cache/v20220601:Redis" }, { type: "azure-native:cache/v20230401:Redis" }, { type: "azure-native:cache/v20230501preview:Redis" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:Redis" }, { type: "azure-native:cache/v20150801:Redis" }, { type: "azure-native:cache/v20160401:Redis" }, { type: "azure-native:cache/v20170201:Redis" }, { type: "azure-native:cache/v20180301:Redis" }, { type: "azure-native:cache/v20190701:Redis" }, { type: "azure-native:cache/v20200601:Redis" }, { type: "azure-native:cache/v20201201:Redis" }, { type: "azure-native:cache/v20210601:Redis" }, { type: "azure-native:cache/v20220501:Redis" }, { type: "azure-native:cache/v20220601:Redis" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Redis.__pulumiType, name, resourceInputs, opts);
     }

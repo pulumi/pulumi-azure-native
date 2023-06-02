@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an attached NetworkConnection.
+ *
+ * @deprecated azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter to guarantee forwards compatibility.
  */
 export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AttachedNetworkByDevCenter {
+        pulumi.log.warn("AttachedNetworkByDevCenter is deprecated: azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter to guarantee forwards compatibility.")
         return new AttachedNetworkByDevCenter(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,7 +80,9 @@ export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter to guarantee forwards compatibility. */
     constructor(name: string, args: AttachedNetworkByDevCenterArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AttachedNetworkByDevCenter is deprecated: azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -112,7 +117,7 @@ export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20230401:AttachedNetworkByDevCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttachedNetworkByDevCenter.__pulumiType, name, resourceInputs, opts);
     }

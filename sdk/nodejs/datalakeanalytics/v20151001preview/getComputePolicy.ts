@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Data Lake Analytics compute policy.
  */
-/** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider.
+azure-native:datalakeanalytics/v20151001preview:ComputePolicy is being removed in the next major version of this provider. Please upgrade to azure-native:datalakeanalytics/v20191101preview:ComputePolicy to guarantee forwards compatibility. */
 export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetComputePolicyResult> {
-    pulumi.log.warn("getComputePolicy is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getComputePolicy is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.\nazure-native:datalakeanalytics/v20151001preview:ComputePolicy is being removed in the next major version of this provider. Please upgrade to azure-native:datalakeanalytics/v20191101preview:ComputePolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakeanalytics/v20151001preview:getComputePolicy", {
@@ -70,7 +71,8 @@ export interface GetComputePolicyResult {
 /**
  * Gets the specified Data Lake Analytics compute policy.
  */
-/** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider.
+azure-native:datalakeanalytics/v20151001preview:ComputePolicy is being removed in the next major version of this provider. Please upgrade to azure-native:datalakeanalytics/v20191101preview:ComputePolicy to guarantee forwards compatibility. */
 export function getComputePolicyOutput(args: GetComputePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputePolicyResult> {
     return pulumi.output(args).apply((a: any) => getComputePolicy(a, opts))
 }

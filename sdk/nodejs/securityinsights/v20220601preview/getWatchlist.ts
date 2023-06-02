@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a watchlist, without its watchlist items.
  */
+/** @deprecated azure-native:securityinsights/v20220601preview:Watchlist is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:Watchlist to guarantee forwards compatibility. */
 export function getWatchlist(args: GetWatchlistArgs, opts?: pulumi.InvokeOptions): Promise<GetWatchlistResult> {
+    pulumi.log.warn("getWatchlist is deprecated: azure-native:securityinsights/v20220601preview:Watchlist is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:Watchlist to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220601preview:getWatchlist", {
@@ -147,6 +149,7 @@ export interface GetWatchlistResult {
 /**
  * Gets a watchlist, without its watchlist items.
  */
+/** @deprecated azure-native:securityinsights/v20220601preview:Watchlist is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:Watchlist to guarantee forwards compatibility. */
 export function getWatchlistOutput(args: GetWatchlistOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatchlistResult> {
     return pulumi.output(args).apply((a: any) => getWatchlist(a, opts))
 }

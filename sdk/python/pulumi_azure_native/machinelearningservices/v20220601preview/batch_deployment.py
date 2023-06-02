@@ -178,7 +178,12 @@ class BatchDeploymentInitArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:machinelearningservices/v20220601preview:BatchDeployment is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:BatchDeployment to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class BatchDeployment(pulumi.CustomResource):
+    warnings.warn("""azure-native:machinelearningservices/v20220601preview:BatchDeployment is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:BatchDeployment to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -243,6 +248,7 @@ class BatchDeployment(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""BatchDeployment is deprecated: azure-native:machinelearningservices/v20220601preview:BatchDeployment is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:BatchDeployment to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

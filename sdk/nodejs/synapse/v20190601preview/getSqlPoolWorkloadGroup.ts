@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Get a Sql pool's workload group.
  */
-/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider.
+azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup to guarantee forwards compatibility. */
 export function getSqlPoolWorkloadGroup(args: GetSqlPoolWorkloadGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadGroupResult> {
-    pulumi.log.warn("getSqlPoolWorkloadGroup is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getSqlPoolWorkloadGroup is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.\nazure-native:synapse/v20190601preview:SqlPoolWorkloadGroup is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20190601preview:getSqlPoolWorkloadGroup", {
@@ -83,7 +84,8 @@ export interface GetSqlPoolWorkloadGroupResult {
 /**
  * Get a Sql pool's workload group.
  */
-/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider.
+azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup to guarantee forwards compatibility. */
 export function getSqlPoolWorkloadGroupOutput(args: GetSqlPoolWorkloadGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolWorkloadGroupResult> {
     return pulumi.output(args).apply((a: any) => getSqlPoolWorkloadGroup(a, opts))
 }

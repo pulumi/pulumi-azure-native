@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.StorageSync.V20181001
     /// <summary>
     /// Registered Server resource.
     /// </summary>
-    [Obsolete(@"Version 2018-10-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-10-01 will be removed in v2 of the provider.
+azure-native:storagesync/v20181001:RegisteredServer is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storagesync/v20181001:RegisteredServer")]
     public partial class RegisteredServer : global::Pulumi.CustomResource
     {

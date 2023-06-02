@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Get a workspace.
  */
-/** @deprecated Version 2020-09-21-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-09-21-preview will be removed in v2 of the provider.
+azure-native:desktopvirtualization/v20200921preview:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20201110preview:Workspace to guarantee forwards compatibility. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
-    pulumi.log.warn("getWorkspace is deprecated: Version 2020-09-21-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getWorkspace is deprecated: Version 2020-09-21-preview will be removed in v2 of the provider.\nazure-native:desktopvirtualization/v20200921preview:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20201110preview:Workspace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20200921preview:getWorkspace", {
@@ -69,7 +70,8 @@ export interface GetWorkspaceResult {
 /**
  * Get a workspace.
  */
-/** @deprecated Version 2020-09-21-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-09-21-preview will be removed in v2 of the provider.
+azure-native:desktopvirtualization/v20200921preview:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20201110preview:Workspace to guarantee forwards compatibility. */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
 }

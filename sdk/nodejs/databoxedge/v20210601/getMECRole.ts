@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a specific role by name.
  */
+/** @deprecated azure-native:databoxedge/v20210601:MECRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:MECRole to guarantee forwards compatibility. */
 export function getMECRole(args: GetMECRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetMECRoleResult> {
+    pulumi.log.warn("getMECRole is deprecated: azure-native:databoxedge/v20210601:MECRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:MECRole to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210601:getMECRole", {
@@ -80,6 +82,7 @@ export interface GetMECRoleResult {
 /**
  * Gets a specific role by name.
  */
+/** @deprecated azure-native:databoxedge/v20210601:MECRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:MECRole to guarantee forwards compatibility. */
 export function getMECRoleOutput(args: GetMECRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMECRoleResult> {
     return pulumi.output(args).apply((a: any) => getMECRole(a, opts))
 }

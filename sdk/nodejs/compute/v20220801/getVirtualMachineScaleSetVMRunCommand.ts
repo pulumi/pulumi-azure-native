@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The operation to get the VMSS VM run command.
  */
+/** @deprecated azure-native:compute/v20220801:VirtualMachineScaleSetVMRunCommand is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSetVMRunCommand to guarantee forwards compatibility. */
 export function getVirtualMachineScaleSetVMRunCommand(args: GetVirtualMachineScaleSetVMRunCommandArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMRunCommandResult> {
+    pulumi.log.warn("getVirtualMachineScaleSetVMRunCommand is deprecated: azure-native:compute/v20220801:VirtualMachineScaleSetVMRunCommand is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSetVMRunCommand to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20220801:getVirtualMachineScaleSetVMRunCommand", {
@@ -117,6 +119,7 @@ export interface GetVirtualMachineScaleSetVMRunCommandResult {
 /**
  * The operation to get the VMSS VM run command.
  */
+/** @deprecated azure-native:compute/v20220801:VirtualMachineScaleSetVMRunCommand is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:VirtualMachineScaleSetVMRunCommand to guarantee forwards compatibility. */
 export function getVirtualMachineScaleSetVMRunCommandOutput(args: GetVirtualMachineScaleSetVMRunCommandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMRunCommandResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVMRunCommand(a, opts))
 }

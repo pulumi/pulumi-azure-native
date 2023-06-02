@@ -17,6 +17,8 @@ __all__ = [
     'getvirtualmachine_retrieve_output',
 ]
 
+warnings.warn("""azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetvirtualmachineRetrieveResult:
     """
@@ -219,6 +221,7 @@ def getvirtualmachine_retrieve(resource_group_name: Optional[str] = None,
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""getvirtualmachine_retrieve is deprecated: azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualmachinesName'] = virtualmachines_name
@@ -253,4 +256,5 @@ def getvirtualmachine_retrieve_output(resource_group_name: Optional[pulumi.Input
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""getvirtualmachine_retrieve is deprecated: azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve to guarantee forwards compatibility.""")
     ...

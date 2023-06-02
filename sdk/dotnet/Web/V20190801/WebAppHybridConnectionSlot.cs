@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20190801
     /// <summary>
     /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20190801:WebAppHybridConnectionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppHybridConnectionSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20190801:WebAppHybridConnectionSlot")]
     public partial class WebAppHybridConnectionSlot : global::Pulumi.CustomResource
     {

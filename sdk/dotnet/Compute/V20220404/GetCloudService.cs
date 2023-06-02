@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20220404
 {
+    [Obsolete(@"azure-native:compute/v20220404:CloudService is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220904:CloudService to guarantee forwards compatibility.")]
     public static class GetCloudService
     {
         /// <summary>

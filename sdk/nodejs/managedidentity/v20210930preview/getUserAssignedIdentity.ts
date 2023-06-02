@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the identity.
  */
+/** @deprecated azure-native:managedidentity/v20210930preview:UserAssignedIdentity is being removed in the next major version of this provider. Please upgrade to azure-native:managedidentity/v20230131:UserAssignedIdentity to guarantee forwards compatibility. */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
+    pulumi.log.warn("getUserAssignedIdentity is deprecated: azure-native:managedidentity/v20210930preview:UserAssignedIdentity is being removed in the next major version of this provider. Please upgrade to azure-native:managedidentity/v20230131:UserAssignedIdentity to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedidentity/v20210930preview:getUserAssignedIdentity", {
@@ -67,6 +69,7 @@ export interface GetUserAssignedIdentityResult {
 /**
  * Gets the identity.
  */
+/** @deprecated azure-native:managedidentity/v20210930preview:UserAssignedIdentity is being removed in the next major version of this provider. Please upgrade to azure-native:managedidentity/v20230131:UserAssignedIdentity to guarantee forwards compatibility. */
 export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAssignedIdentityResult> {
     return pulumi.output(args).apply((a: any) => getUserAssignedIdentity(a, opts))
 }

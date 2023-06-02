@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerService.V20221102Preview
     /// <summary>
     /// Defines binding between a resource and role
     /// </summary>
+    [Obsolete(@"azure-native:containerservice/v20221102preview:TrustedAccessRoleBinding is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerservice/v20221102preview:TrustedAccessRoleBinding")]
     public partial class TrustedAccessRoleBinding : global::Pulumi.CustomResource
     {

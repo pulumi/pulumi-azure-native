@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the import pipeline.
  */
+/** @deprecated azure-native:containerregistry/v20220201preview:ImportPipeline is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ImportPipeline to guarantee forwards compatibility. */
 export function getImportPipeline(args: GetImportPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImportPipelineResult> {
+    pulumi.log.warn("getImportPipeline is deprecated: azure-native:containerregistry/v20220201preview:ImportPipeline is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ImportPipeline to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20220201preview:getImportPipeline", {
@@ -83,6 +85,7 @@ export interface GetImportPipelineResult {
 /**
  * Gets the properties of the import pipeline.
  */
+/** @deprecated azure-native:containerregistry/v20220201preview:ImportPipeline is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ImportPipeline to guarantee forwards compatibility. */
 export function getImportPipelineOutput(args: GetImportPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportPipelineResult> {
     return pulumi.output(args).apply((a: any) => getImportPipeline(a, opts))
 }

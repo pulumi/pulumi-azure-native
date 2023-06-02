@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
 {
+    [Obsolete(@"azure-native:apimanagement/v20191201preview:AuthorizationServer is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:AuthorizationServer to guarantee forwards compatibility.")]
     public static class GetAuthorizationServer
     {
         /// <summary>

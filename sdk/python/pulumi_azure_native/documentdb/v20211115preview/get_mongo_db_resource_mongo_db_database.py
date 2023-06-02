@@ -17,6 +17,8 @@ __all__ = [
     'get_mongo_db_resource_mongo_db_database_output',
 ]
 
+warnings.warn("""azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMongoDBResourceMongoDBDatabaseResult:
     """
@@ -135,6 +137,7 @@ def get_mongo_db_resource_mongo_db_database(account_name: Optional[str] = None,
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_mongo_db_resource_mongo_db_database is deprecated: azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['databaseName'] = database_name
@@ -166,4 +169,5 @@ def get_mongo_db_resource_mongo_db_database_output(account_name: Optional[pulumi
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_mongo_db_resource_mongo_db_database is deprecated: azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility.""")
     ...

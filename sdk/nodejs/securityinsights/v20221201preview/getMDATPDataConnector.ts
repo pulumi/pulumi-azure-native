@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20221201preview:MDATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:MDATPDataConnector to guarantee forwards compatibility. */
 export function getMDATPDataConnector(args: GetMDATPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMDATPDataConnectorResult> {
+    pulumi.log.warn("getMDATPDataConnector is deprecated: azure-native:securityinsights/v20221201preview:MDATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:MDATPDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20221201preview:getMDATPDataConnector", {
@@ -76,6 +78,7 @@ export interface GetMDATPDataConnectorResult {
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20221201preview:MDATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:MDATPDataConnector to guarantee forwards compatibility. */
 export function getMDATPDataConnectorOutput(args: GetMDATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMDATPDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getMDATPDataConnector(a, opts))
 }

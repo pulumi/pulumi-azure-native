@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20221201Preview
     /// <summary>
     /// Trigger details.
     /// </summary>
+    [Obsolete(@"azure-native:databoxedge/v20221201preview:FileEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:FileEventTrigger to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20221201preview:FileEventTrigger")]
     public partial class FileEventTrigger : global::Pulumi.CustomResource
     {

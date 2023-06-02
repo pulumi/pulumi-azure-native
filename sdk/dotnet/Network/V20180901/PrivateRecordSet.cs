@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20180901
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20180901:PrivateRecordSet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200601:PrivateRecordSet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20180901:PrivateRecordSet")]
     public partial class PrivateRecordSet : global::Pulumi.CustomResource
     {

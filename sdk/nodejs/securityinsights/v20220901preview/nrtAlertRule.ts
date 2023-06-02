@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents NRT alert rule.
+ *
+ * @deprecated azure-native:securityinsights/v20220901preview:NrtAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:NrtAlertRule to guarantee forwards compatibility.
  */
 export class NrtAlertRule extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class NrtAlertRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NrtAlertRule {
+        pulumi.log.warn("NrtAlertRule is deprecated: azure-native:securityinsights/v20220901preview:NrtAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:NrtAlertRule to guarantee forwards compatibility.")
         return new NrtAlertRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -134,7 +137,9 @@ export class NrtAlertRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20220901preview:NrtAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:NrtAlertRule to guarantee forwards compatibility. */
     constructor(name: string, args: NrtAlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("NrtAlertRule is deprecated: azure-native:securityinsights/v20220901preview:NrtAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:NrtAlertRule to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -215,7 +220,7 @@ export class NrtAlertRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:NrtAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20200101:NrtAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20211001:NrtAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220401preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220501preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220601preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220701preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220801:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220801preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20221001preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20221101:NrtAlertRule" }, { type: "azure-native:securityinsights/v20221101preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20221201preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20230201:NrtAlertRule" }, { type: "azure-native:securityinsights/v20230201preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20230401preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20230501preview:NrtAlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:NrtAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20200101:NrtAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20211001:NrtAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220401preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220501preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220601preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220701preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220801:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220801preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20221001preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20221101:NrtAlertRule" }, { type: "azure-native:securityinsights/v20221101preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20221201preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20230201:NrtAlertRule" }, { type: "azure-native:securityinsights/v20230201preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20230401preview:NrtAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NrtAlertRule.__pulumiType, name, resourceInputs, opts);
     }

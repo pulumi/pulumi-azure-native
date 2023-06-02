@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210115
 {
+    [Obsolete(@"azure-native:documentdb/v20210115:MongoDBResourceMongoDBCollection is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection to guarantee forwards compatibility.")]
     public static class GetMongoDBResourceMongoDBCollection
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerService.V20201201
     /// <summary>
     /// maintenance configuration.
     /// </summary>
+    [Obsolete(@"azure-native:containerservice/v20201201:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20230102preview:MaintenanceConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerservice/v20201201:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : global::Pulumi.CustomResource
     {

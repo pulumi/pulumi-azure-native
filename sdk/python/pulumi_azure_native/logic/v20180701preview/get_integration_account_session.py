@@ -16,6 +16,8 @@ __all__ = [
     'get_integration_account_session_output',
 ]
 
+warnings.warn("""azure-native:logic/v20180701preview:IntegrationAccountSession is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountSession to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIntegrationAccountSessionResult:
     """
@@ -140,6 +142,7 @@ def get_integration_account_session(integration_account_name: Optional[str] = No
     :param str resource_group_name: The resource group name.
     :param str session_name: The integration account session name.
     """
+    pulumi.log.warn("""get_integration_account_session is deprecated: azure-native:logic/v20180701preview:IntegrationAccountSession is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountSession to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -171,4 +174,5 @@ def get_integration_account_session_output(integration_account_name: Optional[pu
     :param str resource_group_name: The resource group name.
     :param str session_name: The integration account session name.
     """
+    pulumi.log.warn("""get_integration_account_session is deprecated: azure-native:logic/v20180701preview:IntegrationAccountSession is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountSession to guarantee forwards compatibility.""")
     ...

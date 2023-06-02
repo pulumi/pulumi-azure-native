@@ -389,7 +389,12 @@ class VirtualNetworkGatewayInitArgs:
         pulumi.set(self, "vpn_type", value)
 
 
+warnings.warn("""azure-native:network/v20220101:VirtualNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualNetworkGateway to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class VirtualNetworkGateway(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20220101:VirtualNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualNetworkGateway to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -495,6 +500,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  vpn_gateway_generation: Optional[pulumi.Input[Union[str, 'VpnGatewayGeneration']]] = None,
                  vpn_type: Optional[pulumi.Input[Union[str, 'VpnType']]] = None,
                  __props__=None):
+        pulumi.log.warn("""VirtualNetworkGateway is deprecated: azure-native:network/v20220101:VirtualNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualNetworkGateway to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

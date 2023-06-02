@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Media.V20210601
 {
+    [Obsolete(@"azure-native:media/v20210601:AccountFilter is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:AccountFilter to guarantee forwards compatibility.")]
     public static class GetAccountFilter
     {
         /// <summary>

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.KeyVault.V20220701
 {
+    [Obsolete(@"azure-native:keyvault/v20220701:ManagedHsm is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:ManagedHsm to guarantee forwards compatibility.")]
     public static class GetManagedHsm
     {
         /// <summary>

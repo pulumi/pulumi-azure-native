@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a database's short term retention policy.
  */
+/** @deprecated azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility. */
 export function getBackupShortTermRetentionPolicy(args: GetBackupShortTermRetentionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupShortTermRetentionPolicyResult> {
+    pulumi.log.warn("getBackupShortTermRetentionPolicy is deprecated: azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20200202preview:getBackupShortTermRetentionPolicy", {
@@ -61,6 +63,7 @@ export interface GetBackupShortTermRetentionPolicyResult {
 /**
  * Gets a database's short term retention policy.
  */
+/** @deprecated azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility. */
 export function getBackupShortTermRetentionPolicyOutput(args: GetBackupShortTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupShortTermRetentionPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBackupShortTermRetentionPolicy(a, opts))
 }

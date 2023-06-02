@@ -17,7 +17,8 @@ __all__ = [
     'get_guest_configuration_assignment_output',
 ]
 
-warnings.warn("""Version 2018-11-20 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-11-20 will be removed in v2 of the provider.
+azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetGuestConfigurationAssignmentResult:
@@ -107,7 +108,8 @@ def get_guest_configuration_assignment(guest_configuration_assignment_name: Opti
     :param str resource_group_name: The resource group name.
     :param str vm_name: The name of the virtual machine.
     """
-    pulumi.log.warn("""get_guest_configuration_assignment is deprecated: Version 2018-11-20 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_guest_configuration_assignment is deprecated: Version 2018-11-20 will be removed in v2 of the provider.
+azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['guestConfigurationAssignmentName'] = guest_configuration_assignment_name
     __args__['resourceGroupName'] = resource_group_name
@@ -136,5 +138,6 @@ def get_guest_configuration_assignment_output(guest_configuration_assignment_nam
     :param str resource_group_name: The resource group name.
     :param str vm_name: The name of the virtual machine.
     """
-    pulumi.log.warn("""get_guest_configuration_assignment is deprecated: Version 2018-11-20 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_guest_configuration_assignment is deprecated: Version 2018-11-20 will be removed in v2 of the provider.
+azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility.""")
     ...

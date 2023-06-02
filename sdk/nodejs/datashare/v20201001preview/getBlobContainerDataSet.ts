@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a DataSet in a share
  */
+/** @deprecated azure-native:datashare/v20201001preview:BlobContainerDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobContainerDataSet to guarantee forwards compatibility. */
 export function getBlobContainerDataSet(args: GetBlobContainerDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerDataSetResult> {
+    pulumi.log.warn("getBlobContainerDataSet is deprecated: azure-native:datashare/v20201001preview:BlobContainerDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobContainerDataSet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:getBlobContainerDataSet", {
@@ -89,6 +91,7 @@ export interface GetBlobContainerDataSetResult {
 /**
  * Get a DataSet in a share
  */
+/** @deprecated azure-native:datashare/v20201001preview:BlobContainerDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobContainerDataSet to guarantee forwards compatibility. */
 export function getBlobContainerDataSetOutput(args: GetBlobContainerDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerDataSetResult> {
     return pulumi.output(args).apply((a: any) => getBlobContainerDataSet(a, opts))
 }

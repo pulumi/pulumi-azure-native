@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the SQL database under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2019-12-12 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-12-12 will be removed in v2 of the provider.
+azure-native:documentdb/v20191212:SqlResourceSqlDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase to guarantee forwards compatibility. */
 export function getSqlResourceSqlDatabase(args: GetSqlResourceSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlDatabaseResult> {
-    pulumi.log.warn("getSqlResourceSqlDatabase is deprecated: Version 2019-12-12 will be removed in v2 of the provider.")
+    pulumi.log.warn("getSqlResourceSqlDatabase is deprecated: Version 2019-12-12 will be removed in v2 of the provider.\nazure-native:documentdb/v20191212:SqlResourceSqlDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20191212:getSqlResourceSqlDatabase", {
@@ -66,7 +67,8 @@ export interface GetSqlResourceSqlDatabaseResult {
 /**
  * Gets the SQL database under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2019-12-12 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-12-12 will be removed in v2 of the provider.
+azure-native:documentdb/v20191212:SqlResourceSqlDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase to guarantee forwards compatibility. */
 export function getSqlResourceSqlDatabaseOutput(args: GetSqlResourceSqlDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlDatabase(a, opts))
 }

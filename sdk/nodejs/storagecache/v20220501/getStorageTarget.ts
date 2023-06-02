@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a Storage Target from a Cache.
  */
+/** @deprecated azure-native:storagecache/v20220501:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20230301preview:StorageTarget to guarantee forwards compatibility. */
 export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTargetResult> {
+    pulumi.log.warn("getStorageTarget is deprecated: azure-native:storagecache/v20220501:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20230301preview:StorageTarget to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagecache/v20220501:getStorageTarget", {
@@ -99,6 +101,7 @@ export interface GetStorageTargetResult {
 /**
  * Returns a Storage Target from a Cache.
  */
+/** @deprecated azure-native:storagecache/v20220501:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20230301preview:StorageTarget to guarantee forwards compatibility. */
 export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTargetResult> {
     return pulumi.output(args).apply((a: any) => getStorageTarget(a, opts))
 }

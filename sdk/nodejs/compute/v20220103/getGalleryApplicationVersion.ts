@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about a gallery Application Version.
  */
+/** @deprecated azure-native:compute/v20220103:GalleryApplicationVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryApplicationVersion to guarantee forwards compatibility. */
 export function getGalleryApplicationVersion(args: GetGalleryApplicationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationVersionResult> {
+    pulumi.log.warn("getGalleryApplicationVersion is deprecated: azure-native:compute/v20220103:GalleryApplicationVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryApplicationVersion to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20220103:getGalleryApplicationVersion", {
@@ -85,6 +87,7 @@ export interface GetGalleryApplicationVersionResult {
 /**
  * Retrieves information about a gallery Application Version.
  */
+/** @deprecated azure-native:compute/v20220103:GalleryApplicationVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryApplicationVersion to guarantee forwards compatibility. */
 export function getGalleryApplicationVersionOutput(args: GetGalleryApplicationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationVersionResult> {
     return pulumi.output(args).apply((a: any) => getGalleryApplicationVersion(a, opts))
 }

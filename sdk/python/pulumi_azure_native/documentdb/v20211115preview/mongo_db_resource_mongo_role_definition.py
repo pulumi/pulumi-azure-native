@@ -148,7 +148,12 @@ class MongoDBResourceMongoRoleDefinitionArgs:
         pulumi.set(self, "type", value)
 
 
+warnings.warn("""azure-native:documentdb/v20211115preview:MongoDBResourceMongoRoleDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:MongoDBResourceMongoRoleDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
+    warnings.warn("""azure-native:documentdb/v20211115preview:MongoDBResourceMongoRoleDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:MongoDBResourceMongoRoleDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -209,6 +214,7 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleArgs']]]]] = None,
                  type: Optional[pulumi.Input['MongoRoleDefinitionType']] = None,
                  __props__=None):
+        pulumi.log.warn("""MongoDBResourceMongoRoleDefinition is deprecated: azure-native:documentdb/v20211115preview:MongoDBResourceMongoRoleDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:MongoDBResourceMongoRoleDefinition to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

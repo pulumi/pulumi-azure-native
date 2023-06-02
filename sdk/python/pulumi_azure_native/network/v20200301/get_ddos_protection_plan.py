@@ -17,6 +17,8 @@ __all__ = [
     'get_ddos_protection_plan_output',
 ]
 
+warnings.warn("""azure-native:network/v20200301:DdosProtectionPlan is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220501:DdosProtectionPlan to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDdosProtectionPlanResult:
     """
@@ -151,6 +153,7 @@ def get_ddos_protection_plan(ddos_protection_plan_name: Optional[str] = None,
     :param str ddos_protection_plan_name: The name of the DDoS protection plan.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_ddos_protection_plan is deprecated: azure-native:network/v20200301:DdosProtectionPlan is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220501:DdosProtectionPlan to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['ddosProtectionPlanName'] = ddos_protection_plan_name
     __args__['resourceGroupName'] = resource_group_name
@@ -180,4 +183,5 @@ def get_ddos_protection_plan_output(ddos_protection_plan_name: Optional[pulumi.I
     :param str ddos_protection_plan_name: The name of the DDoS protection plan.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_ddos_protection_plan is deprecated: azure-native:network/v20200301:DdosProtectionPlan is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220501:DdosProtectionPlan to guarantee forwards compatibility.""")
     ...

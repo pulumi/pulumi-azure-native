@@ -16,6 +16,8 @@ __all__ = [
     'get_watcher_output',
 ]
 
+warnings.warn("""azure-native:automation/v20151031:Watcher is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20200113preview:Watcher to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWatcherResult:
     """
@@ -224,6 +226,7 @@ def get_watcher(automation_account_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure Resource group.
     :param str watcher_name: The watcher name.
     """
+    pulumi.log.warn("""get_watcher is deprecated: azure-native:automation/v20151031:Watcher is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20200113preview:Watcher to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -262,4 +265,5 @@ def get_watcher_output(automation_account_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: Name of an Azure Resource group.
     :param str watcher_name: The watcher name.
     """
+    pulumi.log.warn("""get_watcher is deprecated: azure-native:automation/v20151031:Watcher is being removed in the next major version of this provider. Please upgrade to azure-native:automation/v20200113preview:Watcher to guarantee forwards compatibility.""")
     ...

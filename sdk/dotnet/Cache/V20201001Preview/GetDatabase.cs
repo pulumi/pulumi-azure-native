@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Cache.V20201001Preview
 {
+    [Obsolete(@"azure-native:cache/v20201001preview:Database is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20230301preview:Database to guarantee forwards compatibility.")]
     public static class GetDatabase
     {
         /// <summary>

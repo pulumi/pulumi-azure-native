@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Insights.V20210901Preview
 {
+    [Obsolete(@"azure-native:insights/v20210901preview:DataCollectionRuleAssociation is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220601:DataCollectionRuleAssociation to guarantee forwards compatibility.")]
     public static class GetDataCollectionRuleAssociation
     {
         /// <summary>

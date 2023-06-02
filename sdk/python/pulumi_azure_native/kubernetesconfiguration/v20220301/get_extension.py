@@ -17,6 +17,8 @@ __all__ = [
     'get_extension_output',
 ]
 
+warnings.warn("""azure-native:kubernetesconfiguration/v20220301:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExtensionResult:
     """
@@ -277,6 +279,7 @@ def get_extension(cluster_name: Optional[str] = None,
     :param str extension_name: Name of the Extension.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_extension is deprecated: azure-native:kubernetesconfiguration/v20220301:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['clusterResourceName'] = cluster_resource_name
@@ -325,4 +328,5 @@ def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str extension_name: Name of the Extension.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_extension is deprecated: azure-native:kubernetesconfiguration/v20220301:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20220402preview:Extension to guarantee forwards compatibility.""")
     ...

@@ -7,7 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/** @deprecated azure-native:logz/v20201001preview:SubAccount is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:SubAccount to guarantee forwards compatibility. */
 export function getSubAccount(args: GetSubAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSubAccountResult> {
+    pulumi.log.warn("getSubAccount is deprecated: azure-native:logz/v20201001preview:SubAccount is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:SubAccount to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz/v20201001preview:getSubAccount", {
@@ -57,6 +59,7 @@ export interface GetSubAccountResult {
      */
     readonly type: string;
 }
+/** @deprecated azure-native:logz/v20201001preview:SubAccount is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:SubAccount to guarantee forwards compatibility. */
 export function getSubAccountOutput(args: GetSubAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubAccountResult> {
     return pulumi.output(args).apply((a: any) => getSubAccount(a, opts))
 }

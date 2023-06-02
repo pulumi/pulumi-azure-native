@@ -17,6 +17,8 @@ __all__ = [
     'get_gallery_output',
 ]
 
+warnings.warn("""azure-native:compute/v20210701:Gallery is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:Gallery to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGalleryResult:
     """
@@ -165,6 +167,7 @@ def get_gallery(gallery_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str select: The select expression to apply on the operation.
     """
+    pulumi.log.warn("""get_gallery is deprecated: azure-native:compute/v20210701:Gallery is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:Gallery to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['galleryName'] = gallery_name
     __args__['resourceGroupName'] = resource_group_name
@@ -198,4 +201,5 @@ def get_gallery_output(gallery_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str select: The select expression to apply on the operation.
     """
+    pulumi.log.warn("""get_gallery is deprecated: azure-native:compute/v20210701:Gallery is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:Gallery to guarantee forwards compatibility.""")
     ...

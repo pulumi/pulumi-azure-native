@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+ *
+ * @deprecated azure-native:media/v20220501preview:Transform is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Transform to guarantee forwards compatibility.
  */
 export class Transform extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Transform extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Transform {
+        pulumi.log.warn("Transform is deprecated: azure-native:media/v20220501preview:Transform is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Transform to guarantee forwards compatibility.")
         return new Transform(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,7 +76,9 @@ export class Transform extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:media/v20220501preview:Transform is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Transform to guarantee forwards compatibility. */
     constructor(name: string, args: TransformArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Transform is deprecated: azure-native:media/v20220501preview:Transform is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Transform to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -16,6 +16,8 @@ __all__ = [
     'get_managed_instance_long_term_retention_policy_output',
 ]
 
+warnings.warn("""azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagedInstanceLongTermRetentionPolicyResult:
     """
@@ -130,6 +132,7 @@ def get_managed_instance_long_term_retention_policy(database_name: Optional[str]
     :param str policy_name: The policy name. Should always be Default.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
+    pulumi.log.warn("""get_managed_instance_long_term_retention_policy is deprecated: azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['managedInstanceName'] = managed_instance_name
@@ -163,4 +166,5 @@ def get_managed_instance_long_term_retention_policy_output(database_name: Option
     :param str policy_name: The policy name. Should always be Default.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
+    pulumi.log.warn("""get_managed_instance_long_term_retention_policy is deprecated: azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy to guarantee forwards compatibility.""")
     ...

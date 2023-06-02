@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The networkinterfaces resource definition.
  */
+/** @deprecated azure-native:azurestackhci/v20210701preview:networkinterfaceRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve to guarantee forwards compatibility. */
 export function getnetworkinterfaceRetrieve(args: GetnetworkinterfaceRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetnetworkinterfaceRetrieveResult> {
+    pulumi.log.warn("getnetworkinterfaceRetrieve is deprecated: azure-native:azurestackhci/v20210701preview:networkinterfaceRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210701preview:getnetworkinterfaceRetrieve", {
@@ -84,6 +86,7 @@ export interface GetnetworkinterfaceRetrieveResult {
 /**
  * The networkinterfaces resource definition.
  */
+/** @deprecated azure-native:azurestackhci/v20210701preview:networkinterfaceRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve to guarantee forwards compatibility. */
 export function getnetworkinterfaceRetrieveOutput(args: GetnetworkinterfaceRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetnetworkinterfaceRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getnetworkinterfaceRetrieve(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
  */
+/** @deprecated azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI to guarantee forwards compatibility. */
 export function getprivateLinkServicesForO365ManagementActivityAPI(args: GetprivateLinkServicesForO365ManagementActivityAPIArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForO365ManagementActivityAPIResult> {
+    pulumi.log.warn("getprivateLinkServicesForO365ManagementActivityAPI is deprecated: azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForO365ManagementActivityAPI", {
@@ -78,6 +80,7 @@ export interface GetprivateLinkServicesForO365ManagementActivityAPIResult {
 /**
  * Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
  */
+/** @deprecated azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI to guarantee forwards compatibility. */
 export function getprivateLinkServicesForO365ManagementActivityAPIOutput(args: GetprivateLinkServicesForO365ManagementActivityAPIOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForO365ManagementActivityAPIResult> {
     return pulumi.output(args).apply((a: any) => getprivateLinkServicesForO365ManagementActivityAPI(a, opts))
 }

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
     /// <summary>
     /// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
     /// </summary>
-    [Obsolete(@"Version 2017-02-28-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-02-28-preview will be removed in v2 of the provider.
+azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:timeseriesinsights/v20171115:ReferenceDataSet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet")]
     public partial class ReferenceDataSet : global::Pulumi.CustomResource
     {

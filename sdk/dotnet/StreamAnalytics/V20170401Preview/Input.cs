@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
     /// <summary>
     /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
     /// </summary>
+    [Obsolete(@"azure-native:streamanalytics/v20170401preview:Input is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Input to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:streamanalytics/v20170401preview:Input")]
     public partial class Input : global::Pulumi.CustomResource
     {

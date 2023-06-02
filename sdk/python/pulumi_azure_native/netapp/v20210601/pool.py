@@ -182,7 +182,12 @@ class PoolArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:netapp/v20210601:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Pool to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Pool(pulumi.CustomResource):
+    warnings.warn("""azure-native:netapp/v20210601:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Pool to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -249,6 +254,7 @@ class Pool(pulumi.CustomResource):
                  size: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Pool is deprecated: azure-native:netapp/v20210601:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Pool to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

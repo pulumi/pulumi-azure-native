@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceBus.V20211101
 {
+    [Obsolete(@"azure-native:servicebus/v20211101:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:PrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnection
     {
         /// <summary>

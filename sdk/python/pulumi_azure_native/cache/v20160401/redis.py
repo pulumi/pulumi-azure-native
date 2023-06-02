@@ -196,11 +196,13 @@ class RedisArgs:
         pulumi.set(self, "tenant_settings", value)
 
 
-warnings.warn("""Version 2016-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-04-01 will be removed in v2 of the provider.
+azure-native:cache/v20160401:Redis is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20170201:Redis to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Redis(pulumi.CustomResource):
-    warnings.warn("""Version 2016-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2016-04-01 will be removed in v2 of the provider.
+azure-native:cache/v20160401:Redis is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20170201:Redis to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -271,7 +273,8 @@ class Redis(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Redis is deprecated: Version 2016-04-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""Redis is deprecated: Version 2016-04-01 will be removed in v2 of the provider.
+azure-native:cache/v20160401:Redis is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20170201:Redis to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -302,7 +305,7 @@ class Redis(pulumi.CustomResource):
             __props__.__dict__["redis_version"] = None
             __props__.__dict__["ssl_port"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:Redis"), pulumi.Alias(type_="azure-native:cache/v20150801:Redis"), pulumi.Alias(type_="azure-native:cache/v20170201:Redis"), pulumi.Alias(type_="azure-native:cache/v20171001:Redis"), pulumi.Alias(type_="azure-native:cache/v20180301:Redis"), pulumi.Alias(type_="azure-native:cache/v20190701:Redis"), pulumi.Alias(type_="azure-native:cache/v20200601:Redis"), pulumi.Alias(type_="azure-native:cache/v20201201:Redis"), pulumi.Alias(type_="azure-native:cache/v20210601:Redis"), pulumi.Alias(type_="azure-native:cache/v20220501:Redis"), pulumi.Alias(type_="azure-native:cache/v20220601:Redis"), pulumi.Alias(type_="azure-native:cache/v20230401:Redis"), pulumi.Alias(type_="azure-native:cache/v20230501preview:Redis")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:Redis"), pulumi.Alias(type_="azure-native:cache/v20150801:Redis"), pulumi.Alias(type_="azure-native:cache/v20170201:Redis"), pulumi.Alias(type_="azure-native:cache/v20171001:Redis"), pulumi.Alias(type_="azure-native:cache/v20180301:Redis"), pulumi.Alias(type_="azure-native:cache/v20190701:Redis"), pulumi.Alias(type_="azure-native:cache/v20200601:Redis"), pulumi.Alias(type_="azure-native:cache/v20201201:Redis"), pulumi.Alias(type_="azure-native:cache/v20210601:Redis"), pulumi.Alias(type_="azure-native:cache/v20220501:Redis"), pulumi.Alias(type_="azure-native:cache/v20220601:Redis")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Redis, __self__).__init__(
             'azure-native:cache/v20160401:Redis',

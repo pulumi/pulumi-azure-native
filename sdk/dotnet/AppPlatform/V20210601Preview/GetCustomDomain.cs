@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AppPlatform.V20210601Preview
 {
+    [Obsolete(@"azure-native:appplatform/v20210601preview:CustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:CustomDomain to guarantee forwards compatibility.")]
     public static class GetCustomDomain
     {
         /// <summary>

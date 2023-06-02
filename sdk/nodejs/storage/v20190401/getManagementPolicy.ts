@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the managementpolicy associated with the specified storage account.
  */
-/** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-04-01 will be removed in v2 of the provider.
+azure-native:storage/v20190401:ManagementPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:ManagementPolicy to guarantee forwards compatibility. */
 export function getManagementPolicy(args: GetManagementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementPolicyResult> {
-    pulumi.log.warn("getManagementPolicy is deprecated: Version 2019-04-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getManagementPolicy is deprecated: Version 2019-04-01 will be removed in v2 of the provider.\nazure-native:storage/v20190401:ManagementPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:ManagementPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20190401:getManagementPolicy", {
@@ -65,7 +66,8 @@ export interface GetManagementPolicyResult {
 /**
  * Gets the managementpolicy associated with the specified storage account.
  */
-/** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2019-04-01 will be removed in v2 of the provider.
+azure-native:storage/v20190401:ManagementPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:ManagementPolicy to guarantee forwards compatibility. */
 export function getManagementPolicyOutput(args: GetManagementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementPolicyResult> {
     return pulumi.output(args).apply((a: any) => getManagementPolicy(a, opts))
 }

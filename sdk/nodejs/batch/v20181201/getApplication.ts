@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified application.
  */
-/** @deprecated Version 2018-12-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-12-01 will be removed in v2 of the provider.
+azure-native:batch/v20181201:Application is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20221001:Application to guarantee forwards compatibility. */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    pulumi.log.warn("getApplication is deprecated: Version 2018-12-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getApplication is deprecated: Version 2018-12-01 will be removed in v2 of the provider.\nazure-native:batch/v20181201:Application is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20221001:Application to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:batch/v20181201:getApplication", {
@@ -70,7 +71,8 @@ export interface GetApplicationResult {
 /**
  * Gets information about the specified application.
  */
-/** @deprecated Version 2018-12-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-12-01 will be removed in v2 of the provider.
+azure-native:batch/v20181201:Application is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20221001:Application to guarantee forwards compatibility. */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }

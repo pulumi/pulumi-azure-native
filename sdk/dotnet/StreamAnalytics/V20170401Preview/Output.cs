@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
     /// <summary>
     /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
     /// </summary>
+    [Obsolete(@"azure-native:streamanalytics/v20170401preview:Output is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:streamanalytics/v20170401preview:Output")]
     public partial class Output : global::Pulumi.CustomResource
     {

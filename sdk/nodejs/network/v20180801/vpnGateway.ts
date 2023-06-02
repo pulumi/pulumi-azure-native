@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * VpnGateway Resource.
+ *
+ * @deprecated azure-native:network/v20180801:VpnGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnGateway to guarantee forwards compatibility.
  */
 export class VpnGateway extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class VpnGateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VpnGateway {
+        pulumi.log.warn("VpnGateway is deprecated: azure-native:network/v20180801:VpnGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnGateway to guarantee forwards compatibility.")
         return new VpnGateway(name, undefined as any, { ...opts, id: id });
     }
 
@@ -85,7 +88,9 @@ export class VpnGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:network/v20180801:VpnGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnGateway to guarantee forwards compatibility. */
     constructor(name: string, args: VpnGatewayArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VpnGateway is deprecated: azure-native:network/v20180801:VpnGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnGateway to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

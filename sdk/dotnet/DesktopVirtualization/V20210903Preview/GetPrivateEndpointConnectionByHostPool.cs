@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
 {
+    [Obsolete(@"azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnectionByHostPool
     {
         /// <summary>

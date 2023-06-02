@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
+    [Obsolete(@"azure-native:securityinsights/v20190101preview:Anomalies is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:Anomalies to guarantee forwards compatibility.")]
     public static class GetAnomalies
     {
         /// <summary>

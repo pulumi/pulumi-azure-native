@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * @deprecated azure-native:dataprotection/v20221001preview:DppResourceGuardProxy is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:DppResourceGuardProxy to guarantee forwards compatibility.
+ */
 export class DppResourceGuardProxy extends pulumi.CustomResource {
     /**
      * Get an existing DppResourceGuardProxy resource's state with the given name, ID, and optional extra
@@ -17,6 +20,7 @@ export class DppResourceGuardProxy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DppResourceGuardProxy {
+        pulumi.log.warn("DppResourceGuardProxy is deprecated: azure-native:dataprotection/v20221001preview:DppResourceGuardProxy is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:DppResourceGuardProxy to guarantee forwards compatibility.")
         return new DppResourceGuardProxy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -58,7 +62,9 @@ export class DppResourceGuardProxy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:dataprotection/v20221001preview:DppResourceGuardProxy is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:DppResourceGuardProxy to guarantee forwards compatibility. */
     constructor(name: string, args: DppResourceGuardProxyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DppResourceGuardProxy is deprecated: azure-native:dataprotection/v20221001preview:DppResourceGuardProxy is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20230101:DppResourceGuardProxy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -82,7 +88,7 @@ export class DppResourceGuardProxy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dataprotection/v20220901preview:DppResourceGuardProxy" }, { type: "azure-native:dataprotection/v20221101preview:DppResourceGuardProxy" }, { type: "azure-native:dataprotection/v20230101:DppResourceGuardProxy" }, { type: "azure-native:dataprotection/v20230401preview:DppResourceGuardProxy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dataprotection/v20220901preview:DppResourceGuardProxy" }, { type: "azure-native:dataprotection/v20221101preview:DppResourceGuardProxy" }, { type: "azure-native:dataprotection/v20230101:DppResourceGuardProxy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DppResourceGuardProxy.__pulumiType, name, resourceInputs, opts);
     }

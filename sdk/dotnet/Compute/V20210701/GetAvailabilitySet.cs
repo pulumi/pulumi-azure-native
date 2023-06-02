@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20210701
 {
+    [Obsolete(@"azure-native:compute/v20210701:AvailabilitySet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility.")]
     public static class GetAvailabilitySet
     {
         /// <summary>

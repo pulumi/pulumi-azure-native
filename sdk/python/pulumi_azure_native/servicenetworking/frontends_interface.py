@@ -235,7 +235,7 @@ class FrontendsInterface(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicenetworking/v20221001preview:FrontendsInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20230501preview:FrontendsInterface")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicenetworking/v20221001preview:FrontendsInterface")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FrontendsInterface, __self__).__init__(
             'azure-native:servicenetworking:FrontendsInterface',

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20211101Preview
 {
+    [Obsolete(@"azure-native:sql/v20211101preview:DistributedAvailabilityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:DistributedAvailabilityGroup to guarantee forwards compatibility.")]
     public static class GetDistributedAvailabilityGroup
     {
         /// <summary>

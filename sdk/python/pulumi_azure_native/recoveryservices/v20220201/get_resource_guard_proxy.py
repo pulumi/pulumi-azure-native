@@ -17,6 +17,8 @@ __all__ = [
     'get_resource_guard_proxy_output',
 ]
 
+warnings.warn("""azure-native:recoveryservices/v20220201:ResourceGuardProxy is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ResourceGuardProxy to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetResourceGuardProxyResult:
     def __init__(__self__, e_tag=None, id=None, location=None, name=None, properties=None, tags=None, type=None):
@@ -125,6 +127,7 @@ def get_resource_guard_proxy(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("""get_resource_guard_proxy is deprecated: azure-native:recoveryservices/v20220201:ResourceGuardProxy is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ResourceGuardProxy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceGuardProxyName'] = resource_guard_proxy_name
@@ -154,4 +157,5 @@ def get_resource_guard_proxy_output(resource_group_name: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("""get_resource_guard_proxy is deprecated: azure-native:recoveryservices/v20220201:ResourceGuardProxy is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ResourceGuardProxy to guarantee forwards compatibility.""")
     ...

@@ -17,7 +17,8 @@ __all__ = [
     'get_job_collection_output',
 ]
 
-warnings.warn("""Version 2016-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-01-01 will be removed in v2 of the provider.
+azure-native:scheduler/v20160101:JobCollection is being removed in the next major version of this provider. Please upgrade to azure-native:scheduler/v20160301:JobCollection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetJobCollectionResult:
@@ -114,7 +115,8 @@ def get_job_collection(job_collection_name: Optional[str] = None,
     :param str job_collection_name: The job collection name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_job_collection is deprecated: Version 2016-01-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_job_collection is deprecated: Version 2016-01-01 will be removed in v2 of the provider.
+azure-native:scheduler/v20160101:JobCollection is being removed in the next major version of this provider. Please upgrade to azure-native:scheduler/v20160301:JobCollection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['jobCollectionName'] = job_collection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -141,5 +143,6 @@ def get_job_collection_output(job_collection_name: Optional[pulumi.Input[str]] =
     :param str job_collection_name: The job collection name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_job_collection is deprecated: Version 2016-01-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_job_collection is deprecated: Version 2016-01-01 will be removed in v2 of the provider.
+azure-native:scheduler/v20160101:JobCollection is being removed in the next major version of this provider. Please upgrade to azure-native:scheduler/v20160301:JobCollection to guarantee forwards compatibility.""")
     ...

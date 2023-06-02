@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Azure Resource Manager resource envelope.
  */
+/** @deprecated azure-native:machinelearningservices/v20221001:CodeContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility. */
 export function getCodeContainer(args: GetCodeContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeContainerResult> {
+    pulumi.log.warn("getCodeContainer is deprecated: azure-native:machinelearningservices/v20221001:CodeContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001:getCodeContainer", {
@@ -63,6 +65,7 @@ export interface GetCodeContainerResult {
 /**
  * Azure Resource Manager resource envelope.
  */
+/** @deprecated azure-native:machinelearningservices/v20221001:CodeContainer is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility. */
 export function getCodeContainerOutput(args: GetCodeContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeContainerResult> {
     return pulumi.output(args).apply((a: any) => getCodeContainer(a, opts))
 }

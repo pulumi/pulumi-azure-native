@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A managed Cassandra data center.
+ *
+ * @deprecated azure-native:documentdb/v20220215preview:CassandraDataCenter is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:CassandraDataCenter to guarantee forwards compatibility.
  */
 export class CassandraDataCenter extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class CassandraDataCenter extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CassandraDataCenter {
+        pulumi.log.warn("CassandraDataCenter is deprecated: azure-native:documentdb/v20220215preview:CassandraDataCenter is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:CassandraDataCenter to guarantee forwards compatibility.")
         return new CassandraDataCenter(name, undefined as any, { ...opts, id: id });
     }
 
@@ -57,7 +60,9 @@ export class CassandraDataCenter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:documentdb/v20220215preview:CassandraDataCenter is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:CassandraDataCenter to guarantee forwards compatibility. */
     constructor(name: string, args: CassandraDataCenterArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("CassandraDataCenter is deprecated: azure-native:documentdb/v20220215preview:CassandraDataCenter is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:CassandraDataCenter to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

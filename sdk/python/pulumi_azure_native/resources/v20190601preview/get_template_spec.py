@@ -17,6 +17,8 @@ __all__ = [
     'get_template_spec_output',
 ]
 
+warnings.warn("""azure-native:resources/v20190601preview:TemplateSpec is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTemplateSpecResult:
     """
@@ -153,6 +155,7 @@ def get_template_spec(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str template_spec_name: Name of the Template Spec.
     """
+    pulumi.log.warn("""get_template_spec is deprecated: azure-native:resources/v20190601preview:TemplateSpec is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -185,4 +188,5 @@ def get_template_spec_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str template_spec_name: Name of the Template Spec.
     """
+    pulumi.log.warn("""get_template_spec is deprecated: azure-native:resources/v20190601preview:TemplateSpec is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpec to guarantee forwards compatibility.""")
     ...

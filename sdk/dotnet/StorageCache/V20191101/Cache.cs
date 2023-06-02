@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.StorageCache.V20191101
     /// <summary>
     /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     /// </summary>
-    [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.
+azure-native:storagecache/v20191101:Cache is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20201001:Cache to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storagecache/v20191101:Cache")]
     public partial class Cache : global::Pulumi.CustomResource
     {

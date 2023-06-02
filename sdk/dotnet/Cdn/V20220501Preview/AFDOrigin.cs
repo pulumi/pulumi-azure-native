@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Cdn.V20220501Preview
     /// <summary>
     /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     /// </summary>
+    [Obsolete(@"azure-native:cdn/v20220501preview:AFDOrigin is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:AFDOrigin to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20220501preview:AFDOrigin")]
     public partial class AFDOrigin : global::Pulumi.CustomResource
     {

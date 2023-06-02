@@ -17,6 +17,8 @@ __all__ = [
     'get_data_collection_endpoint_output',
 ]
 
+warnings.warn("""azure-native:insights/v20210401:DataCollectionEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220601:DataCollectionEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataCollectionEndpointResult:
     """
@@ -211,6 +213,7 @@ def get_data_collection_endpoint(data_collection_endpoint_name: Optional[str] = 
     :param str data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_data_collection_endpoint is deprecated: azure-native:insights/v20210401:DataCollectionEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220601:DataCollectionEndpoint to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dataCollectionEndpointName'] = data_collection_endpoint_name
     __args__['resourceGroupName'] = resource_group_name
@@ -245,4 +248,5 @@ def get_data_collection_endpoint_output(data_collection_endpoint_name: Optional[
     :param str data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_data_collection_endpoint is deprecated: azure-native:insights/v20210401:DataCollectionEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220601:DataCollectionEndpoint to guarantee forwards compatibility.""")
     ...

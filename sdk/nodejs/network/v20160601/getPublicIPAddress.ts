@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * The Get publicIpAddress operation retrieves information about the specified pubicIpAddress
  */
-/** @deprecated Version 2016-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:network/v20160601:PublicIPAddress is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:PublicIPAddress to guarantee forwards compatibility. */
 export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPAddressResult> {
-    pulumi.log.warn("getPublicIPAddress is deprecated: Version 2016-06-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getPublicIPAddress is deprecated: Version 2016-06-01 will be removed in v2 of the provider.\nazure-native:network/v20160601:PublicIPAddress is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:PublicIPAddress to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20160601:getPublicIPAddress", {
@@ -98,7 +99,8 @@ export interface GetPublicIPAddressResult {
 /**
  * The Get publicIpAddress operation retrieves information about the specified pubicIpAddress
  */
-/** @deprecated Version 2016-06-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-06-01 will be removed in v2 of the provider.
+azure-native:network/v20160601:PublicIPAddress is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:PublicIPAddress to guarantee forwards compatibility. */
 export function getPublicIPAddressOutput(args: GetPublicIPAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPAddressResult> {
     return pulumi.output(args).apply((a: any) => getPublicIPAddress(a, opts))
 }

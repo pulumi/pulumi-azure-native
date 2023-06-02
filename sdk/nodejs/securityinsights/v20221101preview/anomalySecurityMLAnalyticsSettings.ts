@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents Anomaly Security ML Analytics Settings
+ *
+ * @deprecated azure-native:securityinsights/v20221101preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.
  */
 export class AnomalySecurityMLAnalyticsSettings extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class AnomalySecurityMLAnalyticsSettings extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AnomalySecurityMLAnalyticsSettings {
+        pulumi.log.warn("AnomalySecurityMLAnalyticsSettings is deprecated: azure-native:securityinsights/v20221101preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.")
         return new AnomalySecurityMLAnalyticsSettings(name, undefined as any, { ...opts, id: id });
     }
 
@@ -122,7 +125,9 @@ export class AnomalySecurityMLAnalyticsSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20221101preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility. */
     constructor(name: string, args: AnomalySecurityMLAnalyticsSettingsArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AnomalySecurityMLAnalyticsSettings is deprecated: azure-native:securityinsights/v20221101preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -197,7 +202,7 @@ export class AnomalySecurityMLAnalyticsSettings extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20220501preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20220701preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20220801preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20220901preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20221001preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20221101:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20221201preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20230201:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20230201preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20230501preview:AnomalySecurityMLAnalyticsSettings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20220501preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20220701preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20220801preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20220901preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20221001preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20221101:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20221201preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20230201:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20230201preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AnomalySecurityMLAnalyticsSettings.__pulumiType, name, resourceInputs, opts);
     }

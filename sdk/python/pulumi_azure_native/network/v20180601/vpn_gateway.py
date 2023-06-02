@@ -165,7 +165,12 @@ class VpnGatewayArgs:
         pulumi.set(self, "virtual_hub", value)
 
 
+warnings.warn("""azure-native:network/v20180601:VpnGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180701:VpnGateway to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class VpnGateway(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20180601:VpnGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180701:VpnGateway to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -229,6 +234,7 @@ class VpnGateway(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""VpnGateway is deprecated: azure-native:network/v20180601:VpnGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180701:VpnGateway to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

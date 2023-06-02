@@ -17,6 +17,8 @@ __all__ = [
     'get_redis_enterprise_output',
 ]
 
+warnings.warn("""azure-native:cache/v20220101:RedisEnterprise is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20230301preview:RedisEnterprise to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRedisEnterpriseResult:
     """
@@ -199,6 +201,7 @@ def get_redis_enterprise(cluster_name: Optional[str] = None,
     :param str cluster_name: The name of the RedisEnterprise cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_redis_enterprise is deprecated: azure-native:cache/v20220101:RedisEnterprise is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20230301preview:RedisEnterprise to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
@@ -232,4 +235,5 @@ def get_redis_enterprise_output(cluster_name: Optional[pulumi.Input[str]] = None
     :param str cluster_name: The name of the RedisEnterprise cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_redis_enterprise is deprecated: azure-native:cache/v20220101:RedisEnterprise is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20230301preview:RedisEnterprise to guarantee forwards compatibility.""")
     ...

@@ -116,7 +116,12 @@ class ResourceGuardArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:dataprotection/v20220331preview:ResourceGuard is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20221101preview:ResourceGuard to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ResourceGuard(pulumi.CustomResource):
+    warnings.warn("""azure-native:dataprotection/v20220331preview:ResourceGuard is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20221101preview:ResourceGuard to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -169,6 +174,7 @@ class ResourceGuard(pulumi.CustomResource):
                  resource_guards_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""ResourceGuard is deprecated: azure-native:dataprotection/v20220331preview:ResourceGuard is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20221101preview:ResourceGuard to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -189,7 +195,7 @@ class ResourceGuard(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20210701:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20211001preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20211201preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220101:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220201preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220301:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220401:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220501:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20221001preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20221201:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20230401preview:ResourceGuard")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20210701:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20211001preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20211201preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220101:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220201preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220301:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220401:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220501:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20221001preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20221201:ResourceGuard"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:ResourceGuard")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ResourceGuard, __self__).__init__(
             'azure-native:dataprotection/v20220331preview:ResourceGuard',

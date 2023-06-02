@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.ManagedServices.V20190401Preview
     /// <summary>
     /// Registration assignment.
     /// </summary>
-    [Obsolete(@"Version 2019-04-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-04-01-preview will be removed in v2 of the provider.
+azure-native:managedservices/v20190401preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:managedservices/v20190401preview:RegistrationAssignment")]
     public partial class RegistrationAssignment : global::Pulumi.CustomResource
     {

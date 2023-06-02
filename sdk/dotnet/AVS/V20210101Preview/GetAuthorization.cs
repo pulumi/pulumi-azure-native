@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AVS.V20210101Preview
 {
+    [Obsolete(@"azure-native:avs/v20210101preview:Authorization is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Authorization to guarantee forwards compatibility.")]
     public static class GetAuthorization
     {
         /// <summary>

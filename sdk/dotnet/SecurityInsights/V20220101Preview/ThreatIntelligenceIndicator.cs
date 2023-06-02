@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
     /// <summary>
     /// Threat intelligence information object.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20220101preview:ThreatIntelligenceIndicator is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:ThreatIntelligenceIndicator to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20220101preview:ThreatIntelligenceIndicator")]
     public partial class ThreatIntelligenceIndicator : global::Pulumi.CustomResource
     {
@@ -97,7 +98,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:ThreatIntelligenceIndicator"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:ThreatIntelligenceIndicator"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:ThreatIntelligenceIndicator"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:ThreatIntelligenceIndicator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

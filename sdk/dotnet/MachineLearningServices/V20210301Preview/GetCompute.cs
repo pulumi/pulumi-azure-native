@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
+    [Obsolete(@"azure-native:machinelearningservices/v20210301preview:Compute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20220101preview:Compute to guarantee forwards compatibility.")]
     public static class GetCompute
     {
         /// <summary>

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a virtual network link to the specified Private DNS zone.
  */
+/** @deprecated azure-native:network/v20200101:VirtualNetworkLink is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401preview:VirtualNetworkLink to guarantee forwards compatibility. */
 export function getVirtualNetworkLink(args: GetVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkLinkResult> {
+    pulumi.log.warn("getVirtualNetworkLink is deprecated: azure-native:network/v20200101:VirtualNetworkLink is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401preview:VirtualNetworkLink to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200101:getVirtualNetworkLink", {
@@ -83,6 +85,7 @@ export interface GetVirtualNetworkLinkResult {
 /**
  * Gets a virtual network link to the specified Private DNS zone.
  */
+/** @deprecated azure-native:network/v20200101:VirtualNetworkLink is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401preview:VirtualNetworkLink to guarantee forwards compatibility. */
 export function getVirtualNetworkLinkOutput(args: GetVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkLinkResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkLink(a, opts))
 }

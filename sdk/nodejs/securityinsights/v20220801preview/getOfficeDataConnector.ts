@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20220801preview:OfficeDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:OfficeDataConnector to guarantee forwards compatibility. */
 export function getOfficeDataConnector(args: GetOfficeDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficeDataConnectorResult> {
+    pulumi.log.warn("getOfficeDataConnector is deprecated: azure-native:securityinsights/v20220801preview:OfficeDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:OfficeDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220801preview:getOfficeDataConnector", {
@@ -76,6 +78,7 @@ export interface GetOfficeDataConnectorResult {
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20220801preview:OfficeDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:OfficeDataConnector to guarantee forwards compatibility. */
 export function getOfficeDataConnectorOutput(args: GetOfficeDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficeDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getOfficeDataConnector(a, opts))
 }

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Network.V20150615
     /// <summary>
     /// A common class for general resource information
     /// </summary>
-    [Obsolete(@"Version 2015-06-15 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2015-06-15 will be removed in v2 of the provider.
+azure-native:network/v20150615:VirtualNetworkGatewayConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20160601:VirtualNetworkGatewayConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20150615:VirtualNetworkGatewayConnection")]
     public partial class VirtualNetworkGatewayConnection : global::Pulumi.CustomResource
     {

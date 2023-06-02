@@ -17,7 +17,8 @@ __all__ = [
     'get_user_output',
 ]
 
-warnings.warn("""Version 2020-05-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-05-01-preview will be removed in v2 of the provider.
+azure-native:databoxedge/v20200501preview:User is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20210201preview:User to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetUserResult:
@@ -119,7 +120,8 @@ def get_user(device_name: Optional[str] = None,
     :param str name: The user name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_user is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_user is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.
+azure-native:databoxedge/v20200501preview:User is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20210201preview:User to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name
@@ -149,5 +151,6 @@ def get_user_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str name: The user name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_user is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_user is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.
+azure-native:databoxedge/v20200501preview:User is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20210201preview:User to guarantee forwards compatibility.""")
     ...

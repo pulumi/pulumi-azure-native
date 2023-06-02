@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
     /// <summary>
     /// An Azure SQL Database server.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20211101preview:Server is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:Server to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20211101preview:Server")]
     public partial class Server : global::Pulumi.CustomResource
     {

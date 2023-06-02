@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get the specified network security rule.
  */
-/** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-02-01 will be removed in v2 of the provider.
+azure-native:network/v20180201:SecurityRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:SecurityRule to guarantee forwards compatibility. */
 export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityRuleResult> {
-    pulumi.log.warn("getSecurityRule is deprecated: Version 2018-02-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getSecurityRule is deprecated: Version 2018-02-01 will be removed in v2 of the provider.\nazure-native:network/v20180201:SecurityRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:SecurityRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180201:getSecurityRule", {
@@ -121,7 +122,8 @@ export interface GetSecurityRuleResult {
 /**
  * Get the specified network security rule.
  */
-/** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-02-01 will be removed in v2 of the provider.
+azure-native:network/v20180201:SecurityRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:SecurityRule to guarantee forwards compatibility. */
 export function getSecurityRuleOutput(args: GetSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityRuleResult> {
     return pulumi.output(args).apply((a: any) => getSecurityRule(a, opts))
 }

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AppPlatform.V20220901Preview
 {
+    [Obsolete(@"azure-native:appplatform/v20220901preview:GatewayCustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:GatewayCustomDomain to guarantee forwards compatibility.")]
     public static class GetGatewayCustomDomain
     {
         /// <summary>

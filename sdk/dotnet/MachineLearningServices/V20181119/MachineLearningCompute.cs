@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20181119
     /// <summary>
     /// Machine Learning compute object wrapped into ARM resource envelope.
     /// </summary>
-    [Obsolete(@"Version 2018-11-19 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-11-19 will be removed in v2 of the provider.
+azure-native:machinelearningservices/v20181119:MachineLearningCompute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20210401:MachineLearningCompute to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20181119:MachineLearningCompute")]
     public partial class MachineLearningCompute : global::Pulumi.CustomResource
     {

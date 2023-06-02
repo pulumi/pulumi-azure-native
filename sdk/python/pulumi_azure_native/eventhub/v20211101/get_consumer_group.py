@@ -17,6 +17,8 @@ __all__ = [
     'get_consumer_group_output',
 ]
 
+warnings.warn("""azure-native:eventhub/v20211101:ConsumerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:ConsumerGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConsumerGroupResult:
     """
@@ -143,6 +145,7 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
+    pulumi.log.warn("""get_consumer_group is deprecated: azure-native:eventhub/v20211101:ConsumerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:ConsumerGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['consumerGroupName'] = consumer_group_name
     __args__['eventHubName'] = event_hub_name
@@ -177,4 +180,5 @@ def get_consumer_group_output(consumer_group_name: Optional[pulumi.Input[str]] =
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
+    pulumi.log.warn("""get_consumer_group is deprecated: azure-native:eventhub/v20211101:ConsumerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:ConsumerGroup to guarantee forwards compatibility.""")
     ...

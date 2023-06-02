@@ -197,11 +197,13 @@ class NamespaceArgs:
         pulumi.set(self, "updated_at", value)
 
 
-warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:eventhub/v20140901:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20150801:Namespace to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Namespace(pulumi.CustomResource):
-    warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:eventhub/v20140901:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20150801:Namespace to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -272,7 +274,8 @@ class Namespace(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  updated_at: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Namespace is deprecated: Version 2014-09-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""Namespace is deprecated: Version 2014-09-01 will be removed in v2 of the provider.
+azure-native:eventhub/v20140901:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20150801:Namespace to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

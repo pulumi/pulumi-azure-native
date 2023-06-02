@@ -17,6 +17,8 @@ __all__ = [
     'get_environment_type_output',
 ]
 
+warnings.warn("""azure-native:devcenter/v20221012preview:EnvironmentType is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEnvironmentTypeResult:
     """
@@ -117,6 +119,7 @@ def get_environment_type(dev_center_name: Optional[str] = None,
     :param str environment_type_name: The name of the environment type.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_environment_type is deprecated: azure-native:devcenter/v20221012preview:EnvironmentType is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['devCenterName'] = dev_center_name
     __args__['environmentTypeName'] = environment_type_name
@@ -146,4 +149,5 @@ def get_environment_type_output(dev_center_name: Optional[pulumi.Input[str]] = N
     :param str environment_type_name: The name of the environment type.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_environment_type is deprecated: azure-native:devcenter/v20221012preview:EnvironmentType is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility.""")
     ...

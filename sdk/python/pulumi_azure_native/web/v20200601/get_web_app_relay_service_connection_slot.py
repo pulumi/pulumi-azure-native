@@ -16,6 +16,8 @@ __all__ = [
     'get_web_app_relay_service_connection_slot_output',
 ]
 
+warnings.warn("""azure-native:web/v20200601:WebAppRelayServiceConnectionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppRelayServiceConnectionSlot to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppRelayServiceConnectionSlotResult:
     """
@@ -157,6 +159,7 @@ def get_web_app_relay_service_connection_slot(entity_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get a hybrid connection for the production slot.
     """
+    pulumi.log.warn("""get_web_app_relay_service_connection_slot is deprecated: azure-native:web/v20200601:WebAppRelayServiceConnectionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppRelayServiceConnectionSlot to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['entityName'] = entity_name
     __args__['name'] = name
@@ -194,4 +197,5 @@ def get_web_app_relay_service_connection_slot_output(entity_name: Optional[pulum
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get a hybrid connection for the production slot.
     """
+    pulumi.log.warn("""get_web_app_relay_service_connection_slot is deprecated: azure-native:web/v20200601:WebAppRelayServiceConnectionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppRelayServiceConnectionSlot to guarantee forwards compatibility.""")
     ...

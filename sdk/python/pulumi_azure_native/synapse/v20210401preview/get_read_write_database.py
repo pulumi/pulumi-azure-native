@@ -17,6 +17,8 @@ __all__ = [
     'get_read_write_database_output',
 ]
 
+warnings.warn("""azure-native:synapse/v20210401preview:ReadWriteDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:ReadWriteDatabase to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReadWriteDatabaseResult:
     """
@@ -180,6 +182,7 @@ def get_read_write_database(database_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("""get_read_write_database is deprecated: azure-native:synapse/v20210401preview:ReadWriteDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:ReadWriteDatabase to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['kustoPoolName'] = kusto_pool_name
@@ -217,4 +220,5 @@ def get_read_write_database_output(database_name: Optional[pulumi.Input[str]] = 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("""get_read_write_database is deprecated: azure-native:synapse/v20210401preview:ReadWriteDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:ReadWriteDatabase to guarantee forwards compatibility.""")
     ...

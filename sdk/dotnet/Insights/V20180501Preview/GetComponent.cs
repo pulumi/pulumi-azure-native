@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Insights.V20180501Preview
 {
+    [Obsolete(@"azure-native:insights/v20180501preview:Component is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20200202:Component to guarantee forwards compatibility.")]
     public static class GetComponent
     {
         /// <summary>

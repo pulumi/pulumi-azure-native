@@ -17,6 +17,8 @@ __all__ = [
     'get_component_version_output',
 ]
 
+warnings.warn("""azure-native:machinelearningservices/v20220601preview:ComponentVersion is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:ComponentVersion to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetComponentVersionResult:
     """
@@ -107,6 +109,7 @@ def get_component_version(name: Optional[str] = None,
     :param str version: Version identifier.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_component_version is deprecated: azure-native:machinelearningservices/v20220601preview:ComponentVersion is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:ComponentVersion to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -138,4 +141,5 @@ def get_component_version_output(name: Optional[pulumi.Input[str]] = None,
     :param str version: Version identifier.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_component_version is deprecated: azure-native:machinelearningservices/v20220601preview:ComponentVersion is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:ComponentVersion to guarantee forwards compatibility.""")
     ...

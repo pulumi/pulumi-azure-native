@@ -98,11 +98,13 @@ class ReplicationvCenterArgs:
         pulumi.set(self, "v_center_name", value)
 
 
-warnings.warn("""Version 2016-08-10 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-08-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20160810:ReplicationvCenter is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ReplicationvCenter(pulumi.CustomResource):
-    warnings.warn("""Version 2016-08-10 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2016-08-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20160810:ReplicationvCenter is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -155,7 +157,8 @@ class ReplicationvCenter(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  v_center_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ReplicationvCenter is deprecated: Version 2016-08-10 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""ReplicationvCenter is deprecated: Version 2016-08-10 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20160810:ReplicationvCenter is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20210301:ReplicationvCenter to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

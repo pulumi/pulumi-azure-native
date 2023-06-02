@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.EventGrid.V20211201
 {
+    [Obsolete(@"azure-native:eventgrid/v20211201:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20211201:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

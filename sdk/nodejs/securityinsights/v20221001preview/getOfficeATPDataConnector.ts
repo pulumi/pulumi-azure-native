@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20221001preview:OfficeATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:OfficeATPDataConnector to guarantee forwards compatibility. */
 export function getOfficeATPDataConnector(args: GetOfficeATPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficeATPDataConnectorResult> {
+    pulumi.log.warn("getOfficeATPDataConnector is deprecated: azure-native:securityinsights/v20221001preview:OfficeATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:OfficeATPDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20221001preview:getOfficeATPDataConnector", {
@@ -76,6 +78,7 @@ export interface GetOfficeATPDataConnectorResult {
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20221001preview:OfficeATPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:OfficeATPDataConnector to guarantee forwards compatibility. */
 export function getOfficeATPDataConnectorOutput(args: GetOfficeATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficeATPDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getOfficeATPDataConnector(a, opts))
 }

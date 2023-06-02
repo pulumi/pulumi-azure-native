@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
  */
+/** @deprecated azure-native:servicebus/v20210601preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility. */
 export function getDisasterRecoveryConfig(args: GetDisasterRecoveryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigResult> {
+    pulumi.log.warn("getDisasterRecoveryConfig is deprecated: azure-native:servicebus/v20210601preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20210601preview:getDisasterRecoveryConfig", {
@@ -79,6 +81,7 @@ export interface GetDisasterRecoveryConfigResult {
 /**
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
  */
+/** @deprecated azure-native:servicebus/v20210601preview:DisasterRecoveryConfig is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility. */
 export function getDisasterRecoveryConfigOutput(args: GetDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDisasterRecoveryConfigResult> {
     return pulumi.output(args).apply((a: any) => getDisasterRecoveryConfig(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
     /// <summary>
     /// The virtualnetworks resource definition.
     /// </summary>
+    [Obsolete(@"azure-native:azurestackhci/v20210701preview:virtualnetworkRetrieve is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurestackhci/v20210701preview:virtualnetworkRetrieve")]
     public partial class VirtualnetworkRetrieve : global::Pulumi.CustomResource
     {

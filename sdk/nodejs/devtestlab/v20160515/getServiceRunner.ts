@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Get service runner.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-05-15 will be removed in v2 of the provider.
+azure-native:devtestlab/v20160515:ServiceRunner is being removed in the next major version of this provider. Please upgrade to azure-native:devtestlab/v20180915:ServiceRunner to guarantee forwards compatibility. */
 export function getServiceRunner(args: GetServiceRunnerArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceRunnerResult> {
-    pulumi.log.warn("getServiceRunner is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
+    pulumi.log.warn("getServiceRunner is deprecated: Version 2016-05-15 will be removed in v2 of the provider.\nazure-native:devtestlab/v20160515:ServiceRunner is being removed in the next major version of this provider. Please upgrade to azure-native:devtestlab/v20180915:ServiceRunner to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20160515:getServiceRunner", {
@@ -69,7 +70,8 @@ export interface GetServiceRunnerResult {
 /**
  * Get service runner.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
+/** @deprecated Version 2016-05-15 will be removed in v2 of the provider.
+azure-native:devtestlab/v20160515:ServiceRunner is being removed in the next major version of this provider. Please upgrade to azure-native:devtestlab/v20180915:ServiceRunner to guarantee forwards compatibility. */
 export function getServiceRunnerOutput(args: GetServiceRunnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceRunnerResult> {
     return pulumi.output(args).apply((a: any) => getServiceRunner(a, opts))
 }

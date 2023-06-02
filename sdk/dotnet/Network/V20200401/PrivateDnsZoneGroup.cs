@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20200401
     /// <summary>
     /// Private dns zone group resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20200401:PrivateDnsZoneGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210201:PrivateDnsZoneGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20200401:PrivateDnsZoneGroup")]
     public partial class PrivateDnsZoneGroup : global::Pulumi.CustomResource
     {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Description for Get an App Service plan.
  */
+/** @deprecated azure-native:web/v20220301:AppServicePlan is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:AppServicePlan to guarantee forwards compatibility. */
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
+    pulumi.log.warn("getAppServicePlan is deprecated: azure-native:web/v20220301:AppServicePlan is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:AppServicePlan to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220301:getAppServicePlan", {
@@ -164,6 +166,7 @@ export interface GetAppServicePlanResult {
 /**
  * Description for Get an App Service plan.
  */
+/** @deprecated azure-native:web/v20220301:AppServicePlan is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:AppServicePlan to guarantee forwards compatibility. */
 export function getAppServicePlanOutput(args: GetAppServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServicePlanResult> {
     return pulumi.output(args).apply((a: any) => getAppServicePlan(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20200901
     /// <summary>
     /// App Service Environment ARM resource.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20200901:AppServiceEnvironment is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:AppServiceEnvironment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20200901:AppServiceEnvironment")]
     public partial class AppServiceEnvironment : global::Pulumi.CustomResource
     {

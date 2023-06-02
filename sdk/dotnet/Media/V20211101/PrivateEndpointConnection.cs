@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Media.V20211101
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
+    [Obsolete(@"azure-native:media/v20211101:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20230101:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:media/v20211101:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

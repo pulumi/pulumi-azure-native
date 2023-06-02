@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Batch.V20200901
 {
-    [Obsolete(@"Version 2020-09-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:batch/v20200901:Pool is being removed in the next major version of this provider. Please upgrade to azure-native:batch/v20221001:Pool to guarantee forwards compatibility.")]
     public static class GetPool
     {
         /// <summary>

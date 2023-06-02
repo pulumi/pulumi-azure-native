@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
     /// <summary>
     /// A cluster resource
     /// </summary>
+    [Obsolete(@"azure-native:avs/v20211201:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:Cluster to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20211201:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {

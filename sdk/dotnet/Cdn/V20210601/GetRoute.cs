@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Cdn.V20210601
 {
+    [Obsolete(@"azure-native:cdn/v20210601:Route is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Route to guarantee forwards compatibility.")]
     public static class GetRoute
     {
         /// <summary>

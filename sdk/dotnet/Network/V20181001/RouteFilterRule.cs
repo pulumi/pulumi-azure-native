@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20181001
     /// <summary>
     /// Route Filter Rule Resource
     /// </summary>
+    [Obsolete(@"azure-native:network/v20181001:RouteFilterRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RouteFilterRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20181001:RouteFilterRule")]
     public partial class RouteFilterRule : global::Pulumi.CustomResource
     {

@@ -160,7 +160,12 @@ class SourceControlArgs:
         pulumi.set(self, "source_control_id", value)
 
 
+warnings.warn("""azure-native:securityinsights/v20211001preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SourceControl to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class SourceControl(pulumi.CustomResource):
+    warnings.warn("""azure-native:securityinsights/v20211001preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SourceControl to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -224,6 +229,7 @@ class SourceControl(pulumi.CustomResource):
                  source_control_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""SourceControl is deprecated: azure-native:securityinsights/v20211001preview:SourceControl is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:SourceControl to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -257,7 +263,7 @@ class SourceControl(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:SourceControl")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:SourceControl")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SourceControl, __self__).__init__(
             'azure-native:securityinsights/v20211001preview:SourceControl',

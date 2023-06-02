@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric cluster resource.
  */
-/** @deprecated Version 2017-07-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2017-07-01-preview will be removed in v2 of the provider.
+azure-native:servicefabric/v20170701preview:ApplicationType is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:ApplicationType to guarantee forwards compatibility. */
 export function getApplicationType(args: GetApplicationTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeResult> {
-    pulumi.log.warn("getApplicationType is deprecated: Version 2017-07-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getApplicationType is deprecated: Version 2017-07-01-preview will be removed in v2 of the provider.\nazure-native:servicefabric/v20170701preview:ApplicationType is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:ApplicationType to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20170701preview:getApplicationType", {
@@ -62,7 +63,8 @@ export interface GetApplicationTypeResult {
 /**
  * Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric cluster resource.
  */
-/** @deprecated Version 2017-07-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2017-07-01-preview will be removed in v2 of the provider.
+azure-native:servicefabric/v20170701preview:ApplicationType is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20210601:ApplicationType to guarantee forwards compatibility. */
 export function getApplicationTypeOutput(args: GetApplicationTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationTypeResult> {
     return pulumi.output(args).apply((a: any) => getApplicationType(a, opts))
 }

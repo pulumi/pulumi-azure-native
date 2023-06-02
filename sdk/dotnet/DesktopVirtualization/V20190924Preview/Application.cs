@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190924Preview
     /// <summary>
     /// Schema for Application properties.
     /// </summary>
-    [Obsolete(@"Version 2019-09-24-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-09-24-preview will be removed in v2 of the provider.
+azure-native:desktopvirtualization/v20190924preview:Application is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:Application to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20190924preview:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {

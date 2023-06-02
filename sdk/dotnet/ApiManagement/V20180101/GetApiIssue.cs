@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
+    [Obsolete(@"azure-native:apimanagement/v20180101:ApiIssue is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ApiIssue to guarantee forwards compatibility.")]
     public static class GetApiIssue
     {
         /// <summary>

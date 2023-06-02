@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified DDoS custom policy.
  */
+/** @deprecated azure-native:network/v20190201:DdosCustomPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220101:DdosCustomPolicy to guarantee forwards compatibility. */
 export function getDdosCustomPolicy(args: GetDdosCustomPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosCustomPolicyResult> {
+    pulumi.log.warn("getDdosCustomPolicy is deprecated: azure-native:network/v20190201:DdosCustomPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220101:DdosCustomPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190201:getDdosCustomPolicy", {
@@ -78,6 +80,7 @@ export interface GetDdosCustomPolicyResult {
 /**
  * Gets information about the specified DDoS custom policy.
  */
+/** @deprecated azure-native:network/v20190201:DdosCustomPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220101:DdosCustomPolicy to guarantee forwards compatibility. */
 export function getDdosCustomPolicyOutput(args: GetDdosCustomPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosCustomPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDdosCustomPolicy(a, opts))
 }

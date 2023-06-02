@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
     /// <summary>
     /// Represents a Workspace definition.
     /// </summary>
+    [Obsolete(@"azure-native:desktopvirtualization/v20220401preview:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20221014preview:Workspace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20220401preview:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {

@@ -17,7 +17,8 @@ __all__ = [
     'get_smart_detector_alert_rule_output',
 ]
 
-warnings.warn("""Version 2019-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-03-01 will be removed in v2 of the provider.
+azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSmartDetectorAlertRuleResult:
@@ -179,7 +180,8 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[str] = None,
     :param bool expand_detector: Indicates if Smart Detector should be expanded.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_smart_detector_alert_rule is deprecated: Version 2019-03-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_smart_detector_alert_rule is deprecated: Version 2019-03-01 will be removed in v2 of the provider.
+azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['alertRuleName'] = alert_rule_name
     __args__['expandDetector'] = expand_detector
@@ -214,5 +216,6 @@ def get_smart_detector_alert_rule_output(alert_rule_name: Optional[pulumi.Input[
     :param bool expand_detector: Indicates if Smart Detector should be expanded.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_smart_detector_alert_rule is deprecated: Version 2019-03-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_smart_detector_alert_rule is deprecated: Version 2019-03-01 will be removed in v2 of the provider.
+azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility.""")
     ...

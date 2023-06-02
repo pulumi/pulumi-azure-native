@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20211001
 {
+    [Obsolete(@"azure-native:recoveryservices/v20211001:ReplicationMigrationItem is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationMigrationItem to guarantee forwards compatibility.")]
     public static class GetReplicationMigrationItem
     {
         /// <summary>

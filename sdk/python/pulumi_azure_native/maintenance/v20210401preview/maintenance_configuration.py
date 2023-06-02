@@ -245,7 +245,12 @@ class MaintenanceConfigurationArgs:
         pulumi.set(self, "visibility", value)
 
 
+warnings.warn("""azure-native:maintenance/v20210401preview:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class MaintenanceConfiguration(pulumi.CustomResource):
+    warnings.warn("""azure-native:maintenance/v20210401preview:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -324,6 +329,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  time_zone: Optional[pulumi.Input[str]] = None,
                  visibility: Optional[pulumi.Input[Union[str, 'Visibility']]] = None,
                  __props__=None):
+        pulumi.log.warn("""MaintenanceConfiguration is deprecated: azure-native:maintenance/v20210401preview:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -351,7 +357,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maintenance:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20180601preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20200401:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20200701preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20210501:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20210901preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20220701preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20221101preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20230401:MaintenanceConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maintenance:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20180601preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20200401:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20200701preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20210501:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20210901preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20220701preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20221101preview:MaintenanceConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MaintenanceConfiguration, __self__).__init__(
             'azure-native:maintenance/v20210401preview:MaintenanceConfiguration',

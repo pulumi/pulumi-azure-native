@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20220131Preview
     /// <summary>
     /// Describes an identity resource.
     /// </summary>
+    [Obsolete(@"azure-native:managedidentity/v20220131preview:UserAssignedIdentity is being removed in the next major version of this provider. Please upgrade to azure-native:managedidentity/v20230131:UserAssignedIdentity to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:managedidentity/v20220131preview:UserAssignedIdentity")]
     public partial class UserAssignedIdentity : global::Pulumi.CustomResource
     {

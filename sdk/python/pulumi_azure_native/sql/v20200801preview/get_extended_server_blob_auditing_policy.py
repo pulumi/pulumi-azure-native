@@ -16,6 +16,8 @@ __all__ = [
     'get_extended_server_blob_auditing_policy_output',
 ]
 
+warnings.warn("""azure-native:sql/v20200801preview:ExtendedServerBlobAuditingPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ExtendedServerBlobAuditingPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExtendedServerBlobAuditingPolicyResult:
     """
@@ -279,6 +281,7 @@ def get_extended_server_blob_auditing_policy(blob_auditing_policy_name: Optional
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("""get_extended_server_blob_auditing_policy is deprecated: azure-native:sql/v20200801preview:ExtendedServerBlobAuditingPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ExtendedServerBlobAuditingPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['blobAuditingPolicyName'] = blob_auditing_policy_name
     __args__['resourceGroupName'] = resource_group_name
@@ -315,4 +318,5 @@ def get_extended_server_blob_auditing_policy_output(blob_auditing_policy_name: O
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("""get_extended_server_blob_auditing_policy is deprecated: azure-native:sql/v20200801preview:ExtendedServerBlobAuditingPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ExtendedServerBlobAuditingPolicy to guarantee forwards compatibility.""")
     ...

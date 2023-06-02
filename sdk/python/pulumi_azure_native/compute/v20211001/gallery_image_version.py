@@ -146,7 +146,12 @@ class GalleryImageVersionArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:compute/v20211001:GalleryImageVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImageVersion to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class GalleryImageVersion(pulumi.CustomResource):
+    warnings.warn("""azure-native:compute/v20211001:GalleryImageVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImageVersion to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -207,6 +212,7 @@ class GalleryImageVersion(pulumi.CustomResource):
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['GalleryImageVersionStorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""GalleryImageVersion is deprecated: azure-native:compute/v20211001:GalleryImageVersion is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryImageVersion to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Implements resourcePool GET method.
  */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool to guarantee forwards compatibility. */
 export function getResourcePool(args: GetResourcePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePoolResult> {
+    pulumi.log.warn("getResourcePool is deprecated: azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220110preview:getResourcePool", {
@@ -132,6 +134,7 @@ export interface GetResourcePoolResult {
 /**
  * Implements resourcePool GET method.
  */
+/** @deprecated azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool to guarantee forwards compatibility. */
 export function getResourcePoolOutput(args: GetResourcePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePoolResult> {
     return pulumi.output(args).apply((a: any) => getResourcePool(a, opts))
 }

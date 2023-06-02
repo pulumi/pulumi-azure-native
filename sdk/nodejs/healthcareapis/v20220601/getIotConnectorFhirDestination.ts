@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified Iot Connector FHIR destination.
  */
+/** @deprecated azure-native:healthcareapis/v20220601:IotConnectorFhirDestination is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:IotConnectorFhirDestination to guarantee forwards compatibility. */
 export function getIotConnectorFhirDestination(args: GetIotConnectorFhirDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorFhirDestinationResult> {
+    pulumi.log.warn("getIotConnectorFhirDestination is deprecated: azure-native:healthcareapis/v20220601:IotConnectorFhirDestination is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:IotConnectorFhirDestination to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20220601:getIotConnectorFhirDestination", {
@@ -84,6 +86,7 @@ export interface GetIotConnectorFhirDestinationResult {
 /**
  * Gets the properties of the specified Iot Connector FHIR destination.
  */
+/** @deprecated azure-native:healthcareapis/v20220601:IotConnectorFhirDestination is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:IotConnectorFhirDestination to guarantee forwards compatibility. */
 export function getIotConnectorFhirDestinationOutput(args: GetIotConnectorFhirDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotConnectorFhirDestinationResult> {
     return pulumi.output(args).apply((a: any) => getIotConnectorFhirDestination(a, opts))
 }

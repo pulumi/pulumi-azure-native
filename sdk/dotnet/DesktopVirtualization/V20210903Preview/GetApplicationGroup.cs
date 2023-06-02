@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
 {
+    [Obsolete(@"azure-native:desktopvirtualization/v20210903preview:ApplicationGroup is being removed in the next major version of this provider. Please upgrade to azure-native:desktopvirtualization/v20220401preview:ApplicationGroup to guarantee forwards compatibility.")]
     public static class GetApplicationGroup
     {
         /// <summary>

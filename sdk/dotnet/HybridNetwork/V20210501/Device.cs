@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
     /// <summary>
     /// Device resource.
     /// </summary>
+    [Obsolete(@"azure-native:hybridnetwork/v20210501:Device is being removed in the next major version of this provider. Please upgrade to azure-native:hybridnetwork/v20220101preview:Device to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hybridnetwork/v20210501:Device")]
     public partial class Device : global::Pulumi.CustomResource
     {

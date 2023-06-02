@@ -7,7 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/** @deprecated azure-native:machinelearningservices/v20220601preview:BatchEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:BatchEndpoint to guarantee forwards compatibility. */
 export function getBatchEndpoint(args: GetBatchEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchEndpointResult> {
+    pulumi.log.warn("getBatchEndpoint is deprecated: azure-native:machinelearningservices/v20220601preview:BatchEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:BatchEndpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220601preview:getBatchEndpoint", {
@@ -74,6 +76,7 @@ export interface GetBatchEndpointResult {
      */
     readonly type: string;
 }
+/** @deprecated azure-native:machinelearningservices/v20220601preview:BatchEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:BatchEndpoint to guarantee forwards compatibility. */
 export function getBatchEndpointOutput(args: GetBatchEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchEndpointResult> {
     return pulumi.output(args).apply((a: any) => getBatchEndpoint(a, opts))
 }

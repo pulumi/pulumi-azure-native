@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20220908Preview
     /// <summary>
     /// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
     /// </summary>
+    [Obsolete(@"azure-native:confidentialledger/v20220908preview:Ledger is being removed in the next major version of this provider. Please upgrade to azure-native:confidentialledger/v20230126preview:Ledger to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:confidentialledger/v20220908preview:Ledger")]
     public partial class Ledger : global::Pulumi.CustomResource
     {

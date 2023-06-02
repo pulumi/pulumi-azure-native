@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevCenter.V20221012Preview
     /// <summary>
     /// Represents a project resource.
     /// </summary>
+    [Obsolete(@"azure-native:devcenter/v20221012preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:Project to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devcenter/v20221012preview:Project")]
     public partial class Project : global::Pulumi.CustomResource
     {
@@ -92,7 +93,6 @@ namespace Pulumi.AzureNative.DevCenter.V20221012Preview
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:Project"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Project"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Project"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:Project"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

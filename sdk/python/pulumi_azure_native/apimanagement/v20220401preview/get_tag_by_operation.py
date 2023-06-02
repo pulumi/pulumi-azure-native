@@ -16,6 +16,8 @@ __all__ = [
     'get_tag_by_operation_output',
 ]
 
+warnings.warn("""azure-native:apimanagement/v20220401preview:TagByOperation is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:TagByOperation to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTagByOperationResult:
     """
@@ -96,6 +98,7 @@ def get_tag_by_operation(api_id: Optional[str] = None,
     :param str service_name: The name of the API Management service.
     :param str tag_id: Tag identifier. Must be unique in the current API Management service instance.
     """
+    pulumi.log.warn("""get_tag_by_operation is deprecated: azure-native:apimanagement/v20220401preview:TagByOperation is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:TagByOperation to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['operationId'] = operation_id
@@ -129,4 +132,5 @@ def get_tag_by_operation_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str service_name: The name of the API Management service.
     :param str tag_id: Tag identifier. Must be unique in the current API Management service instance.
     """
+    pulumi.log.warn("""get_tag_by_operation is deprecated: azure-native:apimanagement/v20220401preview:TagByOperation is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:TagByOperation to guarantee forwards compatibility.""")
     ...

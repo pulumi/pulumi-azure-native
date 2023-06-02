@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the backend specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20211201preview:Backend is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Backend to guarantee forwards compatibility. */
 export function getBackend(args: GetBackendArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendResult> {
+    pulumi.log.warn("getBackend is deprecated: azure-native:apimanagement/v20211201preview:Backend is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Backend to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20211201preview:getBackend", {
@@ -91,6 +93,7 @@ export interface GetBackendResult {
 /**
  * Gets the details of the backend specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20211201preview:Backend is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Backend to guarantee forwards compatibility. */
 export function getBackendOutput(args: GetBackendOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendResult> {
     return pulumi.output(args).apply((a: any) => getBackend(a, opts))
 }

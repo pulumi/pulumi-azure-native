@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns the developer portal's content item specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20210101preview:ContentItem is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ContentItem to guarantee forwards compatibility. */
 export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOptions): Promise<GetContentItemResult> {
+    pulumi.log.warn("getContentItem is deprecated: azure-native:apimanagement/v20210101preview:ContentItem is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ContentItem to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210101preview:getContentItem", {
@@ -61,6 +63,7 @@ export interface GetContentItemResult {
 /**
  * Returns the developer portal's content item specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20210101preview:ContentItem is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ContentItem to guarantee forwards compatibility. */
 export function getContentItemOutput(args: GetContentItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentItemResult> {
     return pulumi.output(args).apply((a: any) => getContentItem(a, opts))
 }

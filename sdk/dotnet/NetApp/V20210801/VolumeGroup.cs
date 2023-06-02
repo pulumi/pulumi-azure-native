@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.NetApp.V20210801
     /// <summary>
     /// Volume group resource for create
     /// </summary>
+    [Obsolete(@"azure-native:netapp/v20210801:VolumeGroup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20211001:VolumeGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:netapp/v20210801:VolumeGroup")]
     public partial class VolumeGroup : global::Pulumi.CustomResource
     {

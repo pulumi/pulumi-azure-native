@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Insights.V20210901Preview
     /// <summary>
     /// Definition of generic ARM proxy resource.
     /// </summary>
+    [Obsolete(@"azure-native:insights/v20210901preview:DataCollectionRuleAssociation is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220601:DataCollectionRuleAssociation to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:insights/v20210901preview:DataCollectionRuleAssociation")]
     public partial class DataCollectionRuleAssociation : global::Pulumi.CustomResource
     {

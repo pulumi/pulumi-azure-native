@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Network.V20180301
     /// <summary>
     /// Class representing a Traffic Manager endpoint.
     /// </summary>
-    [Obsolete(@"Version 2018-03-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-03-01 will be removed in v2 of the provider.
+azure-native:network/v20180301:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:Endpoint to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20180301:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource
     {

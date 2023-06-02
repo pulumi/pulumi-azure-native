@@ -17,6 +17,8 @@ __all__ = [
     'get_replica_output',
 ]
 
+warnings.warn("""azure-native:appconfiguration/v20220301preview:Replica is being removed in the next major version of this provider. Please upgrade to azure-native:appconfiguration/v20230301:Replica to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReplicaResult:
     """
@@ -129,6 +131,7 @@ def get_replica(config_store_name: Optional[str] = None,
     :param str replica_name: The name of the replica.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("""get_replica is deprecated: azure-native:appconfiguration/v20220301preview:Replica is being removed in the next major version of this provider. Please upgrade to azure-native:appconfiguration/v20230301:Replica to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['configStoreName'] = config_store_name
     __args__['replicaName'] = replica_name
@@ -159,4 +162,5 @@ def get_replica_output(config_store_name: Optional[pulumi.Input[str]] = None,
     :param str replica_name: The name of the replica.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("""get_replica is deprecated: azure-native:appconfiguration/v20220301preview:Replica is being removed in the next major version of this provider. Please upgrade to azure-native:appconfiguration/v20230301:Replica to guarantee forwards compatibility.""")
     ...

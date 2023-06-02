@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20190601Preview
 {
+    [Obsolete(@"azure-native:sql/v20190601preview:Server is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:Server to guarantee forwards compatibility.")]
     public static class GetServer
     {
         /// <summary>

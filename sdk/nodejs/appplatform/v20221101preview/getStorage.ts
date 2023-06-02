@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the storage resource.
  */
+/** @deprecated azure-native:appplatform/v20221101preview:Storage is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility. */
 export function getStorage(args: GetStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageResult> {
+    pulumi.log.warn("getStorage is deprecated: azure-native:appplatform/v20221101preview:Storage is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20221101preview:getStorage", {
@@ -63,6 +65,7 @@ export interface GetStorageResult {
 /**
  * Get the storage resource.
  */
+/** @deprecated azure-native:appplatform/v20221101preview:Storage is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility. */
 export function getStorageOutput(args: GetStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageResult> {
     return pulumi.output(args).apply((a: any) => getStorage(a, opts))
 }

@@ -130,7 +130,12 @@ class PeriodicTimerEventTriggerArgs:
         pulumi.set(self, "name", value)
 
 
+warnings.warn("""azure-native:databoxedge/v20220301:PeriodicTimerEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:PeriodicTimerEventTrigger to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class PeriodicTimerEventTrigger(pulumi.CustomResource):
+    warnings.warn("""azure-native:databoxedge/v20220301:PeriodicTimerEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:PeriodicTimerEventTrigger to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -189,6 +194,7 @@ class PeriodicTimerEventTrigger(pulumi.CustomResource):
                  sink_info: Optional[pulumi.Input[pulumi.InputType['RoleSinkInfoArgs']]] = None,
                  source_info: Optional[pulumi.Input[pulumi.InputType['PeriodicTimerSourceInfoArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""PeriodicTimerEventTrigger is deprecated: azure-native:databoxedge/v20220301:PeriodicTimerEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:PeriodicTimerEventTrigger to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

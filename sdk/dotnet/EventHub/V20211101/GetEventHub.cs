@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.EventHub.V20211101
 {
+    [Obsolete(@"azure-native:eventhub/v20211101:EventHub is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:EventHub to guarantee forwards compatibility.")]
     public static class GetEventHub
     {
         /// <summary>

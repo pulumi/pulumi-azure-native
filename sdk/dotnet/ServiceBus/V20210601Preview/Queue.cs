@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
     /// <summary>
     /// Description of queue Resource.
     /// </summary>
+    [Obsolete(@"azure-native:servicebus/v20210601preview:Queue is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:Queue to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicebus/v20210601preview:Queue")]
     public partial class Queue : global::Pulumi.CustomResource
     {

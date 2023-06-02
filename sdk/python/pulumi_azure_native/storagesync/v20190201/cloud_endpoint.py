@@ -128,11 +128,13 @@ class CloudEndpointArgs:
         pulumi.set(self, "storage_account_tenant_id", value)
 
 
-warnings.warn("""Version 2019-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-02-01 will be removed in v2 of the provider.
+azure-native:storagesync/v20190201:CloudEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class CloudEndpoint(pulumi.CustomResource):
-    warnings.warn("""Version 2019-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2019-02-01 will be removed in v2 of the provider.
+azure-native:storagesync/v20190201:CloudEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -191,7 +193,8 @@ class CloudEndpoint(pulumi.CustomResource):
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                  sync_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""CloudEndpoint is deprecated: Version 2019-02-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""CloudEndpoint is deprecated: Version 2019-02-01 will be removed in v2 of the provider.
+azure-native:storagesync/v20190201:CloudEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

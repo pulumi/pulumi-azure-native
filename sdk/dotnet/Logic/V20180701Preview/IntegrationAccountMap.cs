@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
     /// <summary>
     /// The integration account map.
     /// </summary>
+    [Obsolete(@"azure-native:logic/v20180701preview:IntegrationAccountMap is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountMap to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:logic/v20180701preview:IntegrationAccountMap")]
     public partial class IntegrationAccountMap : global::Pulumi.CustomResource
     {

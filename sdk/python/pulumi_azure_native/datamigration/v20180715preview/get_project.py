@@ -17,6 +17,8 @@ __all__ = [
     'get_project_output',
 ]
 
+warnings.warn("""azure-native:datamigration/v20180715preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20210630:Project to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProjectResult:
     """
@@ -189,6 +191,7 @@ def get_project(group_name: Optional[str] = None,
     :param str project_name: Name of the project
     :param str service_name: Name of the service
     """
+    pulumi.log.warn("""get_project is deprecated: azure-native:datamigration/v20180715preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20210630:Project to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['groupName'] = group_name
     __args__['projectName'] = project_name
@@ -224,4 +227,5 @@ def get_project_output(group_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: Name of the project
     :param str service_name: Name of the service
     """
+    pulumi.log.warn("""get_project is deprecated: azure-native:datamigration/v20180715preview:Project is being removed in the next major version of this provider. Please upgrade to azure-native:datamigration/v20210630:Project to guarantee forwards compatibility.""")
     ...

@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
  */
-/** @deprecated Version 2020-10-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-10-01 will be removed in v2 of the provider.
+azure-native:peering/v20201001:RegisteredAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:RegisteredAsn to guarantee forwards compatibility. */
 export function getRegisteredAsn(args: GetRegisteredAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredAsnResult> {
-    pulumi.log.warn("getRegisteredAsn is deprecated: Version 2020-10-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getRegisteredAsn is deprecated: Version 2020-10-01 will be removed in v2 of the provider.\nazure-native:peering/v20201001:RegisteredAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:RegisteredAsn to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering/v20201001:getRegisteredAsn", {
@@ -66,7 +67,8 @@ export interface GetRegisteredAsnResult {
 /**
  * Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
  */
-/** @deprecated Version 2020-10-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2020-10-01 will be removed in v2 of the provider.
+azure-native:peering/v20201001:RegisteredAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:RegisteredAsn to guarantee forwards compatibility. */
 export function getRegisteredAsnOutput(args: GetRegisteredAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredAsnResult> {
     return pulumi.output(args).apply((a: any) => getRegisteredAsn(a, opts))
 }

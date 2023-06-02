@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
  */
+/** @deprecated azure-native:peering/v20220601:ConnectionMonitorTest is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:ConnectionMonitorTest to guarantee forwards compatibility. */
 export function getConnectionMonitorTest(args: GetConnectionMonitorTestArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorTestResult> {
+    pulumi.log.warn("getConnectionMonitorTest is deprecated: azure-native:peering/v20220601:ConnectionMonitorTest is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:ConnectionMonitorTest to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering/v20220601:getConnectionMonitorTest", {
@@ -80,6 +82,7 @@ export interface GetConnectionMonitorTestResult {
 /**
  * Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
  */
+/** @deprecated azure-native:peering/v20220601:ConnectionMonitorTest is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:ConnectionMonitorTest to guarantee forwards compatibility. */
 export function getConnectionMonitorTestOutput(args: GetConnectionMonitorTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorTestResult> {
     return pulumi.output(args).apply((a: any) => getConnectionMonitorTest(a, opts))
 }

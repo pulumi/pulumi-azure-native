@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DBforMySQL.V20210501
 {
+    [Obsolete(@"azure-native:dbformysql/v20210501:Server is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20220101:Server to guarantee forwards compatibility.")]
     public static class GetServer
     {
         /// <summary>

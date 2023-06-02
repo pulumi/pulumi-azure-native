@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
     /// <summary>
     /// Represents a server.
     /// </summary>
+    [Obsolete(@"azure-native:dbformysql/v20211201preview:Server is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20220101:Server to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbformysql/v20211201preview:Server")]
     public partial class Server : global::Pulumi.CustomResource
     {

@@ -16,7 +16,8 @@ __all__ = [
     'get_view_output',
 ]
 
-warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:View is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:View to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetViewResult:
@@ -168,7 +169,8 @@ def get_view(hub_name: Optional[str] = None,
     :param str user_id: The user ID. Use * to retrieve hub level view.
     :param str view_name: The name of the view.
     """
-    pulumi.log.warn("""get_view is deprecated: Version 2017-01-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_view is deprecated: Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:View is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:View to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['resourceGroupName'] = resource_group_name
@@ -205,5 +207,6 @@ def get_view_output(hub_name: Optional[pulumi.Input[str]] = None,
     :param str user_id: The user ID. Use * to retrieve hub level view.
     :param str view_name: The name of the view.
     """
-    pulumi.log.warn("""get_view is deprecated: Version 2017-01-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_view is deprecated: Version 2017-01-01 will be removed in v2 of the provider.
+azure-native:customerinsights/v20170101:View is being removed in the next major version of this provider. Please upgrade to azure-native:customerinsights/v20170426:View to guarantee forwards compatibility.""")
     ...

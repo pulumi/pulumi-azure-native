@@ -17,6 +17,8 @@ __all__ = [
     'get_iot_connector_output',
 ]
 
+warnings.warn("""azure-native:healthcareapis/v20210601preview:IotConnector is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:IotConnector to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIotConnectorResult:
     """
@@ -177,6 +179,7 @@ def get_iot_connector(iot_connector_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str workspace_name: The name of workspace resource.
     """
+    pulumi.log.warn("""get_iot_connector is deprecated: azure-native:healthcareapis/v20210601preview:IotConnector is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:IotConnector to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['iotConnectorName'] = iot_connector_name
     __args__['resourceGroupName'] = resource_group_name
@@ -211,4 +214,5 @@ def get_iot_connector_output(iot_connector_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str workspace_name: The name of workspace resource.
     """
+    pulumi.log.warn("""get_iot_connector is deprecated: azure-native:healthcareapis/v20210601preview:IotConnector is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:IotConnector to guarantee forwards compatibility.""")
     ...

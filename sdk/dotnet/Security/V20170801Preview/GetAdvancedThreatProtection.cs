@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Security.V20170801Preview
 {
+    [Obsolete(@"azure-native:security/v20170801preview:AdvancedThreatProtection is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190101:AdvancedThreatProtection to guarantee forwards compatibility.")]
     public static class GetAdvancedThreatProtection
     {
         /// <summary>

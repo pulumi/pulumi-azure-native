@@ -17,6 +17,8 @@ __all__ = [
     'get_monitor_output',
 ]
 
+warnings.warn("""azure-native:elastic/v20211001preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:elastic/v20220901preview:Monitor to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMonitorResult:
     """
@@ -151,6 +153,7 @@ def get_monitor(monitor_name: Optional[str] = None,
     :param str monitor_name: Monitor resource name
     :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
     """
+    pulumi.log.warn("""get_monitor is deprecated: azure-native:elastic/v20211001preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:elastic/v20220901preview:Monitor to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
@@ -180,4 +183,5 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
     :param str monitor_name: Monitor resource name
     :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
     """
+    pulumi.log.warn("""get_monitor is deprecated: azure-native:elastic/v20211001preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:elastic/v20220901preview:Monitor to guarantee forwards compatibility.""")
     ...

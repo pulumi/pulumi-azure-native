@@ -16,7 +16,8 @@ __all__ = [
     'get_storage_account_output',
 ]
 
-warnings.warn("""Version 2019-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-08-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20190801:StorageAccount is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20200501preview:StorageAccount to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetStorageAccountResult:
@@ -154,7 +155,8 @@ def get_storage_account(device_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str storage_account_name: The storage account name.
     """
-    pulumi.log.warn("""get_storage_account is deprecated: Version 2019-08-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_storage_account is deprecated: Version 2019-08-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20190801:StorageAccount is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20200501preview:StorageAccount to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
@@ -187,5 +189,6 @@ def get_storage_account_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name.
     :param str storage_account_name: The storage account name.
     """
-    pulumi.log.warn("""get_storage_account is deprecated: Version 2019-08-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_storage_account is deprecated: Version 2019-08-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20190801:StorageAccount is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20200501preview:StorageAccount to guarantee forwards compatibility.""")
     ...

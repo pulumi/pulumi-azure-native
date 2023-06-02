@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20180801
     /// <summary>
     /// Virtual Network resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20180801:VirtualNetwork is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:VirtualNetwork to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20180801:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource
     {

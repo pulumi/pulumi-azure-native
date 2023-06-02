@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20210125
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
     /// </summary>
+    [Obsolete(@"azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment")]
     public partial class GuestConfigurationHCRPAssignment : global::Pulumi.CustomResource
     {

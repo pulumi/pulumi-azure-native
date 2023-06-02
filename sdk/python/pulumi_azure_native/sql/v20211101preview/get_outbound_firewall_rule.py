@@ -16,6 +16,8 @@ __all__ = [
     'get_outbound_firewall_rule_output',
 ]
 
+warnings.warn("""azure-native:sql/v20211101preview:OutboundFirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:OutboundFirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetOutboundFirewallRuleResult:
     """
@@ -91,6 +93,7 @@ def get_outbound_firewall_rule(outbound_rule_fqdn: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("""get_outbound_firewall_rule is deprecated: azure-native:sql/v20211101preview:OutboundFirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:OutboundFirewallRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['outboundRuleFqdn'] = outbound_rule_fqdn
     __args__['resourceGroupName'] = resource_group_name
@@ -117,4 +120,5 @@ def get_outbound_firewall_rule_output(outbound_rule_fqdn: Optional[pulumi.Input[
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("""get_outbound_firewall_rule is deprecated: azure-native:sql/v20211101preview:OutboundFirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:OutboundFirewallRule to guarantee forwards compatibility.""")
     ...

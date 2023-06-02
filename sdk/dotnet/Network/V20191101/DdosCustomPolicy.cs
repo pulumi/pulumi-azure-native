@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20191101
     /// <summary>
     /// A DDoS custom policy in a resource group.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20191101:DdosCustomPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220101:DdosCustomPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20191101:DdosCustomPolicy")]
     public partial class DdosCustomPolicy : global::Pulumi.CustomResource
     {

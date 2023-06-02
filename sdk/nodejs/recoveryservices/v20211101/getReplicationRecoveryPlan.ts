@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the recovery plan.
  */
+/** @deprecated azure-native:recoveryservices/v20211101:ReplicationRecoveryPlan is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationRecoveryPlan to guarantee forwards compatibility. */
 export function getReplicationRecoveryPlan(args: GetReplicationRecoveryPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryPlanResult> {
+    pulumi.log.warn("getReplicationRecoveryPlan is deprecated: azure-native:recoveryservices/v20211101:ReplicationRecoveryPlan is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationRecoveryPlan to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20211101:getReplicationRecoveryPlan", {
@@ -63,6 +65,7 @@ export interface GetReplicationRecoveryPlanResult {
 /**
  * Gets the details of the recovery plan.
  */
+/** @deprecated azure-native:recoveryservices/v20211101:ReplicationRecoveryPlan is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationRecoveryPlan to guarantee forwards compatibility. */
 export function getReplicationRecoveryPlanOutput(args: GetReplicationRecoveryPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryPlanResult> {
     return pulumi.output(args).apply((a: any) => getReplicationRecoveryPlan(a, opts))
 }

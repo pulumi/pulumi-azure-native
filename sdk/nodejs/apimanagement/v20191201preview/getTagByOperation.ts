@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get tag associated with the Operation.
  */
+/** @deprecated azure-native:apimanagement/v20191201preview:TagByOperation is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:TagByOperation to guarantee forwards compatibility. */
 export function getTagByOperation(args: GetTagByOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetTagByOperationResult> {
+    pulumi.log.warn("getTagByOperation is deprecated: azure-native:apimanagement/v20191201preview:TagByOperation is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:TagByOperation to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201preview:getTagByOperation", {
@@ -66,6 +68,7 @@ export interface GetTagByOperationResult {
 /**
  * Get tag associated with the Operation.
  */
+/** @deprecated azure-native:apimanagement/v20191201preview:TagByOperation is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:TagByOperation to guarantee forwards compatibility. */
 export function getTagByOperationOutput(args: GetTagByOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByOperationResult> {
     return pulumi.output(args).apply((a: any) => getTagByOperation(a, opts))
 }

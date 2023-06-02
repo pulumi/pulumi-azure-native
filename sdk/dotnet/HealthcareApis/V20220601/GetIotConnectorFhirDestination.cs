@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HealthcareApis.V20220601
 {
+    [Obsolete(@"azure-native:healthcareapis/v20220601:IotConnectorFhirDestination is being removed in the next major version of this provider. Please upgrade to azure-native:healthcareapis/v20221201:IotConnectorFhirDestination to guarantee forwards compatibility.")]
     public static class GetIotConnectorFhirDestination
     {
         /// <summary>

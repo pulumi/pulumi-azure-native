@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20190201
 {
+    [Obsolete(@"azure-native:network/v20190201:VirtualNetworkGatewayConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:VirtualNetworkGatewayConnection to guarantee forwards compatibility.")]
     public static class GetVirtualNetworkGatewayConnection
     {
         /// <summary>

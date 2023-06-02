@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the sku details for the given resource type and sku name.
  */
+/** @deprecated azure-native:providerhub/v20210501preview:Skus is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:Skus to guarantee forwards compatibility. */
 export function getSkus(args: GetSkusArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusResult> {
+    pulumi.log.warn("getSkus is deprecated: azure-native:providerhub/v20210501preview:Skus is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:Skus to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub/v20210501preview:getSkus", {
@@ -53,6 +55,7 @@ export interface GetSkusResult {
 /**
  * Gets the sku details for the given resource type and sku name.
  */
+/** @deprecated azure-native:providerhub/v20210501preview:Skus is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:Skus to guarantee forwards compatibility. */
 export function getSkusOutput(args: GetSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusResult> {
     return pulumi.output(args).apply((a: any) => getSkus(a, opts))
 }

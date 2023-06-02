@@ -17,7 +17,8 @@ __all__ = [
     'get_disk_output',
 ]
 
-warnings.warn("""Version 2019-11-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-11-01 will be removed in v2 of the provider.
+azure-native:compute/v20191101:Disk is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:Disk to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDiskResult:
@@ -357,7 +358,8 @@ def get_disk(disk_name: Optional[str] = None,
     :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_disk is deprecated: Version 2019-11-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_disk is deprecated: Version 2019-11-01 will be removed in v2 of the provider.
+azure-native:compute/v20191101:Disk is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:Disk to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['diskName'] = disk_name
     __args__['resourceGroupName'] = resource_group_name
@@ -404,5 +406,6 @@ def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
     :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_disk is deprecated: Version 2019-11-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_disk is deprecated: Version 2019-11-01 will be removed in v2 of the provider.
+azure-native:compute/v20191101:Disk is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220702:Disk to guarantee forwards compatibility.""")
     ...

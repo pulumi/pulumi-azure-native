@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Kusto cluster.
  */
+/** @deprecated azure-native:kusto/v20191109:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20220707:Cluster to guarantee forwards compatibility. */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
+    pulumi.log.warn("getCluster is deprecated: azure-native:kusto/v20191109:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20220707:Cluster to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20191109:getCluster", {
@@ -114,6 +116,7 @@ export interface GetClusterResult {
 /**
  * Gets a Kusto cluster.
  */
+/** @deprecated azure-native:kusto/v20191109:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20220707:Cluster to guarantee forwards compatibility. */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }

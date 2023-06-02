@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20190801
     /// <summary>
     /// Virtual Network route contract used to pass routing information for a Virtual Network.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20190801:AppServicePlanRouteForVnet is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:AppServicePlanRouteForVnet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20190801:AppServicePlanRouteForVnet")]
     public partial class AppServicePlanRouteForVnet : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
     /// <summary>
     /// An Azure Cosmos DB Graph resource.
     /// </summary>
+    [Obsolete(@"azure-native:documentdb/v20211115preview:GraphResourceGraph is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:GraphResourceGraph to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20211115preview:GraphResourceGraph")]
     public partial class GraphResourceGraph : global::Pulumi.CustomResource
     {

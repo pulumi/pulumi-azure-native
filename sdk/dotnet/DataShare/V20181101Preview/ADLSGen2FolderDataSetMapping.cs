@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     /// <summary>
     /// An ADLS Gen2 folder data set mapping.
     /// </summary>
+    [Obsolete(@"azure-native:datashare/v20181101preview:ADLSGen2FolderDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datashare/v20181101preview:ADLSGen2FolderDataSetMapping")]
     public partial class ADLSGen2FolderDataSetMapping : global::Pulumi.CustomResource
     {

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified authorization from the specified express route circuit.
  */
+/** @deprecated azure-native:network/v20220701:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteCircuitAuthorization to guarantee forwards compatibility. */
 export function getExpressRouteCircuitAuthorization(args: GetExpressRouteCircuitAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitAuthorizationResult> {
+    pulumi.log.warn("getExpressRouteCircuitAuthorization is deprecated: azure-native:network/v20220701:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteCircuitAuthorization to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220701:getExpressRouteCircuitAuthorization", {
@@ -68,6 +70,7 @@ export interface GetExpressRouteCircuitAuthorizationResult {
 /**
  * Gets the specified authorization from the specified express route circuit.
  */
+/** @deprecated azure-native:network/v20220701:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteCircuitAuthorization to guarantee forwards compatibility. */
 export function getExpressRouteCircuitAuthorizationOutput(args: GetExpressRouteCircuitAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitAuthorizationResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCircuitAuthorization(a, opts))
 }

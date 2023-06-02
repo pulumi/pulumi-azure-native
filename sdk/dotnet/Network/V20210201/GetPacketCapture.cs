@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20210201
 {
+    [Obsolete(@"azure-native:network/v20210201:PacketCapture is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:PacketCapture to guarantee forwards compatibility.")]
     public static class GetPacketCapture
     {
         /// <summary>

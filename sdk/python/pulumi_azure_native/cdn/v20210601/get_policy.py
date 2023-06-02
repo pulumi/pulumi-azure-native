@@ -17,6 +17,8 @@ __all__ = [
     'get_policy_output',
 ]
 
+warnings.warn("""azure-native:cdn/v20210601:Policy is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Policy to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPolicyResult:
     """
@@ -220,6 +222,7 @@ def get_policy(policy_name: Optional[str] = None,
     :param str policy_name: The name of the CdnWebApplicationFirewallPolicy.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_policy is deprecated: azure-native:cdn/v20210601:Policy is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Policy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['policyName'] = policy_name
     __args__['resourceGroupName'] = resource_group_name
@@ -255,4 +258,5 @@ def get_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
     :param str policy_name: The name of the CdnWebApplicationFirewallPolicy.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_policy is deprecated: azure-native:cdn/v20210601:Policy is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Policy to guarantee forwards compatibility.""")
     ...

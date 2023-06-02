@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Workloads.V20221101Preview
     /// <summary>
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
     /// </summary>
+    [Obsolete(@"azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:monitor to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:workloads/v20221101preview:monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
     {

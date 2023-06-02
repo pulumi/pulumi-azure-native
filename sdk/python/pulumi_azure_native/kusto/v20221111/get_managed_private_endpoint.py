@@ -17,6 +17,8 @@ __all__ = [
     'get_managed_private_endpoint_output',
 ]
 
+warnings.warn("""azure-native:kusto/v20221111:ManagedPrivateEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ManagedPrivateEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagedPrivateEndpointResult:
     """
@@ -153,6 +155,7 @@ def get_managed_private_endpoint(cluster_name: Optional[str] = None,
     :param str managed_private_endpoint_name: The name of the managed private endpoint.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
+    pulumi.log.warn("""get_managed_private_endpoint is deprecated: azure-native:kusto/v20221111:ManagedPrivateEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ManagedPrivateEndpoint to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['managedPrivateEndpointName'] = managed_private_endpoint_name
@@ -185,4 +188,5 @@ def get_managed_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]
     :param str managed_private_endpoint_name: The name of the managed private endpoint.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
+    pulumi.log.warn("""get_managed_private_endpoint is deprecated: azure-native:kusto/v20221111:ManagedPrivateEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ManagedPrivateEndpoint to guarantee forwards compatibility.""")
     ...

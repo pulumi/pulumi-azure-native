@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a setting.
  */
+/** @deprecated azure-native:securityinsights/v20190101preview:Ueba is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:Ueba to guarantee forwards compatibility. */
 export function getUeba(args: GetUebaArgs, opts?: pulumi.InvokeOptions): Promise<GetUebaResult> {
+    pulumi.log.warn("getUeba is deprecated: azure-native:securityinsights/v20190101preview:Ueba is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:Ueba to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getUeba", {
@@ -70,6 +72,7 @@ export interface GetUebaResult {
 /**
  * Gets a setting.
  */
+/** @deprecated azure-native:securityinsights/v20190101preview:Ueba is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:Ueba to guarantee forwards compatibility. */
 export function getUebaOutput(args: GetUebaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUebaResult> {
     return pulumi.output(args).apply((a: any) => getUeba(a, opts))
 }

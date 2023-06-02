@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20220301:WebAppSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20220301:WebAppSlot")]
     public partial class WebAppSlot : global::Pulumi.CustomResource
     {

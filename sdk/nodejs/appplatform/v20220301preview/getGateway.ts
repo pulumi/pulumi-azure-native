@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the Spring Cloud Gateway and its properties.
  */
+/** @deprecated azure-native:appplatform/v20220301preview:Gateway is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Gateway to guarantee forwards compatibility. */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
+    pulumi.log.warn("getGateway is deprecated: azure-native:appplatform/v20220301preview:Gateway is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Gateway to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220301preview:getGateway", {
@@ -67,6 +69,7 @@ export interface GetGatewayResult {
 /**
  * Get the Spring Cloud Gateway and its properties.
  */
+/** @deprecated azure-native:appplatform/v20220301preview:Gateway is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Gateway to guarantee forwards compatibility. */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
     return pulumi.output(args).apply((a: any) => getGateway(a, opts))
 }

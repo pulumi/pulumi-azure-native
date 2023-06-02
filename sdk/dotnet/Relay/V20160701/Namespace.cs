@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Relay.V20160701
     /// <summary>
     /// Description of a Namespace resource.
     /// </summary>
-    [Obsolete(@"Version 2016-07-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2016-07-01 will be removed in v2 of the provider.
+azure-native:relay/v20160701:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:relay/v20211101:Namespace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:relay/v20160701:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
     {

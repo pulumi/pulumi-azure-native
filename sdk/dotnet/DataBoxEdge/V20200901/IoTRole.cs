@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
     /// <summary>
     /// Compute role.
     /// </summary>
+    [Obsolete(@"azure-native:databoxedge/v20200901:IoTRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:IoTRole to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20200901:IoTRole")]
     public partial class IoTRole : global::Pulumi.CustomResource
     {

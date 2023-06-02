@@ -17,6 +17,8 @@ __all__ = [
     'get_workspace_output',
 ]
 
+warnings.warn("""azure-native:synapse/v20210601:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:Workspace to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWorkspaceResult:
     """
@@ -355,6 +357,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_workspace is deprecated: azure-native:synapse/v20210601:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:Workspace to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
@@ -401,4 +404,5 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_workspace is deprecated: azure-native:synapse/v20210601:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:Workspace to guarantee forwards compatibility.""")
     ...

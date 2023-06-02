@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20220103
 {
+    [Obsolete(@"azure-native:compute/v20220103:GalleryApplication is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20220303:GalleryApplication to guarantee forwards compatibility.")]
     public static class GetGalleryApplication
     {
         /// <summary>

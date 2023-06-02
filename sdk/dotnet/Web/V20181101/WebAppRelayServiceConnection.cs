@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20181101
     /// <summary>
     /// Hybrid Connection for an App Service app.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20181101:WebAppRelayServiceConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppRelayServiceConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20181101:WebAppRelayServiceConnection")]
     public partial class WebAppRelayServiceConnection : global::Pulumi.CustomResource
     {

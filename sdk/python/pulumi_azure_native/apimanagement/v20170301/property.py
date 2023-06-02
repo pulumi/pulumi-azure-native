@@ -127,7 +127,12 @@ class PropertyArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:apimanagement/v20170301:Property is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20190101:Property to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Property(pulumi.CustomResource):
+    warnings.warn("""azure-native:apimanagement/v20170301:Property is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20190101:Property to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -185,6 +190,7 @@ class Property(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Property is deprecated: azure-native:apimanagement/v20170301:Property is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20190101:Property to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

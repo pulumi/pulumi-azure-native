@@ -16,6 +16,8 @@ __all__ = [
     'get_snapshot_output',
 ]
 
+warnings.warn("""azure-native:netapp/v20220501:Snapshot is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Snapshot to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSnapshotResult:
     """
@@ -132,6 +134,7 @@ def get_snapshot(account_name: Optional[str] = None,
     :param str snapshot_name: The name of the snapshot
     :param str volume_name: The name of the volume
     """
+    pulumi.log.warn("""get_snapshot is deprecated: azure-native:netapp/v20220501:Snapshot is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Snapshot to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['poolName'] = pool_name
@@ -168,4 +171,5 @@ def get_snapshot_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str snapshot_name: The name of the snapshot
     :param str volume_name: The name of the volume
     """
+    pulumi.log.warn("""get_snapshot is deprecated: azure-native:netapp/v20220501:Snapshot is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Snapshot to guarantee forwards compatibility.""")
     ...

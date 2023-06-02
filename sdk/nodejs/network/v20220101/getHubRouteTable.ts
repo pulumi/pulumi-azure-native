@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a RouteTable.
  */
+/** @deprecated azure-native:network/v20220101:HubRouteTable is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:HubRouteTable to guarantee forwards compatibility. */
 export function getHubRouteTable(args: GetHubRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetHubRouteTableResult> {
+    pulumi.log.warn("getHubRouteTable is deprecated: azure-native:network/v20220101:HubRouteTable is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:HubRouteTable to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220101:getHubRouteTable", {
@@ -79,6 +81,7 @@ export interface GetHubRouteTableResult {
 /**
  * Retrieves the details of a RouteTable.
  */
+/** @deprecated azure-native:network/v20220101:HubRouteTable is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:HubRouteTable to guarantee forwards compatibility. */
 export function getHubRouteTableOutput(args: GetHubRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubRouteTableResult> {
     return pulumi.output(args).apply((a: any) => getHubRouteTable(a, opts))
 }

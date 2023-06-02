@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Search.V20200801Preview
 {
+    [Obsolete(@"azure-native:search/v20200801preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:search/v20210401preview:Service to guarantee forwards compatibility.")]
     public static class GetService
     {
         /// <summary>

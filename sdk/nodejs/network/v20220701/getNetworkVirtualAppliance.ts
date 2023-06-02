@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Network Virtual Appliance.
  */
+/** @deprecated azure-native:network/v20220701:NetworkVirtualAppliance is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NetworkVirtualAppliance to guarantee forwards compatibility. */
 export function getNetworkVirtualAppliance(args: GetNetworkVirtualApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceResult> {
+    pulumi.log.warn("getNetworkVirtualAppliance is deprecated: azure-native:network/v20220701:NetworkVirtualAppliance is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NetworkVirtualAppliance to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220701:getNetworkVirtualAppliance", {
@@ -131,6 +133,7 @@ export interface GetNetworkVirtualApplianceResult {
 /**
  * Gets the specified Network Virtual Appliance.
  */
+/** @deprecated azure-native:network/v20220701:NetworkVirtualAppliance is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NetworkVirtualAppliance to guarantee forwards compatibility. */
 export function getNetworkVirtualApplianceOutput(args: GetNetworkVirtualApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkVirtualApplianceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkVirtualAppliance(a, opts))
 }

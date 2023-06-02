@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
     /// <summary>
     /// Distributed availability group between box and Sql Managed Instance.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20220201preview:DistributedAvailabilityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:DistributedAvailabilityGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20220201preview:DistributedAvailabilityGroup")]
     public partial class DistributedAvailabilityGroup : global::Pulumi.CustomResource
     {

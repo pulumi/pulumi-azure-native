@@ -17,6 +17,8 @@ __all__ = [
     'get_virtual_network_link_output',
 ]
 
+warnings.warn("""azure-native:network/v20200101:VirtualNetworkLink is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401preview:VirtualNetworkLink to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualNetworkLinkResult:
     """
@@ -165,6 +167,7 @@ def get_virtual_network_link(private_zone_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_link_name: The name of the virtual network link.
     """
+    pulumi.log.warn("""get_virtual_network_link is deprecated: azure-native:network/v20200101:VirtualNetworkLink is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401preview:VirtualNetworkLink to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateZoneName'] = private_zone_name
     __args__['resourceGroupName'] = resource_group_name
@@ -198,4 +201,5 @@ def get_virtual_network_link_output(private_zone_name: Optional[pulumi.Input[str
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_link_name: The name of the virtual network link.
     """
+    pulumi.log.warn("""get_virtual_network_link is deprecated: azure-native:network/v20200101:VirtualNetworkLink is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20200401preview:VirtualNetworkLink to guarantee forwards compatibility.""")
     ...

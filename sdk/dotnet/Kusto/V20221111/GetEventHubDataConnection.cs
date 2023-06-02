@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Kusto.V20221111
 {
+    [Obsolete(@"azure-native:kusto/v20221111:EventHubDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:EventHubDataConnection to guarantee forwards compatibility.")]
     public static class GetEventHubDataConnection
     {
         /// <summary>

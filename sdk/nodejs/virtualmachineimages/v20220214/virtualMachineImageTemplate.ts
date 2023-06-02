@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+ *
+ * @deprecated azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.
  */
 export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineImageTemplate {
+        pulumi.log.warn("VirtualMachineImageTemplate is deprecated: azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.")
         return new VirtualMachineImageTemplate(name, undefined as any, { ...opts, id: id });
     }
 
@@ -113,7 +116,9 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility. */
     constructor(name: string, args: VirtualMachineImageTemplateArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualMachineImageTemplate is deprecated: azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

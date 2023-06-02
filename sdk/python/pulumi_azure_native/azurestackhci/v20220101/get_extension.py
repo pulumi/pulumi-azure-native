@@ -17,6 +17,8 @@ __all__ = [
     'get_extension_output',
 ]
 
+warnings.warn("""azure-native:azurestackhci/v20220101:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20221001:Extension to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExtensionResult:
     """
@@ -263,6 +265,7 @@ def get_extension(arc_setting_name: Optional[str] = None,
     :param str extension_name: The name of the machine extension.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_extension is deprecated: azure-native:azurestackhci/v20220101:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20221001:Extension to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['arcSettingName'] = arc_setting_name
     __args__['clusterName'] = cluster_name
@@ -307,4 +310,5 @@ def get_extension_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
     :param str extension_name: The name of the machine extension.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_extension is deprecated: azure-native:azurestackhci/v20220101:Extension is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20221001:Extension to guarantee forwards compatibility.""")
     ...

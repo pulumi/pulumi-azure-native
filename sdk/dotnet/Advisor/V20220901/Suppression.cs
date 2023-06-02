@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Advisor.V20220901
     /// <summary>
     /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
     /// </summary>
+    [Obsolete(@"azure-native:advisor/v20220901:Suppression is being removed in the next major version of this provider. Please upgrade to azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:advisor/v20220901:Suppression")]
     public partial class Suppression : global::Pulumi.CustomResource
     {

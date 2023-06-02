@@ -102,11 +102,13 @@ class PeerAsnArgs:
         pulumi.set(self, "validation_state", value)
 
 
-warnings.warn("""Version 2020-01-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-01-01-preview will be removed in v2 of the provider.
+azure-native:peering/v20200101preview:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class PeerAsn(pulumi.CustomResource):
-    warnings.warn("""Version 2020-01-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2020-01-01-preview will be removed in v2 of the provider.
+azure-native:peering/v20200101preview:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -159,7 +161,8 @@ class PeerAsn(pulumi.CustomResource):
                  peer_name: Optional[pulumi.Input[str]] = None,
                  validation_state: Optional[pulumi.Input[Union[str, 'ValidationState']]] = None,
                  __props__=None):
-        pulumi.log.warn("""PeerAsn is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""PeerAsn is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.
+azure-native:peering/v20200101preview:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20210101:PeerAsn to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

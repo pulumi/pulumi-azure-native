@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
  */
+/** @deprecated azure-native:documentdb/v20220815:MongoDBResourceMongoUserDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:MongoDBResourceMongoUserDefinition to guarantee forwards compatibility. */
 export function getMongoDBResourceMongoUserDefinition(args: GetMongoDBResourceMongoUserDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoUserDefinitionResult> {
+    pulumi.log.warn("getMongoDBResourceMongoUserDefinition is deprecated: azure-native:documentdb/v20220815:MongoDBResourceMongoUserDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:MongoDBResourceMongoUserDefinition to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20220815:getMongoDBResourceMongoUserDefinition", {
@@ -79,6 +81,7 @@ export interface GetMongoDBResourceMongoUserDefinitionResult {
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
  */
+/** @deprecated azure-native:documentdb/v20220815:MongoDBResourceMongoUserDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:MongoDBResourceMongoUserDefinition to guarantee forwards compatibility. */
 export function getMongoDBResourceMongoUserDefinitionOutput(args: GetMongoDBResourceMongoUserDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoUserDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getMongoDBResourceMongoUserDefinition(a, opts))
 }

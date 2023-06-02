@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.TestBase.V20201216Preview
 {
-    [Obsolete(@"Version 2020-12-16-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-12-16-preview will be removed in v2 of the provider.
+azure-native:testbase/v20201216preview:CustomerEvent is being removed in the next major version of this provider. Please upgrade to azure-native:testbase/v20220401preview:CustomerEvent to guarantee forwards compatibility.")]
     public static class GetCustomerEvent
     {
         /// <summary>

@@ -17,6 +17,8 @@ __all__ = [
     'get_activity_custom_entity_query_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20230201preview:ActivityCustomEntityQuery is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:ActivityCustomEntityQuery to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetActivityCustomEntityQueryResult:
     """
@@ -250,6 +252,7 @@ def get_activity_custom_entity_query(entity_query_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_activity_custom_entity_query is deprecated: azure-native:securityinsights/v20230201preview:ActivityCustomEntityQuery is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:ActivityCustomEntityQuery to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['entityQueryId'] = entity_query_id
     __args__['resourceGroupName'] = resource_group_name
@@ -290,4 +293,5 @@ def get_activity_custom_entity_query_output(entity_query_id: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_activity_custom_entity_query is deprecated: azure-native:securityinsights/v20230201preview:ActivityCustomEntityQuery is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:ActivityCustomEntityQuery to guarantee forwards compatibility.""")
     ...

@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20150615
 {
-    [Obsolete(@"Version 2015-06-15 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2015-06-15 will be removed in v2 of the provider.
+azure-native:network/v20150615:PublicIPAddress is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20160330:PublicIPAddress to guarantee forwards compatibility.")]
     public static class GetPublicIPAddress
     {
         /// <summary>

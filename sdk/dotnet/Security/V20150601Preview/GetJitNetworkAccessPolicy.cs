@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Security.V20150601Preview
 {
-    [Obsolete(@"Version 2015-06-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2015-06-01-preview will be removed in v2 of the provider.
+azure-native:security/v20150601preview:JitNetworkAccessPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20200101:JitNetworkAccessPolicy to guarantee forwards compatibility.")]
     public static class GetJitNetworkAccessPolicy
     {
         /// <summary>

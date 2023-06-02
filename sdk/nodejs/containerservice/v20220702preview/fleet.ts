@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The Fleet resource which contains multiple Kubernetes clusters as its members.
+ *
+ * @deprecated azure-native:containerservice/v20220702preview:Fleet is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20220902preview:Fleet to guarantee forwards compatibility.
  */
 export class Fleet extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Fleet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Fleet {
+        pulumi.log.warn("Fleet is deprecated: azure-native:containerservice/v20220702preview:Fleet is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20220902preview:Fleet to guarantee forwards compatibility.")
         return new Fleet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,7 +80,9 @@ export class Fleet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:containerservice/v20220702preview:Fleet is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20220902preview:Fleet to guarantee forwards compatibility. */
     constructor(name: string, args: FleetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Fleet is deprecated: azure-native:containerservice/v20220702preview:Fleet is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20220902preview:Fleet to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

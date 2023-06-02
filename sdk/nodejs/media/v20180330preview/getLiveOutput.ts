@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Live Output.
  */
+/** @deprecated azure-native:media/v20180330preview:LiveOutput is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:LiveOutput to guarantee forwards compatibility. */
 export function getLiveOutput(args: GetLiveOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveOutputResult> {
+    pulumi.log.warn("getLiveOutput is deprecated: azure-native:media/v20180330preview:LiveOutput is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:LiveOutput to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20180330preview:getLiveOutput", {
@@ -100,6 +102,7 @@ export interface GetLiveOutputResult {
 /**
  * Gets a Live Output.
  */
+/** @deprecated azure-native:media/v20180330preview:LiveOutput is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:LiveOutput to guarantee forwards compatibility. */
 export function getLiveOutputOutput(args: GetLiveOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveOutputResult> {
     return pulumi.output(args).apply((a: any) => getLiveOutput(a, opts))
 }

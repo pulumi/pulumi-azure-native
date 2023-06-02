@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20190801
 {
+    [Obsolete(@"azure-native:network/v20190801:ExpressRouteGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210301:ExpressRouteGateway to guarantee forwards compatibility.")]
     public static class GetExpressRouteGateway
     {
         /// <summary>

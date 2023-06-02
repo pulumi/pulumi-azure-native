@@ -17,6 +17,8 @@ __all__ = [
     'get_dps_certificate_output',
 ]
 
+warnings.warn("""azure-native:devices/v20220205:DpsCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:DpsCertificate to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDpsCertificateResult:
     """
@@ -117,6 +119,7 @@ def get_dps_certificate(certificate_name: Optional[str] = None,
     :param str provisioning_service_name: Name of the provisioning service the certificate is associated with.
     :param str resource_group_name: Resource group identifier.
     """
+    pulumi.log.warn("""get_dps_certificate is deprecated: azure-native:devices/v20220205:DpsCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:DpsCertificate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['certificateName'] = certificate_name
     __args__['provisioningServiceName'] = provisioning_service_name
@@ -146,4 +149,5 @@ def get_dps_certificate_output(certificate_name: Optional[pulumi.Input[str]] = N
     :param str provisioning_service_name: Name of the provisioning service the certificate is associated with.
     :param str resource_group_name: Resource group identifier.
     """
+    pulumi.log.warn("""get_dps_certificate is deprecated: azure-native:devices/v20220205:DpsCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:DpsCertificate to guarantee forwards compatibility.""")
     ...

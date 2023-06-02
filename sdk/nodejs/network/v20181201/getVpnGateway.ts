@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a virtual wan vpn gateway.
  */
+/** @deprecated azure-native:network/v20181201:VpnGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnGateway to guarantee forwards compatibility. */
 export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
+    pulumi.log.warn("getVpnGateway is deprecated: azure-native:network/v20181201:VpnGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnGateway to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20181201:getVpnGateway", {
@@ -82,6 +84,7 @@ export interface GetVpnGatewayResult {
 /**
  * Retrieves the details of a virtual wan vpn gateway.
  */
+/** @deprecated azure-native:network/v20181201:VpnGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VpnGateway to guarantee forwards compatibility. */
 export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
     return pulumi.output(args).apply((a: any) => getVpnGateway(a, opts))
 }

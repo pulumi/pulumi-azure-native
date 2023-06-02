@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified backup of the volume
  */
+/** @deprecated azure-native:netapp/v20220501:Backup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Backup to guarantee forwards compatibility. */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
+    pulumi.log.warn("getBackup is deprecated: azure-native:netapp/v20220501:Backup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Backup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20220501:getBackup", {
@@ -102,6 +104,7 @@ export interface GetBackupResult {
 /**
  * Gets the specified backup of the volume
  */
+/** @deprecated azure-native:netapp/v20220501:Backup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Backup to guarantee forwards compatibility. */
 export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupResult> {
     return pulumi.output(args).apply((a: any) => getBackup(a, opts))
 }

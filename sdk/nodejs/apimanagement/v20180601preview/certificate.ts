@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Certificate details.
+ *
+ * @deprecated azure-native:apimanagement/v20180601preview:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Certificate to guarantee forwards compatibility.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Certificate {
+        pulumi.log.warn("Certificate is deprecated: azure-native:apimanagement/v20180601preview:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Certificate to guarantee forwards compatibility.")
         return new Certificate(name, undefined as any, { ...opts, id: id });
     }
 
@@ -62,7 +65,9 @@ export class Certificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:apimanagement/v20180601preview:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Certificate to guarantee forwards compatibility. */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Certificate is deprecated: azure-native:apimanagement/v20180601preview:Certificate is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Certificate to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

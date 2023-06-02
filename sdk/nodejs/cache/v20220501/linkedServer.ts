@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Response to put/get linked server (with properties) for Redis cache.
+ *
+ * @deprecated azure-native:cache/v20220501:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.
  */
 export class LinkedServer extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class LinkedServer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LinkedServer {
+        pulumi.log.warn("LinkedServer is deprecated: azure-native:cache/v20220501:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.")
         return new LinkedServer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,7 +72,9 @@ export class LinkedServer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:cache/v20220501:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility. */
     constructor(name: string, args: LinkedServerArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("LinkedServer is deprecated: azure-native:cache/v20220501:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -105,7 +110,7 @@ export class LinkedServer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache:LinkedServer" }, { type: "azure-native:cache/v20170201:LinkedServer" }, { type: "azure-native:cache/v20171001:LinkedServer" }, { type: "azure-native:cache/v20180301:LinkedServer" }, { type: "azure-native:cache/v20190701:LinkedServer" }, { type: "azure-native:cache/v20200601:LinkedServer" }, { type: "azure-native:cache/v20201201:LinkedServer" }, { type: "azure-native:cache/v20210601:LinkedServer" }, { type: "azure-native:cache/v20220601:LinkedServer" }, { type: "azure-native:cache/v20230401:LinkedServer" }, { type: "azure-native:cache/v20230501preview:LinkedServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:LinkedServer" }, { type: "azure-native:cache/v20170201:LinkedServer" }, { type: "azure-native:cache/v20171001:LinkedServer" }, { type: "azure-native:cache/v20180301:LinkedServer" }, { type: "azure-native:cache/v20190701:LinkedServer" }, { type: "azure-native:cache/v20200601:LinkedServer" }, { type: "azure-native:cache/v20201201:LinkedServer" }, { type: "azure-native:cache/v20210601:LinkedServer" }, { type: "azure-native:cache/v20220601:LinkedServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedServer.__pulumiType, name, resourceInputs, opts);
     }

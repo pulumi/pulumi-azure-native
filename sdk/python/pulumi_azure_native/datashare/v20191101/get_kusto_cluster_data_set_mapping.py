@@ -16,6 +16,8 @@ __all__ = [
     'get_kusto_cluster_data_set_mapping_output',
 ]
 
+warnings.warn("""azure-native:datashare/v20191101:KustoClusterDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoClusterDataSetMapping to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetKustoClusterDataSetMappingResult:
     """
@@ -155,6 +157,7 @@ def get_kusto_cluster_data_set_mapping(account_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the shareSubscription.
     """
+    pulumi.log.warn("""get_kusto_cluster_data_set_mapping is deprecated: azure-native:datashare/v20191101:KustoClusterDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoClusterDataSetMapping to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['dataSetMappingName'] = data_set_mapping_name
@@ -190,4 +193,5 @@ def get_kusto_cluster_data_set_mapping_output(account_name: Optional[pulumi.Inpu
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the shareSubscription.
     """
+    pulumi.log.warn("""get_kusto_cluster_data_set_mapping is deprecated: azure-native:datashare/v20191101:KustoClusterDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:KustoClusterDataSetMapping to guarantee forwards compatibility.""")
     ...

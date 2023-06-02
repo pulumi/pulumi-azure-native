@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the Application Live  and its properties.
  */
+/** @deprecated azure-native:appplatform/v20221101preview:ApplicationLiveView is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ApplicationLiveView to guarantee forwards compatibility. */
 export function getApplicationLiveView(args: GetApplicationLiveViewArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationLiveViewResult> {
+    pulumi.log.warn("getApplicationLiveView is deprecated: azure-native:appplatform/v20221101preview:ApplicationLiveView is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ApplicationLiveView to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20221101preview:getApplicationLiveView", {
@@ -63,6 +65,7 @@ export interface GetApplicationLiveViewResult {
 /**
  * Get the Application Live  and its properties.
  */
+/** @deprecated azure-native:appplatform/v20221101preview:ApplicationLiveView is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:ApplicationLiveView to guarantee forwards compatibility. */
 export function getApplicationLiveViewOutput(args: GetApplicationLiveViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationLiveViewResult> {
     return pulumi.output(args).apply((a: any) => getApplicationLiveView(a, opts))
 }

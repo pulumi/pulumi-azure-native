@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * The lock information.
  *
  * @deprecated Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel to guarantee forwards compatibility.
  */
 export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
     /**
@@ -22,7 +23,7 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagementLockAtSubscriptionLevel {
-        pulumi.log.warn("ManagementLockAtSubscriptionLevel is deprecated: Version 2016-09-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("ManagementLockAtSubscriptionLevel is deprecated: Version 2016-09-01 will be removed in v2 of the provider.\nazure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel to guarantee forwards compatibility.")
         return new ManagementLockAtSubscriptionLevel(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,9 +69,10 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2016-09-01 will be removed in v2 of the provider. */
+    /** @deprecated Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel to guarantee forwards compatibility. */
     constructor(name: string, args: ManagementLockAtSubscriptionLevelArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ManagementLockAtSubscriptionLevel is deprecated: Version 2016-09-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("ManagementLockAtSubscriptionLevel is deprecated: Version 2016-09-01 will be removed in v2 of the provider.\nazure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -132,7 +132,12 @@ class VolumeGroupArgs:
         pulumi.set(self, "volumes", value)
 
 
+warnings.warn("""azure-native:netapp/v20210801:VolumeGroup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20211001:VolumeGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class VolumeGroup(pulumi.CustomResource):
+    warnings.warn("""azure-native:netapp/v20210801:VolumeGroup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20211001:VolumeGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -190,6 +195,7 @@ class VolumeGroup(pulumi.CustomResource):
                  volume_group_name: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupVolumePropertiesArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""VolumeGroup is deprecated: azure-native:netapp/v20210801:VolumeGroup is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20211001:VolumeGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Machine Learning compute object wrapped into ARM resource envelope.
+ *
+ * @deprecated azure-native:machinelearningservices/v20220601preview:Compute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Compute to guarantee forwards compatibility.
  */
 export class Compute extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Compute extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Compute {
+        pulumi.log.warn("Compute is deprecated: azure-native:machinelearningservices/v20220601preview:Compute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Compute to guarantee forwards compatibility.")
         return new Compute(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,7 +80,9 @@ export class Compute extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:machinelearningservices/v20220601preview:Compute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Compute to guarantee forwards compatibility. */
     constructor(name: string, args: ComputeArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Compute is deprecated: azure-native:machinelearningservices/v20220601preview:Compute is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Compute to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

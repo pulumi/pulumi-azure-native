@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.RedHatOpenShift.V20220401
 {
+    [Obsolete(@"azure-native:redhatopenshift/v20220401:OpenShiftCluster is being removed in the next major version of this provider. Please upgrade to azure-native:redhatopenshift/v20220904:OpenShiftCluster to guarantee forwards compatibility.")]
     public static class GetOpenShiftCluster
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     /// <summary>
     /// Represents Codeless UI data connector.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20210901preview:CodelessUiDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:CodelessUiDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20210901preview:CodelessUiDataConnector")]
     public partial class CodelessUiDataConnector : global::Pulumi.CustomResource
     {
@@ -105,7 +106,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:CodelessUiDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:CodelessUiDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:CodelessUiDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:CodelessUiDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

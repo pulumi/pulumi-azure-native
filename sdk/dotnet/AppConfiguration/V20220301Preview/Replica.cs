@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220301Preview
     /// <summary>
     /// The replica resource.
     /// </summary>
+    [Obsolete(@"azure-native:appconfiguration/v20220301preview:Replica is being removed in the next major version of this provider. Please upgrade to azure-native:appconfiguration/v20230301:Replica to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appconfiguration/v20220301preview:Replica")]
     public partial class Replica : global::Pulumi.CustomResource
     {

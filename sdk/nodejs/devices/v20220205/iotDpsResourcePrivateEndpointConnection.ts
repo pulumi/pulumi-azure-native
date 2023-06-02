@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The private endpoint connection of a provisioning service
+ *
+ * @deprecated azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection to guarantee forwards compatibility.
  */
 export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IotDpsResourcePrivateEndpointConnection {
+        pulumi.log.warn("IotDpsResourcePrivateEndpointConnection is deprecated: azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection to guarantee forwards compatibility.")
         return new IotDpsResourcePrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,7 +64,9 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection to guarantee forwards compatibility. */
     constructor(name: string, args: IotDpsResourcePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("IotDpsResourcePrivateEndpointConnection is deprecated: azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

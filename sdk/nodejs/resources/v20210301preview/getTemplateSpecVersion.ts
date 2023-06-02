@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Template Spec version from a specific Template Spec.
  */
+/** @deprecated azure-native:resources/v20210301preview:TemplateSpecVersion is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpecVersion to guarantee forwards compatibility. */
 export function getTemplateSpecVersion(args: GetTemplateSpecVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecVersionResult> {
+    pulumi.log.warn("getTemplateSpecVersion is deprecated: azure-native:resources/v20210301preview:TemplateSpecVersion is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpecVersion to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20210301preview:getTemplateSpecVersion", {
@@ -87,6 +89,7 @@ export interface GetTemplateSpecVersionResult {
 /**
  * Gets a Template Spec version from a specific Template Spec.
  */
+/** @deprecated azure-native:resources/v20210301preview:TemplateSpecVersion is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220201:TemplateSpecVersion to guarantee forwards compatibility. */
 export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecVersionResult> {
     return pulumi.output(args).apply((a: any) => getTemplateSpecVersion(a, opts))
 }

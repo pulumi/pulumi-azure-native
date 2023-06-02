@@ -17,7 +17,8 @@ __all__ = [
     'get_express_route_cross_connection_peering_output',
 ]
 
-warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:ExpressRouteCrossConnectionPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:ExpressRouteCrossConnectionPeering to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetExpressRouteCrossConnectionPeeringResult:
@@ -263,7 +264,8 @@ def get_express_route_cross_connection_peering(cross_connection_name: Optional[s
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_express_route_cross_connection_peering is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_express_route_cross_connection_peering is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:ExpressRouteCrossConnectionPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:ExpressRouteCrossConnectionPeering to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['crossConnectionName'] = cross_connection_name
     __args__['peeringName'] = peering_name
@@ -305,5 +307,6 @@ def get_express_route_cross_connection_peering_output(cross_connection_name: Opt
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_express_route_cross_connection_peering is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_express_route_cross_connection_peering is deprecated: Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:ExpressRouteCrossConnectionPeering is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:ExpressRouteCrossConnectionPeering to guarantee forwards compatibility.""")
     ...

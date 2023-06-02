@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Cache.V20210201Preview
 {
+    [Obsolete(@"azure-native:cache/v20210201preview:RedisEnterprise is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20230301preview:RedisEnterprise to guarantee forwards compatibility.")]
     public static class GetRedisEnterprise
     {
         /// <summary>

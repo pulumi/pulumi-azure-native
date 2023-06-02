@@ -17,6 +17,8 @@ __all__ = [
     'get_transform_output',
 ]
 
+warnings.warn("""azure-native:media/v20210601:Transform is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Transform to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTransformResult:
     """
@@ -141,6 +143,7 @@ def get_transform(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str transform_name: The Transform name.
     """
+    pulumi.log.warn("""get_transform is deprecated: azure-native:media/v20210601:Transform is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Transform to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -172,4 +175,5 @@ def get_transform_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str transform_name: The Transform name.
     """
+    pulumi.log.warn("""get_transform is deprecated: azure-native:media/v20210601:Transform is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20220701:Transform to guarantee forwards compatibility.""")
     ...

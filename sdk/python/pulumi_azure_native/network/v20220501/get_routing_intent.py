@@ -17,6 +17,8 @@ __all__ = [
     'get_routing_intent_output',
 ]
 
+warnings.warn("""azure-native:network/v20220501:RoutingIntent is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RoutingIntent to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRoutingIntentResult:
     """
@@ -117,6 +119,7 @@ def get_routing_intent(resource_group_name: Optional[str] = None,
     :param str routing_intent_name: The name of the RoutingIntent.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
+    pulumi.log.warn("""get_routing_intent is deprecated: azure-native:network/v20220501:RoutingIntent is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RoutingIntent to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['routingIntentName'] = routing_intent_name
@@ -146,4 +149,5 @@ def get_routing_intent_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str routing_intent_name: The name of the RoutingIntent.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
+    pulumi.log.warn("""get_routing_intent is deprecated: azure-native:network/v20220501:RoutingIntent is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RoutingIntent to guarantee forwards compatibility.""")
     ...

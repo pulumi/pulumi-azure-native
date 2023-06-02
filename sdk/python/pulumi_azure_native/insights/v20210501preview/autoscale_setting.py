@@ -198,7 +198,12 @@ class AutoscaleSettingArgs:
         pulumi.set(self, "target_resource_uri", value)
 
 
+warnings.warn("""azure-native:insights/v20210501preview:AutoscaleSetting is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20221001:AutoscaleSetting to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AutoscaleSetting(pulumi.CustomResource):
+    warnings.warn("""azure-native:insights/v20210501preview:AutoscaleSetting is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20221001:AutoscaleSetting to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -268,6 +273,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                  target_resource_location: Optional[pulumi.Input[str]] = None,
                  target_resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""AutoscaleSetting is deprecated: azure-native:insights/v20210501preview:AutoscaleSetting is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20221001:AutoscaleSetting to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

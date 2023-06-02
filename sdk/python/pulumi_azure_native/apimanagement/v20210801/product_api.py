@@ -81,7 +81,12 @@ class ProductApiArgs:
         pulumi.set(self, "api_id", value)
 
 
+warnings.warn("""azure-native:apimanagement/v20210801:ProductApi is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ProductApi to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ProductApi(pulumi.CustomResource):
+    warnings.warn("""azure-native:apimanagement/v20210801:ProductApi is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ProductApi to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -130,6 +135,7 @@ class ProductApi(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ProductApi is deprecated: azure-native:apimanagement/v20210801:ProductApi is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:ProductApi to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

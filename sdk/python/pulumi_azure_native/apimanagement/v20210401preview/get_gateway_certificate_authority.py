@@ -16,6 +16,8 @@ __all__ = [
     'get_gateway_certificate_authority_output',
 ]
 
+warnings.warn("""azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GatewayCertificateAuthority to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGatewayCertificateAuthorityResult:
     """
@@ -94,6 +96,7 @@ def get_gateway_certificate_authority(certificate_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("""get_gateway_certificate_authority is deprecated: azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GatewayCertificateAuthority to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['certificateId'] = certificate_id
     __args__['gatewayId'] = gateway_id
@@ -124,4 +127,5 @@ def get_gateway_certificate_authority_output(certificate_id: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("""get_gateway_certificate_authority is deprecated: azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GatewayCertificateAuthority to guarantee forwards compatibility.""")
     ...

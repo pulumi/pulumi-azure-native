@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Configuration settings for the Azure App Service Authentication / Authorization feature.
+ *
+ * @deprecated azure-native:web/v20181101:WebAppAuthSettings is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppAuthSettings to guarantee forwards compatibility.
  */
 export class WebAppAuthSettings extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppAuthSettings {
+        pulumi.log.warn("WebAppAuthSettings is deprecated: azure-native:web/v20181101:WebAppAuthSettings is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppAuthSettings to guarantee forwards compatibility.")
         return new WebAppAuthSettings(name, undefined as any, { ...opts, id: id });
     }
 
@@ -199,7 +202,9 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:web/v20181101:WebAppAuthSettings is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppAuthSettings to guarantee forwards compatibility. */
     constructor(name: string, args: WebAppAuthSettingsArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppAuthSettings is deprecated: azure-native:web/v20181101:WebAppAuthSettings is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppAuthSettings to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -17,6 +17,8 @@ __all__ = [
     'get_alert_processing_rule_by_name_output',
 ]
 
+warnings.warn("""azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName is being removed in the next major version of this provider. Please upgrade to azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAlertProcessingRuleByNameResult:
     """
@@ -127,6 +129,7 @@ def get_alert_processing_rule_by_name(alert_processing_rule_name: Optional[str] 
     :param str alert_processing_rule_name: The name of the alert processing rule that needs to be fetched.
     :param str resource_group_name: Resource group name where the resource is created.
     """
+    pulumi.log.warn("""get_alert_processing_rule_by_name is deprecated: azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName is being removed in the next major version of this provider. Please upgrade to azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['alertProcessingRuleName'] = alert_processing_rule_name
     __args__['resourceGroupName'] = resource_group_name
@@ -154,4 +157,5 @@ def get_alert_processing_rule_by_name_output(alert_processing_rule_name: Optiona
     :param str alert_processing_rule_name: The name of the alert processing rule that needs to be fetched.
     :param str resource_group_name: Resource group name where the resource is created.
     """
+    pulumi.log.warn("""get_alert_processing_rule_by_name is deprecated: azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName is being removed in the next major version of this provider. Please upgrade to azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName to guarantee forwards compatibility.""")
     ...

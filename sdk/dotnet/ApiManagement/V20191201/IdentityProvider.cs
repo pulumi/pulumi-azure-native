@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
     /// <summary>
     /// Identity Provider details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20191201:IdentityProvider is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:IdentityProvider to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20191201:IdentityProvider")]
     public partial class IdentityProvider : global::Pulumi.CustomResource
     {

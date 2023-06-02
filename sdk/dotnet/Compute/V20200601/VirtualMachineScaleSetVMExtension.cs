@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Compute.V20200601
     /// <summary>
     /// Describes a VMSS VM Extension.
     /// </summary>
-    [Obsolete(@"Version 2020-06-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-06-01 will be removed in v2 of the provider.
+azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension")]
     public partial class VirtualMachineScaleSetVMExtension : global::Pulumi.CustomResource
     {

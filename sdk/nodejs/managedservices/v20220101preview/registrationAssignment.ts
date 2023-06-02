@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The registration assignment.
+ *
+ * @deprecated azure-native:managedservices/v20220101preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.
  */
 export class RegistrationAssignment extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class RegistrationAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RegistrationAssignment {
+        pulumi.log.warn("RegistrationAssignment is deprecated: azure-native:managedservices/v20220101preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.")
         return new RegistrationAssignment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,7 +64,9 @@ export class RegistrationAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:managedservices/v20220101preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility. */
     constructor(name: string, args: RegistrationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("RegistrationAssignment is deprecated: azure-native:managedservices/v20220101preview:RegistrationAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:managedservices/v20221001:RegistrationAssignment to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

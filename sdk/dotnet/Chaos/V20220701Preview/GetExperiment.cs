@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Chaos.V20220701Preview
 {
+    [Obsolete(@"azure-native:chaos/v20220701preview:Experiment is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Experiment to guarantee forwards compatibility.")]
     public static class GetExperiment
     {
         /// <summary>

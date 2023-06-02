@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * KPack Builder resource
+ *
+ * @deprecated azure-native:appplatform/v20220301preview:BuildServiceBuilder is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:BuildServiceBuilder to guarantee forwards compatibility.
  */
 export class BuildServiceBuilder extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class BuildServiceBuilder extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BuildServiceBuilder {
+        pulumi.log.warn("BuildServiceBuilder is deprecated: azure-native:appplatform/v20220301preview:BuildServiceBuilder is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:BuildServiceBuilder to guarantee forwards compatibility.")
         return new BuildServiceBuilder(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,7 +64,9 @@ export class BuildServiceBuilder extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:appplatform/v20220301preview:BuildServiceBuilder is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:BuildServiceBuilder to guarantee forwards compatibility. */
     constructor(name: string, args: BuildServiceBuilderArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BuildServiceBuilder is deprecated: azure-native:appplatform/v20220301preview:BuildServiceBuilder is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:BuildServiceBuilder to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

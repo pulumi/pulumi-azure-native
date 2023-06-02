@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
     /// <summary>
     /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
     /// </summary>
+    [Obsolete(@"azure-native:streamanalytics/v20170401preview:Function is being removed in the next major version of this provider. Please upgrade to azure-native:streamanalytics/v20211001preview:Function to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:streamanalytics/v20170401preview:Function")]
     public partial class Function : global::Pulumi.CustomResource
     {

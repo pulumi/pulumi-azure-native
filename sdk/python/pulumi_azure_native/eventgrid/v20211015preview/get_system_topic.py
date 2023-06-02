@@ -17,6 +17,8 @@ __all__ = [
     'get_system_topic_output',
 ]
 
+warnings.warn("""azure-native:eventgrid/v20211015preview:SystemTopic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:SystemTopic to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSystemTopicResult:
     """
@@ -175,6 +177,7 @@ def get_system_topic(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str system_topic_name: Name of the system topic.
     """
+    pulumi.log.warn("""get_system_topic is deprecated: azure-native:eventgrid/v20211015preview:SystemTopic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:SystemTopic to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['systemTopicName'] = system_topic_name
@@ -206,4 +209,5 @@ def get_system_topic_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str system_topic_name: Name of the system topic.
     """
+    pulumi.log.warn("""get_system_topic is deprecated: azure-native:eventgrid/v20211015preview:SystemTopic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:SystemTopic to guarantee forwards compatibility.""")
     ...

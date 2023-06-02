@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataProtection.V20220331Preview
 {
+    [Obsolete(@"azure-native:dataprotection/v20220331preview:ResourceGuard is being removed in the next major version of this provider. Please upgrade to azure-native:dataprotection/v20221101preview:ResourceGuard to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dataprotection/v20220331preview:ResourceGuard")]
     public partial class ResourceGuard : global::Pulumi.CustomResource
     {
@@ -99,7 +100,6 @@ namespace Pulumi.AzureNative.DataProtection.V20220331Preview
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221101preview:ResourceGuard"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221201:ResourceGuard"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230101:ResourceGuard"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230401preview:ResourceGuard"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

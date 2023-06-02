@@ -17,6 +17,8 @@ __all__ = [
     'get_scope_map_output',
 ]
 
+warnings.warn("""azure-native:containerregistry/v20220201preview:ScopeMap is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ScopeMap to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetScopeMapResult:
     """
@@ -143,6 +145,7 @@ def get_scope_map(registry_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str scope_map_name: The name of the scope map.
     """
+    pulumi.log.warn("""get_scope_map is deprecated: azure-native:containerregistry/v20220201preview:ScopeMap is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ScopeMap to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
@@ -174,4 +177,5 @@ def get_scope_map_output(registry_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str scope_map_name: The name of the scope map.
     """
+    pulumi.log.warn("""get_scope_map is deprecated: azure-native:containerregistry/v20220201preview:ScopeMap is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:ScopeMap to guarantee forwards compatibility.""")
     ...

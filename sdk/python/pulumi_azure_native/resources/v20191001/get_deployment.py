@@ -17,6 +17,8 @@ __all__ = [
     'get_deployment_output',
 ]
 
+warnings.warn("""azure-native:resources/v20191001:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:Deployment to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDeploymentResult:
     """
@@ -115,6 +117,7 @@ def get_deployment(deployment_name: Optional[str] = None,
     :param str deployment_name: The name of the deployment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_deployment is deprecated: azure-native:resources/v20191001:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:Deployment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
     __args__['resourceGroupName'] = resource_group_name
@@ -141,4 +144,5 @@ def get_deployment_output(deployment_name: Optional[pulumi.Input[str]] = None,
     :param str deployment_name: The name of the deployment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_deployment is deprecated: azure-native:resources/v20191001:Deployment is being removed in the next major version of this provider. Please upgrade to azure-native:resources/v20220901:Deployment to guarantee forwards compatibility.""")
     ...

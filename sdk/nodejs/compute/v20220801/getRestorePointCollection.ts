@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The operation to get the restore point collection.
  */
+/** @deprecated azure-native:compute/v20220801:RestorePointCollection is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:RestorePointCollection to guarantee forwards compatibility. */
 export function getRestorePointCollection(args: GetRestorePointCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorePointCollectionResult> {
+    pulumi.log.warn("getRestorePointCollection is deprecated: azure-native:compute/v20220801:RestorePointCollection is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:RestorePointCollection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20220801:getRestorePointCollection", {
@@ -79,6 +81,7 @@ export interface GetRestorePointCollectionResult {
 /**
  * The operation to get the restore point collection.
  */
+/** @deprecated azure-native:compute/v20220801:RestorePointCollection is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:RestorePointCollection to guarantee forwards compatibility. */
 export function getRestorePointCollectionOutput(args: GetRestorePointCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorePointCollectionResult> {
     return pulumi.output(args).apply((a: any) => getRestorePointCollection(a, opts))
 }

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The Collection data structure.
+ *
+ * @deprecated azure-native:marketplace/v20210601:PrivateStoreCollection is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility.
  */
 export class PrivateStoreCollection extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateStoreCollection {
+        pulumi.log.warn("PrivateStoreCollection is deprecated: azure-native:marketplace/v20210601:PrivateStoreCollection is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility.")
         return new PrivateStoreCollection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -85,7 +88,9 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:marketplace/v20210601:PrivateStoreCollection is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateStoreCollectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PrivateStoreCollection is deprecated: azure-native:marketplace/v20210601:PrivateStoreCollection is being removed in the next major version of this provider. Please upgrade to azure-native:marketplace/v20230101:PrivateStoreCollection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

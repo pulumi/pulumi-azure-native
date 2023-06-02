@@ -17,6 +17,8 @@ __all__ = [
     'get_load_balancer_backend_address_pool_output',
 ]
 
+warnings.warn("""azure-native:network/v20220701:LoadBalancerBackendAddressPool is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:LoadBalancerBackendAddressPool to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLoadBalancerBackendAddressPoolResult:
     """
@@ -225,6 +227,7 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_load_balancer_backend_address_pool is deprecated: azure-native:network/v20220701:LoadBalancerBackendAddressPool is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:LoadBalancerBackendAddressPool to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['backendAddressPoolName'] = backend_address_pool_name
     __args__['loadBalancerName'] = load_balancer_name
@@ -263,4 +266,5 @@ def get_load_balancer_backend_address_pool_output(backend_address_pool_name: Opt
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_load_balancer_backend_address_pool is deprecated: azure-native:network/v20220701:LoadBalancerBackendAddressPool is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:LoadBalancerBackendAddressPool to guarantee forwards compatibility.""")
     ...

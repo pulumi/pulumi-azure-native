@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetApp.V20210401Preview
 {
+    [Obsolete(@"azure-native:netapp/v20210401preview:Snapshot is being removed in the next major version of this provider. Please upgrade to azure-native:netapp/v20220901:Snapshot to guarantee forwards compatibility.")]
     public static class GetSnapshot
     {
         /// <summary>

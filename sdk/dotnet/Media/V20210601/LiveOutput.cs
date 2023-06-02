@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Media.V20210601
     /// <summary>
     /// The Live Output.
     /// </summary>
+    [Obsolete(@"azure-native:media/v20210601:LiveOutput is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:LiveOutput to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:media/v20210601:LiveOutput")]
     public partial class LiveOutput : global::Pulumi.CustomResource
     {

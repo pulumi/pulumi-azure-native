@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20210501
     /// <summary>
     /// HubVirtualNetworkConnection Resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20210501:HubVirtualNetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:HubVirtualNetworkConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20210501:HubVirtualNetworkConnection")]
     public partial class HubVirtualNetworkConnection : global::Pulumi.CustomResource
     {

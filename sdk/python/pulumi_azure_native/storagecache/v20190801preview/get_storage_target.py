@@ -17,7 +17,8 @@ __all__ = [
     'get_storage_target_output',
 ]
 
-warnings.warn("""Version 2019-08-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-08-01-preview will be removed in v2 of the provider.
+azure-native:storagecache/v20190801preview:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20191101:StorageTarget to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetStorageTargetResult:
@@ -155,7 +156,8 @@ def get_storage_target(cache_name: Optional[str] = None,
     :param str resource_group_name: Target resource group.
     :param str storage_target_name: Name of storage target.
     """
-    pulumi.log.warn("""get_storage_target is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_storage_target is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.
+azure-native:storagecache/v20190801preview:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20191101:StorageTarget to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name
@@ -188,5 +190,6 @@ def get_storage_target_output(cache_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Target resource group.
     :param str storage_target_name: Name of storage target.
     """
-    pulumi.log.warn("""get_storage_target is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_storage_target is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.
+azure-native:storagecache/v20190801preview:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20191101:StorageTarget to guarantee forwards compatibility.""")
     ...

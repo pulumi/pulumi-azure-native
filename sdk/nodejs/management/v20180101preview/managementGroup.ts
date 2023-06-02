@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * The management group details.
  *
  * @deprecated Version 2018-01-01-preview will be removed in v2 of the provider.
+azure-native:management/v20180101preview:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility.
  */
 export class ManagementGroup extends pulumi.CustomResource {
     /**
@@ -22,7 +23,7 @@ export class ManagementGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagementGroup {
-        pulumi.log.warn("ManagementGroup is deprecated: Version 2018-01-01-preview will be removed in v2 of the provider.")
+        pulumi.log.warn("ManagementGroup is deprecated: Version 2018-01-01-preview will be removed in v2 of the provider.\nazure-native:management/v20180101preview:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility.")
         return new ManagementGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,9 +77,10 @@ export class ManagementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2018-01-01-preview will be removed in v2 of the provider. */
+    /** @deprecated Version 2018-01-01-preview will be removed in v2 of the provider.
+azure-native:management/v20180101preview:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility. */
     constructor(name: string, args?: ManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ManagementGroup is deprecated: Version 2018-01-01-preview will be removed in v2 of the provider.")
+        pulumi.log.warn("ManagementGroup is deprecated: Version 2018-01-01-preview will be removed in v2 of the provider.\nazure-native:management/v20180101preview:ManagementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:management/v20200201:ManagementGroup to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

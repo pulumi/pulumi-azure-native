@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Maintenance.V20180601Preview
     /// <summary>
     /// Maintenance configuration record type
     /// </summary>
-    [Obsolete(@"Version 2018-06-01-preview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2018-06-01-preview will be removed in v2 of the provider.
+azure-native:maintenance/v20180601preview:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:maintenance/v20180601preview:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : global::Pulumi.CustomResource
     {
@@ -91,7 +92,6 @@ namespace Pulumi.AzureNative.Maintenance.V20180601Preview
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:MaintenanceConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20220701preview:MaintenanceConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20221101preview:MaintenanceConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230401:MaintenanceConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

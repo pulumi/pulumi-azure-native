@@ -17,6 +17,8 @@ __all__ = [
     'get_capability_output',
 ]
 
+warnings.warn("""azure-native:chaos/v20221001preview:Capability is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Capability to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCapabilityResult:
     """
@@ -111,6 +113,7 @@ def get_capability(capability_name: Optional[str] = None,
     :param str resource_group_name: String that represents an Azure resource group.
     :param str target_name: String that represents a Target resource name.
     """
+    pulumi.log.warn("""get_capability is deprecated: azure-native:chaos/v20221001preview:Capability is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Capability to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['capabilityName'] = capability_name
     __args__['parentProviderNamespace'] = parent_provider_namespace
@@ -148,4 +151,5 @@ def get_capability_output(capability_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: String that represents an Azure resource group.
     :param str target_name: String that represents a Target resource name.
     """
+    pulumi.log.warn("""get_capability is deprecated: azure-native:chaos/v20221001preview:Capability is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Capability to guarantee forwards compatibility.""")
     ...

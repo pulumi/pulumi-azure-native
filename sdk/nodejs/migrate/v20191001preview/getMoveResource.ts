@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Move Resource.
  */
+/** @deprecated azure-native:migrate/v20191001preview:MoveResource is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20220801:MoveResource to guarantee forwards compatibility. */
 export function getMoveResource(args: GetMoveResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetMoveResourceResult> {
+    pulumi.log.warn("getMoveResource is deprecated: azure-native:migrate/v20191001preview:MoveResource is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20220801:MoveResource to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20191001preview:getMoveResource", {
@@ -59,6 +61,7 @@ export interface GetMoveResourceResult {
 /**
  * Gets the Move Resource.
  */
+/** @deprecated azure-native:migrate/v20191001preview:MoveResource is being removed in the next major version of this provider. Please upgrade to azure-native:migrate/v20220801:MoveResource to guarantee forwards compatibility. */
 export function getMoveResourceOutput(args: GetMoveResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveResourceResult> {
     return pulumi.output(args).apply((a: any) => getMoveResource(a, opts))
 }

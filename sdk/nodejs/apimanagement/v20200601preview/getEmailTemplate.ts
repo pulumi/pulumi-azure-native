@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the email template specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20200601preview:EmailTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:EmailTemplate to guarantee forwards compatibility. */
 export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailTemplateResult> {
+    pulumi.log.warn("getEmailTemplate is deprecated: azure-native:apimanagement/v20200601preview:EmailTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:EmailTemplate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20200601preview:getEmailTemplate", {
@@ -79,6 +81,7 @@ export interface GetEmailTemplateResult {
 /**
  * Gets the details of the email template specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20200601preview:EmailTemplate is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:EmailTemplate to guarantee forwards compatibility. */
 export function getEmailTemplateOutput(args: GetEmailTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailTemplateResult> {
     return pulumi.output(args).apply((a: any) => getEmailTemplate(a, opts))
 }

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Description for Get function information by its ID for web site, or a deployment slot.
  */
+/** @deprecated azure-native:web/v20220301:WebAppInstanceFunctionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppInstanceFunctionSlot to guarantee forwards compatibility. */
 export function getWebAppInstanceFunctionSlot(args: GetWebAppInstanceFunctionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppInstanceFunctionSlotResult> {
+    pulumi.log.warn("getWebAppInstanceFunctionSlot is deprecated: azure-native:web/v20220301:WebAppInstanceFunctionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppInstanceFunctionSlot to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220301:getWebAppInstanceFunctionSlot", {
@@ -113,6 +115,7 @@ export interface GetWebAppInstanceFunctionSlotResult {
 /**
  * Description for Get function information by its ID for web site, or a deployment slot.
  */
+/** @deprecated azure-native:web/v20220301:WebAppInstanceFunctionSlot is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppInstanceFunctionSlot to guarantee forwards compatibility. */
 export function getWebAppInstanceFunctionSlotOutput(args: GetWebAppInstanceFunctionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppInstanceFunctionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppInstanceFunctionSlot(a, opts))
 }

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Action for alert rule.
+ *
+ * @deprecated azure-native:securityinsights/v20211001preview:Action is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Action to guarantee forwards compatibility.
  */
 export class Action extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Action extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Action {
+        pulumi.log.warn("Action is deprecated: azure-native:securityinsights/v20211001preview:Action is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Action to guarantee forwards compatibility.")
         return new Action(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,7 +72,9 @@ export class Action extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20211001preview:Action is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Action to guarantee forwards compatibility. */
     constructor(name: string, args: ActionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Action is deprecated: azure-native:securityinsights/v20211001preview:Action is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Action to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -108,7 +113,7 @@ export class Action extends pulumi.CustomResource {
             resourceInputs["workflowId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Action" }, { type: "azure-native:securityinsights/v20190101preview:Action" }, { type: "azure-native:securityinsights/v20200101:Action" }, { type: "azure-native:securityinsights/v20210301preview:Action" }, { type: "azure-native:securityinsights/v20210901preview:Action" }, { type: "azure-native:securityinsights/v20211001:Action" }, { type: "azure-native:securityinsights/v20220101preview:Action" }, { type: "azure-native:securityinsights/v20220401preview:Action" }, { type: "azure-native:securityinsights/v20220501preview:Action" }, { type: "azure-native:securityinsights/v20220601preview:Action" }, { type: "azure-native:securityinsights/v20220701preview:Action" }, { type: "azure-native:securityinsights/v20220801:Action" }, { type: "azure-native:securityinsights/v20220801preview:Action" }, { type: "azure-native:securityinsights/v20220901preview:Action" }, { type: "azure-native:securityinsights/v20221001preview:Action" }, { type: "azure-native:securityinsights/v20221101:Action" }, { type: "azure-native:securityinsights/v20221101preview:Action" }, { type: "azure-native:securityinsights/v20221201preview:Action" }, { type: "azure-native:securityinsights/v20230201:Action" }, { type: "azure-native:securityinsights/v20230201preview:Action" }, { type: "azure-native:securityinsights/v20230401preview:Action" }, { type: "azure-native:securityinsights/v20230501preview:Action" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Action" }, { type: "azure-native:securityinsights/v20190101preview:Action" }, { type: "azure-native:securityinsights/v20200101:Action" }, { type: "azure-native:securityinsights/v20210301preview:Action" }, { type: "azure-native:securityinsights/v20210901preview:Action" }, { type: "azure-native:securityinsights/v20211001:Action" }, { type: "azure-native:securityinsights/v20220101preview:Action" }, { type: "azure-native:securityinsights/v20220401preview:Action" }, { type: "azure-native:securityinsights/v20220501preview:Action" }, { type: "azure-native:securityinsights/v20220601preview:Action" }, { type: "azure-native:securityinsights/v20220701preview:Action" }, { type: "azure-native:securityinsights/v20220801:Action" }, { type: "azure-native:securityinsights/v20220801preview:Action" }, { type: "azure-native:securityinsights/v20220901preview:Action" }, { type: "azure-native:securityinsights/v20221001preview:Action" }, { type: "azure-native:securityinsights/v20221101:Action" }, { type: "azure-native:securityinsights/v20221101preview:Action" }, { type: "azure-native:securityinsights/v20221201preview:Action" }, { type: "azure-native:securityinsights/v20230201:Action" }, { type: "azure-native:securityinsights/v20230201preview:Action" }, { type: "azure-native:securityinsights/v20230401preview:Action" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Action.__pulumiType, name, resourceInputs, opts);
     }

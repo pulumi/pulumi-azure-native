@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The device security group resource
+ *
+ * @deprecated azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility.
  */
 export class DeviceSecurityGroup extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DeviceSecurityGroup {
+        pulumi.log.warn("DeviceSecurityGroup is deprecated: azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility.")
         return new DeviceSecurityGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,7 +72,9 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility. */
     constructor(name: string, args: DeviceSecurityGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DeviceSecurityGroup is deprecated: azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

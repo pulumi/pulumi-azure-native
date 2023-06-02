@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
  */
+/** @deprecated azure-native:workloads/v20221101preview:ProviderInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:ProviderInstance to guarantee forwards compatibility. */
 export function getProviderInstance(args: GetProviderInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderInstanceResult> {
+    pulumi.log.warn("getProviderInstance is deprecated: azure-native:workloads/v20221101preview:ProviderInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:ProviderInstance to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20221101preview:getProviderInstance", {
@@ -75,6 +77,7 @@ export interface GetProviderInstanceResult {
 /**
  * Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
  */
+/** @deprecated azure-native:workloads/v20221101preview:ProviderInstance is being removed in the next major version of this provider. Please upgrade to azure-native:workloads/v20230401:ProviderInstance to guarantee forwards compatibility. */
 export function getProviderInstanceOutput(args: GetProviderInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderInstanceResult> {
     return pulumi.output(args).apply((a: any) => getProviderInstance(a, opts))
 }

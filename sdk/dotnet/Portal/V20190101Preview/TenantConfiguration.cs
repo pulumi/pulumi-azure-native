@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Portal.V20190101Preview
     /// <summary>
     /// Tenant configuration.
     /// </summary>
+    [Obsolete(@"azure-native:portal/v20190101preview:TenantConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20200901preview:TenantConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:portal/v20190101preview:TenantConfiguration")]
     public partial class TenantConfiguration : global::Pulumi.CustomResource
     {

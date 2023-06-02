@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AppPlatform.V20221101Preview
 {
+    [Obsolete(@"azure-native:appplatform/v20221101preview:Storage is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility.")]
     public static class GetStorage
     {
         /// <summary>

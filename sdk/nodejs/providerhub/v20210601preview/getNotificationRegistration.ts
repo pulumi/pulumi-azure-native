@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the notification registration details.
  */
+/** @deprecated azure-native:providerhub/v20210601preview:NotificationRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:NotificationRegistration to guarantee forwards compatibility. */
 export function getNotificationRegistration(args: GetNotificationRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationRegistrationResult> {
+    pulumi.log.warn("getNotificationRegistration is deprecated: azure-native:providerhub/v20210601preview:NotificationRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:NotificationRegistration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub/v20210601preview:getNotificationRegistration", {
@@ -55,6 +57,7 @@ export interface GetNotificationRegistrationResult {
 /**
  * Gets the notification registration details.
  */
+/** @deprecated azure-native:providerhub/v20210601preview:NotificationRegistration is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:NotificationRegistration to guarantee forwards compatibility. */
 export function getNotificationRegistrationOutput(args: GetNotificationRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getNotificationRegistration(a, opts))
 }

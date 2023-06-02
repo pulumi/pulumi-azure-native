@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Kusto.V20191109
 {
+    [Obsolete(@"azure-native:kusto/v20191109:AttachedDatabaseConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:AttachedDatabaseConfiguration to guarantee forwards compatibility.")]
     public static class GetAttachedDatabaseConfiguration
     {
         /// <summary>

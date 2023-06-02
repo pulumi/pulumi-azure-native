@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Big Data pool.
  */
+/** @deprecated azure-native:synapse/v20210601:BigDataPool is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:BigDataPool to guarantee forwards compatibility. */
 export function getBigDataPool(args: GetBigDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBigDataPoolResult> {
+    pulumi.log.warn("getBigDataPool is deprecated: azure-native:synapse/v20210601:BigDataPool is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:BigDataPool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601:getBigDataPool", {
@@ -139,6 +141,7 @@ export interface GetBigDataPoolResult {
 /**
  * Get a Big Data pool.
  */
+/** @deprecated azure-native:synapse/v20210601:BigDataPool is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:BigDataPool to guarantee forwards compatibility. */
 export function getBigDataPoolOutput(args: GetBigDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBigDataPoolResult> {
     return pulumi.output(args).apply((a: any) => getBigDataPool(a, opts))
 }

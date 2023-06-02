@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Use this method to get the device security group for the specified IoT Hub resource.
  */
+/** @deprecated azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility. */
 export function getDeviceSecurityGroup(args: GetDeviceSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceSecurityGroupResult> {
+    pulumi.log.warn("getDeviceSecurityGroup is deprecated: azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20170801preview:getDeviceSecurityGroup", {
@@ -66,6 +68,7 @@ export interface GetDeviceSecurityGroupResult {
 /**
  * Use this method to get the device security group for the specified IoT Hub resource.
  */
+/** @deprecated azure-native:security/v20170801preview:DeviceSecurityGroup is being removed in the next major version of this provider. Please upgrade to azure-native:security/v20190801:DeviceSecurityGroup to guarantee forwards compatibility. */
 export function getDeviceSecurityGroupOutput(args: GetDeviceSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceSecurityGroupResult> {
     return pulumi.output(args).apply((a: any) => getDeviceSecurityGroup(a, opts))
 }

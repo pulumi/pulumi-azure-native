@@ -17,7 +17,8 @@ __all__ = [
     'get_private_endpoint_connection_output',
 ]
 
-warnings.warn("""Version 2018-02-14 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-02-14 will be removed in v2 of the provider.
+azure-native:keyvault/v20180214:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
@@ -143,7 +144,8 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     :param str resource_group_name: Name of the resource group that contains the key vault.
     :param str vault_name: The name of the key vault.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version 2018-02-14 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version 2018-02-14 will be removed in v2 of the provider.
+azure-native:keyvault/v20180214:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:PrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -175,5 +177,6 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     :param str resource_group_name: Name of the resource group that contains the key vault.
     :param str vault_name: The name of the key vault.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version 2018-02-14 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version 2018-02-14 will be removed in v2 of the provider.
+azure-native:keyvault/v20180214:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:keyvault/v20230201:PrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

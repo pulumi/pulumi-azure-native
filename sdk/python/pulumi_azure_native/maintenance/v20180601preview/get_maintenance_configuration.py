@@ -16,7 +16,8 @@ __all__ = [
     'get_maintenance_configuration_output',
 ]
 
-warnings.warn("""Version 2018-06-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-06-01-preview will be removed in v2 of the provider.
+azure-native:maintenance/v20180601preview:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetMaintenanceConfigurationResult:
@@ -140,7 +141,8 @@ def get_maintenance_configuration(resource_group_name: Optional[str] = None,
     :param str resource_group_name: Resource Group Name
     :param str resource_name: Resource Identifier
     """
-    pulumi.log.warn("""get_maintenance_configuration is deprecated: Version 2018-06-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_maintenance_configuration is deprecated: Version 2018-06-01-preview will be removed in v2 of the provider.
+azure-native:maintenance/v20180601preview:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -169,5 +171,6 @@ def get_maintenance_configuration_output(resource_group_name: Optional[pulumi.In
     :param str resource_group_name: Resource Group Name
     :param str resource_name: Resource Identifier
     """
-    pulumi.log.warn("""get_maintenance_configuration is deprecated: Version 2018-06-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_maintenance_configuration is deprecated: Version 2018-06-01-preview will be removed in v2 of the provider.
+azure-native:maintenance/v20180601preview:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.""")
     ...

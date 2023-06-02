@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
+    [Obsolete(@"azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsAdtAPI is being removed in the next major version of this provider. Please upgrade to azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsAdtAPI to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsAdtAPI")]
     public partial class PrivateEndpointConnectionsAdtAPI : global::Pulumi.CustomResource
     {

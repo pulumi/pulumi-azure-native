@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventHub.V20211101
     /// <summary>
     /// Single item in List or Get Schema Group operation
     /// </summary>
+    [Obsolete(@"azure-native:eventhub/v20211101:SchemaRegistry is being removed in the next major version of this provider. Please upgrade to azure-native:eventhub/v20221001preview:SchemaRegistry to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventhub/v20211101:SchemaRegistry")]
     public partial class SchemaRegistry : global::Pulumi.CustomResource
     {

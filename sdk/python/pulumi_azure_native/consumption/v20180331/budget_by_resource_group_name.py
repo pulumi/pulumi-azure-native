@@ -161,11 +161,13 @@ class BudgetByResourceGroupNameArgs:
         pulumi.set(self, "notifications", value)
 
 
-warnings.warn("""Version 2018-03-31 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-03-31 will be removed in v2 of the provider.
+azure-native:consumption/v20180331:BudgetByResourceGroupName is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20181001:BudgetByResourceGroupName to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class BudgetByResourceGroupName(pulumi.CustomResource):
-    warnings.warn("""Version 2018-03-31 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2018-03-31 will be removed in v2 of the provider.
+azure-native:consumption/v20180331:BudgetByResourceGroupName is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20181001:BudgetByResourceGroupName to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -230,7 +232,8 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
                  time_grain: Optional[pulumi.Input[Union[str, 'TimeGrainType']]] = None,
                  time_period: Optional[pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""BudgetByResourceGroupName is deprecated: Version 2018-03-31 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""BudgetByResourceGroupName is deprecated: Version 2018-03-31 will be removed in v2 of the provider.
+azure-native:consumption/v20180331:BudgetByResourceGroupName is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20181001:BudgetByResourceGroupName to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

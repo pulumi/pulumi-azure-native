@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20180701
     /// <summary>
     /// Subnet in a virtual network resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20180701:Subnet is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190201:Subnet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20180701:Subnet")]
     public partial class Subnet : global::Pulumi.CustomResource
     {

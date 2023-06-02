@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get information about a configuration profile assignment
  */
+/** @deprecated azure-native:automanage/v20210430preview:ConfigurationProfileAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfileAssignment to guarantee forwards compatibility. */
 export function getConfigurationProfileAssignment(args: GetConfigurationProfileAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileAssignmentResult> {
+    pulumi.log.warn("getConfigurationProfileAssignment is deprecated: azure-native:automanage/v20210430preview:ConfigurationProfileAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfileAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automanage/v20210430preview:getConfigurationProfileAssignment", {
@@ -63,6 +65,7 @@ export interface GetConfigurationProfileAssignmentResult {
 /**
  * Get information about a configuration profile assignment
  */
+/** @deprecated azure-native:automanage/v20210430preview:ConfigurationProfileAssignment is being removed in the next major version of this provider. Please upgrade to azure-native:automanage/v20220504:ConfigurationProfileAssignment to guarantee forwards compatibility. */
 export function getConfigurationProfileAssignmentOutput(args: GetConfigurationProfileAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationProfileAssignment(a, opts))
 }

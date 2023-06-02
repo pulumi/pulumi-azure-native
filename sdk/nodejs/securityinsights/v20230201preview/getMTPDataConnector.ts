@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20230201preview:MTPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:MTPDataConnector to guarantee forwards compatibility. */
 export function getMTPDataConnector(args: GetMTPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMTPDataConnectorResult> {
+    pulumi.log.warn("getMTPDataConnector is deprecated: azure-native:securityinsights/v20230201preview:MTPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:MTPDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230201preview:getMTPDataConnector", {
@@ -80,6 +82,7 @@ export interface GetMTPDataConnectorResult {
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20230201preview:MTPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:MTPDataConnector to guarantee forwards compatibility. */
 export function getMTPDataConnectorOutput(args: GetMTPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMTPDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getMTPDataConnector(a, opts))
 }

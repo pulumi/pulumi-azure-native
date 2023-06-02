@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get assigned Gateway Certificate Authority details.
  */
+/** @deprecated azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GatewayCertificateAuthority to guarantee forwards compatibility. */
 export function getGatewayCertificateAuthority(args: GetGatewayCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayCertificateAuthorityResult> {
+    pulumi.log.warn("getGatewayCertificateAuthority is deprecated: azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GatewayCertificateAuthority to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20211201preview:getGatewayCertificateAuthority", {
@@ -61,6 +63,7 @@ export interface GetGatewayCertificateAuthorityResult {
 /**
  * Get assigned Gateway Certificate Authority details.
  */
+/** @deprecated azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GatewayCertificateAuthority to guarantee forwards compatibility. */
 export function getGatewayCertificateAuthorityOutput(args: GetGatewayCertificateAuthorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayCertificateAuthorityResult> {
     return pulumi.output(args).apply((a: any) => getGatewayCertificateAuthority(a, opts))
 }

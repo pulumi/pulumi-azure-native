@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
     /// <summary>
     /// An HCX Enterprise Site resource
     /// </summary>
+    [Obsolete(@"azure-native:avs/v20200717preview:HcxEnterpriseSite is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:HcxEnterpriseSite to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20200717preview:HcxEnterpriseSite")]
     public partial class HcxEnterpriseSite : global::Pulumi.CustomResource
     {

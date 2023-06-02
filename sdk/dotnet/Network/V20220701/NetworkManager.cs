@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220701
     /// <summary>
     /// The Managed Network resource
     /// </summary>
+    [Obsolete(@"azure-native:network/v20220701:NetworkManager is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:NetworkManager to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220701:NetworkManager")]
     public partial class NetworkManager : global::Pulumi.CustomResource
     {

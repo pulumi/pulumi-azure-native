@@ -17,7 +17,8 @@ __all__ = [
     'get_app_service_certificate_order_output',
 ]
 
-warnings.warn("""Version 2018-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-02-01 will be removed in v2 of the provider.
+azure-native:certificateregistration/v20180201:AppServiceCertificateOrder is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20201001:AppServiceCertificateOrder to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAppServiceCertificateOrderResult:
@@ -345,7 +346,8 @@ def get_app_service_certificate_order(certificate_order_name: Optional[str] = No
     :param str certificate_order_name: Name of the certificate order..
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_app_service_certificate_order is deprecated: Version 2018-02-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_app_service_certificate_order is deprecated: Version 2018-02-01 will be removed in v2 of the provider.
+azure-native:certificateregistration/v20180201:AppServiceCertificateOrder is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20201001:AppServiceCertificateOrder to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['certificateOrderName'] = certificate_order_name
     __args__['resourceGroupName'] = resource_group_name
@@ -391,5 +393,6 @@ def get_app_service_certificate_order_output(certificate_order_name: Optional[pu
     :param str certificate_order_name: Name of the certificate order..
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_app_service_certificate_order is deprecated: Version 2018-02-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_app_service_certificate_order is deprecated: Version 2018-02-01 will be removed in v2 of the provider.
+azure-native:certificateregistration/v20180201:AppServiceCertificateOrder is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20201001:AppServiceCertificateOrder to guarantee forwards compatibility.""")
     ...

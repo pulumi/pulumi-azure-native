@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns the specified authorization rule.
  */
+/** @deprecated azure-native:servicebus/v20180101preview:TopicAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20220101preview:TopicAuthorizationRule to guarantee forwards compatibility. */
 export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicAuthorizationRuleResult> {
+    pulumi.log.warn("getTopicAuthorizationRule is deprecated: azure-native:servicebus/v20180101preview:TopicAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20220101preview:TopicAuthorizationRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20180101preview:getTopicAuthorizationRule", {
@@ -61,6 +63,7 @@ export interface GetTopicAuthorizationRuleResult {
 /**
  * Returns the specified authorization rule.
  */
+/** @deprecated azure-native:servicebus/v20180101preview:TopicAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20220101preview:TopicAuthorizationRule to guarantee forwards compatibility. */
 export function getTopicAuthorizationRuleOutput(args: GetTopicAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getTopicAuthorizationRule(a, opts))
 }

@@ -17,6 +17,8 @@ __all__ = [
     'get_subscription_output',
 ]
 
+warnings.warn("""azure-native:servicebus/v20180101preview:Subscription is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:Subscription to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSubscriptionResult:
     """
@@ -287,6 +289,7 @@ def get_subscription(namespace_name: Optional[str] = None,
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
     """
+    pulumi.log.warn("""get_subscription is deprecated: azure-native:servicebus/v20180101preview:Subscription is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:Subscription to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
@@ -333,4 +336,5 @@ def get_subscription_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
     """
+    pulumi.log.warn("""get_subscription is deprecated: azure-native:servicebus/v20180101preview:Subscription is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:Subscription to guarantee forwards compatibility.""")
     ...

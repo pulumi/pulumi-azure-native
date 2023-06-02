@@ -632,7 +632,12 @@ class NodeTypeArgs:
         pulumi.set(self, "zones", value)
 
 
+warnings.warn("""azure-native:servicefabric/v20220601preview:NodeType is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20230201preview:NodeType to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class NodeType(pulumi.CustomResource):
+    warnings.warn("""azure-native:servicefabric/v20220601preview:NodeType is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20230201preview:NodeType to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -783,6 +788,7 @@ class NodeType(pulumi.CustomResource):
                  vm_size: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""NodeType is deprecated: azure-native:servicefabric/v20220601preview:NodeType is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20230201preview:NodeType to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -847,7 +853,7 @@ class NodeType(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20200101preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210901privatepreview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20211101preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20220101:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20220201preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20220801preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20221001preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20230201preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20230301preview:NodeType")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20200101preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210901privatepreview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20211101preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20220101:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20220201preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20220801preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20221001preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20230201preview:NodeType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NodeType, __self__).__init__(
             'azure-native:servicefabric/v20220601preview:NodeType',

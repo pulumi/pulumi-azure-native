@@ -16,6 +16,8 @@ __all__ = [
     'get_transparent_data_encryption_output',
 ]
 
+warnings.warn("""azure-native:sql/v20210801preview:TransparentDataEncryption is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:TransparentDataEncryption to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTransparentDataEncryptionResult:
     """
@@ -94,6 +96,7 @@ def get_transparent_data_encryption(database_name: Optional[str] = None,
     :param str server_name: The name of the server.
     :param str tde_name: The name of the transparent data encryption configuration.
     """
+    pulumi.log.warn("""get_transparent_data_encryption is deprecated: azure-native:sql/v20210801preview:TransparentDataEncryption is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:TransparentDataEncryption to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
@@ -124,4 +127,5 @@ def get_transparent_data_encryption_output(database_name: Optional[pulumi.Input[
     :param str server_name: The name of the server.
     :param str tde_name: The name of the transparent data encryption configuration.
     """
+    pulumi.log.warn("""get_transparent_data_encryption is deprecated: azure-native:sql/v20210801preview:TransparentDataEncryption is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:TransparentDataEncryption to guarantee forwards compatibility.""")
     ...

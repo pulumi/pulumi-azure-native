@@ -17,6 +17,8 @@ __all__ = [
     'get_peer_asn_output',
 ]
 
+warnings.warn("""azure-native:peering/v20220601:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPeerAsnResult:
     """
@@ -137,6 +139,7 @@ def get_peer_asn(peer_asn_name: Optional[str] = None,
 
     :param str peer_asn_name: The peer ASN name.
     """
+    pulumi.log.warn("""get_peer_asn is deprecated: azure-native:peering/v20220601:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['peerAsnName'] = peer_asn_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -162,4 +165,5 @@ def get_peer_asn_output(peer_asn_name: Optional[pulumi.Input[str]] = None,
 
     :param str peer_asn_name: The peer ASN name.
     """
+    pulumi.log.warn("""get_peer_asn is deprecated: azure-native:peering/v20220601:PeerAsn is being removed in the next major version of this provider. Please upgrade to azure-native:peering/v20221001:PeerAsn to guarantee forwards compatibility.""")
     ...

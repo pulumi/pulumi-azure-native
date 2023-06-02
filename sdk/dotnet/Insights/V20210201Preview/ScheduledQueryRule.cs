@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Insights.V20210201Preview
     /// <summary>
     /// The scheduled query rule resource.
     /// </summary>
+    [Obsolete(@"azure-native:insights/v20210201preview:ScheduledQueryRule is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20220801preview:ScheduledQueryRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:insights/v20210201preview:ScheduledQueryRule")]
     public partial class ScheduledQueryRule : global::Pulumi.CustomResource
     {
@@ -196,7 +197,6 @@ namespace Pulumi.AzureNative.Insights.V20210201Preview
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210801:ScheduledQueryRule"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20220615:ScheduledQueryRule"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20220801preview:ScheduledQueryRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20230315preview:ScheduledQueryRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

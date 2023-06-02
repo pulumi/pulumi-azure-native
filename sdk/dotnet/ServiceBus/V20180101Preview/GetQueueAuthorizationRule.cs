@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
+    [Obsolete(@"azure-native:servicebus/v20180101preview:QueueAuthorizationRule is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20220101preview:QueueAuthorizationRule to guarantee forwards compatibility.")]
     public static class GetQueueAuthorizationRule
     {
         /// <summary>

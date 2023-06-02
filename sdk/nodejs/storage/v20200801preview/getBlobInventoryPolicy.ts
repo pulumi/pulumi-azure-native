@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets the blob inventory policy associated with the specified storage account.
  */
-/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider.
+azure-native:storage/v20200801preview:BlobInventoryPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility. */
 export function getBlobInventoryPolicy(args: GetBlobInventoryPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobInventoryPolicyResult> {
-    pulumi.log.warn("getBlobInventoryPolicy is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getBlobInventoryPolicy is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.\nazure-native:storage/v20200801preview:BlobInventoryPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20200801preview:getBlobInventoryPolicy", {
@@ -69,7 +70,8 @@ export interface GetBlobInventoryPolicyResult {
 /**
  * Gets the blob inventory policy associated with the specified storage account.
  */
-/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider.
+azure-native:storage/v20200801preview:BlobInventoryPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobInventoryPolicy to guarantee forwards compatibility. */
 export function getBlobInventoryPolicyOutput(args: GetBlobInventoryPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobInventoryPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBlobInventoryPolicy(a, opts))
 }

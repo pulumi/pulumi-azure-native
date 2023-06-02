@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified virtual network gateway by resource group.
  */
+/** @deprecated azure-native:network/v20190901:VirtualNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualNetworkGateway to guarantee forwards compatibility. */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
+    pulumi.log.warn("getVirtualNetworkGateway is deprecated: azure-native:network/v20190901:VirtualNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualNetworkGateway to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190901:getVirtualNetworkGateway", {
@@ -122,6 +124,7 @@ export interface GetVirtualNetworkGatewayResult {
 /**
  * Gets the specified virtual network gateway by resource group.
  */
+/** @deprecated azure-native:network/v20190901:VirtualNetworkGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualNetworkGateway to guarantee forwards compatibility. */
 export function getVirtualNetworkGatewayOutput(args: GetVirtualNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGateway(a, opts))
 }

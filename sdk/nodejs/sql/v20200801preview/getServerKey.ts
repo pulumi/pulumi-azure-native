@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a server key.
  */
+/** @deprecated azure-native:sql/v20200801preview:ServerKey is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerKey to guarantee forwards compatibility. */
 export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerKeyResult> {
+    pulumi.log.warn("getServerKey is deprecated: azure-native:sql/v20200801preview:ServerKey is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerKey to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20200801preview:getServerKey", {
@@ -72,6 +74,7 @@ export interface GetServerKeyResult {
 /**
  * Gets a server key.
  */
+/** @deprecated azure-native:sql/v20200801preview:ServerKey is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerKey to guarantee forwards compatibility. */
 export function getServerKeyOutput(args: GetServerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerKeyResult> {
     return pulumi.output(args).apply((a: any) => getServerKey(a, opts))
 }

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
+    [Obsolete(@"azure-native:datashare/v20201001preview:BlobFolderDataSetMapping is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobFolderDataSetMapping to guarantee forwards compatibility.")]
     public static class GetBlobFolderDataSetMapping
     {
         /// <summary>

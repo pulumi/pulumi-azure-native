@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AlertsManagement.V20210808
 {
+    [Obsolete(@"azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName is being removed in the next major version of this provider. Please upgrade to azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName to guarantee forwards compatibility.")]
     public static class GetAlertProcessingRuleByName
     {
         /// <summary>

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Storage.V20220501
 {
+    [Obsolete(@"azure-native:storage/v20220501:Table is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:Table to guarantee forwards compatibility.")]
     public static class GetTable
     {
         /// <summary>

@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * @deprecated azure-native:machinelearningservices/v20220501:BatchEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:BatchEndpoint to guarantee forwards compatibility.
+ */
 export class BatchEndpoint extends pulumi.CustomResource {
     /**
      * Get an existing BatchEndpoint resource's state with the given name, ID, and optional extra
@@ -17,6 +20,7 @@ export class BatchEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BatchEndpoint {
+        pulumi.log.warn("BatchEndpoint is deprecated: azure-native:machinelearningservices/v20220501:BatchEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:BatchEndpoint to guarantee forwards compatibility.")
         return new BatchEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
@@ -78,7 +82,9 @@ export class BatchEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:machinelearningservices/v20220501:BatchEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:BatchEndpoint to guarantee forwards compatibility. */
     constructor(name: string, args: BatchEndpointArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BatchEndpoint is deprecated: azure-native:machinelearningservices/v20220501:BatchEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:BatchEndpoint to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

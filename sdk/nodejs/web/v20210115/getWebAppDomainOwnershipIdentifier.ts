@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get domain ownership identifier for web app.
  */
+/** @deprecated azure-native:web/v20210115:WebAppDomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppDomainOwnershipIdentifier to guarantee forwards compatibility. */
 export function getWebAppDomainOwnershipIdentifier(args: GetWebAppDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDomainOwnershipIdentifierResult> {
+    pulumi.log.warn("getWebAppDomainOwnershipIdentifier is deprecated: azure-native:web/v20210115:WebAppDomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppDomainOwnershipIdentifier to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210115:getWebAppDomainOwnershipIdentifier", {
@@ -60,6 +62,7 @@ export interface GetWebAppDomainOwnershipIdentifierResult {
 /**
  * Get domain ownership identifier for web app.
  */
+/** @deprecated azure-native:web/v20210115:WebAppDomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebAppDomainOwnershipIdentifier to guarantee forwards compatibility. */
 export function getWebAppDomainOwnershipIdentifierOutput(args: GetWebAppDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDomainOwnershipIdentifierResult> {
     return pulumi.output(args).apply((a: any) => getWebAppDomainOwnershipIdentifier(a, opts))
 }

@@ -17,6 +17,8 @@ __all__ = [
     'get_integration_account_assembly_output',
 ]
 
+warnings.warn("""azure-native:logic/v20160601:IntegrationAccountAssembly is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountAssembly to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIntegrationAccountAssemblyResult:
     """
@@ -117,6 +119,7 @@ def get_integration_account_assembly(assembly_artifact_name: Optional[str] = Non
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_integration_account_assembly is deprecated: azure-native:logic/v20160601:IntegrationAccountAssembly is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountAssembly to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['assemblyArtifactName'] = assembly_artifact_name
     __args__['integrationAccountName'] = integration_account_name
@@ -146,4 +149,5 @@ def get_integration_account_assembly_output(assembly_artifact_name: Optional[pul
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_integration_account_assembly is deprecated: azure-native:logic/v20160601:IntegrationAccountAssembly is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountAssembly to guarantee forwards compatibility.""")
     ...

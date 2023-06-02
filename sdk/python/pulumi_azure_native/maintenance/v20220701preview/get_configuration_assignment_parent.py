@@ -17,6 +17,8 @@ __all__ = [
     'get_configuration_assignment_parent_output',
 ]
 
+warnings.warn("""azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConfigurationAssignmentParentResult:
     """
@@ -137,6 +139,7 @@ def get_configuration_assignment_parent(configuration_assignment_name: Optional[
     :param str resource_parent_type: Resource parent type
     :param str resource_type: Resource type
     """
+    pulumi.log.warn("""get_configuration_assignment_parent is deprecated: azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['configurationAssignmentName'] = configuration_assignment_name
     __args__['providerName'] = provider_name
@@ -179,4 +182,5 @@ def get_configuration_assignment_parent_output(configuration_assignment_name: Op
     :param str resource_parent_type: Resource parent type
     :param str resource_type: Resource type
     """
+    pulumi.log.warn("""get_configuration_assignment_parent is deprecated: azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent to guarantee forwards compatibility.""")
     ...

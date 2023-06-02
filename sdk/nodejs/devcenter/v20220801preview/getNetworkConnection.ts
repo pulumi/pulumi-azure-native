@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a network connection resource
  */
+/** @deprecated azure-native:devcenter/v20220801preview:NetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:NetworkConnection to guarantee forwards compatibility. */
 export function getNetworkConnection(args: GetNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkConnectionResult> {
+    pulumi.log.warn("getNetworkConnection is deprecated: azure-native:devcenter/v20220801preview:NetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:NetworkConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20220801preview:getNetworkConnection", {
@@ -98,6 +100,7 @@ export interface GetNetworkConnectionResult {
 /**
  * Gets a network connection resource
  */
+/** @deprecated azure-native:devcenter/v20220801preview:NetworkConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:NetworkConnection to guarantee forwards compatibility. */
 export function getNetworkConnectionOutput(args: GetNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkConnectionResult> {
     return pulumi.output(args).apply((a: any) => getNetworkConnection(a, opts))
 }

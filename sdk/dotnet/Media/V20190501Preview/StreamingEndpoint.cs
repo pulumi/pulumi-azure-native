@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Media.V20190501Preview
     /// <summary>
     /// The StreamingEndpoint.
     /// </summary>
+    [Obsolete(@"azure-native:media/v20190501preview:StreamingEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:media/v20221101:StreamingEndpoint to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:media/v20190501preview:StreamingEndpoint")]
     public partial class StreamingEndpoint : global::Pulumi.CustomResource
     {

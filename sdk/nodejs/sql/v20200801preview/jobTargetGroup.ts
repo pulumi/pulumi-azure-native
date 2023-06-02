@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A group of job targets.
+ *
+ * @deprecated azure-native:sql/v20200801preview:JobTargetGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:JobTargetGroup to guarantee forwards compatibility.
  */
 export class JobTargetGroup extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class JobTargetGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): JobTargetGroup {
+        pulumi.log.warn("JobTargetGroup is deprecated: azure-native:sql/v20200801preview:JobTargetGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:JobTargetGroup to guarantee forwards compatibility.")
         return new JobTargetGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -57,7 +60,9 @@ export class JobTargetGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:sql/v20200801preview:JobTargetGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:JobTargetGroup to guarantee forwards compatibility. */
     constructor(name: string, args: JobTargetGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("JobTargetGroup is deprecated: azure-native:sql/v20200801preview:JobTargetGroup is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:JobTargetGroup to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

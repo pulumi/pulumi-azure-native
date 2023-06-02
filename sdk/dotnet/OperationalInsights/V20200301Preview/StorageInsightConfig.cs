@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
     /// <summary>
     /// The top level storage insight resource container.
     /// </summary>
+    [Obsolete(@"azure-native:operationalinsights/v20200301preview:StorageInsightConfig is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:StorageInsightConfig to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:operationalinsights/v20200301preview:StorageInsightConfig")]
     public partial class StorageInsightConfig : global::Pulumi.CustomResource
     {

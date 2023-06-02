@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210615
 {
+    [Obsolete(@"azure-native:documentdb/v20210615:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:SqlResourceSqlRoleDefinition to guarantee forwards compatibility.")]
     public static class GetSqlResourceSqlRoleDefinition
     {
         /// <summary>

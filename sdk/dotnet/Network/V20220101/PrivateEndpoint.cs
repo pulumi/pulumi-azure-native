@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     /// <summary>
     /// Private endpoint resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20220101:PrivateEndpoint is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:PrivateEndpoint to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220101:PrivateEndpoint")]
     public partial class PrivateEndpoint : global::Pulumi.CustomResource
     {

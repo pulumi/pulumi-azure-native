@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20211101
 {
+    [Obsolete(@"azure-native:compute/v20211101:ProximityPlacementGroup is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:ProximityPlacementGroup to guarantee forwards compatibility.")]
     public static class GetProximityPlacementGroup
     {
         /// <summary>

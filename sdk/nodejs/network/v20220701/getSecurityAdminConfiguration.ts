@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves a network manager security admin configuration.
  */
+/** @deprecated azure-native:network/v20220701:SecurityAdminConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:SecurityAdminConfiguration to guarantee forwards compatibility. */
 export function getSecurityAdminConfiguration(args: GetSecurityAdminConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityAdminConfigurationResult> {
+    pulumi.log.warn("getSecurityAdminConfiguration is deprecated: azure-native:network/v20220701:SecurityAdminConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:SecurityAdminConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220701:getSecurityAdminConfiguration", {
@@ -75,6 +77,7 @@ export interface GetSecurityAdminConfigurationResult {
 /**
  * Retrieves a network manager security admin configuration.
  */
+/** @deprecated azure-native:network/v20220701:SecurityAdminConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:SecurityAdminConfiguration to guarantee forwards compatibility. */
 export function getSecurityAdminConfigurationOutput(args: GetSecurityAdminConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityAdminConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getSecurityAdminConfiguration(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20221101Preview
     /// <summary>
     /// Dev Tool Portal resource
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20221101preview:DevToolPortal is being removed in the next major version of this provider. Please upgrade to azure-native:appplatform/v20230101preview:DevToolPortal to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20221101preview:DevToolPortal")]
     public partial class DevToolPortal : global::Pulumi.CustomResource
     {

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents threat intelligence data connector.
+ *
+ * @deprecated azure-native:securityinsights/v20221001preview:TIDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:TIDataConnector to guarantee forwards compatibility.
  */
 export class TIDataConnector extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class TIDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TIDataConnector {
+        pulumi.log.warn("TIDataConnector is deprecated: azure-native:securityinsights/v20221001preview:TIDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:TIDataConnector to guarantee forwards compatibility.")
         return new TIDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -78,7 +81,9 @@ export class TIDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20221001preview:TIDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:TIDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: TIDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("TIDataConnector is deprecated: azure-native:securityinsights/v20221001preview:TIDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:TIDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -119,7 +124,7 @@ export class TIDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:TIDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20200101:TIDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20211001:TIDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220801:TIDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20221101:TIDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20230201:TIDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:TIDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:TIDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20200101:TIDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20211001:TIDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220801:TIDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20221101:TIDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20230201:TIDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:TIDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TIDataConnector.__pulumiType, name, resourceInputs, opts);
     }

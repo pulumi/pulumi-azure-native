@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Insights.V20180617Preview
 {
+    [Obsolete(@"azure-native:insights/v20180617preview:Workbook is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20210308:Workbook to guarantee forwards compatibility.")]
     public static class GetWorkbook
     {
         /// <summary>

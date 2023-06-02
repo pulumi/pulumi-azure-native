@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210615
     /// <summary>
     /// An Azure Cosmos DB trigger.
     /// </summary>
+    [Obsolete(@"azure-native:documentdb/v20210615:SqlResourceSqlTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20220815preview:SqlResourceSqlTrigger to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20210615:SqlResourceSqlTrigger")]
     public partial class SqlResourceSqlTrigger : global::Pulumi.CustomResource
     {

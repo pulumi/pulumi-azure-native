@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20220801
     /// <summary>
     /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
     /// </summary>
+    [Obsolete(@"azure-native:compute/v20220801:AvailabilitySet is being removed in the next major version of this provider. Please upgrade to azure-native:compute/v20221101:AvailabilitySet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20220801:AvailabilitySet")]
     public partial class AvailabilitySet : global::Pulumi.CustomResource
     {

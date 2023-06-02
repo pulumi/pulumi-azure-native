@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the alert rule.
  */
+/** @deprecated azure-native:securityinsights/v20220501preview:NrtAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:NrtAlertRule to guarantee forwards compatibility. */
 export function getNrtAlertRule(args: GetNrtAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNrtAlertRuleResult> {
+    pulumi.log.warn("getNrtAlertRule is deprecated: azure-native:securityinsights/v20220501preview:NrtAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:NrtAlertRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220501preview:getNrtAlertRule", {
@@ -132,6 +134,7 @@ export interface GetNrtAlertRuleResult {
 /**
  * Gets the alert rule.
  */
+/** @deprecated azure-native:securityinsights/v20220501preview:NrtAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:NrtAlertRule to guarantee forwards compatibility. */
 export function getNrtAlertRuleOutput(args: GetNrtAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNrtAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getNrtAlertRule(a, opts))
 }

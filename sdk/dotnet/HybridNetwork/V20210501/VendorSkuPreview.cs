@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
     /// <summary>
     /// Customer subscription which can use a sku.
     /// </summary>
+    [Obsolete(@"azure-native:hybridnetwork/v20210501:VendorSkuPreview is being removed in the next major version of this provider. Please upgrade to azure-native:hybridnetwork/v20220101preview:VendorSkuPreview to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hybridnetwork/v20210501:VendorSkuPreview")]
     public partial class VendorSkuPreview : global::Pulumi.CustomResource
     {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified mobile network slice.
  */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:Slice is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Slice to guarantee forwards compatibility. */
 export function getSlice(args: GetSliceArgs, opts?: pulumi.InvokeOptions): Promise<GetSliceResult> {
+    pulumi.log.warn("getSlice is deprecated: azure-native:mobilenetwork/v20220301preview:Slice is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Slice to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220301preview:getSlice", {
@@ -103,6 +105,7 @@ export interface GetSliceResult {
 /**
  * Gets information about the specified mobile network slice.
  */
+/** @deprecated azure-native:mobilenetwork/v20220301preview:Slice is being removed in the next major version of this provider. Please upgrade to azure-native:mobilenetwork/v20220401preview:Slice to guarantee forwards compatibility. */
 export function getSliceOutput(args: GetSliceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSliceResult> {
     return pulumi.output(args).apply((a: any) => getSlice(a, opts))
 }

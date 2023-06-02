@@ -17,6 +17,8 @@ __all__ = [
     'get_iot_dps_resource_private_endpoint_connection_output',
 ]
 
+warnings.warn("""azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIotDpsResourcePrivateEndpointConnectionResult:
     """
@@ -105,6 +107,7 @@ def get_iot_dps_resource_private_endpoint_connection(private_endpoint_connection
     :param str resource_group_name: The name of the resource group that contains the provisioning service.
     :param str resource_name: The name of the provisioning service.
     """
+    pulumi.log.warn("""get_iot_dps_resource_private_endpoint_connection is deprecated: azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -133,4 +136,5 @@ def get_iot_dps_resource_private_endpoint_connection_output(private_endpoint_con
     :param str resource_group_name: The name of the resource group that contains the provisioning service.
     :param str resource_name: The name of the provisioning service.
     """
+    pulumi.log.warn("""get_iot_dps_resource_private_endpoint_connection is deprecated: azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

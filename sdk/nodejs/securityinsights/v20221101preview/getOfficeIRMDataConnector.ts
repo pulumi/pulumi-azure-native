@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20221101preview:OfficeIRMDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:OfficeIRMDataConnector to guarantee forwards compatibility. */
 export function getOfficeIRMDataConnector(args: GetOfficeIRMDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficeIRMDataConnectorResult> {
+    pulumi.log.warn("getOfficeIRMDataConnector is deprecated: azure-native:securityinsights/v20221101preview:OfficeIRMDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:OfficeIRMDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20221101preview:getOfficeIRMDataConnector", {
@@ -76,6 +78,7 @@ export interface GetOfficeIRMDataConnectorResult {
 /**
  * Gets a data connector.
  */
+/** @deprecated azure-native:securityinsights/v20221101preview:OfficeIRMDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:OfficeIRMDataConnector to guarantee forwards compatibility. */
 export function getOfficeIRMDataConnectorOutput(args: GetOfficeIRMDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficeIRMDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getOfficeIRMDataConnector(a, opts))
 }

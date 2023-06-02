@@ -17,6 +17,8 @@ __all__ = [
     'get_registry_output',
 ]
 
+warnings.warn("""azure-native:containerregistry/v20171001:Registry is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20190501:Registry to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRegistryResult:
     """
@@ -199,6 +201,7 @@ def get_registry(registry_name: Optional[str] = None,
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("""get_registry is deprecated: azure-native:containerregistry/v20171001:Registry is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20190501:Registry to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
@@ -232,4 +235,5 @@ def get_registry_output(registry_name: Optional[pulumi.Input[str]] = None,
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("""get_registry is deprecated: azure-native:containerregistry/v20171001:Registry is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20190501:Registry to guarantee forwards compatibility.""")
     ...

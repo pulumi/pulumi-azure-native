@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Web.V20200601
 {
+    [Obsolete(@"azure-native:web/v20200601:WebAppPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:WebAppPrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetWebAppPrivateEndpointConnection
     {
         /// <summary>

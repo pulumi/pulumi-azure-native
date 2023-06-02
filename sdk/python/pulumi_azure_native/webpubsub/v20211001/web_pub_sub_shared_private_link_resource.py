@@ -112,7 +112,12 @@ class WebPubSubSharedPrivateLinkResourceArgs:
         pulumi.set(self, "shared_private_link_resource_name", value)
 
 
+warnings.warn("""azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
+    warnings.warn("""azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,6 +172,7 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebPubSubSharedPrivateLinkResource is deprecated: azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Please upgrade to azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

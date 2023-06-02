@@ -111,7 +111,12 @@ class CapabilityArgs:
         pulumi.set(self, "capability_name", value)
 
 
+warnings.warn("""azure-native:chaos/v20221001preview:Capability is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Capability to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Capability(pulumi.CustomResource):
+    warnings.warn("""azure-native:chaos/v20221001preview:Capability is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Capability to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -166,6 +171,7 @@ class Capability(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Capability is deprecated: azure-native:chaos/v20221001preview:Capability is being removed in the next major version of this provider. Please upgrade to azure-native:chaos/v20230401preview:Capability to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

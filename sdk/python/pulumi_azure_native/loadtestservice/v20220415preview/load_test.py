@@ -133,7 +133,12 @@ class LoadTestArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:loadtestservice/v20220415preview:LoadTest is being removed in the next major version of this provider. Please upgrade to azure-native:loadtestservice/v20221201:LoadTest to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class LoadTest(pulumi.CustomResource):
+    warnings.warn("""azure-native:loadtestservice/v20220415preview:LoadTest is being removed in the next major version of this provider. Please upgrade to azure-native:loadtestservice/v20221201:LoadTest to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -191,6 +196,7 @@ class LoadTest(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""LoadTest is deprecated: azure-native:loadtestservice/v20220415preview:LoadTest is being removed in the next major version of this provider. Please upgrade to azure-native:loadtestservice/v20221201:LoadTest to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -180,7 +180,12 @@ class FileShareArgs:
         pulumi.set(self, "signed_identifiers", value)
 
 
+warnings.warn("""azure-native:storage/v20210901:FileShare is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:FileShare to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class FileShare(pulumi.CustomResource):
+    warnings.warn("""azure-native:storage/v20210901:FileShare is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:FileShare to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -247,6 +252,7 @@ class FileShare(pulumi.CustomResource):
                  share_quota: Optional[pulumi.Input[int]] = None,
                  signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignedIdentifierArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""FileShare is deprecated: azure-native:storage/v20210901:FileShare is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:FileShare to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

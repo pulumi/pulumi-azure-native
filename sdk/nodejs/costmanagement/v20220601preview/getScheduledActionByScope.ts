@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the shared scheduled action from the given scope by name.
  */
+/** @deprecated azure-native:costmanagement/v20220601preview:ScheduledActionByScope is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221001:ScheduledActionByScope to guarantee forwards compatibility. */
 export function getScheduledActionByScope(args: GetScheduledActionByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionByScopeResult> {
+    pulumi.log.warn("getScheduledActionByScope is deprecated: azure-native:costmanagement/v20220601preview:ScheduledActionByScope is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221001:ScheduledActionByScope to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20220601preview:getScheduledActionByScope", {
@@ -90,6 +92,7 @@ export interface GetScheduledActionByScopeResult {
 /**
  * Get the shared scheduled action from the given scope by name.
  */
+/** @deprecated azure-native:costmanagement/v20220601preview:ScheduledActionByScope is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20221001:ScheduledActionByScope to guarantee forwards compatibility. */
 export function getScheduledActionByScopeOutput(args: GetScheduledActionByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionByScopeResult> {
     return pulumi.output(args).apply((a: any) => getScheduledActionByScope(a, opts))
 }

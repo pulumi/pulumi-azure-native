@@ -117,7 +117,12 @@ class FluidRelayServerArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:fluidrelay/v20220215:FluidRelayServer is being removed in the next major version of this provider. Please upgrade to azure-native:fluidrelay/v20220601:FluidRelayServer to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class FluidRelayServer(pulumi.CustomResource):
+    warnings.warn("""azure-native:fluidrelay/v20220215:FluidRelayServer is being removed in the next major version of this provider. Please upgrade to azure-native:fluidrelay/v20220601:FluidRelayServer to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -172,6 +177,7 @@ class FluidRelayServer(pulumi.CustomResource):
                  resource_group: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""FluidRelayServer is deprecated: azure-native:fluidrelay/v20220215:FluidRelayServer is being removed in the next major version of this provider. Please upgrade to azure-native:fluidrelay/v20220601:FluidRelayServer to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

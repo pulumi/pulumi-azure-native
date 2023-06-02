@@ -82,7 +82,12 @@ class EnvironmentTypeArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:devcenter/v20220801preview:EnvironmentType is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class EnvironmentType(pulumi.CustomResource):
+    warnings.warn("""azure-native:devcenter/v20220801preview:EnvironmentType is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,6 +136,7 @@ class EnvironmentType(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""EnvironmentType is deprecated: azure-native:devcenter/v20220801preview:EnvironmentType is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:EnvironmentType to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -151,7 +157,7 @@ class EnvironmentType(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20230401:EnvironmentType")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:EnvironmentType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EnvironmentType, __self__).__init__(
             'azure-native:devcenter/v20220801preview:EnvironmentType',

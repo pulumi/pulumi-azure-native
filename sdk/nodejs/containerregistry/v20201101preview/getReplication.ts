@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified replication.
  */
+/** @deprecated azure-native:containerregistry/v20201101preview:Replication is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:Replication to guarantee forwards compatibility. */
 export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationResult> {
+    pulumi.log.warn("getReplication is deprecated: azure-native:containerregistry/v20201101preview:Replication is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:Replication to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20201101preview:getReplication", {
@@ -83,6 +85,7 @@ export interface GetReplicationResult {
 /**
  * Gets the properties of the specified replication.
  */
+/** @deprecated azure-native:containerregistry/v20201101preview:Replication is being removed in the next major version of this provider. Please upgrade to azure-native:containerregistry/v20230101preview:Replication to guarantee forwards compatibility. */
 export function getReplicationOutput(args: GetReplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationResult> {
     return pulumi.output(args).apply((a: any) => getReplication(a, opts))
 }

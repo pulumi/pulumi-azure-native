@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20221201Preview
 {
+    [Obsolete(@"azure-native:databoxedge/v20221201preview:KubernetesRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:KubernetesRole to guarantee forwards compatibility.")]
     public static class GetKubernetesRole
     {
         /// <summary>

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.ContainerInstance.V20201101
     /// <summary>
     /// A container group.
     /// </summary>
-    [Obsolete(@"Version 2020-11-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-11-01 will be removed in v2 of the provider.
+azure-native:containerinstance/v20201101:ContainerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:containerinstance/v20210301:ContainerGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerinstance/v20201101:ContainerGroup")]
     public partial class ContainerGroup : global::Pulumi.CustomResource
     {

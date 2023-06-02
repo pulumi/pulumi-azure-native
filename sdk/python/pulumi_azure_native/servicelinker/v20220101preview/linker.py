@@ -149,7 +149,12 @@ class LinkerArgs:
         pulumi.set(self, "v_net_solution", value)
 
 
+warnings.warn("""azure-native:servicelinker/v20220101preview:Linker is being removed in the next major version of this provider. Please upgrade to azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Linker(pulumi.CustomResource):
+    warnings.warn("""azure-native:servicelinker/v20220101preview:Linker is being removed in the next major version of this provider. Please upgrade to azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -210,6 +215,7 @@ class Linker(pulumi.CustomResource):
                  target_service: Optional[pulumi.Input[Union[pulumi.InputType['AzureResourceArgs'], pulumi.InputType['ConfluentBootstrapServerArgs'], pulumi.InputType['ConfluentSchemaRegistryArgs']]]] = None,
                  v_net_solution: Optional[pulumi.Input[pulumi.InputType['VNetSolutionArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""Linker is deprecated: azure-native:servicelinker/v20220101preview:Linker is being removed in the next major version of this provider. Please upgrade to azure-native:servicelinker/v20221101preview:Linker to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

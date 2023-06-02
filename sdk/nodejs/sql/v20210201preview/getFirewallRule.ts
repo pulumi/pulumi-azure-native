@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a firewall rule.
  */
+/** @deprecated azure-native:sql/v20210201preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:FirewallRule to guarantee forwards compatibility. */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
+    pulumi.log.warn("getFirewallRule is deprecated: azure-native:sql/v20210201preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:FirewallRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20210201preview:getFirewallRule", {
@@ -60,6 +62,7 @@ export interface GetFirewallRuleResult {
 /**
  * Gets a firewall rule.
  */
+/** @deprecated azure-native:sql/v20210201preview:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:FirewallRule to guarantee forwards compatibility. */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))
 }

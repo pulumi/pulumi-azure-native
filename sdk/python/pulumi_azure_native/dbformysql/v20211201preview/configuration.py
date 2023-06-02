@@ -115,7 +115,12 @@ class ConfigurationArgs:
         pulumi.set(self, "value", value)
 
 
+warnings.warn("""azure-native:dbformysql/v20211201preview:Configuration is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20220101:Configuration to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Configuration(pulumi.CustomResource):
+    warnings.warn("""azure-native:dbformysql/v20211201preview:Configuration is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20220101:Configuration to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -170,6 +175,7 @@ class Configuration(pulumi.CustomResource):
                  source: Optional[pulumi.Input[Union[str, 'ConfigurationSource']]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Configuration is deprecated: azure-native:dbformysql/v20211201preview:Configuration is being removed in the next major version of this provider. Please upgrade to azure-native:dbformysql/v20220101:Configuration to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

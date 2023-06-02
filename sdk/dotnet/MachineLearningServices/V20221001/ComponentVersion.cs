@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001
     /// <summary>
     /// Azure Resource Manager resource envelope.
     /// </summary>
+    [Obsolete(@"azure-native:machinelearningservices/v20221001:ComponentVersion is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:ComponentVersion to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20221001:ComponentVersion")]
     public partial class ComponentVersion : global::Pulumi.CustomResource
     {

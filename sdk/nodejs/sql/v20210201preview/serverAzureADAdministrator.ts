@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Active Directory administrator.
+ *
+ * @deprecated azure-native:sql/v20210201preview:ServerAzureADAdministrator is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerAzureADAdministrator to guarantee forwards compatibility.
  */
 export class ServerAzureADAdministrator extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerAzureADAdministrator {
+        pulumi.log.warn("ServerAzureADAdministrator is deprecated: azure-native:sql/v20210201preview:ServerAzureADAdministrator is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerAzureADAdministrator to guarantee forwards compatibility.")
         return new ServerAzureADAdministrator(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,7 +76,9 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:sql/v20210201preview:ServerAzureADAdministrator is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerAzureADAdministrator to guarantee forwards compatibility. */
     constructor(name: string, args: ServerAzureADAdministratorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ServerAzureADAdministrator is deprecated: azure-native:sql/v20210201preview:ServerAzureADAdministrator is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20220801preview:ServerAzureADAdministrator to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

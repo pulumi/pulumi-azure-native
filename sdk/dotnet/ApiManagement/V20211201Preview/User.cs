@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
     /// <summary>
     /// User details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20211201preview:User is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:User to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20211201preview:User")]
     public partial class User : global::Pulumi.CustomResource
     {

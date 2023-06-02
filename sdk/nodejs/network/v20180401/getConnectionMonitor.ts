@@ -10,9 +10,10 @@ import * as utilities from "../../utilities";
 /**
  * Gets a connection monitor by name.
  */
-/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:ConnectionMonitor is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190901:ConnectionMonitor to guarantee forwards compatibility. */
 export function getConnectionMonitor(args: GetConnectionMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorResult> {
-    pulumi.log.warn("getConnectionMonitor is deprecated: Version 2018-04-01 will be removed in v2 of the provider.")
+    pulumi.log.warn("getConnectionMonitor is deprecated: Version 2018-04-01 will be removed in v2 of the provider.\nazure-native:network/v20180401:ConnectionMonitor is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190901:ConnectionMonitor to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180401:getConnectionMonitor", {
@@ -94,7 +95,8 @@ export interface GetConnectionMonitorResult {
 /**
  * Gets a connection monitor by name.
  */
-/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
+/** @deprecated Version 2018-04-01 will be removed in v2 of the provider.
+azure-native:network/v20180401:ConnectionMonitor is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190901:ConnectionMonitor to guarantee forwards compatibility. */
 export function getConnectionMonitorOutput(args: GetConnectionMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorResult> {
     return pulumi.output(args).apply((a: any) => getConnectionMonitor(a, opts))
 }

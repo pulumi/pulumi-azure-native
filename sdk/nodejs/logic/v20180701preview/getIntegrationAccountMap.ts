@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an integration account map.
  */
+/** @deprecated azure-native:logic/v20180701preview:IntegrationAccountMap is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountMap to guarantee forwards compatibility. */
 export function getIntegrationAccountMap(args: GetIntegrationAccountMapArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountMapResult> {
+    pulumi.log.warn("getIntegrationAccountMap is deprecated: azure-native:logic/v20180701preview:IntegrationAccountMap is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountMap to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20180701preview:getIntegrationAccountMap", {
@@ -95,6 +97,7 @@ export interface GetIntegrationAccountMapResult {
 /**
  * Gets an integration account map.
  */
+/** @deprecated azure-native:logic/v20180701preview:IntegrationAccountMap is being removed in the next major version of this provider. Please upgrade to azure-native:logic/v20190501:IntegrationAccountMap to guarantee forwards compatibility. */
 export function getIntegrationAccountMapOutput(args: GetIntegrationAccountMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountMapResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccountMap(a, opts))
 }

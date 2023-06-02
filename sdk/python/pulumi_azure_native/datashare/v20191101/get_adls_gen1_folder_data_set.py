@@ -16,6 +16,8 @@ __all__ = [
     'get_adls_gen1_folder_data_set_output',
 ]
 
+warnings.warn("""azure-native:datashare/v20191101:ADLSGen1FolderDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen1FolderDataSet to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetADLSGen1FolderDataSetResult:
     """
@@ -155,6 +157,7 @@ def get_adls_gen1_folder_data_set(account_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
     """
+    pulumi.log.warn("""get_adls_gen1_folder_data_set is deprecated: azure-native:datashare/v20191101:ADLSGen1FolderDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen1FolderDataSet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['dataSetName'] = data_set_name
@@ -190,4 +193,5 @@ def get_adls_gen1_folder_data_set_output(account_name: Optional[pulumi.Input[str
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
     """
+    pulumi.log.warn("""get_adls_gen1_folder_data_set is deprecated: azure-native:datashare/v20191101:ADLSGen1FolderDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:ADLSGen1FolderDataSet to guarantee forwards compatibility.""")
     ...

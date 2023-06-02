@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Network route contract used to pass routing information for a Virtual Network.
+ *
+ * @deprecated azure-native:web/v20180201:AppServicePlanRouteForVnet is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:AppServicePlanRouteForVnet to guarantee forwards compatibility.
  */
 export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AppServicePlanRouteForVnet {
+        pulumi.log.warn("AppServicePlanRouteForVnet is deprecated: azure-native:web/v20180201:AppServicePlanRouteForVnet is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:AppServicePlanRouteForVnet to guarantee forwards compatibility.")
         return new AppServicePlanRouteForVnet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,7 +77,9 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:web/v20180201:AppServicePlanRouteForVnet is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:AppServicePlanRouteForVnet to guarantee forwards compatibility. */
     constructor(name: string, args: AppServicePlanRouteForVnetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AppServicePlanRouteForVnet is deprecated: azure-native:web/v20180201:AppServicePlanRouteForVnet is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20201001:AppServicePlanRouteForVnet to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

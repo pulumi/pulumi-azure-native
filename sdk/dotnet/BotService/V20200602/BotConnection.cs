@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.BotService.V20200602
     /// <summary>
     /// Bot channel resource definition
     /// </summary>
+    [Obsolete(@"azure-native:botservice/v20200602:BotConnection is being removed in the next major version of this provider. Please upgrade to azure-native:botservice/v20220915:BotConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:botservice/v20200602:BotConnection")]
     public partial class BotConnection : global::Pulumi.CustomResource
     {

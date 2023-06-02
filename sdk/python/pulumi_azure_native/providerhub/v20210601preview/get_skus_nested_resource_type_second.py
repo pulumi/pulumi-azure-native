@@ -17,6 +17,8 @@ __all__ = [
     'get_skus_nested_resource_type_second_output',
 ]
 
+warnings.warn("""azure-native:providerhub/v20210601preview:SkusNestedResourceTypeSecond is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSkusNestedResourceTypeSecondResult:
     def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
@@ -103,6 +105,7 @@ def get_skus_nested_resource_type_second(nested_resource_type_first: Optional[st
     :param str resource_type: The resource type.
     :param str sku: The SKU.
     """
+    pulumi.log.warn("""get_skus_nested_resource_type_second is deprecated: azure-native:providerhub/v20210601preview:SkusNestedResourceTypeSecond is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['nestedResourceTypeFirst'] = nested_resource_type_first
     __args__['nestedResourceTypeSecond'] = nested_resource_type_second
@@ -137,4 +140,5 @@ def get_skus_nested_resource_type_second_output(nested_resource_type_first: Opti
     :param str resource_type: The resource type.
     :param str sku: The SKU.
     """
+    pulumi.log.warn("""get_skus_nested_resource_type_second is deprecated: azure-native:providerhub/v20210601preview:SkusNestedResourceTypeSecond is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond to guarantee forwards compatibility.""")
     ...

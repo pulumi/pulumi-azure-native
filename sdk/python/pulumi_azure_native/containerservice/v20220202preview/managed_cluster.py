@@ -549,7 +549,12 @@ class ManagedClusterArgs:
         pulumi.set(self, "windows_profile", value)
 
 
+warnings.warn("""azure-native:containerservice/v20220202preview:ManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20230102preview:ManagedCluster to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ManagedCluster(pulumi.CustomResource):
+    warnings.warn("""azure-native:containerservice/v20220202preview:ManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20230102preview:ManagedCluster to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -685,6 +690,7 @@ class ManagedCluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""ManagedCluster is deprecated: azure-native:containerservice/v20220202preview:ManagedCluster is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20230102preview:ManagedCluster to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Communication.V20220701Preview
 {
+    [Obsolete(@"azure-native:communication/v20220701preview:EmailService is being removed in the next major version of this provider. Please upgrade to azure-native:communication/v20230331:EmailService to guarantee forwards compatibility.")]
     public static class GetEmailService
     {
         /// <summary>

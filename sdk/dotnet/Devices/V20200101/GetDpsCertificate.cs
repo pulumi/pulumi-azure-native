@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Devices.V20200101
 {
-    [Obsolete(@"Version 2020-01-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-01-01 will be removed in v2 of the provider.
+azure-native:devices/v20200101:DpsCertificate is being removed in the next major version of this provider. Please upgrade to azure-native:devices/v20211015:DpsCertificate to guarantee forwards compatibility.")]
     public static class GetDpsCertificate
     {
         /// <summary>

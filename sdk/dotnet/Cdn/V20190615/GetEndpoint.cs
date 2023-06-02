@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Cdn.V20190615
 {
-    [Obsolete(@"Version 2019-06-15 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2019-06-15 will be removed in v2 of the provider.
+azure-native:cdn/v20190615:Endpoint is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20221101preview:Endpoint to guarantee forwards compatibility.")]
     public static class GetEndpoint
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevCenter.V20221012Preview
     /// <summary>
     /// Represents an attached NetworkConnection.
     /// </summary>
+    [Obsolete(@"azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Please upgrade to azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter")]
     public partial class AttachedNetworkByDevCenter : global::Pulumi.CustomResource
     {
@@ -92,7 +93,6 @@ namespace Pulumi.AzureNative.DevCenter.V20221012Preview
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:AttachedNetworkByDevCenter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

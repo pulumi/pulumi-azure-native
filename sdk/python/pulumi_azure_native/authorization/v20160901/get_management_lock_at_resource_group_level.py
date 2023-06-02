@@ -17,7 +17,8 @@ __all__ = [
     'get_management_lock_at_resource_group_level_output',
 ]
 
-warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetManagementLockAtResourceGroupLevelResult:
@@ -117,7 +118,8 @@ def get_management_lock_at_resource_group_level(lock_name: Optional[str] = None,
     :param str lock_name: The name of the lock to get.
     :param str resource_group_name: The name of the locked resource group.
     """
-    pulumi.log.warn("""get_management_lock_at_resource_group_level is deprecated: Version 2016-09-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_management_lock_at_resource_group_level is deprecated: Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['lockName'] = lock_name
     __args__['resourceGroupName'] = resource_group_name
@@ -144,5 +146,6 @@ def get_management_lock_at_resource_group_level_output(lock_name: Optional[pulum
     :param str lock_name: The name of the lock to get.
     :param str resource_group_name: The name of the locked resource group.
     """
-    pulumi.log.warn("""get_management_lock_at_resource_group_level is deprecated: Version 2016-09-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_management_lock_at_resource_group_level is deprecated: Version 2016-09-01 will be removed in v2 of the provider.
+azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel is being removed in the next major version of this provider. Please upgrade to azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel to guarantee forwards compatibility.""")
     ...

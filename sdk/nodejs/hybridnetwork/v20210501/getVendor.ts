@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified vendor.
  */
+/** @deprecated azure-native:hybridnetwork/v20210501:Vendor is being removed in the next major version of this provider. Please upgrade to azure-native:hybridnetwork/v20220101preview:Vendor to guarantee forwards compatibility. */
 export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
+    pulumi.log.warn("getVendor is deprecated: azure-native:hybridnetwork/v20210501:Vendor is being removed in the next major version of this provider. Please upgrade to azure-native:hybridnetwork/v20220101preview:Vendor to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20210501:getVendor", {
@@ -57,6 +59,7 @@ export interface GetVendorResult {
 /**
  * Gets information about the specified vendor.
  */
+/** @deprecated azure-native:hybridnetwork/v20210501:Vendor is being removed in the next major version of this provider. Please upgrade to azure-native:hybridnetwork/v20220101preview:Vendor to guarantee forwards compatibility. */
 export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
     return pulumi.output(args).apply((a: any) => getVendor(a, opts))
 }

@@ -17,6 +17,8 @@ __all__ = [
     'get_autoscale_setting_output',
 ]
 
+warnings.warn("""azure-native:insights/v20210501preview:AutoscaleSetting is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20221001:AutoscaleSetting to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAutoscaleSettingResult:
     """
@@ -187,6 +189,7 @@ def get_autoscale_setting(autoscale_setting_name: Optional[str] = None,
     :param str autoscale_setting_name: The autoscale setting name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_autoscale_setting is deprecated: azure-native:insights/v20210501preview:AutoscaleSetting is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20221001:AutoscaleSetting to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['autoscaleSettingName'] = autoscale_setting_name
     __args__['resourceGroupName'] = resource_group_name
@@ -219,4 +222,5 @@ def get_autoscale_setting_output(autoscale_setting_name: Optional[pulumi.Input[s
     :param str autoscale_setting_name: The autoscale setting name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_autoscale_setting is deprecated: azure-native:insights/v20210501preview:AutoscaleSetting is being removed in the next major version of this provider. Please upgrade to azure-native:insights/v20221001:AutoscaleSetting to guarantee forwards compatibility.""")
     ...

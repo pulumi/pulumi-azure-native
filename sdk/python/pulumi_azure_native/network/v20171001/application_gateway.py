@@ -389,11 +389,13 @@ class ApplicationGatewayArgs:
         pulumi.set(self, "web_application_firewall_configuration", value)
 
 
-warnings.warn("""Version 2017-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2017-10-01 will be removed in v2 of the provider.
+azure-native:network/v20171001:ApplicationGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:ApplicationGateway to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ApplicationGateway(pulumi.CustomResource):
-    warnings.warn("""Version 2017-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2017-10-01 will be removed in v2 of the provider.
+azure-native:network/v20171001:ApplicationGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:ApplicationGateway to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -500,7 +502,8 @@ class ApplicationGateway(pulumi.CustomResource):
                  url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayUrlPathMapArgs']]]]] = None,
                  web_application_firewall_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayWebApplicationFirewallConfigurationArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApplicationGateway is deprecated: Version 2017-10-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""ApplicationGateway is deprecated: Version 2017-10-01 will be removed in v2 of the provider.
+azure-native:network/v20171001:ApplicationGateway is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190601:ApplicationGateway to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

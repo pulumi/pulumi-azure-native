@@ -17,7 +17,8 @@ __all__ = [
     'get_order_item_by_name_output',
 ]
 
-warnings.warn("""Version 2020-12-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2020-12-01-preview will be removed in v2 of the provider.
+azure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Please upgrade to azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetOrderItemByNameResult:
@@ -167,7 +168,8 @@ def get_order_item_by_name(expand: Optional[str] = None,
     :param str order_item_name: The name of the order item
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_order_item_by_name is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_order_item_by_name is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.
+azure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Please upgrade to azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['orderItemName'] = order_item_name
@@ -201,5 +203,6 @@ def get_order_item_by_name_output(expand: Optional[pulumi.Input[Optional[str]]] 
     :param str order_item_name: The name of the order item
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_order_item_by_name is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_order_item_by_name is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.
+azure-native:edgeorder/v20201201preview:OrderItemByName is being removed in the next major version of this provider. Please upgrade to azure-native:edgeorder/v20211201:OrderItemByName to guarantee forwards compatibility.""")
     ...

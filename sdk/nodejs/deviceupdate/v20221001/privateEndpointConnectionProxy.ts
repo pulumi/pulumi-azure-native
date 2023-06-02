@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Private endpoint connection proxy details.
+ *
+ * @deprecated azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy to guarantee forwards compatibility.
  */
 export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpointConnectionProxy {
+        pulumi.log.warn("PrivateEndpointConnectionProxy is deprecated: azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy to guarantee forwards compatibility.")
         return new PrivateEndpointConnectionProxy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,7 +76,9 @@ export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateEndpointConnectionProxyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PrivateEndpointConnectionProxy is deprecated: azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20200918
     /// <summary>
     /// Class representing a read write database.
     /// </summary>
+    [Obsolete(@"azure-native:kusto/v20200918:ReadWriteDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ReadWriteDatabase to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kusto/v20200918:ReadWriteDatabase")]
     public partial class ReadWriteDatabase : global::Pulumi.CustomResource
     {

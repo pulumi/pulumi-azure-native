@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Elastic.V20200701Preview
     /// <summary>
     /// Monitor resource.
     /// </summary>
+    [Obsolete(@"azure-native:elastic/v20200701preview:Monitor is being removed in the next major version of this provider. Please upgrade to azure-native:elastic/v20220901preview:Monitor to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:elastic/v20200701preview:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
     {

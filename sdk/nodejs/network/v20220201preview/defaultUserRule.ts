@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Network security default user rule.
+ *
+ * @deprecated azure-native:network/v20220201preview:DefaultUserRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:DefaultUserRule to guarantee forwards compatibility.
  */
 export class DefaultUserRule extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class DefaultUserRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DefaultUserRule {
+        pulumi.log.warn("DefaultUserRule is deprecated: azure-native:network/v20220201preview:DefaultUserRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:DefaultUserRule to guarantee forwards compatibility.")
         return new DefaultUserRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -102,7 +105,9 @@ export class DefaultUserRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:network/v20220201preview:DefaultUserRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:DefaultUserRule to guarantee forwards compatibility. */
     constructor(name: string, args: DefaultUserRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DefaultUserRule is deprecated: azure-native:network/v20220201preview:DefaultUserRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:DefaultUserRule to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

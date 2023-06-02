@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
     /// <summary>
     /// Defines the user rule collection.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20220201preview:UserRuleCollection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220401preview:UserRuleCollection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220201preview:UserRuleCollection")]
     public partial class UserRuleCollection : global::Pulumi.CustomResource
     {

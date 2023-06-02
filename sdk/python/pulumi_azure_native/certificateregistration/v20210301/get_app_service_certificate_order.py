@@ -17,6 +17,8 @@ __all__ = [
     'get_app_service_certificate_order_output',
 ]
 
+warnings.warn("""azure-native:certificateregistration/v20210301:AppServiceCertificateOrder is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20220901:AppServiceCertificateOrder to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAppServiceCertificateOrderResult:
     """
@@ -355,6 +357,7 @@ def get_app_service_certificate_order(certificate_order_name: Optional[str] = No
     :param str certificate_order_name: Name of the certificate order..
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_app_service_certificate_order is deprecated: azure-native:certificateregistration/v20210301:AppServiceCertificateOrder is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20220901:AppServiceCertificateOrder to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['certificateOrderName'] = certificate_order_name
     __args__['resourceGroupName'] = resource_group_name
@@ -401,4 +404,5 @@ def get_app_service_certificate_order_output(certificate_order_name: Optional[pu
     :param str certificate_order_name: Name of the certificate order..
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_app_service_certificate_order is deprecated: azure-native:certificateregistration/v20210301:AppServiceCertificateOrder is being removed in the next major version of this provider. Please upgrade to azure-native:certificateregistration/v20220901:AppServiceCertificateOrder to guarantee forwards compatibility.""")
     ...

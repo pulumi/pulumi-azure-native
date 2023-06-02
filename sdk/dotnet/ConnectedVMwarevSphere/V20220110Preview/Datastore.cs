@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     /// <summary>
     /// Define the datastore.
     /// </summary>
+    [Obsolete(@"azure-native:connectedvmwarevsphere/v20220110preview:Datastore is being removed in the next major version of this provider. Please upgrade to azure-native:connectedvmwarevsphere/v20220715preview:Datastore to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20220110preview:Datastore")]
     public partial class Datastore : global::Pulumi.CustomResource
     {

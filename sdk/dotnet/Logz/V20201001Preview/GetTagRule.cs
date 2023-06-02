@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Logz.V20201001Preview
 {
+    [Obsolete(@"azure-native:logz/v20201001preview:TagRule is being removed in the next major version of this provider. Please upgrade to azure-native:logz/v20220101preview:TagRule to guarantee forwards compatibility.")]
     public static class GetTagRule
     {
         /// <summary>

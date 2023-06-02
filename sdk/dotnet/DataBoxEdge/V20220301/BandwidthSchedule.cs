@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
     /// <summary>
     /// The bandwidth schedule details.
     /// </summary>
+    [Obsolete(@"azure-native:databoxedge/v20220301:BandwidthSchedule is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:BandwidthSchedule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20220301:BandwidthSchedule")]
     public partial class BandwidthSchedule : global::Pulumi.CustomResource
     {

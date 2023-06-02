@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101
     /// <summary>
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
     /// </summary>
+    [Obsolete(@"azure-native:servicebus/v20211101:DisasterRecoveryConfig is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicebus/v20211101:DisasterRecoveryConfig")]
     public partial class DisasterRecoveryConfig : global::Pulumi.CustomResource
     {

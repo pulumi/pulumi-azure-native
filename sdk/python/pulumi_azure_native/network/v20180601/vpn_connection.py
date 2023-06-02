@@ -180,7 +180,12 @@ class VpnConnectionInitArgs:
         pulumi.set(self, "shared_key", value)
 
 
+warnings.warn("""azure-native:network/v20180601:VpnConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180701:VpnConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class VpnConnection(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20180601:VpnConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180701:VpnConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -247,6 +252,7 @@ class VpnConnection(pulumi.CustomResource):
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""VpnConnection is deprecated: azure-native:network/v20180601:VpnConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20180701:VpnConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

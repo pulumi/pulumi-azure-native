@@ -17,6 +17,8 @@ __all__ = [
     'get_connectivity_configuration_output',
 ]
 
+warnings.warn("""azure-native:network/v20220401preview:ConnectivityConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ConnectivityConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConnectivityConfigurationResult:
     """
@@ -189,6 +191,7 @@ def get_connectivity_configuration(configuration_name: Optional[str] = None,
     :param str network_manager_name: The name of the network manager.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_connectivity_configuration is deprecated: azure-native:network/v20220401preview:ConnectivityConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ConnectivityConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['configurationName'] = configuration_name
     __args__['networkManagerName'] = network_manager_name
@@ -224,4 +227,5 @@ def get_connectivity_configuration_output(configuration_name: Optional[pulumi.In
     :param str network_manager_name: The name of the network manager.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_connectivity_configuration is deprecated: azure-native:network/v20220401preview:ConnectivityConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ConnectivityConfiguration to guarantee forwards compatibility.""")
     ...

@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * The resource representation of a service in a service topology.
  */
-/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:deploymentmanager/v20180901preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:Service to guarantee forwards compatibility. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    pulumi.log.warn("getService is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getService is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.\nazure-native:deploymentmanager/v20180901preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:Service to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deploymentmanager/v20180901preview:getService", {
@@ -70,7 +71,8 @@ export interface GetServiceResult {
 /**
  * The resource representation of a service in a service topology.
  */
-/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:deploymentmanager/v20180901preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:Service to guarantee forwards compatibility. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))
 }

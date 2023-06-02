@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data export instance.
  */
+/** @deprecated azure-native:operationalinsights/v20190801preview:DataExport is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility. */
 export function getDataExport(args: GetDataExportArgs, opts?: pulumi.InvokeOptions): Promise<GetDataExportResult> {
+    pulumi.log.warn("getDataExport is deprecated: azure-native:operationalinsights/v20190801preview:DataExport is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20190801preview:getDataExport", {
@@ -80,6 +82,7 @@ export interface GetDataExportResult {
 /**
  * Gets a data export instance.
  */
+/** @deprecated azure-native:operationalinsights/v20190801preview:DataExport is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:DataExport to guarantee forwards compatibility. */
 export function getDataExportOutput(args: GetDataExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataExportResult> {
     return pulumi.output(args).apply((a: any) => getDataExport(a, opts))
 }

@@ -17,6 +17,8 @@ __all__ = [
     'get_account_output',
 ]
 
+warnings.warn("""azure-native:deviceupdate/v20221001:Account is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:Account to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAccountResult:
     """
@@ -199,6 +201,7 @@ def get_account(account_name: Optional[str] = None,
     :param str account_name: Account name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_account is deprecated: azure-native:deviceupdate/v20221001:Account is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:Account to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -232,4 +235,5 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str account_name: Account name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_account is deprecated: azure-native:deviceupdate/v20221001:Account is being removed in the next major version of this provider. Please upgrade to azure-native:deviceupdate/v20221201preview:Account to guarantee forwards compatibility.""")
     ...

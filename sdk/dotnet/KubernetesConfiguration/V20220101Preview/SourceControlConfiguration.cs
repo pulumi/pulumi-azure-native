@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220101Preview
     /// <summary>
     /// The SourceControl Configuration object returned in Get &amp; Put response.
     /// </summary>
+    [Obsolete(@"azure-native:kubernetesconfiguration/v20220101preview:SourceControlConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kubernetesconfiguration/v20220101preview:SourceControlConfiguration")]
     public partial class SourceControlConfiguration : global::Pulumi.CustomResource
     {

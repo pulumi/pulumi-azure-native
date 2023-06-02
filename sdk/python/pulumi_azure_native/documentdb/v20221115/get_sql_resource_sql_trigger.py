@@ -17,6 +17,8 @@ __all__ = [
     'get_sql_resource_sql_trigger_output',
 ]
 
+warnings.warn("""azure-native:documentdb/v20221115:SqlResourceSqlTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:SqlResourceSqlTrigger to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlResourceSqlTriggerResult:
     """
@@ -118,6 +120,7 @@ def get_sql_resource_sql_trigger(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str trigger_name: Cosmos DB trigger name.
     """
+    pulumi.log.warn("""get_sql_resource_sql_trigger is deprecated: azure-native:documentdb/v20221115:SqlResourceSqlTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:SqlResourceSqlTrigger to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name
@@ -153,4 +156,5 @@ def get_sql_resource_sql_trigger_output(account_name: Optional[pulumi.Input[str]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str trigger_name: Cosmos DB trigger name.
     """
+    pulumi.log.warn("""get_sql_resource_sql_trigger is deprecated: azure-native:documentdb/v20221115:SqlResourceSqlTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:SqlResourceSqlTrigger to guarantee forwards compatibility.""")
     ...

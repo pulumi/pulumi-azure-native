@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20191201
     /// <summary>
     /// Private link service resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20191201:PrivateLinkService is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20210201:PrivateLinkService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20191201:PrivateLinkService")]
     public partial class PrivateLinkService : global::Pulumi.CustomResource
     {

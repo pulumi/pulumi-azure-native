@@ -111,7 +111,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:MicrosoftPurviewInformationProtectionDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:MicrosoftPurviewInformationProtectionDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:MicrosoftPurviewInformationProtectionDataConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:MicrosoftPurviewInformationProtectionDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

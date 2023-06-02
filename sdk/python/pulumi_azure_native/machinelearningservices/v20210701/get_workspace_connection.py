@@ -16,6 +16,8 @@ __all__ = [
     'get_workspace_connection_output',
 ]
 
+warnings.warn("""azure-native:machinelearningservices/v20210701:WorkspaceConnection is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20220201preview:WorkspaceConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWorkspaceConnectionResult:
     """
@@ -140,6 +142,7 @@ def get_workspace_connection(connection_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_workspace_connection is deprecated: azure-native:machinelearningservices/v20210701:WorkspaceConnection is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20220201preview:WorkspaceConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -171,4 +174,5 @@ def get_workspace_connection_output(connection_name: Optional[pulumi.Input[str]]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_workspace_connection is deprecated: azure-native:machinelearningservices/v20210701:WorkspaceConnection is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20220201preview:WorkspaceConnection to guarantee forwards compatibility.""")
     ...

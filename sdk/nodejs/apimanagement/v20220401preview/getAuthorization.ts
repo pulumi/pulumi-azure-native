@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the authorization specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20220401preview:Authorization is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Authorization to guarantee forwards compatibility. */
 export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationResult> {
+    pulumi.log.warn("getAuthorization is deprecated: azure-native:apimanagement/v20220401preview:Authorization is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Authorization to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220401preview:getAuthorization", {
@@ -80,6 +82,7 @@ export interface GetAuthorizationResult {
 /**
  * Gets the details of the authorization specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20220401preview:Authorization is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Authorization to guarantee forwards compatibility. */
 export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationResult> {
     return pulumi.output(args).apply((a: any) => getAuthorization(a, opts))
 }

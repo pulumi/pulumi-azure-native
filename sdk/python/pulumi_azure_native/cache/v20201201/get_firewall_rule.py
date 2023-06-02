@@ -16,6 +16,8 @@ __all__ = [
     'get_firewall_rule_output',
 ]
 
+warnings.warn("""azure-native:cache/v20201201:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFirewallRuleResult:
     """
@@ -104,6 +106,7 @@ def get_firewall_rule(cache_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the firewall rule.
     """
+    pulumi.log.warn("""get_firewall_rule is deprecated: azure-native:cache/v20201201:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name
@@ -132,4 +135,5 @@ def get_firewall_rule_output(cache_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the firewall rule.
     """
+    pulumi.log.warn("""get_firewall_rule is deprecated: azure-native:cache/v20201201:FirewallRule is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:FirewallRule to guarantee forwards compatibility.""")
     ...

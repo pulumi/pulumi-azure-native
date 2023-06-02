@@ -111,11 +111,13 @@ class LinkedServerArgs:
         pulumi.set(self, "linked_server_name", value)
 
 
-warnings.warn("""Version 2018-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-03-01 will be removed in v2 of the provider.
+azure-native:cache/v20180301:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class LinkedServer(pulumi.CustomResource):
-    warnings.warn("""Version 2018-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2018-03-01 will be removed in v2 of the provider.
+azure-native:cache/v20180301:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -171,7 +173,8 @@ class LinkedServer(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_role: Optional[pulumi.Input['ReplicationRole']] = None,
                  __props__=None):
-        pulumi.log.warn("""LinkedServer is deprecated: Version 2018-03-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""LinkedServer is deprecated: Version 2018-03-01 will be removed in v2 of the provider.
+azure-native:cache/v20180301:LinkedServer is being removed in the next major version of this provider. Please upgrade to azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -198,7 +201,7 @@ class LinkedServer(pulumi.CustomResource):
             __props__.__dict__["server_role"] = server_role
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20170201:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20171001:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20190701:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20200601:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20201201:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20210601:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20220501:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20220601:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20230401:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20230501preview:LinkedServer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20170201:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20171001:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20190701:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20200601:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20201201:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20210601:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20220501:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20220601:LinkedServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LinkedServer, __self__).__init__(
             'azure-native:cache/v20180301:LinkedServer',

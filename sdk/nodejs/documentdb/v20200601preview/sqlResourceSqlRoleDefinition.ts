@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB SQL Role Definition.
  *
  * @deprecated Version 2020-06-01-preview will be removed in v2 of the provider.
+azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:SqlResourceSqlRoleDefinition to guarantee forwards compatibility.
  */
 export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
     /**
@@ -22,7 +23,7 @@ export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlResourceSqlRoleDefinition {
-        pulumi.log.warn("SqlResourceSqlRoleDefinition is deprecated: Version 2020-06-01-preview will be removed in v2 of the provider.")
+        pulumi.log.warn("SqlResourceSqlRoleDefinition is deprecated: Version 2020-06-01-preview will be removed in v2 of the provider.\nazure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:SqlResourceSqlRoleDefinition to guarantee forwards compatibility.")
         return new SqlResourceSqlRoleDefinition(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,9 +69,10 @@ export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2020-06-01-preview will be removed in v2 of the provider. */
+    /** @deprecated Version 2020-06-01-preview will be removed in v2 of the provider.
+azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:SqlResourceSqlRoleDefinition to guarantee forwards compatibility. */
     constructor(name: string, args: SqlResourceSqlRoleDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SqlResourceSqlRoleDefinition is deprecated: Version 2020-06-01-preview will be removed in v2 of the provider.")
+        pulumi.log.warn("SqlResourceSqlRoleDefinition is deprecated: Version 2020-06-01-preview will be removed in v2 of the provider.\nazure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Please upgrade to azure-native:documentdb/v20230315:SqlResourceSqlRoleDefinition to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

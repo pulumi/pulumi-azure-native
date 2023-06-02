@@ -130,7 +130,12 @@ class IoTAddonArgs:
         pulumi.set(self, "addon_name", value)
 
 
+warnings.warn("""azure-native:databoxedge/v20210201preview:IoTAddon is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class IoTAddon(pulumi.CustomResource):
+    warnings.warn("""azure-native:databoxedge/v20210201preview:IoTAddon is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -189,6 +194,7 @@ class IoTAddon(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""IoTAddon is deprecated: azure-native:databoxedge/v20210201preview:IoTAddon is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220301:IoTAddon to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

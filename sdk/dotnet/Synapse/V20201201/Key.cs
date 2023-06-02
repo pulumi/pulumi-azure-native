@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Synapse.V20201201
     /// <summary>
     /// A workspace key
     /// </summary>
-    [Obsolete(@"Version 2020-12-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-12-01 will be removed in v2 of the provider.
+azure-native:synapse/v20201201:Key is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:Key to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:synapse/v20201201:Key")]
     public partial class Key : global::Pulumi.CustomResource
     {

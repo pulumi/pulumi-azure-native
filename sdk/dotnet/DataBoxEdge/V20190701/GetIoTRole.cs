@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20190701
 {
+    [Obsolete(@"azure-native:databoxedge/v20190701:IoTRole is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:IoTRole to guarantee forwards compatibility.")]
     public static class GetIoTRole
     {
         /// <summary>

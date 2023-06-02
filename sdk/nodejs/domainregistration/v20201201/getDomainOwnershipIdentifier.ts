@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get ownership identifier for domain
  */
+/** @deprecated azure-native:domainregistration/v20201201:DomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility. */
 export function getDomainOwnershipIdentifier(args: GetDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainOwnershipIdentifierResult> {
+    pulumi.log.warn("getDomainOwnershipIdentifier is deprecated: azure-native:domainregistration/v20201201:DomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:domainregistration/v20201201:getDomainOwnershipIdentifier", {
@@ -60,6 +62,7 @@ export interface GetDomainOwnershipIdentifierResult {
 /**
  * Get ownership identifier for domain
  */
+/** @deprecated azure-native:domainregistration/v20201201:DomainOwnershipIdentifier is being removed in the next major version of this provider. Please upgrade to azure-native:domainregistration/v20220901:DomainOwnershipIdentifier to guarantee forwards compatibility. */
 export function getDomainOwnershipIdentifierOutput(args: GetDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainOwnershipIdentifierResult> {
     return pulumi.output(args).apply((a: any) => getDomainOwnershipIdentifier(a, opts))
 }

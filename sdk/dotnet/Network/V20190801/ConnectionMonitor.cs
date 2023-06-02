@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20190801
     /// <summary>
     /// Information about the connection monitor.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20190801:ConnectionMonitor is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190901:ConnectionMonitor to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20190801:ConnectionMonitor")]
     public partial class ConnectionMonitor : global::Pulumi.CustomResource
     {

@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview
     /// <summary>
     /// Class representing a Kusto cluster.
     /// </summary>
-    [Obsolete(@"Version 2017-09-07-privatepreview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-09-07-privatepreview will be removed in v2 of the provider.
+azure-native:kusto/v20170907privatepreview:Cluster is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20220707:Cluster to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kusto/v20170907privatepreview:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {

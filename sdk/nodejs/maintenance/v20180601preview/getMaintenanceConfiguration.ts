@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Maintenance configuration record type
  */
-/** @deprecated Version 2018-06-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-06-01-preview will be removed in v2 of the provider.
+azure-native:maintenance/v20180601preview:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility. */
 export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceConfigurationResult> {
-    pulumi.log.warn("getMaintenanceConfiguration is deprecated: Version 2018-06-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getMaintenanceConfiguration is deprecated: Version 2018-06-01-preview will be removed in v2 of the provider.\nazure-native:maintenance/v20180601preview:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maintenance/v20180601preview:getMaintenanceConfiguration", {
@@ -69,7 +70,8 @@ export interface GetMaintenanceConfigurationResult {
 /**
  * Maintenance configuration record type
  */
-/** @deprecated Version 2018-06-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-06-01-preview will be removed in v2 of the provider.
+azure-native:maintenance/v20180601preview:MaintenanceConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility. */
 export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getMaintenanceConfiguration(a, opts))
 }

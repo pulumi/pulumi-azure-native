@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get ArcSetting resource details of HCI Cluster.
  */
+/** @deprecated azure-native:azurestackhci/v20220901:ArcSetting is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20221001:ArcSetting to guarantee forwards compatibility. */
 export function getArcSetting(args: GetArcSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetArcSettingResult> {
+    pulumi.log.warn("getArcSetting is deprecated: azure-native:azurestackhci/v20220901:ArcSetting is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20221001:ArcSetting to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20220901:getArcSetting", {
@@ -115,6 +117,7 @@ export interface GetArcSettingResult {
 /**
  * Get ArcSetting resource details of HCI Cluster.
  */
+/** @deprecated azure-native:azurestackhci/v20220901:ArcSetting is being removed in the next major version of this provider. Please upgrade to azure-native:azurestackhci/v20221001:ArcSetting to guarantee forwards compatibility. */
 export function getArcSettingOutput(args: GetArcSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcSettingResult> {
     return pulumi.output(args).apply((a: any) => getArcSetting(a, opts))
 }

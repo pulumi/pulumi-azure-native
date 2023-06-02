@@ -17,6 +17,8 @@ __all__ = [
     'get_scheduled_alert_rule_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20190101preview:ScheduledAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:ScheduledAlertRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetScheduledAlertRuleResult:
     """
@@ -300,6 +302,7 @@ def get_scheduled_alert_rule(operational_insights_resource_provider: Optional[st
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_scheduled_alert_rule is deprecated: azure-native:securityinsights/v20190101preview:ScheduledAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:ScheduledAlertRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
@@ -347,4 +350,5 @@ def get_scheduled_alert_rule_output(operational_insights_resource_provider: Opti
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_scheduled_alert_rule is deprecated: azure-native:securityinsights/v20190101preview:ScheduledAlertRule is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20210301preview:ScheduledAlertRule to guarantee forwards compatibility.""")
     ...

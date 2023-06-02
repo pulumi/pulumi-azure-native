@@ -17,6 +17,8 @@ __all__ = [
     'get_saved_search_output',
 ]
 
+warnings.warn("""azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSavedSearchResult:
     """
@@ -177,6 +179,7 @@ def get_saved_search(resource_group_name: Optional[str] = None,
     :param str saved_search_id: The id of the saved search.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_saved_search is deprecated: azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['savedSearchId'] = saved_search_id
@@ -211,4 +214,5 @@ def get_saved_search_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str saved_search_id: The id of the saved search.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_saved_search is deprecated: azure-native:operationalinsights/v20200301preview:SavedSearch is being removed in the next major version of this provider. Please upgrade to azure-native:operationalinsights/v20200801:SavedSearch to guarantee forwards compatibility.""")
     ...

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the specified private endpoint connection associated with a SignalR resource.
  */
+/** @deprecated azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection to guarantee forwards compatibility. */
 export function getSignalRPrivateEndpointConnection(args: GetSignalRPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRPrivateEndpointConnectionResult> {
+    pulumi.log.warn("getSignalRPrivateEndpointConnection is deprecated: azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:signalrservice/v20200701preview:getSignalRPrivateEndpointConnection", {
@@ -67,6 +69,7 @@ export interface GetSignalRPrivateEndpointConnectionResult {
 /**
  * Get the specified private endpoint connection associated with a SignalR resource.
  */
+/** @deprecated azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection to guarantee forwards compatibility. */
 export function getSignalRPrivateEndpointConnectionOutput(args: GetSignalRPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getSignalRPrivateEndpointConnection(a, opts))
 }

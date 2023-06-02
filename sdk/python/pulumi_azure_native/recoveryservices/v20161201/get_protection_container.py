@@ -17,7 +17,8 @@ __all__ = [
     'get_protection_container_output',
 ]
 
-warnings.warn("""Version 2016-12-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2016-12-01 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20161201:ProtectionContainer is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetProtectionContainerResult:
@@ -133,7 +134,8 @@ def get_protection_container(container_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
-    pulumi.log.warn("""get_protection_container is deprecated: Version 2016-12-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_protection_container is deprecated: Version 2016-12-01 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20161201:ProtectionContainer is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['containerName'] = container_name
     __args__['fabricName'] = fabric_name
@@ -167,5 +169,6 @@ def get_protection_container_output(container_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
-    pulumi.log.warn("""get_protection_container is deprecated: Version 2016-12-01 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_protection_container is deprecated: Version 2016-12-01 will be removed in v2 of the provider.
+azure-native:recoveryservices/v20161201:ProtectionContainer is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility.""")
     ...

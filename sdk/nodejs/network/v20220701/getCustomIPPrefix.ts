@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified custom IP prefix in a specified resource group.
  */
+/** @deprecated azure-native:network/v20220701:CustomIPPrefix is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:CustomIPPrefix to guarantee forwards compatibility. */
 export function getCustomIPPrefix(args: GetCustomIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomIPPrefixResult> {
+    pulumi.log.warn("getCustomIPPrefix is deprecated: azure-native:network/v20220701:CustomIPPrefix is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:CustomIPPrefix to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220701:getCustomIPPrefix", {
@@ -135,6 +137,7 @@ export interface GetCustomIPPrefixResult {
 /**
  * Gets the specified custom IP prefix in a specified resource group.
  */
+/** @deprecated azure-native:network/v20220701:CustomIPPrefix is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:CustomIPPrefix to guarantee forwards compatibility. */
 export function getCustomIPPrefixOutput(args: GetCustomIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomIPPrefixResult> {
     return pulumi.output(args).apply((a: any) => getCustomIPPrefix(a, opts))
 }

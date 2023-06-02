@@ -17,6 +17,8 @@ __all__ = [
     'get_availability_group_listener_output',
 ]
 
+warnings.warn("""azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener is being removed in the next major version of this provider. Please upgrade to azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAvailabilityGroupListenerResult:
     """
@@ -179,6 +181,7 @@ def get_availability_group_listener(availability_group_listener_name: Optional[s
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str sql_virtual_machine_group_name: Name of the SQL virtual machine group.
     """
+    pulumi.log.warn("""get_availability_group_listener is deprecated: azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener is being removed in the next major version of this provider. Please upgrade to azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['availabilityGroupListenerName'] = availability_group_listener_name
     __args__['expand'] = expand
@@ -216,4 +219,5 @@ def get_availability_group_listener_output(availability_group_listener_name: Opt
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str sql_virtual_machine_group_name: Name of the SQL virtual machine group.
     """
+    pulumi.log.warn("""get_availability_group_listener is deprecated: azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener is being removed in the next major version of this provider. Please upgrade to azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener to guarantee forwards compatibility.""")
     ...

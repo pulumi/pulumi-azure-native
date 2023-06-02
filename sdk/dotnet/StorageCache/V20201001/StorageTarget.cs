@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.StorageCache.V20201001
     /// <summary>
     /// Type of the Storage Target.
     /// </summary>
-    [Obsolete(@"Version 2020-10-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-10-01 will be removed in v2 of the provider.
+azure-native:storagecache/v20201001:StorageTarget is being removed in the next major version of this provider. Please upgrade to azure-native:storagecache/v20210301:StorageTarget to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storagecache/v20201001:StorageTarget")]
     public partial class StorageTarget : global::Pulumi.CustomResource
     {

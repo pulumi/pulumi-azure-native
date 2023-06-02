@@ -17,7 +17,8 @@ __all__ = [
     'get_budget_output',
 ]
 
-warnings.warn("""Version 2018-06-30 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-06-30 will be removed in v2 of the provider.
+azure-native:consumption/v20180630:Budget is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20181001:Budget to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetBudgetResult:
@@ -175,7 +176,8 @@ def get_budget(budget_name: Optional[str] = None,
 
     :param str budget_name: Budget Name.
     """
-    pulumi.log.warn("""get_budget is deprecated: Version 2018-06-30 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_budget is deprecated: Version 2018-06-30 will be removed in v2 of the provider.
+azure-native:consumption/v20180630:Budget is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20181001:Budget to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['budgetName'] = budget_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -204,5 +206,6 @@ def get_budget_output(budget_name: Optional[pulumi.Input[str]] = None,
 
     :param str budget_name: Budget Name.
     """
-    pulumi.log.warn("""get_budget is deprecated: Version 2018-06-30 will be removed in v2 of the provider.""")
+    pulumi.log.warn("""get_budget is deprecated: Version 2018-06-30 will be removed in v2 of the provider.
+azure-native:consumption/v20180630:Budget is being removed in the next major version of this provider. Please upgrade to azure-native:consumption/v20181001:Budget to guarantee forwards compatibility.""")
     ...

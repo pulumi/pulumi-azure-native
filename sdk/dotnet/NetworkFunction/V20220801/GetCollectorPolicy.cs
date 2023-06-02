@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetworkFunction.V20220801
 {
+    [Obsolete(@"azure-native:networkfunction/v20220801:CollectorPolicy is being removed in the next major version of this provider. Please upgrade to azure-native:networkfunction/v20221101:CollectorPolicy to guarantee forwards compatibility.")]
     public static class GetCollectorPolicy
     {
         /// <summary>

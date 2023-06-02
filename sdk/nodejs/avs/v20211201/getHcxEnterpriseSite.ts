@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * An HCX Enterprise Site resource
  */
+/** @deprecated azure-native:avs/v20211201:HcxEnterpriseSite is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:HcxEnterpriseSite to guarantee forwards compatibility. */
 export function getHcxEnterpriseSite(args: GetHcxEnterpriseSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetHcxEnterpriseSiteResult> {
+    pulumi.log.warn("getHcxEnterpriseSite is deprecated: azure-native:avs/v20211201:HcxEnterpriseSite is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:HcxEnterpriseSite to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getHcxEnterpriseSite", {
@@ -60,6 +62,7 @@ export interface GetHcxEnterpriseSiteResult {
 /**
  * An HCX Enterprise Site resource
  */
+/** @deprecated azure-native:avs/v20211201:HcxEnterpriseSite is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:HcxEnterpriseSite to guarantee forwards compatibility. */
 export function getHcxEnterpriseSiteOutput(args: GetHcxEnterpriseSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHcxEnterpriseSiteResult> {
     return pulumi.output(args).apply((a: any) => getHcxEnterpriseSite(a, opts))
 }

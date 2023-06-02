@@ -130,7 +130,12 @@ class ExpressRouteCircuitAuthorizationInitArgs:
         pulumi.set(self, "name", value)
 
 
+warnings.warn("""azure-native:network/v20200301:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteCircuitAuthorization to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20200301:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteCircuitAuthorization to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -188,6 +193,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ExpressRouteCircuitAuthorization is deprecated: azure-native:network/v20200301:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ExpressRouteCircuitAuthorization to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a database.
  */
+/** @deprecated azure-native:kusto/v20220201:ReadOnlyFollowingDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ReadOnlyFollowingDatabase to guarantee forwards compatibility. */
 export function getReadOnlyFollowingDatabase(args: GetReadOnlyFollowingDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadOnlyFollowingDatabaseResult> {
+    pulumi.log.warn("getReadOnlyFollowingDatabase is deprecated: azure-native:kusto/v20220201:ReadOnlyFollowingDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ReadOnlyFollowingDatabase to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20220201:getReadOnlyFollowingDatabase", {
@@ -92,6 +94,7 @@ export interface GetReadOnlyFollowingDatabaseResult {
 /**
  * Returns a database.
  */
+/** @deprecated azure-native:kusto/v20220201:ReadOnlyFollowingDatabase is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:ReadOnlyFollowingDatabase to guarantee forwards compatibility. */
 export function getReadOnlyFollowingDatabaseOutput(args: GetReadOnlyFollowingDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadOnlyFollowingDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getReadOnlyFollowingDatabase(a, opts))
 }

@@ -116,7 +116,12 @@ class DashboardArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:portal/v20181001preview:Dashboard is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Dashboard(pulumi.CustomResource):
+    warnings.warn("""azure-native:portal/v20181001preview:Dashboard is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -171,6 +176,7 @@ class Dashboard(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Dashboard is deprecated: azure-native:portal/v20181001preview:Dashboard is being removed in the next major version of this provider. Please upgrade to azure-native:portal/v20190101preview:Dashboard to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

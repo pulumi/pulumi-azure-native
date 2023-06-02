@@ -16,6 +16,8 @@ __all__ = [
     'get_static_site_custom_domain_output',
 ]
 
+warnings.warn("""azure-native:web/v20210101:StaticSiteCustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteCustomDomain to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStaticSiteCustomDomainResult:
     """
@@ -149,6 +151,7 @@ def get_static_site_custom_domain(domain_name: Optional[str] = None,
     :param str name: Name of the static site resource to search in.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_static_site_custom_domain is deprecated: azure-native:web/v20210101:StaticSiteCustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteCustomDomain to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['name'] = name
@@ -181,4 +184,5 @@ def get_static_site_custom_domain_output(domain_name: Optional[pulumi.Input[str]
     :param str name: Name of the static site resource to search in.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_static_site_custom_domain is deprecated: azure-native:web/v20210101:StaticSiteCustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:StaticSiteCustomDomain to guarantee forwards compatibility.""")
     ...

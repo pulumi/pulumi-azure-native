@@ -9,7 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview
 {
-    [Obsolete(@"Version 2017-09-07-privatepreview will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-09-07-privatepreview will be removed in v2 of the provider.
+azure-native:kusto/v20170907privatepreview:EventHubConnection is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20180907preview:EventHubConnection to guarantee forwards compatibility.")]
     public static class GetEventHubConnection
     {
         /// <summary>

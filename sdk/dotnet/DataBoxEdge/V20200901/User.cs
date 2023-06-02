@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
     /// <summary>
     /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
     /// </summary>
-    [Obsolete(@"Version 2020-09-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2020-09-01 will be removed in v2 of the provider.
+azure-native:databoxedge/v20200901:User is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20210201preview:User to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20200901:User")]
     public partial class User : global::Pulumi.CustomResource
     {

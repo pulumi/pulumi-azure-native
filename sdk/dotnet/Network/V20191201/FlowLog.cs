@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20191201
     /// <summary>
     /// A flow log resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20191201:FlowLog is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:FlowLog to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20191201:FlowLog")]
     public partial class FlowLog : global::Pulumi.CustomResource
     {

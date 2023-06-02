@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents MCAS (Microsoft Cloud App Security) data connector.
+ *
+ * @deprecated azure-native:securityinsights/v20220801preview:MCASDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:MCASDataConnector to guarantee forwards compatibility.
  */
 export class MCASDataConnector extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class MCASDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MCASDataConnector {
+        pulumi.log.warn("MCASDataConnector is deprecated: azure-native:securityinsights/v20220801preview:MCASDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:MCASDataConnector to guarantee forwards compatibility.")
         return new MCASDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,7 +77,9 @@ export class MCASDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20220801preview:MCASDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:MCASDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: MCASDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MCASDataConnector is deprecated: azure-native:securityinsights/v20220801preview:MCASDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:MCASDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -113,7 +118,7 @@ export class MCASDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MCASDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20200101:MCASDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20211001:MCASDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20220801:MCASDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20221101:MCASDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20230201:MCASDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:MCASDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MCASDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20200101:MCASDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20211001:MCASDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20220801:MCASDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20221101:MCASDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20230201:MCASDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:MCASDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MCASDataConnector.__pulumiType, name, resourceInputs, opts);
     }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
  */
+/** @deprecated azure-native:containerinstance/v20220901:ContainerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:containerinstance/v20230501:ContainerGroup to guarantee forwards compatibility. */
 export function getContainerGroup(args: GetContainerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerGroupResult> {
+    pulumi.log.warn("getContainerGroup is deprecated: azure-native:containerinstance/v20220901:ContainerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:containerinstance/v20230501:ContainerGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerinstance/v20220901:getContainerGroup", {
@@ -129,6 +131,7 @@ export interface GetContainerGroupResult {
 /**
  * Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
  */
+/** @deprecated azure-native:containerinstance/v20220901:ContainerGroup is being removed in the next major version of this provider. Please upgrade to azure-native:containerinstance/v20230501:ContainerGroup to guarantee forwards compatibility. */
 export function getContainerGroupOutput(args: GetContainerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerGroupResult> {
     return pulumi.output(args).apply((a: any) => getContainerGroup(a, opts))
 }

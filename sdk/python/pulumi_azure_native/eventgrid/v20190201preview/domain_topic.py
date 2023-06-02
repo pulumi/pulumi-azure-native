@@ -65,11 +65,13 @@ class DomainTopicArgs:
         pulumi.set(self, "domain_topic_name", value)
 
 
-warnings.warn("""Version 2019-02-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2019-02-01-preview will be removed in v2 of the provider.
+azure-native:eventgrid/v20190201preview:DomainTopic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:DomainTopic to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class DomainTopic(pulumi.CustomResource):
-    warnings.warn("""Version 2019-02-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2019-02-01-preview will be removed in v2 of the provider.
+azure-native:eventgrid/v20190201preview:DomainTopic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:DomainTopic to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -116,7 +118,8 @@ class DomainTopic(pulumi.CustomResource):
                  domain_topic_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DomainTopic is deprecated: Version 2019-02-01-preview will be removed in v2 of the provider.""")
+        pulumi.log.warn("""DomainTopic is deprecated: Version 2019-02-01-preview will be removed in v2 of the provider.
+azure-native:eventgrid/v20190201preview:DomainTopic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:DomainTopic to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

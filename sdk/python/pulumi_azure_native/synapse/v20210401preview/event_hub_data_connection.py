@@ -240,7 +240,12 @@ class EventHubDataConnectionArgs:
         pulumi.set(self, "table_name", value)
 
 
+warnings.warn("""azure-native:synapse/v20210401preview:EventHubDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:EventHubDataConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class EventHubDataConnection(pulumi.CustomResource):
+    warnings.warn("""azure-native:synapse/v20210401preview:EventHubDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:EventHubDataConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -320,6 +325,7 @@ class EventHubDataConnection(pulumi.CustomResource):
                  table_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""EventHubDataConnection is deprecated: azure-native:synapse/v20210401preview:EventHubDataConnection is being removed in the next major version of this provider. Please upgrade to azure-native:synapse/v20210601preview:EventHubDataConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

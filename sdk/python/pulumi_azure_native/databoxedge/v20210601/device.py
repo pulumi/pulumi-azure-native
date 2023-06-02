@@ -133,7 +133,12 @@ class DeviceArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:databoxedge/v20210601:Device is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220401preview:Device to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Device(pulumi.CustomResource):
+    warnings.warn("""azure-native:databoxedge/v20210601:Device is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220401preview:Device to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -191,6 +196,7 @@ class Device(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Device is deprecated: azure-native:databoxedge/v20210601:Device is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20220401preview:Device to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
     /// <summary>
     /// API details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20211201preview:GatewayApiEntityTag is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:GatewayApiEntityTag to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20211201preview:GatewayApiEntityTag")]
     public partial class GatewayApiEntityTag : global::Pulumi.CustomResource
     {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the default rollout details.
  */
+/** @deprecated azure-native:providerhub/v20210601preview:DefaultRollout is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:DefaultRollout to guarantee forwards compatibility. */
 export function getDefaultRollout(args: GetDefaultRolloutArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultRolloutResult> {
+    pulumi.log.warn("getDefaultRollout is deprecated: azure-native:providerhub/v20210601preview:DefaultRollout is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:DefaultRollout to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub/v20210601preview:getDefaultRollout", {
@@ -58,6 +60,7 @@ export interface GetDefaultRolloutResult {
 /**
  * Gets the default rollout details.
  */
+/** @deprecated azure-native:providerhub/v20210601preview:DefaultRollout is being removed in the next major version of this provider. Please upgrade to azure-native:providerhub/v20210901preview:DefaultRollout to guarantee forwards compatibility. */
 export function getDefaultRolloutOutput(args: GetDefaultRolloutOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultRolloutResult> {
     return pulumi.output(args).apply((a: any) => getDefaultRollout(a, opts))
 }

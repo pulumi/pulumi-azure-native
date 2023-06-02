@@ -11,7 +11,9 @@ import * as utilities from "../../utilities";
  * Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
  * call the GetItemOperationResult API.
  */
+/** @deprecated azure-native:recoveryservices/v20220201:ProtectedItem is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectedItem to guarantee forwards compatibility. */
 export function getProtectedItem(args: GetProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectedItemResult> {
+    pulumi.log.warn("getProtectedItem is deprecated: azure-native:recoveryservices/v20220201:ProtectedItem is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectedItem to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20220201:getProtectedItem", {
@@ -88,6 +90,7 @@ export interface GetProtectedItemResult {
  * Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
  * call the GetItemOperationResult API.
  */
+/** @deprecated azure-native:recoveryservices/v20220201:ProtectedItem is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ProtectedItem to guarantee forwards compatibility. */
 export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectedItemResult> {
     return pulumi.output(args).apply((a: any) => getProtectedItem(a, opts))
 }

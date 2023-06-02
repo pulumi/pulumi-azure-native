@@ -17,6 +17,8 @@ __all__ = [
     'get_attached_database_configuration_output',
 ]
 
+warnings.warn("""azure-native:kusto/v20220707:AttachedDatabaseConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:AttachedDatabaseConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAttachedDatabaseConfigurationResult:
     """
@@ -189,6 +191,7 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
     :param str cluster_name: The name of the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
+    pulumi.log.warn("""get_attached_database_configuration is deprecated: azure-native:kusto/v20220707:AttachedDatabaseConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:AttachedDatabaseConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['attachedDatabaseConfigurationName'] = attached_database_configuration_name
     __args__['clusterName'] = cluster_name
@@ -224,4 +227,5 @@ def get_attached_database_configuration_output(attached_database_configuration_n
     :param str cluster_name: The name of the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
+    pulumi.log.warn("""get_attached_database_configuration is deprecated: azure-native:kusto/v20220707:AttachedDatabaseConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:kusto/v20221229:AttachedDatabaseConfiguration to guarantee forwards compatibility.""")
     ...

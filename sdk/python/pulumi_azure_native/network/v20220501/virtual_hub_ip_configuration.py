@@ -164,7 +164,12 @@ class VirtualHubIpConfigurationArgs:
         pulumi.set(self, "subnet", value)
 
 
+warnings.warn("""azure-native:network/v20220501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualHubIpConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class VirtualHubIpConfiguration(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20220501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualHubIpConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -228,6 +233,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
                  subnet: Optional[pulumi.Input[pulumi.InputType['SubnetArgs']]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""VirtualHubIpConfiguration is deprecated: azure-native:network/v20220501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:VirtualHubIpConfiguration to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

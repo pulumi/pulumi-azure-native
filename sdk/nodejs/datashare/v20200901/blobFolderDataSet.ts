@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure storage blob folder data set.
+ *
+ * @deprecated azure-native:datashare/v20200901:BlobFolderDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobFolderDataSet to guarantee forwards compatibility.
  */
 export class BlobFolderDataSet extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class BlobFolderDataSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BlobFolderDataSet {
+        pulumi.log.warn("BlobFolderDataSet is deprecated: azure-native:datashare/v20200901:BlobFolderDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobFolderDataSet to guarantee forwards compatibility.")
         return new BlobFolderDataSet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -86,7 +89,9 @@ export class BlobFolderDataSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:datashare/v20200901:BlobFolderDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobFolderDataSet to guarantee forwards compatibility. */
     constructor(name: string, args: BlobFolderDataSetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BlobFolderDataSet is deprecated: azure-native:datashare/v20200901:BlobFolderDataSet is being removed in the next major version of this provider. Please upgrade to azure-native:datashare/v20210801:BlobFolderDataSet to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

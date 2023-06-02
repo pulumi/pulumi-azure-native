@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * To learn more about private clusters, see: https://docs.microsoft.com/azure/aks/private-clusters
  */
+/** @deprecated azure-native:containerservice/v20210901:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20230102preview:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
+    pulumi.log.warn("getPrivateEndpointConnection is deprecated: azure-native:containerservice/v20210901:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20230102preview:PrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20210901:getPrivateEndpointConnection", {
@@ -67,6 +69,7 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * To learn more about private clusters, see: https://docs.microsoft.com/azure/aks/private-clusters
  */
+/** @deprecated azure-native:containerservice/v20210901:PrivateEndpointConnection is being removed in the next major version of this provider. Please upgrade to azure-native:containerservice/v20230102preview:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
 }

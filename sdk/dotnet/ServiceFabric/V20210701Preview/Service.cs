@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210701Preview
     /// <summary>
     /// The service resource.
     /// </summary>
+    [Obsolete(@"azure-native:servicefabric/v20210701preview:Service is being removed in the next major version of this provider. Please upgrade to azure-native:servicefabric/v20230201preview:Service to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicefabric/v20210701preview:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
@@ -86,7 +87,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210701Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220801preview:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20221001preview:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230201preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230301preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

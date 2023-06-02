@@ -159,11 +159,13 @@ class RouteFilterRuleInitArgs:
         pulumi.set(self, "rule_name", value)
 
 
-warnings.warn("""Version 2018-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
+warnings.warn("""Version 2018-01-01 will be removed in v2 of the provider.
+azure-native:network/v20180101:RouteFilterRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RouteFilterRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class RouteFilterRule(pulumi.CustomResource):
-    warnings.warn("""Version 2018-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
+    warnings.warn("""Version 2018-01-01 will be removed in v2 of the provider.
+azure-native:network/v20180101:RouteFilterRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RouteFilterRule to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -228,7 +230,8 @@ class RouteFilterRule(pulumi.CustomResource):
                  route_filter_rule_type: Optional[pulumi.Input[Union[str, 'RouteFilterRuleType']]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""RouteFilterRule is deprecated: Version 2018-01-01 will be removed in v2 of the provider.""")
+        pulumi.log.warn("""RouteFilterRule is deprecated: Version 2018-01-01 will be removed in v2 of the provider.
+azure-native:network/v20180101:RouteFilterRule is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:RouteFilterRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

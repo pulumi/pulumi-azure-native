@@ -165,7 +165,12 @@ class NamespaceArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
+warnings.warn("""azure-native:servicebus/v20210101preview:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:Namespace to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Namespace(pulumi.CustomResource):
+    warnings.warn("""azure-native:servicebus/v20210101preview:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:Namespace to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -229,6 +234,7 @@ class Namespace(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
+        pulumi.log.warn("""Namespace is deprecated: azure-native:servicebus/v20210101preview:Namespace is being removed in the next major version of this provider. Please upgrade to azure-native:servicebus/v20221001preview:Namespace to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

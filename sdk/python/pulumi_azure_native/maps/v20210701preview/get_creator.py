@@ -17,6 +17,8 @@ __all__ = [
     'get_creator_output',
 ]
 
+warnings.warn("""azure-native:maps/v20210701preview:Creator is being removed in the next major version of this provider. Please upgrade to azure-native:maps/v20211201preview:Creator to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCreatorResult:
     """
@@ -117,6 +119,7 @@ def get_creator(account_name: Optional[str] = None,
     :param str creator_name: The name of the Maps Creator instance.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_creator is deprecated: azure-native:maps/v20210701preview:Creator is being removed in the next major version of this provider. Please upgrade to azure-native:maps/v20211201preview:Creator to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['creatorName'] = creator_name
@@ -146,4 +149,5 @@ def get_creator_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str creator_name: The name of the Maps Creator instance.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_creator is deprecated: azure-native:maps/v20210701preview:Creator is being removed in the next major version of this provider. Please upgrade to azure-native:maps/v20211201preview:Creator to guarantee forwards compatibility.""")
     ...

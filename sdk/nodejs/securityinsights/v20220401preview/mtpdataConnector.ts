@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents MTP (Microsoft Threat Protection) data connector.
+ *
+ * @deprecated azure-native:securityinsights/v20220401preview:MTPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:MTPDataConnector to guarantee forwards compatibility.
  */
 export class MTPDataConnector extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class MTPDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MTPDataConnector {
+        pulumi.log.warn("MTPDataConnector is deprecated: azure-native:securityinsights/v20220401preview:MTPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:MTPDataConnector to guarantee forwards compatibility.")
         return new MTPDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,7 +77,9 @@ export class MTPDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20220401preview:MTPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:MTPDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: MTPDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MTPDataConnector is deprecated: azure-native:securityinsights/v20220401preview:MTPDataConnector is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:MTPDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -113,7 +118,7 @@ export class MTPDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MTPDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20200101:MTPDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20211001:MTPDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20220801:MTPDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20221101:MTPDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20230201:MTPDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:MTPDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MTPDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20200101:MTPDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20211001:MTPDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20220801:MTPDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20221101:MTPDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20230201:MTPDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:MTPDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MTPDataConnector.__pulumiType, name, resourceInputs, opts);
     }

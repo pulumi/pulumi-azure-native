@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the private dns zone group resource by specified private dns zone group name.
  */
+/** @deprecated azure-native:network/v20210301:PrivateDnsZoneGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:PrivateDnsZoneGroup to guarantee forwards compatibility. */
 export function getPrivateDnsZoneGroup(args: GetPrivateDnsZoneGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateDnsZoneGroupResult> {
+    pulumi.log.warn("getPrivateDnsZoneGroup is deprecated: azure-native:network/v20210301:PrivateDnsZoneGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:PrivateDnsZoneGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210301:getPrivateDnsZoneGroup", {
@@ -63,6 +65,7 @@ export interface GetPrivateDnsZoneGroupResult {
 /**
  * Gets the private dns zone group resource by specified private dns zone group name.
  */
+/** @deprecated azure-native:network/v20210301:PrivateDnsZoneGroup is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:PrivateDnsZoneGroup to guarantee forwards compatibility. */
 export function getPrivateDnsZoneGroupOutput(args: GetPrivateDnsZoneGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateDnsZoneGroupResult> {
     return pulumi.output(args).apply((a: any) => getPrivateDnsZoneGroup(a, opts))
 }

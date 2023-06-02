@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
     /// <summary>
     /// Backend details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20210801:Backend is being removed in the next major version of this provider. Please upgrade to azure-native:apimanagement/v20220801:Backend to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20210801:Backend")]
     public partial class Backend : global::Pulumi.CustomResource
     {

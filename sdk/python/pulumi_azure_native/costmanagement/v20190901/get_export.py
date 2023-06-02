@@ -17,6 +17,8 @@ __all__ = [
     'get_export_output',
 ]
 
+warnings.warn("""azure-native:costmanagement/v20190901:Export is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20191001:Export to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExportResult:
     """
@@ -139,6 +141,7 @@ def get_export(export_name: Optional[str] = None,
     :param str export_name: Export Name.
     :param str scope: The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope and '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope..
     """
+    pulumi.log.warn("""get_export is deprecated: azure-native:costmanagement/v20190901:Export is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20191001:Export to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['exportName'] = export_name
     __args__['scope'] = scope
@@ -167,4 +170,5 @@ def get_export_output(export_name: Optional[pulumi.Input[str]] = None,
     :param str export_name: Export Name.
     :param str scope: The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope and '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope..
     """
+    pulumi.log.warn("""get_export is deprecated: azure-native:costmanagement/v20190901:Export is being removed in the next major version of this provider. Please upgrade to azure-native:costmanagement/v20191001:Export to guarantee forwards compatibility.""")
     ...

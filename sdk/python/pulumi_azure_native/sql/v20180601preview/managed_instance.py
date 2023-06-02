@@ -407,7 +407,12 @@ class ManagedInstanceArgs:
         pulumi.set(self, "v_cores", value)
 
 
+warnings.warn("""azure-native:sql/v20180601preview:ManagedInstance is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20210201preview:ManagedInstance to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ManagedInstance(pulumi.CustomResource):
+    warnings.warn("""azure-native:sql/v20180601preview:ManagedInstance is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20210201preview:ManagedInstance to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -522,6 +527,7 @@ class ManagedInstance(pulumi.CustomResource):
                  timezone_id: Optional[pulumi.Input[str]] = None,
                  v_cores: Optional[pulumi.Input[int]] = None,
                  __props__=None):
+        pulumi.log.warn("""ManagedInstance is deprecated: azure-native:sql/v20180601preview:ManagedInstance is being removed in the next major version of this provider. Please upgrade to azure-native:sql/v20210201preview:ManagedInstance to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

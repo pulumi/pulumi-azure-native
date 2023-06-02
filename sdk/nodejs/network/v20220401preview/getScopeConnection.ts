@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get specified scope connection created by this Network Manager.
  */
+/** @deprecated azure-native:network/v20220401preview:ScopeConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ScopeConnection to guarantee forwards compatibility. */
 export function getScopeConnection(args: GetScopeConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeConnectionResult> {
+    pulumi.log.warn("getScopeConnection is deprecated: azure-native:network/v20220401preview:ScopeConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ScopeConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220401preview:getScopeConnection", {
@@ -75,6 +77,7 @@ export interface GetScopeConnectionResult {
 /**
  * Get specified scope connection created by this Network Manager.
  */
+/** @deprecated azure-native:network/v20220401preview:ScopeConnection is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20220901:ScopeConnection to guarantee forwards compatibility. */
 export function getScopeConnectionOutput(args: GetScopeConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeConnectionResult> {
     return pulumi.output(args).apply((a: any) => getScopeConnection(a, opts))
 }

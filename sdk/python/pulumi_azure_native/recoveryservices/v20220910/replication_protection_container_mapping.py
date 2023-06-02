@@ -114,7 +114,12 @@ class ReplicationProtectionContainerMappingArgs:
         pulumi.set(self, "properties", value)
 
 
+warnings.warn("""azure-native:recoveryservices/v20220910:ReplicationProtectionContainerMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ReplicationProtectionContainerMapping(pulumi.CustomResource):
+    warnings.warn("""azure-native:recoveryservices/v20220910:ReplicationProtectionContainerMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -169,6 +174,7 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ReplicationProtectionContainerMapping is deprecated: azure-native:recoveryservices/v20220910:ReplicationProtectionContainerMapping is being removed in the next major version of this provider. Please upgrade to azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

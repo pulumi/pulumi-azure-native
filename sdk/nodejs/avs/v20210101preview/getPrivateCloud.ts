@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * A private cloud resource
  */
+/** @deprecated azure-native:avs/v20210101preview:PrivateCloud is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:PrivateCloud to guarantee forwards compatibility. */
 export function getPrivateCloud(args: GetPrivateCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateCloudResult> {
+    pulumi.log.warn("getPrivateCloud is deprecated: azure-native:avs/v20210101preview:PrivateCloud is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:PrivateCloud to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20210101preview:getPrivateCloud", {
@@ -118,6 +120,7 @@ export interface GetPrivateCloudResult {
 /**
  * A private cloud resource
  */
+/** @deprecated azure-native:avs/v20210101preview:PrivateCloud is being removed in the next major version of this provider. Please upgrade to azure-native:avs/v20220501:PrivateCloud to guarantee forwards compatibility. */
 export function getPrivateCloudOutput(args: GetPrivateCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateCloudResult> {
     return pulumi.output(args).apply((a: any) => getPrivateCloud(a, opts))
 }

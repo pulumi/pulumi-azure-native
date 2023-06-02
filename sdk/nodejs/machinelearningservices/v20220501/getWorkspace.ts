@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified machine learning workspace.
  */
+/** @deprecated azure-native:machinelearningservices/v20220501:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Workspace to guarantee forwards compatibility. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
+    pulumi.log.warn("getWorkspace is deprecated: azure-native:machinelearningservices/v20220501:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Workspace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220501:getWorkspace", {
@@ -170,6 +172,7 @@ export interface GetWorkspaceResult {
 /**
  * Gets the properties of the specified machine learning workspace.
  */
+/** @deprecated azure-native:machinelearningservices/v20220501:Workspace is being removed in the next major version of this provider. Please upgrade to azure-native:machinelearningservices/v20221201preview:Workspace to guarantee forwards compatibility. */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
 }

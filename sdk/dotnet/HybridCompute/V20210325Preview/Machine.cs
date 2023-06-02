@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20210325Preview
     /// <summary>
     /// Describes a hybrid machine.
     /// </summary>
+    [Obsolete(@"azure-native:hybridcompute/v20210325preview:Machine is being removed in the next major version of this provider. Please upgrade to azure-native:hybridcompute/v20220510preview:Machine to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hybridcompute/v20210325preview:Machine")]
     public partial class Machine : global::Pulumi.CustomResource
     {

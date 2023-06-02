@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of a web, mobile, or API app.
  */
+/** @deprecated azure-native:web/v20210115:WebApp is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebApp to guarantee forwards compatibility. */
 export function getWebApp(args: GetWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppResult> {
+    pulumi.log.warn("getWebApp is deprecated: azure-native:web/v20210115:WebApp is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebApp to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210115:getWebApp", {
@@ -238,6 +240,7 @@ export interface GetWebAppResult {
 /**
  * Gets the details of a web, mobile, or API app.
  */
+/** @deprecated azure-native:web/v20210115:WebApp is being removed in the next major version of this provider. Please upgrade to azure-native:web/v20220901:WebApp to guarantee forwards compatibility. */
 export function getWebAppOutput(args: GetWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppResult> {
     return pulumi.output(args).apply((a: any) => getWebApp(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
     /// <summary>
     /// Represents a Watchlist in Azure Security Insights.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20220401preview:Watchlist is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230201:Watchlist to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20220401preview:Watchlist")]
     public partial class Watchlist : global::Pulumi.CustomResource
     {
@@ -211,7 +212,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:Watchlist"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:Watchlist"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:Watchlist"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:Watchlist"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

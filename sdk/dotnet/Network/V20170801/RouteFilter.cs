@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.Network.V20170801
     /// <summary>
     /// Route Filter Resource.
     /// </summary>
-    [Obsolete(@"Version 2017-08-01 will be removed in v2 of the provider.")]
+    [Obsolete(@"Version 2017-08-01 will be removed in v2 of the provider.
+azure-native:network/v20170801:RouteFilter is being removed in the next major version of this provider. Please upgrade to azure-native:network/v20190801:RouteFilter to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20170801:RouteFilter")]
     public partial class RouteFilter : global::Pulumi.CustomResource
     {

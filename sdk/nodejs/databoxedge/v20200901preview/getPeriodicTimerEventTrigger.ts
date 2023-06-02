@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a specific trigger by name.
  */
+/** @deprecated azure-native:databoxedge/v20200901preview:PeriodicTimerEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:PeriodicTimerEventTrigger to guarantee forwards compatibility. */
 export function getPeriodicTimerEventTrigger(args: GetPeriodicTimerEventTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetPeriodicTimerEventTriggerResult> {
+    pulumi.log.warn("getPeriodicTimerEventTrigger is deprecated: azure-native:databoxedge/v20200901preview:PeriodicTimerEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:PeriodicTimerEventTrigger to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20200901preview:getPeriodicTimerEventTrigger", {
@@ -76,6 +78,7 @@ export interface GetPeriodicTimerEventTriggerResult {
 /**
  * Get a specific trigger by name.
  */
+/** @deprecated azure-native:databoxedge/v20200901preview:PeriodicTimerEventTrigger is being removed in the next major version of this provider. Please upgrade to azure-native:databoxedge/v20230101preview:PeriodicTimerEventTrigger to guarantee forwards compatibility. */
 export function getPeriodicTimerEventTriggerOutput(args: GetPeriodicTimerEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeriodicTimerEventTriggerResult> {
     return pulumi.output(args).apply((a: any) => getPeriodicTimerEventTrigger(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets properties of a specified container.
  */
+/** @deprecated azure-native:storage/v20210101:BlobContainer is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobContainer to guarantee forwards compatibility. */
 export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerResult> {
+    pulumi.log.warn("getBlobContainer is deprecated: azure-native:storage/v20210101:BlobContainer is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobContainer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20210101:getBlobContainer", {
@@ -123,6 +125,7 @@ export interface GetBlobContainerResult {
 /**
  * Gets properties of a specified container.
  */
+/** @deprecated azure-native:storage/v20210101:BlobContainer is being removed in the next major version of this provider. Please upgrade to azure-native:storage/v20220901:BlobContainer to guarantee forwards compatibility. */
 export function getBlobContainerOutput(args: GetBlobContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerResult> {
     return pulumi.output(args).apply((a: any) => getBlobContainer(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of a system topic.
  */
+/** @deprecated azure-native:eventgrid/v20201015preview:SystemTopic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:SystemTopic to guarantee forwards compatibility. */
 export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicResult> {
+    pulumi.log.warn("getSystemTopic is deprecated: azure-native:eventgrid/v20201015preview:SystemTopic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:SystemTopic to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20201015preview:getSystemTopic", {
@@ -82,6 +84,7 @@ export interface GetSystemTopicResult {
 /**
  * Get properties of a system topic.
  */
+/** @deprecated azure-native:eventgrid/v20201015preview:SystemTopic is being removed in the next major version of this provider. Please upgrade to azure-native:eventgrid/v20220615:SystemTopic to guarantee forwards compatibility. */
 export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicResult> {
     return pulumi.output(args).apply((a: any) => getSystemTopic(a, opts))
 }

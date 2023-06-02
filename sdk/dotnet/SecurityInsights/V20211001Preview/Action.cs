@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
     /// <summary>
     /// Action for alert rule.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20211001preview:Action is being removed in the next major version of this provider. Please upgrade to azure-native:securityinsights/v20230401preview:Action to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20211001preview:Action")]
     public partial class Action : global::Pulumi.CustomResource
     {
@@ -97,7 +98,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:Action"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:Action"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:Action"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:Action"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

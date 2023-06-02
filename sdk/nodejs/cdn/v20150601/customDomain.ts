@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
  *
  * @deprecated Version 2015-06-01 will be removed in v2 of the provider.
+azure-native:cdn/v20150601:CustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20161002:CustomDomain to guarantee forwards compatibility.
  */
 export class CustomDomain extends pulumi.CustomResource {
     /**
@@ -19,7 +20,7 @@ export class CustomDomain extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CustomDomain {
-        pulumi.log.warn("CustomDomain is deprecated: Version 2015-06-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("CustomDomain is deprecated: Version 2015-06-01 will be removed in v2 of the provider.\nazure-native:cdn/v20150601:CustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20161002:CustomDomain to guarantee forwards compatibility.")
         return new CustomDomain(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,9 +66,10 @@ export class CustomDomain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2015-06-01 will be removed in v2 of the provider. */
+    /** @deprecated Version 2015-06-01 will be removed in v2 of the provider.
+azure-native:cdn/v20150601:CustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20161002:CustomDomain to guarantee forwards compatibility. */
     constructor(name: string, args: CustomDomainArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("CustomDomain is deprecated: Version 2015-06-01 will be removed in v2 of the provider.")
+        pulumi.log.warn("CustomDomain is deprecated: Version 2015-06-01 will be removed in v2 of the provider.\nazure-native:cdn/v20150601:CustomDomain is being removed in the next major version of this provider. Please upgrade to azure-native:cdn/v20161002:CustomDomain to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

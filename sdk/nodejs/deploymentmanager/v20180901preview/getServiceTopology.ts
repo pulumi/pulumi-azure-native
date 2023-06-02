@@ -7,9 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * The resource representation of a service topology.
  */
-/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:deploymentmanager/v20180901preview:ServiceTopology is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:ServiceTopology to guarantee forwards compatibility. */
 export function getServiceTopology(args: GetServiceTopologyArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTopologyResult> {
-    pulumi.log.warn("getServiceTopology is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.")
+    pulumi.log.warn("getServiceTopology is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.\nazure-native:deploymentmanager/v20180901preview:ServiceTopology is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:ServiceTopology to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deploymentmanager/v20180901preview:getServiceTopology", {
@@ -61,7 +62,8 @@ export interface GetServiceTopologyResult {
 /**
  * The resource representation of a service topology.
  */
-/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
+/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
+azure-native:deploymentmanager/v20180901preview:ServiceTopology is being removed in the next major version of this provider. Please upgrade to azure-native:deploymentmanager/v20191101preview:ServiceTopology to guarantee forwards compatibility. */
 export function getServiceTopologyOutput(args: GetServiceTopologyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTopologyResult> {
     return pulumi.output(args).apply((a: any) => getServiceTopology(a, opts))
 }
