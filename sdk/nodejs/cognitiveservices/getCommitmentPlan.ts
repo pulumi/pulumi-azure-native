@@ -8,19 +8,24 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Returns a Cognitive Services commitment plan specified by the parameters.
+ * Gets the specified commitmentPlans associated with the Cognitive Services account.
  * API Version: 2022-12-01.
  */
 export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices:getCommitmentPlan", {
+        "accountName": args.accountName,
         "commitmentPlanName": args.commitmentPlanName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetCommitmentPlanArgs {
+    /**
+     * The name of Cognitive Services account.
+     */
+    accountName: string;
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */
@@ -77,7 +82,7 @@ export interface GetCommitmentPlanResult {
     readonly type: string;
 }
 /**
- * Returns a Cognitive Services commitment plan specified by the parameters.
+ * Gets the specified commitmentPlans associated with the Cognitive Services account.
  * API Version: 2022-12-01.
  */
 export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanResult> {
@@ -85,6 +90,10 @@ export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?
 }
 
 export interface GetCommitmentPlanOutputArgs {
+    /**
+     * The name of Cognitive Services account.
+     */
+    accountName: pulumi.Input<string>;
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */

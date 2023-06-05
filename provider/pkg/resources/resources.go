@@ -4,6 +4,7 @@ package resources
 
 import (
 	"fmt"
+	"log"
 	"regexp"
 	"strings"
 
@@ -212,7 +213,7 @@ var wellKnownNames = map[string]string{
 
 // ResourceName constructs a name of a resource based on Get or List operation ID,
 // e.g. "Managers_GetActivationKey" -> "ManagerActivationKey".
-func ResourceName(operationID string) string {
+func ResourceName(operationID, path string) string {
 	normalizedID := strings.ReplaceAll(operationID, "-", "_")
 	parts := strings.Split(normalizedID, "_")
 	var name, verb string
@@ -236,11 +237,54 @@ func ResourceName(operationID string) string {
 	for i := 0; i < len(nameParts); i++ {
 		if sliceHasPrefix(subNameParts, nameParts[i:]) {
 			namePrefix := strings.Join(nameParts[:i], "")
-			return namePrefix + subName
+			name = namePrefix
+			break
 		}
 	}
 
-	return name + subName
+	resourceName := name + subName
+
+	// Special cases
+
+	// Manual override to resolve ambiguity between public and private RecordSet.
+	// See https://github.com/pulumi/pulumi-azure-native/issues/583.
+	// To be removed with https://github.com/pulumi/pulumi-azure-native/issues/690.
+	if resourceName == "RecordSet" && strings.Contains(path, "privateDns") {
+		newName := "PrivateRecordSet"
+		log.Printf("Disambiguating %s at %s to %s", resourceName, path, newName)
+		resourceName = newName
+	}
+
+	// Cognitive Services has global and per-account commitment plans with the same name.
+	// The global ones are new, introduced in 2022-12-01, so we rename them.
+	// TODO,tkappler The global plan still has the description "Cognitive Services account
+	// commitment plan." - upstream issue?
+	if resourceName == "CommitmentPlan" && strings.Contains(path, "CognitiveServices/commitmentPlans/") {
+		newName := "SharedCommitmentPlan"
+		log.Printf("Disambiguating %s at %s to %s", resourceName, path, newName)
+		resourceName = newName
+	}
+
+	// Redis and RedisEnterprise are essentially distinct resources sharing the Microsoft.Cache
+	// namespace. It works out ok because each API version has only one of them, and of the shared
+	// types only PrivateEndpointConnection clashes.
+	if resourceName == "PrivateEndpointConnection" && strings.Contains(path, "Microsoft.Cache/redisEnterprise") {
+		newName := "EnterprisePrivateEndpointConnection"
+		log.Printf("Disambiguating %s at %s to %s", resourceName, path, newName)
+		resourceName = newName
+	}
+
+	// Both are virtual network links, but the other side of the link is a different resource and
+	// the links have different properties.
+	// https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-overview#virtual-network-links
+	// https://learn.microsoft.com/en-us/azure/dns/private-dns-virtual-network-links
+	if resourceName == "VirtualNetworkLink" && strings.Contains(path, "Microsoft.Network/dnsForwardingRulesets") {
+		newName := "PrivateResolverVirtualNetworkLink"
+		log.Printf("Disambiguating %s at %s to %s", resourceName, path, newName)
+		resourceName = newName
+	}
+
+	return resourceName
 }
 
 var referenceNameReplacer = strings.NewReplacer("CreateOrUpdateParameters", "", "Create", "", "Request", "")

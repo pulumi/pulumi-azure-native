@@ -45,10 +45,10 @@ export const getOutboundEndpoint: typeof import("./getOutboundEndpoint").getOutb
 export const getOutboundEndpointOutput: typeof import("./getOutboundEndpoint").getOutboundEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getOutboundEndpoint","getOutboundEndpointOutput"], () => require("./getOutboundEndpoint"));
 
-export { GetVirtualNetworkLinkArgs, GetVirtualNetworkLinkResult, GetVirtualNetworkLinkOutputArgs } from "./getVirtualNetworkLink";
-export const getVirtualNetworkLink: typeof import("./getVirtualNetworkLink").getVirtualNetworkLink = null as any;
-export const getVirtualNetworkLinkOutput: typeof import("./getVirtualNetworkLink").getVirtualNetworkLinkOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkLink","getVirtualNetworkLinkOutput"], () => require("./getVirtualNetworkLink"));
+export { GetPrivateResolverVirtualNetworkLinkArgs, GetPrivateResolverVirtualNetworkLinkResult, GetPrivateResolverVirtualNetworkLinkOutputArgs } from "./getPrivateResolverVirtualNetworkLink";
+export const getPrivateResolverVirtualNetworkLink: typeof import("./getPrivateResolverVirtualNetworkLink").getPrivateResolverVirtualNetworkLink = null as any;
+export const getPrivateResolverVirtualNetworkLinkOutput: typeof import("./getPrivateResolverVirtualNetworkLink").getPrivateResolverVirtualNetworkLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateResolverVirtualNetworkLink","getPrivateResolverVirtualNetworkLinkOutput"], () => require("./getPrivateResolverVirtualNetworkLink"));
 
 export { InboundEndpointArgs } from "./inboundEndpoint";
 export type InboundEndpoint = import("./inboundEndpoint").InboundEndpoint;
@@ -70,10 +70,10 @@ export type OutboundEndpoint = import("./outboundEndpoint").OutboundEndpoint;
 export const OutboundEndpoint: typeof import("./outboundEndpoint").OutboundEndpoint = null as any;
 utilities.lazyLoad(exports, ["OutboundEndpoint"], () => require("./outboundEndpoint"));
 
-export { VirtualNetworkLinkArgs } from "./virtualNetworkLink";
-export type VirtualNetworkLink = import("./virtualNetworkLink").VirtualNetworkLink;
-export const VirtualNetworkLink: typeof import("./virtualNetworkLink").VirtualNetworkLink = null as any;
-utilities.lazyLoad(exports, ["VirtualNetworkLink"], () => require("./virtualNetworkLink"));
+export { PrivateResolverVirtualNetworkLinkArgs } from "./privateResolverVirtualNetworkLink";
+export type PrivateResolverVirtualNetworkLink = import("./privateResolverVirtualNetworkLink").PrivateResolverVirtualNetworkLink;
+export const PrivateResolverVirtualNetworkLink: typeof import("./privateResolverVirtualNetworkLink").PrivateResolverVirtualNetworkLink = null as any;
+utilities.lazyLoad(exports, ["PrivateResolverVirtualNetworkLink"], () => require("./privateResolverVirtualNetworkLink"));
 
 
 // Export enums:
@@ -93,8 +93,8 @@ const _module = {
                 return new InboundEndpoint(name, <any>undefined, { urn })
             case "azure-native:network/v20200401preview:OutboundEndpoint":
                 return new OutboundEndpoint(name, <any>undefined, { urn })
-            case "azure-native:network/v20200401preview:VirtualNetworkLink":
-                return new VirtualNetworkLink(name, <any>undefined, { urn })
+            case "azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink":
+                return new PrivateResolverVirtualNetworkLink(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

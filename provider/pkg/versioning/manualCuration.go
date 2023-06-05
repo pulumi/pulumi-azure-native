@@ -24,7 +24,7 @@ const (
 
 const ExclusionAllVersions = "*"
 
-// providerCuration contains manual  edits to the automatically determined API versions for a resource provider
+// providerCuration contains manual edits to the automatically determined API versions for a resource provider
 type providerCuration struct {
 	// Exclude these resources from the provider. Used when generating the final vN.json from vN-config.yaml.
 	// The value is the API version to exclude, or `*` to exclude all versions.
@@ -42,6 +42,7 @@ type providerCuration struct {
 // Curations contains manual edits to the automatically determined API versions
 type Curations map[openapi.ProviderName]providerCuration
 
+// The error is returned when the exclusion is specified but the range doesn't include the requested version
 func (curation providerCuration) IsExcluded(resourceName openapi.ResourceName, apiVersion openapi.ApiVersion) (bool, error) {
 	if curation.Exclusions == nil {
 		return false, nil

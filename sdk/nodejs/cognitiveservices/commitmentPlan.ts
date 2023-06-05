@@ -87,9 +87,13 @@ export class CommitmentPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'accountName'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["commitmentPlanName"] = args ? args.commitmentPlanName : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -113,7 +117,7 @@ export class CommitmentPlan extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20221201:CommitmentPlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20211001:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20220301:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20221001:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20221201:CommitmentPlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CommitmentPlan.__pulumiType, name, resourceInputs, opts);
     }
@@ -123,6 +127,10 @@ export class CommitmentPlan extends pulumi.CustomResource {
  * The set of arguments for constructing a CommitmentPlan resource.
  */
 export interface CommitmentPlanArgs {
+    /**
+     * The name of Cognitive Services account.
+     */
+    accountName: pulumi.Input<string>;
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */

@@ -100,7 +100,7 @@ export class ServerKey extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql:ServerKey" }, { type: "azure-native:dbformysql/v20200101privatepreview:ServerKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20200101privatepreview:ServerKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerKey.__pulumiType, name, resourceInputs, opts);
     }

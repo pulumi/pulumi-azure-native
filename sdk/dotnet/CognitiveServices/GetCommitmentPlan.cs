@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CognitiveServices
     public static class GetCommitmentPlan
     {
         /// <summary>
-        /// Returns a Cognitive Services commitment plan specified by the parameters.
+        /// Gets the specified commitmentPlans associated with the Cognitive Services account.
         /// API Version: 2022-12-01.
         /// </summary>
         public static Task<GetCommitmentPlanResult> InvokeAsync(GetCommitmentPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCommitmentPlanResult>("azure-native:cognitiveservices:getCommitmentPlan", args ?? new GetCommitmentPlanArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Returns a Cognitive Services commitment plan specified by the parameters.
+        /// Gets the specified commitmentPlans associated with the Cognitive Services account.
         /// API Version: 2022-12-01.
         /// </summary>
         public static Output<GetCommitmentPlanResult> Invoke(GetCommitmentPlanInvokeArgs args, InvokeOptions? options = null)
@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.CognitiveServices
 
     public sealed class GetCommitmentPlanArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of Cognitive Services account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public string AccountName { get; set; } = null!;
+
         /// <summary>
         /// The name of the commitmentPlan associated with the Cognitive Services Account
         /// </summary>
@@ -49,6 +55,12 @@ namespace Pulumi.AzureNative.CognitiveServices
 
     public sealed class GetCommitmentPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of Cognitive Services account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
         /// <summary>
         /// The name of the commitmentPlan associated with the Cognitive Services Account
         /// </summary>

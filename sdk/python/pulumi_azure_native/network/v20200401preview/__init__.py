@@ -14,11 +14,11 @@ from .get_dns_resolver import *
 from .get_forwarding_rule import *
 from .get_inbound_endpoint import *
 from .get_outbound_endpoint import *
-from .get_virtual_network_link import *
+from .get_private_resolver_virtual_network_link import *
 from .inbound_endpoint import *
 from .list_dns_forwarding_ruleset_by_virtual_network import *
 from .list_dns_resolver_by_virtual_network import *
 from .outbound_endpoint import *
-from .virtual_network_link import *
+from .private_resolver_virtual_network_link import *
 from ._inputs import *
 from . import outputs

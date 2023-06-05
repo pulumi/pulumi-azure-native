@@ -2583,6 +2583,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.cache",
   "classes": {
    "azure-native:cache:Database": "Database",
+   "azure-native:cache:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
    "azure-native:cache:FirewallRule": "FirewallRule",
    "azure-native:cache:LinkedServer": "LinkedServer",
    "azure-native:cache:PatchSchedule": "PatchSchedule",
@@ -2640,7 +2641,16 @@ _utilities.register(
   "mod": "cache/v20201001preview",
   "fqn": "pulumi_azure_native.cache.v20201001preview",
   "classes": {
+   "azure-native:cache/v20201001preview:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
    "azure-native:cache/v20201001preview:RedisEnterprise": "RedisEnterprise"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cache/v20210201preview",
+  "fqn": "pulumi_azure_native.cache.v20210201preview",
+  "classes": {
+   "azure-native:cache/v20210201preview:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection"
   }
  },
  {
@@ -2649,8 +2659,24 @@ _utilities.register(
   "fqn": "pulumi_azure_native.cache.v20210301",
   "classes": {
    "azure-native:cache/v20210301:Database": "Database",
-   "azure-native:cache/v20210301:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cache/v20210301:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
    "azure-native:cache/v20210301:RedisEnterprise": "RedisEnterprise"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cache/v20210801",
+  "fqn": "pulumi_azure_native.cache.v20210801",
+  "classes": {
+   "azure-native:cache/v20210801:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cache/v20220101",
+  "fqn": "pulumi_azure_native.cache.v20220101",
+  "classes": {
+   "azure-native:cache/v20220101:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection"
   }
  },
  {
@@ -2667,11 +2693,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cache/v20221101preview",
+  "fqn": "pulumi_azure_native.cache.v20221101preview",
+  "classes": {
+   "azure-native:cache/v20221101preview:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "cache/v20230301preview",
   "fqn": "pulumi_azure_native.cache.v20230301preview",
   "classes": {
    "azure-native:cache/v20230301preview:Database": "Database",
-   "azure-native:cache/v20230301preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cache/v20230301preview:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
    "azure-native:cache/v20230301preview:RedisEnterprise": "RedisEnterprise"
   }
  },
@@ -2876,7 +2910,8 @@ _utilities.register(
    "azure-native:cognitiveservices:CommitmentPlan": "CommitmentPlan",
    "azure-native:cognitiveservices:CommitmentPlanAssociation": "CommitmentPlanAssociation",
    "azure-native:cognitiveservices:Deployment": "Deployment",
-   "azure-native:cognitiveservices:PrivateEndpointConnection": "PrivateEndpointConnection"
+   "azure-native:cognitiveservices:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cognitiveservices:SharedCommitmentPlan": "SharedCommitmentPlan"
   }
  },
  {
@@ -2922,7 +2957,8 @@ _utilities.register(
    "azure-native:cognitiveservices/v20221201:CommitmentPlan": "CommitmentPlan",
    "azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation": "CommitmentPlanAssociation",
    "azure-native:cognitiveservices/v20221201:Deployment": "Deployment",
-   "azure-native:cognitiveservices/v20221201:PrivateEndpointConnection": "PrivateEndpointConnection"
+   "azure-native:cognitiveservices/v20221201:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cognitiveservices/v20221201:SharedCommitmentPlan": "SharedCommitmentPlan"
   }
  },
  {
@@ -4952,11 +4988,7 @@ _utilities.register(
    "azure-native:dbformysql:Configuration": "Configuration",
    "azure-native:dbformysql:Database": "Database",
    "azure-native:dbformysql:FirewallRule": "FirewallRule",
-   "azure-native:dbformysql:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:dbformysql:Server": "Server",
-   "azure-native:dbformysql:ServerAdministrator": "ServerAdministrator",
-   "azure-native:dbformysql:ServerKey": "ServerKey",
-   "azure-native:dbformysql:VirtualNetworkRule": "VirtualNetworkRule"
+   "azure-native:dbformysql:Server": "Server"
   }
  },
  {
@@ -5063,11 +5095,7 @@ _utilities.register(
    "azure-native:dbforpostgresql:FirewallRule": "FirewallRule",
    "azure-native:dbforpostgresql:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:dbforpostgresql:Role": "Role",
-   "azure-native:dbforpostgresql:Server": "Server",
-   "azure-native:dbforpostgresql:ServerAdministrator": "ServerAdministrator",
-   "azure-native:dbforpostgresql:ServerKey": "ServerKey",
-   "azure-native:dbforpostgresql:ServerSecurityAlertPolicy": "ServerSecurityAlertPolicy",
-   "azure-native:dbforpostgresql:VirtualNetworkRule": "VirtualNetworkRule"
+   "azure-native:dbforpostgresql:Server": "Server"
   }
  },
  {
@@ -9347,6 +9375,7 @@ _utilities.register(
    "azure-native:network:PrivateLinkService": "PrivateLinkService",
    "azure-native:network:PrivateLinkServicePrivateEndpointConnection": "PrivateLinkServicePrivateEndpointConnection",
    "azure-native:network:PrivateRecordSet": "PrivateRecordSet",
+   "azure-native:network:PrivateResolverVirtualNetworkLink": "PrivateResolverVirtualNetworkLink",
    "azure-native:network:PrivateZone": "PrivateZone",
    "azure-native:network:Profile": "Profile",
    "azure-native:network:PublicIPAddress": "PublicIPAddress",
@@ -9378,7 +9407,6 @@ _utilities.register(
    "azure-native:network:VirtualNetworkGateway": "VirtualNetworkGateway",
    "azure-native:network:VirtualNetworkGatewayConnection": "VirtualNetworkGatewayConnection",
    "azure-native:network:VirtualNetworkGatewayNatRule": "VirtualNetworkGatewayNatRule",
-   "azure-native:network:VirtualNetworkLink": "VirtualNetworkLink",
    "azure-native:network:VirtualNetworkPeering": "VirtualNetworkPeering",
    "azure-native:network:VirtualNetworkTap": "VirtualNetworkTap",
    "azure-native:network:VirtualRouter": "VirtualRouter",
@@ -9678,7 +9706,7 @@ _utilities.register(
    "azure-native:network/v20200401preview:ForwardingRule": "ForwardingRule",
    "azure-native:network/v20200401preview:InboundEndpoint": "InboundEndpoint",
    "azure-native:network/v20200401preview:OutboundEndpoint": "OutboundEndpoint",
-   "azure-native:network/v20200401preview:VirtualNetworkLink": "VirtualNetworkLink"
+   "azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink": "PrivateResolverVirtualNetworkLink"
   }
  },
  {
@@ -9927,9 +9955,9 @@ _utilities.register(
    "azure-native:network/v20220701:ForwardingRule": "ForwardingRule",
    "azure-native:network/v20220701:InboundEndpoint": "InboundEndpoint",
    "azure-native:network/v20220701:OutboundEndpoint": "OutboundEndpoint",
+   "azure-native:network/v20220701:PrivateResolverVirtualNetworkLink": "PrivateResolverVirtualNetworkLink",
    "azure-native:network/v20220701:SecurityRule": "SecurityRule",
-   "azure-native:network/v20220701:Subnet": "Subnet",
-   "azure-native:network/v20220701:VirtualNetworkLink": "VirtualNetworkLink"
+   "azure-native:network/v20220701:Subnet": "Subnet"
   }
  },
  {

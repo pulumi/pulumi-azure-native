@@ -10,6 +10,11 @@ export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
+export { EnterprisePrivateEndpointConnectionArgs } from "./enterprisePrivateEndpointConnection";
+export type EnterprisePrivateEndpointConnection = import("./enterprisePrivateEndpointConnection").EnterprisePrivateEndpointConnection;
+export const EnterprisePrivateEndpointConnection: typeof import("./enterprisePrivateEndpointConnection").EnterprisePrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["EnterprisePrivateEndpointConnection"], () => require("./enterprisePrivateEndpointConnection"));
+
 export { FirewallRuleArgs } from "./firewallRule";
 export type FirewallRule = import("./firewallRule").FirewallRule;
 export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
@@ -19,6 +24,11 @@ export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./get
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+
+export { GetEnterprisePrivateEndpointConnectionArgs, GetEnterprisePrivateEndpointConnectionResult, GetEnterprisePrivateEndpointConnectionOutputArgs } from "./getEnterprisePrivateEndpointConnection";
+export const getEnterprisePrivateEndpointConnection: typeof import("./getEnterprisePrivateEndpointConnection").getEnterprisePrivateEndpointConnection = null as any;
+export const getEnterprisePrivateEndpointConnectionOutput: typeof import("./getEnterprisePrivateEndpointConnection").getEnterprisePrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getEnterprisePrivateEndpointConnection","getEnterprisePrivateEndpointConnectionOutput"], () => require("./getEnterprisePrivateEndpointConnection"));
 
 export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
 export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
@@ -140,6 +150,8 @@ const _module = {
         switch (type) {
             case "azure-native:cache:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "azure-native:cache:EnterprisePrivateEndpointConnection":
+                return new EnterprisePrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:cache:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
             case "azure-native:cache:LinkedServer":

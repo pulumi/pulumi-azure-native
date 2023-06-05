@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'ActiveDirectoryAuthEnum',
-    'AdministratorType',
     'ArmServerKeyType',
     'CreateMode',
     'GeoRedundantBackupEnum',
@@ -16,8 +15,6 @@ __all__ = [
     'PrincipalType',
     'PrivateEndpointServiceConnectionStatus',
     'ReplicationRole',
-    'ServerKeyType',
-    'ServerSecurityAlertPolicyState',
     'ServerVersion',
     'SkuTier',
 ]
@@ -29,13 +26,6 @@ class ActiveDirectoryAuthEnum(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class AdministratorType(str, Enum):
-    """
-    The type of administrator.
-    """
-    ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
 class ArmServerKeyType(str, Enum):
@@ -118,21 +108,6 @@ class ReplicationRole(str, Enum):
     PRIMARY = "Primary"
     ASYNC_REPLICA = "AsyncReplica"
     GEO_ASYNC_REPLICA = "GeoAsyncReplica"
-
-
-class ServerKeyType(str, Enum):
-    """
-    The key type like 'AzureKeyVault'.
-    """
-    AZURE_KEY_VAULT = "AzureKeyVault"
-
-
-class ServerSecurityAlertPolicyState(str, Enum):
-    """
-    Specifies the state of the policy, whether it is enabled or disabled.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class ServerVersion(str, Enum):

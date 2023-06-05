@@ -10,15 +10,20 @@ export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
+export { EnterprisePrivateEndpointConnectionArgs } from "./enterprisePrivateEndpointConnection";
+export type EnterprisePrivateEndpointConnection = import("./enterprisePrivateEndpointConnection").EnterprisePrivateEndpointConnection;
+export const EnterprisePrivateEndpointConnection: typeof import("./enterprisePrivateEndpointConnection").EnterprisePrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["EnterprisePrivateEndpointConnection"], () => require("./enterprisePrivateEndpointConnection"));
+
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+export { GetEnterprisePrivateEndpointConnectionArgs, GetEnterprisePrivateEndpointConnectionResult, GetEnterprisePrivateEndpointConnectionOutputArgs } from "./getEnterprisePrivateEndpointConnection";
+export const getEnterprisePrivateEndpointConnection: typeof import("./getEnterprisePrivateEndpointConnection").getEnterprisePrivateEndpointConnection = null as any;
+export const getEnterprisePrivateEndpointConnectionOutput: typeof import("./getEnterprisePrivateEndpointConnection").getEnterprisePrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getEnterprisePrivateEndpointConnection","getEnterprisePrivateEndpointConnectionOutput"], () => require("./getEnterprisePrivateEndpointConnection"));
 
 export { GetRedisEnterpriseArgs, GetRedisEnterpriseResult, GetRedisEnterpriseOutputArgs } from "./getRedisEnterprise";
 export const getRedisEnterprise: typeof import("./getRedisEnterprise").getRedisEnterprise = null as any;
@@ -29,11 +34,6 @@ export { ListDatabaseKeysArgs, ListDatabaseKeysResult, ListDatabaseKeysOutputArg
 export const listDatabaseKeys: typeof import("./listDatabaseKeys").listDatabaseKeys = null as any;
 export const listDatabaseKeysOutput: typeof import("./listDatabaseKeys").listDatabaseKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabaseKeys","listDatabaseKeysOutput"], () => require("./listDatabaseKeys"));
-
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 export { RedisEnterpriseArgs } from "./redisEnterprise";
 export type RedisEnterprise = import("./redisEnterprise").RedisEnterprise;
@@ -50,8 +50,8 @@ const _module = {
         switch (type) {
             case "azure-native:cache/v20210301:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-native:cache/v20210301:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:cache/v20210301:EnterprisePrivateEndpointConnection":
+                return new EnterprisePrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:cache/v20210301:RedisEnterprise":
                 return new RedisEnterprise(name, <any>undefined, { urn })
             default:

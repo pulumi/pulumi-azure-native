@@ -13,7 +13,6 @@ __all__ = [
     'HighAvailabilityMode',
     'ManagedServiceIdentityType',
     'ReplicationRole',
-    'ServerKeyType',
     'ServerVersion',
     'SkuTier',
 ]
@@ -21,7 +20,7 @@ __all__ = [
 
 class AdministratorType(str, Enum):
     """
-    The type of administrator.
+    Type of the sever administrator.
     """
     ACTIVE_DIRECTORY = "ActiveDirectory"
 
@@ -83,13 +82,6 @@ class ReplicationRole(str, Enum):
     NONE = "None"
     SOURCE = "Source"
     REPLICA = "Replica"
-
-
-class ServerKeyType(str, Enum):
-    """
-    The key type like 'AzureKeyVault'.
-    """
-    AZURE_KEY_VAULT = "AzureKeyVault"
 
 
 class ServerVersion(str, Enum):

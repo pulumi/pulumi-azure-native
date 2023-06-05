@@ -321,6 +321,7 @@
   },
   "Cache": {
     "Database": "2022-01-01",
+    "EnterprisePrivateEndpointConnection": "2022-01-01",
     "FirewallRule": "2022-06-01",
     "LinkedServer": "2022-06-01",
     "PatchSchedule": "2022-06-01",
@@ -367,6 +368,7 @@
     "CommitmentPlanAssociation": "2022-12-01",
     "Deployment": "2022-12-01",
     "PrivateEndpointConnection": "2022-12-01",
+    "SharedCommitmentPlan": "2022-12-01",
     "listAccountKeys": "2022-12-01"
   },
   "Commerce": {},
@@ -513,11 +515,7 @@
     "Configuration": "2021-05-01",
     "Database": "2021-05-01",
     "FirewallRule": "2021-05-01",
-    "PrivateEndpointConnection": "2018-06-01",
     "Server": "2021-05-01",
-    "ServerAdministrator": "2017-12-01",
-    "ServerKey": "2020-01-01",
-    "VirtualNetworkRule": "2017-12-01",
     "getGetPrivateDnsZoneSuffixExecute": "2021-05-01"
   },
   "DBforPostgreSQL": {
@@ -529,10 +527,6 @@
     "PrivateEndpointConnection": "2022-11-08",
     "Role": "2022-11-08",
     "Server": "2022-12-01",
-    "ServerAdministrator": "2017-12-01",
-    "ServerKey": "2020-01-01",
-    "ServerSecurityAlertPolicy": "2017-12-01",
-    "VirtualNetworkRule": "2017-12-01",
     "getGetPrivateDnsZoneSuffixExecute": "2022-12-01"
   },
   "Dashboard": {
@@ -1367,6 +1361,7 @@
     "PrivateLinkService": "2022-09-01",
     "PrivateLinkServicePrivateEndpointConnection": "2022-09-01",
     "PrivateRecordSet": "2020-06-01",
+    "PrivateResolverVirtualNetworkLink": "2022-07-01",
     "PrivateZone": "2020-06-01",
     "Profile": "2018-08-01",
     "PublicIPAddress": "2022-09-01",
