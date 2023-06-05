@@ -101,25 +101,57 @@ func (s RemovableResources) canBeRemoved(azureProvider, resource, version string
 
 func RemoveResources(providers AzureProviders, removable RemovableResources) AzureProviders {
 	result := AzureProviders{}
-	removedCount := 0
+	removedResourceCount := 0
+	removedInvokeCount := 0
+	// Rough heuristic to find relevant resource from an invoke - remove the first part up to the first capital letter.
 	for provider, versions := range providers {
 		newVersions := ProviderVersions{}
 		for version, resources := range versions {
 			filteredResources := VersionResources{
-				Resources: make(map[string]*ResourceSpec),
-				Invokes:   resources.Invokes,
+				Resources: map[string]*ResourceSpec{},
+				Invokes:   map[string]*ResourceSpec{},
 			}
+			removedResourcePaths := []string{}
 			for resourceName, resource := range resources.Resources {
 				if removable.canBeRemoved(provider, resourceName, version) {
-					removedCount++
+					removedResourceCount++
+					removedResourcePaths = append(removedResourcePaths, paths.NormalizePath(resource.Path))
 					continue
 				}
 				filteredResources.Resources[resourceName] = resource
+			}
+			for invokeName, invoke := range resources.Invokes {
+				if removable.canBeRemoved(provider, invokeName, version) {
+					removedInvokeCount++
+					continue
+				}
+				invokePath := paths.NormalizePath(invoke.Path)
+				// If we can't match on name, we try to match on the path.
+				found := false
+				for _, resourcePath := range removedResourcePaths {
+					if strings.HasPrefix(invokePath, resourcePath) {
+						found = true
+						break
+					}
+				}
+				if found {
+					removedInvokeCount++
+					continue
+				}
+				filteredResources.Invokes[invokeName] = invoke
+			}
+			// If there are no resources left, we can remove the version entirely.
+			if version != "" && len(filteredResources.Resources) == 0 && len(filteredResources.Invokes) > 0 {
+				removedInvokeCount += len(filteredResources.Invokes)
+				for invokeName := range filteredResources.Invokes {
+					log.Printf("Removable invoke: azure-native:%s/%s:%s", strings.ToLower(provider), version, invokeName)
+				}
+				continue
 			}
 			newVersions[version] = filteredResources
 		}
 		result[provider] = newVersions
 	}
-	log.Printf("Removed %d resources from the spec", removedCount)
+	log.Printf("Removed %d resources and %d invokes from the spec", removedResourceCount, removedInvokeCount)
 	return result
 }
