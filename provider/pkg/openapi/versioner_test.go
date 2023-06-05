@@ -66,15 +66,32 @@ func TestSqueezeSimple(t *testing.T) {
 		"provider": {
 			"version1": {
 				Resources: map[ResourceName]*ResourceSpec{
-					"resourceA": nil,
-					"resourceB": nil,
+					"resourceA": {
+						Path: "/someprefix/Microsoft.Foo/res1/{res1Name}",
+					},
+					"resourceB": {
+						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}",
+					},
 				},
-				Invokes: map[InvokeName]*ResourceSpec{},
+				Invokes: map[InvokeName]*ResourceSpec{
+					"invokeA": {
+						// Sits under resourceA
+						Path: "/someprefix/Microsoft.Foo/res1/{res2Name}/invokeA",
+					},
+					"invokeB": {
+						// Sits under resourceB
+						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}/invokeB",
+					},
+				},
 			},
 			"version2": {
 				Resources: map[ResourceName]*ResourceSpec{
-					"resourceA": nil,
-					"resourceB": nil,
+					"resourceA": {
+						Path: "/someprefix/Microsoft.Foo/res1/{res1Name}",
+					},
+					"resourceB": {
+						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}",
+					},
 				},
 				Invokes: map[InvokeName]*ResourceSpec{},
 			},
@@ -91,14 +108,24 @@ func TestSqueezeSimple(t *testing.T) {
 		"provider": {
 			"version1": {
 				Resources: map[ResourceName]*ResourceSpec{
-					"resourceB": nil,
+					"resourceB": {
+						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}",
+					},
 				},
-				Invokes: map[InvokeName]*ResourceSpec{},
+				Invokes: map[InvokeName]*ResourceSpec{
+					"invokeB": {
+						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}/invokeB",
+					},
+				},
 			},
 			"version2": {
 				Resources: map[ResourceName]*ResourceSpec{
-					"resourceA": nil,
-					"resourceB": nil,
+					"resourceA": {
+						Path: "/someprefix/Microsoft.Foo/res1/{res1Name}",
+					},
+					"resourceB": {
+						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}",
+					},
 				},
 				Invokes: map[InvokeName]*ResourceSpec{},
 			},
