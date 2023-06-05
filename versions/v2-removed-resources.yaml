@@ -244,7 +244,7 @@ azure-native:apimanagement/v20200601preview:Gateway: azure-native:apimanagement/
 azure-native:apimanagement/v20200601preview:GatewayApiEntityTag: azure-native:apimanagement/v20220801:GatewayApiEntityTag
 azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority: azure-native:apimanagement/v20220801:GatewayCertificateAuthority
 azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration: azure-native:apimanagement/v20220801:GatewayHostnameConfiguration
-azure-native:apimanagement/v20200601preview:getApiManagementServiceDomainOwnershipIdentifier
+azure-native:apimanagement/v20200601preview:getApiManagementServiceDomainOwnershipIdentifier: 
 azure-native:apimanagement/v20200601preview:Group: azure-native:apimanagement/v20220801:Group
 azure-native:apimanagement/v20200601preview:GroupUser: azure-native:apimanagement/v20220801:GroupUser
 azure-native:apimanagement/v20200601preview:IdentityProvider: azure-native:apimanagement/v20220801:IdentityProvider
@@ -289,7 +289,7 @@ azure-native:apimanagement/v20210101preview:Gateway: azure-native:apimanagement/
 azure-native:apimanagement/v20210101preview:GatewayApiEntityTag: azure-native:apimanagement/v20220801:GatewayApiEntityTag
 azure-native:apimanagement/v20210101preview:GatewayCertificateAuthority: azure-native:apimanagement/v20220801:GatewayCertificateAuthority
 azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration: azure-native:apimanagement/v20220801:GatewayHostnameConfiguration
-azure-native:apimanagement/v20210101preview:getApiManagementServiceDomainOwnershipIdentifier
+azure-native:apimanagement/v20210101preview:getApiManagementServiceDomainOwnershipIdentifier: 
 azure-native:apimanagement/v20210101preview:Group: azure-native:apimanagement/v20220801:Group
 azure-native:apimanagement/v20210101preview:GroupUser: azure-native:apimanagement/v20220801:GroupUser
 azure-native:apimanagement/v20210101preview:IdentityProvider: azure-native:apimanagement/v20220801:IdentityProvider
@@ -378,7 +378,7 @@ azure-native:apimanagement/v20210801:Gateway: azure-native:apimanagement/v202208
 azure-native:apimanagement/v20210801:GatewayApiEntityTag: azure-native:apimanagement/v20220801:GatewayApiEntityTag
 azure-native:apimanagement/v20210801:GatewayCertificateAuthority: azure-native:apimanagement/v20220801:GatewayCertificateAuthority
 azure-native:apimanagement/v20210801:GatewayHostnameConfiguration: azure-native:apimanagement/v20220801:GatewayHostnameConfiguration
-azure-native:apimanagement/v20210801:getApiManagementServiceDomainOwnershipIdentifier
+azure-native:apimanagement/v20210801:getApiManagementServiceDomainOwnershipIdentifier: 
 azure-native:apimanagement/v20210801:GlobalSchema: azure-native:apimanagement/v20220801:GlobalSchema
 azure-native:apimanagement/v20210801:Group: azure-native:apimanagement/v20220801:Group
 azure-native:apimanagement/v20210801:GroupUser: azure-native:apimanagement/v20220801:GroupUser
@@ -474,7 +474,7 @@ azure-native:apimanagement/v20220401preview:Gateway: azure-native:apimanagement/
 azure-native:apimanagement/v20220401preview:GatewayApiEntityTag: azure-native:apimanagement/v20220801:GatewayApiEntityTag
 azure-native:apimanagement/v20220401preview:GatewayCertificateAuthority: azure-native:apimanagement/v20220801:GatewayCertificateAuthority
 azure-native:apimanagement/v20220401preview:GatewayHostnameConfiguration: azure-native:apimanagement/v20220801:GatewayHostnameConfiguration
-azure-native:apimanagement/v20220401preview:getApiManagementServiceDomainOwnershipIdentifier
+azure-native:apimanagement/v20220401preview:getApiManagementServiceDomainOwnershipIdentifier: 
 azure-native:apimanagement/v20220401preview:GlobalSchema: azure-native:apimanagement/v20220801:GlobalSchema
 azure-native:apimanagement/v20220401preview:Group: azure-native:apimanagement/v20220801:Group
 azure-native:apimanagement/v20220401preview:GroupUser: azure-native:apimanagement/v20220801:GroupUser
@@ -892,21 +892,26 @@ azure-native:batch/v20220601:Application: azure-native:batch/v20221001:Applicati
 azure-native:batch/v20220601:ApplicationPackage: azure-native:batch/v20221001:ApplicationPackage
 azure-native:batch/v20220601:BatchAccount: azure-native:batch/v20221001:BatchAccount
 azure-native:batch/v20220601:Pool: azure-native:batch/v20221001:Pool
+azure-native:billing/v20200501:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission: 
 azure-native:botservice/v20171201:Bot: azure-native:botservice/v20220915:Bot
 azure-native:botservice/v20171201:BotConnection: azure-native:botservice/v20220915:BotConnection
 azure-native:botservice/v20171201:Channel: azure-native:botservice/v20220915:Channel
+azure-native:botservice/v20171201:listBotConnectionServiceProviders: 
 azure-native:botservice/v20180712:Bot: azure-native:botservice/v20220915:Bot
 azure-native:botservice/v20180712:BotConnection: azure-native:botservice/v20220915:BotConnection
 azure-native:botservice/v20180712:Channel: azure-native:botservice/v20220915:Channel
 azure-native:botservice/v20200602:Bot: azure-native:botservice/v20220915:Bot
 azure-native:botservice/v20200602:BotConnection: azure-native:botservice/v20220915:BotConnection
 azure-native:botservice/v20200602:Channel: azure-native:botservice/v20220915:Channel
+azure-native:botservice/v20200602:listBotConnectionServiceProviders: 
 azure-native:botservice/v20210501preview:Bot: azure-native:botservice/v20220915:Bot
 azure-native:botservice/v20210501preview:BotConnection: azure-native:botservice/v20220915:BotConnection
 azure-native:botservice/v20210501preview:Channel: azure-native:botservice/v20220915:Channel
 azure-native:botservice/v20220615preview:Bot: azure-native:botservice/v20220915:Bot
 azure-native:botservice/v20220615preview:BotConnection: azure-native:botservice/v20220915:BotConnection
 azure-native:botservice/v20220615preview:Channel: azure-native:botservice/v20220915:Channel
+azure-native:botservice/v20220615preview:listBotConnectionServiceProviders: 
+azure-native:botservice/v20220615preview:listQnAMakerEndpointKey: 
 azure-native:botservice/v20220615preview:PrivateEndpointConnection: azure-native:botservice/v20220915:PrivateEndpointConnection
 azure-native:cache/v20160401:PatchSchedule: azure-native:cache/v20220601:PatchSchedule
 azure-native:cache/v20160401:Redis: azure-native:cache/v20170201:Redis
@@ -1086,6 +1091,8 @@ azure-native:compute/v20170330:VirtualMachineExtension: azure-native:compute/v20
 azure-native:compute/v20170330:VirtualMachineScaleSet: azure-native:compute/v20221101:VirtualMachineScaleSet
 azure-native:compute/v20170330:VirtualMachineScaleSetExtension: azure-native:compute/v20211101:VirtualMachineScaleSetExtension
 azure-native:compute/v20171201:AvailabilitySet: azure-native:compute/v20221101:AvailabilitySet
+azure-native:compute/v20171201:getLogAnalyticExportRequestRateByInterval: 
+azure-native:compute/v20171201:getLogAnalyticExportThrottledRequests: 
 azure-native:compute/v20171201:Image: azure-native:compute/v20221101:Image
 azure-native:compute/v20171201:VirtualMachine: azure-native:compute/v20221101:VirtualMachine
 azure-native:compute/v20171201:VirtualMachineExtension: azure-native:compute/v20211101:VirtualMachineExtension
@@ -1094,6 +1101,8 @@ azure-native:compute/v20171201:VirtualMachineScaleSetExtension: azure-native:com
 azure-native:compute/v20171201:VirtualMachineScaleSetVM: azure-native:compute/v20221101:VirtualMachineScaleSetVM
 azure-native:compute/v20180401:AvailabilitySet: azure-native:compute/v20221101:AvailabilitySet
 azure-native:compute/v20180401:Disk: azure-native:compute/v20180601:Disk
+azure-native:compute/v20180401:getLogAnalyticExportRequestRateByInterval: 
+azure-native:compute/v20180401:getLogAnalyticExportThrottledRequests: 
 azure-native:compute/v20180401:Image: azure-native:compute/v20221101:Image
 azure-native:compute/v20180401:ProximityPlacementGroup: azure-native:compute/v20190301:ProximityPlacementGroup
 azure-native:compute/v20180401:Snapshot: azure-native:compute/v20180601:Snapshot
@@ -1116,6 +1125,8 @@ azure-native:compute/v20180601:VirtualMachineScaleSetVM: azure-native:compute/v2
 azure-native:compute/v20180930:Disk: azure-native:compute/v20190701:Disk
 azure-native:compute/v20180930:Snapshot: azure-native:compute/v20220702:Snapshot
 azure-native:compute/v20181001:AvailabilitySet: azure-native:compute/v20221101:AvailabilitySet
+azure-native:compute/v20181001:getLogAnalyticExportRequestRateByInterval: 
+azure-native:compute/v20181001:getLogAnalyticExportThrottledRequests: 
 azure-native:compute/v20181001:Image: azure-native:compute/v20221101:Image
 azure-native:compute/v20181001:ProximityPlacementGroup: azure-native:compute/v20190301:ProximityPlacementGroup
 azure-native:compute/v20181001:VirtualMachine: azure-native:compute/v20221101:VirtualMachine
@@ -1182,6 +1193,8 @@ azure-native:compute/v20200501:Snapshot: azure-native:compute/v20220702:Snapshot
 azure-native:compute/v20200601:AvailabilitySet: azure-native:compute/v20221101:AvailabilitySet
 azure-native:compute/v20200601:DedicatedHost: azure-native:compute/v20221101:DedicatedHost
 azure-native:compute/v20200601:DedicatedHostGroup: azure-native:compute/v20221101:DedicatedHostGroup
+azure-native:compute/v20200601:getLogAnalyticExportRequestRateByInterval: 
+azure-native:compute/v20200601:getLogAnalyticExportThrottledRequests: 
 azure-native:compute/v20200601:Image: azure-native:compute/v20221101:Image
 azure-native:compute/v20200601:ProximityPlacementGroup: azure-native:compute/v20221101:ProximityPlacementGroup
 azure-native:compute/v20200601:SshPublicKey: azure-native:compute/v20221101:SshPublicKey
@@ -1247,6 +1260,8 @@ azure-native:compute/v20210701:GalleryApplication: azure-native:compute/v2022030
 azure-native:compute/v20210701:GalleryApplicationVersion: azure-native:compute/v20220303:GalleryApplicationVersion
 azure-native:compute/v20210701:GalleryImage: azure-native:compute/v20220303:GalleryImage
 azure-native:compute/v20210701:GalleryImageVersion: azure-native:compute/v20220303:GalleryImageVersion
+azure-native:compute/v20210701:getLogAnalyticExportRequestRateByInterval: 
+azure-native:compute/v20210701:getLogAnalyticExportThrottledRequests: 
 azure-native:compute/v20210701:Image: azure-native:compute/v20221101:Image
 azure-native:compute/v20210701:ProximityPlacementGroup: azure-native:compute/v20221101:ProximityPlacementGroup
 azure-native:compute/v20210701:RestorePoint: azure-native:compute/v20211101:RestorePoint
@@ -1299,6 +1314,8 @@ azure-native:compute/v20220301:CapacityReservation: azure-native:compute/v202211
 azure-native:compute/v20220301:CapacityReservationGroup: azure-native:compute/v20221101:CapacityReservationGroup
 azure-native:compute/v20220301:DedicatedHost: azure-native:compute/v20221101:DedicatedHost
 azure-native:compute/v20220301:DedicatedHostGroup: azure-native:compute/v20221101:DedicatedHostGroup
+azure-native:compute/v20220301:getLogAnalyticExportRequestRateByInterval: 
+azure-native:compute/v20220301:getLogAnalyticExportThrottledRequests: 
 azure-native:compute/v20220301:Image: azure-native:compute/v20221101:Image
 azure-native:compute/v20220301:ProximityPlacementGroup: azure-native:compute/v20221101:ProximityPlacementGroup
 azure-native:compute/v20220301:RestorePoint: azure-native:compute/v20221101:RestorePoint
@@ -1323,6 +1340,8 @@ azure-native:compute/v20220801:CapacityReservation: azure-native:compute/v202211
 azure-native:compute/v20220801:CapacityReservationGroup: azure-native:compute/v20221101:CapacityReservationGroup
 azure-native:compute/v20220801:DedicatedHost: azure-native:compute/v20221101:DedicatedHost
 azure-native:compute/v20220801:DedicatedHostGroup: azure-native:compute/v20221101:DedicatedHostGroup
+azure-native:compute/v20220801:getLogAnalyticExportRequestRateByInterval: 
+azure-native:compute/v20220801:getLogAnalyticExportThrottledRequests: 
 azure-native:compute/v20220801:Image: azure-native:compute/v20221101:Image
 azure-native:compute/v20220801:ProximityPlacementGroup: azure-native:compute/v20221101:ProximityPlacementGroup
 azure-native:compute/v20220801:RestorePoint: azure-native:compute/v20221101:RestorePoint
@@ -2082,15 +2101,18 @@ azure-native:dbformysql/v20200701privatepreview:FirewallRule: azure-native:dbfor
 azure-native:dbformysql/v20210501:Configuration: azure-native:dbformysql/v20220101:Configuration
 azure-native:dbformysql/v20210501:Database: azure-native:dbformysql/v20220101:Database
 azure-native:dbformysql/v20210501:FirewallRule: azure-native:dbformysql/v20220101:FirewallRule
+azure-native:dbformysql/v20210501:getGetPrivateDnsZoneSuffixExecute: 
 azure-native:dbformysql/v20210501:Server: azure-native:dbformysql/v20220101:Server
 azure-native:dbformysql/v20210501preview:Configuration: azure-native:dbformysql/v20220101:Configuration
 azure-native:dbformysql/v20210501preview:Database: azure-native:dbformysql/v20220101:Database
 azure-native:dbformysql/v20210501preview:FirewallRule: azure-native:dbformysql/v20220101:FirewallRule
+azure-native:dbformysql/v20210501preview:getGetPrivateDnsZoneSuffixExecute: 
 azure-native:dbformysql/v20210501preview:Server: azure-native:dbformysql/v20220101:Server
 azure-native:dbformysql/v20211201preview:AzureADAdministrator: azure-native:dbformysql/v20220101:AzureADAdministrator
 azure-native:dbformysql/v20211201preview:Configuration: azure-native:dbformysql/v20220101:Configuration
 azure-native:dbformysql/v20211201preview:Database: azure-native:dbformysql/v20220101:Database
 azure-native:dbformysql/v20211201preview:FirewallRule: azure-native:dbformysql/v20220101:FirewallRule
+azure-native:dbformysql/v20211201preview:getGetPrivateDnsZoneSuffixExecute: 
 azure-native:dbformysql/v20211201preview:Server: azure-native:dbformysql/v20220101:Server
 azure-native:dbforpostgresql/v20171201preview:Configuration: azure-native:dbforpostgresql/v20221201:Configuration
 azure-native:dbforpostgresql/v20171201preview:Database: azure-native:dbforpostgresql/v20221201:Database
@@ -2102,11 +2124,13 @@ azure-native:dbforpostgresql/v20200214privatepreview:Configuration: azure-native
 azure-native:dbforpostgresql/v20200214privatepreview:FirewallRule: azure-native:dbforpostgresql/v20201005privatepreview:FirewallRule
 azure-native:dbforpostgresql/v20200214privatepreview:Server: azure-native:dbforpostgresql/v20210410privatepreview:Server
 azure-native:dbforpostgresql/v20201105preview:Database: azure-native:dbforpostgresql/v20221201:Database
+azure-native:dbforpostgresql/v20210331privatepreview:getGetPrivateDnsZoneSuffixExecute: 
 azure-native:dbforpostgresql/v20210410privatepreview:Configuration: azure-native:dbforpostgresql/v20221201:Configuration
 azure-native:dbforpostgresql/v20210410privatepreview:FirewallRule: azure-native:dbforpostgresql/v20221108:FirewallRule
 azure-native:dbforpostgresql/v20210601:Configuration: azure-native:dbforpostgresql/v20221201:Configuration
 azure-native:dbforpostgresql/v20210601:Database: azure-native:dbforpostgresql/v20221201:Database
 azure-native:dbforpostgresql/v20210601:FirewallRule: azure-native:dbforpostgresql/v20221108:FirewallRule
+azure-native:dbforpostgresql/v20210601:getGetPrivateDnsZoneSuffixExecute: 
 azure-native:dbforpostgresql/v20210601:Server: azure-native:dbforpostgresql/v20210615privatepreview:Server
 azure-native:dbforpostgresql/v20210601preview:Configuration: azure-native:dbforpostgresql/v20221201:Configuration
 azure-native:dbforpostgresql/v20210601preview:Database: azure-native:dbforpostgresql/v20221201:Database
@@ -2117,12 +2141,15 @@ azure-native:dbforpostgresql/v20210615privatepreview:FirewallRule: azure-native:
 azure-native:dbforpostgresql/v20220120preview:Configuration: azure-native:dbforpostgresql/v20221201:Configuration
 azure-native:dbforpostgresql/v20220120preview:Database: azure-native:dbforpostgresql/v20221201:Database
 azure-native:dbforpostgresql/v20220120preview:FirewallRule: azure-native:dbforpostgresql/v20221108:FirewallRule
+azure-native:dbforpostgresql/v20220120preview:getGetPrivateDnsZoneSuffixExecute: 
 azure-native:dbforpostgresql/v20220120preview:Server: azure-native:dbforpostgresql/v20221201:Server
 azure-native:dbforpostgresql/v20220308preview:Administrator: azure-native:dbforpostgresql/v20221201:Administrator
 azure-native:dbforpostgresql/v20220308preview:Configuration: azure-native:dbforpostgresql/v20221201:Configuration
 azure-native:dbforpostgresql/v20220308preview:Database: azure-native:dbforpostgresql/v20221201:Database
 azure-native:dbforpostgresql/v20220308preview:FirewallRule: azure-native:dbforpostgresql/v20221108:FirewallRule
+azure-native:dbforpostgresql/v20220308preview:getGetPrivateDnsZoneSuffixExecute: 
 azure-native:dbforpostgresql/v20220308preview:Server: azure-native:dbforpostgresql/v20221201:Server
+azure-native:dbforpostgresql/v20220308privatepreview:getGetCachedServerNameExecute: 
 azure-native:delegatednetwork/v20200808preview:ControllerDetails: azure-native:delegatednetwork/v20210315:ControllerDetails
 azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails: azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails
 azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails: azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails
@@ -2767,27 +2794,51 @@ azure-native:documentdb/v20221115:SqlResourceSqlUserDefinedFunction: azure-nativ
 azure-native:documentdb/v20221115:TableResourceTable: azure-native:documentdb/v20230315:TableResourceTable
 azure-native:domainregistration/v20150401:Domain: azure-native:domainregistration/v20201001:Domain
 azure-native:domainregistration/v20150401:DomainOwnershipIdentifier: azure-native:domainregistration/v20201001:DomainOwnershipIdentifier
+azure-native:domainregistration/v20150401:listDomainRecommendations: 
+azure-native:domainregistration/v20150401:listTopLevelDomainAgreements: 
 azure-native:domainregistration/v20180201:Domain: azure-native:domainregistration/v20201001:Domain
 azure-native:domainregistration/v20180201:DomainOwnershipIdentifier: azure-native:domainregistration/v20201001:DomainOwnershipIdentifier
+azure-native:domainregistration/v20180201:listDomainRecommendations: 
+azure-native:domainregistration/v20180201:listTopLevelDomainAgreements: 
 azure-native:domainregistration/v20190801:Domain: azure-native:domainregistration/v20201001:Domain
 azure-native:domainregistration/v20190801:DomainOwnershipIdentifier: azure-native:domainregistration/v20201001:DomainOwnershipIdentifier
+azure-native:domainregistration/v20190801:listDomainRecommendations: 
+azure-native:domainregistration/v20190801:listTopLevelDomainAgreements: 
 azure-native:domainregistration/v20200601:Domain: azure-native:domainregistration/v20201001:Domain
 azure-native:domainregistration/v20200601:DomainOwnershipIdentifier: azure-native:domainregistration/v20201001:DomainOwnershipIdentifier
+azure-native:domainregistration/v20200601:listDomainRecommendations: 
+azure-native:domainregistration/v20200601:listTopLevelDomainAgreements: 
 azure-native:domainregistration/v20200901:Domain: azure-native:domainregistration/v20201001:Domain
 azure-native:domainregistration/v20200901:DomainOwnershipIdentifier: azure-native:domainregistration/v20201001:DomainOwnershipIdentifier
+azure-native:domainregistration/v20200901:listDomainRecommendations: 
+azure-native:domainregistration/v20200901:listTopLevelDomainAgreements: 
 azure-native:domainregistration/v20201201:Domain: azure-native:domainregistration/v20220901:Domain
 azure-native:domainregistration/v20201201:DomainOwnershipIdentifier: azure-native:domainregistration/v20220901:DomainOwnershipIdentifier
+azure-native:domainregistration/v20201201:listDomainRecommendations: 
+azure-native:domainregistration/v20201201:listTopLevelDomainAgreements: 
 azure-native:domainregistration/v20210101:Domain: azure-native:domainregistration/v20220901:Domain
 azure-native:domainregistration/v20210101:DomainOwnershipIdentifier: azure-native:domainregistration/v20220901:DomainOwnershipIdentifier
+azure-native:domainregistration/v20210101:listDomainRecommendations: 
+azure-native:domainregistration/v20210101:listTopLevelDomainAgreements: 
 azure-native:domainregistration/v20210115:Domain: azure-native:domainregistration/v20220901:Domain
 azure-native:domainregistration/v20210115:DomainOwnershipIdentifier: azure-native:domainregistration/v20220901:DomainOwnershipIdentifier
+azure-native:domainregistration/v20210115:listDomainRecommendations: 
+azure-native:domainregistration/v20210115:listTopLevelDomainAgreements: 
 azure-native:domainregistration/v20210201:Domain: azure-native:domainregistration/v20220901:Domain
 azure-native:domainregistration/v20210201:DomainOwnershipIdentifier: azure-native:domainregistration/v20220901:DomainOwnershipIdentifier
+azure-native:domainregistration/v20210201:listDomainRecommendations: 
+azure-native:domainregistration/v20210201:listTopLevelDomainAgreements: 
 azure-native:domainregistration/v20210301:Domain: azure-native:domainregistration/v20220901:Domain
 azure-native:domainregistration/v20210301:DomainOwnershipIdentifier: azure-native:domainregistration/v20220901:DomainOwnershipIdentifier
+azure-native:domainregistration/v20210301:listDomainRecommendations: 
+azure-native:domainregistration/v20210301:listTopLevelDomainAgreements: 
 azure-native:domainregistration/v20220301:Domain: azure-native:domainregistration/v20220901:Domain
 azure-native:domainregistration/v20220301:DomainOwnershipIdentifier: azure-native:domainregistration/v20220901:DomainOwnershipIdentifier
+azure-native:domainregistration/v20220301:listDomainRecommendations: 
+azure-native:domainregistration/v20220301:listTopLevelDomainAgreements: 
 azure-native:edgeorder/v20201201preview:AddressByName: azure-native:edgeorder/v20211201:AddressByName
+azure-native:edgeorder/v20201201preview:listConfigurations: 
+azure-native:edgeorder/v20201201preview:listProductFamilies: 
 azure-native:edgeorder/v20201201preview:OrderItemByName: azure-native:edgeorder/v20211201:OrderItemByName
 azure-native:elastic/v20200701preview:Monitor: azure-native:elastic/v20220901preview:Monitor
 azure-native:elastic/v20200701preview:TagRule: azure-native:elastic/v20220901preview:TagRule
@@ -3030,13 +3081,18 @@ azure-native:insights/v20140401:AlertRule: azure-native:insights/v20160301:Alert
 azure-native:insights/v20140401:AutoscaleSetting: azure-native:insights/v20221001:AutoscaleSetting
 azure-native:insights/v20150501:MyWorkbook: azure-native:insights/v20210308:MyWorkbook
 azure-native:insights/v20170401:ActionGroup: azure-native:insights/v20230101:ActionGroup
+azure-native:insights/v20171001:listEASubscriptionListMigrationDatePost: 
 azure-native:insights/v20180301:ActionGroup: azure-native:insights/v20230101:ActionGroup
 azure-native:insights/v20180501preview:Component: azure-native:insights/v20200202:Component
 azure-native:insights/v20180501preview:WebTest: azure-native:insights/v20201005preview:WebTest
 azure-native:insights/v20180617preview:Workbook: azure-native:insights/v20210308:Workbook
 azure-native:insights/v20180901:ActionGroup: azure-native:insights/v20230101:ActionGroup
 azure-native:insights/v20190301:ActionGroup: azure-native:insights/v20230101:ActionGroup
+azure-native:insights/v20200210preview:getTestResultFile: 
+azure-native:insights/v20200602preview:getLiveToken: 
 azure-native:insights/v20210201preview:ScheduledQueryRule: azure-native:insights/v20220801preview:ScheduledQueryRule
+azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadOnly: 
+azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadWrite: 
 azure-native:insights/v20210401:DataCollectionEndpoint: azure-native:insights/v20220601:DataCollectionEndpoint
 azure-native:insights/v20210401:DataCollectionRule: azure-native:insights/v20220601:DataCollectionRule
 azure-native:insights/v20210401:DataCollectionRuleAssociation: azure-native:insights/v20220601:DataCollectionRuleAssociation
@@ -3045,6 +3101,7 @@ azure-native:insights/v20210801:ScheduledQueryRule: azure-native:insights/v20220
 azure-native:insights/v20210901:ActionGroup: azure-native:insights/v20230101:ActionGroup
 azure-native:insights/v20210901preview:DataCollectionRule: azure-native:insights/v20220601:DataCollectionRule
 azure-native:insights/v20210901preview:DataCollectionRuleAssociation: azure-native:insights/v20220601:DataCollectionRuleAssociation
+azure-native:insights/v20211014:getLiveToken: 
 azure-native:insights/v20220401:ActionGroup: azure-native:insights/v20230101:ActionGroup
 azure-native:insights/v20220601:ActionGroup: azure-native:insights/v20230101:ActionGroup
 azure-native:insights/v20220615:ScheduledQueryRule: azure-native:insights/v20220801preview:ScheduledQueryRule
@@ -3421,10 +3478,14 @@ azure-native:managedservices/v20200201preview:RegistrationAssignment: azure-nati
 azure-native:managedservices/v20200201preview:RegistrationDefinition: azure-native:managedservices/v20221001:RegistrationDefinition
 azure-native:managedservices/v20220101preview:RegistrationAssignment: azure-native:managedservices/v20221001:RegistrationAssignment
 azure-native:managedservices/v20220101preview:RegistrationDefinition: azure-native:managedservices/v20221001:RegistrationDefinition
+azure-native:management/v20180101preview:getEntity: 
 azure-native:management/v20180101preview:ManagementGroup: azure-native:management/v20200201:ManagementGroup
+azure-native:management/v20180301preview:getEntity: 
 azure-native:management/v20180301preview:ManagementGroup: azure-native:management/v20200201:ManagementGroup
+azure-native:management/v20191101:getEntity: 
 azure-native:management/v20191101:ManagementGroup: azure-native:management/v20200201:ManagementGroup
 azure-native:management/v20200201:HierarchySetting: azure-native:management/v20210401:HierarchySetting
+azure-native:management/v20201001:getEntity: 
 azure-native:management/v20201001:HierarchySetting: azure-native:management/v20210401:HierarchySetting
 azure-native:management/v20201001:ManagementGroup: azure-native:management/v20210401:ManagementGroup
 azure-native:management/v20201001:ManagementGroupSubscription: azure-native:management/v20210401:ManagementGroupSubscription
@@ -5692,6 +5753,7 @@ azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan: azure-native:re
 azure-native:recoveryservices/v20180110:ReplicationRecoveryServicesProvider: azure-native:recoveryservices/v20230201:ReplicationRecoveryServicesProvider
 azure-native:recoveryservices/v20180110:ReplicationStorageClassificationMapping: azure-native:recoveryservices/v20230201:ReplicationStorageClassificationMapping
 azure-native:recoveryservices/v20180110:ReplicationvCenter: azure-native:recoveryservices/v20210301:ReplicationvCenter
+azure-native:recoveryservices/v20181220:getRecoveryPointAccessToken: 
 azure-native:recoveryservices/v20190513:ProtectedItem: azure-native:recoveryservices/v20230201:ProtectedItem
 azure-native:recoveryservices/v20190615:ProtectedItem: azure-native:recoveryservices/v20230201:ProtectedItem
 azure-native:recoveryservices/v20200202:PrivateEndpointConnection: azure-native:recoveryservices/v20230201:PrivateEndpointConnection
@@ -5836,6 +5898,7 @@ azure-native:recoveryservices/v20211101:ReplicationRecoveryServicesProvider: azu
 azure-native:recoveryservices/v20211101:ReplicationStorageClassificationMapping: azure-native:recoveryservices/v20230201:ReplicationStorageClassificationMapping
 azure-native:recoveryservices/v20211101:ReplicationvCenter: azure-native:recoveryservices/v20230201:ReplicationvCenter
 azure-native:recoveryservices/v20211101preview:Vault: azure-native:recoveryservices/v20230201:Vault
+azure-native:recoveryservices/v20211115:getRecoveryPointAccessToken: 
 azure-native:recoveryservices/v20211201:PrivateEndpointConnection: azure-native:recoveryservices/v20230201:PrivateEndpointConnection
 azure-native:recoveryservices/v20211201:ProtectedItem: azure-native:recoveryservices/v20230201:ProtectedItem
 azure-native:recoveryservices/v20211201:ProtectionContainer: azure-native:recoveryservices/v20230201:ProtectionContainer
@@ -6008,6 +6071,7 @@ azure-native:recoveryservices/v20230101:ReplicationStorageClassificationMapping:
 azure-native:recoveryservices/v20230101:ReplicationvCenter: azure-native:recoveryservices/v20230201:ReplicationvCenter
 azure-native:recoveryservices/v20230101:ResourceGuardProxy: azure-native:recoveryservices/v20230201:ResourceGuardProxy
 azure-native:recoveryservices/v20230101:Vault: azure-native:recoveryservices/v20230201:Vault
+azure-native:recoveryservices/v20230115:getRecoveryPointAccessToken: 
 azure-native:redhatopenshift/v20210901preview:OpenShiftCluster: azure-native:redhatopenshift/v20220904:OpenShiftCluster
 azure-native:redhatopenshift/v20220401:OpenShiftCluster: azure-native:redhatopenshift/v20220904:OpenShiftCluster
 azure-native:relay/v20160701:HybridConnection: azure-native:relay/v20211101:HybridConnection
@@ -6017,6 +6081,10 @@ azure-native:relay/v20160701:NamespaceAuthorizationRule: azure-native:relay/v201
 azure-native:relay/v20160701:WCFRelayAuthorizationRule: azure-native:relay/v20170401:WCFRelayAuthorizationRule
 azure-native:relay/v20180101preview:Namespace: azure-native:relay/v20211101:Namespace
 azure-native:resourceconnector/v20220415preview:Appliance: azure-native:resourceconnector/v20221027:Appliance
+azure-native:resourcehealth/v20221001:listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId: 
+azure-native:resourcehealth/v20221001:listSecurityAdvisoryImpactedResourceByTenantIdAndEventId: 
+azure-native:resourcehealth/v20221001preview:listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId: 
+azure-native:resourcehealth/v20221001preview:listSecurityAdvisoryImpactedResourceByTenantIdAndEventId: 
 azure-native:resources/v20151101:Deployment: azure-native:resources/v20160701:Deployment
 azure-native:resources/v20151101:ResourceGroup: azure-native:resources/v20180201:ResourceGroup
 azure-native:resources/v20160201:Deployment: azure-native:resources/v20160701:Deployment
@@ -6113,6 +6181,7 @@ azure-native:scheduler/v20140801preview:Job: azure-native:scheduler/v20160301:Jo
 azure-native:scheduler/v20140801preview:JobCollection: azure-native:scheduler/v20160301:JobCollection
 azure-native:scheduler/v20160101:Job: azure-native:scheduler/v20160301:Job
 azure-native:scheduler/v20160101:JobCollection: azure-native:scheduler/v20160301:JobCollection
+azure-native:search/v20150228:listAdminKey: 
 azure-native:search/v20150819:Service: azure-native:search/v20210401preview:Service
 azure-native:search/v20191001preview:Service: azure-native:search/v20210401preview:Service
 azure-native:search/v20200313:PrivateEndpointConnection: azure-native:search/v20220901:PrivateEndpointConnection
@@ -7923,6 +7992,7 @@ azure-native:web/v20180201:AppServiceEnvironment: azure-native:web/v20190801:App
 azure-native:web/v20180201:AppServicePlan: azure-native:web/v20201001:AppServicePlan
 azure-native:web/v20180201:AppServicePlanRouteForVnet: azure-native:web/v20201001:AppServicePlanRouteForVnet
 azure-native:web/v20180201:Certificate: azure-native:web/v20201001:Certificate
+azure-native:web/v20180201:listSiteIdentifiersAssignedToHostName: 
 azure-native:web/v20180201:WebApp: azure-native:web/v20181101:WebApp
 azure-native:web/v20180201:WebAppApplicationSettings: azure-native:web/v20201001:WebAppApplicationSettings
 azure-native:web/v20180201:WebAppApplicationSettingsSlot: azure-native:web/v20201001:WebAppApplicationSettingsSlot
@@ -8055,6 +8125,7 @@ azure-native:web/v20200601:AppServiceEnvironment: azure-native:web/v20201001:App
 azure-native:web/v20200601:AppServicePlan: azure-native:web/v20201001:AppServicePlan
 azure-native:web/v20200601:AppServicePlanRouteForVnet: azure-native:web/v20201001:AppServicePlanRouteForVnet
 azure-native:web/v20200601:Certificate: azure-native:web/v20201001:Certificate
+azure-native:web/v20200601:listSiteIdentifiersAssignedToHostName: 
 azure-native:web/v20200601:StaticSite: azure-native:web/v20201001:StaticSite
 azure-native:web/v20200601:WebApp: azure-native:web/v20201001:WebApp
 azure-native:web/v20200601:WebAppApplicationSettings: azure-native:web/v20201001:WebAppApplicationSettings
@@ -8105,6 +8176,7 @@ azure-native:web/v20200901:AppServiceEnvironment: azure-native:web/v20201001:App
 azure-native:web/v20200901:AppServicePlan: azure-native:web/v20201001:AppServicePlan
 azure-native:web/v20200901:AppServicePlanRouteForVnet: azure-native:web/v20201001:AppServicePlanRouteForVnet
 azure-native:web/v20200901:Certificate: azure-native:web/v20201001:Certificate
+azure-native:web/v20200901:listSiteIdentifiersAssignedToHostName: 
 azure-native:web/v20200901:StaticSite: azure-native:web/v20201001:StaticSite
 azure-native:web/v20200901:WebApp: azure-native:web/v20201001:WebApp
 azure-native:web/v20200901:WebAppApplicationSettings: azure-native:web/v20201001:WebAppApplicationSettings
@@ -8324,6 +8396,8 @@ azure-native:web/v20210301:AppServicePlanRouteForVnet: azure-native:web/v2022090
 azure-native:web/v20210301:Certificate: azure-native:web/v20220901:Certificate
 azure-native:web/v20210301:ContainerApp: azure-native:web/v20220901:ContainerApp
 azure-native:web/v20210301:KubeEnvironment: azure-native:web/v20220901:KubeEnvironment
+azure-native:web/v20210301:listContainerAppSecrets: 
+azure-native:web/v20210301:listSiteIdentifiersAssignedToHostName: 
 azure-native:web/v20210301:StaticSite: azure-native:web/v20220901:StaticSite
 azure-native:web/v20210301:StaticSiteCustomDomain: azure-native:web/v20220901:StaticSiteCustomDomain
 azure-native:web/v20210301:StaticSitePrivateEndpointConnection: azure-native:web/v20220901:StaticSitePrivateEndpointConnection
@@ -8442,6 +8516,10 @@ azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain: azure-native:webp
 azure-native:webpubsub/v20220801preview:WebPubSubHub: azure-native:webpubsub/v20230201:WebPubSubHub
 azure-native:webpubsub/v20220801preview:WebPubSubPrivateEndpointConnection: azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection
 azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource: azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource
+azure-native:workloads/v20221101preview:getSAPAvailabilityZoneDetails: 
+azure-native:workloads/v20221101preview:getSAPDiskConfigurations: 
+azure-native:workloads/v20221101preview:getSAPSizingRecommendations: 
+azure-native:workloads/v20221101preview:getSAPSupportedSku: 
 azure-native:workloads/v20221101preview:monitor: azure-native:workloads/v20230401:monitor
 azure-native:workloads/v20221101preview:ProviderInstance: azure-native:workloads/v20230401:ProviderInstance
 azure-native:workloads/v20221101preview:SAPApplicationServerInstance: azure-native:workloads/v20230401:SAPApplicationServerInstance
