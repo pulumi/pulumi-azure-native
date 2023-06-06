@@ -35,11 +35,6 @@ export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
 utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
-export { ContainerAppArgs } from "./containerApp";
-export type ContainerApp = import("./containerApp").ContainerApp;
-export const ContainerApp: typeof import("./containerApp").ContainerApp = null as any;
-utilities.lazyLoad(exports, ["ContainerApp"], () => require("./containerApp"));
-
 export { GetAppServiceEnvironmentArgs, GetAppServiceEnvironmentResult, GetAppServiceEnvironmentOutputArgs } from "./getAppServiceEnvironment";
 export const getAppServiceEnvironment: typeof import("./getAppServiceEnvironment").getAppServiceEnvironment = null as any;
 export const getAppServiceEnvironmentOutput: typeof import("./getAppServiceEnvironment").getAppServiceEnvironmentOutput = null as any;
@@ -64,11 +59,6 @@ export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } fr
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
-
-export { GetContainerAppArgs, GetContainerAppResult, GetContainerAppOutputArgs } from "./getContainerApp";
-export const getContainerApp: typeof import("./getContainerApp").getContainerApp = null as any;
-export const getContainerAppOutput: typeof import("./getContainerApp").getContainerAppOutput = null as any;
-utilities.lazyLoad(exports, ["getContainerApp","getContainerAppOutput"], () => require("./getContainerApp"));
 
 export { GetKubeEnvironmentArgs, GetKubeEnvironmentResult, GetKubeEnvironmentOutputArgs } from "./getKubeEnvironment";
 export const getKubeEnvironment: typeof import("./getKubeEnvironment").getKubeEnvironment = null as any;
@@ -775,8 +765,6 @@ const _module = {
                 return new AppServicePlanRouteForVnet(name, <any>undefined, { urn })
             case "azure-native:web/v20220901:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "azure-native:web/v20220901:ContainerApp":
-                return new ContainerApp(name, <any>undefined, { urn })
             case "azure-native:web/v20220901:KubeEnvironment":
                 return new KubeEnvironment(name, <any>undefined, { urn })
             case "azure-native:web/v20220901:StaticSite":
