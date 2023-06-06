@@ -2,6 +2,7 @@ package versioning
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -12,6 +13,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/providerlist"
+	"gopkg.in/yaml.v3"
 )
 
 type VersionMetadata struct {
@@ -23,8 +25,6 @@ type VersionMetadata struct {
 	Pending                       openapi.ProviderVersionList
 	V2Spec                        Spec
 	V2Lock                        openapi.DefaultVersionLock
-	V2TokensToRetain              []string
-	V2ResourcesToRemove           Squeeze
 }
 
 func GenerateVersionMetadata(rootDir string, providers openapi.AzureProviders) (VersionMetadata, error) {
@@ -72,16 +72,6 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 	// provider->resource->[]version
 	allResourceVersionsByResource := FormatResourceVersions(allResourcesByVersion)
 
-	v2TokensToRetain := versionSources.requiredExplicitResources
-	for provider, v := range v1Lock {
-		for resource, version := range v {
-			v2TokensToRetain = append(v2TokensToRetain, openapi.ToFullyQualifiedName(provider, resource, version))
-		}
-	}
-
-	v2ResourcesToRemove := versionSources.v1Squeeze
-	v2ResourcesToRemove.PreserveResources(v2TokensToRetain)
-
 	return VersionMetadata{
 		AllResourcesByVersion:         allResourcesByVersion,
 		AllResourceVersionsByResource: allResourceVersionsByResource,
@@ -91,8 +81,6 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 		Pending:                       FindNewerVersions(allResourcesByVersion, v1Lock),
 		V2Spec:                        v2Spec,
 		V2Lock:                        v2Lock,
-		V2TokensToRetain:              v2TokensToRetain,
-		V2ResourcesToRemove:           v2ResourcesToRemove,
 	}, nil
 }
 
@@ -116,7 +104,8 @@ type VersionSources struct {
 	v2Spec                    Spec
 	v2Config                  Curations
 	v2ConfigPath              string
-	v1Squeeze                 Squeeze
+	v1Squeeze                 ResourceRemovals
+	V2ResourcesToRemove       ResourceRemovals
 }
 
 func ReadVersionSources(rootDir string) (VersionSources, error) {
@@ -149,11 +138,17 @@ func ReadVersionSources(rootDir string) (VersionSources, error) {
 	v1SqueezePath := path.Join(rootDir, "versions", "v1-squeeze.json")
 	// TODO tkappler We read all version files for all schema versions, so for v1 there's no
 	// squeeze file and v1 is required to generate the v2 squeeze file.
-	v1Squeeze, err := ReadSqueeze(v1SqueezePath)
+	v1Squeeze, err := ReadResourceRemovals(v1SqueezePath)
 	if err != nil {
 		log.Printf("Could not read v1-squeeze: %v, proceeding without", err)
 	} else {
 		log.Printf("Read %d squeeze entries from %s", len(v1Squeeze), v1SqueezePath)
+	}
+
+	v2ResourcesToRemovePath := path.Join(rootDir, "versions", "v2-removed-resources.yaml")
+	v2ResourcesToRemove, err := ReadResourceRemovals(v2ResourcesToRemovePath)
+	if err != nil {
+		return VersionSources{}, fmt.Errorf("could not read v2-removed-resources: %v", err)
 	}
 
 	return VersionSources{
@@ -164,32 +159,39 @@ func ReadVersionSources(rootDir string) (VersionSources, error) {
 		v2Config:                  v2Config,
 		v2ConfigPath:              v2ConfigPath,
 		v1Squeeze:                 v1Squeeze,
+		V2ResourcesToRemove:       v2ResourcesToRemove,
 	}, nil
 }
 
-type Squeeze map[string]string
+// ReadRequiredExplicitResources reads a list of resource tokens which map to an equivalent resource which can be migrated to.
+type ResourceRemovals map[string]string
 
-func ReadSqueeze(path string) (Squeeze, error) {
-	jsonFile, err := os.Open(path)
+func ReadResourceRemovals(path string) (ResourceRemovals, error) {
+	isYaml := strings.HasSuffix(path, ".yaml")
+	sourceFile, err := os.Open(path)
 	if err != nil {
 		return nil, err
 	}
-	defer jsonFile.Close()
+	defer sourceFile.Close()
 
-	byteValue, err := ioutil.ReadAll(jsonFile)
+	byteValue, err := ioutil.ReadAll(sourceFile)
 	if err != nil {
 		return nil, err
 	}
 
-	result := make(Squeeze)
-	err = json.Unmarshal(byteValue, &result)
+	result := make(ResourceRemovals)
+	if isYaml {
+		err = yaml.Unmarshal(byteValue, &result)
+	} else {
+		err = json.Unmarshal(byteValue, &result)
+	}
 	if err != nil {
 		return nil, err
 	}
 	return result, nil
 }
 
-func (s Squeeze) PreserveResources(tokens []string) {
+func (s ResourceRemovals) PreserveResources(tokens []string) {
 	for _, token := range tokens {
 		_, ok := s[token]
 		if ok {
