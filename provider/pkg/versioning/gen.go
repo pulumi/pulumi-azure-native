@@ -19,8 +19,6 @@ import (
 type VersionMetadata struct {
 	AllResourcesByVersion         ProvidersVersionResources
 	AllResourceVersionsByResource ProviderResourceVersions
-	V1Lock                        openapi.DefaultVersionLock
-	Deprecated                    openapi.ProviderVersionList
 	Active                        providerlist.ProviderPathVersionsJson
 	Pending                       openapi.ProviderVersionList
 	V2Spec                        Spec
@@ -43,15 +41,7 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 	// provider->version->[]resource
 	allResourcesByVersion := FindAllResources(providers)
 
-	// ProviderName->ProviderSpec (tracking + additions)
-	v1Spec := versionSources.v1Spec
-	v1Lock, err := DefaultConfigToDefaultVersionLock(allResourcesByVersion, v1Spec)
-	if err != nil {
-		return VersionMetadata{}, err
-	}
-
-	deprecated := FindDeprecations(allResourcesByVersion, v1Lock)
-	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(allResourcesByVersion, deprecated)
+	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(allResourcesByVersion, versionSources.v1Deprecations)
 
 	v2Spec := versionSources.v2Spec
 
@@ -60,9 +50,6 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 
 	violations := ValidateDefaultConfig(v2Spec, v2Config)
 	PrintViolationsAsWarnings(versionSources.v2ConfigPath, violations)
-	if err != nil {
-		return VersionMetadata{}, err
-	}
 
 	v2Lock, err := DefaultConfigToDefaultVersionLock(allResourcesByVersionWithoutDeprecations, v2Spec)
 	if err != nil {
@@ -75,10 +62,8 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 	return VersionMetadata{
 		AllResourcesByVersion:         allResourcesByVersion,
 		AllResourceVersionsByResource: allResourceVersionsByResource,
-		V1Lock:                        v1Lock,
-		Deprecated:                    deprecated,
 		Active:                        activePathVersionsJson,
-		Pending:                       FindNewerVersions(allResourcesByVersion, v1Lock),
+		Pending:                       FindNewerVersions(allResourcesByVersion, v2Lock),
 		V2Spec:                        v2Spec,
 		V2Lock:                        v2Lock,
 	}, nil
@@ -88,8 +73,6 @@ func (v VersionMetadata) WriteTo(outputDir string) error {
 	return gen.EmitFiles(outputDir, gen.FileMap{
 		"allResourcesByVersion.json":         v.AllResourcesByVersion,
 		"allResourceVersionsByResource.json": v.AllResourceVersionsByResource,
-		"v1-lock.json":                       v.V1Lock,
-		"deprecated.json":                    v.Deprecated,
 		"active.json":                        v.Active,
 		"pending.json":                       v.Pending,
 		"v2-spec.yaml":                       v.V2Spec,
@@ -100,7 +83,8 @@ func (v VersionMetadata) WriteTo(outputDir string) error {
 type VersionSources struct {
 	activePathVersions        providerlist.ProviderPathVersions
 	requiredExplicitResources []string
-	v1Spec                    Spec
+	v1Lock                    openapi.DefaultVersionLock
+	v1Deprecations            openapi.ProviderVersionList
 	v2Spec                    Spec
 	v2Config                  Curations
 	v2ConfigPath              string
@@ -119,7 +103,13 @@ func ReadVersionSources(rootDir string) (VersionSources, error) {
 		return VersionSources{}, err
 	}
 
-	v1Spec, err := ReadSpec(path.Join(rootDir, "versions", "v1-spec.yaml"))
+	v1LockPath := path.Join(rootDir, "versions", "v1-lock.json")
+	v1Lock, err := openapi.ReadDefaultVersionLock(v1LockPath)
+	if err != nil {
+		return VersionSources{}, err
+	}
+
+	v1Deprecations, err := ReadDeprecations(path.Join(rootDir, "versions", "v1-deprecated.json"))
 	if err != nil {
 		return VersionSources{}, err
 	}
@@ -154,7 +144,8 @@ func ReadVersionSources(rootDir string) (VersionSources, error) {
 	return VersionSources{
 		activePathVersions:        activePathVersions,
 		requiredExplicitResources: knownExplicitResources,
-		v1Spec:                    v1Spec,
+		v1Lock:                    v1Lock,
+		v1Deprecations:            v1Deprecations,
 		v2Spec:                    v2Spec,
 		v2Config:                  v2Config,
 		v2ConfigPath:              v2ConfigPath,
