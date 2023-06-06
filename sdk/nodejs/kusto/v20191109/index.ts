@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { EventGridDataConnectionArgs } from "./eventGridDataConnection";
-export type EventGridDataConnection = import("./eventGridDataConnection").EventGridDataConnection;
-export const EventGridDataConnection: typeof import("./eventGridDataConnection").EventGridDataConnection = null as any;
-utilities.lazyLoad(exports, ["EventGridDataConnection"], () => require("./eventGridDataConnection"));
-
-export { EventHubDataConnectionArgs } from "./eventHubDataConnection";
-export type EventHubDataConnection = import("./eventHubDataConnection").EventHubDataConnection;
-export const EventHubDataConnection: typeof import("./eventHubDataConnection").EventHubDataConnection = null as any;
-utilities.lazyLoad(exports, ["EventHubDataConnection"], () => require("./eventHubDataConnection"));
-
 export { GetEventGridDataConnectionArgs, GetEventGridDataConnectionResult, GetEventGridDataConnectionOutputArgs } from "./getEventGridDataConnection";
 export const getEventGridDataConnection: typeof import("./getEventGridDataConnection").getEventGridDataConnection = null as any;
 export const getEventGridDataConnectionOutput: typeof import("./getEventGridDataConnection").getEventGridDataConnectionOutput = null as any;
@@ -40,16 +30,6 @@ export const getReadWriteDatabase: typeof import("./getReadWriteDatabase").getRe
 export const getReadWriteDatabaseOutput: typeof import("./getReadWriteDatabase").getReadWriteDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getReadWriteDatabase","getReadWriteDatabaseOutput"], () => require("./getReadWriteDatabase"));
 
-export { IotHubDataConnectionArgs } from "./iotHubDataConnection";
-export type IotHubDataConnection = import("./iotHubDataConnection").IotHubDataConnection;
-export const IotHubDataConnection: typeof import("./iotHubDataConnection").IotHubDataConnection = null as any;
-utilities.lazyLoad(exports, ["IotHubDataConnection"], () => require("./iotHubDataConnection"));
-
-export { ReadOnlyFollowingDatabaseArgs } from "./readOnlyFollowingDatabase";
-export type ReadOnlyFollowingDatabase = import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase;
-export const ReadOnlyFollowingDatabase: typeof import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase = null as any;
-utilities.lazyLoad(exports, ["ReadOnlyFollowingDatabase"], () => require("./readOnlyFollowingDatabase"));
-
 export { ReadWriteDatabaseArgs } from "./readWriteDatabase";
 export type ReadWriteDatabase = import("./readWriteDatabase").ReadWriteDatabase;
 export const ReadWriteDatabase: typeof import("./readWriteDatabase").ReadWriteDatabase = null as any;
@@ -63,14 +43,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:kusto/v20191109:EventGridDataConnection":
-                return new EventGridDataConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20191109:EventHubDataConnection":
-                return new EventHubDataConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20191109:IotHubDataConnection":
-                return new IotHubDataConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20191109:ReadOnlyFollowingDatabase":
-                return new ReadOnlyFollowingDatabase(name, <any>undefined, { urn })
             case "azure-native:kusto/v20191109:ReadWriteDatabase":
                 return new ReadWriteDatabase(name, <any>undefined, { urn })
             default:

@@ -20,16 +20,6 @@ export type ConnectivityConfiguration = import("./connectivityConfiguration").Co
 export const ConnectivityConfiguration: typeof import("./connectivityConfiguration").ConnectivityConfiguration = null as any;
 utilities.lazyLoad(exports, ["ConnectivityConfiguration"], () => require("./connectivityConfiguration"));
 
-export { DefaultAdminRuleArgs } from "./defaultAdminRule";
-export type DefaultAdminRule = import("./defaultAdminRule").DefaultAdminRule;
-export const DefaultAdminRule: typeof import("./defaultAdminRule").DefaultAdminRule = null as any;
-utilities.lazyLoad(exports, ["DefaultAdminRule"], () => require("./defaultAdminRule"));
-
-export { DefaultUserRuleArgs } from "./defaultUserRule";
-export type DefaultUserRule = import("./defaultUserRule").DefaultUserRule;
-export const DefaultUserRule: typeof import("./defaultUserRule").DefaultUserRule = null as any;
-utilities.lazyLoad(exports, ["DefaultUserRule"], () => require("./defaultUserRule"));
-
 export { GetAdminRuleArgs, GetAdminRuleResult, GetAdminRuleOutputArgs } from "./getAdminRule";
 export const getAdminRule: typeof import("./getAdminRule").getAdminRule = null as any;
 export const getAdminRuleOutput: typeof import("./getAdminRule").getAdminRuleOutput = null as any;
@@ -219,10 +209,6 @@ const _module = {
                 return new AdminRuleCollection(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:ConnectivityConfiguration":
                 return new ConnectivityConfiguration(name, <any>undefined, { urn })
-            case "azure-native:network/v20210201preview:DefaultAdminRule":
-                return new DefaultAdminRule(name, <any>undefined, { urn })
-            case "azure-native:network/v20210201preview:DefaultUserRule":
-                return new DefaultUserRule(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NetworkGroup":
                 return new NetworkGroup(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NetworkManager":

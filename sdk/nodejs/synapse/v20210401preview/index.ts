@@ -10,16 +10,6 @@ export type DatabasePrincipalAssignment = import("./databasePrincipalAssignment"
 export const DatabasePrincipalAssignment: typeof import("./databasePrincipalAssignment").DatabasePrincipalAssignment = null as any;
 utilities.lazyLoad(exports, ["DatabasePrincipalAssignment"], () => require("./databasePrincipalAssignment"));
 
-export { EventGridDataConnectionArgs } from "./eventGridDataConnection";
-export type EventGridDataConnection = import("./eventGridDataConnection").EventGridDataConnection;
-export const EventGridDataConnection: typeof import("./eventGridDataConnection").EventGridDataConnection = null as any;
-utilities.lazyLoad(exports, ["EventGridDataConnection"], () => require("./eventGridDataConnection"));
-
-export { EventHubDataConnectionArgs } from "./eventHubDataConnection";
-export type EventHubDataConnection = import("./eventHubDataConnection").EventHubDataConnection;
-export const EventHubDataConnection: typeof import("./eventHubDataConnection").EventHubDataConnection = null as any;
-utilities.lazyLoad(exports, ["EventHubDataConnection"], () => require("./eventHubDataConnection"));
-
 export { GetDatabasePrincipalAssignmentArgs, GetDatabasePrincipalAssignmentResult, GetDatabasePrincipalAssignmentOutputArgs } from "./getDatabasePrincipalAssignment";
 export const getDatabasePrincipalAssignment: typeof import("./getDatabasePrincipalAssignment").getDatabasePrincipalAssignment = null as any;
 export const getDatabasePrincipalAssignmentOutput: typeof import("./getDatabasePrincipalAssignment").getDatabasePrincipalAssignmentOutput = null as any;
@@ -55,11 +45,6 @@ export const getReadWriteDatabase: typeof import("./getReadWriteDatabase").getRe
 export const getReadWriteDatabaseOutput: typeof import("./getReadWriteDatabase").getReadWriteDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getReadWriteDatabase","getReadWriteDatabaseOutput"], () => require("./getReadWriteDatabase"));
 
-export { IotHubDataConnectionArgs } from "./iotHubDataConnection";
-export type IotHubDataConnection = import("./iotHubDataConnection").IotHubDataConnection;
-export const IotHubDataConnection: typeof import("./iotHubDataConnection").IotHubDataConnection = null as any;
-utilities.lazyLoad(exports, ["IotHubDataConnection"], () => require("./iotHubDataConnection"));
-
 export { KustoPoolArgs } from "./kustoPool";
 export type KustoPool = import("./kustoPool").KustoPool;
 export const KustoPool: typeof import("./kustoPool").KustoPool = null as any;
@@ -69,11 +54,6 @@ export { KustoPoolPrincipalAssignmentArgs } from "./kustoPoolPrincipalAssignment
 export type KustoPoolPrincipalAssignment = import("./kustoPoolPrincipalAssignment").KustoPoolPrincipalAssignment;
 export const KustoPoolPrincipalAssignment: typeof import("./kustoPoolPrincipalAssignment").KustoPoolPrincipalAssignment = null as any;
 utilities.lazyLoad(exports, ["KustoPoolPrincipalAssignment"], () => require("./kustoPoolPrincipalAssignment"));
-
-export { ReadWriteDatabaseArgs } from "./readWriteDatabase";
-export type ReadWriteDatabase = import("./readWriteDatabase").ReadWriteDatabase;
-export const ReadWriteDatabase: typeof import("./readWriteDatabase").ReadWriteDatabase = null as any;
-utilities.lazyLoad(exports, ["ReadWriteDatabase"], () => require("./readWriteDatabase"));
 
 
 // Export enums:
@@ -85,18 +65,10 @@ const _module = {
         switch (type) {
             case "azure-native:synapse/v20210401preview:DatabasePrincipalAssignment":
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
-            case "azure-native:synapse/v20210401preview:EventGridDataConnection":
-                return new EventGridDataConnection(name, <any>undefined, { urn })
-            case "azure-native:synapse/v20210401preview:EventHubDataConnection":
-                return new EventHubDataConnection(name, <any>undefined, { urn })
-            case "azure-native:synapse/v20210401preview:IotHubDataConnection":
-                return new IotHubDataConnection(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:KustoPool":
                 return new KustoPool(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment":
                 return new KustoPoolPrincipalAssignment(name, <any>undefined, { urn })
-            case "azure-native:synapse/v20210401preview:ReadWriteDatabase":
-                return new ReadWriteDatabase(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -25,16 +25,6 @@ export type DatabasePrincipalAssignment = import("./databasePrincipalAssignment"
 export const DatabasePrincipalAssignment: typeof import("./databasePrincipalAssignment").DatabasePrincipalAssignment = null as any;
 utilities.lazyLoad(exports, ["DatabasePrincipalAssignment"], () => require("./databasePrincipalAssignment"));
 
-export { EventGridDataConnectionArgs } from "./eventGridDataConnection";
-export type EventGridDataConnection = import("./eventGridDataConnection").EventGridDataConnection;
-export const EventGridDataConnection: typeof import("./eventGridDataConnection").EventGridDataConnection = null as any;
-utilities.lazyLoad(exports, ["EventGridDataConnection"], () => require("./eventGridDataConnection"));
-
-export { EventHubDataConnectionArgs } from "./eventHubDataConnection";
-export type EventHubDataConnection = import("./eventHubDataConnection").EventHubDataConnection;
-export const EventHubDataConnection: typeof import("./eventHubDataConnection").EventHubDataConnection = null as any;
-utilities.lazyLoad(exports, ["EventHubDataConnection"], () => require("./eventHubDataConnection"));
-
 export { GetAttachedDatabaseConfigurationArgs, GetAttachedDatabaseConfigurationResult, GetAttachedDatabaseConfigurationOutputArgs } from "./getAttachedDatabaseConfiguration";
 export const getAttachedDatabaseConfiguration: typeof import("./getAttachedDatabaseConfiguration").getAttachedDatabaseConfiguration = null as any;
 export const getAttachedDatabaseConfigurationOutput: typeof import("./getAttachedDatabaseConfiguration").getAttachedDatabaseConfigurationOutput = null as any;
@@ -85,11 +75,6 @@ export const getScript: typeof import("./getScript").getScript = null as any;
 export const getScriptOutput: typeof import("./getScript").getScriptOutput = null as any;
 utilities.lazyLoad(exports, ["getScript","getScriptOutput"], () => require("./getScript"));
 
-export { IotHubDataConnectionArgs } from "./iotHubDataConnection";
-export type IotHubDataConnection = import("./iotHubDataConnection").IotHubDataConnection;
-export const IotHubDataConnection: typeof import("./iotHubDataConnection").IotHubDataConnection = null as any;
-utilities.lazyLoad(exports, ["IotHubDataConnection"], () => require("./iotHubDataConnection"));
-
 export { ListClusterFollowerDatabasesArgs, ListClusterFollowerDatabasesResult, ListClusterFollowerDatabasesOutputArgs } from "./listClusterFollowerDatabases";
 export const listClusterFollowerDatabases: typeof import("./listClusterFollowerDatabases").listClusterFollowerDatabases = null as any;
 export const listClusterFollowerDatabasesOutput: typeof import("./listClusterFollowerDatabases").listClusterFollowerDatabasesOutput = null as any;
@@ -104,16 +89,6 @@ export { ListDatabasePrincipalsArgs, ListDatabasePrincipalsResult, ListDatabaseP
 export const listDatabasePrincipals: typeof import("./listDatabasePrincipals").listDatabasePrincipals = null as any;
 export const listDatabasePrincipalsOutput: typeof import("./listDatabasePrincipals").listDatabasePrincipalsOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabasePrincipals","listDatabasePrincipalsOutput"], () => require("./listDatabasePrincipals"));
-
-export { ReadOnlyFollowingDatabaseArgs } from "./readOnlyFollowingDatabase";
-export type ReadOnlyFollowingDatabase = import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase;
-export const ReadOnlyFollowingDatabase: typeof import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase = null as any;
-utilities.lazyLoad(exports, ["ReadOnlyFollowingDatabase"], () => require("./readOnlyFollowingDatabase"));
-
-export { ReadWriteDatabaseArgs } from "./readWriteDatabase";
-export type ReadWriteDatabase = import("./readWriteDatabase").ReadWriteDatabase;
-export const ReadWriteDatabase: typeof import("./readWriteDatabase").ReadWriteDatabase = null as any;
-utilities.lazyLoad(exports, ["ReadWriteDatabase"], () => require("./readWriteDatabase"));
 
 export { ScriptArgs } from "./script";
 export type Script = import("./script").Script;
@@ -136,16 +111,6 @@ const _module = {
                 return new ClusterPrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:kusto/v20210101:DatabasePrincipalAssignment":
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20210101:EventGridDataConnection":
-                return new EventGridDataConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20210101:EventHubDataConnection":
-                return new EventHubDataConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20210101:IotHubDataConnection":
-                return new IotHubDataConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20210101:ReadOnlyFollowingDatabase":
-                return new ReadOnlyFollowingDatabase(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20210101:ReadWriteDatabase":
-                return new ReadWriteDatabase(name, <any>undefined, { urn })
             case "azure-native:kusto/v20210101:Script":
                 return new Script(name, <any>undefined, { urn })
             default:

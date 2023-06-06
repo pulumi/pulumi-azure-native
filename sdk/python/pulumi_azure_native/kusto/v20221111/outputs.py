@@ -43,33 +43,6 @@ class TableLevelSharingPropertiesResponse(dict):
     """
     Tables that will be included and excluded in the follower database
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "externalTablesToExclude":
-            suggest = "external_tables_to_exclude"
-        elif key == "externalTablesToInclude":
-            suggest = "external_tables_to_include"
-        elif key == "materializedViewsToExclude":
-            suggest = "materialized_views_to_exclude"
-        elif key == "materializedViewsToInclude":
-            suggest = "materialized_views_to_include"
-        elif key == "tablesToExclude":
-            suggest = "tables_to_exclude"
-        elif key == "tablesToInclude":
-            suggest = "tables_to_include"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TableLevelSharingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TableLevelSharingPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TableLevelSharingPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  external_tables_to_exclude: Optional[Sequence[str]] = None,
                  external_tables_to_include: Optional[Sequence[str]] = None,

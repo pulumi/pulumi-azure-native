@@ -10,16 +10,6 @@ export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
-export { EventGridDataConnectionArgs } from "./eventGridDataConnection";
-export type EventGridDataConnection = import("./eventGridDataConnection").EventGridDataConnection;
-export const EventGridDataConnection: typeof import("./eventGridDataConnection").EventGridDataConnection = null as any;
-utilities.lazyLoad(exports, ["EventGridDataConnection"], () => require("./eventGridDataConnection"));
-
-export { EventHubDataConnectionArgs } from "./eventHubDataConnection";
-export type EventHubDataConnection = import("./eventHubDataConnection").EventHubDataConnection;
-export const EventHubDataConnection: typeof import("./eventHubDataConnection").EventHubDataConnection = null as any;
-utilities.lazyLoad(exports, ["EventHubDataConnection"], () => require("./eventHubDataConnection"));
-
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
@@ -50,11 +40,6 @@ export const getReadWriteDatabase: typeof import("./getReadWriteDatabase").getRe
 export const getReadWriteDatabaseOutput: typeof import("./getReadWriteDatabase").getReadWriteDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getReadWriteDatabase","getReadWriteDatabaseOutput"], () => require("./getReadWriteDatabase"));
 
-export { IotHubDataConnectionArgs } from "./iotHubDataConnection";
-export type IotHubDataConnection = import("./iotHubDataConnection").IotHubDataConnection;
-export const IotHubDataConnection: typeof import("./iotHubDataConnection").IotHubDataConnection = null as any;
-utilities.lazyLoad(exports, ["IotHubDataConnection"], () => require("./iotHubDataConnection"));
-
 export { ListClusterFollowerDatabasesArgs, ListClusterFollowerDatabasesResult, ListClusterFollowerDatabasesOutputArgs } from "./listClusterFollowerDatabases";
 export const listClusterFollowerDatabases: typeof import("./listClusterFollowerDatabases").listClusterFollowerDatabases = null as any;
 export const listClusterFollowerDatabasesOutput: typeof import("./listClusterFollowerDatabases").listClusterFollowerDatabasesOutput = null as any;
@@ -70,16 +55,6 @@ export const listDatabasePrincipals: typeof import("./listDatabasePrincipals").l
 export const listDatabasePrincipalsOutput: typeof import("./listDatabasePrincipals").listDatabasePrincipalsOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabasePrincipals","listDatabasePrincipalsOutput"], () => require("./listDatabasePrincipals"));
 
-export { ReadOnlyFollowingDatabaseArgs } from "./readOnlyFollowingDatabase";
-export type ReadOnlyFollowingDatabase = import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase;
-export const ReadOnlyFollowingDatabase: typeof import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase = null as any;
-utilities.lazyLoad(exports, ["ReadOnlyFollowingDatabase"], () => require("./readOnlyFollowingDatabase"));
-
-export { ReadWriteDatabaseArgs } from "./readWriteDatabase";
-export type ReadWriteDatabase = import("./readWriteDatabase").ReadWriteDatabase;
-export const ReadWriteDatabase: typeof import("./readWriteDatabase").ReadWriteDatabase = null as any;
-utilities.lazyLoad(exports, ["ReadWriteDatabase"], () => require("./readWriteDatabase"));
-
 
 // Export enums:
 export * from "../../types/enums/kusto/v20220707";
@@ -90,16 +65,6 @@ const _module = {
         switch (type) {
             case "azure-native:kusto/v20220707:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20220707:EventGridDataConnection":
-                return new EventGridDataConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20220707:EventHubDataConnection":
-                return new EventHubDataConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20220707:IotHubDataConnection":
-                return new IotHubDataConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20220707:ReadOnlyFollowingDatabase":
-                return new ReadOnlyFollowingDatabase(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20220707:ReadWriteDatabase":
-                return new ReadWriteDatabase(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

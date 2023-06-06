@@ -82,6 +82,10 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		return nil, err
 	}
 
+	// Some resources are added manually during generation which won't therefore be
+	// matched during the first removal, and we want to exclude these too.
+	dropFromSchema(pkgSpec, versionSources.v2ResourcesToRemove)
+
 	if len(args.ExampleLanguages) > 0 {
 		// Ensure the spec is stamped with a version - Go gen needs it.
 		pkgSpec.Version = args.Version
@@ -180,4 +184,16 @@ func printPathChanges(changes []pathChange) {
 		}
 		fmt.Printf(fmtStr, change.resourceName, prev[:idx], cur[idx:], prev[idx:])
 	}
+}
+
+// Caution: pkgSpec is modified in place
+func dropFromSchema(pkgSpec *schema.PackageSpec, toRemove ResourceRemovals) {
+	removed := 0
+	for token := range toRemove {
+		if _, ok := pkgSpec.Resources[token]; ok {
+			delete(pkgSpec.Resources, token)
+			removed++
+		}
+	}
+	log.Printf("Removed %d out of %d resources from schema\n", removed, len(toRemove))
 }

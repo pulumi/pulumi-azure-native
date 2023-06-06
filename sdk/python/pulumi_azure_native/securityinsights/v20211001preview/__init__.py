@@ -6,18 +6,6 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .aad_data_connector import *
-from .aatp_data_connector import *
-from .activity_custom_entity_query import *
-from .anomalies import *
-from .asc_data_connector import *
-from .aws_cloud_trail_data_connector import *
-from .aws_s3_data_connector import *
-from .codeless_api_polling_data_connector import *
-from .codeless_ui_data_connector import *
-from .dynamics365_data_connector import *
-from .entity_analytics import *
-from .eyes_on import *
 from .fusion_alert_rule import *
 from .get_aad_data_connector import *
 from .get_aatp_data_connector import *
@@ -53,23 +41,7 @@ from .get_ti_taxii_data_connector import *
 from .get_ueba import *
 from .get_watchlist import *
 from .list_source_control_repositories import *
-from .mcas_data_connector import *
-from .mdatp_data_connector import *
-from .microsoft_security_incident_creation_alert_rule import *
-from .ml_behavior_analytics_alert_rule import *
-from .msti_data_connector import *
-from .mtp_data_connector import *
 from .nrt_alert_rule import *
-from .office365_project_data_connector import *
-from .office_atp_data_connector import *
-from .office_data_connector import *
-from .office_irm_data_connector import *
-from .office_power_bi_data_connector import *
-from .scheduled_alert_rule import *
-from .threat_intelligence_alert_rule import *
-from .ti_data_connector import *
-from .ti_taxii_data_connector import *
-from .ueba import *
 from .watchlist import *
 from ._inputs import *
 from . import outputs

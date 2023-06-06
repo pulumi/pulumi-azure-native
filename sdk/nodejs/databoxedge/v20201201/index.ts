@@ -5,20 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ArcAddonArgs } from "./arcAddon";
-export type ArcAddon = import("./arcAddon").ArcAddon;
-export const ArcAddon: typeof import("./arcAddon").ArcAddon = null as any;
-utilities.lazyLoad(exports, ["ArcAddon"], () => require("./arcAddon"));
-
 export { BandwidthScheduleArgs } from "./bandwidthSchedule";
 export type BandwidthSchedule = import("./bandwidthSchedule").BandwidthSchedule;
 export const BandwidthSchedule: typeof import("./bandwidthSchedule").BandwidthSchedule = null as any;
 utilities.lazyLoad(exports, ["BandwidthSchedule"], () => require("./bandwidthSchedule"));
-
-export { CloudEdgeManagementRoleArgs } from "./cloudEdgeManagementRole";
-export type CloudEdgeManagementRole = import("./cloudEdgeManagementRole").CloudEdgeManagementRole;
-export const CloudEdgeManagementRole: typeof import("./cloudEdgeManagementRole").CloudEdgeManagementRole = null as any;
-utilities.lazyLoad(exports, ["CloudEdgeManagementRole"], () => require("./cloudEdgeManagementRole"));
 
 export { ContainerArgs } from "./container";
 export type Container = import("./container").Container;
@@ -29,11 +19,6 @@ export { DeviceArgs } from "./device";
 export type Device = import("./device").Device;
 export const Device: typeof import("./device").Device = null as any;
 utilities.lazyLoad(exports, ["Device"], () => require("./device"));
-
-export { FileEventTriggerArgs } from "./fileEventTrigger";
-export type FileEventTrigger = import("./fileEventTrigger").FileEventTrigger;
-export const FileEventTrigger: typeof import("./fileEventTrigger").FileEventTrigger = null as any;
-utilities.lazyLoad(exports, ["FileEventTrigger"], () => require("./fileEventTrigger"));
 
 export { GetArcAddonArgs, GetArcAddonResult, GetArcAddonOutputArgs } from "./getArcAddon";
 export const getArcAddon: typeof import("./getArcAddon").getArcAddon = null as any;
@@ -125,30 +110,10 @@ export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
-export { IoTAddonArgs } from "./ioTAddon";
-export type IoTAddon = import("./ioTAddon").IoTAddon;
-export const IoTAddon: typeof import("./ioTAddon").IoTAddon = null as any;
-utilities.lazyLoad(exports, ["IoTAddon"], () => require("./ioTAddon"));
-
-export { IoTRoleArgs } from "./ioTRole";
-export type IoTRole = import("./ioTRole").IoTRole;
-export const IoTRole: typeof import("./ioTRole").IoTRole = null as any;
-utilities.lazyLoad(exports, ["IoTRole"], () => require("./ioTRole"));
-
-export { KubernetesRoleArgs } from "./kubernetesRole";
-export type KubernetesRole = import("./kubernetesRole").KubernetesRole;
-export const KubernetesRole: typeof import("./kubernetesRole").KubernetesRole = null as any;
-utilities.lazyLoad(exports, ["KubernetesRole"], () => require("./kubernetesRole"));
-
 export { ListOrderDCAccessCodeArgs, ListOrderDCAccessCodeResult, ListOrderDCAccessCodeOutputArgs } from "./listOrderDCAccessCode";
 export const listOrderDCAccessCode: typeof import("./listOrderDCAccessCode").listOrderDCAccessCode = null as any;
 export const listOrderDCAccessCodeOutput: typeof import("./listOrderDCAccessCode").listOrderDCAccessCodeOutput = null as any;
 utilities.lazyLoad(exports, ["listOrderDCAccessCode","listOrderDCAccessCodeOutput"], () => require("./listOrderDCAccessCode"));
-
-export { MECRoleArgs } from "./mecrole";
-export type MECRole = import("./mecrole").MECRole;
-export const MECRole: typeof import("./mecrole").MECRole = null as any;
-utilities.lazyLoad(exports, ["MECRole"], () => require("./mecrole"));
 
 export { MonitoringConfigArgs } from "./monitoringConfig";
 export type MonitoringConfig = import("./monitoringConfig").MonitoringConfig;
@@ -159,11 +124,6 @@ export { OrderArgs } from "./order";
 export type Order = import("./order").Order;
 export const Order: typeof import("./order").Order = null as any;
 utilities.lazyLoad(exports, ["Order"], () => require("./order"));
-
-export { PeriodicTimerEventTriggerArgs } from "./periodicTimerEventTrigger";
-export type PeriodicTimerEventTrigger = import("./periodicTimerEventTrigger").PeriodicTimerEventTrigger;
-export const PeriodicTimerEventTrigger: typeof import("./periodicTimerEventTrigger").PeriodicTimerEventTrigger = null as any;
-utilities.lazyLoad(exports, ["PeriodicTimerEventTrigger"], () => require("./periodicTimerEventTrigger"));
 
 export { ShareArgs } from "./share";
 export type Share = import("./share").Share;
@@ -193,32 +153,16 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:databoxedge/v20201201:ArcAddon":
-                return new ArcAddon(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20201201:BandwidthSchedule":
                 return new BandwidthSchedule(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20201201:CloudEdgeManagementRole":
-                return new CloudEdgeManagementRole(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20201201:Container":
                 return new Container(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20201201:Device":
                 return new Device(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20201201:FileEventTrigger":
-                return new FileEventTrigger(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20201201:IoTAddon":
-                return new IoTAddon(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20201201:IoTRole":
-                return new IoTRole(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20201201:KubernetesRole":
-                return new KubernetesRole(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20201201:MECRole":
-                return new MECRole(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20201201:MonitoringConfig":
                 return new MonitoringConfig(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20201201:Order":
                 return new Order(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20201201:PeriodicTimerEventTrigger":
-                return new PeriodicTimerEventTrigger(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20201201:Share":
                 return new Share(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20201201:StorageAccount":

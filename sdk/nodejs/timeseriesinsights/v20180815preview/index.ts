@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { EventHubEventSourceArgs } from "./eventHubEventSource";
-export type EventHubEventSource = import("./eventHubEventSource").EventHubEventSource;
-export const EventHubEventSource: typeof import("./eventHubEventSource").EventHubEventSource = null as any;
-utilities.lazyLoad(exports, ["EventHubEventSource"], () => require("./eventHubEventSource"));
-
 export { GetEventHubEventSourceArgs, GetEventHubEventSourceResult, GetEventHubEventSourceOutputArgs } from "./getEventHubEventSource";
 export const getEventHubEventSource: typeof import("./getEventHubEventSource").getEventHubEventSource = null as any;
 export const getEventHubEventSourceOutput: typeof import("./getEventHubEventSource").getEventHubEventSourceOutput = null as any;
@@ -30,11 +25,6 @@ export const getStandardEnvironment: typeof import("./getStandardEnvironment").g
 export const getStandardEnvironmentOutput: typeof import("./getStandardEnvironment").getStandardEnvironmentOutput = null as any;
 utilities.lazyLoad(exports, ["getStandardEnvironment","getStandardEnvironmentOutput"], () => require("./getStandardEnvironment"));
 
-export { IoTHubEventSourceArgs } from "./ioTHubEventSource";
-export type IoTHubEventSource = import("./ioTHubEventSource").IoTHubEventSource;
-export const IoTHubEventSource: typeof import("./ioTHubEventSource").IoTHubEventSource = null as any;
-utilities.lazyLoad(exports, ["IoTHubEventSource"], () => require("./ioTHubEventSource"));
-
 export { LongTermEnvironmentArgs } from "./longTermEnvironment";
 export type LongTermEnvironment = import("./longTermEnvironment").LongTermEnvironment;
 export const LongTermEnvironment: typeof import("./longTermEnvironment").LongTermEnvironment = null as any;
@@ -53,10 +43,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:timeseriesinsights/v20180815preview:EventHubEventSource":
-                return new EventHubEventSource(name, <any>undefined, { urn })
-            case "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource":
-                return new IoTHubEventSource(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20180815preview:LongTermEnvironment":
                 return new LongTermEnvironment(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20180815preview:StandardEnvironment":

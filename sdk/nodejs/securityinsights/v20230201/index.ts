@@ -15,25 +15,10 @@ export type AATPDataConnector = import("./aatpdataConnector").AATPDataConnector;
 export const AATPDataConnector: typeof import("./aatpdataConnector").AATPDataConnector = null as any;
 utilities.lazyLoad(exports, ["AATPDataConnector"], () => require("./aatpdataConnector"));
 
-export { AnomalySecurityMLAnalyticsSettingsArgs } from "./anomalySecurityMLAnalyticsSettings";
-export type AnomalySecurityMLAnalyticsSettings = import("./anomalySecurityMLAnalyticsSettings").AnomalySecurityMLAnalyticsSettings;
-export const AnomalySecurityMLAnalyticsSettings: typeof import("./anomalySecurityMLAnalyticsSettings").AnomalySecurityMLAnalyticsSettings = null as any;
-utilities.lazyLoad(exports, ["AnomalySecurityMLAnalyticsSettings"], () => require("./anomalySecurityMLAnalyticsSettings"));
-
-export { ASCDataConnectorArgs } from "./ascdataConnector";
-export type ASCDataConnector = import("./ascdataConnector").ASCDataConnector;
-export const ASCDataConnector: typeof import("./ascdataConnector").ASCDataConnector = null as any;
-utilities.lazyLoad(exports, ["ASCDataConnector"], () => require("./ascdataConnector"));
-
 export { AwsCloudTrailDataConnectorArgs } from "./awsCloudTrailDataConnector";
 export type AwsCloudTrailDataConnector = import("./awsCloudTrailDataConnector").AwsCloudTrailDataConnector;
 export const AwsCloudTrailDataConnector: typeof import("./awsCloudTrailDataConnector").AwsCloudTrailDataConnector = null as any;
 utilities.lazyLoad(exports, ["AwsCloudTrailDataConnector"], () => require("./awsCloudTrailDataConnector"));
-
-export { FusionAlertRuleArgs } from "./fusionAlertRule";
-export type FusionAlertRule = import("./fusionAlertRule").FusionAlertRule;
-export const FusionAlertRule: typeof import("./fusionAlertRule").FusionAlertRule = null as any;
-utilities.lazyLoad(exports, ["FusionAlertRule"], () => require("./fusionAlertRule"));
 
 export { GetAADDataConnectorArgs, GetAADDataConnectorResult, GetAADDataConnectorOutputArgs } from "./getAADDataConnector";
 export const getAADDataConnector: typeof import("./getAADDataConnector").getAADDataConnector = null as any;
@@ -110,20 +95,10 @@ export type MDATPDataConnector = import("./mdatpdataConnector").MDATPDataConnect
 export const MDATPDataConnector: typeof import("./mdatpdataConnector").MDATPDataConnector = null as any;
 utilities.lazyLoad(exports, ["MDATPDataConnector"], () => require("./mdatpdataConnector"));
 
-export { MicrosoftSecurityIncidentCreationAlertRuleArgs } from "./microsoftSecurityIncidentCreationAlertRule";
-export type MicrosoftSecurityIncidentCreationAlertRule = import("./microsoftSecurityIncidentCreationAlertRule").MicrosoftSecurityIncidentCreationAlertRule;
-export const MicrosoftSecurityIncidentCreationAlertRule: typeof import("./microsoftSecurityIncidentCreationAlertRule").MicrosoftSecurityIncidentCreationAlertRule = null as any;
-utilities.lazyLoad(exports, ["MicrosoftSecurityIncidentCreationAlertRule"], () => require("./microsoftSecurityIncidentCreationAlertRule"));
-
 export { OfficeDataConnectorArgs } from "./officeDataConnector";
 export type OfficeDataConnector = import("./officeDataConnector").OfficeDataConnector;
 export const OfficeDataConnector: typeof import("./officeDataConnector").OfficeDataConnector = null as any;
 utilities.lazyLoad(exports, ["OfficeDataConnector"], () => require("./officeDataConnector"));
-
-export { ScheduledAlertRuleArgs } from "./scheduledAlertRule";
-export type ScheduledAlertRule = import("./scheduledAlertRule").ScheduledAlertRule;
-export const ScheduledAlertRule: typeof import("./scheduledAlertRule").ScheduledAlertRule = null as any;
-utilities.lazyLoad(exports, ["ScheduledAlertRule"], () => require("./scheduledAlertRule"));
 
 export { TIDataConnectorArgs } from "./tidataConnector";
 export type TIDataConnector = import("./tidataConnector").TIDataConnector;
@@ -147,24 +122,14 @@ const _module = {
                 return new AADDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:AATPDataConnector":
                 return new AATPDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20230201:ASCDataConnector":
-                return new ASCDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20230201:AnomalySecurityMLAnalyticsSettings":
-                return new AnomalySecurityMLAnalyticsSettings(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector":
                 return new AwsCloudTrailDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20230201:FusionAlertRule":
-                return new FusionAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:MCASDataConnector":
                 return new MCASDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:MDATPDataConnector":
                 return new MDATPDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20230201:MicrosoftSecurityIncidentCreationAlertRule":
-                return new MicrosoftSecurityIncidentCreationAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:OfficeDataConnector":
                 return new OfficeDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20230201:ScheduledAlertRule":
-                return new ScheduledAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:TIDataConnector":
                 return new TIDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:Watchlist":

@@ -9,8 +9,6 @@ from ._enums import *
 from .admin_rule import *
 from .admin_rule_collection import *
 from .connectivity_configuration import *
-from .default_admin_rule import *
-from .default_user_rule import *
 from .get_admin_rule import *
 from .get_admin_rule_collection import *
 from .get_connectivity_configuration import *

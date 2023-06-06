@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { FileEventTriggerArgs } from "./fileEventTrigger";
-export type FileEventTrigger = import("./fileEventTrigger").FileEventTrigger;
-export const FileEventTrigger: typeof import("./fileEventTrigger").FileEventTrigger = null as any;
-utilities.lazyLoad(exports, ["FileEventTrigger"], () => require("./fileEventTrigger"));
-
 export { GetFileEventTriggerArgs, GetFileEventTriggerResult, GetFileEventTriggerOutputArgs } from "./getFileEventTrigger";
 export const getFileEventTrigger: typeof import("./getFileEventTrigger").getFileEventTrigger = null as any;
 export const getFileEventTriggerOutput: typeof import("./getFileEventTrigger").getFileEventTriggerOutput = null as any;
@@ -30,16 +25,6 @@ export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
-export { IoTRoleArgs } from "./ioTRole";
-export type IoTRole = import("./ioTRole").IoTRole;
-export const IoTRole: typeof import("./ioTRole").IoTRole = null as any;
-utilities.lazyLoad(exports, ["IoTRole"], () => require("./ioTRole"));
-
-export { PeriodicTimerEventTriggerArgs } from "./periodicTimerEventTrigger";
-export type PeriodicTimerEventTrigger = import("./periodicTimerEventTrigger").PeriodicTimerEventTrigger;
-export const PeriodicTimerEventTrigger: typeof import("./periodicTimerEventTrigger").PeriodicTimerEventTrigger = null as any;
-utilities.lazyLoad(exports, ["PeriodicTimerEventTrigger"], () => require("./periodicTimerEventTrigger"));
-
 export { UserArgs } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -53,12 +38,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:databoxedge/v20190701:FileEventTrigger":
-                return new FileEventTrigger(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20190701:IoTRole":
-                return new IoTRole(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20190701:PeriodicTimerEventTrigger":
-                return new PeriodicTimerEventTrigger(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20190701:User":
                 return new User(name, <any>undefined, { urn })
             default:

@@ -6,12 +6,10 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .event_hub_event_source import *
 from .get_event_hub_event_source import *
 from .get_io_t_hub_event_source import *
 from .get_long_term_environment import *
 from .get_standard_environment import *
-from .io_t_hub_event_source import *
 from .long_term_environment import *
 from .standard_environment import *
 from ._inputs import *

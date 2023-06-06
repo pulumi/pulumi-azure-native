@@ -7,11 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .database import *
-from .event_grid_data_connection import *
-from .event_hub_data_connection import *
 from .get_database import *
 from .get_event_grid_data_connection import *
 from .get_event_hub_data_connection import *
 from .get_iot_hub_data_connection import *
-from .iot_hub_data_connection import *
 from . import outputs
