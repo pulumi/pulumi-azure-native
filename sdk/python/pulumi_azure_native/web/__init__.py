@@ -14,7 +14,6 @@ from .app_service_plan_route_for_vnet import *
 from .certificate import *
 from .connection import *
 from .connection_gateway import *
-from .container_app import *
 from .custom_api import *
 from .get_app_service_environment import *
 from .get_app_service_environment_ase_custom_dns_suffix_configuration import *
@@ -23,7 +22,6 @@ from .get_app_service_plan import *
 from .get_certificate import *
 from .get_connection import *
 from .get_connection_gateway import *
-from .get_container_app import *
 from .get_custom_api import *
 from .get_kube_environment import *
 from .get_static_site import *
