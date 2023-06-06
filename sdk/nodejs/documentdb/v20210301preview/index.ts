@@ -35,21 +35,6 @@ export const getSqlResourceSqlRoleDefinition: typeof import("./getSqlResourceSql
 export const getSqlResourceSqlRoleDefinitionOutput: typeof import("./getSqlResourceSqlRoleDefinition").getSqlResourceSqlRoleDefinitionOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlResourceSqlRoleDefinition","getSqlResourceSqlRoleDefinitionOutput"], () => require("./getSqlResourceSqlRoleDefinition"));
 
-export { ListDatabaseAccountConnectionStringsArgs, ListDatabaseAccountConnectionStringsResult, ListDatabaseAccountConnectionStringsOutputArgs } from "./listDatabaseAccountConnectionStrings";
-export const listDatabaseAccountConnectionStrings: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStrings = null as any;
-export const listDatabaseAccountConnectionStringsOutput: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStringsOutput = null as any;
-utilities.lazyLoad(exports, ["listDatabaseAccountConnectionStrings","listDatabaseAccountConnectionStringsOutput"], () => require("./listDatabaseAccountConnectionStrings"));
-
-export { ListDatabaseAccountKeysArgs, ListDatabaseAccountKeysResult, ListDatabaseAccountKeysOutputArgs } from "./listDatabaseAccountKeys";
-export const listDatabaseAccountKeys: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeys = null as any;
-export const listDatabaseAccountKeysOutput: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listDatabaseAccountKeys","listDatabaseAccountKeysOutput"], () => require("./listDatabaseAccountKeys"));
-
-export { ListNotebookWorkspaceConnectionInfoArgs, ListNotebookWorkspaceConnectionInfoResult, ListNotebookWorkspaceConnectionInfoOutputArgs } from "./listNotebookWorkspaceConnectionInfo";
-export const listNotebookWorkspaceConnectionInfo: typeof import("./listNotebookWorkspaceConnectionInfo").listNotebookWorkspaceConnectionInfo = null as any;
-export const listNotebookWorkspaceConnectionInfoOutput: typeof import("./listNotebookWorkspaceConnectionInfo").listNotebookWorkspaceConnectionInfoOutput = null as any;
-utilities.lazyLoad(exports, ["listNotebookWorkspaceConnectionInfo","listNotebookWorkspaceConnectionInfoOutput"], () => require("./listNotebookWorkspaceConnectionInfo"));
-
 export { SqlResourceSqlRoleAssignmentArgs } from "./sqlResourceSqlRoleAssignment";
 export type SqlResourceSqlRoleAssignment = import("./sqlResourceSqlRoleAssignment").SqlResourceSqlRoleAssignment;
 export const SqlResourceSqlRoleAssignment: typeof import("./sqlResourceSqlRoleAssignment").SqlResourceSqlRoleAssignment = null as any;

@@ -5,16 +5,9 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
-from ._enums import *
 from .get_scope_connection import *
 from .get_static_member import *
 from .get_subscription_network_manager_connection import *
-from .list_active_connectivity_configurations import *
-from .list_active_security_admin_rules import *
-from .list_active_security_user_rules import *
-from .list_effective_virtual_network_by_network_manager import *
-from .list_list_effective_virtual_network_by_network_group import *
-from .list_network_manager_deployment_status import *
 from .list_network_manager_effective_connectivity_configurations import *
 from .list_network_manager_effective_security_admin_rules import *
 from .scope_connection import *

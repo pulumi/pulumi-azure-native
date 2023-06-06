@@ -35,7 +35,6 @@ __all__ = [
     'NodeInfoResponse',
     'PeriodicTimerSourceInfoResponse',
     'RoleSinkInfoResponse',
-    'SecretResponse',
     'SubscriptionRegisteredFeaturesResponse',
     'SymmetricKeyResponse',
     'SystemDataResponse',
@@ -1373,41 +1372,6 @@ class RoleSinkInfoResponse(dict):
         Compute role ID.
         """
         return pulumi.get(self, "role_id")
-
-
-@pulumi.output_type
-class SecretResponse(dict):
-    """
-    Holds device secret either as a KeyVault reference or as an encrypted value.
-    """
-    def __init__(__self__, *,
-                 encrypted_secret: Optional['outputs.AsymmetricEncryptedSecretResponse'] = None,
-                 key_vault_id: Optional[str] = None):
-        """
-        Holds device secret either as a KeyVault reference or as an encrypted value.
-        :param 'AsymmetricEncryptedSecretResponse' encrypted_secret: Encrypted (using device public key) secret value.
-        :param str key_vault_id: Id of the Key-Vault where secret is stored (ex: secrets/AuthClientSecret/82ef4346187a4033a10d629cde07d740).
-        """
-        if encrypted_secret is not None:
-            pulumi.set(__self__, "encrypted_secret", encrypted_secret)
-        if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
-
-    @property
-    @pulumi.getter(name="encryptedSecret")
-    def encrypted_secret(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
-        """
-        Encrypted (using device public key) secret value.
-        """
-        return pulumi.get(self, "encrypted_secret")
-
-    @property
-    @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[str]:
-        """
-        Id of the Key-Vault where secret is stored (ex: secrets/AuthClientSecret/82ef4346187a4033a10d629cde07d740).
-        """
-        return pulumi.get(self, "key_vault_id")
 
 
 @pulumi.output_type

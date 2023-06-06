@@ -60,30 +60,15 @@ export const getApiPortalCustomDomain: typeof import("./getApiPortalCustomDomain
 export const getApiPortalCustomDomainOutput: typeof import("./getApiPortalCustomDomain").getApiPortalCustomDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getApiPortalCustomDomain","getApiPortalCustomDomainOutput"], () => require("./getApiPortalCustomDomain"));
 
-export { GetAppResourceUploadUrlArgs, GetAppResourceUploadUrlResult, GetAppResourceUploadUrlOutputArgs } from "./getAppResourceUploadUrl";
-export const getAppResourceUploadUrl: typeof import("./getAppResourceUploadUrl").getAppResourceUploadUrl = null as any;
-export const getAppResourceUploadUrlOutput: typeof import("./getAppResourceUploadUrl").getAppResourceUploadUrlOutput = null as any;
-utilities.lazyLoad(exports, ["getAppResourceUploadUrl","getAppResourceUploadUrlOutput"], () => require("./getAppResourceUploadUrl"));
-
 export { GetBuildServiceAgentPoolArgs, GetBuildServiceAgentPoolResult, GetBuildServiceAgentPoolOutputArgs } from "./getBuildServiceAgentPool";
 export const getBuildServiceAgentPool: typeof import("./getBuildServiceAgentPool").getBuildServiceAgentPool = null as any;
 export const getBuildServiceAgentPoolOutput: typeof import("./getBuildServiceAgentPool").getBuildServiceAgentPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getBuildServiceAgentPool","getBuildServiceAgentPoolOutput"], () => require("./getBuildServiceAgentPool"));
 
-export { GetBuildServiceBuildResultLogArgs, GetBuildServiceBuildResultLogResult, GetBuildServiceBuildResultLogOutputArgs } from "./getBuildServiceBuildResultLog";
-export const getBuildServiceBuildResultLog: typeof import("./getBuildServiceBuildResultLog").getBuildServiceBuildResultLog = null as any;
-export const getBuildServiceBuildResultLogOutput: typeof import("./getBuildServiceBuildResultLog").getBuildServiceBuildResultLogOutput = null as any;
-utilities.lazyLoad(exports, ["getBuildServiceBuildResultLog","getBuildServiceBuildResultLogOutput"], () => require("./getBuildServiceBuildResultLog"));
-
 export { GetBuildServiceBuilderArgs, GetBuildServiceBuilderResult, GetBuildServiceBuilderOutputArgs } from "./getBuildServiceBuilder";
 export const getBuildServiceBuilder: typeof import("./getBuildServiceBuilder").getBuildServiceBuilder = null as any;
 export const getBuildServiceBuilderOutput: typeof import("./getBuildServiceBuilder").getBuildServiceBuilderOutput = null as any;
 utilities.lazyLoad(exports, ["getBuildServiceBuilder","getBuildServiceBuilderOutput"], () => require("./getBuildServiceBuilder"));
-
-export { GetBuildServiceResourceUploadUrlArgs, GetBuildServiceResourceUploadUrlResult, GetBuildServiceResourceUploadUrlOutputArgs } from "./getBuildServiceResourceUploadUrl";
-export const getBuildServiceResourceUploadUrl: typeof import("./getBuildServiceResourceUploadUrl").getBuildServiceResourceUploadUrl = null as any;
-export const getBuildServiceResourceUploadUrlOutput: typeof import("./getBuildServiceResourceUploadUrl").getBuildServiceResourceUploadUrlOutput = null as any;
-utilities.lazyLoad(exports, ["getBuildServiceResourceUploadUrl","getBuildServiceResourceUploadUrlOutput"], () => require("./getBuildServiceResourceUploadUrl"));
 
 export { GetBuildpackBindingArgs, GetBuildpackBindingResult, GetBuildpackBindingOutputArgs } from "./getBuildpackBinding";
 export const getBuildpackBinding: typeof import("./getBuildpackBinding").getBuildpackBinding = null as any;
@@ -94,11 +79,6 @@ export { GetConfigurationServiceArgs, GetConfigurationServiceResult, GetConfigur
 export const getConfigurationService: typeof import("./getConfigurationService").getConfigurationService = null as any;
 export const getConfigurationServiceOutput: typeof import("./getConfigurationService").getConfigurationServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationService","getConfigurationServiceOutput"], () => require("./getConfigurationService"));
-
-export { GetDeploymentLogFileUrlArgs, GetDeploymentLogFileUrlResult, GetDeploymentLogFileUrlOutputArgs } from "./getDeploymentLogFileUrl";
-export const getDeploymentLogFileUrl: typeof import("./getDeploymentLogFileUrl").getDeploymentLogFileUrl = null as any;
-export const getDeploymentLogFileUrlOutput: typeof import("./getDeploymentLogFileUrl").getDeploymentLogFileUrlOutput = null as any;
-utilities.lazyLoad(exports, ["getDeploymentLogFileUrl","getDeploymentLogFileUrlOutput"], () => require("./getDeploymentLogFileUrl"));
 
 export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
 export const getGateway: typeof import("./getGateway").getGateway = null as any;
@@ -119,11 +99,6 @@ export { GetServiceRegistryArgs, GetServiceRegistryResult, GetServiceRegistryOut
 export const getServiceRegistry: typeof import("./getServiceRegistry").getServiceRegistry = null as any;
 export const getServiceRegistryOutput: typeof import("./getServiceRegistry").getServiceRegistryOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceRegistry","getServiceRegistryOutput"], () => require("./getServiceRegistry"));
-
-export { ListServiceTestKeysArgs, ListServiceTestKeysResult, ListServiceTestKeysOutputArgs } from "./listServiceTestKeys";
-export const listServiceTestKeys: typeof import("./listServiceTestKeys").listServiceTestKeys = null as any;
-export const listServiceTestKeysOutput: typeof import("./listServiceTestKeys").listServiceTestKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listServiceTestKeys","listServiceTestKeysOutput"], () => require("./listServiceTestKeys"));
 
 export { ServiceRegistryArgs } from "./serviceRegistry";
 export type ServiceRegistry = import("./serviceRegistry").ServiceRegistry;

@@ -15,21 +15,6 @@ export const getStorageAccountManagementPolicies: typeof import("./getStorageAcc
 export const getStorageAccountManagementPoliciesOutput: typeof import("./getStorageAccountManagementPolicies").getStorageAccountManagementPoliciesOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageAccountManagementPolicies","getStorageAccountManagementPoliciesOutput"], () => require("./getStorageAccountManagementPolicies"));
 
-export { ListStorageAccountKeysArgs, ListStorageAccountKeysResult, ListStorageAccountKeysOutputArgs } from "./listStorageAccountKeys";
-export const listStorageAccountKeys: typeof import("./listStorageAccountKeys").listStorageAccountKeys = null as any;
-export const listStorageAccountKeysOutput: typeof import("./listStorageAccountKeys").listStorageAccountKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listStorageAccountKeys","listStorageAccountKeysOutput"], () => require("./listStorageAccountKeys"));
-
-export { ListStorageAccountSASArgs, ListStorageAccountSASResult, ListStorageAccountSASOutputArgs } from "./listStorageAccountSAS";
-export const listStorageAccountSAS: typeof import("./listStorageAccountSAS").listStorageAccountSAS = null as any;
-export const listStorageAccountSASOutput: typeof import("./listStorageAccountSAS").listStorageAccountSASOutput = null as any;
-utilities.lazyLoad(exports, ["listStorageAccountSAS","listStorageAccountSASOutput"], () => require("./listStorageAccountSAS"));
-
-export { ListStorageAccountServiceSASArgs, ListStorageAccountServiceSASResult, ListStorageAccountServiceSASOutputArgs } from "./listStorageAccountServiceSAS";
-export const listStorageAccountServiceSAS: typeof import("./listStorageAccountServiceSAS").listStorageAccountServiceSAS = null as any;
-export const listStorageAccountServiceSASOutput: typeof import("./listStorageAccountServiceSAS").listStorageAccountServiceSASOutput = null as any;
-utilities.lazyLoad(exports, ["listStorageAccountServiceSAS","listStorageAccountServiceSASOutput"], () => require("./listStorageAccountServiceSAS"));
-
 export { ManagementPolicyArgs } from "./managementPolicy";
 export type ManagementPolicy = import("./managementPolicy").ManagementPolicy;
 export const ManagementPolicy: typeof import("./managementPolicy").ManagementPolicy = null as any;
@@ -40,9 +25,6 @@ export type StorageAccountManagementPolicies = import("./storageAccountManagemen
 export const StorageAccountManagementPolicies: typeof import("./storageAccountManagementPolicies").StorageAccountManagementPolicies = null as any;
 utilities.lazyLoad(exports, ["StorageAccountManagementPolicies"], () => require("./storageAccountManagementPolicies"));
 
-
-// Export enums:
-export * from "../../types/enums/storage/v20180301preview";
 
 const _module = {
     version: utilities.getVersion(),

@@ -50,25 +50,10 @@ export const getToken: typeof import("./getToken").getToken = null as any;
 export const getTokenOutput: typeof import("./getToken").getTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getToken","getTokenOutput"], () => require("./getToken"));
 
-export { GetWebhookCallbackConfigArgs, GetWebhookCallbackConfigResult, GetWebhookCallbackConfigOutputArgs } from "./getWebhookCallbackConfig";
-export const getWebhookCallbackConfig: typeof import("./getWebhookCallbackConfig").getWebhookCallbackConfig = null as any;
-export const getWebhookCallbackConfigOutput: typeof import("./getWebhookCallbackConfig").getWebhookCallbackConfigOutput = null as any;
-utilities.lazyLoad(exports, ["getWebhookCallbackConfig","getWebhookCallbackConfigOutput"], () => require("./getWebhookCallbackConfig"));
-
 export { ImportPipelineArgs } from "./importPipeline";
 export type ImportPipeline = import("./importPipeline").ImportPipeline;
 export const ImportPipeline: typeof import("./importPipeline").ImportPipeline = null as any;
 utilities.lazyLoad(exports, ["ImportPipeline"], () => require("./importPipeline"));
-
-export { ListRegistryCredentialsArgs, ListRegistryCredentialsResult, ListRegistryCredentialsOutputArgs } from "./listRegistryCredentials";
-export const listRegistryCredentials: typeof import("./listRegistryCredentials").listRegistryCredentials = null as any;
-export const listRegistryCredentialsOutput: typeof import("./listRegistryCredentials").listRegistryCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["listRegistryCredentials","listRegistryCredentialsOutput"], () => require("./listRegistryCredentials"));
-
-export { ListWebhookEventsArgs, ListWebhookEventsResult, ListWebhookEventsOutputArgs } from "./listWebhookEvents";
-export const listWebhookEvents: typeof import("./listWebhookEvents").listWebhookEvents = null as any;
-export const listWebhookEventsOutput: typeof import("./listWebhookEvents").listWebhookEventsOutput = null as any;
-utilities.lazyLoad(exports, ["listWebhookEvents","listWebhookEventsOutput"], () => require("./listWebhookEvents"));
 
 export { PipelineRunArgs } from "./pipelineRun";
 export type PipelineRun = import("./pipelineRun").PipelineRun;

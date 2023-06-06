@@ -80,16 +80,6 @@ export const getNetworkSecurityGroup: typeof import("./getNetworkSecurityGroup")
 export const getNetworkSecurityGroupOutput: typeof import("./getNetworkSecurityGroup").getNetworkSecurityGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkSecurityGroup","getNetworkSecurityGroupOutput"], () => require("./getNetworkSecurityGroup"));
 
-export { GetP2sVpnGatewayP2sVpnConnectionHealthArgs, GetP2sVpnGatewayP2sVpnConnectionHealthResult, GetP2sVpnGatewayP2sVpnConnectionHealthOutputArgs } from "./getP2sVpnGatewayP2sVpnConnectionHealth";
-export const getP2sVpnGatewayP2sVpnConnectionHealth: typeof import("./getP2sVpnGatewayP2sVpnConnectionHealth").getP2sVpnGatewayP2sVpnConnectionHealth = null as any;
-export const getP2sVpnGatewayP2sVpnConnectionHealthOutput: typeof import("./getP2sVpnGatewayP2sVpnConnectionHealth").getP2sVpnGatewayP2sVpnConnectionHealthOutput = null as any;
-utilities.lazyLoad(exports, ["getP2sVpnGatewayP2sVpnConnectionHealth","getP2sVpnGatewayP2sVpnConnectionHealthOutput"], () => require("./getP2sVpnGatewayP2sVpnConnectionHealth"));
-
-export { GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs, GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult, GetP2sVpnGatewayP2sVpnConnectionHealthDetailedOutputArgs } from "./getP2sVpnGatewayP2sVpnConnectionHealthDetailed";
-export const getP2sVpnGatewayP2sVpnConnectionHealthDetailed: typeof import("./getP2sVpnGatewayP2sVpnConnectionHealthDetailed").getP2sVpnGatewayP2sVpnConnectionHealthDetailed = null as any;
-export const getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput: typeof import("./getP2sVpnGatewayP2sVpnConnectionHealthDetailed").getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput = null as any;
-utilities.lazyLoad(exports, ["getP2sVpnGatewayP2sVpnConnectionHealthDetailed","getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput"], () => require("./getP2sVpnGatewayP2sVpnConnectionHealthDetailed"));
-
 export { GetPrivateLinkServiceArgs, GetPrivateLinkServiceResult, GetPrivateLinkServiceOutputArgs } from "./getPrivateLinkService";
 export const getPrivateLinkService: typeof import("./getPrivateLinkService").getPrivateLinkService = null as any;
 export const getPrivateLinkServiceOutput: typeof import("./getPrivateLinkService").getPrivateLinkServiceOutput = null as any;

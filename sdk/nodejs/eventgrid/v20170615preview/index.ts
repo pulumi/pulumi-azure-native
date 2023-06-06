@@ -20,11 +20,6 @@ export const getEventSubscriptionFullUrl: typeof import("./getEventSubscriptionF
 export const getEventSubscriptionFullUrlOutput: typeof import("./getEventSubscriptionFullUrl").getEventSubscriptionFullUrlOutput = null as any;
 utilities.lazyLoad(exports, ["getEventSubscriptionFullUrl","getEventSubscriptionFullUrlOutput"], () => require("./getEventSubscriptionFullUrl"));
 
-export { ListTopicSharedAccessKeysArgs, ListTopicSharedAccessKeysResult, ListTopicSharedAccessKeysOutputArgs } from "./listTopicSharedAccessKeys";
-export const listTopicSharedAccessKeys: typeof import("./listTopicSharedAccessKeys").listTopicSharedAccessKeys = null as any;
-export const listTopicSharedAccessKeysOutput: typeof import("./listTopicSharedAccessKeys").listTopicSharedAccessKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listTopicSharedAccessKeys","listTopicSharedAccessKeysOutput"], () => require("./listTopicSharedAccessKeys"));
-
 
 // Export enums:
 export * from "../../types/enums/eventgrid/v20170615preview";

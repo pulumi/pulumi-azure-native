@@ -23,28 +23,16 @@ if typing.TYPE_CHECKING:
     v20160901preview = __v20160901preview
     import pulumi_azure_native.solutions.v20171201 as __v20171201
     v20171201 = __v20171201
-    import pulumi_azure_native.solutions.v20180301 as __v20180301
-    v20180301 = __v20180301
     import pulumi_azure_native.solutions.v20180601 as __v20180601
     v20180601 = __v20180601
-    import pulumi_azure_native.solutions.v20180901preview as __v20180901preview
-    v20180901preview = __v20180901preview
     import pulumi_azure_native.solutions.v20190701 as __v20190701
     v20190701 = __v20190701
-    import pulumi_azure_native.solutions.v20200821preview as __v20200821preview
-    v20200821preview = __v20200821preview
-    import pulumi_azure_native.solutions.v20210201preview as __v20210201preview
-    v20210201preview = __v20210201preview
     import pulumi_azure_native.solutions.v20210701 as __v20210701
     v20210701 = __v20210701
 else:
     v20160901preview = _utilities.lazy_import('pulumi_azure_native.solutions.v20160901preview')
     v20171201 = _utilities.lazy_import('pulumi_azure_native.solutions.v20171201')
-    v20180301 = _utilities.lazy_import('pulumi_azure_native.solutions.v20180301')
     v20180601 = _utilities.lazy_import('pulumi_azure_native.solutions.v20180601')
-    v20180901preview = _utilities.lazy_import('pulumi_azure_native.solutions.v20180901preview')
     v20190701 = _utilities.lazy_import('pulumi_azure_native.solutions.v20190701')
-    v20200821preview = _utilities.lazy_import('pulumi_azure_native.solutions.v20200821preview')
-    v20210201preview = _utilities.lazy_import('pulumi_azure_native.solutions.v20210201preview')
     v20210701 = _utilities.lazy_import('pulumi_azure_native.solutions.v20210701')
 

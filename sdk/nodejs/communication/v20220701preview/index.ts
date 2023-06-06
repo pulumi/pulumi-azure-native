@@ -15,11 +15,6 @@ export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
 
-export { ListCommunicationServiceKeysArgs, ListCommunicationServiceKeysResult, ListCommunicationServiceKeysOutputArgs } from "./listCommunicationServiceKeys";
-export const listCommunicationServiceKeys: typeof import("./listCommunicationServiceKeys").listCommunicationServiceKeys = null as any;
-export const listCommunicationServiceKeysOutput: typeof import("./listCommunicationServiceKeys").listCommunicationServiceKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listCommunicationServiceKeys","listCommunicationServiceKeysOutput"], () => require("./listCommunicationServiceKeys"));
-
 
 // Export enums:
 export * from "../../types/enums/communication/v20220701preview";

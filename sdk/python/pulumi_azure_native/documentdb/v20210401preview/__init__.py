@@ -11,7 +11,6 @@ from .get_database_account import *
 from .get_service import *
 from .list_database_account_connection_strings import *
 from .list_database_account_keys import *
-from .list_notebook_workspace_connection_info import *
 from .service import *
 from ._inputs import *
 from . import outputs

@@ -10,16 +10,6 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
-export { ListAdminKeyArgs, ListAdminKeyResult, ListAdminKeyOutputArgs } from "./listAdminKey";
-export const listAdminKey: typeof import("./listAdminKey").listAdminKey = null as any;
-export const listAdminKeyOutput: typeof import("./listAdminKey").listAdminKeyOutput = null as any;
-utilities.lazyLoad(exports, ["listAdminKey","listAdminKeyOutput"], () => require("./listAdminKey"));
-
-export { ListQueryKeyBySearchServiceArgs, ListQueryKeyBySearchServiceResult, ListQueryKeyBySearchServiceOutputArgs } from "./listQueryKeyBySearchService";
-export const listQueryKeyBySearchService: typeof import("./listQueryKeyBySearchService").listQueryKeyBySearchService = null as any;
-export const listQueryKeyBySearchServiceOutput: typeof import("./listQueryKeyBySearchService").listQueryKeyBySearchServiceOutput = null as any;
-utilities.lazyLoad(exports, ["listQueryKeyBySearchService","listQueryKeyBySearchServiceOutput"], () => require("./listQueryKeyBySearchService"));
-
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;

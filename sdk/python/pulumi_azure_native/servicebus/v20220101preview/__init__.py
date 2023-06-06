@@ -10,10 +10,6 @@ from .get_namespace_authorization_rule import *
 from .get_queue_authorization_rule import *
 from .get_rule import *
 from .get_topic_authorization_rule import *
-from .list_disaster_recovery_config_keys import *
-from .list_namespace_keys import *
-from .list_queue_keys import *
-from .list_topic_keys import *
 from .namespace_authorization_rule import *
 from .queue_authorization_rule import *
 from .rule import *

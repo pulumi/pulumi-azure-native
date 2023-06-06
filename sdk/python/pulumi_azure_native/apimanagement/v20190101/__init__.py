@@ -11,14 +11,12 @@ from .api_schema import *
 from .api_tag_description import *
 from .diagnostic import *
 from .get_api_diagnostic import *
-from .get_api_management_service_sso_token import *
 from .get_api_schema import *
 from .get_api_tag_description import *
 from .get_diagnostic import *
 from .get_identity_provider import *
 from .get_property import *
 from .get_subscription import *
-from .get_user_shared_access_token import *
 from .identity_provider import *
 from .property import *
 from .subscription import *

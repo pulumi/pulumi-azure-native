@@ -11,51 +11,10 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'KeyVaultReference',
     'ResourceReferenceArgs',
     'SkuArgs',
     'WorkflowParameterArgs',
 ]
-
-@pulumi.input_type
-class KeyVaultReference:
-    def __init__(__self__, *,
-                 id: Optional[str] = None,
-                 name: Optional[str] = None):
-        """
-        The key vault reference.
-        :param str id: The resource id.
-        :param str name: The key vault name.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The resource id.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[str]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The key vault name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[str]):
-        pulumi.set(self, "name", value)
-
 
 @pulumi.input_type
 class ResourceReferenceArgs:

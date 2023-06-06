@@ -20,11 +20,6 @@ export const getPrivateAtlase: typeof import("./getPrivateAtlase").getPrivateAtl
 export const getPrivateAtlaseOutput: typeof import("./getPrivateAtlase").getPrivateAtlaseOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateAtlase","getPrivateAtlaseOutput"], () => require("./getPrivateAtlase"));
 
-export { ListAccountKeysArgs, ListAccountKeysResult, ListAccountKeysOutputArgs } from "./listAccountKeys";
-export const listAccountKeys: typeof import("./listAccountKeys").listAccountKeys = null as any;
-export const listAccountKeysOutput: typeof import("./listAccountKeys").listAccountKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listAccountKeys","listAccountKeysOutput"], () => require("./listAccountKeys"));
-
 export { PrivateAtlaseArgs } from "./privateAtlase";
 export type PrivateAtlase = import("./privateAtlase").PrivateAtlase;
 export const PrivateAtlase: typeof import("./privateAtlase").PrivateAtlase = null as any;

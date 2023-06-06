@@ -55,11 +55,6 @@ export type GlobalReachConnection = import("./globalReachConnection").GlobalReac
 export const GlobalReachConnection: typeof import("./globalReachConnection").GlobalReachConnection = null as any;
 utilities.lazyLoad(exports, ["GlobalReachConnection"], () => require("./globalReachConnection"));
 
-export { ListPrivateCloudAdminCredentialsArgs, ListPrivateCloudAdminCredentialsResult, ListPrivateCloudAdminCredentialsOutputArgs } from "./listPrivateCloudAdminCredentials";
-export const listPrivateCloudAdminCredentials: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentials = null as any;
-export const listPrivateCloudAdminCredentialsOutput: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["listPrivateCloudAdminCredentials","listPrivateCloudAdminCredentialsOutput"], () => require("./listPrivateCloudAdminCredentials"));
-
 export { WorkloadNetworkDhcpArgs } from "./workloadNetworkDhcp";
 export type WorkloadNetworkDhcp = import("./workloadNetworkDhcp").WorkloadNetworkDhcp;
 export const WorkloadNetworkDhcp: typeof import("./workloadNetworkDhcp").WorkloadNetworkDhcp = null as any;

@@ -10,11 +10,6 @@ export type FileEventTrigger = import("./fileEventTrigger").FileEventTrigger;
 export const FileEventTrigger: typeof import("./fileEventTrigger").FileEventTrigger = null as any;
 utilities.lazyLoad(exports, ["FileEventTrigger"], () => require("./fileEventTrigger"));
 
-export { GetDeviceExtendedInformationArgs, GetDeviceExtendedInformationResult, GetDeviceExtendedInformationOutputArgs } from "./getDeviceExtendedInformation";
-export const getDeviceExtendedInformation: typeof import("./getDeviceExtendedInformation").getDeviceExtendedInformation = null as any;
-export const getDeviceExtendedInformationOutput: typeof import("./getDeviceExtendedInformation").getDeviceExtendedInformationOutput = null as any;
-utilities.lazyLoad(exports, ["getDeviceExtendedInformation","getDeviceExtendedInformationOutput"], () => require("./getDeviceExtendedInformation"));
-
 export { GetFileEventTriggerArgs, GetFileEventTriggerResult, GetFileEventTriggerOutputArgs } from "./getFileEventTrigger";
 export const getFileEventTrigger: typeof import("./getFileEventTrigger").getFileEventTrigger = null as any;
 export const getFileEventTriggerOutput: typeof import("./getFileEventTrigger").getFileEventTriggerOutput = null as any;

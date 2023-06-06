@@ -20,21 +20,6 @@ export const getTrustedAccessRoleBinding: typeof import("./getTrustedAccessRoleB
 export const getTrustedAccessRoleBindingOutput: typeof import("./getTrustedAccessRoleBinding").getTrustedAccessRoleBindingOutput = null as any;
 utilities.lazyLoad(exports, ["getTrustedAccessRoleBinding","getTrustedAccessRoleBindingOutput"], () => require("./getTrustedAccessRoleBinding"));
 
-export { ListManagedClusterAdminCredentialsArgs, ListManagedClusterAdminCredentialsResult, ListManagedClusterAdminCredentialsOutputArgs } from "./listManagedClusterAdminCredentials";
-export const listManagedClusterAdminCredentials: typeof import("./listManagedClusterAdminCredentials").listManagedClusterAdminCredentials = null as any;
-export const listManagedClusterAdminCredentialsOutput: typeof import("./listManagedClusterAdminCredentials").listManagedClusterAdminCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["listManagedClusterAdminCredentials","listManagedClusterAdminCredentialsOutput"], () => require("./listManagedClusterAdminCredentials"));
-
-export { ListManagedClusterMonitoringUserCredentialsArgs, ListManagedClusterMonitoringUserCredentialsResult, ListManagedClusterMonitoringUserCredentialsOutputArgs } from "./listManagedClusterMonitoringUserCredentials";
-export const listManagedClusterMonitoringUserCredentials: typeof import("./listManagedClusterMonitoringUserCredentials").listManagedClusterMonitoringUserCredentials = null as any;
-export const listManagedClusterMonitoringUserCredentialsOutput: typeof import("./listManagedClusterMonitoringUserCredentials").listManagedClusterMonitoringUserCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["listManagedClusterMonitoringUserCredentials","listManagedClusterMonitoringUserCredentialsOutput"], () => require("./listManagedClusterMonitoringUserCredentials"));
-
-export { ListManagedClusterUserCredentialsArgs, ListManagedClusterUserCredentialsResult, ListManagedClusterUserCredentialsOutputArgs } from "./listManagedClusterUserCredentials";
-export const listManagedClusterUserCredentials: typeof import("./listManagedClusterUserCredentials").listManagedClusterUserCredentials = null as any;
-export const listManagedClusterUserCredentialsOutput: typeof import("./listManagedClusterUserCredentials").listManagedClusterUserCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["listManagedClusterUserCredentials","listManagedClusterUserCredentialsOutput"], () => require("./listManagedClusterUserCredentials"));
-
 export { TrustedAccessRoleBindingArgs } from "./trustedAccessRoleBinding";
 export type TrustedAccessRoleBinding = import("./trustedAccessRoleBinding").TrustedAccessRoleBinding;
 export const TrustedAccessRoleBinding: typeof import("./trustedAccessRoleBinding").TrustedAccessRoleBinding = null as any;

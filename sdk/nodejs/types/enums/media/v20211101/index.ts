@@ -2,26 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AssetContainerPermission = {
-    /**
-     * The SAS URL will allow read access to the container.
-     */
-    Read: "Read",
-    /**
-     * The SAS URL will allow read and write access to the container.
-     */
-    ReadWrite: "ReadWrite",
-    /**
-     * The SAS URL will allow read, write and delete access to the container.
-     */
-    ReadWriteDelete: "ReadWriteDelete",
-} as const;
-
-/**
- * The permissions to set on the SAS URL.
- */
-export type AssetContainerPermission = (typeof AssetContainerPermission)[keyof typeof AssetContainerPermission];
-
 export const Visibility = {
     /**
      * The track is hidden to video player.

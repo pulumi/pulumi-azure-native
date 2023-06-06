@@ -8,37 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Network.V20210301
 {
     /// <summary>
-    /// The protocol used for the probe.
-    /// </summary>
-    [EnumType]
-    public readonly struct ApplicationGatewayProtocol : IEquatable<ApplicationGatewayProtocol>
-    {
-        private readonly string _value;
-
-        private ApplicationGatewayProtocol(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ApplicationGatewayProtocol Http { get; } = new ApplicationGatewayProtocol("Http");
-        public static ApplicationGatewayProtocol Https { get; } = new ApplicationGatewayProtocol("Https");
-
-        public static bool operator ==(ApplicationGatewayProtocol left, ApplicationGatewayProtocol right) => left.Equals(right);
-        public static bool operator !=(ApplicationGatewayProtocol left, ApplicationGatewayProtocol right) => !left.Equals(right);
-
-        public static explicit operator string(ApplicationGatewayProtocol value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ApplicationGatewayProtocol other && Equals(other);
-        public bool Equals(ApplicationGatewayProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The commissioned state of the Custom IP Prefix.
     /// </summary>
     [EnumType]

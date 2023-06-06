@@ -18,8 +18,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.hdinsight.v20150301preview as __v20150301preview
-    v20150301preview = __v20150301preview
     import pulumi_azure_native.hdinsight.v20180601preview as __v20180601preview
     v20180601preview = __v20180601preview
     import pulumi_azure_native.hdinsight.v20210601 as __v20210601
@@ -27,7 +25,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.hdinsight.v20230415preview as __v20230415preview
     v20230415preview = __v20230415preview
 else:
-    v20150301preview = _utilities.lazy_import('pulumi_azure_native.hdinsight.v20150301preview')
     v20180601preview = _utilities.lazy_import('pulumi_azure_native.hdinsight.v20180601preview')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.hdinsight.v20210601')
     v20230415preview = _utilities.lazy_import('pulumi_azure_native.hdinsight.v20230415preview')

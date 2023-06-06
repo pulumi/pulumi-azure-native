@@ -25,26 +25,6 @@ export const getTopicAuthorizationRule: typeof import("./getTopicAuthorizationRu
 export const getTopicAuthorizationRuleOutput: typeof import("./getTopicAuthorizationRule").getTopicAuthorizationRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getTopicAuthorizationRule","getTopicAuthorizationRuleOutput"], () => require("./getTopicAuthorizationRule"));
 
-export { ListDisasterRecoveryConfigKeysArgs, ListDisasterRecoveryConfigKeysResult, ListDisasterRecoveryConfigKeysOutputArgs } from "./listDisasterRecoveryConfigKeys";
-export const listDisasterRecoveryConfigKeys: typeof import("./listDisasterRecoveryConfigKeys").listDisasterRecoveryConfigKeys = null as any;
-export const listDisasterRecoveryConfigKeysOutput: typeof import("./listDisasterRecoveryConfigKeys").listDisasterRecoveryConfigKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listDisasterRecoveryConfigKeys","listDisasterRecoveryConfigKeysOutput"], () => require("./listDisasterRecoveryConfigKeys"));
-
-export { ListNamespaceKeysArgs, ListNamespaceKeysResult, ListNamespaceKeysOutputArgs } from "./listNamespaceKeys";
-export const listNamespaceKeys: typeof import("./listNamespaceKeys").listNamespaceKeys = null as any;
-export const listNamespaceKeysOutput: typeof import("./listNamespaceKeys").listNamespaceKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listNamespaceKeys","listNamespaceKeysOutput"], () => require("./listNamespaceKeys"));
-
-export { ListQueueKeysArgs, ListQueueKeysResult, ListQueueKeysOutputArgs } from "./listQueueKeys";
-export const listQueueKeys: typeof import("./listQueueKeys").listQueueKeys = null as any;
-export const listQueueKeysOutput: typeof import("./listQueueKeys").listQueueKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listQueueKeys","listQueueKeysOutput"], () => require("./listQueueKeys"));
-
-export { ListTopicKeysArgs, ListTopicKeysResult, ListTopicKeysOutputArgs } from "./listTopicKeys";
-export const listTopicKeys: typeof import("./listTopicKeys").listTopicKeys = null as any;
-export const listTopicKeysOutput: typeof import("./listTopicKeys").listTopicKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listTopicKeys","listTopicKeysOutput"], () => require("./listTopicKeys"));
-
 export { NamespaceAuthorizationRuleArgs } from "./namespaceAuthorizationRule";
 export type NamespaceAuthorizationRule = import("./namespaceAuthorizationRule").NamespaceAuthorizationRule;
 export const NamespaceAuthorizationRule: typeof import("./namespaceAuthorizationRule").NamespaceAuthorizationRule = null as any;

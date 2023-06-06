@@ -7,17 +7,7 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .firewall_policy import *
-from .get_active_sessions import *
-from .get_application_gateway_backend_health_on_demand import *
-from .get_bastion_shareable_link import *
 from .get_firewall_policy import *
-from .get_p2s_vpn_gateway_p2s_vpn_connection_health import *
-from .get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed import *
-from .get_virtual_network_gateway_advertised_routes import *
-from .get_virtual_network_gateway_bgp_peer_status import *
-from .get_virtual_network_gateway_learned_routes import *
-from .get_virtual_network_gateway_vpnclient_connection_health import *
-from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
 from .list_firewall_policy_idps_signature import *
 from .list_firewall_policy_idps_signatures_filter_value import *
 from ._inputs import *

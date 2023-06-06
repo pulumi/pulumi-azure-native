@@ -15,26 +15,6 @@ export const getExpressRouteCircuit: typeof import("./getExpressRouteCircuit").g
 export const getExpressRouteCircuitOutput: typeof import("./getExpressRouteCircuit").getExpressRouteCircuitOutput = null as any;
 utilities.lazyLoad(exports, ["getExpressRouteCircuit","getExpressRouteCircuitOutput"], () => require("./getExpressRouteCircuit"));
 
-export { GetVirtualNetworkGatewayAdvertisedRoutesArgs, GetVirtualNetworkGatewayAdvertisedRoutesResult, GetVirtualNetworkGatewayAdvertisedRoutesOutputArgs } from "./getVirtualNetworkGatewayAdvertisedRoutes";
-export const getVirtualNetworkGatewayAdvertisedRoutes: typeof import("./getVirtualNetworkGatewayAdvertisedRoutes").getVirtualNetworkGatewayAdvertisedRoutes = null as any;
-export const getVirtualNetworkGatewayAdvertisedRoutesOutput: typeof import("./getVirtualNetworkGatewayAdvertisedRoutes").getVirtualNetworkGatewayAdvertisedRoutesOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkGatewayAdvertisedRoutes","getVirtualNetworkGatewayAdvertisedRoutesOutput"], () => require("./getVirtualNetworkGatewayAdvertisedRoutes"));
-
-export { GetVirtualNetworkGatewayBgpPeerStatusArgs, GetVirtualNetworkGatewayBgpPeerStatusResult, GetVirtualNetworkGatewayBgpPeerStatusOutputArgs } from "./getVirtualNetworkGatewayBgpPeerStatus";
-export const getVirtualNetworkGatewayBgpPeerStatus: typeof import("./getVirtualNetworkGatewayBgpPeerStatus").getVirtualNetworkGatewayBgpPeerStatus = null as any;
-export const getVirtualNetworkGatewayBgpPeerStatusOutput: typeof import("./getVirtualNetworkGatewayBgpPeerStatus").getVirtualNetworkGatewayBgpPeerStatusOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkGatewayBgpPeerStatus","getVirtualNetworkGatewayBgpPeerStatusOutput"], () => require("./getVirtualNetworkGatewayBgpPeerStatus"));
-
-export { GetVirtualNetworkGatewayLearnedRoutesArgs, GetVirtualNetworkGatewayLearnedRoutesResult, GetVirtualNetworkGatewayLearnedRoutesOutputArgs } from "./getVirtualNetworkGatewayLearnedRoutes";
-export const getVirtualNetworkGatewayLearnedRoutes: typeof import("./getVirtualNetworkGatewayLearnedRoutes").getVirtualNetworkGatewayLearnedRoutes = null as any;
-export const getVirtualNetworkGatewayLearnedRoutesOutput: typeof import("./getVirtualNetworkGatewayLearnedRoutes").getVirtualNetworkGatewayLearnedRoutesOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkGatewayLearnedRoutes","getVirtualNetworkGatewayLearnedRoutesOutput"], () => require("./getVirtualNetworkGatewayLearnedRoutes"));
-
-export { GetVirtualNetworkGatewayVpnclientIpsecParametersArgs, GetVirtualNetworkGatewayVpnclientIpsecParametersResult, GetVirtualNetworkGatewayVpnclientIpsecParametersOutputArgs } from "./getVirtualNetworkGatewayVpnclientIpsecParameters";
-export const getVirtualNetworkGatewayVpnclientIpsecParameters: typeof import("./getVirtualNetworkGatewayVpnclientIpsecParameters").getVirtualNetworkGatewayVpnclientIpsecParameters = null as any;
-export const getVirtualNetworkGatewayVpnclientIpsecParametersOutput: typeof import("./getVirtualNetworkGatewayVpnclientIpsecParameters").getVirtualNetworkGatewayVpnclientIpsecParametersOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkGatewayVpnclientIpsecParameters","getVirtualNetworkGatewayVpnclientIpsecParametersOutput"], () => require("./getVirtualNetworkGatewayVpnclientIpsecParameters"));
-
 
 // Export enums:
 export * from "../../types/enums/network/v20181201";

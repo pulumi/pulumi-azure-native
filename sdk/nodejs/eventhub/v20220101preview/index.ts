@@ -20,21 +20,6 @@ export const getSchemaRegistry: typeof import("./getSchemaRegistry").getSchemaRe
 export const getSchemaRegistryOutput: typeof import("./getSchemaRegistry").getSchemaRegistryOutput = null as any;
 utilities.lazyLoad(exports, ["getSchemaRegistry","getSchemaRegistryOutput"], () => require("./getSchemaRegistry"));
 
-export { ListDisasterRecoveryConfigKeysArgs, ListDisasterRecoveryConfigKeysResult, ListDisasterRecoveryConfigKeysOutputArgs } from "./listDisasterRecoveryConfigKeys";
-export const listDisasterRecoveryConfigKeys: typeof import("./listDisasterRecoveryConfigKeys").listDisasterRecoveryConfigKeys = null as any;
-export const listDisasterRecoveryConfigKeysOutput: typeof import("./listDisasterRecoveryConfigKeys").listDisasterRecoveryConfigKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listDisasterRecoveryConfigKeys","listDisasterRecoveryConfigKeysOutput"], () => require("./listDisasterRecoveryConfigKeys"));
-
-export { ListEventHubKeysArgs, ListEventHubKeysResult, ListEventHubKeysOutputArgs } from "./listEventHubKeys";
-export const listEventHubKeys: typeof import("./listEventHubKeys").listEventHubKeys = null as any;
-export const listEventHubKeysOutput: typeof import("./listEventHubKeys").listEventHubKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listEventHubKeys","listEventHubKeysOutput"], () => require("./listEventHubKeys"));
-
-export { ListNamespaceKeysArgs, ListNamespaceKeysResult, ListNamespaceKeysOutputArgs } from "./listNamespaceKeys";
-export const listNamespaceKeys: typeof import("./listNamespaceKeys").listNamespaceKeys = null as any;
-export const listNamespaceKeysOutput: typeof import("./listNamespaceKeys").listNamespaceKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listNamespaceKeys","listNamespaceKeysOutput"], () => require("./listNamespaceKeys"));
-
 export { SchemaRegistryArgs } from "./schemaRegistry";
 export type SchemaRegistry = import("./schemaRegistry").SchemaRegistry;
 export const SchemaRegistry: typeof import("./schemaRegistry").SchemaRegistry = null as any;

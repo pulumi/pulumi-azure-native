@@ -11,10 +11,6 @@ from .endpoint import *
 from .get_ddos_protection_plan import *
 from .get_endpoint import *
 from .get_profile import *
-from .get_virtual_network_gateway_advertised_routes import *
-from .get_virtual_network_gateway_bgp_peer_status import *
-from .get_virtual_network_gateway_learned_routes import *
-from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
 from .profile import *
 from ._inputs import *
 from . import outputs

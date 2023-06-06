@@ -25,11 +25,6 @@ export const getEmailService: typeof import("./getEmailService").getEmailService
 export const getEmailServiceOutput: typeof import("./getEmailService").getEmailServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getEmailService","getEmailServiceOutput"], () => require("./getEmailService"));
 
-export { ListCommunicationServiceKeysArgs, ListCommunicationServiceKeysResult, ListCommunicationServiceKeysOutputArgs } from "./listCommunicationServiceKeys";
-export const listCommunicationServiceKeys: typeof import("./listCommunicationServiceKeys").listCommunicationServiceKeys = null as any;
-export const listCommunicationServiceKeysOutput: typeof import("./listCommunicationServiceKeys").listCommunicationServiceKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listCommunicationServiceKeys","listCommunicationServiceKeysOutput"], () => require("./listCommunicationServiceKeys"));
-
 
 // Export enums:
 export * from "../../types/enums/communication/v20211001preview";

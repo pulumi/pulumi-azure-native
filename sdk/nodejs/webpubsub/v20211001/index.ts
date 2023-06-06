@@ -10,11 +10,6 @@ export const getWebPubSubHub: typeof import("./getWebPubSubHub").getWebPubSubHub
 export const getWebPubSubHubOutput: typeof import("./getWebPubSubHub").getWebPubSubHubOutput = null as any;
 utilities.lazyLoad(exports, ["getWebPubSubHub","getWebPubSubHubOutput"], () => require("./getWebPubSubHub"));
 
-export { ListWebPubSubKeysArgs, ListWebPubSubKeysResult, ListWebPubSubKeysOutputArgs } from "./listWebPubSubKeys";
-export const listWebPubSubKeys: typeof import("./listWebPubSubKeys").listWebPubSubKeys = null as any;
-export const listWebPubSubKeysOutput: typeof import("./listWebPubSubKeys").listWebPubSubKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listWebPubSubKeys","listWebPubSubKeysOutput"], () => require("./listWebPubSubKeys"));
-
 export { WebPubSubHubArgs } from "./webPubSubHub";
 export type WebPubSubHub = import("./webPubSubHub").WebPubSubHub;
 export const WebPubSubHub: typeof import("./webPubSubHub").WebPubSubHub = null as any;

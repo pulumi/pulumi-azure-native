@@ -96,12 +96,10 @@ export * from "../types/enums/logz";
 
 // Export sub-modules:
 import * as v20201001 from "./v20201001";
-import * as v20201001preview from "./v20201001preview";
 import * as v20220101preview from "./v20220101preview";
 
 export {
     v20201001,
-    v20201001preview,
     v20220101preview,
 };
 

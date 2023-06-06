@@ -11,7 +11,6 @@ from .cloud_edge_management_role import *
 from .file_event_trigger import *
 from .get_arc_addon import *
 from .get_cloud_edge_management_role import *
-from .get_device_extended_information import *
 from .get_file_event_trigger import *
 from .get_io_t_addon import *
 from .get_io_t_role import *
@@ -21,7 +20,6 @@ from .get_periodic_timer_event_trigger import *
 from .io_t_addon import *
 from .io_t_role import *
 from .kubernetes_role import *
-from .list_order_dc_access_code import *
 from .mec_role import *
 from .periodic_timer_event_trigger import *
 from ._inputs import *

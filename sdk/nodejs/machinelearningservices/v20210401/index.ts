@@ -45,36 +45,6 @@ export const getWorkspaceConnection: typeof import("./getWorkspaceConnection").g
 export const getWorkspaceConnectionOutput: typeof import("./getWorkspaceConnection").getWorkspaceConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspaceConnection","getWorkspaceConnectionOutput"], () => require("./getWorkspaceConnection"));
 
-export { ListMachineLearningComputeKeysArgs, ListMachineLearningComputeKeysResult, ListMachineLearningComputeKeysOutputArgs } from "./listMachineLearningComputeKeys";
-export const listMachineLearningComputeKeys: typeof import("./listMachineLearningComputeKeys").listMachineLearningComputeKeys = null as any;
-export const listMachineLearningComputeKeysOutput: typeof import("./listMachineLearningComputeKeys").listMachineLearningComputeKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listMachineLearningComputeKeys","listMachineLearningComputeKeysOutput"], () => require("./listMachineLearningComputeKeys"));
-
-export { ListMachineLearningComputeNodesArgs, ListMachineLearningComputeNodesResult, ListMachineLearningComputeNodesOutputArgs } from "./listMachineLearningComputeNodes";
-export const listMachineLearningComputeNodes: typeof import("./listMachineLearningComputeNodes").listMachineLearningComputeNodes = null as any;
-export const listMachineLearningComputeNodesOutput: typeof import("./listMachineLearningComputeNodes").listMachineLearningComputeNodesOutput = null as any;
-utilities.lazyLoad(exports, ["listMachineLearningComputeNodes","listMachineLearningComputeNodesOutput"], () => require("./listMachineLearningComputeNodes"));
-
-export { ListNotebookKeysArgs, ListNotebookKeysResult, ListNotebookKeysOutputArgs } from "./listNotebookKeys";
-export const listNotebookKeys: typeof import("./listNotebookKeys").listNotebookKeys = null as any;
-export const listNotebookKeysOutput: typeof import("./listNotebookKeys").listNotebookKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listNotebookKeys","listNotebookKeysOutput"], () => require("./listNotebookKeys"));
-
-export { ListStorageAccountKeysArgs, ListStorageAccountKeysResult, ListStorageAccountKeysOutputArgs } from "./listStorageAccountKeys";
-export const listStorageAccountKeys: typeof import("./listStorageAccountKeys").listStorageAccountKeys = null as any;
-export const listStorageAccountKeysOutput: typeof import("./listStorageAccountKeys").listStorageAccountKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listStorageAccountKeys","listStorageAccountKeysOutput"], () => require("./listStorageAccountKeys"));
-
-export { ListWorkspaceKeysArgs, ListWorkspaceKeysResult, ListWorkspaceKeysOutputArgs } from "./listWorkspaceKeys";
-export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspaceKeys = null as any;
-export const listWorkspaceKeysOutput: typeof import("./listWorkspaceKeys").listWorkspaceKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listWorkspaceKeys","listWorkspaceKeysOutput"], () => require("./listWorkspaceKeys"));
-
-export { ListWorkspaceNotebookAccessTokenArgs, ListWorkspaceNotebookAccessTokenResult, ListWorkspaceNotebookAccessTokenOutputArgs } from "./listWorkspaceNotebookAccessToken";
-export const listWorkspaceNotebookAccessToken: typeof import("./listWorkspaceNotebookAccessToken").listWorkspaceNotebookAccessToken = null as any;
-export const listWorkspaceNotebookAccessTokenOutput: typeof import("./listWorkspaceNotebookAccessToken").listWorkspaceNotebookAccessTokenOutput = null as any;
-utilities.lazyLoad(exports, ["listWorkspaceNotebookAccessToken","listWorkspaceNotebookAccessTokenOutput"], () => require("./listWorkspaceNotebookAccessToken"));
-
 export { MachineLearningComputeArgs } from "./machineLearningCompute";
 export type MachineLearningCompute = import("./machineLearningCompute").MachineLearningCompute;
 export const MachineLearningCompute: typeof import("./machineLearningCompute").MachineLearningCompute = null as any;

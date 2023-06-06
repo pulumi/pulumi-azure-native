@@ -10,11 +10,6 @@ export const getSubvolume: typeof import("./getSubvolume").getSubvolume = null a
 export const getSubvolumeOutput: typeof import("./getSubvolume").getSubvolumeOutput = null as any;
 utilities.lazyLoad(exports, ["getSubvolume","getSubvolumeOutput"], () => require("./getSubvolume"));
 
-export { GetSubvolumeMetadataArgs, GetSubvolumeMetadataResult, GetSubvolumeMetadataOutputArgs } from "./getSubvolumeMetadata";
-export const getSubvolumeMetadata: typeof import("./getSubvolumeMetadata").getSubvolumeMetadata = null as any;
-export const getSubvolumeMetadataOutput: typeof import("./getSubvolumeMetadata").getSubvolumeMetadataOutput = null as any;
-utilities.lazyLoad(exports, ["getSubvolumeMetadata","getSubvolumeMetadataOutput"], () => require("./getSubvolumeMetadata"));
-
 export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
 export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;

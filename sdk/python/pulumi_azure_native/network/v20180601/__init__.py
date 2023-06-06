@@ -7,10 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_load_balancer import *
-from .get_virtual_network_gateway_advertised_routes import *
-from .get_virtual_network_gateway_bgp_peer_status import *
-from .get_virtual_network_gateway_learned_routes import *
-from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
 from .load_balancer import *
 from ._inputs import *
 from . import outputs

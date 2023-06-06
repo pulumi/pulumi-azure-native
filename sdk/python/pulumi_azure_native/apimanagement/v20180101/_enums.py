@@ -7,7 +7,6 @@ from enum import Enum
 __all__ = [
     'BackendProtocol',
     'Confirmation',
-    'KeyType',
     'LoggerType',
     'SubscriptionState',
     'UserState',
@@ -40,14 +39,6 @@ class Confirmation(str, Enum):
     """
     Send an e-mail inviting the user to sign-up and complete registration.
     """
-
-
-class KeyType(str, Enum):
-    """
-    The Key to be used to generate token for user.
-    """
-    PRIMARY = "primary"
-    SECONDARY = "secondary"
 
 
 class LoggerType(str, Enum):

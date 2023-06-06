@@ -15,28 +15,6 @@ export const ActionType = {
  */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
-export const ApplicationGatewayProtocol = {
-    Http: "Http",
-    Https: "Https",
-    Tcp: "Tcp",
-    Tls: "Tls",
-} as const;
-
-/**
- * The protocol used for the probe.
- */
-export type ApplicationGatewayProtocol = (typeof ApplicationGatewayProtocol)[keyof typeof ApplicationGatewayProtocol];
-
-export const ConfigurationType = {
-    SecurityAdmin: "SecurityAdmin",
-    Connectivity: "Connectivity",
-} as const;
-
-/**
- * Configuration Deployment Type.
- */
-export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
-
 export const CustomRuleEnabledState = {
     Disabled: "Disabled",
     Enabled: "Enabled",
@@ -46,16 +24,6 @@ export const CustomRuleEnabledState = {
  * Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
  */
 export type CustomRuleEnabledState = (typeof CustomRuleEnabledState)[keyof typeof CustomRuleEnabledState];
-
-export const FirewallPolicyIDPSQuerySortOrder = {
-    Ascending: "Ascending",
-    Descending: "Descending",
-} as const;
-
-/**
- * Describes if results should be in ascending/descending order
- */
-export type FirewallPolicyIDPSQuerySortOrder = (typeof FirewallPolicyIDPSQuerySortOrder)[keyof typeof FirewallPolicyIDPSQuerySortOrder];
 
 export const FrontDoorMatchVariable = {
     RemoteAddr: "RemoteAddr",

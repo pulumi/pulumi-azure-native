@@ -10,13 +10,11 @@ from .api import *
 from .api_operation_policy import *
 from .api_policy import *
 from .get_api import *
-from .get_api_management_service_sso_token import *
 from .get_api_operation_policy import *
 from .get_api_policy import *
 from .get_policy import *
 from .get_product_policy import *
 from .get_tag_description import *
-from .get_user_shared_access_token import *
 from .policy import *
 from .product_api import *
 from .product_policy import *

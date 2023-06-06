@@ -10,11 +10,6 @@ export const getPool: typeof import("./getPool").getPool = null as any;
 export const getPoolOutput: typeof import("./getPool").getPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getPool","getPoolOutput"], () => require("./getPool"));
 
-export { ListBatchAccountKeysArgs, ListBatchAccountKeysResult, ListBatchAccountKeysOutputArgs } from "./listBatchAccountKeys";
-export const listBatchAccountKeys: typeof import("./listBatchAccountKeys").listBatchAccountKeys = null as any;
-export const listBatchAccountKeysOutput: typeof import("./listBatchAccountKeys").listBatchAccountKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listBatchAccountKeys","listBatchAccountKeysOutput"], () => require("./listBatchAccountKeys"));
-
 export { PoolArgs } from "./pool";
 export type Pool = import("./pool").Pool;
 export const Pool: typeof import("./pool").Pool = null as any;

@@ -12,44 +12,10 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'DatabaseAccountConnectionStringResponse',
     'PrivilegeResponse',
     'PrivilegeResponseResource',
     'RoleResponse',
 ]
-
-@pulumi.output_type
-class DatabaseAccountConnectionStringResponse(dict):
-    """
-    Connection string for the Cosmos DB account
-    """
-    def __init__(__self__, *,
-                 connection_string: str,
-                 description: str):
-        """
-        Connection string for the Cosmos DB account
-        :param str connection_string: Value of the connection string
-        :param str description: Description of the connection string
-        """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> str:
-        """
-        Value of the connection string
-        """
-        return pulumi.get(self, "connection_string")
-
-    @property
-    @pulumi.getter
-    def description(self) -> str:
-        """
-        Description of the connection string
-        """
-        return pulumi.get(self, "description")
-
 
 @pulumi.output_type
 class PrivilegeResponse(dict):

@@ -7,6 +7,4 @@ import typing
 # Export this package's modules as members:
 from .dps_certificate import *
 from .get_dps_certificate import *
-from .list_iot_dps_resource_keys import *
-from .list_iot_dps_resource_keys_for_key_name import *
 from . import outputs

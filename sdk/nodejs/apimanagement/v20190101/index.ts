@@ -30,11 +30,6 @@ export const getApiDiagnostic: typeof import("./getApiDiagnostic").getApiDiagnos
 export const getApiDiagnosticOutput: typeof import("./getApiDiagnostic").getApiDiagnosticOutput = null as any;
 utilities.lazyLoad(exports, ["getApiDiagnostic","getApiDiagnosticOutput"], () => require("./getApiDiagnostic"));
 
-export { GetApiManagementServiceSsoTokenArgs, GetApiManagementServiceSsoTokenResult, GetApiManagementServiceSsoTokenOutputArgs } from "./getApiManagementServiceSsoToken";
-export const getApiManagementServiceSsoToken: typeof import("./getApiManagementServiceSsoToken").getApiManagementServiceSsoToken = null as any;
-export const getApiManagementServiceSsoTokenOutput: typeof import("./getApiManagementServiceSsoToken").getApiManagementServiceSsoTokenOutput = null as any;
-utilities.lazyLoad(exports, ["getApiManagementServiceSsoToken","getApiManagementServiceSsoTokenOutput"], () => require("./getApiManagementServiceSsoToken"));
-
 export { GetApiSchemaArgs, GetApiSchemaResult, GetApiSchemaOutputArgs } from "./getApiSchema";
 export const getApiSchema: typeof import("./getApiSchema").getApiSchema = null as any;
 export const getApiSchemaOutput: typeof import("./getApiSchema").getApiSchemaOutput = null as any;
@@ -64,11 +59,6 @@ export { GetSubscriptionArgs, GetSubscriptionResult, GetSubscriptionOutputArgs }
 export const getSubscription: typeof import("./getSubscription").getSubscription = null as any;
 export const getSubscriptionOutput: typeof import("./getSubscription").getSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getSubscription","getSubscriptionOutput"], () => require("./getSubscription"));
-
-export { GetUserSharedAccessTokenArgs, GetUserSharedAccessTokenResult, GetUserSharedAccessTokenOutputArgs } from "./getUserSharedAccessToken";
-export const getUserSharedAccessToken: typeof import("./getUserSharedAccessToken").getUserSharedAccessToken = null as any;
-export const getUserSharedAccessTokenOutput: typeof import("./getUserSharedAccessToken").getUserSharedAccessTokenOutput = null as any;
-utilities.lazyLoad(exports, ["getUserSharedAccessToken","getUserSharedAccessTokenOutput"], () => require("./getUserSharedAccessToken"));
 
 export { IdentityProviderArgs } from "./identityProvider";
 export type IdentityProvider = import("./identityProvider").IdentityProvider;

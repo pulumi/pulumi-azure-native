@@ -12,13 +12,11 @@ from .backend import *
 from .diagnostic import *
 from .diagnostic_logger import *
 from .get_api_diagnostic import *
-from .get_api_management_service_sso_token import *
 from .get_backend import *
 from .get_diagnostic import *
 from .get_logger import *
 from .get_subscription import *
 from .get_user import *
-from .get_user_shared_access_token import *
 from .group_user import *
 from .logger import *
 from .notification_recipient_user import *

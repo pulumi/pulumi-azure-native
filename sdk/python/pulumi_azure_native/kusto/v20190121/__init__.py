@@ -10,5 +10,3 @@ from .event_grid_data_connection import *
 from .event_hub_data_connection import *
 from .get_event_grid_data_connection import *
 from .get_event_hub_data_connection import *
-from .list_database_principals import *
-from . import outputs

@@ -15,11 +15,6 @@ export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
 
-export { GetEventSubscriptionFullUrlArgs, GetEventSubscriptionFullUrlResult, GetEventSubscriptionFullUrlOutputArgs } from "./getEventSubscriptionFullUrl";
-export const getEventSubscriptionFullUrl: typeof import("./getEventSubscriptionFullUrl").getEventSubscriptionFullUrl = null as any;
-export const getEventSubscriptionFullUrlOutput: typeof import("./getEventSubscriptionFullUrl").getEventSubscriptionFullUrlOutput = null as any;
-utilities.lazyLoad(exports, ["getEventSubscriptionFullUrl","getEventSubscriptionFullUrlOutput"], () => require("./getEventSubscriptionFullUrl"));
-
 export { GetPartnerTopicEventSubscriptionArgs, GetPartnerTopicEventSubscriptionResult, GetPartnerTopicEventSubscriptionOutputArgs } from "./getPartnerTopicEventSubscription";
 export const getPartnerTopicEventSubscription: typeof import("./getPartnerTopicEventSubscription").getPartnerTopicEventSubscription = null as any;
 export const getPartnerTopicEventSubscriptionOutput: typeof import("./getPartnerTopicEventSubscription").getPartnerTopicEventSubscriptionOutput = null as any;
@@ -35,11 +30,6 @@ export const getSystemTopicEventSubscription: typeof import("./getSystemTopicEve
 export const getSystemTopicEventSubscriptionOutput: typeof import("./getSystemTopicEventSubscription").getSystemTopicEventSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getSystemTopicEventSubscription","getSystemTopicEventSubscriptionOutput"], () => require("./getSystemTopicEventSubscription"));
 
-export { GetSystemTopicEventSubscriptionFullUrlArgs, GetSystemTopicEventSubscriptionFullUrlResult, GetSystemTopicEventSubscriptionFullUrlOutputArgs } from "./getSystemTopicEventSubscriptionFullUrl";
-export const getSystemTopicEventSubscriptionFullUrl: typeof import("./getSystemTopicEventSubscriptionFullUrl").getSystemTopicEventSubscriptionFullUrl = null as any;
-export const getSystemTopicEventSubscriptionFullUrlOutput: typeof import("./getSystemTopicEventSubscriptionFullUrl").getSystemTopicEventSubscriptionFullUrlOutput = null as any;
-utilities.lazyLoad(exports, ["getSystemTopicEventSubscriptionFullUrl","getSystemTopicEventSubscriptionFullUrlOutput"], () => require("./getSystemTopicEventSubscriptionFullUrl"));
-
 export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
 export const getTopic: typeof import("./getTopic").getTopic = null as any;
 export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
@@ -49,11 +39,6 @@ export { ListDomainSharedAccessKeysArgs, ListDomainSharedAccessKeysResult, ListD
 export const listDomainSharedAccessKeys: typeof import("./listDomainSharedAccessKeys").listDomainSharedAccessKeys = null as any;
 export const listDomainSharedAccessKeysOutput: typeof import("./listDomainSharedAccessKeys").listDomainSharedAccessKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listDomainSharedAccessKeys","listDomainSharedAccessKeysOutput"], () => require("./listDomainSharedAccessKeys"));
-
-export { ListPartnerNamespaceSharedAccessKeysArgs, ListPartnerNamespaceSharedAccessKeysResult, ListPartnerNamespaceSharedAccessKeysOutputArgs } from "./listPartnerNamespaceSharedAccessKeys";
-export const listPartnerNamespaceSharedAccessKeys: typeof import("./listPartnerNamespaceSharedAccessKeys").listPartnerNamespaceSharedAccessKeys = null as any;
-export const listPartnerNamespaceSharedAccessKeysOutput: typeof import("./listPartnerNamespaceSharedAccessKeys").listPartnerNamespaceSharedAccessKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listPartnerNamespaceSharedAccessKeys","listPartnerNamespaceSharedAccessKeysOutput"], () => require("./listPartnerNamespaceSharedAccessKeys"));
 
 export { ListTopicSharedAccessKeysArgs, ListTopicSharedAccessKeysResult, ListTopicSharedAccessKeysOutputArgs } from "./listTopicSharedAccessKeys";
 export const listTopicSharedAccessKeys: typeof import("./listTopicSharedAccessKeys").listTopicSharedAccessKeys = null as any;

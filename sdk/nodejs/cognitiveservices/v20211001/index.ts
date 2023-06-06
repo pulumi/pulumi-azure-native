@@ -25,11 +25,6 @@ export const getDeployment: typeof import("./getDeployment").getDeployment = nul
 export const getDeploymentOutput: typeof import("./getDeployment").getDeploymentOutput = null as any;
 utilities.lazyLoad(exports, ["getDeployment","getDeploymentOutput"], () => require("./getDeployment"));
 
-export { ListAccountKeysArgs, ListAccountKeysResult, ListAccountKeysOutputArgs } from "./listAccountKeys";
-export const listAccountKeys: typeof import("./listAccountKeys").listAccountKeys = null as any;
-export const listAccountKeysOutput: typeof import("./listAccountKeys").listAccountKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listAccountKeys","listAccountKeysOutput"], () => require("./listAccountKeys"));
-
 
 // Export enums:
 export * from "../../types/enums/cognitiveservices/v20211001";

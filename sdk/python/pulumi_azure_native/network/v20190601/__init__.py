@@ -20,7 +20,6 @@ from .get_load_balancer import *
 from .get_nat_gateway import *
 from .get_network_interface import *
 from .get_network_security_group import *
-from .get_p2s_vpn_gateway_p2s_vpn_connection_health import *
 from .get_public_ip_address import *
 from .get_public_ip_prefix import *
 from .get_route import *
@@ -28,11 +27,6 @@ from .get_route_table import *
 from .get_security_rule import *
 from .get_subnet import *
 from .get_virtual_network import *
-from .get_virtual_network_gateway_advertised_routes import *
-from .get_virtual_network_gateway_bgp_peer_status import *
-from .get_virtual_network_gateway_learned_routes import *
-from .get_virtual_network_gateway_vpnclient_connection_health import *
-from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
 from .get_virtual_network_peering import *
 from .inbound_nat_rule import *
 from .load_balancer import *

@@ -11,7 +11,6 @@ from ... import _utilities
 
 __all__ = [
     'CertificatePropertiesResponse',
-    'SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse',
     'SystemDataResponse',
 ]
 
@@ -118,63 +117,6 @@ class CertificatePropertiesResponse(dict):
         The certificate's last update date and time.
         """
         return pulumi.get(self, "updated")
-
-
-@pulumi.output_type
-class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse(dict):
-    """
-    Description of the shared access key.
-    """
-    def __init__(__self__, *,
-                 key_name: str,
-                 rights: str,
-                 primary_key: Optional[str] = None,
-                 secondary_key: Optional[str] = None):
-        """
-        Description of the shared access key.
-        :param str key_name: Name of the key.
-        :param str rights: Rights that this key has.
-        :param str primary_key: Primary SAS key value.
-        :param str secondary_key: Secondary SAS key value.
-        """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "rights", rights)
-        if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
-        if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
-
-    @property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> str:
-        """
-        Name of the key.
-        """
-        return pulumi.get(self, "key_name")
-
-    @property
-    @pulumi.getter
-    def rights(self) -> str:
-        """
-        Rights that this key has.
-        """
-        return pulumi.get(self, "rights")
-
-    @property
-    @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[str]:
-        """
-        Primary SAS key value.
-        """
-        return pulumi.get(self, "primary_key")
-
-    @property
-    @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[str]:
-        """
-        Secondary SAS key value.
-        """
-        return pulumi.get(self, "secondary_key")
 
 
 @pulumi.output_type

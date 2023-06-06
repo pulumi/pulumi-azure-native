@@ -21,8 +21,6 @@ from .get_nat_gateway import *
 from .get_network_interface import *
 from .get_network_profile import *
 from .get_network_security_group import *
-from .get_p2s_vpn_gateway_p2s_vpn_connection_health import *
-from .get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed import *
 from .get_private_link_service import *
 from .get_public_ip_address import *
 from .get_public_ip_prefix import *

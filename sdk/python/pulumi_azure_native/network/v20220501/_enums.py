@@ -6,10 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ActionType',
-    'ApplicationGatewayProtocol',
-    'ConfigurationType',
     'CustomRuleEnabledState',
-    'FirewallPolicyIDPSQuerySortOrder',
     'FrontDoorMatchVariable',
     'ManagedRuleEnabledState',
     'ManagedRuleExclusionMatchVariable',
@@ -36,38 +33,12 @@ class ActionType(str, Enum):
     ANOMALY_SCORING = "AnomalyScoring"
 
 
-class ApplicationGatewayProtocol(str, Enum):
-    """
-    The protocol used for the probe.
-    """
-    HTTP = "Http"
-    HTTPS = "Https"
-    TCP = "Tcp"
-    TLS = "Tls"
-
-
-class ConfigurationType(str, Enum):
-    """
-    Configuration Deployment Type.
-    """
-    SECURITY_ADMIN = "SecurityAdmin"
-    CONNECTIVITY = "Connectivity"
-
-
 class CustomRuleEnabledState(str, Enum):
     """
     Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
-
-
-class FirewallPolicyIDPSQuerySortOrder(str, Enum):
-    """
-    Describes if results should be in ascending/descending order
-    """
-    ASCENDING = "Ascending"
-    DESCENDING = "Descending"
 
 
 class FrontDoorMatchVariable(str, Enum):

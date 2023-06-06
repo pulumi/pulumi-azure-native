@@ -10,11 +10,6 @@ export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null a
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 
-export { ListMachineLearningComputeKeysArgs, ListMachineLearningComputeKeysResult, ListMachineLearningComputeKeysOutputArgs } from "./listMachineLearningComputeKeys";
-export const listMachineLearningComputeKeys: typeof import("./listMachineLearningComputeKeys").listMachineLearningComputeKeys = null as any;
-export const listMachineLearningComputeKeysOutput: typeof import("./listMachineLearningComputeKeys").listMachineLearningComputeKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listMachineLearningComputeKeys","listMachineLearningComputeKeysOutput"], () => require("./listMachineLearningComputeKeys"));
-
 export { ListWorkspaceKeysArgs, ListWorkspaceKeysResult, ListWorkspaceKeysOutputArgs } from "./listWorkspaceKeys";
 export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspaceKeys = null as any;
 export const listWorkspaceKeysOutput: typeof import("./listWorkspaceKeys").listWorkspaceKeysOutput = null as any;

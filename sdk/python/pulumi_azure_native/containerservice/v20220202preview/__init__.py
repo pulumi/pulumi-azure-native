@@ -7,9 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_managed_cluster_snapshot import *
-from .list_managed_cluster_admin_credentials import *
-from .list_managed_cluster_monitoring_user_credentials import *
-from .list_managed_cluster_user_credentials import *
 from .managed_cluster_snapshot import *
 from ._inputs import *
 from . import outputs

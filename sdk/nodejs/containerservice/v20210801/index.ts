@@ -20,21 +20,6 @@ export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as a
 export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
 utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
 
-export { ListManagedClusterAdminCredentialsArgs, ListManagedClusterAdminCredentialsResult, ListManagedClusterAdminCredentialsOutputArgs } from "./listManagedClusterAdminCredentials";
-export const listManagedClusterAdminCredentials: typeof import("./listManagedClusterAdminCredentials").listManagedClusterAdminCredentials = null as any;
-export const listManagedClusterAdminCredentialsOutput: typeof import("./listManagedClusterAdminCredentials").listManagedClusterAdminCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["listManagedClusterAdminCredentials","listManagedClusterAdminCredentialsOutput"], () => require("./listManagedClusterAdminCredentials"));
-
-export { ListManagedClusterMonitoringUserCredentialsArgs, ListManagedClusterMonitoringUserCredentialsResult, ListManagedClusterMonitoringUserCredentialsOutputArgs } from "./listManagedClusterMonitoringUserCredentials";
-export const listManagedClusterMonitoringUserCredentials: typeof import("./listManagedClusterMonitoringUserCredentials").listManagedClusterMonitoringUserCredentials = null as any;
-export const listManagedClusterMonitoringUserCredentialsOutput: typeof import("./listManagedClusterMonitoringUserCredentials").listManagedClusterMonitoringUserCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["listManagedClusterMonitoringUserCredentials","listManagedClusterMonitoringUserCredentialsOutput"], () => require("./listManagedClusterMonitoringUserCredentials"));
-
-export { ListManagedClusterUserCredentialsArgs, ListManagedClusterUserCredentialsResult, ListManagedClusterUserCredentialsOutputArgs } from "./listManagedClusterUserCredentials";
-export const listManagedClusterUserCredentials: typeof import("./listManagedClusterUserCredentials").listManagedClusterUserCredentials = null as any;
-export const listManagedClusterUserCredentialsOutput: typeof import("./listManagedClusterUserCredentials").listManagedClusterUserCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["listManagedClusterUserCredentials","listManagedClusterUserCredentialsOutput"], () => require("./listManagedClusterUserCredentials"));
-
 export { SnapshotArgs } from "./snapshot";
 export type Snapshot = import("./snapshot").Snapshot;
 export const Snapshot: typeof import("./snapshot").Snapshot = null as any;

@@ -9,9 +9,6 @@ from ._enums import *
 from .application_group import *
 from .get_application_group import *
 from .get_schema_registry import *
-from .list_disaster_recovery_config_keys import *
-from .list_event_hub_keys import *
-from .list_namespace_keys import *
 from .schema_registry import *
 from ._inputs import *
 from . import outputs

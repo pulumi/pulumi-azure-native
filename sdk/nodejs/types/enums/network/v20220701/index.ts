@@ -2,38 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ApplicationGatewayProtocol = {
-    Http: "Http",
-    Https: "Https",
-    Tcp: "Tcp",
-    Tls: "Tls",
-} as const;
-
-/**
- * The protocol used for the probe.
- */
-export type ApplicationGatewayProtocol = (typeof ApplicationGatewayProtocol)[keyof typeof ApplicationGatewayProtocol];
-
-export const ConfigurationType = {
-    SecurityAdmin: "SecurityAdmin",
-    Connectivity: "Connectivity",
-} as const;
-
-/**
- * Configuration Deployment Type.
- */
-export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
-
-export const FirewallPolicyIDPSQuerySortOrder = {
-    Ascending: "Ascending",
-    Descending: "Descending",
-} as const;
-
-/**
- * Describes if results should be in ascending/descending order
- */
-export type FirewallPolicyIDPSQuerySortOrder = (typeof FirewallPolicyIDPSQuerySortOrder)[keyof typeof FirewallPolicyIDPSQuerySortOrder];
-
 export const ForwardingRuleState = {
     Enabled: "Enabled",
     Disabled: "Disabled",

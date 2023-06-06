@@ -7,8 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_placement_policy import *
-from .get_script_execution_logs import *
-from .list_private_cloud_admin_credentials import *
 from .placement_policy import *
 from ._inputs import *
 from . import outputs

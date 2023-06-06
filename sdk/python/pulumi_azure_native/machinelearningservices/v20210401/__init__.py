@@ -14,12 +14,6 @@ from .get_aks_service import *
 from .get_endpoint_variant import *
 from .get_machine_learning_compute import *
 from .get_workspace_connection import *
-from .list_machine_learning_compute_keys import *
-from .list_machine_learning_compute_nodes import *
-from .list_notebook_keys import *
-from .list_storage_account_keys import *
-from .list_workspace_keys import *
-from .list_workspace_notebook_access_token import *
 from .machine_learning_compute import *
 from .workspace_connection import *
 from ._inputs import *

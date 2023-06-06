@@ -10,11 +10,6 @@ export const getRedisFirewallRule: typeof import("./getRedisFirewallRule").getRe
 export const getRedisFirewallRuleOutput: typeof import("./getRedisFirewallRule").getRedisFirewallRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getRedisFirewallRule","getRedisFirewallRuleOutput"], () => require("./getRedisFirewallRule"));
 
-export { ListRedisKeysArgs, ListRedisKeysResult, ListRedisKeysOutputArgs } from "./listRedisKeys";
-export const listRedisKeys: typeof import("./listRedisKeys").listRedisKeys = null as any;
-export const listRedisKeysOutput: typeof import("./listRedisKeys").listRedisKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listRedisKeys","listRedisKeysOutput"], () => require("./listRedisKeys"));
-
 export { RedisFirewallRuleArgs } from "./redisFirewallRule";
 export type RedisFirewallRule = import("./redisFirewallRule").RedisFirewallRule;
 export const RedisFirewallRule: typeof import("./redisFirewallRule").RedisFirewallRule = null as any;

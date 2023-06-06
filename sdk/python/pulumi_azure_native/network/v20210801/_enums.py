@@ -5,7 +5,6 @@
 from enum import Enum
 
 __all__ = [
-    'ApplicationGatewayProtocol',
     'AzureFirewallThreatIntelMode',
     'FirewallPolicyIDPSQuerySortOrder',
     'FirewallPolicyIntrusionDetectionProtocol',
@@ -13,16 +12,6 @@ __all__ = [
     'FirewallPolicySkuTier',
     'ResourceIdentityType',
 ]
-
-
-class ApplicationGatewayProtocol(str, Enum):
-    """
-    The protocol used for the probe.
-    """
-    HTTP = "Http"
-    HTTPS = "Https"
-    TCP = "Tcp"
-    TLS = "Tls"
 
 
 class AzureFirewallThreatIntelMode(str, Enum):

@@ -82,9 +82,6 @@ import * as v20201201preview from "./v20201201preview";
 import * as v20210601 from "./v20210601";
 import * as v20210901privatepreview from "./v20210901privatepreview";
 import * as v20220101 from "./v20220101";
-import * as v20220201preview from "./v20220201preview";
-import * as v20220601preview from "./v20220601preview";
-import * as v20220801preview from "./v20220801preview";
 import * as v20221001preview from "./v20221001preview";
 import * as v20230201preview from "./v20230201preview";
 import * as v20230301preview from "./v20230301preview";
@@ -97,9 +94,6 @@ export {
     v20210601,
     v20210901privatepreview,
     v20220101,
-    v20220201preview,
-    v20220601preview,
-    v20220801preview,
     v20221001preview,
     v20230201preview,
     v20230301preview,

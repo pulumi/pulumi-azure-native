@@ -85,21 +85,6 @@ export type GremlinResourceGremlinGraph = import("./gremlinResourceGremlinGraph"
 export const GremlinResourceGremlinGraph: typeof import("./gremlinResourceGremlinGraph").GremlinResourceGremlinGraph = null as any;
 utilities.lazyLoad(exports, ["GremlinResourceGremlinGraph"], () => require("./gremlinResourceGremlinGraph"));
 
-export { ListDatabaseAccountConnectionStringsArgs, ListDatabaseAccountConnectionStringsResult, ListDatabaseAccountConnectionStringsOutputArgs } from "./listDatabaseAccountConnectionStrings";
-export const listDatabaseAccountConnectionStrings: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStrings = null as any;
-export const listDatabaseAccountConnectionStringsOutput: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStringsOutput = null as any;
-utilities.lazyLoad(exports, ["listDatabaseAccountConnectionStrings","listDatabaseAccountConnectionStringsOutput"], () => require("./listDatabaseAccountConnectionStrings"));
-
-export { ListDatabaseAccountKeysArgs, ListDatabaseAccountKeysResult, ListDatabaseAccountKeysOutputArgs } from "./listDatabaseAccountKeys";
-export const listDatabaseAccountKeys: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeys = null as any;
-export const listDatabaseAccountKeysOutput: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listDatabaseAccountKeys","listDatabaseAccountKeysOutput"], () => require("./listDatabaseAccountKeys"));
-
-export { ListNotebookWorkspaceConnectionInfoArgs, ListNotebookWorkspaceConnectionInfoResult, ListNotebookWorkspaceConnectionInfoOutputArgs } from "./listNotebookWorkspaceConnectionInfo";
-export const listNotebookWorkspaceConnectionInfo: typeof import("./listNotebookWorkspaceConnectionInfo").listNotebookWorkspaceConnectionInfo = null as any;
-export const listNotebookWorkspaceConnectionInfoOutput: typeof import("./listNotebookWorkspaceConnectionInfo").listNotebookWorkspaceConnectionInfoOutput = null as any;
-utilities.lazyLoad(exports, ["listNotebookWorkspaceConnectionInfo","listNotebookWorkspaceConnectionInfoOutput"], () => require("./listNotebookWorkspaceConnectionInfo"));
-
 export { MongoDBResourceMongoDBCollectionArgs } from "./mongoDBResourceMongoDBCollection";
 export type MongoDBResourceMongoDBCollection = import("./mongoDBResourceMongoDBCollection").MongoDBResourceMongoDBCollection;
 export const MongoDBResourceMongoDBCollection: typeof import("./mongoDBResourceMongoDBCollection").MongoDBResourceMongoDBCollection = null as any;
