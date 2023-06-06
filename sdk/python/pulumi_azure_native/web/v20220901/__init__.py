@@ -12,13 +12,11 @@ from .app_service_environment_private_endpoint_connection import *
 from .app_service_plan import *
 from .app_service_plan_route_for_vnet import *
 from .certificate import *
-from .container_app import *
 from .get_app_service_environment import *
 from .get_app_service_environment_ase_custom_dns_suffix_configuration import *
 from .get_app_service_environment_private_endpoint_connection import *
 from .get_app_service_plan import *
 from .get_certificate import *
-from .get_container_app import *
 from .get_kube_environment import *
 from .get_static_site import *
 from .get_static_site_build_database_connection import *
