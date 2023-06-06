@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
- * API Version: 2022-10-01.
+ * API Version: 2023-04-01.
  */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
 
@@ -40,7 +40,7 @@ export interface ListWorkspaceKeysResult {
 }
 /**
  * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
- * API Version: 2022-10-01.
+ * API Version: 2023-04-01.
  */
 export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceKeys(a, opts))

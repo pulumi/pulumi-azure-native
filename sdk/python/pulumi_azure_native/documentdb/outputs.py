@@ -15,10 +15,12 @@ __all__ = [
     'AccountKeyMetadataResponse',
     'AnalyticalStorageConfigurationResponse',
     'ApiPropertiesResponse',
+    'AuthenticationMethodLdapPropertiesResponse',
     'AutoscaleSettingsResponse',
     'BackupPolicyMigrationStateResponse',
     'CapabilityResponse',
     'CapacityResponse',
+    'CassandraErrorResponse',
     'CassandraKeyspaceGetPropertiesResponseOptions',
     'CassandraKeyspaceGetPropertiesResponseResource',
     'CassandraPartitionKeyResponse',
@@ -36,6 +38,7 @@ __all__ = [
     'ConsistencyPolicyResponse',
     'ContainerPartitionKeyResponse',
     'ContinuousModeBackupPolicyResponse',
+    'ContinuousModePropertiesResponse',
     'CorsPolicyResponse',
     'DataCenterResourceResponseProperties',
     'DataTransferRegionalServiceResourceResponse',
@@ -214,6 +217,140 @@ class ApiPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class AuthenticationMethodLdapPropertiesResponse(dict):
+    """
+    Ldap authentication method properties. This feature is in preview.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionTimeoutInMs":
+            suggest = "connection_timeout_in_ms"
+        elif key == "searchBaseDistinguishedName":
+            suggest = "search_base_distinguished_name"
+        elif key == "searchFilterTemplate":
+            suggest = "search_filter_template"
+        elif key == "serverCertificates":
+            suggest = "server_certificates"
+        elif key == "serverHostname":
+            suggest = "server_hostname"
+        elif key == "serverPort":
+            suggest = "server_port"
+        elif key == "serviceUserDistinguishedName":
+            suggest = "service_user_distinguished_name"
+        elif key == "serviceUserPassword":
+            suggest = "service_user_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthenticationMethodLdapPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthenticationMethodLdapPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthenticationMethodLdapPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_timeout_in_ms: Optional[int] = None,
+                 search_base_distinguished_name: Optional[str] = None,
+                 search_filter_template: Optional[str] = None,
+                 server_certificates: Optional[Sequence['outputs.CertificateResponse']] = None,
+                 server_hostname: Optional[str] = None,
+                 server_port: Optional[int] = None,
+                 service_user_distinguished_name: Optional[str] = None,
+                 service_user_password: Optional[str] = None):
+        """
+        Ldap authentication method properties. This feature is in preview.
+        :param int connection_timeout_in_ms: Timeout for connecting to the LDAP server in miliseconds. The default is 5000 ms.
+        :param str search_base_distinguished_name: Distinguished name of the object to start the recursive search of users from.
+        :param str search_filter_template: Template to use for searching. Defaults to (cn=%s) where %s will be replaced by the username used to login.
+        :param str server_hostname: Hostname of the LDAP server.
+        :param int server_port: Port of the LDAP server.
+        :param str service_user_distinguished_name: Distinguished name of the look up user account, who can look up user details on authentication.
+        :param str service_user_password: Password of the look up user.
+        """
+        if connection_timeout_in_ms is not None:
+            pulumi.set(__self__, "connection_timeout_in_ms", connection_timeout_in_ms)
+        if search_base_distinguished_name is not None:
+            pulumi.set(__self__, "search_base_distinguished_name", search_base_distinguished_name)
+        if search_filter_template is not None:
+            pulumi.set(__self__, "search_filter_template", search_filter_template)
+        if server_certificates is not None:
+            pulumi.set(__self__, "server_certificates", server_certificates)
+        if server_hostname is not None:
+            pulumi.set(__self__, "server_hostname", server_hostname)
+        if server_port is not None:
+            pulumi.set(__self__, "server_port", server_port)
+        if service_user_distinguished_name is not None:
+            pulumi.set(__self__, "service_user_distinguished_name", service_user_distinguished_name)
+        if service_user_password is not None:
+            pulumi.set(__self__, "service_user_password", service_user_password)
+
+    @property
+    @pulumi.getter(name="connectionTimeoutInMs")
+    def connection_timeout_in_ms(self) -> Optional[int]:
+        """
+        Timeout for connecting to the LDAP server in miliseconds. The default is 5000 ms.
+        """
+        return pulumi.get(self, "connection_timeout_in_ms")
+
+    @property
+    @pulumi.getter(name="searchBaseDistinguishedName")
+    def search_base_distinguished_name(self) -> Optional[str]:
+        """
+        Distinguished name of the object to start the recursive search of users from.
+        """
+        return pulumi.get(self, "search_base_distinguished_name")
+
+    @property
+    @pulumi.getter(name="searchFilterTemplate")
+    def search_filter_template(self) -> Optional[str]:
+        """
+        Template to use for searching. Defaults to (cn=%s) where %s will be replaced by the username used to login.
+        """
+        return pulumi.get(self, "search_filter_template")
+
+    @property
+    @pulumi.getter(name="serverCertificates")
+    def server_certificates(self) -> Optional[Sequence['outputs.CertificateResponse']]:
+        return pulumi.get(self, "server_certificates")
+
+    @property
+    @pulumi.getter(name="serverHostname")
+    def server_hostname(self) -> Optional[str]:
+        """
+        Hostname of the LDAP server.
+        """
+        return pulumi.get(self, "server_hostname")
+
+    @property
+    @pulumi.getter(name="serverPort")
+    def server_port(self) -> Optional[int]:
+        """
+        Port of the LDAP server.
+        """
+        return pulumi.get(self, "server_port")
+
+    @property
+    @pulumi.getter(name="serviceUserDistinguishedName")
+    def service_user_distinguished_name(self) -> Optional[str]:
+        """
+        Distinguished name of the look up user account, who can look up user details on authentication.
+        """
+        return pulumi.get(self, "service_user_distinguished_name")
+
+    @property
+    @pulumi.getter(name="serviceUserPassword")
+    def service_user_password(self) -> Optional[str]:
+        """
+        Password of the look up user.
+        """
+        return pulumi.get(self, "service_user_password")
+
+
+@pulumi.output_type
 class AutoscaleSettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -376,6 +513,78 @@ class CapacityResponse(dict):
         The total throughput limit imposed on the account. A totalThroughputLimit of 2000 imposes a strict limit of max throughput that can be provisioned on that account to be 2000. A totalThroughputLimit of -1 indicates no limits on provisioning of throughput.
         """
         return pulumi.get(self, "total_throughput_limit")
+
+
+@pulumi.output_type
+class CassandraErrorResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalErrorInfo":
+            suggest = "additional_error_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CassandraErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CassandraErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CassandraErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_error_info: Optional[str] = None,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None,
+                 target: Optional[str] = None):
+        """
+        :param str additional_error_info: Additional information about the error.
+        :param str code: The code of error that occurred.
+        :param str message: The message of the error.
+        :param str target: The target resource of the error.
+        """
+        if additional_error_info is not None:
+            pulumi.set(__self__, "additional_error_info", additional_error_info)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalErrorInfo")
+    def additional_error_info(self) -> Optional[str]:
+        """
+        Additional information about the error.
+        """
+        return pulumi.get(self, "additional_error_info")
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        The code of error that occurred.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        The message of the error.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        The target resource of the error.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -951,6 +1160,8 @@ class ClusterResourceResponseProperties(dict):
             suggest = "hours_between_backups"
         elif key == "prometheusEndpoint":
             suggest = "prometheus_endpoint"
+        elif key == "provisionError":
+            suggest = "provision_error"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "repairEnabled":
@@ -981,6 +1192,7 @@ class ClusterResourceResponseProperties(dict):
                  external_seed_nodes: Optional[Sequence['outputs.SeedNodeResponse']] = None,
                  hours_between_backups: Optional[int] = None,
                  prometheus_endpoint: Optional['outputs.SeedNodeResponse'] = None,
+                 provision_error: Optional['outputs.CassandraErrorResponse'] = None,
                  provisioning_state: Optional[str] = None,
                  repair_enabled: Optional[bool] = None):
         """
@@ -996,8 +1208,9 @@ class ClusterResourceResponseProperties(dict):
         :param str delegated_management_subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
         :param Sequence['CertificateResponse'] external_gossip_certificates: List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
         :param Sequence['SeedNodeResponse'] external_seed_nodes: List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
-        :param int hours_between_backups: Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+        :param int hours_between_backups: (Deprecated) Number of hours to wait between taking a backup of the cluster.
         :param 'SeedNodeResponse' prometheus_endpoint: Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+        :param 'CassandraErrorResponse' provision_error: Error related to resource provisioning.
         :param str provisioning_state: The status of the resource at the time the operation was called.
         :param bool repair_enabled: Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
         """
@@ -1025,6 +1238,8 @@ class ClusterResourceResponseProperties(dict):
             pulumi.set(__self__, "hours_between_backups", hours_between_backups)
         if prometheus_endpoint is not None:
             pulumi.set(__self__, "prometheus_endpoint", prometheus_endpoint)
+        if provision_error is not None:
+            pulumi.set(__self__, "provision_error", provision_error)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if repair_enabled is not None:
@@ -1122,7 +1337,7 @@ class ClusterResourceResponseProperties(dict):
     @pulumi.getter(name="hoursBetweenBackups")
     def hours_between_backups(self) -> Optional[int]:
         """
-        Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+        (Deprecated) Number of hours to wait between taking a backup of the cluster.
         """
         return pulumi.get(self, "hours_between_backups")
 
@@ -1133,6 +1348,14 @@ class ClusterResourceResponseProperties(dict):
         Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
         """
         return pulumi.get(self, "prometheus_endpoint")
+
+    @property
+    @pulumi.getter(name="provisionError")
+    def provision_error(self) -> Optional['outputs.CassandraErrorResponse']:
+        """
+        Error related to resource provisioning.
+        """
+        return pulumi.get(self, "provision_error")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -1437,7 +1660,9 @@ class ContinuousModeBackupPolicyResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "migrationState":
+        if key == "continuousModeProperties":
+            suggest = "continuous_mode_properties"
+        elif key == "migrationState":
             suggest = "migration_state"
 
         if suggest:
@@ -1453,14 +1678,18 @@ class ContinuousModeBackupPolicyResponse(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 continuous_mode_properties: Optional['outputs.ContinuousModePropertiesResponse'] = None,
                  migration_state: Optional['outputs.BackupPolicyMigrationStateResponse'] = None):
         """
         The object representing continuous mode backup policy.
         :param str type: Describes the mode of backups.
                Expected value is 'Continuous'.
+        :param 'ContinuousModePropertiesResponse' continuous_mode_properties: Configuration values for continuous mode backup
         :param 'BackupPolicyMigrationStateResponse' migration_state: The object representing the state of the migration between the backup policies.
         """
         pulumi.set(__self__, "type", 'Continuous')
+        if continuous_mode_properties is not None:
+            pulumi.set(__self__, "continuous_mode_properties", continuous_mode_properties)
         if migration_state is not None:
             pulumi.set(__self__, "migration_state", migration_state)
 
@@ -1474,12 +1703,43 @@ class ContinuousModeBackupPolicyResponse(dict):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="continuousModeProperties")
+    def continuous_mode_properties(self) -> Optional['outputs.ContinuousModePropertiesResponse']:
+        """
+        Configuration values for continuous mode backup
+        """
+        return pulumi.get(self, "continuous_mode_properties")
+
+    @property
     @pulumi.getter(name="migrationState")
     def migration_state(self) -> Optional['outputs.BackupPolicyMigrationStateResponse']:
         """
         The object representing the state of the migration between the backup policies.
         """
         return pulumi.get(self, "migration_state")
+
+
+@pulumi.output_type
+class ContinuousModePropertiesResponse(dict):
+    """
+    Configuration values for periodic mode backup
+    """
+    def __init__(__self__, *,
+                 tier: Optional[str] = None):
+        """
+        Configuration values for periodic mode backup
+        :param str tier: Enum to indicate type of Continuous backup mode
+        """
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        Enum to indicate type of Continuous backup mode
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type
@@ -1587,6 +1847,8 @@ class DataCenterResourceResponseProperties(dict):
         suggest = None
         if key == "seedNodes":
             suggest = "seed_nodes"
+        elif key == "authenticationMethodLdapProperties":
+            suggest = "authentication_method_ldap_properties"
         elif key == "availabilityZone":
             suggest = "availability_zone"
         elif key == "backupStorageCustomerKeyUri":
@@ -1605,6 +1867,8 @@ class DataCenterResourceResponseProperties(dict):
             suggest = "managed_disk_customer_key_uri"
         elif key == "nodeCount":
             suggest = "node_count"
+        elif key == "provisionError":
+            suggest = "provision_error"
         elif key == "provisioningState":
             suggest = "provisioning_state"
 
@@ -1621,33 +1885,41 @@ class DataCenterResourceResponseProperties(dict):
 
     def __init__(__self__, *,
                  seed_nodes: Sequence['outputs.SeedNodeResponse'],
+                 authentication_method_ldap_properties: Optional['outputs.AuthenticationMethodLdapPropertiesResponse'] = None,
                  availability_zone: Optional[bool] = None,
                  backup_storage_customer_key_uri: Optional[str] = None,
                  base64_encoded_cassandra_yaml_fragment: Optional[str] = None,
                  data_center_location: Optional[str] = None,
+                 deallocated: Optional[bool] = None,
                  delegated_subnet_id: Optional[str] = None,
                  disk_capacity: Optional[int] = None,
                  disk_sku: Optional[str] = None,
                  managed_disk_customer_key_uri: Optional[str] = None,
                  node_count: Optional[int] = None,
+                 provision_error: Optional['outputs.CassandraErrorResponse'] = None,
                  provisioning_state: Optional[str] = None,
                  sku: Optional[str] = None):
         """
         Properties of a managed Cassandra data center.
         :param Sequence['SeedNodeResponse'] seed_nodes: IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
-        :param bool availability_zone: If the azure data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
+        :param 'AuthenticationMethodLdapPropertiesResponse' authentication_method_ldap_properties: Ldap authentication method properties. This feature is in preview.
+        :param bool availability_zone: If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
         :param str backup_storage_customer_key_uri: Indicates the Key Uri of the customer key to use for encryption of the backup storage account.
         :param str base64_encoded_cassandra_yaml_fragment: A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
         :param str data_center_location: The region this data center should be created in.
+        :param bool deallocated: Whether the data center has been deallocated.
         :param str delegated_subnet_id: Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
-        :param int disk_capacity: Number of disk used for data centers. Default value is 4.
+        :param int disk_capacity: Number of disks attached to each node. Default is 4.
         :param str disk_sku: Disk SKU used for data centers. Default value is P30.
         :param str managed_disk_customer_key_uri: Key uri to use for encryption of managed disks. Ensure the system assigned identity of the cluster has been assigned appropriate permissions(key get/wrap/unwrap permissions) on the key.
         :param int node_count: The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
+        :param 'CassandraErrorResponse' provision_error: Error related to resource provisioning.
         :param str provisioning_state: The status of the resource at the time the operation was called.
         :param str sku: Virtual Machine SKU used for data centers. Default value is Standard_DS14_v2
         """
         pulumi.set(__self__, "seed_nodes", seed_nodes)
+        if authentication_method_ldap_properties is not None:
+            pulumi.set(__self__, "authentication_method_ldap_properties", authentication_method_ldap_properties)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if backup_storage_customer_key_uri is not None:
@@ -1656,6 +1928,8 @@ class DataCenterResourceResponseProperties(dict):
             pulumi.set(__self__, "base64_encoded_cassandra_yaml_fragment", base64_encoded_cassandra_yaml_fragment)
         if data_center_location is not None:
             pulumi.set(__self__, "data_center_location", data_center_location)
+        if deallocated is not None:
+            pulumi.set(__self__, "deallocated", deallocated)
         if delegated_subnet_id is not None:
             pulumi.set(__self__, "delegated_subnet_id", delegated_subnet_id)
         if disk_capacity is not None:
@@ -1666,6 +1940,8 @@ class DataCenterResourceResponseProperties(dict):
             pulumi.set(__self__, "managed_disk_customer_key_uri", managed_disk_customer_key_uri)
         if node_count is not None:
             pulumi.set(__self__, "node_count", node_count)
+        if provision_error is not None:
+            pulumi.set(__self__, "provision_error", provision_error)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if sku is not None:
@@ -1680,10 +1956,18 @@ class DataCenterResourceResponseProperties(dict):
         return pulumi.get(self, "seed_nodes")
 
     @property
+    @pulumi.getter(name="authenticationMethodLdapProperties")
+    def authentication_method_ldap_properties(self) -> Optional['outputs.AuthenticationMethodLdapPropertiesResponse']:
+        """
+        Ldap authentication method properties. This feature is in preview.
+        """
+        return pulumi.get(self, "authentication_method_ldap_properties")
+
+    @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[bool]:
         """
-        If the azure data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
+        If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -1712,6 +1996,14 @@ class DataCenterResourceResponseProperties(dict):
         return pulumi.get(self, "data_center_location")
 
     @property
+    @pulumi.getter
+    def deallocated(self) -> Optional[bool]:
+        """
+        Whether the data center has been deallocated.
+        """
+        return pulumi.get(self, "deallocated")
+
+    @property
     @pulumi.getter(name="delegatedSubnetId")
     def delegated_subnet_id(self) -> Optional[str]:
         """
@@ -1723,7 +2015,7 @@ class DataCenterResourceResponseProperties(dict):
     @pulumi.getter(name="diskCapacity")
     def disk_capacity(self) -> Optional[int]:
         """
-        Number of disk used for data centers. Default value is 4.
+        Number of disks attached to each node. Default is 4.
         """
         return pulumi.get(self, "disk_capacity")
 
@@ -1750,6 +2042,14 @@ class DataCenterResourceResponseProperties(dict):
         The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
         """
         return pulumi.get(self, "node_count")
+
+    @property
+    @pulumi.getter(name="provisionError")
+    def provision_error(self) -> Optional['outputs.CassandraErrorResponse']:
+        """
+        Error related to resource provisioning.
+        """
+        return pulumi.get(self, "provision_error")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -1923,14 +2223,20 @@ class DatabaseAccountConnectionStringResponse(dict):
     """
     def __init__(__self__, *,
                  connection_string: str,
-                 description: str):
+                 description: str,
+                 key_kind: str,
+                 type: str):
         """
         Connection string for the Cosmos DB account
         :param str connection_string: Value of the connection string
         :param str description: Description of the connection string
+        :param str key_kind: Kind of the connection string key
+        :param str type: Type of the connection string
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key_kind", key_kind)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -1947,6 +2253,22 @@ class DatabaseAccountConnectionStringResponse(dict):
         Description of the connection string
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="keyKind")
+    def key_kind(self) -> str:
+        """
+        Kind of the connection string key
+        """
+        return pulumi.get(self, "key_kind")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the connection string
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

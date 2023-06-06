@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the specific Azure Monitor workspace
- * API Version: 2021-06-03-preview.
+ * API Version: 2023-04-03.
  */
 export function getAzureMonitorWorkspace(args: GetAzureMonitorWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureMonitorWorkspaceResult> {
 
@@ -64,9 +64,17 @@ export interface GetAzureMonitorWorkspaceResult {
      */
     readonly name: string;
     /**
+     * List of private endpoint connections
+     */
+    readonly privateEndpointConnections: outputs.monitor.PrivateEndpointConnectionResponse[];
+    /**
      * The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
      */
     readonly provisioningState: string;
+    /**
+     * Gets or sets allow or disallow public network access to workspace
+     */
+    readonly publicNetworkAccess: string;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -82,7 +90,7 @@ export interface GetAzureMonitorWorkspaceResult {
 }
 /**
  * Returns the specific Azure Monitor workspace
- * API Version: 2021-06-03-preview.
+ * API Version: 2023-04-03.
  */
 export function getAzureMonitorWorkspaceOutput(args: GetAzureMonitorWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureMonitorWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getAzureMonitorWorkspace(a, opts))

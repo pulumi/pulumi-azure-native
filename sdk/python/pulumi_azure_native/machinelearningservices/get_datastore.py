@@ -99,7 +99,7 @@ def get_datastore(name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatastoreResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str name: Datastore name.
@@ -128,7 +128,7 @@ def get_datastore_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatastoreResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str name: Datastore name.

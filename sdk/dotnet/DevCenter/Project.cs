@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a project resource.
-    /// API Version: 2022-11-11-preview.
+    /// API Version: 2023-04-01.
     /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Project")]
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.DevCenter
         public Output<string?> DevCenterId { get; private set; } = null!;
 
         /// <summary>
-        /// The URI of the resource.
+        /// The URI of the Dev Center resource this project is associated with.
         /// </summary>
         [Output("devCenterUri")]
         public Output<string> DevCenterUri { get; private set; } = null!;
@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
+        /// </summary>
+        [Output("maxDevBoxesPerUser")]
+        public Output<int?> MaxDevBoxesPerUser { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -142,6 +148,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
+        /// </summary>
+        [Input("maxDevBoxesPerUser")]
+        public Input<int>? MaxDevBoxesPerUser { get; set; }
 
         /// <summary>
         /// The name of the project.

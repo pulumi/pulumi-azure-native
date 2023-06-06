@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Traffic Manager profile.
- * API Version: 2018-08-01.
+ * API Version: 2022-04-01.
  * Previous API Version: 2018-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Profile extends pulumi.CustomResource {
@@ -183,7 +183,7 @@ export interface ProfileArgs {
      */
     profileStatus?: pulumi.Input<string | enums.network.ProfileStatus>;
     /**
-     * The name of the resource group containing the Traffic Manager profile.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

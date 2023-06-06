@@ -21,12 +21,6 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         [Input("dnsServiceIP")]
         public Input<string>? DnsServiceIP { get; set; }
 
-        /// <summary>
-        /// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
-        /// </summary>
-        [Input("dockerBridgeCidr")]
-        public Input<string>? DockerBridgeCidr { get; set; }
-
         [Input("ipFamilies")]
         private InputList<Union<string, Pulumi.AzureNative.ContainerService.IpFamily>>? _ipFamilies;
 
@@ -58,6 +52,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<Inputs.ManagedClusterNATGatewayProfileArgs>? NatGatewayProfile { get; set; }
 
         /// <summary>
+        /// Network dataplane used in the Kubernetes cluster.
+        /// </summary>
+        [Input("networkDataplane")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.NetworkDataplane>? NetworkDataplane { get; set; }
+
+        /// <summary>
         /// This cannot be specified if networkPlugin is anything other than 'azure'.
         /// </summary>
         [Input("networkMode")]
@@ -68,6 +68,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         /// </summary>
         [Input("networkPlugin")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.NetworkPlugin>? NetworkPlugin { get; set; }
+
+        /// <summary>
+        /// The mode the network plugin should use.
+        /// </summary>
+        [Input("networkPluginMode")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.NetworkPluginMode>? NetworkPluginMode { get; set; }
 
         /// <summary>
         /// Network policy used for building the Kubernetes network.
@@ -120,7 +126,6 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public ContainerServiceNetworkProfileArgs()
         {
             DnsServiceIP = "10.0.0.10";
-            DockerBridgeCidr = "172.17.0.1/16";
             NetworkPlugin = "kubenet";
             OutboundType = "loadBalancer";
             PodCidr = "10.244.0.0/16";

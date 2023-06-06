@@ -194,7 +194,7 @@ def get_communication_service(communication_service_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommunicationServiceResult:
     """
     Get the CommunicationService and its properties.
-    API Version: 2023-03-01-preview.
+    API Version: 2023-03-31.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.
@@ -228,7 +228,7 @@ def get_communication_service_output(communication_service_name: Optional[pulumi
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommunicationServiceResult]:
     """
     Get the CommunicationService and its properties.
-    API Version: 2023-03-01-preview.
+    API Version: 2023-03-31.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.

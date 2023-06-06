@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
-    /// API Version: 2022-10-01.
+    /// API Version: 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource

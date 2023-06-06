@@ -147,7 +147,7 @@ def get_content_key_policy(account_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentKeyPolicyResult:
     """
     Get the details of a Content Key Policy in the Media Services account
-    API Version: 2022-08-01.
+    API Version: 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -180,7 +180,7 @@ def get_content_key_policy_output(account_name: Optional[pulumi.Input[str]] = No
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContentKeyPolicyResult]:
     """
     Get the details of a Content Key Policy in the Media Services account
-    API Version: 2022-08-01.
+    API Version: 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

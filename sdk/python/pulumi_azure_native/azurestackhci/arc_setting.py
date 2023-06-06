@@ -180,7 +180,7 @@ class ArcSetting(pulumi.CustomResource):
                  __props__=None):
         """
         ArcSetting details.
-        API Version: 2023-02-01.
+        API Version: 2023-03-01.
         Previous API Version: 2021-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -203,7 +203,7 @@ class ArcSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ArcSetting details.
-        API Version: 2023-02-01.
+        API Version: 2023-03-01.
         Previous API Version: 2021-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -253,6 +253,7 @@ class ArcSetting(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["aggregate_state"] = None
+            __props__.__dict__["default_extensions"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["per_node_details"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -289,6 +290,7 @@ class ArcSetting(pulumi.CustomResource):
         __props__.__dict__["arc_instance_resource_group"] = None
         __props__.__dict__["arc_service_principal_object_id"] = None
         __props__.__dict__["connectivity_properties"] = None
+        __props__.__dict__["default_extensions"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["per_node_details"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -351,6 +353,14 @@ class ArcSetting(pulumi.CustomResource):
         contains connectivity related configuration for ARC resources
         """
         return pulumi.get(self, "connectivity_properties")
+
+    @property
+    @pulumi.getter(name="defaultExtensions")
+    def default_extensions(self) -> pulumi.Output[Sequence['outputs.DefaultExtensionDetailsResponse']]:
+        """
+        Properties for each of the default extensions category
+        """
+        return pulumi.get(self, "default_extensions")
 
     @property
     @pulumi.getter

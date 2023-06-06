@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cognitive Services account commitment plan.
- * API Version: 2022-12-01.
+ * API Version: 2023-05-01.
  */
 export class SharedCommitmentPlan extends pulumi.CustomResource {
     /**

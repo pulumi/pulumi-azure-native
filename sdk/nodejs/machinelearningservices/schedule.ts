@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2022-10-01.
+ * API Version: 2023-04-01.
  */
 export class Schedule extends pulumi.CustomResource {
     /**

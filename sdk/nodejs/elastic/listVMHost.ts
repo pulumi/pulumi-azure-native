@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response of a list operation.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-06-01.
  */
 export function listVMHost(args: ListVMHostArgs, opts?: pulumi.InvokeOptions): Promise<ListVMHostResult> {
 
@@ -46,7 +46,7 @@ export interface ListVMHostResult {
 }
 /**
  * Response of a list operation.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-06-01.
  */
 export function listVMHostOutput(args: ListVMHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVMHostResult> {
     return pulumi.output(args).apply((a: any) => listVMHost(a, opts))

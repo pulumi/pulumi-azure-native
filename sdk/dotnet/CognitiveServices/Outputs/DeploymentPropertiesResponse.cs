@@ -36,10 +36,15 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// The name of RAI policy.
         /// </summary>
         public readonly string? RaiPolicyName;
+        public readonly ImmutableArray<Outputs.ThrottlingRuleResponse> RateLimits;
         /// <summary>
         /// Properties of Cognitive Services account deployment model.
         /// </summary>
         public readonly Outputs.DeploymentScaleSettingsResponse? ScaleSettings;
+        /// <summary>
+        /// Deployment model version upgrade option.
+        /// </summary>
+        public readonly string? VersionUpgradeOption;
 
         [OutputConstructor]
         private DeploymentPropertiesResponse(
@@ -53,14 +58,20 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             string? raiPolicyName,
 
-            Outputs.DeploymentScaleSettingsResponse? scaleSettings)
+            ImmutableArray<Outputs.ThrottlingRuleResponse> rateLimits,
+
+            Outputs.DeploymentScaleSettingsResponse? scaleSettings,
+
+            string? versionUpgradeOption)
         {
             CallRateLimit = callRateLimit;
             Capabilities = capabilities;
             Model = model;
             ProvisioningState = provisioningState;
             RaiPolicyName = raiPolicyName;
+            RateLimits = rateLimits;
             ScaleSettings = scaleSettings;
+            VersionUpgradeOption = versionUpgradeOption;
         }
     }
 }

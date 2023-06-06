@@ -81,7 +81,7 @@ class GetDedicatedHostResult:
     @pulumi.getter(name="hostId")
     def host_id(self) -> str:
         """
-        A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
+        A unique id generated and assigned to the dedicated host by the platform. Does not change throughout the lifetime of the host.
         """
         return pulumi.get(self, "host_id")
 
@@ -105,7 +105,7 @@ class GetDedicatedHostResult:
     @pulumi.getter(name="licenseType")
     def license_type(self) -> Optional[str]:
         """
-        Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+        Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
         """
         return pulumi.get(self, "license_type")
 
@@ -169,7 +169,7 @@ class GetDedicatedHostResult:
     @pulumi.getter(name="timeCreated")
     def time_created(self) -> str:
         """
-        Specifies the time at which the Dedicated Host resource was created.<br><br>Minimum api-version: 2021-11-01.
+        Specifies the time at which the Dedicated Host resource was created. Minimum api-version: 2021-11-01.
         """
         return pulumi.get(self, "time_created")
 
@@ -220,7 +220,7 @@ def get_dedicated_host(expand: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostResult:
     """
     Retrieves information about a dedicated host.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
@@ -262,7 +262,7 @@ def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[str]]] = No
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostResult]:
     """
     Retrieves information about a dedicated host.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.

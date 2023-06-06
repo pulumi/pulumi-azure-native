@@ -14,11 +14,13 @@ from ._enums import *
 __all__ = [
     'EnvironmentRoleResponse',
     'GitCatalogResponse',
+    'HealthStatusDetailResponse',
     'ImageReferenceResponse',
     'ImageValidationErrorDetailsResponse',
     'ManagedServiceIdentityResponse',
     'ProjectEnvironmentTypeUpdatePropertiesResponseCreatorRoleAssignment',
     'SkuResponse',
+    'StopOnDisconnectConfigurationResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
     'UserRoleAssignmentResponse',
@@ -151,6 +153,39 @@ class GitCatalogResponse(dict):
 
 
 @pulumi.output_type
+class HealthStatusDetailResponse(dict):
+    """
+    Pool health status detail.
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 message: str):
+        """
+        Pool health status detail.
+        :param str code: An identifier for the issue.
+        :param str message: A message describing the issue, intended to be suitable for display in a user interface
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        An identifier for the issue.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        A message describing the issue, intended to be suitable for display in a user interface
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
 class ImageReferenceResponse(dict):
     """
     Image reference information
@@ -174,27 +209,15 @@ class ImageReferenceResponse(dict):
 
     def __init__(__self__, *,
                  exact_version: str,
-                 id: Optional[str] = None,
-                 offer: Optional[str] = None,
-                 publisher: Optional[str] = None,
-                 sku: Optional[str] = None):
+                 id: Optional[str] = None):
         """
         Image reference information
         :param str exact_version: The actual version of the image after use. When id references a gallery image latest version, this will indicate the actual version in use.
         :param str id: Image ID, or Image version ID. When Image ID is provided, its latest version will be used.
-        :param str offer: The image offer.
-        :param str publisher: The image publisher.
-        :param str sku: The image sku.
         """
         pulumi.set(__self__, "exact_version", exact_version)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if offer is not None:
-            pulumi.set(__self__, "offer", offer)
-        if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
 
     @property
     @pulumi.getter(name="exactVersion")
@@ -211,30 +234,6 @@ class ImageReferenceResponse(dict):
         Image ID, or Image version ID. When Image ID is provided, its latest version will be used.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def offer(self) -> Optional[str]:
-        """
-        The image offer.
-        """
-        return pulumi.get(self, "offer")
-
-    @property
-    @pulumi.getter
-    def publisher(self) -> Optional[str]:
-        """
-        The image publisher.
-        """
-        return pulumi.get(self, "publisher")
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional[str]:
-        """
-        The image sku.
-        """
-        return pulumi.get(self, "sku")
 
 
 @pulumi.output_type
@@ -440,6 +439,58 @@ class SkuResponse(dict):
         This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class StopOnDisconnectConfigurationResponse(dict):
+    """
+    Stop on disconnect configuration settings for Dev Boxes created in this pool.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gracePeriodMinutes":
+            suggest = "grace_period_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StopOnDisconnectConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StopOnDisconnectConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StopOnDisconnectConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 grace_period_minutes: Optional[int] = None,
+                 status: Optional[str] = None):
+        """
+        Stop on disconnect configuration settings for Dev Boxes created in this pool.
+        :param int grace_period_minutes: The specified time in minutes to wait before stopping a Dev Box once disconnect is detected.
+        :param str status: Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
+        """
+        if grace_period_minutes is not None:
+            pulumi.set(__self__, "grace_period_minutes", grace_period_minutes)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="gracePeriodMinutes")
+    def grace_period_minutes(self) -> Optional[int]:
+        """
+        The specified time in minutes to wait before stopping a Dev Box once disconnect is detected.
+        """
+        return pulumi.get(self, "grace_period_minutes")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

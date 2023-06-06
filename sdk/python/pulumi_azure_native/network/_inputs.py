@@ -142,6 +142,7 @@ __all__ = [
     'FirewallPolicyFilterRuleCollectionActionArgs',
     'FirewallPolicyFilterRuleCollectionArgs',
     'FirewallPolicyFilterRuleArgs',
+    'FirewallPolicyHttpHeaderToInsertArgs',
     'FirewallPolicyInsightsArgs',
     'FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs',
     'FirewallPolicyIntrusionDetectionConfigurationArgs',
@@ -172,6 +173,8 @@ __all__ = [
     'FrontendIPConfigurationArgs',
     'GatewayCustomBgpIpAddressIpConfigurationArgs',
     'GatewayLoadBalancerTunnelInterfaceArgs',
+    'GroupByUserSessionArgs',
+    'GroupByVariableArgs',
     'HTTPHeaderArgs',
     'HeaderActionArgs',
     'HealthProbeSettingsModelArgs',
@@ -233,6 +236,7 @@ __all__ = [
     'PacketCaptureMachineScopeArgs',
     'PacketCaptureStorageLocationArgs',
     'ParameterArgs',
+    'PolicySettingsLogScrubbingArgs',
     'PolicySettingsArgs',
     'PrivateDnsZoneConfigArgs',
     'PrivateEndpointIPConfigurationArgs',
@@ -289,6 +293,7 @@ __all__ = [
     'TrafficSelectorPolicyArgs',
     'TxtRecordArgs',
     'VM',
+    'VirtualApplianceAdditionalNicPropertiesArgs',
     'VirtualApplianceSkuPropertiesArgs',
     'VirtualHubIdArgs',
     'VirtualHubRouteTableV2Args',
@@ -325,6 +330,7 @@ __all__ = [
     'VpnSiteLinkConnectionArgs',
     'VpnSiteLinkArgs',
     'WebApplicationFirewallCustomRuleArgs',
+    'WebApplicationFirewallScrubbingRulesArgs',
 ]
 
 @pulumi.input_type
@@ -4411,6 +4417,7 @@ class ApplicationRuleArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  fqdn_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 http_headers_to_insert: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyHttpHeaderToInsertArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleApplicationProtocolArgs']]]] = None,
                  source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -4426,6 +4433,7 @@ class ApplicationRuleArgs:
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: List of destination IP addresses or Service Tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdn_tags: List of FQDN Tags for this rule.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyHttpHeaderToInsertArgs']]] http_headers_to_insert: List of HTTP/S headers to insert.
         :param pulumi.Input[str] name: Name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleApplicationProtocolArgs']]] protocols: Array of Application Protocols.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: List of source IP addresses for this rule.
@@ -4442,6 +4450,8 @@ class ApplicationRuleArgs:
             pulumi.set(__self__, "destination_addresses", destination_addresses)
         if fqdn_tags is not None:
             pulumi.set(__self__, "fqdn_tags", fqdn_tags)
+        if http_headers_to_insert is not None:
+            pulumi.set(__self__, "http_headers_to_insert", http_headers_to_insert)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if protocols is not None:
@@ -4507,6 +4517,18 @@ class ApplicationRuleArgs:
     @fqdn_tags.setter
     def fqdn_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "fqdn_tags", value)
+
+    @property
+    @pulumi.getter(name="httpHeadersToInsert")
+    def http_headers_to_insert(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyHttpHeaderToInsertArgs']]]]:
+        """
+        List of HTTP/S headers to insert.
+        """
+        return pulumi.get(self, "http_headers_to_insert")
+
+    @http_headers_to_insert.setter
+    def http_headers_to_insert(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyHttpHeaderToInsertArgs']]]]):
+        pulumi.set(self, "http_headers_to_insert", value)
 
     @property
     @pulumi.getter
@@ -8153,6 +8175,7 @@ class EndpointServiceArgs:
 @pulumi.input_type
 class EndpointArgs:
     def __init__(__self__, *,
+                 always_serve: Optional[pulumi.Input[Union[str, 'AlwaysServe']]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersArgs']]]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
                  endpoint_monitor_status: Optional[pulumi.Input[Union[str, 'EndpointMonitorStatus']]] = None,
@@ -8171,6 +8194,7 @@ class EndpointArgs:
                  weight: Optional[pulumi.Input[float]] = None):
         """
         Class representing a Traffic Manager endpoint.
+        :param pulumi.Input[Union[str, 'AlwaysServe']] always_serve: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersArgs']]] custom_headers: List of custom headers.
         :param pulumi.Input[str] endpoint_location: Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
         :param pulumi.Input[Union[str, 'EndpointMonitorStatus']] endpoint_monitor_status: The monitoring status of the endpoint.
@@ -8188,6 +8212,8 @@ class EndpointArgs:
         :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         :param pulumi.Input[float] weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
+        if always_serve is not None:
+            pulumi.set(__self__, "always_serve", always_serve)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if endpoint_location is not None:
@@ -8220,6 +8246,18 @@ class EndpointArgs:
             pulumi.set(__self__, "type", type)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="alwaysServe")
+    def always_serve(self) -> Optional[pulumi.Input[Union[str, 'AlwaysServe']]]:
+        """
+        If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+        """
+        return pulumi.get(self, "always_serve")
+
+    @always_serve.setter
+    def always_serve(self, value: Optional[pulumi.Input[Union[str, 'AlwaysServe']]]):
+        pulumi.set(self, "always_serve", value)
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -10163,6 +10201,46 @@ class FirewallPolicyFilterRuleArgs:
 
 
 @pulumi.input_type
+class FirewallPolicyHttpHeaderToInsertArgs:
+    def __init__(__self__, *,
+                 header_name: Optional[pulumi.Input[str]] = None,
+                 header_value: Optional[pulumi.Input[str]] = None):
+        """
+        name and value of HTTP/S header to insert
+        :param pulumi.Input[str] header_name: Contains the name of the header
+        :param pulumi.Input[str] header_value: Contains the value of the header
+        """
+        if header_name is not None:
+            pulumi.set(__self__, "header_name", header_name)
+        if header_value is not None:
+            pulumi.set(__self__, "header_value", header_value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Contains the name of the header
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "header_name", value)
+
+    @property
+    @pulumi.getter(name="headerValue")
+    def header_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Contains the value of the header
+        """
+        return pulumi.get(self, "header_value")
+
+    @header_value.setter
+    def header_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "header_value", value)
+
+
+@pulumi.input_type
 class FirewallPolicyInsightsArgs:
     def __init__(__self__, *,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
@@ -12012,6 +12090,52 @@ class GatewayLoadBalancerTunnelInterfaceArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'GatewayLoadBalancerTunnelInterfaceType']]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class GroupByUserSessionArgs:
+    def __init__(__self__, *,
+                 group_by_variables: pulumi.Input[Sequence[pulumi.Input['GroupByVariableArgs']]]):
+        """
+        Define user session identifier group by clauses.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupByVariableArgs']]] group_by_variables: List of group by clause variables.
+        """
+        pulumi.set(__self__, "group_by_variables", group_by_variables)
+
+    @property
+    @pulumi.getter(name="groupByVariables")
+    def group_by_variables(self) -> pulumi.Input[Sequence[pulumi.Input['GroupByVariableArgs']]]:
+        """
+        List of group by clause variables.
+        """
+        return pulumi.get(self, "group_by_variables")
+
+    @group_by_variables.setter
+    def group_by_variables(self, value: pulumi.Input[Sequence[pulumi.Input['GroupByVariableArgs']]]):
+        pulumi.set(self, "group_by_variables", value)
+
+
+@pulumi.input_type
+class GroupByVariableArgs:
+    def __init__(__self__, *,
+                 variable_name: pulumi.Input[Union[str, 'ApplicationGatewayFirewallUserSessionVariable']]):
+        """
+        Define user session group by clause variables.
+        :param pulumi.Input[Union[str, 'ApplicationGatewayFirewallUserSessionVariable']] variable_name: User Session clause variable.
+        """
+        pulumi.set(__self__, "variable_name", variable_name)
+
+    @property
+    @pulumi.getter(name="variableName")
+    def variable_name(self) -> pulumi.Input[Union[str, 'ApplicationGatewayFirewallUserSessionVariable']]:
+        """
+        User Session clause variable.
+        """
+        return pulumi.get(self, "variable_name")
+
+    @variable_name.setter
+    def variable_name(self, value: pulumi.Input[Union[str, 'ApplicationGatewayFirewallUserSessionVariable']]):
+        pulumi.set(self, "variable_name", value)
 
 
 @pulumi.input_type
@@ -13913,7 +14037,7 @@ class ManagedRuleOverrideArgs:
         """
         Defines a managed rule group override setting.
         :param pulumi.Input[str] rule_id: Identifier for the managed rule.
-        :param pulumi.Input[Union[str, 'ActionType']] action: Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
+        :param pulumi.Input[Union[str, 'ActionType']] action: Describes the override action to be applied when rule matches.
         :param pulumi.Input[Union[str, 'ManagedRuleEnabledState']] state: The state of the managed rule. Defaults to Disabled if not specified.
         """
         pulumi.set(__self__, "rule_id", rule_id)
@@ -13938,7 +14062,7 @@ class ManagedRuleOverrideArgs:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[Union[str, 'ActionType']]]:
         """
-        Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
+        Describes the override action to be applied when rule matches.
         """
         return pulumi.get(self, "action")
 
@@ -16806,37 +16930,97 @@ class ParameterArgs:
 
 
 @pulumi.input_type
+class PolicySettingsLogScrubbingArgs:
+    def __init__(__self__, *,
+                 scrubbing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationFirewallScrubbingRulesArgs']]]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'WebApplicationFirewallScrubbingState']]] = None):
+        """
+        To scrub sensitive log fields
+        :param pulumi.Input[Sequence[pulumi.Input['WebApplicationFirewallScrubbingRulesArgs']]] scrubbing_rules: The rules that are applied to the logs for scrubbing.
+        :param pulumi.Input[Union[str, 'WebApplicationFirewallScrubbingState']] state: State of the log scrubbing config. Default value is Enabled.
+        """
+        if scrubbing_rules is not None:
+            pulumi.set(__self__, "scrubbing_rules", scrubbing_rules)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="scrubbingRules")
+    def scrubbing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationFirewallScrubbingRulesArgs']]]]:
+        """
+        The rules that are applied to the logs for scrubbing.
+        """
+        return pulumi.get(self, "scrubbing_rules")
+
+    @scrubbing_rules.setter
+    def scrubbing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationFirewallScrubbingRulesArgs']]]]):
+        pulumi.set(self, "scrubbing_rules", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'WebApplicationFirewallScrubbingState']]]:
+        """
+        State of the log scrubbing config. Default value is Enabled.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'WebApplicationFirewallScrubbingState']]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
 class PolicySettingsArgs:
     def __init__(__self__, *,
                  custom_block_response_body: Optional[pulumi.Input[str]] = None,
                  custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
+                 file_upload_enforcement: Optional[pulumi.Input[bool]] = None,
                  file_upload_limit_in_mb: Optional[pulumi.Input[int]] = None,
+                 log_scrubbing: Optional[pulumi.Input['PolicySettingsLogScrubbingArgs']] = None,
                  max_request_body_size_in_kb: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'WebApplicationFirewallMode']]] = None,
                  request_body_check: Optional[pulumi.Input[bool]] = None,
+                 request_body_enforcement: Optional[pulumi.Input[bool]] = None,
+                 request_body_inspect_limit_in_kb: Optional[pulumi.Input[int]] = None,
                  state: Optional[pulumi.Input[Union[str, 'WebApplicationFirewallEnabledState']]] = None):
         """
         Defines contents of a web application firewall global configuration.
         :param pulumi.Input[str] custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If the action type is block, customer can override the response status code.
+        :param pulumi.Input[bool] file_upload_enforcement: Whether allow WAF to enforce file upload limits.
         :param pulumi.Input[int] file_upload_limit_in_mb: Maximum file upload size in Mb for WAF.
+        :param pulumi.Input['PolicySettingsLogScrubbingArgs'] log_scrubbing: To scrub sensitive log fields
         :param pulumi.Input[int] max_request_body_size_in_kb: Maximum request body size in Kb for WAF.
         :param pulumi.Input[Union[str, 'WebApplicationFirewallMode']] mode: The mode of the policy.
         :param pulumi.Input[bool] request_body_check: Whether to allow WAF to check request Body.
+        :param pulumi.Input[bool] request_body_enforcement: Whether allow WAF to enforce request body limits.
+        :param pulumi.Input[int] request_body_inspect_limit_in_kb: Max inspection limit in KB for request body inspection for WAF.
         :param pulumi.Input[Union[str, 'WebApplicationFirewallEnabledState']] state: The state of the policy.
         """
         if custom_block_response_body is not None:
             pulumi.set(__self__, "custom_block_response_body", custom_block_response_body)
         if custom_block_response_status_code is not None:
             pulumi.set(__self__, "custom_block_response_status_code", custom_block_response_status_code)
+        if file_upload_enforcement is None:
+            file_upload_enforcement = True
+        if file_upload_enforcement is not None:
+            pulumi.set(__self__, "file_upload_enforcement", file_upload_enforcement)
         if file_upload_limit_in_mb is not None:
             pulumi.set(__self__, "file_upload_limit_in_mb", file_upload_limit_in_mb)
+        if log_scrubbing is not None:
+            pulumi.set(__self__, "log_scrubbing", log_scrubbing)
         if max_request_body_size_in_kb is not None:
             pulumi.set(__self__, "max_request_body_size_in_kb", max_request_body_size_in_kb)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if request_body_check is not None:
             pulumi.set(__self__, "request_body_check", request_body_check)
+        if request_body_enforcement is None:
+            request_body_enforcement = True
+        if request_body_enforcement is not None:
+            pulumi.set(__self__, "request_body_enforcement", request_body_enforcement)
+        if request_body_inspect_limit_in_kb is not None:
+            pulumi.set(__self__, "request_body_inspect_limit_in_kb", request_body_inspect_limit_in_kb)
         if state is not None:
             pulumi.set(__self__, "state", state)
 
@@ -16865,6 +17049,18 @@ class PolicySettingsArgs:
         pulumi.set(self, "custom_block_response_status_code", value)
 
     @property
+    @pulumi.getter(name="fileUploadEnforcement")
+    def file_upload_enforcement(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether allow WAF to enforce file upload limits.
+        """
+        return pulumi.get(self, "file_upload_enforcement")
+
+    @file_upload_enforcement.setter
+    def file_upload_enforcement(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "file_upload_enforcement", value)
+
+    @property
     @pulumi.getter(name="fileUploadLimitInMb")
     def file_upload_limit_in_mb(self) -> Optional[pulumi.Input[int]]:
         """
@@ -16875,6 +17071,18 @@ class PolicySettingsArgs:
     @file_upload_limit_in_mb.setter
     def file_upload_limit_in_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "file_upload_limit_in_mb", value)
+
+    @property
+    @pulumi.getter(name="logScrubbing")
+    def log_scrubbing(self) -> Optional[pulumi.Input['PolicySettingsLogScrubbingArgs']]:
+        """
+        To scrub sensitive log fields
+        """
+        return pulumi.get(self, "log_scrubbing")
+
+    @log_scrubbing.setter
+    def log_scrubbing(self, value: Optional[pulumi.Input['PolicySettingsLogScrubbingArgs']]):
+        pulumi.set(self, "log_scrubbing", value)
 
     @property
     @pulumi.getter(name="maxRequestBodySizeInKb")
@@ -16911,6 +17119,30 @@ class PolicySettingsArgs:
     @request_body_check.setter
     def request_body_check(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "request_body_check", value)
+
+    @property
+    @pulumi.getter(name="requestBodyEnforcement")
+    def request_body_enforcement(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether allow WAF to enforce request body limits.
+        """
+        return pulumi.get(self, "request_body_enforcement")
+
+    @request_body_enforcement.setter
+    def request_body_enforcement(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "request_body_enforcement", value)
+
+    @property
+    @pulumi.getter(name="requestBodyInspectLimitInKB")
+    def request_body_inspect_limit_in_kb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Max inspection limit in KB for request body inspection for WAF.
+        """
+        return pulumi.get(self, "request_body_inspect_limit_in_kb")
+
+    @request_body_inspect_limit_in_kb.setter
+    def request_body_inspect_limit_in_kb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "request_body_inspect_limit_in_kb", value)
 
     @property
     @pulumi.getter
@@ -17775,16 +18007,20 @@ class PtrRecordArgs:
 class PublicIPAddressDnsSettingsArgs:
     def __init__(__self__, *,
                  domain_name_label: Optional[pulumi.Input[str]] = None,
+                 domain_name_label_scope: Optional[pulumi.Input['PublicIpAddressDnsSettingsDomainNameLabelScope']] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  reverse_fqdn: Optional[pulumi.Input[str]] = None):
         """
         Contains FQDN of the DNS record associated with the public IP address.
         :param pulumi.Input[str] domain_name_label: The domain name label. The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        :param pulumi.Input['PublicIpAddressDnsSettingsDomainNameLabelScope'] domain_name_label_scope: The domain name label scope. If a domain name label and a domain name label scope are specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN.
         :param pulumi.Input[str] fqdn: The Fully Qualified Domain Name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
         :param pulumi.Input[str] reverse_fqdn: The reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         """
         if domain_name_label is not None:
             pulumi.set(__self__, "domain_name_label", domain_name_label)
+        if domain_name_label_scope is not None:
+            pulumi.set(__self__, "domain_name_label_scope", domain_name_label_scope)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
         if reverse_fqdn is not None:
@@ -17801,6 +18037,18 @@ class PublicIPAddressDnsSettingsArgs:
     @domain_name_label.setter
     def domain_name_label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain_name_label", value)
+
+    @property
+    @pulumi.getter(name="domainNameLabelScope")
+    def domain_name_label_scope(self) -> Optional[pulumi.Input['PublicIpAddressDnsSettingsDomainNameLabelScope']]:
+        """
+        The domain name label scope. If a domain name label and a domain name label scope are specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN.
+        """
+        return pulumi.get(self, "domain_name_label_scope")
+
+    @domain_name_label_scope.setter
+    def domain_name_label_scope(self, value: Optional[pulumi.Input['PublicIpAddressDnsSettingsDomainNameLabelScope']]):
+        pulumi.set(self, "domain_name_label_scope", value)
 
     @property
     @pulumi.getter
@@ -21419,6 +21667,46 @@ class VM:
 
 
 @pulumi.input_type
+class VirtualApplianceAdditionalNicPropertiesArgs:
+    def __init__(__self__, *,
+                 has_public_ip: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Network Virtual Appliance Additional NIC properties.
+        :param pulumi.Input[bool] has_public_ip: Customer Intent for Public Ip on additional nic
+        :param pulumi.Input[str] name: Customer Name for additional nic
+        """
+        if has_public_ip is not None:
+            pulumi.set(__self__, "has_public_ip", has_public_ip)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="hasPublicIp")
+    def has_public_ip(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Customer Intent for Public Ip on additional nic
+        """
+        return pulumi.get(self, "has_public_ip")
+
+    @has_public_ip.setter
+    def has_public_ip(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "has_public_ip", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer Name for additional nic
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class VirtualApplianceSkuPropertiesArgs:
     def __init__(__self__, *,
                  bundled_scale_unit: Optional[pulumi.Input[str]] = None,
@@ -24545,7 +24833,10 @@ class WebApplicationFirewallCustomRuleArgs:
                  match_conditions: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]],
                  priority: pulumi.Input[int],
                  rule_type: pulumi.Input[Union[str, 'WebApplicationFirewallRuleType']],
+                 group_by_user_session: Optional[pulumi.Input[Sequence[pulumi.Input['GroupByUserSessionArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 rate_limit_duration: Optional[pulumi.Input[Union[str, 'ApplicationGatewayFirewallRateLimitDuration']]] = None,
+                 rate_limit_threshold: Optional[pulumi.Input[int]] = None,
                  state: Optional[pulumi.Input[Union[str, 'WebApplicationFirewallState']]] = None):
         """
         Defines contents of a web application rule.
@@ -24553,15 +24844,24 @@ class WebApplicationFirewallCustomRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]] match_conditions: List of match conditions.
         :param pulumi.Input[int] priority: Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param pulumi.Input[Union[str, 'WebApplicationFirewallRuleType']] rule_type: The rule type.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupByUserSessionArgs']]] group_by_user_session: List of user session identifier group by clauses.
         :param pulumi.Input[str] name: The name of the resource that is unique within a policy. This name can be used to access the resource.
+        :param pulumi.Input[Union[str, 'ApplicationGatewayFirewallRateLimitDuration']] rate_limit_duration: Duration over which Rate Limit policy will be applied. Applies only when ruleType is RateLimitRule.
+        :param pulumi.Input[int] rate_limit_threshold: Rate Limit threshold to apply in case ruleType is RateLimitRule. Must be greater than or equal to 1
         :param pulumi.Input[Union[str, 'WebApplicationFirewallState']] state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match_conditions", match_conditions)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_type", rule_type)
+        if group_by_user_session is not None:
+            pulumi.set(__self__, "group_by_user_session", group_by_user_session)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if rate_limit_duration is not None:
+            pulumi.set(__self__, "rate_limit_duration", rate_limit_duration)
+        if rate_limit_threshold is not None:
+            pulumi.set(__self__, "rate_limit_threshold", rate_limit_threshold)
         if state is not None:
             pulumi.set(__self__, "state", state)
 
@@ -24614,6 +24914,18 @@ class WebApplicationFirewallCustomRuleArgs:
         pulumi.set(self, "rule_type", value)
 
     @property
+    @pulumi.getter(name="groupByUserSession")
+    def group_by_user_session(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupByUserSessionArgs']]]]:
+        """
+        List of user session identifier group by clauses.
+        """
+        return pulumi.get(self, "group_by_user_session")
+
+    @group_by_user_session.setter
+    def group_by_user_session(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupByUserSessionArgs']]]]):
+        pulumi.set(self, "group_by_user_session", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -24626,6 +24938,30 @@ class WebApplicationFirewallCustomRuleArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="rateLimitDuration")
+    def rate_limit_duration(self) -> Optional[pulumi.Input[Union[str, 'ApplicationGatewayFirewallRateLimitDuration']]]:
+        """
+        Duration over which Rate Limit policy will be applied. Applies only when ruleType is RateLimitRule.
+        """
+        return pulumi.get(self, "rate_limit_duration")
+
+    @rate_limit_duration.setter
+    def rate_limit_duration(self, value: Optional[pulumi.Input[Union[str, 'ApplicationGatewayFirewallRateLimitDuration']]]):
+        pulumi.set(self, "rate_limit_duration", value)
+
+    @property
+    @pulumi.getter(name="rateLimitThreshold")
+    def rate_limit_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        Rate Limit threshold to apply in case ruleType is RateLimitRule. Must be greater than or equal to 1
+        """
+        return pulumi.get(self, "rate_limit_threshold")
+
+    @rate_limit_threshold.setter
+    def rate_limit_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rate_limit_threshold", value)
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[Union[str, 'WebApplicationFirewallState']]]:
         """
@@ -24635,6 +24971,76 @@ class WebApplicationFirewallCustomRuleArgs:
 
     @state.setter
     def state(self, value: Optional[pulumi.Input[Union[str, 'WebApplicationFirewallState']]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class WebApplicationFirewallScrubbingRulesArgs:
+    def __init__(__self__, *,
+                 match_variable: pulumi.Input[Union[str, 'ScrubbingRuleEntryMatchVariable']],
+                 selector_match_operator: pulumi.Input[Union[str, 'ScrubbingRuleEntryMatchOperator']],
+                 selector: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'ScrubbingRuleEntryState']]] = None):
+        """
+        Allow certain variables to be scrubbed on WAF logs
+        :param pulumi.Input[Union[str, 'ScrubbingRuleEntryMatchVariable']] match_variable: The variable to be scrubbed from the logs.
+        :param pulumi.Input[Union[str, 'ScrubbingRuleEntryMatchOperator']] selector_match_operator: When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
+        :param pulumi.Input[str] selector: When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
+        :param pulumi.Input[Union[str, 'ScrubbingRuleEntryState']] state: Defines the state of log scrubbing rule. Default value is Enabled.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "selector_match_operator", selector_match_operator)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> pulumi.Input[Union[str, 'ScrubbingRuleEntryMatchVariable']]:
+        """
+        The variable to be scrubbed from the logs.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @match_variable.setter
+    def match_variable(self, value: pulumi.Input[Union[str, 'ScrubbingRuleEntryMatchVariable']]):
+        pulumi.set(self, "match_variable", value)
+
+    @property
+    @pulumi.getter(name="selectorMatchOperator")
+    def selector_match_operator(self) -> pulumi.Input[Union[str, 'ScrubbingRuleEntryMatchOperator']]:
+        """
+        When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
+        """
+        return pulumi.get(self, "selector_match_operator")
+
+    @selector_match_operator.setter
+    def selector_match_operator(self, value: pulumi.Input[Union[str, 'ScrubbingRuleEntryMatchOperator']]):
+        pulumi.set(self, "selector_match_operator", value)
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[pulumi.Input[str]]:
+        """
+        When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
+        """
+        return pulumi.get(self, "selector")
+
+    @selector.setter
+    def selector(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "selector", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'ScrubbingRuleEntryState']]]:
+        """
+        Defines the state of log scrubbing rule. Default value is Enabled.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'ScrubbingRuleEntryState']]]):
         pulumi.set(self, "state", value)
 
 

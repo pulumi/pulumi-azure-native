@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HealthcareApis
     {
         /// <summary>
         /// Gets the properties of the specified Iot Connector FHIR destination.
-        /// API Version: 2022-12-01.
+        /// API Version: 2023-02-28.
         /// </summary>
         public static Task<GetIotConnectorFhirDestinationResult> InvokeAsync(GetIotConnectorFhirDestinationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotConnectorFhirDestinationResult>("azure-native:healthcareapis:getIotConnectorFhirDestination", args ?? new GetIotConnectorFhirDestinationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified Iot Connector FHIR destination.
-        /// API Version: 2022-12-01.
+        /// API Version: 2023-02-28.
         /// </summary>
         public static Output<GetIotConnectorFhirDestinationResult> Invoke(GetIotConnectorFhirDestinationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotConnectorFhirDestinationResult>("azure-native:healthcareapis:getIotConnectorFhirDestination", args ?? new GetIotConnectorFhirDestinationInvokeArgs(), options.WithDefaults());

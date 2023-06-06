@@ -18,6 +18,7 @@ __all__ = ['MachineArgs', 'Machine']
 class MachineArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 agent_upgrade: Optional[pulumi.Input['AgentUpgradeArgs']] = None,
                  client_public_key: Optional[pulumi.Input[str]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]]] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
@@ -35,6 +36,7 @@ class MachineArgs:
         """
         The set of arguments for constructing a Machine resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['AgentUpgradeArgs'] agent_upgrade: The info of the machine w.r.t Agent Upgrade
         :param pulumi.Input[str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
         :param pulumi.Input[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]] extensions: Machine Extensions information (deprecated field)
         :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
@@ -51,6 +53,8 @@ class MachineArgs:
         :param pulumi.Input[str] vm_id: Specifies the hybrid machine unique ID.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if agent_upgrade is not None:
+            pulumi.set(__self__, "agent_upgrade", agent_upgrade)
         if client_public_key is not None:
             pulumi.set(__self__, "client_public_key", client_public_key)
         if extensions is not None:
@@ -91,6 +95,18 @@ class MachineArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="agentUpgrade")
+    def agent_upgrade(self) -> Optional[pulumi.Input['AgentUpgradeArgs']]:
+        """
+        The info of the machine w.r.t Agent Upgrade
+        """
+        return pulumi.get(self, "agent_upgrade")
+
+    @agent_upgrade.setter
+    def agent_upgrade(self, value: Optional[pulumi.Input['AgentUpgradeArgs']]):
+        pulumi.set(self, "agent_upgrade", value)
 
     @property
     @pulumi.getter(name="clientPublicKey")
@@ -266,6 +282,7 @@ class Machine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_upgrade: Optional[pulumi.Input[pulumi.InputType['AgentUpgradeArgs']]] = None,
                  client_public_key: Optional[pulumi.Input[str]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
@@ -284,11 +301,12 @@ class Machine(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a hybrid machine.
-        API Version: 2022-11-10.
+        API Version: 2022-12-27.
         Previous API Version: 2020-08-02. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AgentUpgradeArgs']] agent_upgrade: The info of the machine w.r.t Agent Upgrade
         :param pulumi.Input[str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]]] extensions: Machine Extensions information (deprecated field)
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Identity for the resource.
@@ -313,7 +331,7 @@ class Machine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a hybrid machine.
-        API Version: 2022-11-10.
+        API Version: 2022-12-27.
         Previous API Version: 2020-08-02. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -331,6 +349,7 @@ class Machine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_upgrade: Optional[pulumi.Input[pulumi.InputType['AgentUpgradeArgs']]] = None,
                  client_public_key: Optional[pulumi.Input[str]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
@@ -355,6 +374,7 @@ class Machine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MachineArgs.__new__(MachineArgs)
 
+            __props__.__dict__["agent_upgrade"] = agent_upgrade
             __props__.__dict__["client_public_key"] = client_public_key
             __props__.__dict__["extensions"] = extensions
             __props__.__dict__["identity"] = identity
@@ -419,6 +439,7 @@ class Machine(pulumi.CustomResource):
 
         __props__.__dict__["ad_fqdn"] = None
         __props__.__dict__["agent_configuration"] = None
+        __props__.__dict__["agent_upgrade"] = None
         __props__.__dict__["agent_version"] = None
         __props__.__dict__["client_public_key"] = None
         __props__.__dict__["cloud_metadata"] = None
@@ -468,6 +489,14 @@ class Machine(pulumi.CustomResource):
         Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
         """
         return pulumi.get(self, "agent_configuration")
+
+    @property
+    @pulumi.getter(name="agentUpgrade")
+    def agent_upgrade(self) -> pulumi.Output[Optional['outputs.AgentUpgradeResponse']]:
+        """
+        The info of the machine w.r.t Agent Upgrade
+        """
+        return pulumi.get(self, "agent_upgrade")
 
     @property
     @pulumi.getter(name="agentVersion")

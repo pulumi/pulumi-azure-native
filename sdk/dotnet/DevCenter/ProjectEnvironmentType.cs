@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents an environment type.
-    /// API Version: 2022-11-11-preview.
+    /// API Version: 2023-04-01.
     /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:ProjectEnvironmentType")]
@@ -183,7 +183,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// Defines whether this Environment Type can be used in this Project.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNative.DevCenter.EnableStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevCenter.EnvironmentTypeEnableStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

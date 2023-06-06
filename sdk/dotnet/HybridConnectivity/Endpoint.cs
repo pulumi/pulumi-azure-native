@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
 {
     /// <summary>
     /// The endpoint for the target resource.
-    /// API Version: 2022-05-01-preview.
+    /// API Version: 2023-03-15.
     /// Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridconnectivity:Endpoint")]
@@ -60,16 +60,16 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource provisioning state.
+        /// The endpoint properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.EndpointPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The resource Id of the connectivity endpoint (optional).
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        [Output("resourceId")]
-        public Output<string?> ResourceId { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -171,22 +171,16 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.CreatedByType>? LastModifiedByType { get; set; }
 
         /// <summary>
-        /// The resource Id of the connectivity endpoint (optional).
+        /// The endpoint properties.
         /// </summary>
-        [Input("resourceId")]
-        public Input<string>? ResourceId { get; set; }
+        [Input("properties")]
+        public Input<Inputs.EndpointPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource to be connected.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
-
-        /// <summary>
-        /// The type of endpoint.
-        /// </summary>
-        [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.Type> Type { get; set; } = null!;
 
         public EndpointArgs()
         {

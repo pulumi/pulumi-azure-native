@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Streaming Policy resource
- * API Version: 2022-08-01.
+ * API Version: 2023-01-01.
  * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class StreamingPolicy extends pulumi.CustomResource {

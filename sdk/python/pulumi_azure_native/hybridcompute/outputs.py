@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'AgentConfigurationResponse',
+    'AgentUpgradeResponse',
     'CloudMetadataResponse',
     'ConfigurationExtensionResponse',
     'ErrorAdditionalInfoResponse',
@@ -163,6 +164,113 @@ class AgentConfigurationResponse(dict):
         Specifies the URL of the proxy to be used.
         """
         return pulumi.get(self, "proxy_url")
+
+
+@pulumi.output_type
+class AgentUpgradeResponse(dict):
+    """
+    The info w.r.t Agent Upgrade.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastAttemptMessage":
+            suggest = "last_attempt_message"
+        elif key == "lastAttemptStatus":
+            suggest = "last_attempt_status"
+        elif key == "lastAttemptTimestamp":
+            suggest = "last_attempt_timestamp"
+        elif key == "correlationId":
+            suggest = "correlation_id"
+        elif key == "desiredVersion":
+            suggest = "desired_version"
+        elif key == "enableAutomaticUpgrade":
+            suggest = "enable_automatic_upgrade"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentUpgradeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentUpgradeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentUpgradeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_attempt_message: str,
+                 last_attempt_status: str,
+                 last_attempt_timestamp: str,
+                 correlation_id: Optional[str] = None,
+                 desired_version: Optional[str] = None,
+                 enable_automatic_upgrade: Optional[bool] = None):
+        """
+        The info w.r.t Agent Upgrade.
+        :param str last_attempt_message: Failure message of last upgrade attempt if any.
+        :param str last_attempt_status: Specifies the status of Agent Upgrade.
+        :param str last_attempt_timestamp: Timestamp of last upgrade attempt
+        :param str correlation_id: The correlation ID passed in from RSM per upgrade.
+        :param str desired_version: Specifies the version info w.r.t AgentUpgrade for the machine.
+        :param bool enable_automatic_upgrade: Specifies if RSM should try to upgrade this machine
+        """
+        pulumi.set(__self__, "last_attempt_message", last_attempt_message)
+        pulumi.set(__self__, "last_attempt_status", last_attempt_status)
+        pulumi.set(__self__, "last_attempt_timestamp", last_attempt_timestamp)
+        if correlation_id is not None:
+            pulumi.set(__self__, "correlation_id", correlation_id)
+        if desired_version is not None:
+            pulumi.set(__self__, "desired_version", desired_version)
+        if enable_automatic_upgrade is not None:
+            pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
+
+    @property
+    @pulumi.getter(name="lastAttemptMessage")
+    def last_attempt_message(self) -> str:
+        """
+        Failure message of last upgrade attempt if any.
+        """
+        return pulumi.get(self, "last_attempt_message")
+
+    @property
+    @pulumi.getter(name="lastAttemptStatus")
+    def last_attempt_status(self) -> str:
+        """
+        Specifies the status of Agent Upgrade.
+        """
+        return pulumi.get(self, "last_attempt_status")
+
+    @property
+    @pulumi.getter(name="lastAttemptTimestamp")
+    def last_attempt_timestamp(self) -> str:
+        """
+        Timestamp of last upgrade attempt
+        """
+        return pulumi.get(self, "last_attempt_timestamp")
+
+    @property
+    @pulumi.getter(name="correlationId")
+    def correlation_id(self) -> Optional[str]:
+        """
+        The correlation ID passed in from RSM per upgrade.
+        """
+        return pulumi.get(self, "correlation_id")
+
+    @property
+    @pulumi.getter(name="desiredVersion")
+    def desired_version(self) -> Optional[str]:
+        """
+        Specifies the version info w.r.t AgentUpgrade for the machine.
+        """
+        return pulumi.get(self, "desired_version")
+
+    @property
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> Optional[bool]:
+        """
+        Specifies if RSM should try to upgrade this machine
+        """
+        return pulumi.get(self, "enable_automatic_upgrade")
 
 
 @pulumi.output_type

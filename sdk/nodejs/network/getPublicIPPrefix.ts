@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified public IP prefix in a specified resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getPublicIPPrefix(args: GetPublicIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPPrefixResult> {
 
@@ -119,7 +119,7 @@ export interface GetPublicIPPrefixResult {
 }
 /**
  * Gets the specified public IP prefix in a specified resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getPublicIPPrefixOutput(args: GetPublicIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPPrefixResult> {
     return pulumi.output(args).apply((a: any) => getPublicIPPrefix(a, opts))

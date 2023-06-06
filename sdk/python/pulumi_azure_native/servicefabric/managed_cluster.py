@@ -42,6 +42,7 @@ class ManagedClusterArgs:
                  load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]] = None,
+                 public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointArgs']]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -75,6 +76,7 @@ class ManagedClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]] load_balancing_rules: Load balancing rules that are applied to the public load balancer of the cluster.
         :param pulumi.Input[str] location: Azure resource location.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]] network_security_rules: Custom Network Security Rules that are applied to the Virtual Network of the cluster.
+        :param pulumi.Input[str] public_ip_prefix_id: Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointArgs']]] service_endpoints: Service endpoints for subnets in the cluster.
         :param pulumi.Input[str] subnet_id: If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
@@ -132,6 +134,8 @@ class ManagedClusterArgs:
             pulumi.set(__self__, "location", location)
         if network_security_rules is not None:
             pulumi.set(__self__, "network_security_rules", network_security_rules)
+        if public_ip_prefix_id is not None:
+            pulumi.set(__self__, "public_ip_prefix_id", public_ip_prefix_id)
         if service_endpoints is not None:
             pulumi.set(__self__, "service_endpoints", service_endpoints)
         if subnet_id is not None:
@@ -448,6 +452,18 @@ class ManagedClusterArgs:
         pulumi.set(self, "network_security_rules", value)
 
     @property
+    @pulumi.getter(name="publicIPPrefixId")
+    def public_ip_prefix_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+        """
+        return pulumi.get(self, "public_ip_prefix_id")
+
+    @public_ip_prefix_id.setter
+    def public_ip_prefix_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_prefix_id", value)
+
+    @property
     @pulumi.getter(name="serviceEndpoints")
     def service_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointArgs']]]]:
         """
@@ -548,6 +564,7 @@ class ManagedCluster(pulumi.CustomResource):
                  load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]]] = None,
+                 public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -560,7 +577,7 @@ class ManagedCluster(pulumi.CustomResource):
         """
         The managed cluster resource
 
-        API Version: 2023-02-01-preview.
+        API Version: 2023-03-01-preview.
         Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -588,6 +605,7 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]] load_balancing_rules: Load balancing rules that are applied to the public load balancer of the cluster.
         :param pulumi.Input[str] location: Azure resource location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]] network_security_rules: Custom Network Security Rules that are applied to the Virtual Network of the cluster.
+        :param pulumi.Input[str] public_ip_prefix_id: Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointArgs']]]] service_endpoints: Service endpoints for subnets in the cluster.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the managed cluster
@@ -606,7 +624,7 @@ class ManagedCluster(pulumi.CustomResource):
         """
         The managed cluster resource
 
-        API Version: 2023-02-01-preview.
+        API Version: 2023-03-01-preview.
         Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -647,6 +665,7 @@ class ManagedCluster(pulumi.CustomResource):
                  load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]]] = None,
+                 public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -695,6 +714,7 @@ class ManagedCluster(pulumi.CustomResource):
             __props__.__dict__["load_balancing_rules"] = load_balancing_rules
             __props__.__dict__["location"] = location
             __props__.__dict__["network_security_rules"] = network_security_rules
+            __props__.__dict__["public_ip_prefix_id"] = public_ip_prefix_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -775,6 +795,7 @@ class ManagedCluster(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["network_security_rules"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_ip_prefix_id"] = None
         __props__.__dict__["service_endpoints"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["subnet_id"] = None
@@ -1033,6 +1054,14 @@ class ManagedCluster(pulumi.CustomResource):
         The provisioning state of the managed cluster resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicIPPrefixId")
+    def public_ip_prefix_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+        """
+        return pulumi.get(self, "public_ip_prefix_id")
 
     @property
     @pulumi.getter(name="serviceEndpoints")

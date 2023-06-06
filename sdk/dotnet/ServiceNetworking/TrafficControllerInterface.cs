@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
 {
     /// <summary>
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
-    /// API Version: 2022-10-01-preview.
+    /// API Version: 2023-05-01-preview.
     /// Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:TrafficControllerInterface")]
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// Associations References List
         /// </summary>
         [Output("associations")]
-        public Output<ImmutableArray<Outputs.ResourceIDResponse>> Associations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResourceIdResponse>> Associations { get; private set; } = null!;
 
         /// <summary>
         /// Configuration Endpoints.
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// Frontends References List
         /// </summary>
         [Output("frontends")]
-        public Output<ImmutableArray<Outputs.ResourceIDResponse>> Frontends { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResourceIdResponse>> Frontends { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

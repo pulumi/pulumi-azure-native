@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Flux Configuration object returned in Get & Put response.
- * API Version: 2022-11-01.
+ * API Version: 2023-05-01.
  * Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class FluxConfiguration extends pulumi.CustomResource {
@@ -80,6 +80,10 @@ export class FluxConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Maximum duration to wait for flux configuration reconciliation. E.g PT1H, PT5M, P1D
+     */
+    public readonly reconciliationWaitDuration!: pulumi.Output<string | undefined>;
+    /**
      * Public Key associated with this fluxConfiguration (either generated within the cluster or provided by the user).
      */
     public /*out*/ readonly repositoryPublicKey!: pulumi.Output<string>;
@@ -119,6 +123,10 @@ export class FluxConfiguration extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.
+     */
+    public readonly waitForReconciliation!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a FluxConfiguration resource with the given unique name, arguments, and options.
@@ -153,10 +161,12 @@ export class FluxConfiguration extends pulumi.CustomResource {
             resourceInputs["gitRepository"] = args ? (args.gitRepository ? pulumi.output(args.gitRepository).apply(inputs.kubernetesconfiguration.gitRepositoryDefinitionArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["kustomizations"] = args ? args.kustomizations : undefined;
             resourceInputs["namespace"] = (args ? args.namespace : undefined) ?? "default";
+            resourceInputs["reconciliationWaitDuration"] = args ? args.reconciliationWaitDuration : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["sourceKind"] = (args ? args.sourceKind : undefined) ?? "GitRepository";
             resourceInputs["suspend"] = (args ? args.suspend : undefined) ?? false;
+            resourceInputs["waitForReconciliation"] = args ? args.waitForReconciliation : undefined;
             resourceInputs["complianceState"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -179,6 +189,7 @@ export class FluxConfiguration extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["reconciliationWaitDuration"] = undefined /*out*/;
             resourceInputs["repositoryPublicKey"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["sourceKind"] = undefined /*out*/;
@@ -189,6 +200,7 @@ export class FluxConfiguration extends pulumi.CustomResource {
             resourceInputs["suspend"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["waitForReconciliation"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220101preview:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220301:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220701:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20221101:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20230501:FluxConfiguration" }] };
@@ -242,6 +254,10 @@ export interface FluxConfigurationArgs {
      */
     namespace?: pulumi.Input<string>;
     /**
+     * Maximum duration to wait for flux configuration reconciliation. E.g PT1H, PT5M, P1D
+     */
+    reconciliationWaitDuration?: pulumi.Input<string>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -257,4 +273,8 @@ export interface FluxConfigurationArgs {
      * Whether this configuration should suspend its reconciliation of its kustomizations and sources.
      */
     suspend?: pulumi.Input<boolean>;
+    /**
+     * Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.
+     */
+    waitForReconciliation?: pulumi.Input<boolean>;
 }

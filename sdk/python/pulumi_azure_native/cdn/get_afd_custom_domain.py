@@ -22,7 +22,7 @@ class GetAFDCustomDomainResult:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     """
-    def __init__(__self__, azure_dns_zone=None, deployment_status=None, domain_validation_state=None, host_name=None, id=None, name=None, pre_validated_custom_domain_resource_id=None, profile_name=None, provisioning_state=None, system_data=None, tls_settings=None, type=None, validation_properties=None):
+    def __init__(__self__, azure_dns_zone=None, deployment_status=None, domain_validation_state=None, extended_properties=None, host_name=None, id=None, name=None, pre_validated_custom_domain_resource_id=None, profile_name=None, provisioning_state=None, system_data=None, tls_settings=None, type=None, validation_properties=None):
         if azure_dns_zone and not isinstance(azure_dns_zone, dict):
             raise TypeError("Expected argument 'azure_dns_zone' to be a dict")
         pulumi.set(__self__, "azure_dns_zone", azure_dns_zone)
@@ -32,6 +32,9 @@ class GetAFDCustomDomainResult:
         if domain_validation_state and not isinstance(domain_validation_state, str):
             raise TypeError("Expected argument 'domain_validation_state' to be a str")
         pulumi.set(__self__, "domain_validation_state", domain_validation_state)
+        if extended_properties and not isinstance(extended_properties, dict):
+            raise TypeError("Expected argument 'extended_properties' to be a dict")
+        pulumi.set(__self__, "extended_properties", extended_properties)
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
@@ -83,6 +86,14 @@ class GetAFDCustomDomainResult:
         Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step. DCV stands for DomainControlValidation.
         """
         return pulumi.get(self, "domain_validation_state")
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-Value pair representing migration properties for domains.
+        """
+        return pulumi.get(self, "extended_properties")
 
     @property
     @pulumi.getter(name="hostName")
@@ -174,6 +185,7 @@ class AwaitableGetAFDCustomDomainResult(GetAFDCustomDomainResult):
             azure_dns_zone=self.azure_dns_zone,
             deployment_status=self.deployment_status,
             domain_validation_state=self.domain_validation_state,
+            extended_properties=self.extended_properties,
             host_name=self.host_name,
             id=self.id,
             name=self.name,
@@ -192,7 +204,7 @@ def get_afd_custom_domain(custom_domain_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDCustomDomainResult:
     """
     Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
-    API Version: 2021-06-01.
+    API Version: 2023-05-01.
 
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.
@@ -210,6 +222,7 @@ def get_afd_custom_domain(custom_domain_name: Optional[str] = None,
         azure_dns_zone=__ret__.azure_dns_zone,
         deployment_status=__ret__.deployment_status,
         domain_validation_state=__ret__.domain_validation_state,
+        extended_properties=__ret__.extended_properties,
         host_name=__ret__.host_name,
         id=__ret__.id,
         name=__ret__.name,
@@ -229,7 +242,7 @@ def get_afd_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]]
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDCustomDomainResult]:
     """
     Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
-    API Version: 2021-06-01.
+    API Version: 2023-05-01.
 
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.

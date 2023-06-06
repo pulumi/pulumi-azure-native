@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a server.
- * API Version: 2021-05-01.
+ * API Version: 2022-01-01.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
 
@@ -126,7 +126,7 @@ export interface GetServerResult {
 }
 /**
  * Gets information about a server.
- * API Version: 2021-05-01.
+ * API Version: 2022-01-01.
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Elastic
     {
         /// <summary>
         /// Fetch User API Key from internal database, if it was generated and stored while creating the Elasticsearch Organization.
-        /// API Version: 2023-02-01-preview.
+        /// API Version: 2023-06-01.
         /// </summary>
         public static Task<GetOrganizationApiKeyResult> InvokeAsync(GetOrganizationApiKeyArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationApiKeyResult>("azure-native:elastic:getOrganizationApiKey", args ?? new GetOrganizationApiKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Fetch User API Key from internal database, if it was generated and stored while creating the Elasticsearch Organization.
-        /// API Version: 2023-02-01-preview.
+        /// API Version: 2023-06-01.
         /// </summary>
         public static Output<GetOrganizationApiKeyResult> Invoke(GetOrganizationApiKeyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationApiKeyResult>("azure-native:elastic:getOrganizationApiKey", args ?? new GetOrganizationApiKeyInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified load balancer.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
 
@@ -111,7 +111,7 @@ export interface GetLoadBalancerResult {
 }
 /**
  * Gets the specified load balancer.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
     return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))

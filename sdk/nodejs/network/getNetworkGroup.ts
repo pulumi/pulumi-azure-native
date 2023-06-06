@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified network group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getNetworkGroup(args: GetNetworkGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkGroupResult> {
 
@@ -71,7 +71,7 @@ export interface GetNetworkGroupResult {
 }
 /**
  * Gets the specified network group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getNetworkGroupOutput(args: GetNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkGroupResult> {
     return pulumi.output(args).apply((a: any) => getNetworkGroup(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation that retrieves information about the capacity reservation.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getCapacityReservation(args: GetCapacityReservationArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationResult> {
 
@@ -62,7 +62,7 @@ export interface GetCapacityReservationResult {
      */
     readonly name: string;
     /**
-     * Specifies the value of fault domain count that Capacity Reservation supports for requested VM size.<br>NOTE: The fault domain count specified for a resource (like virtual machines scale set) must be less than or equal to this value if it deploys using capacity reservation.<br><br>Minimum api-version: 2022-08-01.
+     * Specifies the value of fault domain count that Capacity Reservation supports for requested VM size. **Note:** The fault domain count specified for a resource (like virtual machines scale set) must be less than or equal to this value if it deploys using capacity reservation. Minimum api-version: 2022-08-01.
      */
     readonly platformFaultDomainCount: number;
     /**
@@ -86,7 +86,7 @@ export interface GetCapacityReservationResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Specifies the time at which the Capacity Reservation resource was created.<br><br>Minimum api-version: 2021-11-01.
+     * Specifies the time at which the Capacity Reservation resource was created. Minimum api-version: 2021-11-01.
      */
     readonly timeCreated: string;
     /**
@@ -104,7 +104,7 @@ export interface GetCapacityReservationResult {
 }
 /**
  * The operation that retrieves information about the capacity reservation.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationResult> {
     return pulumi.output(args).apply((a: any) => getCapacityReservation(a, opts))

@@ -101,7 +101,7 @@ def get_replication_network_mapping(fabric_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationNetworkMappingResult:
     """
     Gets the details of an ASR network mapping.
-    API Version: 2023-02-01.
+    API Version: 2023-04-01.
 
 
     :param str fabric_name: Primary fabric name.
@@ -136,7 +136,7 @@ def get_replication_network_mapping_output(fabric_name: Optional[pulumi.Input[st
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationNetworkMappingResult]:
     """
     Gets the details of an ASR network mapping.
-    API Version: 2023-02-01.
+    API Version: 2023-04-01.
 
 
     :param str fabric_name: Primary fabric name.

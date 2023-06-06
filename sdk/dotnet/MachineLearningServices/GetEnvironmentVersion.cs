@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2022-10-01.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Task<GetEnvironmentVersionResult> InvokeAsync(GetEnvironmentVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentVersionResult>("azure-native:machinelearningservices:getEnvironmentVersion", args ?? new GetEnvironmentVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2022-10-01.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Output<GetEnvironmentVersionResult> Invoke(GetEnvironmentVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentVersionResult>("azure-native:machinelearningservices:getEnvironmentVersion", args ?? new GetEnvironmentVersionInvokeArgs(), options.WithDefaults());

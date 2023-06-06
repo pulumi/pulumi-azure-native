@@ -17,6 +17,7 @@ __all__ = [
     'AccountKeyDatastoreCredentialsResponse',
     'AcrDetailsResponse',
     'AksNetworkingConfigurationResponse',
+    'AllNodesResponse',
     'AmlComputeNodeInformationResponse',
     'AmlComputePropertiesResponse',
     'AmlComputeResponse',
@@ -41,6 +42,7 @@ __all__ = [
     'BatchEndpointResponse',
     'BatchRetrySettingsResponse',
     'BayesianSamplingAlgorithmResponse',
+    'BindOptionsResponse',
     'BuildContextResponse',
     'CertificateDatastoreCredentialsResponse',
     'ClassificationResponse',
@@ -77,6 +79,7 @@ __all__ = [
     'CustomModelJobOutputResponse',
     'CustomNCrossValidationsResponse',
     'CustomSeasonalityResponse',
+    'CustomServiceResponse',
     'CustomTargetLagsResponse',
     'CustomTargetRollingWindowSizeResponse',
     'DataContainerResponse',
@@ -88,10 +91,13 @@ __all__ = [
     'DatabricksResponse',
     'DefaultScaleSettingsResponse',
     'DeploymentResourceConfigurationResponse',
+    'DockerResponse',
     'EncryptionKeyVaultPropertiesResponse',
     'EncryptionPropertyResponse',
+    'EndpointResponse',
     'EndpointScheduleActionResponse',
     'EnvironmentContainerResponse',
+    'EnvironmentVariableResponse',
     'EnvironmentVersionResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
@@ -109,11 +115,13 @@ __all__ = [
     'ImageClassificationResponse',
     'ImageInstanceSegmentationResponse',
     'ImageLimitSettingsResponse',
+    'ImageMetadataResponse',
     'ImageModelDistributionSettingsClassificationResponse',
     'ImageModelDistributionSettingsObjectDetectionResponse',
     'ImageModelSettingsClassificationResponse',
     'ImageModelSettingsObjectDetectionResponse',
     'ImageObjectDetectionResponse',
+    'ImageResponse',
     'ImageSweepSettingsResponse',
     'InferenceContainerPropertiesResponse',
     'InstanceTypeSchemaResponse',
@@ -204,6 +212,7 @@ __all__ = [
     'TextClassificationMultilabelResponse',
     'TextClassificationResponse',
     'TextNerResponse',
+    'TmpfsOptionsResponse',
     'TrialComponentResponse',
     'TritonModelJobInputResponse',
     'TritonModelJobOutputResponse',
@@ -224,6 +233,8 @@ __all__ = [
     'VirtualMachineResponse',
     'VirtualMachineSchemaResponseProperties',
     'VirtualMachineSshCredentialsResponse',
+    'VolumeDefinitionResponse',
+    'VolumeOptionsResponse',
     'WorkspaceConnectionManagedIdentityResponse',
     'WorkspaceConnectionPersonalAccessTokenResponse',
     'WorkspaceConnectionSharedAccessSignatureResponse',
@@ -732,6 +743,47 @@ class AksNetworkingConfigurationResponse(dict):
         Virtual network subnet resource ID the compute nodes belong to
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class AllNodesResponse(dict):
+    """
+    All nodes means the service will be running on all of the nodes of the job
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodesValueType":
+            suggest = "nodes_value_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AllNodesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AllNodesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AllNodesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 nodes_value_type: str):
+        """
+        All nodes means the service will be running on all of the nodes of the job
+        :param str nodes_value_type: The enumerated types for the nodes value
+               Expected value is 'All'.
+        """
+        pulumi.set(__self__, "nodes_value_type", 'All')
+
+    @property
+    @pulumi.getter(name="nodesValueType")
+    def nodes_value_type(self) -> str:
+        """
+        The enumerated types for the nodes value
+        Expected value is 'All'.
+        """
+        return pulumi.get(self, "nodes_value_type")
 
 
 @pulumi.output_type
@@ -3106,6 +3158,70 @@ class BayesianSamplingAlgorithmResponse(dict):
 
 
 @pulumi.output_type
+class BindOptionsResponse(dict):
+    """
+    Describes the bind options for the container
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createHostPath":
+            suggest = "create_host_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BindOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BindOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BindOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_host_path: Optional[bool] = None,
+                 propagation: Optional[str] = None,
+                 selinux: Optional[str] = None):
+        """
+        Describes the bind options for the container
+        :param bool create_host_path: Indicate whether to create host path.
+        :param str propagation: Type of Bind Option
+        :param str selinux: Mention the selinux options.
+        """
+        if create_host_path is not None:
+            pulumi.set(__self__, "create_host_path", create_host_path)
+        if propagation is not None:
+            pulumi.set(__self__, "propagation", propagation)
+        if selinux is not None:
+            pulumi.set(__self__, "selinux", selinux)
+
+    @property
+    @pulumi.getter(name="createHostPath")
+    def create_host_path(self) -> Optional[bool]:
+        """
+        Indicate whether to create host path.
+        """
+        return pulumi.get(self, "create_host_path")
+
+    @property
+    @pulumi.getter
+    def propagation(self) -> Optional[str]:
+        """
+        Type of Bind Option
+        """
+        return pulumi.get(self, "propagation")
+
+    @property
+    @pulumi.getter
+    def selinux(self) -> Optional[str]:
+        """
+        Mention the selinux options.
+        """
+        return pulumi.get(self, "selinux")
+
+
+@pulumi.output_type
 class BuildContextResponse(dict):
     """
     Configuration settings for Docker build context
@@ -5254,10 +5370,14 @@ class ComputeInstancePropertiesResponse(dict):
             suggest = "data_mounts"
         elif key == "lastOperation":
             suggest = "last_operation"
+        elif key == "osImageMetadata":
+            suggest = "os_image_metadata"
         elif key == "applicationSharingPolicy":
             suggest = "application_sharing_policy"
         elif key == "computeInstanceAuthorizationType":
             suggest = "compute_instance_authorization_type"
+        elif key == "customServices":
+            suggest = "custom_services"
         elif key == "enableNodePublicIp":
             suggest = "enable_node_public_ip"
         elif key == "personalComputeInstanceSettings":
@@ -5289,10 +5409,12 @@ class ComputeInstancePropertiesResponse(dict):
                  data_mounts: Sequence['outputs.ComputeInstanceDataMountResponse'],
                  errors: Sequence['outputs.ErrorResponseResponse'],
                  last_operation: 'outputs.ComputeInstanceLastOperationResponse',
+                 os_image_metadata: 'outputs.ImageMetadataResponse',
                  state: str,
                  versions: 'outputs.ComputeInstanceVersionResponse',
                  application_sharing_policy: Optional[str] = None,
                  compute_instance_authorization_type: Optional[str] = None,
+                 custom_services: Optional[Sequence['outputs.CustomServiceResponse']] = None,
                  enable_node_public_ip: Optional[bool] = None,
                  personal_compute_instance_settings: Optional['outputs.PersonalComputeInstanceSettingsResponse'] = None,
                  schedules: Optional['outputs.ComputeSchedulesResponse'] = None,
@@ -5310,10 +5432,12 @@ class ComputeInstancePropertiesResponse(dict):
         :param Sequence['ComputeInstanceDataMountResponse'] data_mounts: Describes informations of dataMounts on this ComputeInstance.
         :param Sequence['ErrorResponseResponse'] errors: Collection of errors encountered on this ComputeInstance.
         :param 'ComputeInstanceLastOperationResponse' last_operation: The last operation on ComputeInstance.
+        :param 'ImageMetadataResponse' os_image_metadata: Returns metadata about the operating system image for this compute instance.
         :param str state: The current state of this ComputeInstance.
         :param 'ComputeInstanceVersionResponse' versions: ComputeInstance version.
         :param str application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         :param str compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
+        :param Sequence['CustomServiceResponse'] custom_services: List of Custom Services added to the compute.
         :param bool enable_node_public_ip: Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
         :param 'PersonalComputeInstanceSettingsResponse' personal_compute_instance_settings: Settings for a personal compute instance.
         :param 'ComputeSchedulesResponse' schedules: The list of schedules to be applied on the computes.
@@ -5330,6 +5454,7 @@ class ComputeInstancePropertiesResponse(dict):
         pulumi.set(__self__, "data_mounts", data_mounts)
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "last_operation", last_operation)
+        pulumi.set(__self__, "os_image_metadata", os_image_metadata)
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "versions", versions)
         if application_sharing_policy is None:
@@ -5340,6 +5465,8 @@ class ComputeInstancePropertiesResponse(dict):
             compute_instance_authorization_type = 'personal'
         if compute_instance_authorization_type is not None:
             pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
+        if custom_services is not None:
+            pulumi.set(__self__, "custom_services", custom_services)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if personal_compute_instance_settings is not None:
@@ -5420,6 +5547,14 @@ class ComputeInstancePropertiesResponse(dict):
         return pulumi.get(self, "last_operation")
 
     @property
+    @pulumi.getter(name="osImageMetadata")
+    def os_image_metadata(self) -> 'outputs.ImageMetadataResponse':
+        """
+        Returns metadata about the operating system image for this compute instance.
+        """
+        return pulumi.get(self, "os_image_metadata")
+
+    @property
     @pulumi.getter
     def state(self) -> str:
         """
@@ -5450,6 +5585,14 @@ class ComputeInstancePropertiesResponse(dict):
         The Compute Instance Authorization type. Available values are personal (default).
         """
         return pulumi.get(self, "compute_instance_authorization_type")
+
+    @property
+    @pulumi.getter(name="customServices")
+    def custom_services(self) -> Optional[Sequence['outputs.CustomServiceResponse']]:
+        """
+        List of Custom Services added to the compute.
+        """
+        return pulumi.get(self, "custom_services")
 
     @property
     @pulumi.getter(name="enableNodePublicIp")
@@ -6511,6 +6654,106 @@ class CustomSeasonalityResponse(dict):
 
 
 @pulumi.output_type
+class CustomServiceResponse(dict):
+    """
+    Specifies the custom service configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentVariables":
+            suggest = "environment_variables"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 docker: Optional['outputs.DockerResponse'] = None,
+                 endpoints: Optional[Sequence['outputs.EndpointResponse']] = None,
+                 environment_variables: Optional[Mapping[str, 'outputs.EnvironmentVariableResponse']] = None,
+                 image: Optional['outputs.ImageResponse'] = None,
+                 name: Optional[str] = None,
+                 volumes: Optional[Sequence['outputs.VolumeDefinitionResponse']] = None):
+        """
+        Specifies the custom service configuration
+        :param 'DockerResponse' docker: Describes the docker settings for the image
+        :param Sequence['EndpointResponse'] endpoints: Configuring the endpoints for the container
+        :param Mapping[str, 'EnvironmentVariableResponse'] environment_variables: Environment Variable for the container
+        :param 'ImageResponse' image: Describes the Image Specifications
+        :param str name: Name of the Custom Service
+        :param Sequence['VolumeDefinitionResponse'] volumes: Configuring the volumes for the container
+        """
+        if docker is not None:
+            pulumi.set(__self__, "docker", docker)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def docker(self) -> Optional['outputs.DockerResponse']:
+        """
+        Describes the docker settings for the image
+        """
+        return pulumi.get(self, "docker")
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[Sequence['outputs.EndpointResponse']]:
+        """
+        Configuring the endpoints for the container
+        """
+        return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Mapping[str, 'outputs.EnvironmentVariableResponse']]:
+        """
+        Environment Variable for the container
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional['outputs.ImageResponse']:
+        """
+        Describes the Image Specifications
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the Custom Service
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[Sequence['outputs.VolumeDefinitionResponse']]:
+        """
+        Configuring the volumes for the container
+        """
+        return pulumi.get(self, "volumes")
+
+
+@pulumi.output_type
 class CustomTargetLagsResponse(dict):
     def __init__(__self__, *,
                  mode: str,
@@ -7448,6 +7691,29 @@ class DeploymentResourceConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class DockerResponse(dict):
+    """
+    Docker container configuration
+    """
+    def __init__(__self__, *,
+                 privileged: Optional[bool] = None):
+        """
+        Docker container configuration
+        :param bool privileged: Indicate whether container shall run in privileged or non-privileged mode.
+        """
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+
+    @property
+    @pulumi.getter
+    def privileged(self) -> Optional[bool]:
+        """
+        Indicate whether container shall run in privileged or non-privileged mode.
+        """
+        return pulumi.get(self, "privileged")
+
+
+@pulumi.output_type
 class EncryptionKeyVaultPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -7565,6 +7831,96 @@ class EncryptionPropertyResponse(dict):
         The identity that will be used to access the key vault for encryption at rest.
         """
         return pulumi.get(self, "identity")
+
+
+@pulumi.output_type
+class EndpointResponse(dict):
+    """
+    Describes the endpoint configuration for the container
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostIp":
+            suggest = "host_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_ip: Optional[str] = None,
+                 name: Optional[str] = None,
+                 protocol: Optional[str] = None,
+                 published: Optional[int] = None,
+                 target: Optional[int] = None):
+        """
+        Describes the endpoint configuration for the container
+        :param str host_ip: Host IP over which the application is exposed from the container
+        :param str name: Name of the Endpoint
+        :param str protocol: Protocol over which communication will happen over this endpoint
+        :param int published: Port over which the application is exposed from container.
+        :param int target: Application port inside the container.
+        """
+        if host_ip is not None:
+            pulumi.set(__self__, "host_ip", host_ip)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protocol is None:
+            protocol = 'tcp'
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if published is not None:
+            pulumi.set(__self__, "published", published)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="hostIp")
+    def host_ip(self) -> Optional[str]:
+        """
+        Host IP over which the application is exposed from the container
+        """
+        return pulumi.get(self, "host_ip")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the Endpoint
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        Protocol over which communication will happen over this endpoint
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def published(self) -> Optional[int]:
+        """
+        Port over which the application is exposed from container.
+        """
+        return pulumi.get(self, "published")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[int]:
+        """
+        Application port inside the container.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -7734,6 +8090,43 @@ class EnvironmentContainerResponse(dict):
         Tag dictionary. Tags can be added, removed, and updated.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class EnvironmentVariableResponse(dict):
+    """
+    Environment Variables for the container
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Environment Variables for the container
+        :param str type: Type of the Environment Variable. Possible values are: local - For local variable
+        :param str value: Value of the Environment variable
+        """
+        if type is None:
+            type = 'local'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the Environment Variable. Possible values are: local - For local variable
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value of the Environment variable
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -9791,16 +10184,84 @@ class ImageLimitSettingsResponse(dict):
 
 
 @pulumi.output_type
+class ImageMetadataResponse(dict):
+    """
+    Returns metadata about the operating system image for this compute instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentImageVersion":
+            suggest = "current_image_version"
+        elif key == "isLatestOsImageVersion":
+            suggest = "is_latest_os_image_version"
+        elif key == "latestImageVersion":
+            suggest = "latest_image_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageMetadataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageMetadataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageMetadataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 current_image_version: Optional[str] = None,
+                 is_latest_os_image_version: Optional[bool] = None,
+                 latest_image_version: Optional[str] = None):
+        """
+        Returns metadata about the operating system image for this compute instance.
+        :param str current_image_version: Specifies the current operating system image version this compute instance is running on.
+        :param bool is_latest_os_image_version: Specifies whether this compute instance is running on the latest operating system image.
+        :param str latest_image_version: Specifies the latest available operating system image version.
+        """
+        if current_image_version is not None:
+            pulumi.set(__self__, "current_image_version", current_image_version)
+        if is_latest_os_image_version is not None:
+            pulumi.set(__self__, "is_latest_os_image_version", is_latest_os_image_version)
+        if latest_image_version is not None:
+            pulumi.set(__self__, "latest_image_version", latest_image_version)
+
+    @property
+    @pulumi.getter(name="currentImageVersion")
+    def current_image_version(self) -> Optional[str]:
+        """
+        Specifies the current operating system image version this compute instance is running on.
+        """
+        return pulumi.get(self, "current_image_version")
+
+    @property
+    @pulumi.getter(name="isLatestOsImageVersion")
+    def is_latest_os_image_version(self) -> Optional[bool]:
+        """
+        Specifies whether this compute instance is running on the latest operating system image.
+        """
+        return pulumi.get(self, "is_latest_os_image_version")
+
+    @property
+    @pulumi.getter(name="latestImageVersion")
+    def latest_image_version(self) -> Optional[str]:
+        """
+        Specifies the latest available operating system image version.
+        """
+        return pulumi.get(self, "latest_image_version")
+
+
+@pulumi.output_type
 class ImageModelDistributionSettingsClassificationResponse(dict):
     """
     Distribution expressions to sweep over values of model settings.
     <example>
     Some examples are:
-    <code>
+    ```
     ModelName = "choice('seresnext', 'resnest50')";
     LearningRate = "uniform(0.001, 0.01)";
     LayersToFreeze = "choice(0, 2)";
-    </code></example>
+    ```</example>
     For more details on how to compose distribution expressions please check the documentation:
     https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
     For more information on the available settings please visit the official documentation:
@@ -9908,11 +10369,11 @@ class ImageModelDistributionSettingsClassificationResponse(dict):
         Distribution expressions to sweep over values of model settings.
         <example>
         Some examples are:
-        <code>
+        ```
         ModelName = "choice('seresnext', 'resnest50')";
         LearningRate = "uniform(0.001, 0.01)";
         LayersToFreeze = "choice(0, 2)";
-        </code></example>
+        ```</example>
         For more details on how to compose distribution expressions please check the documentation:
         https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
         For more information on the available settings please visit the official documentation:
@@ -10298,11 +10759,11 @@ class ImageModelDistributionSettingsObjectDetectionResponse(dict):
     Distribution expressions to sweep over values of model settings.
     <example>
     Some examples are:
-    <code>
+    ```
     ModelName = "choice('seresnext', 'resnest50')";
     LearningRate = "uniform(0.001, 0.01)";
     LayersToFreeze = "choice(0, 2)";
-    </code></example>
+    ```</example>
     For more details on how to compose distribution expressions please check the documentation:
     https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
     For more information on the available settings please visit the official documentation:
@@ -10437,11 +10898,11 @@ class ImageModelDistributionSettingsObjectDetectionResponse(dict):
         Distribution expressions to sweep over values of model settings.
         <example>
         Some examples are:
-        <code>
+        ```
         ModelName = "choice('seresnext', 'resnest50')";
         LearningRate = "uniform(0.001, 0.01)";
         LayersToFreeze = "choice(0, 2)";
-        </code></example>
+        ```</example>
         For more details on how to compose distribution expressions please check the documentation:
         https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
         For more information on the available settings please visit the official documentation:
@@ -12396,6 +12857,43 @@ class ImageObjectDetectionResponse(dict):
 
 
 @pulumi.output_type
+class ImageResponse(dict):
+    """
+    Describes the Image Specifications
+    """
+    def __init__(__self__, *,
+                 reference: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Describes the Image Specifications
+        :param str reference: Image reference
+        :param str type: Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+        """
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+        if type is None:
+            type = 'docker'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def reference(self) -> Optional[str]:
+        """
+        Image reference
+        """
+        return pulumi.get(self, "reference")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ImageSweepSettingsResponse(dict):
     """
     Model sweeping and hyperparameter sweeping related settings.
@@ -12772,6 +13270,7 @@ class JobServiceResponse(dict):
                  status: str,
                  endpoint: Optional[str] = None,
                  job_service_type: Optional[str] = None,
+                 nodes: Optional['outputs.AllNodesResponse'] = None,
                  port: Optional[int] = None,
                  properties: Optional[Mapping[str, str]] = None):
         """
@@ -12780,6 +13279,8 @@ class JobServiceResponse(dict):
         :param str status: Status of endpoint.
         :param str endpoint: Url for endpoint.
         :param str job_service_type: Endpoint type.
+        :param 'AllNodesResponse' nodes: Nodes that user would like to start the service on.
+               If Nodes is not set or set to null, the service will only be started on leader node.
         :param int port: Port for endpoint.
         :param Mapping[str, str] properties: Additional properties to set on the endpoint.
         """
@@ -12789,6 +13290,8 @@ class JobServiceResponse(dict):
             pulumi.set(__self__, "endpoint", endpoint)
         if job_service_type is not None:
             pulumi.set(__self__, "job_service_type", job_service_type)
+        if nodes is not None:
+            pulumi.set(__self__, "nodes", nodes)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if properties is not None:
@@ -12825,6 +13328,15 @@ class JobServiceResponse(dict):
         Endpoint type.
         """
         return pulumi.get(self, "job_service_type")
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Optional['outputs.AllNodesResponse']:
+        """
+        Nodes that user would like to start the service on.
+        If Nodes is not set or set to null, the service will only be started on leader node.
+        """
+        return pulumi.get(self, "nodes")
 
     @property
     @pulumi.getter
@@ -14935,6 +15447,8 @@ class NlpVerticalLimitSettingsResponse(dict):
             max_trials = 1
         if max_trials is not None:
             pulumi.set(__self__, "max_trials", max_trials)
+        if timeout is None:
+            timeout = 'P7D'
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -15355,6 +15869,8 @@ class OnlineEndpointResponse(dict):
             suggest = "scoring_uri"
         elif key == "swaggerUri":
             suggest = "swagger_uri"
+        elif key == "mirrorTraffic":
+            suggest = "mirror_traffic"
         elif key == "publicNetworkAccess":
             suggest = "public_network_access"
 
@@ -15376,6 +15892,7 @@ class OnlineEndpointResponse(dict):
                  swagger_uri: str,
                  compute: Optional[str] = None,
                  description: Optional[str] = None,
+                 mirror_traffic: Optional[Mapping[str, int]] = None,
                  properties: Optional[Mapping[str, str]] = None,
                  public_network_access: Optional[str] = None,
                  traffic: Optional[Mapping[str, int]] = None):
@@ -15388,6 +15905,7 @@ class OnlineEndpointResponse(dict):
         :param str compute: ARM resource ID of the compute if it exists.
                optional
         :param str description: Description of the inference endpoint.
+        :param Mapping[str, int] mirror_traffic: Percentage of traffic to be mirrored to each deployment without using returned scoring. Traffic values need to sum to utmost 50.
         :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
         :param str public_network_access: Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
         :param Mapping[str, int] traffic: Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100.
@@ -15400,6 +15918,8 @@ class OnlineEndpointResponse(dict):
             pulumi.set(__self__, "compute", compute)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if mirror_traffic is not None:
+            pulumi.set(__self__, "mirror_traffic", mirror_traffic)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if public_network_access is None:
@@ -15457,6 +15977,14 @@ class OnlineEndpointResponse(dict):
         Description of the inference endpoint.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="mirrorTraffic")
+    def mirror_traffic(self) -> Optional[Mapping[str, int]]:
+        """
+        Percentage of traffic to be mirrored to each deployment without using returned scoring. Traffic values need to sum to utmost 50.
+        """
+        return pulumi.get(self, "mirror_traffic")
 
     @property
     @pulumi.getter
@@ -16246,33 +16774,13 @@ class PrivateEndpointResponse(dict):
     """
     The Private Endpoint resource.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "subnetArmId":
-            suggest = "subnet_arm_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateEndpointResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateEndpointResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 id: str,
-                 subnet_arm_id: str):
+                 id: str):
         """
         The Private Endpoint resource.
         :param str id: The ARM identifier for Private Endpoint
-        :param str subnet_arm_id: The ARM identifier for Subnet resource that private endpoint links to
         """
         pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "subnet_arm_id", subnet_arm_id)
 
     @property
     @pulumi.getter
@@ -16281,14 +16789,6 @@ class PrivateEndpointResponse(dict):
         The ARM identifier for Private Endpoint
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="subnetArmId")
-    def subnet_arm_id(self) -> str:
-        """
-        The ARM identifier for Subnet resource that private endpoint links to
-        """
-        return pulumi.get(self, "subnet_arm_id")
 
 
 @pulumi.output_type
@@ -20728,6 +21228,29 @@ class TextNerResponse(dict):
 
 
 @pulumi.output_type
+class TmpfsOptionsResponse(dict):
+    """
+    Describes the tmpfs options for the container
+    """
+    def __init__(__self__, *,
+                 size: Optional[int] = None):
+        """
+        Describes the tmpfs options for the container
+        :param int size: Mention the Tmpfs size
+        """
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[int]:
+        """
+        Mention the Tmpfs size
+        """
+        return pulumi.get(self, "size")
+
+
+@pulumi.output_type
 class TrialComponentResponse(dict):
     """
     Trial component definition.
@@ -22302,6 +22825,155 @@ class VirtualMachineSshCredentialsResponse(dict):
         Username of admin account
         """
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class VolumeDefinitionResponse(dict):
+    """
+    Describes the volume configuration for the container
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readOnly":
+            suggest = "read_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bind: Optional['outputs.BindOptionsResponse'] = None,
+                 consistency: Optional[str] = None,
+                 read_only: Optional[bool] = None,
+                 source: Optional[str] = None,
+                 target: Optional[str] = None,
+                 tmpfs: Optional['outputs.TmpfsOptionsResponse'] = None,
+                 type: Optional[str] = None,
+                 volume: Optional['outputs.VolumeOptionsResponse'] = None):
+        """
+        Describes the volume configuration for the container
+        :param 'BindOptionsResponse' bind: Bind Options of the mount
+        :param str consistency: Consistency of the volume
+        :param bool read_only: Indicate whether to mount volume as readOnly. Default value for this is false.
+        :param str source: Source of the mount. For bind mounts this is the host path.
+        :param str target: Target of the mount. For bind mounts this is the path in the container.
+        :param 'TmpfsOptionsResponse' tmpfs: tmpfs option of the mount
+        :param str type: Type of Volume Definition. Possible Values: bind,volume,tmpfs,npipe
+        :param 'VolumeOptionsResponse' volume: Volume Options of the mount
+        """
+        if bind is not None:
+            pulumi.set(__self__, "bind", bind)
+        if consistency is not None:
+            pulumi.set(__self__, "consistency", consistency)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if tmpfs is not None:
+            pulumi.set(__self__, "tmpfs", tmpfs)
+        if type is None:
+            type = 'bind'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if volume is not None:
+            pulumi.set(__self__, "volume", volume)
+
+    @property
+    @pulumi.getter
+    def bind(self) -> Optional['outputs.BindOptionsResponse']:
+        """
+        Bind Options of the mount
+        """
+        return pulumi.get(self, "bind")
+
+    @property
+    @pulumi.getter
+    def consistency(self) -> Optional[str]:
+        """
+        Consistency of the volume
+        """
+        return pulumi.get(self, "consistency")
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[bool]:
+        """
+        Indicate whether to mount volume as readOnly. Default value for this is false.
+        """
+        return pulumi.get(self, "read_only")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        Source of the mount. For bind mounts this is the host path.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        Target of the mount. For bind mounts this is the path in the container.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def tmpfs(self) -> Optional['outputs.TmpfsOptionsResponse']:
+        """
+        tmpfs option of the mount
+        """
+        return pulumi.get(self, "tmpfs")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of Volume Definition. Possible Values: bind,volume,tmpfs,npipe
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def volume(self) -> Optional['outputs.VolumeOptionsResponse']:
+        """
+        Volume Options of the mount
+        """
+        return pulumi.get(self, "volume")
+
+
+@pulumi.output_type
+class VolumeOptionsResponse(dict):
+    """
+    Describes the volume options for the container
+    """
+    def __init__(__self__, *,
+                 nocopy: Optional[bool] = None):
+        """
+        Describes the volume options for the container
+        :param bool nocopy: Indicate whether volume is nocopy
+        """
+        if nocopy is not None:
+            pulumi.set(__self__, "nocopy", nocopy)
+
+    @property
+    @pulumi.getter
+    def nocopy(self) -> Optional[bool]:
+        """
+        Indicate whether volume is nocopy
+        """
+        return pulumi.get(self, "nocopy")
 
 
 @pulumi.output_type

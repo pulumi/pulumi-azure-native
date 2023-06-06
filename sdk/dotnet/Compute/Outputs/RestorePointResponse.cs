@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// <summary>
         /// Gets the details of the VM captured at the time of the restore point creation.
         /// </summary>
-        public readonly Outputs.RestorePointSourceMetadataResponse SourceMetadata;
+        public readonly Outputs.RestorePointSourceMetadataResponse? SourceMetadata;
         /// <summary>
         /// Resource Id of the source restore point from which a copy needs to be created.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string provisioningState,
 
-            Outputs.RestorePointSourceMetadataResponse sourceMetadata,
+            Outputs.RestorePointSourceMetadataResponse? sourceMetadata,
 
             Outputs.ApiEntityReferenceResponse? sourceRestorePoint,
 

@@ -24,15 +24,29 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// Description of the connection string
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// Kind of the connection string key
+        /// </summary>
+        public readonly string KeyKind;
+        /// <summary>
+        /// Type of the connection string
+        /// </summary>
+        public readonly string Type;
 
         [OutputConstructor]
         private DatabaseAccountConnectionStringResponse(
             string connectionString,
 
-            string description)
+            string description,
+
+            string keyKind,
+
+            string type)
         {
             ConnectionString = connectionString;
             Description = description;
+            KeyKind = keyKind;
+            Type = type;
         }
     }
 }

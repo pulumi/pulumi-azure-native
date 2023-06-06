@@ -155,7 +155,7 @@ def get_batch_endpoint(endpoint_name: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBatchEndpointResult:
     """
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str endpoint_name: Name for the Batch Endpoint.
@@ -188,7 +188,7 @@ def get_batch_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBatchEndpointResult]:
     """
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str endpoint_name: Name for the Batch Endpoint.

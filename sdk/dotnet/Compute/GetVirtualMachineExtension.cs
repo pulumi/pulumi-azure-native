@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// The operation to get the extension.
-        /// API Version: 2022-11-01.
+        /// API Version: 2023-03-01.
         /// </summary>
         public static Task<GetVirtualMachineExtensionResult> InvokeAsync(GetVirtualMachineExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineExtensionResult>("azure-native:compute:getVirtualMachineExtension", args ?? new GetVirtualMachineExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the extension.
-        /// API Version: 2022-11-01.
+        /// API Version: 2023-03-01.
         /// </summary>
         public static Output<GetVirtualMachineExtensionResult> Invoke(GetVirtualMachineExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineExtensionResult>("azure-native:compute:getVirtualMachineExtension", args ?? new GetVirtualMachineExtensionInvokeArgs(), options.WithDefaults());
@@ -132,6 +132,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.KeyVaultSecretReferenceResponse? ProtectedSettingsFromKeyVault;
         /// <summary>
+        /// Collection of extension names after which this extension needs to be provisioned.
+        /// </summary>
+        public readonly ImmutableArray<string> ProvisionAfterExtensions;
+        /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
         public readonly string ProvisioningState;
@@ -180,6 +184,8 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.KeyVaultSecretReferenceResponse? protectedSettingsFromKeyVault,
 
+            ImmutableArray<string> provisionAfterExtensions,
+
             string provisioningState,
 
             string? publisher,
@@ -203,6 +209,7 @@ namespace Pulumi.AzureNative.Compute
             Name = name;
             ProtectedSettings = protectedSettings;
             ProtectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
+            ProvisionAfterExtensions = provisionAfterExtensions;
             ProvisioningState = provisioningState;
             Publisher = publisher;
             Settings = settings;

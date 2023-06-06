@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class CapacityReservationUtilizationResponse
     {
         /// <summary>
-        /// The value provides the current capacity of the VM size which was reserved successfully and for which the customer is getting billed.&lt;br&gt;&lt;br&gt;Minimum api-version: 2022-08-01.
+        /// The value provides the current capacity of the VM size which was reserved successfully and for which the customer is getting billed. Minimum api-version: 2022-08-01.
         /// </summary>
         public readonly int CurrentCapacity;
         /// <summary>

@@ -19,28 +19,27 @@ class DevBoxDefinitionArgs:
     def __init__(__self__, *,
                  dev_center_name: pulumi.Input[str],
                  image_reference: pulumi.Input['ImageReferenceArgs'],
-                 os_storage_type: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
                  dev_box_definition_name: Optional[pulumi.Input[str]] = None,
                  hibernate_support: Optional[pulumi.Input[Union[str, 'HibernateSupport']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 os_storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DevBoxDefinition resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input['ImageReferenceArgs'] image_reference: Image reference information.
-        :param pulumi.Input[str] os_storage_type: The storage type used for the Operating System disk of Dev Boxes created using this definition.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The SKU for Dev Boxes created using this definition.
         :param pulumi.Input[str] dev_box_definition_name: The name of the Dev Box definition.
         :param pulumi.Input[Union[str, 'HibernateSupport']] hibernate_support: Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] os_storage_type: The storage type used for the Operating System disk of Dev Boxes created using this definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "dev_center_name", dev_center_name)
         pulumi.set(__self__, "image_reference", image_reference)
-        pulumi.set(__self__, "os_storage_type", os_storage_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if dev_box_definition_name is not None:
@@ -49,6 +48,8 @@ class DevBoxDefinitionArgs:
             pulumi.set(__self__, "hibernate_support", hibernate_support)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if os_storage_type is not None:
+            pulumi.set(__self__, "os_storage_type", os_storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -75,18 +76,6 @@ class DevBoxDefinitionArgs:
     @image_reference.setter
     def image_reference(self, value: pulumi.Input['ImageReferenceArgs']):
         pulumi.set(self, "image_reference", value)
-
-    @property
-    @pulumi.getter(name="osStorageType")
-    def os_storage_type(self) -> pulumi.Input[str]:
-        """
-        The storage type used for the Operating System disk of Dev Boxes created using this definition.
-        """
-        return pulumi.get(self, "os_storage_type")
-
-    @os_storage_type.setter
-    def os_storage_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "os_storage_type", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -149,6 +138,18 @@ class DevBoxDefinitionArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="osStorageType")
+    def os_storage_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage type used for the Operating System disk of Dev Boxes created using this definition.
+        """
+        return pulumi.get(self, "os_storage_type")
+
+    @os_storage_type.setter
+    def os_storage_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_storage_type", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -178,7 +179,7 @@ class DevBoxDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a definition for a Developer Machine.
-        API Version: 2022-11-11-preview.
+        API Version: 2023-04-01.
         Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -201,7 +202,7 @@ class DevBoxDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a definition for a Developer Machine.
-        API Version: 2022-11-11-preview.
+        API Version: 2023-04-01.
         Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -246,8 +247,6 @@ class DevBoxDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'image_reference'")
             __props__.__dict__["image_reference"] = image_reference
             __props__.__dict__["location"] = location
-            if os_storage_type is None and not opts.urn:
-                raise TypeError("Missing required property 'os_storage_type'")
             __props__.__dict__["os_storage_type"] = os_storage_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -360,7 +359,7 @@ class DevBoxDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osStorageType")
-    def os_storage_type(self) -> pulumi.Output[str]:
+    def os_storage_type(self) -> pulumi.Output[Optional[str]]:
         """
         The storage type used for the Operating System disk of Dev Boxes created using this definition.
         """

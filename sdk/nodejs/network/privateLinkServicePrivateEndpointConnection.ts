@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * PrivateEndpointConnection resource.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomResource {
@@ -56,6 +56,10 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
      */
     public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.network.PrivateEndpointResponse>;
     /**
+     * The location of the private endpoint.
+     */
+    public /*out*/ readonly privateEndpointLocation!: pulumi.Output<string>;
+    /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
     public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.network.PrivateLinkServiceConnectionStateResponse | undefined>;
@@ -94,6 +98,7 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["linkIdentifier"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
+            resourceInputs["privateEndpointLocation"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -101,6 +106,7 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
             resourceInputs["linkIdentifier"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
+            resourceInputs["privateEndpointLocation"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

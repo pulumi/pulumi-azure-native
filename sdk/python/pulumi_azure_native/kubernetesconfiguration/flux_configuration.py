@@ -28,9 +28,11 @@ class FluxConfigurationArgs:
                  git_repository: Optional[pulumi.Input['GitRepositoryDefinitionArgs']] = None,
                  kustomizations: Optional[pulumi.Input[Mapping[str, pulumi.Input['KustomizationDefinitionArgs']]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
+                 reconciliation_wait_duration: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
                  source_kind: Optional[pulumi.Input[Union[str, 'SourceKindType']]] = None,
-                 suspend: Optional[pulumi.Input[bool]] = None):
+                 suspend: Optional[pulumi.Input[bool]] = None,
+                 wait_for_reconciliation: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a FluxConfiguration resource.
         :param pulumi.Input[str] cluster_name: The name of the kubernetes cluster.
@@ -44,9 +46,11 @@ class FluxConfigurationArgs:
         :param pulumi.Input['GitRepositoryDefinitionArgs'] git_repository: Parameters to reconcile to the GitRepository source kind type.
         :param pulumi.Input[Mapping[str, pulumi.Input['KustomizationDefinitionArgs']]] kustomizations: Array of kustomizations used to reconcile the artifact pulled by the source type on the cluster.
         :param pulumi.Input[str] namespace: The namespace to which this configuration is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
+        :param pulumi.Input[str] reconciliation_wait_duration: Maximum duration to wait for flux configuration reconciliation. E.g PT1H, PT5M, P1D
         :param pulumi.Input[Union[str, 'ScopeType']] scope: Scope at which the operator will be installed.
         :param pulumi.Input[Union[str, 'SourceKindType']] source_kind: Source Kind to pull the configuration data from.
         :param pulumi.Input[bool] suspend: Whether this configuration should suspend its reconciliation of its kustomizations and sources.
+        :param pulumi.Input[bool] wait_for_reconciliation: Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "cluster_resource_name", cluster_resource_name)
@@ -68,6 +72,8 @@ class FluxConfigurationArgs:
             namespace = 'default'
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if reconciliation_wait_duration is not None:
+            pulumi.set(__self__, "reconciliation_wait_duration", reconciliation_wait_duration)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if source_kind is None:
@@ -78,6 +84,8 @@ class FluxConfigurationArgs:
             suspend = False
         if suspend is not None:
             pulumi.set(__self__, "suspend", suspend)
+        if wait_for_reconciliation is not None:
+            pulumi.set(__self__, "wait_for_reconciliation", wait_for_reconciliation)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -212,6 +220,18 @@ class FluxConfigurationArgs:
         pulumi.set(self, "namespace", value)
 
     @property
+    @pulumi.getter(name="reconciliationWaitDuration")
+    def reconciliation_wait_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Maximum duration to wait for flux configuration reconciliation. E.g PT1H, PT5M, P1D
+        """
+        return pulumi.get(self, "reconciliation_wait_duration")
+
+    @reconciliation_wait_duration.setter
+    def reconciliation_wait_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reconciliation_wait_duration", value)
+
+    @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[Union[str, 'ScopeType']]]:
         """
@@ -247,6 +267,18 @@ class FluxConfigurationArgs:
     def suspend(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "suspend", value)
 
+    @property
+    @pulumi.getter(name="waitForReconciliation")
+    def wait_for_reconciliation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.
+        """
+        return pulumi.get(self, "wait_for_reconciliation")
+
+    @wait_for_reconciliation.setter
+    def wait_for_reconciliation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "wait_for_reconciliation", value)
+
 
 class FluxConfiguration(pulumi.CustomResource):
     @overload
@@ -263,14 +295,16 @@ class FluxConfiguration(pulumi.CustomResource):
                  git_repository: Optional[pulumi.Input[pulumi.InputType['GitRepositoryDefinitionArgs']]] = None,
                  kustomizations: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['KustomizationDefinitionArgs']]]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
+                 reconciliation_wait_duration: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
                  source_kind: Optional[pulumi.Input[Union[str, 'SourceKindType']]] = None,
                  suspend: Optional[pulumi.Input[bool]] = None,
+                 wait_for_reconciliation: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         The Flux Configuration object returned in Get & Put response.
-        API Version: 2022-11-01.
+        API Version: 2023-05-01.
         Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -285,10 +319,12 @@ class FluxConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GitRepositoryDefinitionArgs']] git_repository: Parameters to reconcile to the GitRepository source kind type.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['KustomizationDefinitionArgs']]]] kustomizations: Array of kustomizations used to reconcile the artifact pulled by the source type on the cluster.
         :param pulumi.Input[str] namespace: The namespace to which this configuration is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
+        :param pulumi.Input[str] reconciliation_wait_duration: Maximum duration to wait for flux configuration reconciliation. E.g PT1H, PT5M, P1D
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'ScopeType']] scope: Scope at which the operator will be installed.
         :param pulumi.Input[Union[str, 'SourceKindType']] source_kind: Source Kind to pull the configuration data from.
         :param pulumi.Input[bool] suspend: Whether this configuration should suspend its reconciliation of its kustomizations and sources.
+        :param pulumi.Input[bool] wait_for_reconciliation: Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.
         """
         ...
     @overload
@@ -298,7 +334,7 @@ class FluxConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Flux Configuration object returned in Get & Put response.
-        API Version: 2022-11-01.
+        API Version: 2023-05-01.
         Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -326,10 +362,12 @@ class FluxConfiguration(pulumi.CustomResource):
                  git_repository: Optional[pulumi.Input[pulumi.InputType['GitRepositoryDefinitionArgs']]] = None,
                  kustomizations: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['KustomizationDefinitionArgs']]]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
+                 reconciliation_wait_duration: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
                  source_kind: Optional[pulumi.Input[Union[str, 'SourceKindType']]] = None,
                  suspend: Optional[pulumi.Input[bool]] = None,
+                 wait_for_reconciliation: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -357,6 +395,7 @@ class FluxConfiguration(pulumi.CustomResource):
             if namespace is None:
                 namespace = 'default'
             __props__.__dict__["namespace"] = namespace
+            __props__.__dict__["reconciliation_wait_duration"] = reconciliation_wait_duration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -367,6 +406,7 @@ class FluxConfiguration(pulumi.CustomResource):
             if suspend is None:
                 suspend = False
             __props__.__dict__["suspend"] = suspend
+            __props__.__dict__["wait_for_reconciliation"] = wait_for_reconciliation
             __props__.__dict__["compliance_state"] = None
             __props__.__dict__["error_message"] = None
             __props__.__dict__["name"] = None
@@ -412,6 +452,7 @@ class FluxConfiguration(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["namespace"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["reconciliation_wait_duration"] = None
         __props__.__dict__["repository_public_key"] = None
         __props__.__dict__["scope"] = None
         __props__.__dict__["source_kind"] = None
@@ -422,6 +463,7 @@ class FluxConfiguration(pulumi.CustomResource):
         __props__.__dict__["suspend"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["wait_for_reconciliation"] = None
         return FluxConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -505,6 +547,14 @@ class FluxConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="reconciliationWaitDuration")
+    def reconciliation_wait_duration(self) -> pulumi.Output[Optional[str]]:
+        """
+        Maximum duration to wait for flux configuration reconciliation. E.g PT1H, PT5M, P1D
+        """
+        return pulumi.get(self, "reconciliation_wait_duration")
+
+    @property
     @pulumi.getter(name="repositoryPublicKey")
     def repository_public_key(self) -> pulumi.Output[str]:
         """
@@ -583,4 +633,12 @@ class FluxConfiguration(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="waitForReconciliation")
+    def wait_for_reconciliation(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.
+        """
+        return pulumi.get(self, "wait_for_reconciliation")
 

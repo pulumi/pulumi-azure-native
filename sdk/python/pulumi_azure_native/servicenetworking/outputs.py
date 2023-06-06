@@ -12,8 +12,7 @@ from ._enums import *
 
 __all__ = [
     'AssociationSubnetResponse',
-    'FrontendPropertiesIPAddressResponse',
-    'ResourceIDResponse',
+    'ResourceIdResponse',
     'SystemDataResponse',
 ]
 
@@ -40,29 +39,7 @@ class AssociationSubnetResponse(dict):
 
 
 @pulumi.output_type
-class FrontendPropertiesIPAddressResponse(dict):
-    """
-    Frontend IP Address.
-    """
-    def __init__(__self__, *,
-                 id: str):
-        """
-        Frontend IP Address.
-        :param str id: IP Address.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        IP Address.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class ResourceIDResponse(dict):
+class ResourceIdResponse(dict):
     """
     Resource ID definition used by parent to reference child resources.
     """

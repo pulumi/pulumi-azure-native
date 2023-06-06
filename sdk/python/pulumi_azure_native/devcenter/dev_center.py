@@ -114,7 +114,7 @@ class DevCenter(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a devcenter resource.
-        API Version: 2022-11-11-preview.
+        API Version: 2023-04-01.
         Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -133,7 +133,7 @@ class DevCenter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a devcenter resource.
-        API Version: 2022-11-11-preview.
+        API Version: 2023-04-01.
         Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -215,7 +215,7 @@ class DevCenter(pulumi.CustomResource):
     @pulumi.getter(name="devCenterUri")
     def dev_center_uri(self) -> pulumi.Output[str]:
         """
-        The URI of the resource.
+        The URI of the Dev Center.
         """
         return pulumi.get(self, "dev_center_uri")
 

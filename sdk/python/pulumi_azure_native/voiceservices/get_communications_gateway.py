@@ -22,7 +22,7 @@ class GetCommunicationsGatewayResult:
     """
     A CommunicationsGateway resource
     """
-    def __init__(__self__, api_bridge=None, auto_generated_domain_name_label=None, auto_generated_domain_name_label_scope=None, codecs=None, connectivity=None, e911_type=None, emergency_dial_strings=None, id=None, location=None, name=None, on_prem_mcp_enabled=None, platforms=None, provisioning_state=None, service_locations=None, status=None, system_data=None, tags=None, teams_voicemail_pilot_number=None, type=None):
+    def __init__(__self__, api_bridge=None, auto_generated_domain_name_label=None, auto_generated_domain_name_label_scope=None, codecs=None, connectivity=None, e911_type=None, emergency_dial_strings=None, id=None, identity=None, integrated_mcp_enabled=None, location=None, name=None, on_prem_mcp_enabled=None, platforms=None, provisioning_state=None, service_locations=None, status=None, system_data=None, tags=None, teams_voicemail_pilot_number=None, type=None):
         if api_bridge and not isinstance(api_bridge, dict):
             raise TypeError("Expected argument 'api_bridge' to be a dict")
         pulumi.set(__self__, "api_bridge", api_bridge)
@@ -47,6 +47,12 @@ class GetCommunicationsGatewayResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if integrated_mcp_enabled and not isinstance(integrated_mcp_enabled, bool):
+            raise TypeError("Expected argument 'integrated_mcp_enabled' to be a bool")
+        pulumi.set(__self__, "integrated_mcp_enabled", integrated_mcp_enabled)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -144,6 +150,22 @@ class GetCommunicationsGatewayResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The managed service identities assigned to this resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="integratedMcpEnabled")
+    def integrated_mcp_enabled(self) -> Optional[bool]:
+        """
+        Whether an integrated Mobile Control Point is in use.
+        """
+        return pulumi.get(self, "integrated_mcp_enabled")
 
     @property
     @pulumi.getter
@@ -248,6 +270,8 @@ class AwaitableGetCommunicationsGatewayResult(GetCommunicationsGatewayResult):
             e911_type=self.e911_type,
             emergency_dial_strings=self.emergency_dial_strings,
             id=self.id,
+            identity=self.identity,
+            integrated_mcp_enabled=self.integrated_mcp_enabled,
             location=self.location,
             name=self.name,
             on_prem_mcp_enabled=self.on_prem_mcp_enabled,
@@ -266,7 +290,7 @@ def get_communications_gateway(communications_gateway_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommunicationsGatewayResult:
     """
     Get a CommunicationsGateway
-    API Version: 2023-01-31.
+    API Version: 2023-04-03.
 
 
     :param str communications_gateway_name: Unique identifier for this deployment
@@ -287,6 +311,8 @@ def get_communications_gateway(communications_gateway_name: Optional[str] = None
         e911_type=__ret__.e911_type,
         emergency_dial_strings=__ret__.emergency_dial_strings,
         id=__ret__.id,
+        identity=__ret__.identity,
+        integrated_mcp_enabled=__ret__.integrated_mcp_enabled,
         location=__ret__.location,
         name=__ret__.name,
         on_prem_mcp_enabled=__ret__.on_prem_mcp_enabled,
@@ -306,7 +332,7 @@ def get_communications_gateway_output(communications_gateway_name: Optional[pulu
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommunicationsGatewayResult]:
     """
     Get a CommunicationsGateway
-    API Version: 2023-01-31.
+    API Version: 2023-04-03.
 
 
     :param str communications_gateway_name: Unique identifier for this deployment

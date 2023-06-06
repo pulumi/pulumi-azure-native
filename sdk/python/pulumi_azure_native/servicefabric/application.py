@@ -200,7 +200,7 @@ class Application(pulumi.CustomResource):
                  __props__=None):
         """
         The application resource.
-        API Version: 2023-02-01-preview.
+        API Version: 2023-03-01-preview.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -225,7 +225,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The application resource.
-        API Version: 2023-02-01-preview.
+        API Version: 2023-03-01-preview.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

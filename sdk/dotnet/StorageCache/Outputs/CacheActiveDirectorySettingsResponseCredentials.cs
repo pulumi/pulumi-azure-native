@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
         /// <summary>
         /// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         /// </summary>
-        public readonly string Password;
+        public readonly string? Password;
         /// <summary>
         /// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
 
         [OutputConstructor]
         private CacheActiveDirectorySettingsResponseCredentials(
-            string password,
+            string? password,
 
             string username)
         {

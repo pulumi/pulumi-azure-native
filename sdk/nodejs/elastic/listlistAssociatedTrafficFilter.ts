@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List of elastic traffic filters in the account
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-06-01.
  */
 export function listlistAssociatedTrafficFilter(args: ListlistAssociatedTrafficFilterArgs, opts?: pulumi.InvokeOptions): Promise<ListlistAssociatedTrafficFilterResult> {
 
@@ -42,7 +42,7 @@ export interface ListlistAssociatedTrafficFilterResult {
 }
 /**
  * List of elastic traffic filters in the account
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-06-01.
  */
 export function listlistAssociatedTrafficFilterOutput(args: ListlistAssociatedTrafficFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListlistAssociatedTrafficFilterResult> {
     return pulumi.output(args).apply((a: any) => listlistAssociatedTrafficFilter(a, opts))

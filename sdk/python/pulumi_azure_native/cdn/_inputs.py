@@ -67,6 +67,7 @@ __all__ = [
     'ManagedRuleOverrideArgs',
     'ManagedRuleSetListArgs',
     'ManagedRuleSetArgs',
+    'ManagedServiceIdentityArgs',
     'MatchConditionArgs',
     'OriginGroupOverrideActionParametersArgs',
     'OriginGroupOverrideActionArgs',
@@ -244,13 +245,17 @@ class AfdRouteCacheConfigurationArgs:
 @pulumi.input_type
 class AzureFirstPartyManagedCertificateParametersArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Azure FirstParty Managed Certificate provided by other first party resource providers to enable HTTPS.
         :param pulumi.Input[str] type: The type of the secret resource.
                Expected value is 'AzureFirstPartyManagedCertificate'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: The list of SANs.
         """
         pulumi.set(__self__, "type", 'AzureFirstPartyManagedCertificate')
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -264,6 +269,18 @@ class AzureFirstPartyManagedCertificateParametersArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of SANs.
+        """
+        return pulumi.get(self, "subject_alternative_names")
+
+    @subject_alternative_names.setter
+    def subject_alternative_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subject_alternative_names", value)
 
 
 @pulumi.input_type
@@ -3109,6 +3126,45 @@ class ManagedRuleSetArgs:
     @rule_group_overrides.setter
     def rule_group_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleGroupOverrideArgs']]]]):
         pulumi.set(self, "rule_group_overrides", value)
+
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type

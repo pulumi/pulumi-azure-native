@@ -184,7 +184,7 @@ def get_application(application_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
-    API Version: 2023-02-01-preview.
+    API Version: 2023-03-01-preview.
 
 
     :param str application_name: The name of the application resource.
@@ -220,7 +220,7 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
-    API Version: 2023-02-01-preview.
+    API Version: 2023-03-01-preview.
 
 
     :param str application_name: The name of the application resource.

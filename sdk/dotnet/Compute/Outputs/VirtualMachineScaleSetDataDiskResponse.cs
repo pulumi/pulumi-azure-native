@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class VirtualMachineScaleSetDataDiskResponse
     {
         /// <summary>
-        /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None for Standard storage. ReadOnly for Premium storage**
+        /// Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The default values are: **None for Standard storage. ReadOnly for Premium storage.**
         /// </summary>
         public readonly string? Caching;
         /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly double? DiskMBpsReadWrite;
         /// <summary>
-        /// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. &lt;br&gt;&lt;br&gt; diskSizeGB is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023
+        /// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. The property diskSizeGB is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023.
         /// </summary>
         public readonly int? DiskSizeGB;
         /// <summary>

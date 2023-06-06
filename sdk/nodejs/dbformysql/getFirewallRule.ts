@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a server firewall rule.
- * API Version: 2021-05-01.
+ * API Version: 2022-01-01.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
 
@@ -67,7 +67,7 @@ export interface GetFirewallRuleResult {
 }
 /**
  * Gets information about a server firewall rule.
- * API Version: 2021-05-01.
+ * API Version: 2022-01-01.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))

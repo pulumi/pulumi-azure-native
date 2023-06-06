@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// The list credential result response.
-        /// API Version: 2023-01-01.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Task<ListManagedClusterUserCredentialsResult> InvokeAsync(ListManagedClusterUserCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterUserCredentialsResult>("azure-native:containerservice:listManagedClusterUserCredentials", args ?? new ListManagedClusterUserCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list credential result response.
-        /// API Version: 2023-01-01.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Output<ListManagedClusterUserCredentialsResult> Invoke(ListManagedClusterUserCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListManagedClusterUserCredentialsResult>("azure-native:containerservice:listManagedClusterUserCredentials", args ?? new ListManagedClusterUserCredentialsInvokeArgs(), options.WithDefaults());

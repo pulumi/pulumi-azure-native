@@ -360,6 +360,43 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
+    /// </summary>
+    [EnumType]
+    public readonly struct KubernetesSupportPlan : IEquatable<KubernetesSupportPlan>
+    {
+        private readonly string _value;
+
+        private KubernetesSupportPlan(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Support for the version is the same as for the open source Kubernetes offering. Official Kubernetes open source community support versions for 1 year after release.
+        /// </summary>
+        public static KubernetesSupportPlan KubernetesOfficial { get; } = new KubernetesSupportPlan("KubernetesOfficial");
+        /// <summary>
+        /// Support for the version extended past the KubernetesOfficial support of 1 year. AKS continues to patch CVEs for another 1 year, for a total of 2 years of support.
+        /// </summary>
+        public static KubernetesSupportPlan AKSLongTermSupport { get; } = new KubernetesSupportPlan("AKSLongTermSupport");
+
+        public static bool operator ==(KubernetesSupportPlan left, KubernetesSupportPlan right) => left.Equals(right);
+        public static bool operator !=(KubernetesSupportPlan left, KubernetesSupportPlan right) => !left.Equals(right);
+
+        public static explicit operator string(KubernetesSupportPlan value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KubernetesSupportPlan other && Equals(other);
+        public bool Equals(KubernetesSupportPlan other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The license type to use for Windows VMs. See [Azure Hybrid User Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/faq/) for more details.
     /// </summary>
     [EnumType]
@@ -447,11 +484,7 @@ namespace Pulumi.AzureNative.ContainerService
         }
 
         /// <summary>
-        /// Basic option for the AKS control plane.
-        /// </summary>
-        public static ManagedClusterSKUName Basic { get; } = new ManagedClusterSKUName("Basic");
-        /// <summary>
-        /// Not yet available in this version.
+        /// Base option for the AKS control plane.
         /// </summary>
         public static ManagedClusterSKUName Base { get; } = new ManagedClusterSKUName("Base");
 
@@ -484,11 +517,11 @@ namespace Pulumi.AzureNative.ContainerService
         }
 
         /// <summary>
-        /// Recommended for mission-critical and production workloads. Includes Kubernetes control plane autoscaling, workload-intensive testing, and up to 5,000 nodes per cluster. Guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use Availability Zones and 99.9% of availability for clusters that don't use Availability Zones.
+        /// Cluster has premium capabilities in addition to all of the capabilities included in 'Standard'. Premium enables selection of LongTermSupport (aka.ms/aks/lts) for certain Kubernetes versions.
         /// </summary>
-        public static ManagedClusterSKUTier Paid { get; } = new ManagedClusterSKUTier("Paid");
+        public static ManagedClusterSKUTier Premium { get; } = new ManagedClusterSKUTier("Premium");
         /// <summary>
-        /// Not yet available in this version.
+        /// Recommended for mission-critical and production workloads. Includes Kubernetes control plane autoscaling, workload-intensive testing, and up to 5,000 nodes per cluster. Guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use Availability Zones and 99.9% of availability for clusters that don't use Availability Zones.
         /// </summary>
         public static ManagedClusterSKUTier Standard { get; } = new ManagedClusterSKUTier("Standard");
         /// <summary>
@@ -504,6 +537,43 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedClusterSKUTier other && Equals(other);
         public bool Equals(ManagedClusterSKUTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Network dataplane used in the Kubernetes cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkDataplane : IEquatable<NetworkDataplane>
+    {
+        private readonly string _value;
+
+        private NetworkDataplane(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Use Azure network dataplane.
+        /// </summary>
+        public static NetworkDataplane Azure { get; } = new NetworkDataplane("azure");
+        /// <summary>
+        /// Use Cilium network dataplane. See [Azure CNI Powered by Cilium](https://learn.microsoft.com/azure/aks/azure-cni-powered-by-cilium) for more information.
+        /// </summary>
+        public static NetworkDataplane Cilium { get; } = new NetworkDataplane("cilium");
+
+        public static bool operator ==(NetworkDataplane left, NetworkDataplane right) => left.Equals(right);
+        public static bool operator !=(NetworkDataplane left, NetworkDataplane right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkDataplane value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkDataplane other && Equals(other);
+        public bool Equals(NetworkDataplane other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -590,6 +660,39 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// The mode the network plugin should use.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkPluginMode : IEquatable<NetworkPluginMode>
+    {
+        private readonly string _value;
+
+        private NetworkPluginMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Used with networkPlugin=azure, pods are given IPs from the PodCIDR address space but use Azure Routing Domains rather than Kubenet's method of route tables. For more information visit https://aka.ms/aks/azure-cni-overlay.
+        /// </summary>
+        public static NetworkPluginMode Overlay { get; } = new NetworkPluginMode("overlay");
+
+        public static bool operator ==(NetworkPluginMode left, NetworkPluginMode right) => left.Equals(right);
+        public static bool operator !=(NetworkPluginMode left, NetworkPluginMode right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkPluginMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkPluginMode other && Equals(other);
+        public bool Equals(NetworkPluginMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Network policy used for building the Kubernetes network.
     /// </summary>
     [EnumType]
@@ -610,6 +713,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// Use Azure network policies. See [differences between Azure and Calico policies](https://docs.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities) for more information.
         /// </summary>
         public static NetworkPolicy Azure { get; } = new NetworkPolicy("azure");
+        /// <summary>
+        /// Use Cilium to enforce network policies. This requires networkDataplane to be 'cilium'.
+        /// </summary>
+        public static NetworkPolicy Cilium { get; } = new NetworkPolicy("cilium");
 
         public static bool operator ==(NetworkPolicy left, NetworkPolicy right) => left.Equals(right);
         public static bool operator !=(NetworkPolicy left, NetworkPolicy right) => !left.Equals(right);
@@ -676,9 +783,25 @@ namespace Pulumi.AzureNative.ContainerService
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Use Ubuntu as the OS for node images.
+        /// </summary>
         public static OSSKU Ubuntu { get; } = new OSSKU("Ubuntu");
+        /// <summary>
+        /// Use AzureLinux as the OS for node images. Azure Linux is a container-optimized Linux distro built by Microsoft, visit https://aka.ms/azurelinux for more information.
+        /// </summary>
+        public static OSSKU AzureLinux { get; } = new OSSKU("AzureLinux");
+        /// <summary>
+        /// Deprecated OSSKU. Microsoft recommends that new deployments choose 'AzureLinux' instead.
+        /// </summary>
         public static OSSKU CBLMariner { get; } = new OSSKU("CBLMariner");
+        /// <summary>
+        /// Use Windows2019 as the OS for node images. Unsupported for system node pools. Windows2019 only supports Windows2019 containers; it cannot run Windows2022 containers and vice versa.
+        /// </summary>
         public static OSSKU Windows2019 { get; } = new OSSKU("Windows2019");
+        /// <summary>
+        /// Use Windows2022 as the OS for node images. Unsupported for system node pools. Windows2022 only supports Windows2022 containers; it cannot run Windows2019 containers and vice versa.
+        /// </summary>
         public static OSSKU Windows2022 { get; } = new OSSKU("Windows2022");
 
         public static bool operator ==(OSSKU left, OSSKU right) => left.Equals(right);

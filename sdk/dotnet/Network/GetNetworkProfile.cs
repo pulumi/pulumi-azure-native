@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified network profile in a specified resource group.
-        /// API Version: 2022-09-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetNetworkProfileResult> InvokeAsync(GetNetworkProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkProfileResult>("azure-native:network:getNetworkProfile", args ?? new GetNetworkProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified network profile in a specified resource group.
-        /// API Version: 2022-09-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetNetworkProfileResult> Invoke(GetNetworkProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkProfileResult>("azure-native:network:getNetworkProfile", args ?? new GetNetworkProfileInvokeArgs(), options.WithDefaults());

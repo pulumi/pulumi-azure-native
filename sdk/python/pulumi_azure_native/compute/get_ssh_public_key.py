@@ -109,7 +109,7 @@ def get_ssh_public_key(resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshPublicKeyResult:
     """
     Retrieves information about an SSH public key.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -136,7 +136,7 @@ def get_ssh_public_key_output(resource_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshPublicKeyResult]:
     """
     Retrieves information about an SSH public key.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str resource_group_name: The name of the resource group.

@@ -19,6 +19,7 @@ class NetworkInterfaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  auxiliary_mode: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']]] = None,
+                 auxiliary_sku: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliarySku']]] = None,
                  disable_tcp_state_tracking: Optional[pulumi.Input[bool]] = None,
                  dns_settings: Optional[pulumi.Input['NetworkInterfaceDnsSettingsArgs']] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
@@ -38,6 +39,7 @@ class NetworkInterfaceArgs:
         The set of arguments for constructing a NetworkInterface resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']] auxiliary_mode: Auxiliary mode of Network Interface resource.
+        :param pulumi.Input[Union[str, 'NetworkInterfaceAuxiliarySku']] auxiliary_sku: Auxiliary sku of Network Interface resource.
         :param pulumi.Input[bool] disable_tcp_state_tracking: Indicates whether to disable tcp state tracking.
         :param pulumi.Input['NetworkInterfaceDnsSettingsArgs'] dns_settings: The DNS settings in network interface.
         :param pulumi.Input[bool] enable_accelerated_networking: If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
@@ -57,6 +59,8 @@ class NetworkInterfaceArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auxiliary_mode is not None:
             pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+        if auxiliary_sku is not None:
+            pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
         if disable_tcp_state_tracking is not None:
             pulumi.set(__self__, "disable_tcp_state_tracking", disable_tcp_state_tracking)
         if dns_settings is not None:
@@ -111,6 +115,18 @@ class NetworkInterfaceArgs:
     @auxiliary_mode.setter
     def auxiliary_mode(self, value: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']]]):
         pulumi.set(self, "auxiliary_mode", value)
+
+    @property
+    @pulumi.getter(name="auxiliarySku")
+    def auxiliary_sku(self) -> Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliarySku']]]:
+        """
+        Auxiliary sku of Network Interface resource.
+        """
+        return pulumi.get(self, "auxiliary_sku")
+
+    @auxiliary_sku.setter
+    def auxiliary_sku(self, value: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliarySku']]]):
+        pulumi.set(self, "auxiliary_sku", value)
 
     @property
     @pulumi.getter(name="disableTcpStateTracking")
@@ -299,6 +315,7 @@ class NetworkInterface(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auxiliary_mode: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']]] = None,
+                 auxiliary_sku: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliarySku']]] = None,
                  disable_tcp_state_tracking: Optional[pulumi.Input[bool]] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
@@ -318,12 +335,13 @@ class NetworkInterface(pulumi.CustomResource):
                  __props__=None):
         """
         A network interface in a resource group.
-        API Version: 2022-09-01.
+        API Version: 2022-11-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']] auxiliary_mode: Auxiliary mode of Network Interface resource.
+        :param pulumi.Input[Union[str, 'NetworkInterfaceAuxiliarySku']] auxiliary_sku: Auxiliary sku of Network Interface resource.
         :param pulumi.Input[bool] disable_tcp_state_tracking: Indicates whether to disable tcp state tracking.
         :param pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']] dns_settings: The DNS settings in network interface.
         :param pulumi.Input[bool] enable_accelerated_networking: If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
@@ -349,7 +367,7 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A network interface in a resource group.
-        API Version: 2022-09-01.
+        API Version: 2022-11-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -368,6 +386,7 @@ class NetworkInterface(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auxiliary_mode: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']]] = None,
+                 auxiliary_sku: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliarySku']]] = None,
                  disable_tcp_state_tracking: Optional[pulumi.Input[bool]] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
@@ -394,6 +413,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__ = NetworkInterfaceArgs.__new__(NetworkInterfaceArgs)
 
             __props__.__dict__["auxiliary_mode"] = auxiliary_mode
+            __props__.__dict__["auxiliary_sku"] = auxiliary_sku
             __props__.__dict__["disable_tcp_state_tracking"] = disable_tcp_state_tracking
             __props__.__dict__["dns_settings"] = dns_settings
             __props__.__dict__["enable_accelerated_networking"] = enable_accelerated_networking
@@ -450,6 +470,7 @@ class NetworkInterface(pulumi.CustomResource):
         __props__ = NetworkInterfaceArgs.__new__(NetworkInterfaceArgs)
 
         __props__.__dict__["auxiliary_mode"] = None
+        __props__.__dict__["auxiliary_sku"] = None
         __props__.__dict__["disable_tcp_state_tracking"] = None
         __props__.__dict__["dns_settings"] = None
         __props__.__dict__["dscp_configuration"] = None
@@ -485,6 +506,14 @@ class NetworkInterface(pulumi.CustomResource):
         Auxiliary mode of Network Interface resource.
         """
         return pulumi.get(self, "auxiliary_mode")
+
+    @property
+    @pulumi.getter(name="auxiliarySku")
+    def auxiliary_sku(self) -> pulumi.Output[Optional[str]]:
+        """
+        Auxiliary sku of Network Interface resource.
+        """
+        return pulumi.get(self, "auxiliary_sku")
 
     @property
     @pulumi.getter(name="disableTcpStateTracking")

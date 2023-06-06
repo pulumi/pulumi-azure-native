@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// </summary>
         public readonly Outputs.DefenderFoDatabasesAwsOfferingResponseArcAutoProvisioning? ArcAutoProvisioning;
         /// <summary>
+        /// The databases data security posture management (DSPM) configuration
+        /// </summary>
+        public readonly Outputs.DefenderFoDatabasesAwsOfferingResponseDatabasesDspm? DatabasesDspm;
+        /// <summary>
         /// The offering description.
         /// </summary>
         public readonly string Description;
@@ -38,6 +42,8 @@ namespace Pulumi.AzureNative.Security.Outputs
         private DefenderFoDatabasesAwsOfferingResponse(
             Outputs.DefenderFoDatabasesAwsOfferingResponseArcAutoProvisioning? arcAutoProvisioning,
 
+            Outputs.DefenderFoDatabasesAwsOfferingResponseDatabasesDspm? databasesDspm,
+
             string description,
 
             string offeringType,
@@ -45,6 +51,7 @@ namespace Pulumi.AzureNative.Security.Outputs
             Outputs.DefenderFoDatabasesAwsOfferingResponseRds? rds)
         {
             ArcAutoProvisioning = arcAutoProvisioning;
+            DatabasesDspm = databasesDspm;
             Description = description;
             OfferingType = offeringType;
             Rds = rds;

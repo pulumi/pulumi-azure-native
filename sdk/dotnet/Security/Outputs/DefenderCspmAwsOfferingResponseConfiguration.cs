@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ExclusionTags;
         /// <summary>
-        /// The scanning mode for the vm scan.
+        /// The scanning mode for the VM scan.
         /// </summary>
         public readonly string? ScanningMode;
 

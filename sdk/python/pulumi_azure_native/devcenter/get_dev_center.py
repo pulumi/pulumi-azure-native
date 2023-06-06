@@ -55,7 +55,7 @@ class GetDevCenterResult:
     @pulumi.getter(name="devCenterUri")
     def dev_center_uri(self) -> str:
         """
-        The URI of the resource.
+        The URI of the Dev Center.
         """
         return pulumi.get(self, "dev_center_uri")
 
@@ -146,7 +146,7 @@ def get_dev_center(dev_center_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevCenterResult:
     """
     Gets a devcenter.
-    API Version: 2022-11-11-preview.
+    API Version: 2023-04-01.
 
 
     :param str dev_center_name: The name of the devcenter.
@@ -176,7 +176,7 @@ def get_dev_center_output(dev_center_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevCenterResult]:
     """
     Gets a devcenter.
-    API Version: 2022-11-11-preview.
+    API Version: 2023-04-01.
 
 
     :param str dev_center_name: The name of the devcenter.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The list credential result response.
- * API Version: 2023-01-01.
+ * API Version: 2023-04-01.
  */
 export function listManagedClusterMonitoringUserCredentials(args: ListManagedClusterMonitoringUserCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterMonitoringUserCredentialsResult> {
 
@@ -47,7 +47,7 @@ export interface ListManagedClusterMonitoringUserCredentialsResult {
 }
 /**
  * The list credential result response.
- * API Version: 2023-01-01.
+ * API Version: 2023-04-01.
  */
 export function listManagedClusterMonitoringUserCredentialsOutput(args: ListManagedClusterMonitoringUserCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterMonitoringUserCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listManagedClusterMonitoringUserCredentials(a, opts))

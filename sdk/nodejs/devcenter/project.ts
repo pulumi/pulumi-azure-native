@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a project resource.
- * API Version: 2022-11-11-preview.
+ * API Version: 2023-04-01.
  * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Project extends pulumi.CustomResource {
@@ -48,13 +48,17 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly devCenterId!: pulumi.Output<string | undefined>;
     /**
-     * The URI of the resource.
+     * The URI of the Dev Center resource this project is associated with.
      */
     public /*out*/ readonly devCenterUri!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
+     */
+    public readonly maxDevBoxesPerUser!: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
@@ -93,6 +97,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["devCenterId"] = args ? args.devCenterId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxDevBoxesPerUser"] = args ? args.maxDevBoxesPerUser : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -106,6 +111,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["devCenterId"] = undefined /*out*/;
             resourceInputs["devCenterUri"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maxDevBoxesPerUser"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -135,6 +141,10 @@ export interface ProjectArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
+     */
+    maxDevBoxesPerUser?: pulumi.Input<number>;
     /**
      * The name of the project.
      */

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a schedule resource.
- * API Version: 2022-11-11-preview.
+ * API Version: 2023-04-01.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
 
@@ -89,7 +89,7 @@ export interface GetScheduleResult {
 }
 /**
  * Gets a schedule resource.
- * API Version: 2022-11-11-preview.
+ * API Version: 2023-04-01.
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
     return pulumi.output(args).apply((a: any) => getSchedule(a, opts))

@@ -22,7 +22,7 @@ class GetArcSettingResult:
     """
     ArcSetting details.
     """
-    def __init__(__self__, aggregate_state=None, arc_application_client_id=None, arc_application_object_id=None, arc_application_tenant_id=None, arc_instance_resource_group=None, arc_service_principal_object_id=None, connectivity_properties=None, id=None, name=None, per_node_details=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, aggregate_state=None, arc_application_client_id=None, arc_application_object_id=None, arc_application_tenant_id=None, arc_instance_resource_group=None, arc_service_principal_object_id=None, connectivity_properties=None, default_extensions=None, id=None, name=None, per_node_details=None, provisioning_state=None, system_data=None, type=None):
         if aggregate_state and not isinstance(aggregate_state, str):
             raise TypeError("Expected argument 'aggregate_state' to be a str")
         pulumi.set(__self__, "aggregate_state", aggregate_state)
@@ -44,6 +44,9 @@ class GetArcSettingResult:
         if connectivity_properties and not isinstance(connectivity_properties, list):
             raise TypeError("Expected argument 'connectivity_properties' to be a list")
         pulumi.set(__self__, "connectivity_properties", connectivity_properties)
+        if default_extensions and not isinstance(default_extensions, list):
+            raise TypeError("Expected argument 'default_extensions' to be a list")
+        pulumi.set(__self__, "default_extensions", default_extensions)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -120,6 +123,14 @@ class GetArcSettingResult:
         return pulumi.get(self, "connectivity_properties")
 
     @property
+    @pulumi.getter(name="defaultExtensions")
+    def default_extensions(self) -> Sequence['outputs.DefaultExtensionDetailsResponse']:
+        """
+        Properties for each of the default extensions category
+        """
+        return pulumi.get(self, "default_extensions")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -181,6 +192,7 @@ class AwaitableGetArcSettingResult(GetArcSettingResult):
             arc_instance_resource_group=self.arc_instance_resource_group,
             arc_service_principal_object_id=self.arc_service_principal_object_id,
             connectivity_properties=self.connectivity_properties,
+            default_extensions=self.default_extensions,
             id=self.id,
             name=self.name,
             per_node_details=self.per_node_details,
@@ -195,7 +207,7 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArcSettingResult:
     """
     Get ArcSetting resource details of HCI Cluster.
-    API Version: 2023-02-01.
+    API Version: 2023-03-01.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
@@ -217,6 +229,7 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
         arc_instance_resource_group=__ret__.arc_instance_resource_group,
         arc_service_principal_object_id=__ret__.arc_service_principal_object_id,
         connectivity_properties=__ret__.connectivity_properties,
+        default_extensions=__ret__.default_extensions,
         id=__ret__.id,
         name=__ret__.name,
         per_node_details=__ret__.per_node_details,
@@ -232,7 +245,7 @@ def get_arc_setting_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArcSettingResult]:
     """
     Get ArcSetting resource details of HCI Cluster.
-    API Version: 2023-02-01.
+    API Version: 2023-03-01.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.

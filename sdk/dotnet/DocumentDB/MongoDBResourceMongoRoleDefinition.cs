@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Mongo Role Definition.
-    /// API Version: 2022-11-15.
+    /// API Version: 2023-04-15.
     /// Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:MongoDBResourceMongoRoleDefinition")]
@@ -171,7 +171,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Indicates whether the Role Definition was built-in or user created.
         /// </summary>
         [Input("type")]
-        public Input<double>? Type { get; set; }
+        public Input<Pulumi.AzureNative.DocumentDB.MongoRoleDefinitionType>? Type { get; set; }
 
         public MongoDBResourceMongoRoleDefinitionArgs()
         {

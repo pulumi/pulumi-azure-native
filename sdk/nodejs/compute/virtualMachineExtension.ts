@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine Extension.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class VirtualMachineExtension extends pulumi.CustomResource {
@@ -72,6 +72,10 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
      */
     public readonly protectedSettingsFromKeyVault!: pulumi.Output<outputs.compute.KeyVaultSecretReferenceResponse | undefined>;
     /**
+     * Collection of extension names after which this extension needs to be provisioned.
+     */
+    public readonly provisionAfterExtensions!: pulumi.Output<string[] | undefined>;
+    /**
      * The provisioning state, which only appears in the response.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -124,6 +128,7 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
             resourceInputs["protectedSettingsFromKeyVault"] = args ? args.protectedSettingsFromKeyVault : undefined;
+            resourceInputs["provisionAfterExtensions"] = args ? args.provisionAfterExtensions : undefined;
             resourceInputs["publisher"] = args ? args.publisher : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
@@ -144,6 +149,7 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["protectedSettings"] = undefined /*out*/;
             resourceInputs["protectedSettingsFromKeyVault"] = undefined /*out*/;
+            resourceInputs["provisionAfterExtensions"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publisher"] = undefined /*out*/;
             resourceInputs["settings"] = undefined /*out*/;
@@ -191,6 +197,10 @@ export interface VirtualMachineExtensionArgs {
      * The extensions protected settings that are passed by reference, and consumed from key vault
      */
     protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.KeyVaultSecretReferenceArgs>;
+    /**
+     * Collection of extension names after which this extension needs to be provisioned.
+     */
+    provisionAfterExtensions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the extension handler publisher.
      */

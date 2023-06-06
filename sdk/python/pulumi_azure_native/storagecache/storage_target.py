@@ -29,12 +29,12 @@ class StorageTargetArgs:
                  unknown: Optional[pulumi.Input['UnknownTargetArgs']] = None):
         """
         The set of arguments for constructing a StorageTarget resource.
-        :param pulumi.Input[str] cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
-        :param pulumi.Input[str] resource_group_name: Target resource group.
+        :param pulumi.Input[str] cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'StorageTargetType']] target_type: Type of the Storage Target.
         :param pulumi.Input['BlobNfsTargetArgs'] blob_nfs: Properties when targetType is blobNfs.
         :param pulumi.Input['ClfsTargetArgs'] clfs: Properties when targetType is clfs.
-        :param pulumi.Input[Sequence[pulumi.Input['NamespaceJunctionArgs']]] junctions: List of Cache namespace junctions to target for namespace associations.
+        :param pulumi.Input[Sequence[pulumi.Input['NamespaceJunctionArgs']]] junctions: List of cache namespace junctions to target for namespace associations.
         :param pulumi.Input['Nfs3TargetArgs'] nfs3: Properties when targetType is nfs3.
         :param pulumi.Input[Union[str, 'OperationalStateType']] state: Storage target operational state.
         :param pulumi.Input[str] storage_target_name: Name of Storage Target.
@@ -62,7 +62,7 @@ class StorageTargetArgs:
     @pulumi.getter(name="cacheName")
     def cache_name(self) -> pulumi.Input[str]:
         """
-        Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         """
         return pulumi.get(self, "cache_name")
 
@@ -74,7 +74,7 @@ class StorageTargetArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Target resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -122,7 +122,7 @@ class StorageTargetArgs:
     @pulumi.getter
     def junctions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceJunctionArgs']]]]:
         """
-        List of Cache namespace junctions to target for namespace associations.
+        List of cache namespace junctions to target for namespace associations.
         """
         return pulumi.get(self, "junctions")
 
@@ -197,17 +197,17 @@ class StorageTarget(pulumi.CustomResource):
                  __props__=None):
         """
         Type of the Storage Target.
-        API Version: 2023-01-01.
+        API Version: 2023-05-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BlobNfsTargetArgs']] blob_nfs: Properties when targetType is blobNfs.
-        :param pulumi.Input[str] cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        :param pulumi.Input[str] cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         :param pulumi.Input[pulumi.InputType['ClfsTargetArgs']] clfs: Properties when targetType is clfs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]] junctions: List of Cache namespace junctions to target for namespace associations.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]] junctions: List of cache namespace junctions to target for namespace associations.
         :param pulumi.Input[pulumi.InputType['Nfs3TargetArgs']] nfs3: Properties when targetType is nfs3.
-        :param pulumi.Input[str] resource_group_name: Target resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'OperationalStateType']] state: Storage target operational state.
         :param pulumi.Input[str] storage_target_name: Name of Storage Target.
         :param pulumi.Input[Union[str, 'StorageTargetType']] target_type: Type of the Storage Target.
@@ -221,7 +221,7 @@ class StorageTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Type of the Storage Target.
-        API Version: 2023-01-01.
+        API Version: 2023-05-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -347,7 +347,7 @@ class StorageTarget(pulumi.CustomResource):
     @pulumi.getter
     def junctions(self) -> pulumi.Output[Optional[Sequence['outputs.NamespaceJunctionResponse']]]:
         """
-        List of Cache namespace junctions to target for namespace associations.
+        List of cache namespace junctions to target for namespace associations.
         """
         return pulumi.get(self, "junctions")
 

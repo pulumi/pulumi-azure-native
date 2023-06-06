@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class VirtualMachineScaleSetVMInstanceViewResponse
     {
         /// <summary>
-        /// Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-06-01.
+        /// Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. Minimum api-version: 2020-06-01.
         /// </summary>
         public readonly string AssignedHost;
         /// <summary>
-        /// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. &lt;br&gt;&lt;br&gt; You can easily view the output of your console log. &lt;br&gt;&lt;br&gt; Azure also enables you to see a screenshot of the VM from the hypervisor.
+        /// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. You can easily view the output of your console log. Azure also enables you to see a screenshot of the VM from the hypervisor.
         /// </summary>
         public readonly Outputs.BootDiagnosticsInstanceViewResponse? BootDiagnostics;
         /// <summary>

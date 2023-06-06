@@ -11,14 +11,14 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a devcenter resource.
-    /// API Version: 2022-11-11-preview.
+    /// API Version: 2023-04-01.
     /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:DevCenter")]
     public partial class DevCenter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The URI of the resource.
+        /// The URI of the Dev Center.
         /// </summary>
         [Output("devCenterUri")]
         public Output<string> DevCenterUri { get; private set; } = null!;

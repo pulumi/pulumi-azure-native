@@ -147,7 +147,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Rule Collection Group resource.
-        API Version: 2022-09-01.
+        API Version: 2022-11-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -168,7 +168,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Rule Collection Group resource.
-        API Version: 2022-09-01.
+        API Version: 2022-11-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

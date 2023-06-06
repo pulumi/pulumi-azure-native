@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.ComputeInstanceCreatedByResponse CreatedBy;
         /// <summary>
+        /// List of Custom Services added to the compute.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CustomServiceResponse> CustomServices;
+        /// <summary>
         /// Describes informations of dataDisks on this ComputeInstance.
         /// </summary>
         public readonly ImmutableArray<Outputs.ComputeInstanceDataDiskResponse> DataDisks;
@@ -60,6 +64,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// The last operation on ComputeInstance.
         /// </summary>
         public readonly Outputs.ComputeInstanceLastOperationResponse LastOperation;
+        /// <summary>
+        /// Returns metadata about the operating system image for this compute instance.
+        /// </summary>
+        public readonly Outputs.ImageMetadataResponse OsImageMetadata;
         /// <summary>
         /// Settings for a personal compute instance.
         /// </summary>
@@ -107,6 +115,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.ComputeInstanceCreatedByResponse createdBy,
 
+            ImmutableArray<Outputs.CustomServiceResponse> customServices,
+
             ImmutableArray<Outputs.ComputeInstanceDataDiskResponse> dataDisks,
 
             ImmutableArray<Outputs.ComputeInstanceDataMountResponse> dataMounts,
@@ -116,6 +126,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             ImmutableArray<Outputs.ErrorResponseResponse> errors,
 
             Outputs.ComputeInstanceLastOperationResponse lastOperation,
+
+            Outputs.ImageMetadataResponse osImageMetadata,
 
             Outputs.PersonalComputeInstanceSettingsResponse? personalComputeInstanceSettings,
 
@@ -139,11 +151,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             ConnectivityEndpoints = connectivityEndpoints;
             Containers = containers;
             CreatedBy = createdBy;
+            CustomServices = customServices;
             DataDisks = dataDisks;
             DataMounts = dataMounts;
             EnableNodePublicIp = enableNodePublicIp;
             Errors = errors;
             LastOperation = lastOperation;
+            OsImageMetadata = osImageMetadata;
             PersonalComputeInstanceSettings = personalComputeInstanceSettings;
             Schedules = schedules;
             SetupScripts = setupScripts;

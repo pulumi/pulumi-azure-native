@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// </summary>
         public readonly string? ProjectId;
         /// <summary>
+        /// GCP project name
+        /// </summary>
+        public readonly string ProjectName;
+        /// <summary>
         /// The unique GCP Project number
         /// </summary>
         public readonly string? ProjectNumber;
@@ -33,11 +37,14 @@ namespace Pulumi.AzureNative.Security.Outputs
         private GcpProjectDetailsResponse(
             string? projectId,
 
+            string projectName,
+
             string? projectNumber,
 
             string workloadIdentityPoolId)
         {
             ProjectId = projectId;
+            ProjectName = projectName;
             ProjectNumber = projectNumber;
             WorkloadIdentityPoolId = workloadIdentityPoolId;
         }

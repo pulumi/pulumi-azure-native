@@ -21,6 +21,7 @@ class AssetArgs:
                  asset_name: Optional[pulumi.Input[str]] = None,
                  container: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_scope: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Asset resource.
@@ -30,6 +31,7 @@ class AssetArgs:
         :param pulumi.Input[str] asset_name: The Asset name.
         :param pulumi.Input[str] container: The name of the asset blob container.
         :param pulumi.Input[str] description: The Asset description.
+        :param pulumi.Input[str] encryption_scope: The Asset container encryption scope in the storage account.
         :param pulumi.Input[str] storage_account_name: The name of the storage account.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -42,6 +44,8 @@ class AssetArgs:
             pulumi.set(__self__, "container", container)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption_scope is not None:
+            pulumi.set(__self__, "encryption_scope", encryption_scope)
         if storage_account_name is not None:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
 
@@ -118,6 +122,18 @@ class AssetArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="encryptionScope")
+    def encryption_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Asset container encryption scope in the storage account.
+        """
+        return pulumi.get(self, "encryption_scope")
+
+    @encryption_scope.setter
+    def encryption_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_scope", value)
+
+    @property
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -140,12 +156,13 @@ class Asset(pulumi.CustomResource):
                  asset_name: Optional[pulumi.Input[str]] = None,
                  container: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_scope: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         An Asset.
-        API Version: 2022-08-01.
+        API Version: 2023-01-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -155,6 +172,7 @@ class Asset(pulumi.CustomResource):
         :param pulumi.Input[str] asset_name: The Asset name.
         :param pulumi.Input[str] container: The name of the asset blob container.
         :param pulumi.Input[str] description: The Asset description.
+        :param pulumi.Input[str] encryption_scope: The Asset container encryption scope in the storage account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] storage_account_name: The name of the storage account.
         """
@@ -166,7 +184,7 @@ class Asset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Asset.
-        API Version: 2022-08-01.
+        API Version: 2023-01-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -189,6 +207,7 @@ class Asset(pulumi.CustomResource):
                  asset_name: Optional[pulumi.Input[str]] = None,
                  container: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_scope: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -207,6 +226,7 @@ class Asset(pulumi.CustomResource):
             __props__.__dict__["asset_name"] = asset_name
             __props__.__dict__["container"] = container
             __props__.__dict__["description"] = description
+            __props__.__dict__["encryption_scope"] = encryption_scope
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -247,6 +267,7 @@ class Asset(pulumi.CustomResource):
         __props__.__dict__["container"] = None
         __props__.__dict__["created"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["encryption_scope"] = None
         __props__.__dict__["last_modified"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["storage_account_name"] = None
@@ -294,6 +315,14 @@ class Asset(pulumi.CustomResource):
         The Asset description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptionScope")
+    def encryption_scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Asset container encryption scope in the storage account.
+        """
+        return pulumi.get(self, "encryption_scope")
 
     @property
     @pulumi.getter(name="lastModified")

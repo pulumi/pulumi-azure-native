@@ -135,7 +135,7 @@ def get_route_map(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteMapResult:
     """
     Retrieves the details of a RouteMap.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str resource_group_name: The resource group name of the RouteMap's resource group.
@@ -167,7 +167,7 @@ def get_route_map_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteMapResult]:
     """
     Retrieves the details of a RouteMap.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str resource_group_name: The resource group name of the RouteMap's resource group.

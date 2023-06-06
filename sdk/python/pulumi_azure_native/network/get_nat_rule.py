@@ -171,7 +171,7 @@ def get_nat_rule(gateway_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatRuleResult:
     """
     Retrieves the details of a nat ruleGet.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str gateway_name: The name of the gateway.
@@ -206,7 +206,7 @@ def get_nat_rule_output(gateway_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatRuleResult]:
     """
     Retrieves the details of a nat ruleGet.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str gateway_name: The name of the gateway.

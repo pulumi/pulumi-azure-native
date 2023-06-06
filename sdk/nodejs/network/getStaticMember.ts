@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified static member.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getStaticMember(args: GetStaticMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticMemberResult> {
 
@@ -80,7 +80,7 @@ export interface GetStaticMemberResult {
 }
 /**
  * Gets the specified static member.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getStaticMemberOutput(args: GetStaticMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticMemberResult> {
     return pulumi.output(args).apply((a: any) => getStaticMember(a, opts))

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes a VMSS VM Extension.
-    /// API Version: 2022-11-01.
+    /// API Version: 2023-03-01.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSetVMExtension")]
@@ -42,6 +42,12 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.VirtualMachineExtensionInstanceViewResponse?> InstanceView { get; private set; } = null!;
 
         /// <summary>
+        /// The location of the extension.
+        /// </summary>
+        [Output("location")]
+        public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the extension.
         /// </summary>
         [Output("name")]
@@ -58,6 +64,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("protectedSettingsFromKeyVault")]
         public Output<Outputs.KeyVaultSecretReferenceResponse?> ProtectedSettingsFromKeyVault { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of extension names after which this extension needs to be provisioned.
+        /// </summary>
+        [Output("provisionAfterExtensions")]
+        public Output<ImmutableArray<string>> ProvisionAfterExtensions { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state, which only appears in the response.
@@ -186,6 +198,12 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.VirtualMachineExtensionInstanceViewArgs>? InstanceView { get; set; }
 
         /// <summary>
+        /// The location of the extension.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
         [Input("protectedSettings")]
@@ -196,6 +214,18 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("protectedSettingsFromKeyVault")]
         public Input<Inputs.KeyVaultSecretReferenceArgs>? ProtectedSettingsFromKeyVault { get; set; }
+
+        [Input("provisionAfterExtensions")]
+        private InputList<string>? _provisionAfterExtensions;
+
+        /// <summary>
+        /// Collection of extension names after which this extension needs to be provisioned.
+        /// </summary>
+        public InputList<string> ProvisionAfterExtensions
+        {
+            get => _provisionAfterExtensions ?? (_provisionAfterExtensions = new InputList<string>());
+            set => _provisionAfterExtensions = value;
+        }
 
         /// <summary>
         /// The name of the extension handler publisher.

@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetAFDEndpointResult:
     """
-    CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
+    Azure Front Door endpoint is the entity within a Azure Front Door profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
     """
     def __init__(__self__, auto_generated_domain_name_label_scope=None, deployment_status=None, enabled_state=None, host_name=None, id=None, location=None, name=None, profile_name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if auto_generated_domain_name_label_scope and not isinstance(auto_generated_domain_name_label_scope, str):
@@ -180,7 +180,7 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDEndpointResult:
     """
     Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-    API Version: 2021-06-01.
+    API Version: 2023-05-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -216,7 +216,7 @@ def get_afd_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDEndpointResult]:
     """
     Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-    API Version: 2021-06-01.
+    API Version: 2023-05-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.

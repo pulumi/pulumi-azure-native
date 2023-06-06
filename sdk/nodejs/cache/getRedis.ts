@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Redis cache (resource description).
- * API Version: 2022-06-01.
+ * API Version: 2023-04-01.
  */
 export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisResult> {
 
@@ -146,7 +146,7 @@ export interface GetRedisResult {
 }
 /**
  * Gets a Redis cache (resource description).
- * API Version: 2022-06-01.
+ * API Version: 2023-04-01.
  */
 export function getRedisOutput(args: GetRedisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisResult> {
     return pulumi.output(args).apply((a: any) => getRedis(a, opts))

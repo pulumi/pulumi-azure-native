@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
     public sealed class CacheEncryptionSettingsResponse
     {
         /// <summary>
-        /// Specifies the location of the key encryption key in Key Vault.
+        /// Specifies the location of the key encryption key in key vault.
         /// </summary>
         public readonly Outputs.KeyVaultKeyReferenceResponse? KeyEncryptionKey;
         /// <summary>
-        /// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+        /// Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
         /// </summary>
         public readonly bool? RotationToLatestKeyVersionEnabled;
 

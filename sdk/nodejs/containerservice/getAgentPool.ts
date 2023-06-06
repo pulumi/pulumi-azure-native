@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Agent Pool.
- * API Version: 2023-01-01.
+ * API Version: 2023-04-01.
  */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
 
@@ -215,7 +215,7 @@ export interface GetAgentPoolResult {
 }
 /**
  * Agent Pool.
- * API Version: 2023-01-01.
+ * API Version: 2023-04-01.
  */
 export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
     return pulumi.output(args).apply((a: any) => getAgentPool(a, opts))

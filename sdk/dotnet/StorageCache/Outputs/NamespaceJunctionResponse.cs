@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
     public sealed class NamespaceJunctionResponse
     {
         /// <summary>
-        /// Namespace path on a Cache for a Storage Target.
+        /// Namespace path on a cache for a Storage Target.
         /// </summary>
         public readonly string? NamespacePath;
         /// <summary>

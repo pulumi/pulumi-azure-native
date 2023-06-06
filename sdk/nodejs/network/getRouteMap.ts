@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a RouteMap.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getRouteMap(args: GetRouteMapArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteMapResult> {
 
@@ -75,7 +75,7 @@ export interface GetRouteMapResult {
 }
 /**
  * Retrieves the details of a RouteMap.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getRouteMapOutput(args: GetRouteMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteMapResult> {
     return pulumi.output(args).apply((a: any) => getRouteMap(a, opts))

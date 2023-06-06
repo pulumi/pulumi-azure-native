@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// The operation to get the restore point.
-        /// API Version: 2022-11-01.
+        /// API Version: 2023-03-01.
         /// </summary>
         public static Task<GetRestorePointResult> InvokeAsync(GetRestorePointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRestorePointResult>("azure-native:compute:getRestorePoint", args ?? new GetRestorePointArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the restore point.
-        /// API Version: 2022-11-01.
+        /// API Version: 2023-03-01.
         /// </summary>
         public static Output<GetRestorePointResult> Invoke(GetRestorePointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestorePointResult>("azure-native:compute:getRestorePoint", args ?? new GetRestorePointInvokeArgs(), options.WithDefaults());
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Gets the details of the VM captured at the time of the restore point creation.
         /// </summary>
-        public readonly Outputs.RestorePointSourceMetadataResponse SourceMetadata;
+        public readonly Outputs.RestorePointSourceMetadataResponse? SourceMetadata;
         /// <summary>
         /// Resource Id of the source restore point from which a copy needs to be created.
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.Compute
 
             string provisioningState,
 
-            Outputs.RestorePointSourceMetadataResponse sourceMetadata,
+            Outputs.RestorePointSourceMetadataResponse? sourceMetadata,
 
             Outputs.ApiEntityReferenceResponse? sourceRestorePoint,
 

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Managed cluster.
- * API Version: 2023-01-01.
+ * API Version: 2023-04-01.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
 
@@ -192,6 +192,10 @@ export interface GetManagedClusterResult {
      */
     readonly storageProfile?: outputs.containerservice.ManagedClusterStorageProfileResponse;
     /**
+     * The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
+     */
+    readonly supportPlan?: string;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.containerservice.SystemDataResponse;
@@ -214,7 +218,7 @@ export interface GetManagedClusterResult {
 }
 /**
  * Managed cluster.
- * API Version: 2023-01-01.
+ * API Version: 2023-04-01.
  */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
     return pulumi.output(args).apply((a: any) => getManagedCluster(a, opts))

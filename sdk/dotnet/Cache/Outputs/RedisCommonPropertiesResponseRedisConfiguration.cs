@@ -77,6 +77,10 @@ namespace Pulumi.AzureNative.Cache.Outputs
         /// </summary>
         public readonly string? RdbStorageConnectionString;
         /// <summary>
+        /// SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
+        /// </summary>
+        public readonly string? StorageSubscriptionId;
+        /// <summary>
         /// Zonal Configuration
         /// </summary>
         public readonly string ZonalConfiguration;
@@ -113,6 +117,8 @@ namespace Pulumi.AzureNative.Cache.Outputs
 
             string? rdbStorageConnectionString,
 
+            string? storageSubscriptionId,
+
             string zonalConfiguration)
         {
             AofBackupEnabled = aofBackupEnabled;
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNative.Cache.Outputs
             RdbBackupFrequency = rdbBackupFrequency;
             RdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
             RdbStorageConnectionString = rdbStorageConnectionString;
+            StorageSubscriptionId = storageSubscriptionId;
             ZonalConfiguration = zonalConfiguration;
         }
     }

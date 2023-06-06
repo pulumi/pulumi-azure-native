@@ -1142,7 +1142,9 @@ class ServiceCosmosDbConfigurationInfoResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "keyVaultKeyUri":
+        if key == "crossTenantCmkApplicationId":
+            suggest = "cross_tenant_cmk_application_id"
+        elif key == "keyVaultKeyUri":
             suggest = "key_vault_key_uri"
         elif key == "offerThroughput":
             suggest = "offer_throughput"
@@ -1159,17 +1161,29 @@ class ServiceCosmosDbConfigurationInfoResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 cross_tenant_cmk_application_id: Optional[str] = None,
                  key_vault_key_uri: Optional[str] = None,
                  offer_throughput: Optional[int] = None):
         """
         The settings for the Cosmos DB database backing the service.
+        :param str cross_tenant_cmk_application_id: The multi-tenant application id used to enable CMK access for services in a data sovereign region.
         :param str key_vault_key_uri: The URI of the customer-managed key for the backing database.
         :param int offer_throughput: The provisioned throughput for the backing database.
         """
+        if cross_tenant_cmk_application_id is not None:
+            pulumi.set(__self__, "cross_tenant_cmk_application_id", cross_tenant_cmk_application_id)
         if key_vault_key_uri is not None:
             pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
         if offer_throughput is not None:
             pulumi.set(__self__, "offer_throughput", offer_throughput)
+
+    @property
+    @pulumi.getter(name="crossTenantCmkApplicationId")
+    def cross_tenant_cmk_application_id(self) -> Optional[str]:
+        """
+        The multi-tenant application id used to enable CMK access for services in a data sovereign region.
+        """
+        return pulumi.get(self, "cross_tenant_cmk_application_id")
 
     @property
     @pulumi.getter(name="keyVaultKeyUri")

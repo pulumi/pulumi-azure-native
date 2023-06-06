@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing delivery rule within a rule set.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
 
@@ -89,7 +89,7 @@ export interface GetRuleResult {
 }
 /**
  * Gets an existing delivery rule within a rule set.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
     return pulumi.output(args).apply((a: any) => getRule(a, opts))

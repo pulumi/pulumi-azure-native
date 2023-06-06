@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Schedule to execute a task.
- * API Version: 2022-11-11-preview.
+ * API Version: 2023-04-01.
  * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Schedule extends pulumi.CustomResource {
@@ -161,7 +161,7 @@ export interface ScheduleArgs {
     /**
      * Indicates whether or not this scheduled task is enabled.
      */
-    state?: pulumi.Input<string | enums.devcenter.EnableStatus>;
+    state?: pulumi.Input<string | enums.devcenter.ScheduleEnableStatus>;
     /**
      * The target time to trigger the action. The format is HH:MM.
      */

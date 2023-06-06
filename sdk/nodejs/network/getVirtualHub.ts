@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a VirtualHub.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubResult> {
 
@@ -154,7 +154,7 @@ export interface GetVirtualHubResult {
 }
 /**
  * Retrieves the details of a VirtualHub.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getVirtualHubOutput(args: GetVirtualHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubResult> {
     return pulumi.output(args).apply((a: any) => getVirtualHub(a, opts))

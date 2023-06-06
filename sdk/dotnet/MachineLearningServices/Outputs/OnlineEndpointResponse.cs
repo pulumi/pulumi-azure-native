@@ -30,6 +30,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Percentage of traffic to be mirrored to each deployment without using returned scoring. Traffic values need to sum to utmost 50.
+        /// </summary>
+        public readonly ImmutableDictionary<string, int>? MirrorTraffic;
+        /// <summary>
         /// Property dictionary. Properties can be added, but not removed or altered.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? description,
 
+            ImmutableDictionary<string, int>? mirrorTraffic,
+
             ImmutableDictionary<string, string>? properties,
 
             string provisioningState,
@@ -77,6 +83,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             AuthMode = authMode;
             Compute = compute;
             Description = description;
+            MirrorTraffic = mirrorTraffic;
             Properties = properties;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;

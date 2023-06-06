@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Returns a Cache.
- * API Version: 2023-01-01.
+ * Returns a cache.
+ * API Version: 2023-05-01.
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
 
@@ -22,17 +22,17 @@ export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promi
 
 export interface GetCacheArgs {
     /**
-     * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+     * Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     cacheName: string;
     /**
-     * Target resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
 
 /**
- * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+ * A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
  */
 export interface GetCacheResult {
     /**
@@ -48,11 +48,11 @@ export interface GetCacheResult {
      */
     readonly encryptionSettings?: outputs.storagecache.CacheEncryptionSettingsResponse;
     /**
-     * Health of the Cache.
+     * Health of the cache.
      */
     readonly health: outputs.storagecache.CacheHealthResponse;
     /**
-     * Resource ID of the Cache.
+     * Resource ID of the cache.
      */
     readonly id: string;
     /**
@@ -64,11 +64,11 @@ export interface GetCacheResult {
      */
     readonly location?: string;
     /**
-     * Array of IP addresses that can be used by clients mounting this Cache.
+     * Array of IPv4 addresses that can be used by clients mounting this cache.
      */
     readonly mountAddresses: string[];
     /**
-     * Name of Cache.
+     * Name of cache.
      */
     readonly name: string;
     /**
@@ -88,7 +88,7 @@ export interface GetCacheResult {
      */
     readonly securitySettings?: outputs.storagecache.CacheSecuritySettingsResponse;
     /**
-     * SKU for the Cache.
+     * SKU for the cache.
      */
     readonly sku?: outputs.storagecache.CacheResponseSku;
     /**
@@ -96,7 +96,7 @@ export interface GetCacheResult {
      */
     readonly spaceAllocation: outputs.storagecache.StorageTargetSpaceAllocationResponse[];
     /**
-     * Subnet used for the Cache.
+     * Subnet used for the cache.
      */
     readonly subnet?: string;
     /**
@@ -108,15 +108,15 @@ export interface GetCacheResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Type of the Cache; Microsoft.StorageCache/Cache
+     * Type of the cache; Microsoft.StorageCache/Cache
      */
     readonly type: string;
     /**
-     * Upgrade settings of the Cache.
+     * Upgrade settings of the cache.
      */
     readonly upgradeSettings?: outputs.storagecache.CacheUpgradeSettingsResponse;
     /**
-     * Upgrade status of the Cache.
+     * Upgrade status of the cache.
      */
     readonly upgradeStatus: outputs.storagecache.CacheUpgradeStatusResponse;
     /**
@@ -125,8 +125,8 @@ export interface GetCacheResult {
     readonly zones?: string[];
 }
 /**
- * Returns a Cache.
- * API Version: 2023-01-01.
+ * Returns a cache.
+ * API Version: 2023-05-01.
  */
 export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {
     return pulumi.output(args).apply((a: any) => getCache(a, opts))
@@ -134,11 +134,11 @@ export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOpt
 
 export interface GetCacheOutputArgs {
     /**
-     * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+     * Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     cacheName: pulumi.Input<string>;
     /**
-     * Target resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

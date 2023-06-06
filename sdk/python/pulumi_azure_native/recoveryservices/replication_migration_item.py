@@ -127,7 +127,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
                  __props__=None):
         """
         Migration item.
-        API Version: 2023-02-01.
+        API Version: 2023-04-01.
         Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -147,7 +147,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Migration item.
-        API Version: 2023-02-01.
+        API Version: 2023-04-01.
         Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

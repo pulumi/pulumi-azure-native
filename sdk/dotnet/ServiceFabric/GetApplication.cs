@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
-        /// API Version: 2023-02-01-preview.
+        /// API Version: 2023-03-01-preview.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:servicefabric:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
-        /// API Version: 2023-02-01-preview.
+        /// API Version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:servicefabric:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

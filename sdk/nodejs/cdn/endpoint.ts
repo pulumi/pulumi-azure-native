@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Endpoint extends pulumi.CustomResource {

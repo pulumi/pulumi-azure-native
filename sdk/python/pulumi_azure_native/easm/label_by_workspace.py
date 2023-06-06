@@ -111,7 +111,7 @@ class LabelByWorkspace(pulumi.CustomResource):
                  __props__=None):
         """
         Label details
-        API Version: 2022-04-01-preview.
+        API Version: 2023-04-01-preview.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -130,7 +130,7 @@ class LabelByWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Label details
-        API Version: 2022-04-01-preview.
+        API Version: 2023-04-01-preview.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

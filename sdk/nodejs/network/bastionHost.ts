@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Bastion Host resource.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class BastionHost extends pulumi.CustomResource {
@@ -55,6 +55,10 @@ export class BastionHost extends pulumi.CustomResource {
      * Enable/Disable IP Connect feature of the Bastion Host resource.
      */
     public readonly enableIpConnect!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable/Disable Kerberos feature of the Bastion Host resource.
+     */
+    public readonly enableKerberos!: pulumi.Output<boolean | undefined>;
     /**
      * Enable/Disable Shareable Link of the Bastion Host resource.
      */
@@ -119,6 +123,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["dnsName"] = args ? args.dnsName : undefined;
             resourceInputs["enableFileCopy"] = (args ? args.enableFileCopy : undefined) ?? false;
             resourceInputs["enableIpConnect"] = (args ? args.enableIpConnect : undefined) ?? false;
+            resourceInputs["enableKerberos"] = (args ? args.enableKerberos : undefined) ?? false;
             resourceInputs["enableShareableLink"] = (args ? args.enableShareableLink : undefined) ?? false;
             resourceInputs["enableTunneling"] = (args ? args.enableTunneling : undefined) ?? false;
             resourceInputs["id"] = args ? args.id : undefined;
@@ -137,6 +142,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["enableFileCopy"] = undefined /*out*/;
             resourceInputs["enableIpConnect"] = undefined /*out*/;
+            resourceInputs["enableKerberos"] = undefined /*out*/;
             resourceInputs["enableShareableLink"] = undefined /*out*/;
             resourceInputs["enableTunneling"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -180,6 +186,10 @@ export interface BastionHostArgs {
      * Enable/Disable IP Connect feature of the Bastion Host resource.
      */
     enableIpConnect?: pulumi.Input<boolean>;
+    /**
+     * Enable/Disable Kerberos feature of the Bastion Host resource.
+     */
+    enableKerberos?: pulumi.Input<boolean>;
     /**
      * Enable/Disable Shareable Link of the Bastion Host resource.
      */

@@ -148,7 +148,7 @@ class SharedCommitmentPlan(pulumi.CustomResource):
                  __props__=None):
         """
         Cognitive Services account commitment plan.
-        API Version: 2022-12-01.
+        API Version: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,7 +168,7 @@ class SharedCommitmentPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cognitive Services account commitment plan.
-        API Version: 2022-12-01.
+        API Version: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param SharedCommitmentPlanArgs args: The arguments to use to populate this resource's properties.

@@ -61,7 +61,7 @@ def list_upgradable_version_details(monitor_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListUpgradableVersionDetailsResult:
     """
     Stack Versions that this version can upgrade to
-    API Version: 2023-02-01-preview.
+    API Version: 2023-06-01.
 
 
     :param str monitor_name: Monitor resource name
@@ -84,7 +84,7 @@ def list_upgradable_version_details_output(monitor_name: Optional[pulumi.Input[s
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListUpgradableVersionDetailsResult]:
     """
     Stack Versions that this version can upgrade to
-    API Version: 2023-02-01-preview.
+    API Version: 2023-06-01.
 
 
     :param str monitor_name: Monitor resource name

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a nat ruleGet.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getNatRule(args: GetNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNatRuleResult> {
 
@@ -87,7 +87,7 @@ export interface GetNatRuleResult {
 }
 /**
  * Retrieves the details of a nat ruleGet.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getNatRuleOutput(args: GetNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatRuleResult> {
     return pulumi.output(args).apply((a: any) => getNatRule(a, opts))

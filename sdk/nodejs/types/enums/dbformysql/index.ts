@@ -69,7 +69,7 @@ export const EnableStatusEnum = {
 } as const;
 
 /**
- * Enable Storage Auto Grow or not.
+ * Enable Log On Disk or not.
  */
 export type EnableStatusEnum = (typeof EnableStatusEnum)[keyof typeof EnableStatusEnum];
 

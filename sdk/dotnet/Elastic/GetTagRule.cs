@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Elastic
     {
         /// <summary>
         /// Capture logs and metrics of Azure resources based on ARM tags.
-        /// API Version: 2023-02-01-preview.
+        /// API Version: 2023-06-01.
         /// </summary>
         public static Task<GetTagRuleResult> InvokeAsync(GetTagRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagRuleResult>("azure-native:elastic:getTagRule", args ?? new GetTagRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Capture logs and metrics of Azure resources based on ARM tags.
-        /// API Version: 2023-02-01-preview.
+        /// API Version: 2023-06-01.
         /// </summary>
         public static Output<GetTagRuleResult> Invoke(GetTagRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagRuleResult>("azure-native:elastic:getTagRule", args ?? new GetTagRuleInvokeArgs(), options.WithDefaults());

@@ -18,6 +18,7 @@ __all__ = ['NetworkVirtualApplianceArgs', 'NetworkVirtualAppliance']
 class NetworkVirtualApplianceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 additional_nics: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualApplianceAdditionalNicPropertiesArgs']]]] = None,
                  boot_strap_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cloud_init_configuration: Optional[pulumi.Input[str]] = None,
                  cloud_init_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -34,6 +35,7 @@ class NetworkVirtualApplianceArgs:
         """
         The set of arguments for constructing a NetworkVirtualAppliance resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualApplianceAdditionalNicPropertiesArgs']]] additional_nics: Details required for Additional Network Interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] boot_strap_configuration_blobs: BootStrapConfigurationBlobs storage URLs.
         :param pulumi.Input[str] cloud_init_configuration: CloudInitConfiguration string in plain text.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_init_configuration_blobs: CloudInitConfigurationBlob storage URLs.
@@ -49,6 +51,8 @@ class NetworkVirtualApplianceArgs:
         :param pulumi.Input['SubResourceArgs'] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if additional_nics is not None:
+            pulumi.set(__self__, "additional_nics", additional_nics)
         if boot_strap_configuration_blobs is not None:
             pulumi.set(__self__, "boot_strap_configuration_blobs", boot_strap_configuration_blobs)
         if cloud_init_configuration is not None:
@@ -87,6 +91,18 @@ class NetworkVirtualApplianceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="additionalNics")
+    def additional_nics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualApplianceAdditionalNicPropertiesArgs']]]]:
+        """
+        Details required for Additional Network Interface.
+        """
+        return pulumi.get(self, "additional_nics")
+
+    @additional_nics.setter
+    def additional_nics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualApplianceAdditionalNicPropertiesArgs']]]]):
+        pulumi.set(self, "additional_nics", value)
 
     @property
     @pulumi.getter(name="bootStrapConfigurationBlobs")
@@ -250,6 +266,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_nics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualApplianceAdditionalNicPropertiesArgs']]]]] = None,
                  boot_strap_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cloud_init_configuration: Optional[pulumi.Input[str]] = None,
                  cloud_init_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -267,11 +284,12 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  __props__=None):
         """
         NetworkVirtualAppliance Resource.
-        API Version: 2022-09-01.
+        API Version: 2022-11-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualApplianceAdditionalNicPropertiesArgs']]]] additional_nics: Details required for Additional Network Interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] boot_strap_configuration_blobs: BootStrapConfigurationBlobs storage URLs.
         :param pulumi.Input[str] cloud_init_configuration: CloudInitConfiguration string in plain text.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_init_configuration_blobs: CloudInitConfigurationBlob storage URLs.
@@ -295,7 +313,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NetworkVirtualAppliance Resource.
-        API Version: 2022-09-01.
+        API Version: 2022-11-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -313,6 +331,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_nics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualApplianceAdditionalNicPropertiesArgs']]]]] = None,
                  boot_strap_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cloud_init_configuration: Optional[pulumi.Input[str]] = None,
                  cloud_init_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -336,6 +355,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkVirtualApplianceArgs.__new__(NetworkVirtualApplianceArgs)
 
+            __props__.__dict__["additional_nics"] = additional_nics
             __props__.__dict__["boot_strap_configuration_blobs"] = boot_strap_configuration_blobs
             __props__.__dict__["cloud_init_configuration"] = cloud_init_configuration
             __props__.__dict__["cloud_init_configuration_blobs"] = cloud_init_configuration_blobs
@@ -360,6 +380,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__.__dict__["partner_managed_resource"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["virtual_appliance_connections"] = None
             __props__.__dict__["virtual_appliance_nics"] = None
             __props__.__dict__["virtual_appliance_sites"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20191201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200401:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200601:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200701:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200801:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20201101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210801:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220701:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220901:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20221101:NetworkVirtualAppliance")])
@@ -386,6 +407,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
         __props__ = NetworkVirtualApplianceArgs.__new__(NetworkVirtualApplianceArgs)
 
+        __props__.__dict__["additional_nics"] = None
         __props__.__dict__["address_prefix"] = None
         __props__.__dict__["boot_strap_configuration_blobs"] = None
         __props__.__dict__["cloud_init_configuration"] = None
@@ -404,10 +426,19 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_appliance_asn"] = None
+        __props__.__dict__["virtual_appliance_connections"] = None
         __props__.__dict__["virtual_appliance_nics"] = None
         __props__.__dict__["virtual_appliance_sites"] = None
         __props__.__dict__["virtual_hub"] = None
         return NetworkVirtualAppliance(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="additionalNics")
+    def additional_nics(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualApplianceAdditionalNicPropertiesResponse']]]:
+        """
+        Details required for Additional Network Interface.
+        """
+        return pulumi.get(self, "additional_nics")
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -552,6 +583,14 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         """
         return pulumi.get(self, "virtual_appliance_asn")
+
+    @property
+    @pulumi.getter(name="virtualApplianceConnections")
+    def virtual_appliance_connections(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
+        """
+        List of references to VirtualApplianceConnections.
+        """
+        return pulumi.get(self, "virtual_appliance_connections")
 
     @property
     @pulumi.getter(name="virtualApplianceNics")

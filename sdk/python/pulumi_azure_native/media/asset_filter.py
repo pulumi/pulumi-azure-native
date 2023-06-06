@@ -146,7 +146,7 @@ class AssetFilter(pulumi.CustomResource):
                  __props__=None):
         """
         An Asset Filter.
-        API Version: 2022-08-01.
+        API Version: 2023-01-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -167,7 +167,7 @@ class AssetFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Asset Filter.
-        API Version: 2022-08-01.
+        API Version: 2023-01-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

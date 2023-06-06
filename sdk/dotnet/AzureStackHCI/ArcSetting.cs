@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// ArcSetting details.
-    /// API Version: 2023-02-01.
+    /// API Version: 2023-03-01.
     /// Previous API Version: 2021-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:ArcSetting")]
@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("connectivityProperties")]
         public Output<ImmutableArray<Outputs.ArcConnectivityPropertiesResponse>> ConnectivityProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties for each of the default extensions category
+        /// </summary>
+        [Output("defaultExtensions")]
+        public Output<ImmutableArray<Outputs.DefaultExtensionDetailsResponse>> DefaultExtensions { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource

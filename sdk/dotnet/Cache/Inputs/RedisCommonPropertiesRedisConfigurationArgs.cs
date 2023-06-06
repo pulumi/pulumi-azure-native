@@ -93,6 +93,12 @@ namespace Pulumi.AzureNative.Cache.Inputs
         [Input("rdbStorageConnectionString")]
         public Input<string>? RdbStorageConnectionString { get; set; }
 
+        /// <summary>
+        /// SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
+        /// </summary>
+        [Input("storageSubscriptionId")]
+        public Input<string>? StorageSubscriptionId { get; set; }
+
         public RedisCommonPropertiesRedisConfigurationArgs()
         {
         }

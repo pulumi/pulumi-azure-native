@@ -62,7 +62,7 @@ def list_batch_endpoint_keys(endpoint_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBatchEndpointKeysResult:
     """
     Keys for endpoint authentication.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str endpoint_name: Inference Endpoint name.
@@ -88,7 +88,7 @@ def list_batch_endpoint_keys_output(endpoint_name: Optional[pulumi.Input[str]] =
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBatchEndpointKeysResult]:
     """
     Keys for endpoint authentication.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str endpoint_name: Inference Endpoint name.

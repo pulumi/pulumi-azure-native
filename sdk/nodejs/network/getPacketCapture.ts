@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a packet capture session by name.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
 
@@ -91,7 +91,7 @@ export interface GetPacketCaptureResult {
 }
 /**
  * Gets a packet capture session by name.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCaptureResult> {
     return pulumi.output(args).apply((a: any) => getPacketCapture(a, opts))

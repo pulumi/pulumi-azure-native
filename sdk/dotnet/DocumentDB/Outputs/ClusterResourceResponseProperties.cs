@@ -57,13 +57,17 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.CertificateResponse> GossipCertificates;
         /// <summary>
-        /// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+        /// (Deprecated) Number of hours to wait between taking a backup of the cluster.
         /// </summary>
         public readonly int? HoursBetweenBackups;
         /// <summary>
         /// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
         /// </summary>
         public readonly Outputs.SeedNodeResponse? PrometheusEndpoint;
+        /// <summary>
+        /// Error related to resource provisioning.
+        /// </summary>
+        public readonly Outputs.CassandraErrorResponse? ProvisionError;
         /// <summary>
         /// The status of the resource at the time the operation was called.
         /// </summary>
@@ -103,6 +107,8 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
             Outputs.SeedNodeResponse? prometheusEndpoint,
 
+            Outputs.CassandraErrorResponse? provisionError,
+
             string? provisioningState,
 
             bool? repairEnabled,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
             GossipCertificates = gossipCertificates;
             HoursBetweenBackups = hoursBetweenBackups;
             PrometheusEndpoint = prometheusEndpoint;
+            ProvisionError = provisionError;
             ProvisioningState = provisioningState;
             RepairEnabled = repairEnabled;
             SeedNodes = seedNodes;

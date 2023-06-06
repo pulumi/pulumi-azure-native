@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Export logs that show total throttled Api requests for this subscription in the given time window.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getLogAnalyticExportThrottledRequests(args: GetLogAnalyticExportThrottledRequestsArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnalyticExportThrottledRequestsResult> {
 
@@ -77,7 +77,7 @@ export interface GetLogAnalyticExportThrottledRequestsResult {
 }
 /**
  * Export logs that show total throttled Api requests for this subscription in the given time window.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getLogAnalyticExportThrottledRequestsOutput(args: GetLogAnalyticExportThrottledRequestsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogAnalyticExportThrottledRequestsResult> {
     return pulumi.output(args).apply((a: any) => getLogAnalyticExportThrottledRequests(a, opts))

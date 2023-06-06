@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve protection policy with specified name within a resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getWebApplicationFirewallPolicy(args: GetWebApplicationFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWebApplicationFirewallPolicyResult> {
 
@@ -94,7 +94,7 @@ export interface GetWebApplicationFirewallPolicyResult {
 }
 /**
  * Retrieve protection policy with specified name within a resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getWebApplicationFirewallPolicyOutput(args: GetWebApplicationFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebApplicationFirewallPolicyResult> {
     return pulumi.output(args).apply((a: any) => getWebApplicationFirewallPolicy(a, opts))

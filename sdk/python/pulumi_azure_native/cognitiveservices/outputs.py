@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AbusePenaltyResponse',
     'AccountPropertiesResponse',
     'ApiPropertiesResponse',
     'CallRateLimitResponse',
@@ -46,6 +47,70 @@ __all__ = [
 ]
 
 @pulumi.output_type
+class AbusePenaltyResponse(dict):
+    """
+    The abuse penalty.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rateLimitPercentage":
+            suggest = "rate_limit_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AbusePenaltyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AbusePenaltyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AbusePenaltyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Optional[str] = None,
+                 expiration: Optional[str] = None,
+                 rate_limit_percentage: Optional[float] = None):
+        """
+        The abuse penalty.
+        :param str action: The action of AbusePenalty.
+        :param str expiration: The datetime of expiration of the AbusePenalty.
+        :param float rate_limit_percentage: The percentage of rate limit.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
+        if rate_limit_percentage is not None:
+            pulumi.set(__self__, "rate_limit_percentage", rate_limit_percentage)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action of AbusePenalty.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> Optional[str]:
+        """
+        The datetime of expiration of the AbusePenalty.
+        """
+        return pulumi.get(self, "expiration")
+
+    @property
+    @pulumi.getter(name="rateLimitPercentage")
+    def rate_limit_percentage(self) -> Optional[float]:
+        """
+        The percentage of rate limit.
+        """
+        return pulumi.get(self, "rate_limit_percentage")
+
+
+@pulumi.output_type
 class AccountPropertiesResponse(dict):
     """
     Properties of Cognitive Services account.
@@ -53,7 +118,9 @@ class AccountPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "callRateLimit":
+        if key == "abusePenalty":
+            suggest = "abuse_penalty"
+        elif key == "callRateLimit":
             suggest = "call_rate_limit"
         elif key == "commitmentPlanAssociations":
             suggest = "commitment_plan_associations"
@@ -108,6 +175,7 @@ class AccountPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 abuse_penalty: 'outputs.AbusePenaltyResponse',
                  call_rate_limit: 'outputs.CallRateLimitResponse',
                  capabilities: Sequence['outputs.SkuCapabilityResponse'],
                  commitment_plan_associations: Sequence['outputs.CommitmentPlanAssociationResponse'],
@@ -132,11 +200,11 @@ class AccountPropertiesResponse(dict):
                  migration_token: Optional[str] = None,
                  network_acls: Optional['outputs.NetworkRuleSetResponse'] = None,
                  public_network_access: Optional[str] = None,
-                 restore: Optional[bool] = None,
                  restrict_outbound_network_access: Optional[bool] = None,
                  user_owned_storage: Optional[Sequence['outputs.UserOwnedStorageResponse']] = None):
         """
         Properties of Cognitive Services account.
+        :param 'AbusePenaltyResponse' abuse_penalty: The abuse penalty.
         :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
         :param Sequence['SkuCapabilityResponse'] capabilities: Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
         :param Sequence['CommitmentPlanAssociationResponse'] commitment_plan_associations: The commitment plan associations of Cognitive Services account.
@@ -159,6 +227,7 @@ class AccountPropertiesResponse(dict):
         :param str public_network_access: Whether or not public endpoint access is allowed for this account.
         :param Sequence['UserOwnedStorageResponse'] user_owned_storage: The storage accounts for this resource.
         """
+        pulumi.set(__self__, "abuse_penalty", abuse_penalty)
         pulumi.set(__self__, "call_rate_limit", call_rate_limit)
         pulumi.set(__self__, "capabilities", capabilities)
         pulumi.set(__self__, "commitment_plan_associations", commitment_plan_associations)
@@ -193,12 +262,18 @@ class AccountPropertiesResponse(dict):
             pulumi.set(__self__, "network_acls", network_acls)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
-        if restore is not None:
-            pulumi.set(__self__, "restore", restore)
         if restrict_outbound_network_access is not None:
             pulumi.set(__self__, "restrict_outbound_network_access", restrict_outbound_network_access)
         if user_owned_storage is not None:
             pulumi.set(__self__, "user_owned_storage", user_owned_storage)
+
+    @property
+    @pulumi.getter(name="abusePenalty")
+    def abuse_penalty(self) -> 'outputs.AbusePenaltyResponse':
+        """
+        The abuse penalty.
+        """
+        return pulumi.get(self, "abuse_penalty")
 
     @property
     @pulumi.getter(name="callRateLimit")
@@ -379,11 +454,6 @@ class AccountPropertiesResponse(dict):
         Whether or not public endpoint access is allowed for this account.
         """
         return pulumi.get(self, "public_network_access")
-
-    @property
-    @pulumi.getter
-    def restore(self) -> Optional[bool]:
-        return pulumi.get(self, "restore")
 
     @property
     @pulumi.getter(name="restrictOutboundNetworkAccess")
@@ -774,7 +844,9 @@ class CommitmentPlanPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "provisioningState":
+        if key == "provisioningIssues":
+            suggest = "provisioning_issues"
+        elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "autoRenew":
             suggest = "auto_renew"
@@ -798,6 +870,7 @@ class CommitmentPlanPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  last: 'outputs.CommitmentPeriodResponse',
+                 provisioning_issues: Sequence[str],
                  provisioning_state: str,
                  auto_renew: Optional[bool] = None,
                  commitment_plan_guid: Optional[str] = None,
@@ -808,6 +881,7 @@ class CommitmentPlanPropertiesResponse(dict):
         """
         Properties of Cognitive Services account commitment plan.
         :param 'CommitmentPeriodResponse' last: Cognitive Services account commitment period.
+        :param Sequence[str] provisioning_issues: The list of ProvisioningIssue.
         :param str provisioning_state: Gets the status of the resource at the time the operation was called.
         :param bool auto_renew: AutoRenew commitment plan.
         :param str commitment_plan_guid: Commitment plan guid.
@@ -817,6 +891,7 @@ class CommitmentPlanPropertiesResponse(dict):
         :param str plan_type: Commitment plan type.
         """
         pulumi.set(__self__, "last", last)
+        pulumi.set(__self__, "provisioning_issues", provisioning_issues)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if auto_renew is not None:
             pulumi.set(__self__, "auto_renew", auto_renew)
@@ -838,6 +913,14 @@ class CommitmentPlanPropertiesResponse(dict):
         Cognitive Services account commitment period.
         """
         return pulumi.get(self, "last")
+
+    @property
+    @pulumi.getter(name="provisioningIssues")
+    def provisioning_issues(self) -> Sequence[str]:
+        """
+        The list of ProvisioningIssue.
+        """
+        return pulumi.get(self, "provisioning_issues")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -957,19 +1040,23 @@ class DeploymentModelResponse(dict):
                  call_rate_limit: 'outputs.CallRateLimitResponse',
                  format: Optional[str] = None,
                  name: Optional[str] = None,
+                 source: Optional[str] = None,
                  version: Optional[str] = None):
         """
         Properties of Cognitive Services account deployment model.
         :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
         :param str format: Deployment model format.
         :param str name: Deployment model name.
-        :param str version: Deployment model version.
+        :param str source: Optional. Deployment model source ARM resource ID.
+        :param str version: Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
         """
         pulumi.set(__self__, "call_rate_limit", call_rate_limit)
         if format is not None:
             pulumi.set(__self__, "format", format)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -999,9 +1086,17 @@ class DeploymentModelResponse(dict):
 
     @property
     @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        Optional. Deployment model source ARM resource ID.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        Deployment model version.
+        Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
         """
         return pulumi.get(self, "version")
 
@@ -1018,10 +1113,14 @@ class DeploymentPropertiesResponse(dict):
             suggest = "call_rate_limit"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "rateLimits":
+            suggest = "rate_limits"
         elif key == "raiPolicyName":
             suggest = "rai_policy_name"
         elif key == "scaleSettings":
             suggest = "scale_settings"
+        elif key == "versionUpgradeOption":
+            suggest = "version_upgrade_option"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DeploymentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1038,9 +1137,11 @@ class DeploymentPropertiesResponse(dict):
                  call_rate_limit: 'outputs.CallRateLimitResponse',
                  capabilities: Mapping[str, str],
                  provisioning_state: str,
+                 rate_limits: Sequence['outputs.ThrottlingRuleResponse'],
                  model: Optional['outputs.DeploymentModelResponse'] = None,
                  rai_policy_name: Optional[str] = None,
-                 scale_settings: Optional['outputs.DeploymentScaleSettingsResponse'] = None):
+                 scale_settings: Optional['outputs.DeploymentScaleSettingsResponse'] = None,
+                 version_upgrade_option: Optional[str] = None):
         """
         Properties of Cognitive Services account deployment.
         :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
@@ -1049,16 +1150,20 @@ class DeploymentPropertiesResponse(dict):
         :param 'DeploymentModelResponse' model: Properties of Cognitive Services account deployment model.
         :param str rai_policy_name: The name of RAI policy.
         :param 'DeploymentScaleSettingsResponse' scale_settings: Properties of Cognitive Services account deployment model.
+        :param str version_upgrade_option: Deployment model version upgrade option.
         """
         pulumi.set(__self__, "call_rate_limit", call_rate_limit)
         pulumi.set(__self__, "capabilities", capabilities)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "rate_limits", rate_limits)
         if model is not None:
             pulumi.set(__self__, "model", model)
         if rai_policy_name is not None:
             pulumi.set(__self__, "rai_policy_name", rai_policy_name)
         if scale_settings is not None:
             pulumi.set(__self__, "scale_settings", scale_settings)
+        if version_upgrade_option is not None:
+            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
 
     @property
     @pulumi.getter(name="callRateLimit")
@@ -1085,6 +1190,11 @@ class DeploymentPropertiesResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="rateLimits")
+    def rate_limits(self) -> Sequence['outputs.ThrottlingRuleResponse']:
+        return pulumi.get(self, "rate_limits")
+
+    @property
     @pulumi.getter
     def model(self) -> Optional['outputs.DeploymentModelResponse']:
         """
@@ -1107,6 +1217,14 @@ class DeploymentPropertiesResponse(dict):
         Properties of Cognitive Services account deployment model.
         """
         return pulumi.get(self, "scale_settings")
+
+    @property
+    @pulumi.getter(name="versionUpgradeOption")
+    def version_upgrade_option(self) -> Optional[str]:
+        """
+        Deployment model version upgrade option.
+        """
+        return pulumi.get(self, "version_upgrade_option")
 
 
 @pulumi.output_type

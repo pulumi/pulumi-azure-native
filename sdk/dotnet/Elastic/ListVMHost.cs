@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Elastic
     {
         /// <summary>
         /// Response of a list operation.
-        /// API Version: 2023-02-01-preview.
+        /// API Version: 2023-06-01.
         /// </summary>
         public static Task<ListVMHostResult> InvokeAsync(ListVMHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListVMHostResult>("azure-native:elastic:listVMHost", args ?? new ListVMHostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
-        /// API Version: 2023-02-01-preview.
+        /// API Version: 2023-06-01.
         /// </summary>
         public static Output<ListVMHostResult> Invoke(ListVMHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVMHostResult>("azure-native:elastic:listVMHost", args ?? new ListVMHostInvokeArgs(), options.WithDefaults());

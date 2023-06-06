@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'DeploymentModelVersionUpgradeOption',
     'DeploymentScaleType',
     'HostingModel',
     'KeySource',
@@ -15,6 +16,15 @@ __all__ = [
     'RoutingMethods',
     'SkuTier',
 ]
+
+
+class DeploymentModelVersionUpgradeOption(str, Enum):
+    """
+    Deployment model version upgrade option.
+    """
+    ONCE_NEW_DEFAULT_VERSION_AVAILABLE = "OnceNewDefaultVersionAvailable"
+    ONCE_CURRENT_VERSION_EXPIRED = "OnceCurrentVersionExpired"
+    NO_AUTO_UPGRADE = "NoAutoUpgrade"
 
 
 class DeploymentScaleType(str, Enum):
@@ -32,6 +42,7 @@ class HostingModel(str, Enum):
     WEB = "Web"
     CONNECTED_CONTAINER = "ConnectedContainer"
     DISCONNECTED_CONTAINER = "DisconnectedContainer"
+    PROVISIONED_WEB = "ProvisionedWeb"
 
 
 class KeySource(str, Enum):

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
-        /// API Version: 2022-10-01.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Task<GetComputeResult> InvokeAsync(GetComputeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComputeResult>("azure-native:machinelearningservices:getCompute", args ?? new GetComputeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
-        /// API Version: 2022-10-01.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Output<GetComputeResult> Invoke(GetComputeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputeResult>("azure-native:machinelearningservices:getCompute", args ?? new GetComputeInvokeArgs(), options.WithDefaults());

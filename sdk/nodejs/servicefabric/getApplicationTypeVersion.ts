@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getApplicationTypeVersion(args: GetApplicationTypeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeVersionResult> {
 
@@ -80,7 +80,7 @@ export interface GetApplicationTypeVersionResult {
 }
 /**
  * Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getApplicationTypeVersionOutput(args: GetApplicationTypeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationTypeVersionResult> {
     return pulumi.output(args).apply((a: any) => getApplicationTypeVersion(a, opts))

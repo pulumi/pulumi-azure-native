@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
     /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-    /// API Version: 2023-02-01-preview.
+    /// API Version: 2023-03-01-preview.
     /// Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:NodeType")]
@@ -132,6 +132,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
+        /// </summary>
+        [Output("natGatewayId")]
+        public Output<string?> NatGatewayId { get; private set; } = null!;
+
+        /// <summary>
         /// The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
         /// </summary>
         [Output("networkSecurityRules")]
@@ -226,6 +232,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Output("vmImageOffer")]
         public Output<string?> VmImageOffer { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started -&gt;. Enter any required information and then click Save.
+        /// </summary>
+        [Output("vmImagePlan")]
+        public Output<Outputs.VmImagePlanResponse?> VmImagePlan { get; private set; } = null!;
 
         /// <summary>
         /// The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
@@ -486,6 +498,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         [Input("multiplePlacementGroups")]
         public Input<bool>? MultiplePlacementGroups { get; set; }
 
+        /// <summary>
+        /// Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
+        /// </summary>
+        [Input("natGatewayId")]
+        public Input<string>? NatGatewayId { get; set; }
+
         [Input("networkSecurityRules")]
         private InputList<Inputs.NetworkSecurityRuleArgs>? _networkSecurityRules;
 
@@ -599,6 +617,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Input("vmImageOffer")]
         public Input<string>? VmImageOffer { get; set; }
+
+        /// <summary>
+        /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started -&gt;. Enter any required information and then click Save.
+        /// </summary>
+        [Input("vmImagePlan")]
+        public Input<Inputs.VmImagePlanArgs>? VmImagePlan { get; set; }
 
         /// <summary>
         /// The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.

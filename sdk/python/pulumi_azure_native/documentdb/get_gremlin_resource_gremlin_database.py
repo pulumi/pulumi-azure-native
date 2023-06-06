@@ -117,7 +117,7 @@ def get_gremlin_resource_gremlin_database(account_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGremlinResourceGremlinDatabaseResult:
     """
     Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
-    API Version: 2022-11-15.
+    API Version: 2023-04-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -148,7 +148,7 @@ def get_gremlin_resource_gremlin_database_output(account_name: Optional[pulumi.I
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGremlinResourceGremlinDatabaseResult]:
     """
     Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
-    API Version: 2022-11-15.
+    API Version: 2023-04-15.
 
 
     :param str account_name: Cosmos DB database account name.

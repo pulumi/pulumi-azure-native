@@ -42,7 +42,7 @@ class AFDOriginArgs:
         :param pulumi.Input[bool] enforce_certificate_name_check: Whether to enable certificate name check at origin level
         :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between 1 and 65535.
         :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between 1 and 65535.
-        :param pulumi.Input[str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+        :param pulumi.Input[str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         :param pulumi.Input[str] origin_name: Name of the origin that is unique within the profile.
         :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
         :param pulumi.Input['SharedPrivateLinkResourcePropertiesArgs'] shared_private_link_resource: The properties of the private link resource for private origin.
@@ -191,7 +191,7 @@ class AFDOriginArgs:
     @pulumi.getter(name="originHostHeader")
     def origin_host_header(self) -> Optional[pulumi.Input[str]]:
         """
-        The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+        The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         """
         return pulumi.get(self, "origin_host_header")
 
@@ -269,8 +269,8 @@ class AFDOrigin(pulumi.CustomResource):
                  weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-        API Version: 2021-06-01.
+        Azure Front Door origin is the source of the content being delivered via Azure Front Door. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+        API Version: 2023-05-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -282,7 +282,7 @@ class AFDOrigin(pulumi.CustomResource):
         :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between 1 and 65535.
         :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between 1 and 65535.
         :param pulumi.Input[str] origin_group_name: Name of the origin group which is unique within the profile.
-        :param pulumi.Input[str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+        :param pulumi.Input[str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         :param pulumi.Input[str] origin_name: Name of the origin that is unique within the profile.
         :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
@@ -297,8 +297,8 @@ class AFDOrigin(pulumi.CustomResource):
                  args: AFDOriginArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-        API Version: 2021-06-01.
+        Azure Front Door origin is the source of the content being delivered via Azure Front Door. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+        API Version: 2023-05-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -487,7 +487,7 @@ class AFDOrigin(pulumi.CustomResource):
     @pulumi.getter(name="originHostHeader")
     def origin_host_header(self) -> pulumi.Output[Optional[str]]:
         """
-        The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+        The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         """
         return pulumi.get(self, "origin_host_header")
 

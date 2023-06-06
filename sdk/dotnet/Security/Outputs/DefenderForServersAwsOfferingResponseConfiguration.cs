@@ -11,20 +11,28 @@ namespace Pulumi.AzureNative.Security.Outputs
 {
 
     /// <summary>
-    /// configuration for Vulnerability Assessment autoprovisioning
+    /// Configuration for servers Arc auto provisioning
     /// </summary>
     [OutputType]
     public sealed class DefenderForServersAwsOfferingResponseConfiguration
     {
         /// <summary>
-        /// The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+        /// Optional Arc private link scope resource id to link the Arc agent
         /// </summary>
-        public readonly string? Type;
+        public readonly string? PrivateLinkScope;
+        /// <summary>
+        /// Optional HTTP proxy endpoint to use for the Arc agent
+        /// </summary>
+        public readonly string? Proxy;
 
         [OutputConstructor]
-        private DefenderForServersAwsOfferingResponseConfiguration(string? type)
+        private DefenderForServersAwsOfferingResponseConfiguration(
+            string? privateLinkScope,
+
+            string? proxy)
         {
-            Type = type;
+            PrivateLinkScope = privateLinkScope;
+            Proxy = proxy;
         }
     }
 }

@@ -218,7 +218,7 @@ def get_network_connection(network_connection_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkConnectionResult:
     """
     Gets a network connection resource
-    API Version: 2022-11-11-preview.
+    API Version: 2023-04-01.
 
 
     :param str network_connection_name: Name of the Network Connection that can be applied to a Pool.
@@ -254,7 +254,7 @@ def get_network_connection_output(network_connection_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkConnectionResult]:
     """
     Gets a network connection resource
-    API Version: 2022-11-11-preview.
+    API Version: 2023-04-01.
 
 
     :param str network_connection_name: Name of the Network Connection that can be applied to a Pool.

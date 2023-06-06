@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 {
     /// <summary>
     /// The Flux Configuration object returned in Get &amp; Put response.
-    /// API Version: 2022-11-01.
+    /// API Version: 2023-05-01.
     /// Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration:FluxConfiguration")]
@@ -78,6 +78,12 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Maximum duration to wait for flux configuration reconciliation. E.g PT1H, PT5M, P1D
+        /// </summary>
+        [Output("reconciliationWaitDuration")]
+        public Output<string?> ReconciliationWaitDuration { get; private set; } = null!;
+
+        /// <summary>
         /// Public Key associated with this fluxConfiguration (either generated within the cluster or provided by the user).
         /// </summary>
         [Output("repositoryPublicKey")]
@@ -136,6 +142,12 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.
+        /// </summary>
+        [Output("waitForReconciliation")]
+        public Output<bool?> WaitForReconciliation { get; private set; } = null!;
 
 
         /// <summary>
@@ -264,6 +276,12 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public Input<string>? Namespace { get; set; }
 
         /// <summary>
+        /// Maximum duration to wait for flux configuration reconciliation. E.g PT1H, PT5M, P1D
+        /// </summary>
+        [Input("reconciliationWaitDuration")]
+        public Input<string>? ReconciliationWaitDuration { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -286,6 +304,12 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// </summary>
         [Input("suspend")]
         public Input<bool>? Suspend { get; set; }
+
+        /// <summary>
+        /// Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.
+        /// </summary>
+        [Input("waitForReconciliation")]
+        public Input<bool>? WaitForReconciliation { get; set; }
 
         public FluxConfigurationArgs()
         {

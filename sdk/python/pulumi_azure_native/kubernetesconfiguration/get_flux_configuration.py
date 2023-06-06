@@ -22,7 +22,7 @@ class GetFluxConfigurationResult:
     """
     The Flux Configuration object returned in Get & Put response.
     """
-    def __init__(__self__, azure_blob=None, bucket=None, compliance_state=None, configuration_protected_settings=None, error_message=None, git_repository=None, id=None, kustomizations=None, name=None, namespace=None, provisioning_state=None, repository_public_key=None, scope=None, source_kind=None, source_synced_commit_id=None, source_updated_at=None, status_updated_at=None, statuses=None, suspend=None, system_data=None, type=None):
+    def __init__(__self__, azure_blob=None, bucket=None, compliance_state=None, configuration_protected_settings=None, error_message=None, git_repository=None, id=None, kustomizations=None, name=None, namespace=None, provisioning_state=None, reconciliation_wait_duration=None, repository_public_key=None, scope=None, source_kind=None, source_synced_commit_id=None, source_updated_at=None, status_updated_at=None, statuses=None, suspend=None, system_data=None, type=None, wait_for_reconciliation=None):
         if azure_blob and not isinstance(azure_blob, dict):
             raise TypeError("Expected argument 'azure_blob' to be a dict")
         pulumi.set(__self__, "azure_blob", azure_blob)
@@ -56,6 +56,9 @@ class GetFluxConfigurationResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if reconciliation_wait_duration and not isinstance(reconciliation_wait_duration, str):
+            raise TypeError("Expected argument 'reconciliation_wait_duration' to be a str")
+        pulumi.set(__self__, "reconciliation_wait_duration", reconciliation_wait_duration)
         if repository_public_key and not isinstance(repository_public_key, str):
             raise TypeError("Expected argument 'repository_public_key' to be a str")
         pulumi.set(__self__, "repository_public_key", repository_public_key)
@@ -86,6 +89,9 @@ class GetFluxConfigurationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if wait_for_reconciliation and not isinstance(wait_for_reconciliation, bool):
+            raise TypeError("Expected argument 'wait_for_reconciliation' to be a bool")
+        pulumi.set(__self__, "wait_for_reconciliation", wait_for_reconciliation)
 
     @property
     @pulumi.getter(name="azureBlob")
@@ -176,6 +182,14 @@ class GetFluxConfigurationResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="reconciliationWaitDuration")
+    def reconciliation_wait_duration(self) -> Optional[str]:
+        """
+        Maximum duration to wait for flux configuration reconciliation. E.g PT1H, PT5M, P1D
+        """
+        return pulumi.get(self, "reconciliation_wait_duration")
+
+    @property
     @pulumi.getter(name="repositoryPublicKey")
     def repository_public_key(self) -> str:
         """
@@ -255,6 +269,14 @@ class GetFluxConfigurationResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="waitForReconciliation")
+    def wait_for_reconciliation(self) -> Optional[bool]:
+        """
+        Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.
+        """
+        return pulumi.get(self, "wait_for_reconciliation")
+
 
 class AwaitableGetFluxConfigurationResult(GetFluxConfigurationResult):
     # pylint: disable=using-constant-test
@@ -273,6 +295,7 @@ class AwaitableGetFluxConfigurationResult(GetFluxConfigurationResult):
             name=self.name,
             namespace=self.namespace,
             provisioning_state=self.provisioning_state,
+            reconciliation_wait_duration=self.reconciliation_wait_duration,
             repository_public_key=self.repository_public_key,
             scope=self.scope,
             source_kind=self.source_kind,
@@ -282,7 +305,8 @@ class AwaitableGetFluxConfigurationResult(GetFluxConfigurationResult):
             statuses=self.statuses,
             suspend=self.suspend,
             system_data=self.system_data,
-            type=self.type)
+            type=self.type,
+            wait_for_reconciliation=self.wait_for_reconciliation)
 
 
 def get_flux_configuration(cluster_name: Optional[str] = None,
@@ -293,7 +317,7 @@ def get_flux_configuration(cluster_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFluxConfigurationResult:
     """
     Gets details of the Flux Configuration.
-    API Version: 2022-11-01.
+    API Version: 2023-05-01.
 
 
     :param str cluster_name: The name of the kubernetes cluster.
@@ -323,6 +347,7 @@ def get_flux_configuration(cluster_name: Optional[str] = None,
         name=__ret__.name,
         namespace=__ret__.namespace,
         provisioning_state=__ret__.provisioning_state,
+        reconciliation_wait_duration=__ret__.reconciliation_wait_duration,
         repository_public_key=__ret__.repository_public_key,
         scope=__ret__.scope,
         source_kind=__ret__.source_kind,
@@ -332,7 +357,8 @@ def get_flux_configuration(cluster_name: Optional[str] = None,
         statuses=__ret__.statuses,
         suspend=__ret__.suspend,
         system_data=__ret__.system_data,
-        type=__ret__.type)
+        type=__ret__.type,
+        wait_for_reconciliation=__ret__.wait_for_reconciliation)
 
 
 @_utilities.lift_output_func(get_flux_configuration)
@@ -344,7 +370,7 @@ def get_flux_configuration_output(cluster_name: Optional[pulumi.Input[str]] = No
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFluxConfigurationResult]:
     """
     Gets details of the Flux Configuration.
-    API Version: 2022-11-01.
+    API Version: 2023-05-01.
 
 
     :param str cluster_name: The name of the kubernetes cluster.

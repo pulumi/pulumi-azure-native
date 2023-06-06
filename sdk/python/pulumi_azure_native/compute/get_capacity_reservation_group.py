@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetCapacityReservationGroupResult:
     """
-    Specifies information about the capacity reservation group that the capacity reservations should be assigned to. <br><br> Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
+    Specifies information about the capacity reservation group that the capacity reservations should be assigned to. Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
     """
     def __init__(__self__, capacity_reservations=None, id=None, instance_view=None, location=None, name=None, tags=None, type=None, virtual_machines_associated=None, zones=None):
         if capacity_reservations and not isinstance(capacity_reservations, list):
@@ -147,7 +147,7 @@ def get_capacity_reservation_group(capacity_reservation_group_name: Optional[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationGroupResult:
     """
     The operation that retrieves information about a capacity reservation group.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.
@@ -180,7 +180,7 @@ def get_capacity_reservation_group_output(capacity_reservation_group_name: Optio
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationGroupResult]:
     """
     The operation that retrieves information about a capacity reservation group.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.

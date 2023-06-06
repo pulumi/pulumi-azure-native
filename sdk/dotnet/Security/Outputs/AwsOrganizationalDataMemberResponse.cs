@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security.Outputs
 {
 
     /// <summary>
-    /// The awsOrganization data for the member account
+    /// The AWS organization data for the member account
     /// </summary>
     [OutputType]
     public sealed class AwsOrganizationalDataMemberResponse

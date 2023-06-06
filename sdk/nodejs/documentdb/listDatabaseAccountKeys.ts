@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the access keys for the specified Azure Cosmos DB database account.
- * API Version: 2022-11-15.
+ * API Version: 2023-04-15.
  */
 export function listDatabaseAccountKeys(args: ListDatabaseAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseAccountKeysResult> {
 
@@ -51,7 +51,7 @@ export interface ListDatabaseAccountKeysResult {
 }
 /**
  * Lists the access keys for the specified Azure Cosmos DB database account.
- * API Version: 2022-11-15.
+ * API Version: 2023-04-15.
  */
 export function listDatabaseAccountKeysOutput(args: ListDatabaseAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listDatabaseAccountKeys(a, opts))

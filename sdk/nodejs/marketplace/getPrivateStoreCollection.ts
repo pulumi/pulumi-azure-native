@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets private store collection
- * API Version: 2022-09-01.
+ * API Version: 2023-01-01.
  */
 export function getPrivateStoreCollection(args: GetPrivateStoreCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreCollectionResult> {
 
@@ -94,7 +94,7 @@ export interface GetPrivateStoreCollectionResult {
 }
 /**
  * Gets private store collection
- * API Version: 2022-09-01.
+ * API Version: 2023-01-01.
  */
 export function getPrivateStoreCollectionOutput(args: GetPrivateStoreCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreCollectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateStoreCollection(a, opts))

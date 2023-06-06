@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
 
@@ -36,6 +36,10 @@ export interface GetProfileArgs {
  */
 export interface GetProfileResult {
     /**
+     * Key-Value pair representing additional properties for profiles.
+     */
+    readonly extendedProperties: {[key: string]: string};
+    /**
      * The Id of the frontdoor.
      */
     readonly frontDoorId: string;
@@ -43,6 +47,10 @@ export interface GetProfileResult {
      * Resource ID.
      */
     readonly id: string;
+    /**
+     * Managed service identity (system assigned and/or user assigned identities).
+     */
+    readonly identity?: outputs.cdn.ManagedServiceIdentityResponse;
     /**
      * Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
      */
@@ -86,7 +94,7 @@ export interface GetProfileResult {
 }
 /**
  * Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
     return pulumi.output(args).apply((a: any) => getProfile(a, opts))

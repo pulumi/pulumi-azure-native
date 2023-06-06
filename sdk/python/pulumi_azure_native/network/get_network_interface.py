@@ -22,10 +22,13 @@ class GetNetworkInterfaceResult:
     """
     A network interface in a resource group.
     """
-    def __init__(__self__, auxiliary_mode=None, disable_tcp_state_tracking=None, dns_settings=None, dscp_configuration=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, extended_location=None, hosted_workloads=None, id=None, ip_configurations=None, location=None, mac_address=None, migration_phase=None, name=None, network_security_group=None, nic_type=None, primary=None, private_endpoint=None, private_link_service=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None, vnet_encryption_supported=None, workload_type=None):
+    def __init__(__self__, auxiliary_mode=None, auxiliary_sku=None, disable_tcp_state_tracking=None, dns_settings=None, dscp_configuration=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, extended_location=None, hosted_workloads=None, id=None, ip_configurations=None, location=None, mac_address=None, migration_phase=None, name=None, network_security_group=None, nic_type=None, primary=None, private_endpoint=None, private_link_service=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None, vnet_encryption_supported=None, workload_type=None):
         if auxiliary_mode and not isinstance(auxiliary_mode, str):
             raise TypeError("Expected argument 'auxiliary_mode' to be a str")
         pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+        if auxiliary_sku and not isinstance(auxiliary_sku, str):
+            raise TypeError("Expected argument 'auxiliary_sku' to be a str")
+        pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
         if disable_tcp_state_tracking and not isinstance(disable_tcp_state_tracking, bool):
             raise TypeError("Expected argument 'disable_tcp_state_tracking' to be a bool")
         pulumi.set(__self__, "disable_tcp_state_tracking", disable_tcp_state_tracking)
@@ -115,6 +118,14 @@ class GetNetworkInterfaceResult:
         Auxiliary mode of Network Interface resource.
         """
         return pulumi.get(self, "auxiliary_mode")
+
+    @property
+    @pulumi.getter(name="auxiliarySku")
+    def auxiliary_sku(self) -> Optional[str]:
+        """
+        Auxiliary sku of Network Interface resource.
+        """
+        return pulumi.get(self, "auxiliary_sku")
 
     @property
     @pulumi.getter(name="disableTcpStateTracking")
@@ -340,6 +351,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             yield self
         return GetNetworkInterfaceResult(
             auxiliary_mode=self.auxiliary_mode,
+            auxiliary_sku=self.auxiliary_sku,
             disable_tcp_state_tracking=self.disable_tcp_state_tracking,
             dns_settings=self.dns_settings,
             dscp_configuration=self.dscp_configuration,
@@ -375,7 +387,7 @@ def get_network_interface(expand: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
     """
     Gets information about the specified network interface.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str expand: Expands referenced resources.
@@ -391,6 +403,7 @@ def get_network_interface(expand: Optional[str] = None,
 
     return AwaitableGetNetworkInterfaceResult(
         auxiliary_mode=__ret__.auxiliary_mode,
+        auxiliary_sku=__ret__.auxiliary_sku,
         disable_tcp_state_tracking=__ret__.disable_tcp_state_tracking,
         dns_settings=__ret__.dns_settings,
         dscp_configuration=__ret__.dscp_configuration,
@@ -427,7 +440,7 @@ def get_network_interface_output(expand: Optional[pulumi.Input[Optional[str]]] =
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
     Gets information about the specified network interface.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str expand: Expands referenced resources.

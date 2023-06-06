@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the Dedicated host.
-    /// API Version: 2022-11-01.
+    /// API Version: 2023-03-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DedicatedHost")]
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<bool?> AutoReplaceOnFailure { get; private set; } = null!;
 
         /// <summary>
-        /// A unique id generated and assigned to the dedicated host by the platform. &lt;br&gt;&lt;br&gt; Does not change throughout the lifetime of the host.
+        /// A unique id generated and assigned to the dedicated host by the platform. Does not change throughout the lifetime of the host.
         /// </summary>
         [Output("hostId")]
         public Output<string> HostId { get; private set; } = null!;
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.DedicatedHostInstanceViewResponse> InstanceView { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **Windows_Server_Hybrid** &lt;br&gt;&lt;br&gt; **Windows_Server_Perpetual** &lt;br&gt;&lt;br&gt; Default: **None**
+        /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
         /// </summary>
         [Output("licenseType")]
         public Output<string?> LicenseType { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the time at which the Dedicated Host resource was created.&lt;br&gt;&lt;br&gt;Minimum api-version: 2021-11-01.
+        /// Specifies the time at which the Dedicated Host resource was created. Minimum api-version: 2021-11-01.
         /// </summary>
         [Output("timeCreated")]
         public Output<string> TimeCreated { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? HostName { get; set; }
 
         /// <summary>
-        /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **Windows_Server_Hybrid** &lt;br&gt;&lt;br&gt; **Windows_Server_Perpetual** &lt;br&gt;&lt;br&gt; Default: **None**
+        /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
         /// </summary>
         [Input("licenseType")]
         public Input<Pulumi.AzureNative.Compute.DedicatedHostLicenseTypes>? LicenseType { get; set; }

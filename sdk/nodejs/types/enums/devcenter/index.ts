@@ -24,15 +24,15 @@ export const DomainJoinType = {
  */
 export type DomainJoinType = (typeof DomainJoinType)[keyof typeof DomainJoinType];
 
-export const EnableStatus = {
+export const EnvironmentTypeEnableStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",
 } as const;
 
 /**
- * Indicates whether or not this scheduled task is enabled.
+ * Defines whether this Environment Type can be used in this Project.
  */
-export type EnableStatus = (typeof EnableStatus)[keyof typeof EnableStatus];
+export type EnvironmentTypeEnableStatus = (typeof EnvironmentTypeEnableStatus)[keyof typeof EnvironmentTypeEnableStatus];
 
 export const HibernateSupport = {
     Disabled: "Disabled",
@@ -75,6 +75,16 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
+export const ScheduleEnableStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether or not this scheduled task is enabled.
+ */
+export type ScheduleEnableStatus = (typeof ScheduleEnableStatus)[keyof typeof ScheduleEnableStatus];
+
 export const ScheduledFrequency = {
     Daily: "Daily",
 } as const;
@@ -104,3 +114,13 @@ export const SkuTier = {
  * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+
+export const StopOnDisconnectEnableStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
+ */
+export type StopOnDisconnectEnableStatus = (typeof StopOnDisconnectEnableStatus)[keyof typeof StopOnDisconnectEnableStatus];

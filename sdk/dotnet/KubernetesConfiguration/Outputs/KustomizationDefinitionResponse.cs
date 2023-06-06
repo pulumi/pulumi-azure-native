@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
         /// </summary>
         public readonly string? Path;
         /// <summary>
+        /// Used for variable substitution for this Kustomization after kustomize build.
+        /// </summary>
+        public readonly Outputs.PostBuildDefinitionResponse? PostBuild;
+        /// <summary>
         /// Enable/disable garbage collections of Kubernetes objects created by this Kustomization.
         /// </summary>
         public readonly bool? Prune;
@@ -48,6 +52,10 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
         /// The maximum time to attempt to reconcile the Kustomization on the cluster.
         /// </summary>
         public readonly double? TimeoutInSeconds;
+        /// <summary>
+        /// Enable/disable health check for all Kubernetes objects created by this Kustomization.
+        /// </summary>
+        public readonly bool? Wait;
 
         [OutputConstructor]
         private KustomizationDefinitionResponse(
@@ -59,22 +67,28 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
 
             string? path,
 
+            Outputs.PostBuildDefinitionResponse? postBuild,
+
             bool? prune,
 
             double? retryIntervalInSeconds,
 
             double? syncIntervalInSeconds,
 
-            double? timeoutInSeconds)
+            double? timeoutInSeconds,
+
+            bool? wait)
         {
             DependsOn = dependsOn;
             Force = force;
             Name = name;
             Path = path;
+            PostBuild = postBuild;
             Prune = prune;
             RetryIntervalInSeconds = retryIntervalInSeconds;
             SyncIntervalInSeconds = syncIntervalInSeconds;
             TimeoutInSeconds = timeoutInSeconds;
+            Wait = wait;
         }
     }
 }

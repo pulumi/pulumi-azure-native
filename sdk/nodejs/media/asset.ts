@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Asset.
- * API Version: 2022-08-01.
+ * API Version: 2023-01-01.
  * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Asset extends pulumi.CustomResource {
@@ -60,6 +60,10 @@ export class Asset extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The Asset container encryption scope in the storage account.
+     */
+    public readonly encryptionScope!: pulumi.Output<string | undefined>;
+    /**
      * The last modified date of the Asset.
      */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
@@ -106,6 +110,7 @@ export class Asset extends pulumi.CustomResource {
             resourceInputs["assetName"] = args ? args.assetName : undefined;
             resourceInputs["container"] = args ? args.container : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryptionScope"] = args ? args.encryptionScope : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             resourceInputs["assetId"] = undefined /*out*/;
@@ -121,6 +126,7 @@ export class Asset extends pulumi.CustomResource {
             resourceInputs["container"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["encryptionScope"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["storageAccountName"] = undefined /*out*/;
@@ -159,6 +165,10 @@ export interface AssetArgs {
      * The Asset description.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The Asset container encryption scope in the storage account.
+     */
+    encryptionScope?: pulumi.Input<string>;
     /**
      * The name of the resource group within the Azure subscription.
      */

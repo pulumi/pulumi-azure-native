@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Communication
     {
         /// <summary>
         /// Get a valid sender username for a domains resource.
-        /// API Version: 2023-03-01-preview.
+        /// API Version: 2023-03-31.
         /// </summary>
         public static Task<GetSenderUsernameResult> InvokeAsync(GetSenderUsernameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSenderUsernameResult>("azure-native:communication:getSenderUsername", args ?? new GetSenderUsernameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a valid sender username for a domains resource.
-        /// API Version: 2023-03-01-preview.
+        /// API Version: 2023-03-31.
         /// </summary>
         public static Output<GetSenderUsernameResult> Invoke(GetSenderUsernameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSenderUsernameResult>("azure-native:communication:getSenderUsername", args ?? new GetSenderUsernameInvokeArgs(), options.WithDefaults());

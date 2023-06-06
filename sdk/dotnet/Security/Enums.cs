@@ -239,6 +239,7 @@ namespace Pulumi.AzureNative.Security
         public static CloudName GCP { get; } = new CloudName("GCP");
         public static CloudName Github { get; } = new CloudName("Github");
         public static CloudName AzureDevOps { get; } = new CloudName("AzureDevOps");
+        public static CloudName GitLab { get; } = new CloudName("GitLab");
 
         public static bool operator ==(CloudName left, CloudName right) => left.Equals(right);
         public static bool operator !=(CloudName left, CloudName right) => !left.Equals(right);
@@ -302,6 +303,7 @@ namespace Pulumi.AzureNative.Security
         public static EnvironmentType GcpProject { get; } = new EnvironmentType("GcpProject");
         public static EnvironmentType GithubScope { get; } = new EnvironmentType("GithubScope");
         public static EnvironmentType AzureDevOpsScope { get; } = new EnvironmentType("AzureDevOpsScope");
+        public static EnvironmentType GitlabScope { get; } = new EnvironmentType("GitlabScope");
 
         public static bool operator ==(EnvironmentType left, EnvironmentType right) => left.Equals(right);
         public static bool operator !=(EnvironmentType left, EnvironmentType right) => !left.Equals(right);
@@ -408,6 +410,8 @@ namespace Pulumi.AzureNative.Security
         public static OfferingType DefenderCspmGcp { get; } = new OfferingType("DefenderCspmGcp");
         public static OfferingType DefenderForDevOpsGithub { get; } = new OfferingType("DefenderForDevOpsGithub");
         public static OfferingType DefenderForDevOpsAzureDevOps { get; } = new OfferingType("DefenderForDevOpsAzureDevOps");
+        public static OfferingType CspmMonitorGitLab { get; } = new OfferingType("CspmMonitorGitLab");
+        public static OfferingType DefenderForDevOpsGitLab { get; } = new OfferingType("DefenderForDevOpsGitLab");
 
         public static bool operator ==(OfferingType left, OfferingType right) => left.Equals(right);
         public static bool operator !=(OfferingType left, OfferingType right) => !left.Equals(right);
@@ -609,7 +613,7 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
-    /// The scanning mode for the vm scan.
+    /// The scanning mode for the VM scan.
     /// </summary>
     [EnumType]
     public readonly struct ScanningMode : IEquatable<ScanningMode>

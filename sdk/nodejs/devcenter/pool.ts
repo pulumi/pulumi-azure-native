@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A pool of Virtual Machines.
- * API Version: 2022-11-11-preview.
+ * API Version: 2023-04-01.
  * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Pool extends pulumi.CustomResource {
@@ -44,6 +44,14 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly devBoxDefinitionName!: pulumi.Output<string>;
     /**
+     * Overall health status of the Pool. Indicates whether or not the Pool is available to create Dev Boxes.
+     */
+    public /*out*/ readonly healthStatus!: pulumi.Output<string>;
+    /**
+     * Details on the Pool health status to help diagnose issues. This is only populated when the pool status indicates the pool is in a non-healthy state
+     */
+    public /*out*/ readonly healthStatusDetails!: pulumi.Output<outputs.devcenter.HealthStatusDetailResponse[]>;
+    /**
      * Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created.
      */
     public readonly licenseType!: pulumi.Output<string>;
@@ -67,6 +75,10 @@ export class Pool extends pulumi.CustomResource {
      * The provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Stop on disconnect configuration settings for Dev Boxes created in this pool.
+     */
+    public readonly stopOnDisconnect!: pulumi.Output<outputs.devcenter.StopOnDisconnectConfigurationResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -117,19 +129,25 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["poolName"] = args ? args.poolName : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["stopOnDisconnect"] = args ? args.stopOnDisconnect : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["healthStatus"] = undefined /*out*/;
+            resourceInputs["healthStatusDetails"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["devBoxDefinitionName"] = undefined /*out*/;
+            resourceInputs["healthStatus"] = undefined /*out*/;
+            resourceInputs["healthStatusDetails"] = undefined /*out*/;
             resourceInputs["licenseType"] = undefined /*out*/;
             resourceInputs["localAdministrator"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkConnectionName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["stopOnDisconnect"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -177,6 +195,10 @@ export interface PoolArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Stop on disconnect configuration settings for Dev Boxes created in this pool.
+     */
+    stopOnDisconnect?: pulumi.Input<inputs.devcenter.StopOnDisconnectConfigurationArgs>;
     /**
      * Resource tags.
      */

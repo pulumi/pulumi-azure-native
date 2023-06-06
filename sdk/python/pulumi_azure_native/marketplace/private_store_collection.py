@@ -146,7 +146,7 @@ class PrivateStoreCollection(pulumi.CustomResource):
                  __props__=None):
         """
         The Collection data structure.
-        API Version: 2022-09-01.
+        API Version: 2023-01-01.
         Previous API Version: 2021-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -167,7 +167,7 @@ class PrivateStoreCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Collection data structure.
-        API Version: 2022-09-01.
+        API Version: 2023-01-01.
         Previous API Version: 2021-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

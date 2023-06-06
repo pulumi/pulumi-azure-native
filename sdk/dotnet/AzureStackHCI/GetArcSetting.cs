@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Get ArcSetting resource details of HCI Cluster.
-        /// API Version: 2023-02-01.
+        /// API Version: 2023-03-01.
         /// </summary>
         public static Task<GetArcSettingResult> InvokeAsync(GetArcSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get ArcSetting resource details of HCI Cluster.
-        /// API Version: 2023-02-01.
+        /// API Version: 2023-03-01.
         /// </summary>
         public static Output<GetArcSettingResult> Invoke(GetArcSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly ImmutableArray<Outputs.ArcConnectivityPropertiesResponse> ConnectivityProperties;
         /// <summary>
+        /// Properties for each of the default extensions category
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DefaultExtensionDetailsResponse> DefaultExtensions;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             ImmutableArray<Outputs.ArcConnectivityPropertiesResponse> connectivityProperties,
 
+            ImmutableArray<Outputs.DefaultExtensionDetailsResponse> defaultExtensions,
+
             string id,
 
             string name,
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
             ArcInstanceResourceGroup = arcInstanceResourceGroup;
             ArcServicePrincipalObjectId = arcServicePrincipalObjectId;
             ConnectivityProperties = connectivityProperties;
+            DefaultExtensions = defaultExtensions;
             Id = id;
             Name = name;
             PerNodeDetails = perNodeDetails;

@@ -22,6 +22,7 @@ class AFDCustomDomainArgs:
                  resource_group_name: pulumi.Input[str],
                  azure_dns_zone: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
                  custom_domain_name: Optional[pulumi.Input[str]] = None,
+                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  pre_validated_custom_domain_resource_id: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
                  tls_settings: Optional[pulumi.Input['AFDDomainHttpsParametersArgs']] = None):
         """
@@ -31,6 +32,7 @@ class AFDCustomDomainArgs:
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input['ResourceReferenceArgs'] azure_dns_zone: Resource reference to the Azure DNS zone
         :param pulumi.Input[str] custom_domain_name: Name of the domain under the profile which is unique globally
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_properties: Key-Value pair representing migration properties for domains.
         :param pulumi.Input['ResourceReferenceArgs'] pre_validated_custom_domain_resource_id: Resource reference to the Azure resource where custom domain ownership was prevalidated
         :param pulumi.Input['AFDDomainHttpsParametersArgs'] tls_settings: The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
         """
@@ -41,6 +43,8 @@ class AFDCustomDomainArgs:
             pulumi.set(__self__, "azure_dns_zone", azure_dns_zone)
         if custom_domain_name is not None:
             pulumi.set(__self__, "custom_domain_name", custom_domain_name)
+        if extended_properties is not None:
+            pulumi.set(__self__, "extended_properties", extended_properties)
         if pre_validated_custom_domain_resource_id is not None:
             pulumi.set(__self__, "pre_validated_custom_domain_resource_id", pre_validated_custom_domain_resource_id)
         if tls_settings is not None:
@@ -107,6 +111,18 @@ class AFDCustomDomainArgs:
         pulumi.set(self, "custom_domain_name", value)
 
     @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-Value pair representing migration properties for domains.
+        """
+        return pulumi.get(self, "extended_properties")
+
+    @extended_properties.setter
+    def extended_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "extended_properties", value)
+
+    @property
     @pulumi.getter(name="preValidatedCustomDomainResourceId")
     def pre_validated_custom_domain_resource_id(self) -> Optional[pulumi.Input['ResourceReferenceArgs']]:
         """
@@ -138,6 +154,7 @@ class AFDCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_dns_zone: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  custom_domain_name: Optional[pulumi.Input[str]] = None,
+                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  pre_validated_custom_domain_resource_id: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
@@ -146,13 +163,14 @@ class AFDCustomDomain(pulumi.CustomResource):
                  __props__=None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-        API Version: 2021-06-01.
+        API Version: 2023-05-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] azure_dns_zone: Resource reference to the Azure DNS zone
         :param pulumi.Input[str] custom_domain_name: Name of the domain under the profile which is unique globally
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_properties: Key-Value pair representing migration properties for domains.
         :param pulumi.Input[str] host_name: The host name of the domain. Must be a domain name.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] pre_validated_custom_domain_resource_id: Resource reference to the Azure resource where custom domain ownership was prevalidated
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
@@ -167,7 +185,7 @@ class AFDCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-        API Version: 2021-06-01.
+        API Version: 2023-05-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -187,6 +205,7 @@ class AFDCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_dns_zone: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  custom_domain_name: Optional[pulumi.Input[str]] = None,
+                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  pre_validated_custom_domain_resource_id: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
@@ -203,6 +222,7 @@ class AFDCustomDomain(pulumi.CustomResource):
 
             __props__.__dict__["azure_dns_zone"] = azure_dns_zone
             __props__.__dict__["custom_domain_name"] = custom_domain_name
+            __props__.__dict__["extended_properties"] = extended_properties
             if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
             __props__.__dict__["host_name"] = host_name
@@ -248,6 +268,7 @@ class AFDCustomDomain(pulumi.CustomResource):
         __props__.__dict__["azure_dns_zone"] = None
         __props__.__dict__["deployment_status"] = None
         __props__.__dict__["domain_validation_state"] = None
+        __props__.__dict__["extended_properties"] = None
         __props__.__dict__["host_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["pre_validated_custom_domain_resource_id"] = None
@@ -279,6 +300,14 @@ class AFDCustomDomain(pulumi.CustomResource):
         Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step. DCV stands for DomainControlValidation.
         """
         return pulumi.get(self, "domain_validation_state")
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-Value pair representing migration properties for domains.
+        """
+        return pulumi.get(self, "extended_properties")
 
     @property
     @pulumi.getter(name="hostName")

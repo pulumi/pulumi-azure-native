@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Class representing a Traffic Manager profile.
-    /// API Version: 2018-08-01.
+    /// API Version: 2022-04-01.
     /// Previous API Version: 2018-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Profile")]
@@ -219,7 +219,7 @@ namespace Pulumi.AzureNative.Network
         public InputUnion<string, Pulumi.AzureNative.Network.ProfileStatus>? ProfileStatus { get; set; }
 
         /// <summary>
-        /// The name of the resource group containing the Traffic Manager profile.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

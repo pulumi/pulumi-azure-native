@@ -6,14 +6,16 @@ from enum import Enum
 
 __all__ = [
     'DomainJoinType',
-    'EnableStatus',
+    'EnvironmentTypeEnableStatus',
     'HibernateSupport',
     'LicenseType',
     'LocalAdminStatus',
     'ManagedServiceIdentityType',
+    'ScheduleEnableStatus',
     'ScheduledFrequency',
     'ScheduledType',
     'SkuTier',
+    'StopOnDisconnectEnableStatus',
 ]
 
 
@@ -25,9 +27,9 @@ class DomainJoinType(str, Enum):
     AZURE_AD_JOIN = "AzureADJoin"
 
 
-class EnableStatus(str, Enum):
+class EnvironmentTypeEnableStatus(str, Enum):
     """
-    Indicates whether or not this scheduled task is enabled.
+    Defines whether this Environment Type can be used in this Project.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
@@ -66,6 +68,14 @@ class ManagedServiceIdentityType(str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
+class ScheduleEnableStatus(str, Enum):
+    """
+    Indicates whether or not this scheduled task is enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class ScheduledFrequency(str, Enum):
     """
     The frequency of this scheduled task.
@@ -88,3 +98,11 @@ class SkuTier(str, Enum):
     BASIC = "Basic"
     STANDARD = "Standard"
     PREMIUM = "Premium"
+
+
+class StopOnDisconnectEnableStatus(str, Enum):
+    """
+    Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"

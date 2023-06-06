@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetAvailabilitySetResult:
     """
-    Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+    Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to an availability set at creation time. An existing VM cannot be added to an availability set.
     """
     def __init__(__self__, id=None, location=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, proximity_placement_group=None, sku=None, statuses=None, tags=None, type=None, virtual_machines=None):
         if id and not isinstance(id, str):
@@ -101,7 +101,7 @@ class GetAvailabilitySetResult:
     @pulumi.getter(name="proximityPlacementGroup")
     def proximity_placement_group(self) -> Optional['outputs.SubResourceResponse']:
         """
-        Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+        Specifies information about the proximity placement group that the availability set should be assigned to. Minimum api-version: 2018-04-01.
         """
         return pulumi.get(self, "proximity_placement_group")
 
@@ -170,7 +170,7 @@ def get_availability_set(availability_set_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilitySetResult:
     """
     Retrieves information about an availability set.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str availability_set_name: The name of the availability set.
@@ -202,7 +202,7 @@ def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilitySetResult]:
     """
     Retrieves information about an availability set.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str availability_set_name: The name of the availability set.

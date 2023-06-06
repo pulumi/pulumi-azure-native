@@ -51,7 +51,7 @@ def list_managed_cluster_monitoring_user_credentials(resource_group_name: Option
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagedClusterMonitoringUserCredentialsResult:
     """
     The list credential result response.
-    API Version: 2023-01-01.
+    API Version: 2023-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -76,7 +76,7 @@ def list_managed_cluster_monitoring_user_credentials_output(resource_group_name:
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagedClusterMonitoringUserCredentialsResult]:
     """
     The list credential result response.
-    API Version: 2023-01-01.
+    API Version: 2023-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

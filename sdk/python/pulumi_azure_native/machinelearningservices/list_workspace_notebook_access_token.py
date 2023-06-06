@@ -106,7 +106,7 @@ def list_workspace_notebook_access_token(resource_group_name: Optional[str] = No
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceNotebookAccessTokenResult:
     """
     return notebook access token and refresh token
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -135,7 +135,7 @@ def list_workspace_notebook_access_token_output(resource_group_name: Optional[pu
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceNotebookAccessTokenResult]:
     """
     return notebook access token and refresh token
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

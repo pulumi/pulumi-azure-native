@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-    /// API Version: 2021-06-01.
+    /// API Version: 2023-05-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDCustomDomain")]
@@ -31,6 +31,12 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Output("domainValidationState")]
         public Output<string> DomainValidationState { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-Value pair representing migration properties for domains.
+        /// </summary>
+        [Output("extendedProperties")]
+        public Output<ImmutableDictionary<string, string>?> ExtendedProperties { get; private set; } = null!;
 
         /// <summary>
         /// The host name of the domain. Must be a domain name.
@@ -150,6 +156,18 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Input("customDomainName")]
         public Input<string>? CustomDomainName { get; set; }
+
+        [Input("extendedProperties")]
+        private InputMap<string>? _extendedProperties;
+
+        /// <summary>
+        /// Key-Value pair representing migration properties for domains.
+        /// </summary>
+        public InputMap<string> ExtendedProperties
+        {
+            get => _extendedProperties ?? (_extendedProperties = new InputMap<string>());
+            set => _extendedProperties = value;
+        }
 
         /// <summary>
         /// The host name of the domain. Must be a domain name.

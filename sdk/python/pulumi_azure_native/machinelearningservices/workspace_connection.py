@@ -90,7 +90,7 @@ class WorkspaceConnection(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        API Version: 2022-10-01.
+        API Version: 2023-04-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -106,7 +106,7 @@ class WorkspaceConnection(pulumi.CustomResource):
                  args: WorkspaceConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2022-10-01.
+        API Version: 2023-04-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

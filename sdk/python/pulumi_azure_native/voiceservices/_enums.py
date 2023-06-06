@@ -9,6 +9,7 @@ __all__ = [
     'CommunicationsPlatform',
     'Connectivity',
     'E911Type',
+    'ManagedServiceIdentityType',
     'TeamsCodecs',
     'TestLinePurpose',
 ]
@@ -54,6 +55,16 @@ class E911Type(str, Enum):
     """
     Emergency calls are routed directly to the ESRP
     """
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
 class TeamsCodecs(str, Enum):

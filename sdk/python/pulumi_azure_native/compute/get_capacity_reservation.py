@@ -102,7 +102,7 @@ class GetCapacityReservationResult:
     @pulumi.getter(name="platformFaultDomainCount")
     def platform_fault_domain_count(self) -> int:
         """
-        Specifies the value of fault domain count that Capacity Reservation supports for requested VM size.<br>NOTE: The fault domain count specified for a resource (like virtual machines scale set) must be less than or equal to this value if it deploys using capacity reservation.<br><br>Minimum api-version: 2022-08-01.
+        Specifies the value of fault domain count that Capacity Reservation supports for requested VM size. **Note:** The fault domain count specified for a resource (like virtual machines scale set) must be less than or equal to this value if it deploys using capacity reservation. Minimum api-version: 2022-08-01.
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
@@ -150,7 +150,7 @@ class GetCapacityReservationResult:
     @pulumi.getter(name="timeCreated")
     def time_created(self) -> str:
         """
-        Specifies the time at which the Capacity Reservation resource was created.<br><br>Minimum api-version: 2021-11-01.
+        Specifies the time at which the Capacity Reservation resource was created. Minimum api-version: 2021-11-01.
         """
         return pulumi.get(self, "time_created")
 
@@ -208,7 +208,7 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[str] = No
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationResult:
     """
     The operation that retrieves information about the capacity reservation.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.
@@ -249,7 +249,7 @@ def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pu
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
     The operation that retrieves information about the capacity reservation.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.

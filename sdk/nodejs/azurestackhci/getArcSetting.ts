@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get ArcSetting resource details of HCI Cluster.
- * API Version: 2023-02-01.
+ * API Version: 2023-03-01.
  */
 export function getArcSetting(args: GetArcSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetArcSettingResult> {
 
@@ -69,6 +69,10 @@ export interface GetArcSettingResult {
      */
     readonly connectivityProperties?: outputs.azurestackhci.ArcConnectivityPropertiesResponse[];
     /**
+     * Properties for each of the default extensions category
+     */
+    readonly defaultExtensions: outputs.azurestackhci.DefaultExtensionDetailsResponse[];
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -95,7 +99,7 @@ export interface GetArcSettingResult {
 }
 /**
  * Get ArcSetting resource details of HCI Cluster.
- * API Version: 2023-02-01.
+ * API Version: 2023-03-01.
  */
 export function getArcSettingOutput(args: GetArcSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcSettingResult> {
     return pulumi.output(args).apply((a: any) => getArcSetting(a, opts))

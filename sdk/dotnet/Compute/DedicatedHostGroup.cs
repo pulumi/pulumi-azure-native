@@ -10,15 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
-    /// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-    /// API Version: 2022-11-01.
+    /// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+    /// API Version: 2023-03-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DedicatedHostGroup")]
     public partial class DedicatedHostGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Enables or disables a capability on the dedicated host group.&lt;br&gt;&lt;br&gt;Minimum api-version: 2022-03-01.
+        /// Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
         /// </summary>
         [Output("additionalCapabilities")]
         public Output<Outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities?> AdditionalCapabilities { get; private set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<int> PlatformFaultDomainCount { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-06-01.
+        /// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
         /// </summary>
         [Output("supportAutomaticPlacement")]
         public Output<bool?> SupportAutomaticPlacement { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class DedicatedHostGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables or disables a capability on the dedicated host group.&lt;br&gt;&lt;br&gt;Minimum api-version: 2022-03-01.
+        /// Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
         /// </summary>
         [Input("additionalCapabilities")]
         public Input<Inputs.DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs>? AdditionalCapabilities { get; set; }
@@ -169,7 +169,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-06-01.
+        /// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
         /// </summary>
         [Input("supportAutomaticPlacement")]
         public Input<bool>? SupportAutomaticPlacement { get; set; }

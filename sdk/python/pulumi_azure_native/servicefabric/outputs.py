@@ -56,6 +56,7 @@ __all__ = [
     'VMSSExtensionResponse',
     'VaultCertificateResponse',
     'VaultSecretGroupResponse',
+    'VmImagePlanResponse',
     'VmManagedIdentityResponse',
     'VmssDataDiskResponse',
 ]
@@ -3559,6 +3560,82 @@ class VaultSecretGroupResponse(dict):
         The list of key vault references in SourceVault which contain certificates.
         """
         return pulumi.get(self, "vault_certificates")
+
+
+@pulumi.output_type
+class VmImagePlanResponse(dict):
+    """
+    Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "promotionCode":
+            suggest = "promotion_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VmImagePlanResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VmImagePlanResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VmImagePlanResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 product: Optional[str] = None,
+                 promotion_code: Optional[str] = None,
+                 publisher: Optional[str] = None):
+        """
+        Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+        :param str name: The plan ID.
+        :param str product: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        :param str promotion_code: The promotion code.
+        :param str publisher: The publisher ID.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if product is not None:
+            pulumi.set(__self__, "product", product)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The plan ID.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> Optional[str]:
+        """
+        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[str]:
+        """
+        The promotion code.
+        """
+        return pulumi.get(self, "promotion_code")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[str]:
+        """
+        The publisher ID.
+        """
+        return pulumi.get(self, "publisher")
 
 
 @pulumi.output_type

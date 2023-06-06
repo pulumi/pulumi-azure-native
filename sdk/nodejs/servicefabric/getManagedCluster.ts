@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
 
@@ -164,6 +164,10 @@ export interface GetManagedClusterResult {
      */
     readonly provisioningState: string;
     /**
+     * Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+     */
+    readonly publicIPPrefixId?: string;
+    /**
      * Service endpoints for subnets in the cluster.
      */
     readonly serviceEndpoints?: outputs.servicefabric.ServiceEndpointResponse[];
@@ -202,7 +206,7 @@ export interface GetManagedClusterResult {
 }
 /**
  * Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
     return pulumi.output(args).apply((a: any) => getManagedCluster(a, opts))

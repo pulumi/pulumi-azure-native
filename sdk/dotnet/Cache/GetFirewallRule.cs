@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// Gets a single firewall rule in a specified redis cache.
-        /// API Version: 2022-06-01.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:cache:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a single firewall rule in a specified redis cache.
-        /// API Version: 2022-06-01.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:cache:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());

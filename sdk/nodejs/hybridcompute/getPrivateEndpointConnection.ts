@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a private endpoint connection.
- * API Version: 2022-11-10.
+ * API Version: 2022-12-27.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
@@ -63,7 +63,7 @@ export interface GetPrivateEndpointConnectionResult {
 }
 /**
  * Gets a private endpoint connection.
- * API Version: 2022-11-10.
+ * API Version: 2022-12-27.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))

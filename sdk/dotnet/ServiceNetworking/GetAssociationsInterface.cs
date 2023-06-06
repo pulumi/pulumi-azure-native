@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.ServiceNetworking
     public static class GetAssociationsInterface
     {
         /// <summary>
-        /// Get a Traffic Controller Association
-        /// API Version: 2022-10-01-preview.
+        /// Get a Association
+        /// API Version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetAssociationsInterfaceResult> InvokeAsync(GetAssociationsInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssociationsInterfaceResult>("azure-native:servicenetworking:getAssociationsInterface", args ?? new GetAssociationsInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a Traffic Controller Association
-        /// API Version: 2022-10-01-preview.
+        /// Get a Association
+        /// API Version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetAssociationsInterfaceResult> Invoke(GetAssociationsInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssociationsInterfaceResult>("azure-native:servicenetworking:getAssociationsInterface", args ?? new GetAssociationsInterfaceInvokeArgs(), options.WithDefaults());
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning State
+        /// Provisioning State of Traffic Controller Association Resource
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>

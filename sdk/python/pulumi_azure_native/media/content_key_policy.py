@@ -112,7 +112,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         A Content Key Policy resource.
-        API Version: 2022-08-01.
+        API Version: 2023-01-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -131,7 +131,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Content Key Policy resource.
-        API Version: 2022-08-01.
+        API Version: 2023-01-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

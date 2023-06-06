@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Type of the Storage Target.
- * API Version: 2023-01-01.
+ * API Version: 2023-05-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class StorageTarget extends pulumi.CustomResource {
@@ -52,7 +52,7 @@ export class StorageTarget extends pulumi.CustomResource {
      */
     public readonly clfs!: pulumi.Output<outputs.storagecache.ClfsTargetResponse | undefined>;
     /**
-     * List of Cache namespace junctions to target for namespace associations.
+     * List of cache namespace junctions to target for namespace associations.
      */
     public readonly junctions!: pulumi.Output<outputs.storagecache.NamespaceJunctionResponse[] | undefined>;
     /**
@@ -159,7 +159,7 @@ export interface StorageTargetArgs {
      */
     blobNfs?: pulumi.Input<inputs.storagecache.BlobNfsTargetArgs>;
     /**
-     * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+     * Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     cacheName: pulumi.Input<string>;
     /**
@@ -167,7 +167,7 @@ export interface StorageTargetArgs {
      */
     clfs?: pulumi.Input<inputs.storagecache.ClfsTargetArgs>;
     /**
-     * List of Cache namespace junctions to target for namespace associations.
+     * List of cache namespace junctions to target for namespace associations.
      */
     junctions?: pulumi.Input<pulumi.Input<inputs.storagecache.NamespaceJunctionArgs>[]>;
     /**
@@ -175,7 +175,7 @@ export interface StorageTargetArgs {
      */
     nfs3?: pulumi.Input<inputs.storagecache.Nfs3TargetArgs>;
     /**
-     * Target resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

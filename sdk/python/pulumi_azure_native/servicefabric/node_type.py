@@ -38,6 +38,7 @@ class NodeTypeArgs:
                  is_spot_vm: Optional[pulumi.Input[bool]] = None,
                  is_stateless: Optional[pulumi.Input[bool]] = None,
                  multiple_placement_groups: Optional[pulumi.Input[bool]] = None,
+                 nat_gateway_id: Optional[pulumi.Input[str]] = None,
                  network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]] = None,
                  node_type_name: Optional[pulumi.Input[str]] = None,
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -52,6 +53,7 @@ class NodeTypeArgs:
                  use_temp_data_disk: Optional[pulumi.Input[bool]] = None,
                  vm_extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VMSSExtensionArgs']]]] = None,
                  vm_image_offer: Optional[pulumi.Input[str]] = None,
+                 vm_image_plan: Optional[pulumi.Input['VmImagePlanArgs']] = None,
                  vm_image_publisher: Optional[pulumi.Input[str]] = None,
                  vm_image_resource_id: Optional[pulumi.Input[str]] = None,
                  vm_image_sku: Optional[pulumi.Input[str]] = None,
@@ -85,6 +87,7 @@ class NodeTypeArgs:
         :param pulumi.Input[bool] is_spot_vm: Indicates whether the node type will be Spot Virtual Machines. Azure will allocate the VMs if there is capacity available and the VMs can be evicted at any time.
         :param pulumi.Input[bool] is_stateless: Indicates if the node type can only host Stateless workloads.
         :param pulumi.Input[bool] multiple_placement_groups: Indicates if scale set associated with the node type can be composed of multiple placement groups.
+        :param pulumi.Input[str] nat_gateway_id: Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]] network_security_rules: The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
         :param pulumi.Input[str] node_type_name: The name of the node type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
@@ -99,6 +102,7 @@ class NodeTypeArgs:
         :param pulumi.Input[bool] use_temp_data_disk: Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
         :param pulumi.Input[Sequence[pulumi.Input['VMSSExtensionArgs']]] vm_extensions: Set of extensions that should be installed onto the virtual machines.
         :param pulumi.Input[str] vm_image_offer: The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
+        :param pulumi.Input['VmImagePlanArgs'] vm_image_plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
         :param pulumi.Input[str] vm_image_publisher: The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
         :param pulumi.Input[str] vm_image_resource_id: Indicates the resource id of the vm image. This parameter is used for custom vm image.
         :param pulumi.Input[str] vm_image_sku: The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
@@ -154,6 +158,8 @@ class NodeTypeArgs:
             multiple_placement_groups = False
         if multiple_placement_groups is not None:
             pulumi.set(__self__, "multiple_placement_groups", multiple_placement_groups)
+        if nat_gateway_id is not None:
+            pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if network_security_rules is not None:
             pulumi.set(__self__, "network_security_rules", network_security_rules)
         if node_type_name is not None:
@@ -182,6 +188,8 @@ class NodeTypeArgs:
             pulumi.set(__self__, "vm_extensions", vm_extensions)
         if vm_image_offer is not None:
             pulumi.set(__self__, "vm_image_offer", vm_image_offer)
+        if vm_image_plan is not None:
+            pulumi.set(__self__, "vm_image_plan", vm_image_plan)
         if vm_image_publisher is not None:
             pulumi.set(__self__, "vm_image_publisher", vm_image_publisher)
         if vm_image_resource_id is not None:
@@ -456,6 +464,18 @@ class NodeTypeArgs:
         pulumi.set(self, "multiple_placement_groups", value)
 
     @property
+    @pulumi.getter(name="natGatewayId")
+    def nat_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
+        """
+        return pulumi.get(self, "nat_gateway_id")
+
+    @nat_gateway_id.setter
+    def nat_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nat_gateway_id", value)
+
+    @property
     @pulumi.getter(name="networkSecurityRules")
     def network_security_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]]:
         """
@@ -624,6 +644,18 @@ class NodeTypeArgs:
         pulumi.set(self, "vm_image_offer", value)
 
     @property
+    @pulumi.getter(name="vmImagePlan")
+    def vm_image_plan(self) -> Optional[pulumi.Input['VmImagePlanArgs']]:
+        """
+        Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+        """
+        return pulumi.get(self, "vm_image_plan")
+
+    @vm_image_plan.setter
+    def vm_image_plan(self, value: Optional[pulumi.Input['VmImagePlanArgs']]):
+        pulumi.set(self, "vm_image_plan", value)
+
+    @property
     @pulumi.getter(name="vmImagePublisher")
     def vm_image_publisher(self) -> Optional[pulumi.Input[str]]:
         """
@@ -768,6 +800,7 @@ class NodeType(pulumi.CustomResource):
                  is_spot_vm: Optional[pulumi.Input[bool]] = None,
                  is_stateless: Optional[pulumi.Input[bool]] = None,
                  multiple_placement_groups: Optional[pulumi.Input[bool]] = None,
+                 nat_gateway_id: Optional[pulumi.Input[str]] = None,
                  network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]]] = None,
                  node_type_name: Optional[pulumi.Input[str]] = None,
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -783,6 +816,7 @@ class NodeType(pulumi.CustomResource):
                  use_temp_data_disk: Optional[pulumi.Input[bool]] = None,
                  vm_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VMSSExtensionArgs']]]]] = None,
                  vm_image_offer: Optional[pulumi.Input[str]] = None,
+                 vm_image_plan: Optional[pulumi.Input[pulumi.InputType['VmImagePlanArgs']]] = None,
                  vm_image_publisher: Optional[pulumi.Input[str]] = None,
                  vm_image_resource_id: Optional[pulumi.Input[str]] = None,
                  vm_image_sku: Optional[pulumi.Input[str]] = None,
@@ -797,7 +831,7 @@ class NodeType(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-        API Version: 2023-02-01-preview.
+        API Version: 2023-03-01-preview.
         Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -821,6 +855,7 @@ class NodeType(pulumi.CustomResource):
         :param pulumi.Input[bool] is_spot_vm: Indicates whether the node type will be Spot Virtual Machines. Azure will allocate the VMs if there is capacity available and the VMs can be evicted at any time.
         :param pulumi.Input[bool] is_stateless: Indicates if the node type can only host Stateless workloads.
         :param pulumi.Input[bool] multiple_placement_groups: Indicates if scale set associated with the node type can be composed of multiple placement groups.
+        :param pulumi.Input[str] nat_gateway_id: Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]] network_security_rules: The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
         :param pulumi.Input[str] node_type_name: The name of the node type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
@@ -836,6 +871,7 @@ class NodeType(pulumi.CustomResource):
         :param pulumi.Input[bool] use_temp_data_disk: Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VMSSExtensionArgs']]]] vm_extensions: Set of extensions that should be installed onto the virtual machines.
         :param pulumi.Input[str] vm_image_offer: The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
+        :param pulumi.Input[pulumi.InputType['VmImagePlanArgs']] vm_image_plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
         :param pulumi.Input[str] vm_image_publisher: The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
         :param pulumi.Input[str] vm_image_resource_id: Indicates the resource id of the vm image. This parameter is used for custom vm image.
         :param pulumi.Input[str] vm_image_sku: The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
@@ -856,7 +892,7 @@ class NodeType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-        API Version: 2023-02-01-preview.
+        API Version: 2023-03-01-preview.
         Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -893,6 +929,7 @@ class NodeType(pulumi.CustomResource):
                  is_spot_vm: Optional[pulumi.Input[bool]] = None,
                  is_stateless: Optional[pulumi.Input[bool]] = None,
                  multiple_placement_groups: Optional[pulumi.Input[bool]] = None,
+                 nat_gateway_id: Optional[pulumi.Input[str]] = None,
                  network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]]] = None,
                  node_type_name: Optional[pulumi.Input[str]] = None,
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -908,6 +945,7 @@ class NodeType(pulumi.CustomResource):
                  use_temp_data_disk: Optional[pulumi.Input[bool]] = None,
                  vm_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VMSSExtensionArgs']]]]] = None,
                  vm_image_offer: Optional[pulumi.Input[str]] = None,
+                 vm_image_plan: Optional[pulumi.Input[pulumi.InputType['VmImagePlanArgs']]] = None,
                  vm_image_publisher: Optional[pulumi.Input[str]] = None,
                  vm_image_resource_id: Optional[pulumi.Input[str]] = None,
                  vm_image_sku: Optional[pulumi.Input[str]] = None,
@@ -957,6 +995,7 @@ class NodeType(pulumi.CustomResource):
             if multiple_placement_groups is None:
                 multiple_placement_groups = False
             __props__.__dict__["multiple_placement_groups"] = multiple_placement_groups
+            __props__.__dict__["nat_gateway_id"] = nat_gateway_id
             __props__.__dict__["network_security_rules"] = network_security_rules
             __props__.__dict__["node_type_name"] = node_type_name
             __props__.__dict__["placement_properties"] = placement_properties
@@ -974,6 +1013,7 @@ class NodeType(pulumi.CustomResource):
             __props__.__dict__["use_temp_data_disk"] = use_temp_data_disk
             __props__.__dict__["vm_extensions"] = vm_extensions
             __props__.__dict__["vm_image_offer"] = vm_image_offer
+            __props__.__dict__["vm_image_plan"] = vm_image_plan
             __props__.__dict__["vm_image_publisher"] = vm_image_publisher
             __props__.__dict__["vm_image_resource_id"] = vm_image_resource_id
             __props__.__dict__["vm_image_sku"] = vm_image_sku
@@ -1034,6 +1074,7 @@ class NodeType(pulumi.CustomResource):
         __props__.__dict__["is_stateless"] = None
         __props__.__dict__["multiple_placement_groups"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["nat_gateway_id"] = None
         __props__.__dict__["network_security_rules"] = None
         __props__.__dict__["placement_properties"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -1050,6 +1091,7 @@ class NodeType(pulumi.CustomResource):
         __props__.__dict__["use_temp_data_disk"] = None
         __props__.__dict__["vm_extensions"] = None
         __props__.__dict__["vm_image_offer"] = None
+        __props__.__dict__["vm_image_plan"] = None
         __props__.__dict__["vm_image_publisher"] = None
         __props__.__dict__["vm_image_resource_id"] = None
         __props__.__dict__["vm_image_sku"] = None
@@ -1216,6 +1258,14 @@ class NodeType(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="natGatewayId")
+    def nat_gateway_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
+        """
+        return pulumi.get(self, "nat_gateway_id")
+
+    @property
     @pulumi.getter(name="networkSecurityRules")
     def network_security_rules(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkSecurityRuleResponse']]]:
         """
@@ -1342,6 +1392,14 @@ class NodeType(pulumi.CustomResource):
         The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
         """
         return pulumi.get(self, "vm_image_offer")
+
+    @property
+    @pulumi.getter(name="vmImagePlan")
+    def vm_image_plan(self) -> pulumi.Output[Optional['outputs.VmImagePlanResponse']]:
+        """
+        Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+        """
+        return pulumi.get(self, "vm_image_plan")
 
     @property
     @pulumi.getter(name="vmImagePublisher")

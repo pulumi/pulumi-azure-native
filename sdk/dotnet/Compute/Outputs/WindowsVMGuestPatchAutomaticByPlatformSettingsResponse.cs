@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class WindowsVMGuestPatchAutomaticByPlatformSettingsResponse
     {
         /// <summary>
+        /// Enables customer to schedule patching without accidental upgrades
+        /// </summary>
+        public readonly bool? BypassPlatformSafetyChecksOnUserSchedule;
+        /// <summary>
         /// Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
         /// </summary>
         public readonly string? RebootSetting;
 
         [OutputConstructor]
-        private WindowsVMGuestPatchAutomaticByPlatformSettingsResponse(string? rebootSetting)
+        private WindowsVMGuestPatchAutomaticByPlatformSettingsResponse(
+            bool? bypassPlatformSafetyChecksOnUserSchedule,
+
+            string? rebootSetting)
         {
+            BypassPlatformSafetyChecksOnUserSchedule = bypassPlatformSafetyChecksOnUserSchedule;
             RebootSetting = rebootSetting;
         }
     }

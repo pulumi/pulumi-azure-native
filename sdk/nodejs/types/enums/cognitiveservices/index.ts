@@ -18,6 +18,17 @@ export {
     v20230501,
 };
 
+export const DeploymentModelVersionUpgradeOption = {
+    OnceNewDefaultVersionAvailable: "OnceNewDefaultVersionAvailable",
+    OnceCurrentVersionExpired: "OnceCurrentVersionExpired",
+    NoAutoUpgrade: "NoAutoUpgrade",
+} as const;
+
+/**
+ * Deployment model version upgrade option.
+ */
+export type DeploymentModelVersionUpgradeOption = (typeof DeploymentModelVersionUpgradeOption)[keyof typeof DeploymentModelVersionUpgradeOption];
+
 export const DeploymentScaleType = {
     Standard: "Standard",
     Manual: "Manual",
@@ -32,6 +43,7 @@ export const HostingModel = {
     Web: "Web",
     ConnectedContainer: "ConnectedContainer",
     DisconnectedContainer: "DisconnectedContainer",
+    ProvisionedWeb: "ProvisionedWeb",
 } as const;
 
 /**

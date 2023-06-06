@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cognitive Services account deployment.
- * API Version: 2022-12-01.
+ * API Version: 2023-05-01.
  * Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Deployment extends pulumi.CustomResource {
@@ -52,6 +52,10 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.cognitiveservices.DeploymentPropertiesResponse>;
     /**
+     * The resource model definition representing SKU
+     */
+    public readonly sku!: pulumi.Output<outputs.cognitiveservices.SkuResponse | undefined>;
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.cognitiveservices.SystemDataResponse>;
@@ -81,6 +85,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["deploymentName"] = args ? args.deploymentName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -89,6 +94,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -119,4 +125,8 @@ export interface DeploymentArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource model definition representing SKU
+     */
+    sku?: pulumi.Input<inputs.cognitiveservices.SkuArgs>;
 }

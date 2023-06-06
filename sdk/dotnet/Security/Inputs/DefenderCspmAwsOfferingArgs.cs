@@ -11,10 +11,22 @@ namespace Pulumi.AzureNative.Security.Inputs
 {
 
     /// <summary>
-    /// The CSPM P1 for Aws offering
+    /// The CSPM P1 for AWS offering
     /// </summary>
     public sealed class DefenderCspmAwsOfferingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Microsoft Defender Data Sensitivity discovery configuration
+        /// </summary>
+        [Input("dataSensitivityDiscovery")]
+        public Input<Inputs.DefenderCspmAwsOfferingDataSensitivityDiscoveryArgs>? DataSensitivityDiscovery { get; set; }
+
+        /// <summary>
+        /// The databases DSPM configuration
+        /// </summary>
+        [Input("databasesDspm")]
+        public Input<Inputs.DefenderCspmAwsOfferingDatabasesDspmArgs>? DatabasesDspm { get; set; }
+
         /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderCspmAws'.

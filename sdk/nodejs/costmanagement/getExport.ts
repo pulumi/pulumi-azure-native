@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the export for the defined scope by export name.
- * API Version: 2022-10-01.
+ * API Version: 2023-03-01.
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
 
@@ -87,7 +87,7 @@ export interface GetExportResult {
 }
 /**
  * The operation to get the export for the defined scope by export name.
- * API Version: 2022-10-01.
+ * API Version: 2023-03-01.
  */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
     return pulumi.output(args).apply((a: any) => getExport(a, opts))

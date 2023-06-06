@@ -122,6 +122,7 @@ class CloudName(str, Enum):
     GCP = "GCP"
     GITHUB = "Github"
     AZURE_DEV_OPS = "AzureDevOps"
+    GIT_LAB = "GitLab"
 
 
 class DataSource(str, Enum):
@@ -139,6 +140,7 @@ class EnvironmentType(str, Enum):
     GCP_PROJECT = "GcpProject"
     GITHUB_SCOPE = "GithubScope"
     AZURE_DEV_OPS_SCOPE = "AzureDevOpsScope"
+    GITLAB_SCOPE = "GitlabScope"
 
 
 class ExportData(str, Enum):
@@ -176,6 +178,8 @@ class OfferingType(str, Enum):
     DEFENDER_CSPM_GCP = "DefenderCspmGcp"
     DEFENDER_FOR_DEV_OPS_GITHUB = "DefenderForDevOpsGithub"
     DEFENDER_FOR_DEV_OPS_AZURE_DEV_OPS = "DefenderForDevOpsAzureDevOps"
+    CSPM_MONITOR_GIT_LAB = "CspmMonitorGitLab"
+    DEFENDER_FOR_DEV_OPS_GIT_LAB = "DefenderForDevOpsGitLab"
 
 
 class OrganizationMembershipType(str, Enum):
@@ -272,7 +276,7 @@ class RecommendationType(str, Enum):
 
 class ScanningMode(str, Enum):
     """
-    The scanning mode for the vm scan.
+    The scanning mode for the VM scan.
     """
     DEFAULT = "Default"
 

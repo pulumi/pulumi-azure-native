@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.Inputs
         public Input<Inputs.DefenderFoDatabasesAwsOfferingArcAutoProvisioningArgs>? ArcAutoProvisioning { get; set; }
 
         /// <summary>
+        /// The databases data security posture management (DSPM) configuration
+        /// </summary>
+        [Input("databasesDspm")]
+        public Input<Inputs.DefenderFoDatabasesAwsOfferingDatabasesDspmArgs>? DatabasesDspm { get; set; }
+
+        /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderForDatabasesAws'.
         /// </summary>

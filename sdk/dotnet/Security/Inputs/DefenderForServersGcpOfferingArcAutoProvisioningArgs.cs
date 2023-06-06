@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Security.Inputs
     public sealed class DefenderForServersGcpOfferingArcAutoProvisioningArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration for servers Arc auto provisioning
+        /// </summary>
+        [Input("configuration")]
+        public Input<Inputs.DefenderForServersGcpOfferingConfigurationArgs>? Configuration { get; set; }
+
+        /// <summary>
         /// Is arc auto provisioning enabled
         /// </summary>
         [Input("enabled")]

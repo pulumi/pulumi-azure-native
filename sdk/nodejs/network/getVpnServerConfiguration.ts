@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a VpnServerConfiguration.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getVpnServerConfiguration(args: GetVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnServerConfigurationResult> {
 
@@ -118,7 +118,7 @@ export interface GetVpnServerConfigurationResult {
 }
 /**
  * Retrieves the details of a VpnServerConfiguration.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getVpnServerConfigurationOutput(args: GetVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnServerConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getVpnServerConfiguration(a, opts))

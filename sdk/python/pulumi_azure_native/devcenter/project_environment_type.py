@@ -24,7 +24,7 @@ class ProjectEnvironmentTypeArgs:
                  environment_type_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'EnvironmentTypeEnableStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_role_assignments: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserRoleAssignmentArgs']]]] = None):
         """
@@ -36,7 +36,7 @@ class ProjectEnvironmentTypeArgs:
         :param pulumi.Input[str] environment_type_name: The name of the environment type.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identity properties
         :param pulumi.Input[str] location: The geo-location for the environment type
-        :param pulumi.Input[Union[str, 'EnableStatus']] status: Defines whether this Environment Type can be used in this Project.
+        :param pulumi.Input[Union[str, 'EnvironmentTypeEnableStatus']] status: Defines whether this Environment Type can be used in this Project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserRoleAssignmentArgs']]] user_role_assignments: Role Assignments created on environment backing resources. This is a mapping from a user object ID to an object of role definition IDs.
         """
@@ -145,14 +145,14 @@ class ProjectEnvironmentTypeArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'EnableStatus']]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'EnvironmentTypeEnableStatus']]]:
         """
         Defines whether this Environment Type can be used in this Project.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'EnableStatus']]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'EnvironmentTypeEnableStatus']]]):
         pulumi.set(self, "status", value)
 
     @property
@@ -192,13 +192,13 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'EnvironmentTypeEnableStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_role_assignments: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['UserRoleAssignmentArgs']]]]] = None,
                  __props__=None):
         """
         Represents an environment type.
-        API Version: 2022-11-11-preview.
+        API Version: 2023-04-01.
         Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -210,7 +210,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location for the environment type
         :param pulumi.Input[str] project_name: The name of the project.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[str, 'EnableStatus']] status: Defines whether this Environment Type can be used in this Project.
+        :param pulumi.Input[Union[str, 'EnvironmentTypeEnableStatus']] status: Defines whether this Environment Type can be used in this Project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['UserRoleAssignmentArgs']]]] user_role_assignments: Role Assignments created on environment backing resources. This is a mapping from a user object ID to an object of role definition IDs.
         """
@@ -222,7 +222,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an environment type.
-        API Version: 2022-11-11-preview.
+        API Version: 2023-04-01.
         Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -247,7 +247,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'EnvironmentTypeEnableStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_role_assignments: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['UserRoleAssignmentArgs']]]]] = None,
                  __props__=None):

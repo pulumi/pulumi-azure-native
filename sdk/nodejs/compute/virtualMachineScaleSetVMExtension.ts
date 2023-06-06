@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a VMSS VM Extension.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
@@ -56,6 +56,10 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
      */
     public readonly instanceView!: pulumi.Output<outputs.compute.VirtualMachineExtensionInstanceViewResponse | undefined>;
     /**
+     * The location of the extension.
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
      * The name of the extension.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -67,6 +71,10 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
      * The extensions protected settings that are passed by reference, and consumed from key vault
      */
     public readonly protectedSettingsFromKeyVault!: pulumi.Output<outputs.compute.KeyVaultSecretReferenceResponse | undefined>;
+    /**
+     * Collection of extension names after which this extension needs to be provisioned.
+     */
+    public readonly provisionAfterExtensions!: pulumi.Output<string[] | undefined>;
     /**
      * The provisioning state, which only appears in the response.
      */
@@ -117,8 +125,10 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
             resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["instanceView"] = args ? args.instanceView : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
             resourceInputs["protectedSettingsFromKeyVault"] = args ? args.protectedSettingsFromKeyVault : undefined;
+            resourceInputs["provisionAfterExtensions"] = args ? args.provisionAfterExtensions : undefined;
             resourceInputs["publisher"] = args ? args.publisher : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
@@ -134,9 +144,11 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
             resourceInputs["enableAutomaticUpgrade"] = undefined /*out*/;
             resourceInputs["forceUpdateTag"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["protectedSettings"] = undefined /*out*/;
             resourceInputs["protectedSettingsFromKeyVault"] = undefined /*out*/;
+            resourceInputs["provisionAfterExtensions"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publisher"] = undefined /*out*/;
             resourceInputs["settings"] = undefined /*out*/;
@@ -176,6 +188,10 @@ export interface VirtualMachineScaleSetVMExtensionArgs {
      */
     instanceView?: pulumi.Input<inputs.compute.VirtualMachineExtensionInstanceViewArgs>;
     /**
+     * The location of the extension.
+     */
+    location?: pulumi.Input<string>;
+    /**
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
     protectedSettings?: any;
@@ -183,6 +199,10 @@ export interface VirtualMachineScaleSetVMExtensionArgs {
      * The extensions protected settings that are passed by reference, and consumed from key vault
      */
     protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.KeyVaultSecretReferenceArgs>;
+    /**
+     * Collection of extension names after which this extension needs to be provisioned.
+     */
+    provisionAfterExtensions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the extension handler publisher.
      */

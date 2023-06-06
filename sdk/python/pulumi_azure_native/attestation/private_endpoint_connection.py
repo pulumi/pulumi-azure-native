@@ -95,7 +95,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2020-10-01.
+        API Version: 2021-06-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -113,7 +113,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2020-10-01.
+        API Version: 2021-06-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

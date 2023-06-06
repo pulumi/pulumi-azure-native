@@ -99,7 +99,7 @@ def get_job(id: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str id: The name and identifier for the Job. This is case-sensitive.
@@ -128,7 +128,7 @@ def get_job_output(id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str id: The name and identifier for the Job. This is case-sensitive.

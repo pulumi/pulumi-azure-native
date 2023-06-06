@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified express route circuit.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitResult> {
 
@@ -130,7 +130,7 @@ export interface GetExpressRouteCircuitResult {
 }
 /**
  * Gets information about the specified express route circuit.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getExpressRouteCircuitOutput(args: GetExpressRouteCircuitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCircuit(a, opts))

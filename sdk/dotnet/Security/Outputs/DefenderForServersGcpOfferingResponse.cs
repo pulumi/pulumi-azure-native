@@ -45,6 +45,10 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// The Vulnerability Assessment autoprovisioning configuration
         /// </summary>
         public readonly Outputs.DefenderForServersGcpOfferingResponseVaAutoProvisioning? VaAutoProvisioning;
+        /// <summary>
+        /// The Microsoft Defender for Server VM scanning configuration
+        /// </summary>
+        public readonly Outputs.DefenderForServersGcpOfferingResponseVmScanners? VmScanners;
 
         [OutputConstructor]
         private DefenderForServersGcpOfferingResponse(
@@ -60,7 +64,9 @@ namespace Pulumi.AzureNative.Security.Outputs
 
             Outputs.DefenderForServersGcpOfferingResponseSubPlan? subPlan,
 
-            Outputs.DefenderForServersGcpOfferingResponseVaAutoProvisioning? vaAutoProvisioning)
+            Outputs.DefenderForServersGcpOfferingResponseVaAutoProvisioning? vaAutoProvisioning,
+
+            Outputs.DefenderForServersGcpOfferingResponseVmScanners? vmScanners)
         {
             ArcAutoProvisioning = arcAutoProvisioning;
             DefenderForServers = defenderForServers;
@@ -69,6 +75,7 @@ namespace Pulumi.AzureNative.Security.Outputs
             OfferingType = offeringType;
             SubPlan = subPlan;
             VaAutoProvisioning = vaAutoProvisioning;
+            VmScanners = vmScanners;
         }
     }
 }

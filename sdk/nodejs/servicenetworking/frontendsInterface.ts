@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Frontend Subresource of Traffic Controller.
- * API Version: 2022-10-01-preview.
+ * API Version: 2023-05-01-preview.
  * Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class FrontendsInterface extends pulumi.CustomResource {
@@ -40,29 +40,21 @@ export class FrontendsInterface extends pulumi.CustomResource {
     }
 
     /**
-     * Frontend IP Address Version (Optional).
+     * The Fully Qualified Domain Name of the DNS record associated to a Traffic Controller frontend.
      */
-    public readonly ipAddressVersion!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Frontend Mode (Optional).
-     */
-    public readonly mode!: pulumi.Output<string | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * test doc
+     * Provisioning State of Traffic Controller Frontend Resource
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Frontend Public IP Address (Optional).
-     */
-    public readonly publicIPAddress!: pulumi.Output<outputs.servicenetworking.FrontendPropertiesIPAddressResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -94,24 +86,20 @@ export class FrontendsInterface extends pulumi.CustomResource {
                 throw new Error("Missing required property 'trafficControllerName'");
             }
             resourceInputs["frontendName"] = args ? args.frontendName : undefined;
-            resourceInputs["ipAddressVersion"] = args ? args.ipAddressVersion : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["publicIPAddress"] = args ? args.publicIPAddress : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trafficControllerName"] = args ? args.trafficControllerName : undefined;
+            resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["ipAddressVersion"] = undefined /*out*/;
+            resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["mode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publicIPAddress"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -132,21 +120,9 @@ export interface FrontendsInterfaceArgs {
      */
     frontendName?: pulumi.Input<string>;
     /**
-     * Frontend IP Address Version (Optional).
-     */
-    ipAddressVersion?: pulumi.Input<enums.servicenetworking.FrontendIPAddressVersion>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
-    /**
-     * Frontend Mode (Optional).
-     */
-    mode?: pulumi.Input<enums.servicenetworking.FrontendMode>;
-    /**
-     * Frontend Public IP Address (Optional).
-     */
-    publicIPAddress?: pulumi.Input<inputs.servicenetworking.FrontendPropertiesIPAddressArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

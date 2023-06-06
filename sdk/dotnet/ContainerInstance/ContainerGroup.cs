@@ -11,12 +11,18 @@ namespace Pulumi.AzureNative.ContainerInstance
 {
     /// <summary>
     /// A container group.
-    /// API Version: 2022-09-01.
+    /// API Version: 2023-05-01.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance:ContainerGroup")]
     public partial class ContainerGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The properties for confidential container group
+        /// </summary>
+        [Output("confidentialComputeProperties")]
+        public Output<Outputs.ConfidentialComputePropertiesResponse?> ConfidentialComputeProperties { get; private set; } = null!;
+
         /// <summary>
         /// The containers within the container group.
         /// </summary>
@@ -94,6 +100,12 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         [Output("osType")]
         public Output<string> OsType { get; private set; } = null!;
+
+        /// <summary>
+        /// The priority of the container group.
+        /// </summary>
+        [Output("priority")]
+        public Output<string?> Priority { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the container group. This only appears in the response.
@@ -213,6 +225,12 @@ namespace Pulumi.AzureNative.ContainerInstance
     public sealed class ContainerGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The properties for confidential container group
+        /// </summary>
+        [Input("confidentialComputeProperties")]
+        public Input<Inputs.ConfidentialComputePropertiesArgs>? ConfidentialComputeProperties { get; set; }
+
+        /// <summary>
         /// The name of the container group.
         /// </summary>
         [Input("containerGroupName")]
@@ -307,6 +325,12 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         [Input("osType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ContainerInstance.OperatingSystemTypes> OsType { get; set; } = null!;
+
+        /// <summary>
+        /// The priority of the container group.
+        /// </summary>
+        [Input("priority")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerInstance.ContainerGroupPriority>? Priority { get; set; }
 
         /// <summary>
         /// The name of the resource group.

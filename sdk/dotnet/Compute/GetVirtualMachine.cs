@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about the model view or the instance view of a virtual machine.
-        /// API Version: 2022-11-01.
+        /// API Version: 2023-03-01.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:compute:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about the model view or the instance view of a virtual machine.
-        /// API Version: 2022-11-01.
+        /// API Version: 2023-03-01.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:compute:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
@@ -88,27 +88,27 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.AdditionalCapabilitiesResponse? AdditionalCapabilities;
         /// <summary>
-        /// Specifies the gallery applications that should be made available to the VM/VMSS
+        /// Specifies the gallery applications that should be made available to the VM/VMSS.
         /// </summary>
         public readonly Outputs.ApplicationProfileResponse? ApplicationProfile;
         /// <summary>
-        /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. &lt;br&gt;&lt;br&gt;This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
+        /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
         /// </summary>
         public readonly Outputs.SubResourceResponse? AvailabilitySet;
         /// <summary>
-        /// Specifies the billing related details of a Azure Spot virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2019-03-01.
+        /// Specifies the billing related details of a Azure Spot virtual machine. Minimum api-version: 2019-03-01.
         /// </summary>
         public readonly Outputs.BillingProfileResponse? BillingProfile;
         /// <summary>
-        /// Specifies information about the capacity reservation that is used to allocate virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-04-01.
+        /// Specifies information about the capacity reservation that is used to allocate virtual machine. Minimum api-version: 2021-04-01.
         /// </summary>
         public readonly Outputs.CapacityReservationProfileResponse? CapacityReservation;
         /// <summary>
-        /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.
+        /// Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         /// </summary>
         public readonly Outputs.DiagnosticsProfileResponse? DiagnosticsProfile;
         /// <summary>
-        /// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. &lt;br&gt;&lt;br&gt;For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. &lt;br&gt;&lt;br&gt;For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
+        /// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
         /// </summary>
         public readonly string? EvictionPolicy;
         /// <summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
-        /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). &lt;br&gt;&lt;br&gt; Minimum api-version: 2020-06-01
+        /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). Minimum api-version: 2020-06-01.
         /// </summary>
         public readonly string? ExtensionsTimeBudget;
         /// <summary>
@@ -124,11 +124,11 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.HardwareProfileResponse? HardwareProfile;
         /// <summary>
-        /// Specifies information about the dedicated host that the virtual machine resides in. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-10-01.
+        /// Specifies information about the dedicated host that the virtual machine resides in. Minimum api-version: 2018-10-01.
         /// </summary>
         public readonly Outputs.SubResourceResponse? Host;
         /// <summary>
-        /// Specifies information about the dedicated host group that the virtual machine resides in. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-06-01. &lt;br&gt;&lt;br&gt;NOTE: User cannot specify both host and hostGroup properties.
+        /// Specifies information about the dedicated host group that the virtual machine resides in. **Note:** User cannot specify both host and hostGroup properties. Minimum api-version: 2020-06-01.
         /// </summary>
         public readonly Outputs.SubResourceResponse? HostGroup;
         /// <summary>
@@ -168,11 +168,11 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.PlanResponse? Plan;
         /// <summary>
-        /// Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains.&lt;br&gt;&lt;li&gt;This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set.&lt;li&gt;The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' &amp;gt; 1.&lt;li&gt;This property cannot be updated once the Virtual Machine is created.&lt;li&gt;Fault domain assignment can be viewed in the Virtual Machine Instance View.&lt;br&gt;&lt;br&gt;Minimum api‐version: 2020‐12‐01
+        /// Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains. This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set. The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' greater than 1. This property cannot be updated once the Virtual Machine is created. Fault domain assignment can be viewed in the Virtual Machine Instance View. Minimum api‐version: 2020‐12‐01.
         /// </summary>
         public readonly int? PlatformFaultDomain;
         /// <summary>
-        /// Specifies the priority for the virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2019-03-01
+        /// Specifies the priority for the virtual machine. Minimum api-version: 2019-03-01
         /// </summary>
         public readonly string? Priority;
         /// <summary>
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Specifies information about the proximity placement group that the virtual machine should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.
+        /// Specifies information about the proximity placement group that the virtual machine should be assigned to. Minimum api-version: 2018-04-01.
         /// </summary>
         public readonly Outputs.SubResourceResponse? ProximityPlacementGroup;
         /// <summary>
@@ -204,7 +204,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Specifies the time at which the Virtual Machine resource was created.&lt;br&gt;&lt;br&gt;Minimum api-version: 2021-11-01.
+        /// Specifies the time at which the Virtual Machine resource was created. Minimum api-version: 2021-11-01.
         /// </summary>
         public readonly string TimeCreated;
         /// <summary>
@@ -212,11 +212,11 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-03-01
+        /// UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01.
         /// </summary>
         public readonly string? UserData;
         /// <summary>
-        /// Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. &lt;br&gt;&lt;br&gt;This property cannot exist along with a non-null properties.availabilitySet reference. &lt;br&gt;&lt;br&gt;Minimum api‐version: 2019‐03‐01
+        /// Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. This property cannot exist along with a non-null properties.availabilitySet reference. Minimum api‐version: 2019‐03‐01.
         /// </summary>
         public readonly Outputs.SubResourceResponse? VirtualMachineScaleSet;
         /// <summary>

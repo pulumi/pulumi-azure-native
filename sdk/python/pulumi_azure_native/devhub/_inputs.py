@@ -14,6 +14,7 @@ __all__ = [
     'ACRArgs',
     'DeploymentPropertiesArgs',
     'GitHubWorkflowProfileOidcCredentialsArgs',
+    'WorkflowRunArgs',
 ]
 
 @pulumi.input_type
@@ -209,5 +210,28 @@ class GitHubWorkflowProfileOidcCredentialsArgs:
     @azure_tenant_id.setter
     def azure_tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "azure_tenant_id", value)
+
+
+@pulumi.input_type
+class WorkflowRunArgs:
+    def __init__(__self__, *,
+                 workflow_run_status: Optional[pulumi.Input[Union[str, 'WorkflowRunStatus']]] = None):
+        """
+        :param pulumi.Input[Union[str, 'WorkflowRunStatus']] workflow_run_status: Describes the status of the workflow run
+        """
+        if workflow_run_status is not None:
+            pulumi.set(__self__, "workflow_run_status", workflow_run_status)
+
+    @property
+    @pulumi.getter(name="workflowRunStatus")
+    def workflow_run_status(self) -> Optional[pulumi.Input[Union[str, 'WorkflowRunStatus']]]:
+        """
+        Describes the status of the workflow run
+        """
+        return pulumi.get(self, "workflow_run_status")
+
+    @workflow_run_status.setter
+    def workflow_run_status(self, value: Optional[pulumi.Input[Union[str, 'WorkflowRunStatus']]]):
+        pulumi.set(self, "workflow_run_status", value)
 
 

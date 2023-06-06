@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of a Streaming Locator in the Media Services account
- * API Version: 2022-08-01.
+ * API Version: 2023-01-01.
  */
 export function getStreamingLocator(args: GetStreamingLocatorArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingLocatorResult> {
 
@@ -99,7 +99,7 @@ export interface GetStreamingLocatorResult {
 }
 /**
  * Get the details of a Streaming Locator in the Media Services account
- * API Version: 2022-08-01.
+ * API Version: 2023-01-01.
  */
 export function getStreamingLocatorOutput(args: GetStreamingLocatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingLocatorResult> {
     return pulumi.output(args).apply((a: any) => getStreamingLocator(a, opts))

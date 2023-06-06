@@ -155,7 +155,7 @@ class GetVirtualMachineScaleSetResult:
     @pulumi.getter(name="hostGroup")
     def host_group(self) -> Optional['outputs.SubResourceResponse']:
         """
-        Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
+        Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
         """
         return pulumi.get(self, "host_group")
 
@@ -243,7 +243,7 @@ class GetVirtualMachineScaleSetResult:
     @pulumi.getter(name="proximityPlacementGroup")
     def proximity_placement_group(self) -> Optional['outputs.SubResourceResponse']:
         """
-        Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+        Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
         """
         return pulumi.get(self, "proximity_placement_group")
 
@@ -291,7 +291,7 @@ class GetVirtualMachineScaleSetResult:
     @pulumi.getter(name="timeCreated")
     def time_created(self) -> str:
         """
-        Specifies the time at which the Virtual Machine Scale Set resource was created.<br><br>Minimum api-version: 2021-11-01.
+        Specifies the time at which the Virtual Machine Scale Set resource was created. Minimum api-version: 2021-11-01.
         """
         return pulumi.get(self, "time_created")
 
@@ -387,7 +387,7 @@ def get_virtual_machine_scale_set(expand: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetResult:
     """
     Display information about a virtual machine scale set.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
@@ -440,7 +440,7 @@ def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetResult]:
     """
     Display information about a virtual machine scale set.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation

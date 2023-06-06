@@ -231,7 +231,7 @@ def get_private_endpoint(expand: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointResult:
     """
     Gets the specified private endpoint by resource group.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str expand: Expands referenced resources.
@@ -271,7 +271,7 @@ def get_private_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointResult]:
     """
     Gets the specified private endpoint by resource group.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str expand: Expands referenced resources.

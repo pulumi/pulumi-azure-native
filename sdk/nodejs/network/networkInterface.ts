@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A network interface in a resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class NetworkInterface extends pulumi.CustomResource {
@@ -43,6 +43,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      * Auxiliary mode of Network Interface resource.
      */
     public readonly auxiliaryMode!: pulumi.Output<string | undefined>;
+    /**
+     * Auxiliary sku of Network Interface resource.
+     */
+    public readonly auxiliarySku!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to disable tcp state tracking.
      */
@@ -163,6 +167,7 @@ export class NetworkInterface extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["auxiliaryMode"] = args ? args.auxiliaryMode : undefined;
+            resourceInputs["auxiliarySku"] = args ? args.auxiliarySku : undefined;
             resourceInputs["disableTcpStateTracking"] = args ? args.disableTcpStateTracking : undefined;
             resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
             resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
@@ -194,6 +199,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["vnetEncryptionSupported"] = undefined /*out*/;
         } else {
             resourceInputs["auxiliaryMode"] = undefined /*out*/;
+            resourceInputs["auxiliarySku"] = undefined /*out*/;
             resourceInputs["disableTcpStateTracking"] = undefined /*out*/;
             resourceInputs["dnsSettings"] = undefined /*out*/;
             resourceInputs["dscpConfiguration"] = undefined /*out*/;
@@ -236,6 +242,10 @@ export interface NetworkInterfaceArgs {
      * Auxiliary mode of Network Interface resource.
      */
     auxiliaryMode?: pulumi.Input<string | enums.network.NetworkInterfaceAuxiliaryMode>;
+    /**
+     * Auxiliary sku of Network Interface resource.
+     */
+    auxiliarySku?: pulumi.Input<string | enums.network.NetworkInterfaceAuxiliarySku>;
     /**
      * Indicates whether to disable tcp state tracking.
      */

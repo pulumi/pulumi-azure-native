@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// Get a Service Fabric node type of a given managed cluster.
-        /// API Version: 2023-02-01-preview.
+        /// API Version: 2023-03-01-preview.
         /// </summary>
         public static Task<GetNodeTypeResult> InvokeAsync(GetNodeTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Service Fabric node type of a given managed cluster.
-        /// API Version: 2023-02-01-preview.
+        /// API Version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetNodeTypeResult> Invoke(GetNodeTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeInvokeArgs(), options.WithDefaults());
@@ -164,6 +164,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
+        /// </summary>
+        public readonly string? NatGatewayId;
+        /// <summary>
         /// The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkSecurityRuleResponse> NetworkSecurityRules;
@@ -227,6 +231,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
         /// </summary>
         public readonly string? VmImageOffer;
+        /// <summary>
+        /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started -&gt;. Enter any required information and then click Save.
+        /// </summary>
+        public readonly Outputs.VmImagePlanResponse? VmImagePlan;
         /// <summary>
         /// The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
         /// </summary>
@@ -314,6 +322,8 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string name,
 
+            string? natGatewayId,
+
             ImmutableArray<Outputs.NetworkSecurityRuleResponse> networkSecurityRules,
 
             ImmutableDictionary<string, string>? placementProperties,
@@ -345,6 +355,8 @@ namespace Pulumi.AzureNative.ServiceFabric
             ImmutableArray<Outputs.VMSSExtensionResponse> vmExtensions,
 
             string? vmImageOffer,
+
+            Outputs.VmImagePlanResponse? vmImagePlan,
 
             string? vmImagePublisher,
 
@@ -388,6 +400,7 @@ namespace Pulumi.AzureNative.ServiceFabric
             IsStateless = isStateless;
             MultiplePlacementGroups = multiplePlacementGroups;
             Name = name;
+            NatGatewayId = natGatewayId;
             NetworkSecurityRules = networkSecurityRules;
             PlacementProperties = placementProperties;
             ProvisioningState = provisioningState;
@@ -404,6 +417,7 @@ namespace Pulumi.AzureNative.ServiceFabric
             UseTempDataDisk = useTempDataDisk;
             VmExtensions = vmExtensions;
             VmImageOffer = vmImageOffer;
+            VmImagePlan = vmImagePlan;
             VmImagePublisher = vmImagePublisher;
             VmImageResourceId = vmImageResourceId;
             VmImageSku = vmImageSku;

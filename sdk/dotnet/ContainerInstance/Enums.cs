@@ -70,6 +70,37 @@ namespace Pulumi.AzureNative.ContainerInstance
     }
 
     /// <summary>
+    /// The priority of the container group.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerGroupPriority : IEquatable<ContainerGroupPriority>
+    {
+        private readonly string _value;
+
+        private ContainerGroupPriority(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerGroupPriority Regular { get; } = new ContainerGroupPriority("Regular");
+        public static ContainerGroupPriority Spot { get; } = new ContainerGroupPriority("Spot");
+
+        public static bool operator ==(ContainerGroupPriority left, ContainerGroupPriority right) => left.Equals(right);
+        public static bool operator !=(ContainerGroupPriority left, ContainerGroupPriority right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerGroupPriority value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerGroupPriority other && Equals(other);
+        public bool Equals(ContainerGroupPriority other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Restart policy for all containers within the container group. 
     /// - `Always` Always restart
     /// - `OnFailure` Restart on failure
@@ -119,6 +150,7 @@ namespace Pulumi.AzureNative.ContainerInstance
 
         public static ContainerGroupSku Standard { get; } = new ContainerGroupSku("Standard");
         public static ContainerGroupSku Dedicated { get; } = new ContainerGroupSku("Dedicated");
+        public static ContainerGroupSku Confidential { get; } = new ContainerGroupSku("Confidential");
 
         public static bool operator ==(ContainerGroupSku left, ContainerGroupSku right) => left.Equals(right);
         public static bool operator !=(ContainerGroupSku left, ContainerGroupSku right) => !left.Equals(right);

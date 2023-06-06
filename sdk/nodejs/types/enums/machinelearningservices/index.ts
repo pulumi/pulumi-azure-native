@@ -457,6 +457,15 @@ export const EndpointServiceConnectionStatus = {
  */
 export type EndpointServiceConnectionStatus = (typeof EndpointServiceConnectionStatus)[keyof typeof EndpointServiceConnectionStatus];
 
+export const EnvironmentVariableType = {
+    Local: "local",
+} as const;
+
+/**
+ * Type of the Environment Variable. Possible values are: local - For local variable
+ */
+export type EnvironmentVariableType = (typeof EnvironmentVariableType)[keyof typeof EnvironmentVariableType];
+
 export const FeatureLags = {
     /**
      * No feature lags generated.
@@ -648,6 +657,16 @@ export const IdentityConfigurationType = {
  * [Required] Specifies the type of identity framework.
  */
 export type IdentityConfigurationType = (typeof IdentityConfigurationType)[keyof typeof IdentityConfigurationType];
+
+export const ImageType = {
+    Docker: "docker",
+    Azureml: "azureml",
+} as const;
+
+/**
+ * Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+ */
+export type ImageType = (typeof ImageType)[keyof typeof ImageType];
 
 export const InputDeliveryMode = {
     ReadOnlyMount: "ReadOnlyMount",
@@ -847,6 +866,15 @@ export const NCrossValidationsMode = {
  */
 export type NCrossValidationsMode = (typeof NCrossValidationsMode)[keyof typeof NCrossValidationsMode];
 
+export const NodesValueType = {
+    All: "All",
+} as const;
+
+/**
+ * [Required] Type of the Nodes value
+ */
+export type NodesValueType = (typeof NodesValueType)[keyof typeof NodesValueType];
+
 export const ObjectDetectionPrimaryMetrics = {
     /**
      * Mean Average Precision (MAP) is the average of AP (Average Precision).
@@ -902,6 +930,17 @@ export const PrivateEndpointServiceConnectionStatus = {
  * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const Protocol = {
+    Tcp: "tcp",
+    Udp: "udp",
+    Http: "http",
+} as const;
+
+/**
+ * Protocol over which communication will happen over this endpoint
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 export const PublicNetworkAccess = {
     Enabled: "Enabled",
@@ -1441,6 +1480,18 @@ export const VmPriority = {
  * Virtual Machine priority
  */
 export type VmPriority = (typeof VmPriority)[keyof typeof VmPriority];
+
+export const VolumeDefinitionType = {
+    Bind: "bind",
+    Volume: "volume",
+    Tmpfs: "tmpfs",
+    Npipe: "npipe",
+} as const;
+
+/**
+ * Type of Volume Definition. Possible Values: bind,volume,tmpfs,npipe
+ */
+export type VolumeDefinitionType = (typeof VolumeDefinitionType)[keyof typeof VolumeDefinitionType];
 
 export const WeekDay = {
     /**

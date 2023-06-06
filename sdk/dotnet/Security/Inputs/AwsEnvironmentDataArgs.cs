@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security.Inputs
 {
 
     /// <summary>
-    /// The aws connector environment data
+    /// The AWS connector environment data
     /// </summary>
     public sealed class AwsEnvironmentDataArgs : global::Pulumi.ResourceArgs
     {
@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.Security.Inputs
         /// </summary>
         [Input("organizationalData")]
         public InputUnion<Inputs.AwsOrganizationalDataMasterArgs, Inputs.AwsOrganizationalDataMemberArgs>? OrganizationalData { get; set; }
+
+        [Input("regions")]
+        private InputList<string>? _regions;
+
+        /// <summary>
+        /// list of regions to scan
+        /// </summary>
+        public InputList<string> Regions
+        {
+            get => _regions ?? (_regions = new InputList<string>());
+            set => _regions = value;
+        }
 
         public AwsEnvironmentDataArgs()
         {

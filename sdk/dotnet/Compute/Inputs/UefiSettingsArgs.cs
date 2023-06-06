@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.Compute.Inputs
 {
 
     /// <summary>
-    /// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-12-01
+    /// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. Minimum api-version: 2020-12-01.
     /// </summary>
     public sealed class UefiSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether secure boot should be enabled on the virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-12-01
+        /// Specifies whether secure boot should be enabled on the virtual machine. Minimum api-version: 2020-12-01.
         /// </summary>
         [Input("secureBootEnabled")]
         public Input<bool>? SecureBootEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether vTPM should be enabled on the virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-12-01
+        /// Specifies whether vTPM should be enabled on the virtual machine. Minimum api-version: 2020-12-01.
         /// </summary>
         [Input("vTpmEnabled")]
         public Input<bool>? VTpmEnabled { get; set; }

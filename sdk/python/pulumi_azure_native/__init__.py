@@ -9754,6 +9754,7 @@ _utilities.register(
    "azure-native:network:VirtualNetworkGateway": "VirtualNetworkGateway",
    "azure-native:network:VirtualNetworkGatewayConnection": "VirtualNetworkGatewayConnection",
    "azure-native:network:VirtualNetworkGatewayNatRule": "VirtualNetworkGatewayNatRule",
+   "azure-native:network:VirtualNetworkLink": "VirtualNetworkLink",
    "azure-native:network:VirtualNetworkPeering": "VirtualNetworkPeering",
    "azure-native:network:VirtualNetworkTap": "VirtualNetworkTap",
    "azure-native:network:VirtualRouter": "VirtualRouter",

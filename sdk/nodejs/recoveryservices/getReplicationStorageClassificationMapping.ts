@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the specified storage classification mapping.
- * API Version: 2023-02-01.
+ * API Version: 2023-04-01.
  */
 export function getReplicationStorageClassificationMapping(args: GetReplicationStorageClassificationMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationStorageClassificationMappingResult> {
 
@@ -73,7 +73,7 @@ export interface GetReplicationStorageClassificationMappingResult {
 }
 /**
  * Gets the details of the specified storage classification mapping.
- * API Version: 2023-02-01.
+ * API Version: 2023-04-01.
  */
 export function getReplicationStorageClassificationMappingOutput(args: GetReplicationStorageClassificationMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationStorageClassificationMappingResult> {
     return pulumi.output(args).apply((a: any) => getReplicationStorageClassificationMapping(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Monitor Workspace definition
- * API Version: 2021-06-03-preview.
+ * API Version: 2023-04-03.
  * Previous API Version: 2021-06-03-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class AzureMonitorWorkspace extends pulumi.CustomResource {
@@ -64,9 +64,17 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * List of private endpoint connections
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.monitor.PrivateEndpointConnectionResponse[]>;
+    /**
      * The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Gets or sets allow or disallow public network access to workspace
+     */
+    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -103,7 +111,9 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["metrics"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -113,7 +123,9 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["metrics"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
- * API Version: 2022-12-01.
+ * API Version: 2023-05-01.
  * Previous API Version: 2017-04-18. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Account extends pulumi.CustomResource {

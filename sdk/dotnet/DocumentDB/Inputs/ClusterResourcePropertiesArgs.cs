@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         }
 
         /// <summary>
-        /// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+        /// (Deprecated) Number of hours to wait between taking a backup of the cluster.
         /// </summary>
         [Input("hoursBetweenBackups")]
         public Input<int>? HoursBetweenBackups { get; set; }
@@ -104,6 +104,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         /// </summary>
         [Input("prometheusEndpoint")]
         public Input<Inputs.SeedNodeArgs>? PrometheusEndpoint { get; set; }
+
+        /// <summary>
+        /// Error related to resource provisioning.
+        /// </summary>
+        [Input("provisionError")]
+        public Input<Inputs.CassandraErrorArgs>? ProvisionError { get; set; }
 
         /// <summary>
         /// The status of the resource at the time the operation was called.

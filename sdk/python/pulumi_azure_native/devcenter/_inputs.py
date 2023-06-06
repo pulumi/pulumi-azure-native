@@ -16,6 +16,7 @@ __all__ = [
     'ManagedServiceIdentityArgs',
     'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs',
     'SkuArgs',
+    'StopOnDisconnectConfigurationArgs',
     'UserRoleAssignmentArgs',
 ]
 
@@ -94,25 +95,13 @@ class GitCatalogArgs:
 @pulumi.input_type
 class ImageReferenceArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None,
-                 offer: Optional[pulumi.Input[str]] = None,
-                 publisher: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[str]] = None):
+                 id: Optional[pulumi.Input[str]] = None):
         """
         Image reference information
         :param pulumi.Input[str] id: Image ID, or Image version ID. When Image ID is provided, its latest version will be used.
-        :param pulumi.Input[str] offer: The image offer.
-        :param pulumi.Input[str] publisher: The image publisher.
-        :param pulumi.Input[str] sku: The image sku.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if offer is not None:
-            pulumi.set(__self__, "offer", offer)
-        if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
 
     @property
     @pulumi.getter
@@ -125,42 +114,6 @@ class ImageReferenceArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def offer(self) -> Optional[pulumi.Input[str]]:
-        """
-        The image offer.
-        """
-        return pulumi.get(self, "offer")
-
-    @offer.setter
-    def offer(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "offer", value)
-
-    @property
-    @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[str]]:
-        """
-        The image publisher.
-        """
-        return pulumi.get(self, "publisher")
-
-    @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "publisher", value)
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[str]]:
-        """
-        The image sku.
-        """
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sku", value)
 
 
 @pulumi.input_type
@@ -311,6 +264,46 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input['SkuTier']]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class StopOnDisconnectConfigurationArgs:
+    def __init__(__self__, *,
+                 grace_period_minutes: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'StopOnDisconnectEnableStatus']]] = None):
+        """
+        Stop on disconnect configuration settings for Dev Boxes created in this pool.
+        :param pulumi.Input[int] grace_period_minutes: The specified time in minutes to wait before stopping a Dev Box once disconnect is detected.
+        :param pulumi.Input[Union[str, 'StopOnDisconnectEnableStatus']] status: Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
+        """
+        if grace_period_minutes is not None:
+            pulumi.set(__self__, "grace_period_minutes", grace_period_minutes)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="gracePeriodMinutes")
+    def grace_period_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The specified time in minutes to wait before stopping a Dev Box once disconnect is detected.
+        """
+        return pulumi.get(self, "grace_period_minutes")
+
+    @grace_period_minutes.setter
+    def grace_period_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "grace_period_minutes", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'StopOnDisconnectEnableStatus']]]:
+        """
+        Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'StopOnDisconnectEnableStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

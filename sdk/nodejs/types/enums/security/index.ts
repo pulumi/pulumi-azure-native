@@ -124,6 +124,7 @@ export const CloudName = {
     GCP: "GCP",
     Github: "Github",
     AzureDevOps: "AzureDevOps",
+    GitLab: "GitLab",
 } as const;
 
 /**
@@ -145,6 +146,7 @@ export const EnvironmentType = {
     GcpProject: "GcpProject",
     GithubScope: "GithubScope",
     AzureDevOpsScope: "AzureDevOpsScope",
+    GitlabScope: "GitlabScope",
 } as const;
 
 /**
@@ -188,6 +190,8 @@ export const OfferingType = {
     DefenderCspmGcp: "DefenderCspmGcp",
     DefenderForDevOpsGithub: "DefenderForDevOpsGithub",
     DefenderForDevOpsAzureDevOps: "DefenderForDevOpsAzureDevOps",
+    CspmMonitorGitLab: "CspmMonitorGitLab",
+    DefenderForDevOpsGitLab: "DefenderForDevOpsGitLab",
 } as const;
 
 /**
@@ -300,7 +304,7 @@ export const ScanningMode = {
 } as const;
 
 /**
- * The scanning mode for the vm scan.
+ * The scanning mode for the VM scan.
  */
 export type ScanningMode = (typeof ScanningMode)[keyof typeof ScanningMode];
 

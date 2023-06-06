@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2022-10-01.
+ * API Version: 2023-04-01.
  */
 export function getBatchEndpoint(args: GetBatchEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchEndpointResult> {
 
@@ -78,7 +78,7 @@ export interface GetBatchEndpointResult {
     readonly type: string;
 }
 /**
- * API Version: 2022-10-01.
+ * API Version: 2023-04-01.
  */
 export function getBatchEndpointOutput(args: GetBatchEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchEndpointResult> {
     return pulumi.output(args).apply((a: any) => getBatchEndpoint(a, opts))

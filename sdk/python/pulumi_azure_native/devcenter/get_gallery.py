@@ -111,7 +111,7 @@ def get_gallery(dev_center_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryResult:
     """
     Gets a gallery
-    API Version: 2022-11-11-preview.
+    API Version: 2023-04-01.
 
 
     :param str dev_center_name: The name of the devcenter.
@@ -141,7 +141,7 @@ def get_gallery_output(dev_center_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryResult]:
     """
     Gets a gallery
-    API Version: 2022-11-11-preview.
+    API Version: 2023-04-01.
 
 
     :param str dev_center_name: The name of the devcenter.

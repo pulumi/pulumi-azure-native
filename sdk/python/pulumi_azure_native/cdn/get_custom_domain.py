@@ -172,7 +172,7 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDomainResult:
     """
     Gets an existing custom domain within an endpoint.
-    API Version: 2021-06-01.
+    API Version: 2023-05-01.
 
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.
@@ -210,7 +210,7 @@ def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomDomainResult]:
     """
     Gets an existing custom domain within an endpoint.
-    API Version: 2021-06-01.
+    API Version: 2023-05-01.
 
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.

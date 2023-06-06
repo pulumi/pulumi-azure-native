@@ -19,6 +19,7 @@ class ProfileArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
@@ -27,6 +28,7 @@ class ProfileArgs:
         The set of arguments for constructing a Profile resource.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input['SkuArgs'] sku: The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities).
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
@@ -34,6 +36,8 @@ class ProfileArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if origin_response_timeout_seconds is not None:
@@ -66,6 +70,18 @@ class ProfileArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        Managed service identity (system assigned and/or user assigned identities).
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -121,6 +137,7 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
@@ -130,11 +147,12 @@ class Profile(pulumi.CustomResource):
                  __props__=None):
         """
         A profile is a logical grouping of endpoints that share the same settings.
-        API Version: 2021-06-01.
+        API Version: 2023-05-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity (system assigned and/or user assigned identities).
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
@@ -150,7 +168,7 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A profile is a logical grouping of endpoints that share the same settings.
-        API Version: 2021-06-01.
+        API Version: 2023-05-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -168,6 +186,7 @@ class Profile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
@@ -183,6 +202,7 @@ class Profile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProfileArgs.__new__(ProfileArgs)
 
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["origin_response_timeout_seconds"] = origin_response_timeout_seconds
             __props__.__dict__["profile_name"] = profile_name
@@ -193,6 +213,7 @@ class Profile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["extended_properties"] = None
             __props__.__dict__["front_door_id"] = None
             __props__.__dict__["kind"] = None
             __props__.__dict__["name"] = None
@@ -224,7 +245,9 @@ class Profile(pulumi.CustomResource):
 
         __props__ = ProfileArgs.__new__(ProfileArgs)
 
+        __props__.__dict__["extended_properties"] = None
         __props__.__dict__["front_door_id"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -238,12 +261,28 @@ class Profile(pulumi.CustomResource):
         return Profile(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Key-Value pair representing additional properties for profiles.
+        """
+        return pulumi.get(self, "extended_properties")
+
+    @property
     @pulumi.getter(name="frontDoorId")
     def front_door_id(self) -> pulumi.Output[str]:
         """
         The Id of the frontdoor.
         """
         return pulumi.get(self, "front_door_id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Managed service identity (system assigned and/or user assigned identities).
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

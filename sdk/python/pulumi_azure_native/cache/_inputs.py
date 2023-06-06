@@ -347,7 +347,8 @@ class RedisCommonPropertiesRedisConfigurationArgs:
                  rdb_backup_enabled: Optional[pulumi.Input[str]] = None,
                  rdb_backup_frequency: Optional[pulumi.Input[str]] = None,
                  rdb_backup_max_snapshot_count: Optional[pulumi.Input[str]] = None,
-                 rdb_storage_connection_string: Optional[pulumi.Input[str]] = None):
+                 rdb_storage_connection_string: Optional[pulumi.Input[str]] = None,
+                 storage_subscription_id: Optional[pulumi.Input[str]] = None):
         """
         All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         :param pulumi.Input[str] aof_backup_enabled: Specifies whether the aof backup is enabled
@@ -363,6 +364,7 @@ class RedisCommonPropertiesRedisConfigurationArgs:
         :param pulumi.Input[str] rdb_backup_frequency: Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
         :param pulumi.Input[str] rdb_backup_max_snapshot_count: Specifies the maximum number of snapshots for rdb backup
         :param pulumi.Input[str] rdb_storage_connection_string: The storage account connection string for storing rdb file
+        :param pulumi.Input[str] storage_subscription_id: SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
         """
         if aof_backup_enabled is not None:
             pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
@@ -390,6 +392,8 @@ class RedisCommonPropertiesRedisConfigurationArgs:
             pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
         if rdb_storage_connection_string is not None:
             pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
+        if storage_subscription_id is not None:
+            pulumi.set(__self__, "storage_subscription_id", storage_subscription_id)
 
     @property
     @pulumi.getter(name="aofBackupEnabled")
@@ -546,6 +550,18 @@ class RedisCommonPropertiesRedisConfigurationArgs:
     @rdb_storage_connection_string.setter
     def rdb_storage_connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rdb_storage_connection_string", value)
+
+    @property
+    @pulumi.getter(name="storageSubscriptionId")
+    def storage_subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
+        """
+        return pulumi.get(self, "storage_subscription_id")
+
+    @storage_subscription_id.setter
+    def storage_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_subscription_id", value)
 
 
 @pulumi.input_type

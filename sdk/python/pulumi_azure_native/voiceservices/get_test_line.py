@@ -147,7 +147,7 @@ def get_test_line(communications_gateway_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestLineResult:
     """
     Get a TestLine
-    API Version: 2023-01-31.
+    API Version: 2023-04-03.
 
 
     :param str communications_gateway_name: Unique identifier for this deployment
@@ -180,7 +180,7 @@ def get_test_line_output(communications_gateway_name: Optional[pulumi.Input[str]
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestLineResult]:
     """
     Get a TestLine
-    API Version: 2023-01-31.
+    API Version: 2023-04-03.
 
 
     :param str communications_gateway_name: Unique identifier for this deployment

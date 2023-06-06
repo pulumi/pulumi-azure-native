@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse PrivateEndpoint;
         /// <summary>
+        /// The location of the private endpoint.
+        /// </summary>
+        public readonly string PrivateEndpointLocation;
+        /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
@@ -61,6 +65,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             Outputs.PrivateEndpointResponse privateEndpoint,
 
+            string privateEndpointLocation,
+
             Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
 
             string provisioningState,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             LinkIdentifier = linkIdentifier;
             Name = name;
             PrivateEndpoint = privateEndpoint;
+            PrivateEndpointLocation = privateEndpointLocation;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
             Type = type;

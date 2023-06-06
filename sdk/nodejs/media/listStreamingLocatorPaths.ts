@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List Paths supported by this Streaming Locator
- * API Version: 2022-08-01.
+ * API Version: 2023-01-01.
  */
 export function listStreamingLocatorPaths(args: ListStreamingLocatorPathsArgs, opts?: pulumi.InvokeOptions): Promise<ListStreamingLocatorPathsResult> {
 
@@ -51,7 +51,7 @@ export interface ListStreamingLocatorPathsResult {
 }
 /**
  * List Paths supported by this Streaming Locator
- * API Version: 2022-08-01.
+ * API Version: 2023-01-01.
  */
 export function listStreamingLocatorPathsOutput(args: ListStreamingLocatorPathsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStreamingLocatorPathsResult> {
     return pulumi.output(args).apply((a: any) => listStreamingLocatorPaths(a, opts))

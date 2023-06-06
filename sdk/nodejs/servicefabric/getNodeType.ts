@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Service Fabric node type of a given managed cluster.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getNodeType(args: GetNodeTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeTypeResult> {
 
@@ -121,6 +121,10 @@ export interface GetNodeTypeResult {
      */
     readonly name: string;
     /**
+     * Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
+     */
+    readonly natGatewayId?: string;
+    /**
      * The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
      */
     readonly networkSecurityRules?: outputs.servicefabric.NetworkSecurityRuleResponse[];
@@ -185,6 +189,10 @@ export interface GetNodeTypeResult {
      */
     readonly vmImageOffer?: string;
     /**
+     * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+     */
+    readonly vmImagePlan?: outputs.servicefabric.VmImagePlanResponse;
+    /**
      * The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
      */
     readonly vmImagePublisher?: string;
@@ -231,7 +239,7 @@ export interface GetNodeTypeResult {
 }
 /**
  * Get a Service Fabric node type of a given managed cluster.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getNodeTypeOutput(args: GetNodeTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeTypeResult> {
     return pulumi.output(args).apply((a: any) => getNodeType(a, opts))

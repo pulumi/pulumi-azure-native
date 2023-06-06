@@ -183,7 +183,7 @@ def get_project_environment_type(environment_type_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectEnvironmentTypeResult:
     """
     Gets a project environment type.
-    API Version: 2022-11-11-preview.
+    API Version: 2023-04-01.
 
 
     :param str environment_type_name: The name of the environment type.
@@ -219,7 +219,7 @@ def get_project_environment_type_output(environment_type_name: Optional[pulumi.I
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectEnvironmentTypeResult]:
     """
     Gets a project environment type.
-    API Version: 2022-11-11-preview.
+    API Version: 2023-04-01.
 
 
     :param str environment_type_name: The name of the environment type.

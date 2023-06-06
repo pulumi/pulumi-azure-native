@@ -26,6 +26,10 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// </summary>
         public readonly string OrganizationMembershipType;
         /// <summary>
+        /// GCP organization name
+        /// </summary>
+        public readonly string OrganizationName;
+        /// <summary>
         /// The service account email address which represents the organization level permissions container.
         /// </summary>
         public readonly string? ServiceAccountEmailAddress;
@@ -40,12 +44,15 @@ namespace Pulumi.AzureNative.Security.Outputs
 
             string organizationMembershipType,
 
+            string organizationName,
+
             string? serviceAccountEmailAddress,
 
             string? workloadIdentityProviderId)
         {
             ExcludedProjectNumbers = excludedProjectNumbers;
             OrganizationMembershipType = organizationMembershipType;
+            OrganizationName = organizationName;
             ServiceAccountEmailAddress = serviceAccountEmailAddress;
             WorkloadIdentityProviderId = workloadIdentityProviderId;
         }

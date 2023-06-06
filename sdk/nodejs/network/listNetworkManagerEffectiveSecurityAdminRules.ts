@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List all effective security admin rules applied on a virtual network.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function listNetworkManagerEffectiveSecurityAdminRules(args: ListNetworkManagerEffectiveSecurityAdminRulesArgs, opts?: pulumi.InvokeOptions): Promise<ListNetworkManagerEffectiveSecurityAdminRulesResult> {
 
@@ -56,7 +56,7 @@ export interface ListNetworkManagerEffectiveSecurityAdminRulesResult {
 }
 /**
  * List all effective security admin rules applied on a virtual network.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function listNetworkManagerEffectiveSecurityAdminRulesOutput(args: ListNetworkManagerEffectiveSecurityAdminRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerEffectiveSecurityAdminRulesResult> {
     return pulumi.output(args).apply((a: any) => listNetworkManagerEffectiveSecurityAdminRules(a, opts))

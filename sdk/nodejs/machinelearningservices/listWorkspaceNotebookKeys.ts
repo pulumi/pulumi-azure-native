@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * List keys of a notebook.
- * API Version: 2022-10-01.
+ * API Version: 2023-04-01.
  */
 export function listWorkspaceNotebookKeys(args: ListWorkspaceNotebookKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceNotebookKeysResult> {
 
@@ -34,7 +34,7 @@ export interface ListWorkspaceNotebookKeysResult {
 }
 /**
  * List keys of a notebook.
- * API Version: 2022-10-01.
+ * API Version: 2023-04-01.
  */
 export function listWorkspaceNotebookKeysOutput(args: ListWorkspaceNotebookKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNotebookKeysResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceNotebookKeys(a, opts))

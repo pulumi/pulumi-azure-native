@@ -293,7 +293,7 @@ def get_extension(cluster_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
     Gets Kubernetes Cluster Extension.
-    API Version: 2022-11-01.
+    API Version: 2023-05-01.
 
 
     :param str cluster_name: The name of the kubernetes cluster.
@@ -344,7 +344,7 @@ def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Gets Kubernetes Cluster Extension.
-    API Version: 2022-11-01.
+    API Version: 2023-05-01.
 
 
     :param str cluster_name: The name of the kubernetes cluster.

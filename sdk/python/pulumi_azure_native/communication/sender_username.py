@@ -126,7 +126,7 @@ class SenderUsername(pulumi.CustomResource):
                  __props__=None):
         """
         A class representing a SenderUsername resource.
-        API Version: 2023-03-01-preview.
+        API Version: 2023-03-31.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +145,7 @@ class SenderUsername(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class representing a SenderUsername resource.
-        API Version: 2023-03-01-preview.
+        API Version: 2023-03-31.
 
         :param str resource_name: The name of the resource.
         :param SenderUsernameArgs args: The arguments to use to populate this resource's properties.

@@ -145,7 +145,7 @@ class Domain(pulumi.CustomResource):
                  __props__=None):
         """
         A class representing a Domains resource.
-        API Version: 2023-03-01-preview.
+        API Version: 2023-03-31.
         Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -166,7 +166,7 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class representing a Domains resource.
-        API Version: 2023-03-01-preview.
+        API Version: 2023-03-31.
         Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

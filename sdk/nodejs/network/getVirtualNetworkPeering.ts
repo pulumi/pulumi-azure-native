@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified virtual network peering.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getVirtualNetworkPeering(args: GetVirtualNetworkPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkPeeringResult> {
 
@@ -115,7 +115,7 @@ export interface GetVirtualNetworkPeeringResult {
 }
 /**
  * Gets the specified virtual network peering.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getVirtualNetworkPeeringOutput(args: GetVirtualNetworkPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkPeeringResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkPeering(a, opts))

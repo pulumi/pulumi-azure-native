@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details of the Flux Configuration.
- * API Version: 2022-11-01.
+ * API Version: 2023-05-01.
  */
 export function getFluxConfiguration(args: GetFluxConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetFluxConfigurationResult> {
 
@@ -95,6 +95,10 @@ export interface GetFluxConfigurationResult {
      */
     readonly provisioningState: string;
     /**
+     * Maximum duration to wait for flux configuration reconciliation. E.g PT1H, PT5M, P1D
+     */
+    readonly reconciliationWaitDuration?: string;
+    /**
      * Public Key associated with this fluxConfiguration (either generated within the cluster or provided by the user).
      */
     readonly repositoryPublicKey: string;
@@ -134,10 +138,14 @@ export interface GetFluxConfigurationResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.
+     */
+    readonly waitForReconciliation?: boolean;
 }
 /**
  * Gets details of the Flux Configuration.
- * API Version: 2022-11-01.
+ * API Version: 2023-05-01.
  */
 export function getFluxConfigurationOutput(args: GetFluxConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFluxConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getFluxConfiguration(a, opts))

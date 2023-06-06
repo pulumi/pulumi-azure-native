@@ -28,10 +28,22 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<int>? CustomBlockResponseStatusCode { get; set; }
 
         /// <summary>
+        /// Whether allow WAF to enforce file upload limits.
+        /// </summary>
+        [Input("fileUploadEnforcement")]
+        public Input<bool>? FileUploadEnforcement { get; set; }
+
+        /// <summary>
         /// Maximum file upload size in Mb for WAF.
         /// </summary>
         [Input("fileUploadLimitInMb")]
         public Input<int>? FileUploadLimitInMb { get; set; }
+
+        /// <summary>
+        /// To scrub sensitive log fields
+        /// </summary>
+        [Input("logScrubbing")]
+        public Input<Inputs.PolicySettingsLogScrubbingArgs>? LogScrubbing { get; set; }
 
         /// <summary>
         /// Maximum request body size in Kb for WAF.
@@ -52,6 +64,18 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<bool>? RequestBodyCheck { get; set; }
 
         /// <summary>
+        /// Whether allow WAF to enforce request body limits.
+        /// </summary>
+        [Input("requestBodyEnforcement")]
+        public Input<bool>? RequestBodyEnforcement { get; set; }
+
+        /// <summary>
+        /// Max inspection limit in KB for request body inspection for WAF.
+        /// </summary>
+        [Input("requestBodyInspectLimitInKB")]
+        public Input<int>? RequestBodyInspectLimitInKB { get; set; }
+
+        /// <summary>
         /// The state of the policy.
         /// </summary>
         [Input("state")]
@@ -59,6 +83,8 @@ namespace Pulumi.AzureNative.Network.Inputs
 
         public PolicySettingsArgs()
         {
+            FileUploadEnforcement = true;
+            RequestBodyEnforcement = true;
         }
         public static new PolicySettingsArgs Empty => new PolicySettingsArgs();
     }

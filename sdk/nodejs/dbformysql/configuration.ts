@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Configuration.
- * API Version: 2021-05-01.
+ * API Version: 2022-01-01.
  * Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Configuration extends pulumi.CustomResource {
@@ -44,6 +44,10 @@ export class Configuration extends pulumi.CustomResource {
      */
     public /*out*/ readonly allowedValues!: pulumi.Output<string>;
     /**
+     * Current value of the configuration.
+     */
+    public readonly currentValue!: pulumi.Output<string | undefined>;
+    /**
      * Data type of the configuration.
      */
     public /*out*/ readonly dataType!: pulumi.Output<string>;
@@ -55,6 +59,10 @@ export class Configuration extends pulumi.CustomResource {
      * Description of the configuration.
      */
     public /*out*/ readonly description!: pulumi.Output<string>;
+    /**
+     * The link used to get the document from community or Azure site.
+     */
+    public /*out*/ readonly documentationLink!: pulumi.Output<string>;
     /**
      * If is the configuration pending restart or not.
      */
@@ -106,6 +114,7 @@ export class Configuration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serverName'");
             }
             resourceInputs["configurationName"] = args ? args.configurationName : undefined;
+            resourceInputs["currentValue"] = args ? args.currentValue : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
@@ -114,6 +123,7 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["dataType"] = undefined /*out*/;
             resourceInputs["defaultValue"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["documentationLink"] = undefined /*out*/;
             resourceInputs["isConfigPendingRestart"] = undefined /*out*/;
             resourceInputs["isDynamicConfig"] = undefined /*out*/;
             resourceInputs["isReadOnly"] = undefined /*out*/;
@@ -122,9 +132,11 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allowedValues"] = undefined /*out*/;
+            resourceInputs["currentValue"] = undefined /*out*/;
             resourceInputs["dataType"] = undefined /*out*/;
             resourceInputs["defaultValue"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["documentationLink"] = undefined /*out*/;
             resourceInputs["isConfigPendingRestart"] = undefined /*out*/;
             resourceInputs["isDynamicConfig"] = undefined /*out*/;
             resourceInputs["isReadOnly"] = undefined /*out*/;
@@ -149,6 +161,10 @@ export interface ConfigurationArgs {
      * The name of the server configuration.
      */
     configurationName?: pulumi.Input<string>;
+    /**
+     * Current value of the configuration.
+     */
+    currentValue?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
-    /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-    /// API Version: 2021-06-01.
+    /// Azure Front Door origin is the source of the content being delivered via Azure Front Door. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+    /// API Version: 2023-05-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDOrigin")]
@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string> OriginGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+        /// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         /// </summary>
         [Output("originHostHeader")]
         public Output<string?> OriginHostHeader { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string> OriginGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+        /// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         /// </summary>
         [Input("originHostHeader")]
         public Input<string>? OriginHostHeader { get; set; }

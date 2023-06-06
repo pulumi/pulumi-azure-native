@@ -49,6 +49,7 @@ class ManagedClusterArgs:
                  service_principal_profile: Optional[pulumi.Input['ManagedClusterServicePrincipalProfileArgs']] = None,
                  sku: Optional[pulumi.Input['ManagedClusterSKUArgs']] = None,
                  storage_profile: Optional[pulumi.Input['ManagedClusterStorageProfileArgs']] = None,
+                 support_plan: Optional[pulumi.Input[Union[str, 'KubernetesSupportPlan']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  windows_profile: Optional[pulumi.Input['ManagedClusterWindowsProfileArgs']] = None,
                  workload_auto_scaler_profile: Optional[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileArgs']] = None):
@@ -86,6 +87,7 @@ class ManagedClusterArgs:
         :param pulumi.Input['ManagedClusterServicePrincipalProfileArgs'] service_principal_profile: Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         :param pulumi.Input['ManagedClusterSKUArgs'] sku: The managed cluster SKU.
         :param pulumi.Input['ManagedClusterStorageProfileArgs'] storage_profile: Storage profile for the managed cluster.
+        :param pulumi.Input[Union[str, 'KubernetesSupportPlan']] support_plan: The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['ManagedClusterWindowsProfileArgs'] windows_profile: The profile for Windows VMs in the Managed Cluster.
         :param pulumi.Input['ManagedClusterWorkloadAutoScalerProfileArgs'] workload_auto_scaler_profile: Workload Auto-scaler profile for the managed cluster.
@@ -153,6 +155,8 @@ class ManagedClusterArgs:
             pulumi.set(__self__, "sku", sku)
         if storage_profile is not None:
             pulumi.set(__self__, "storage_profile", storage_profile)
+        if support_plan is not None:
+            pulumi.set(__self__, "support_plan", support_plan)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if windows_profile is not None:
@@ -545,6 +549,18 @@ class ManagedClusterArgs:
         pulumi.set(self, "storage_profile", value)
 
     @property
+    @pulumi.getter(name="supportPlan")
+    def support_plan(self) -> Optional[pulumi.Input[Union[str, 'KubernetesSupportPlan']]]:
+        """
+        The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
+        """
+        return pulumi.get(self, "support_plan")
+
+    @support_plan.setter
+    def support_plan(self, value: Optional[pulumi.Input[Union[str, 'KubernetesSupportPlan']]]):
+        pulumi.set(self, "support_plan", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -618,13 +634,14 @@ class ManagedCluster(pulumi.CustomResource):
                  service_principal_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterServicePrincipalProfileArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ManagedClusterSKUArgs']]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterStorageProfileArgs']]] = None,
+                 support_plan: Optional[pulumi.Input[Union[str, 'KubernetesSupportPlan']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']]] = None,
                  workload_auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterWorkloadAutoScalerProfileArgs']]] = None,
                  __props__=None):
         """
         Managed cluster.
-        API Version: 2023-01-01.
+        API Version: 2023-04-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -661,6 +678,7 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagedClusterServicePrincipalProfileArgs']] service_principal_profile: Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         :param pulumi.Input[pulumi.InputType['ManagedClusterSKUArgs']] sku: The managed cluster SKU.
         :param pulumi.Input[pulumi.InputType['ManagedClusterStorageProfileArgs']] storage_profile: Storage profile for the managed cluster.
+        :param pulumi.Input[Union[str, 'KubernetesSupportPlan']] support_plan: The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']] windows_profile: The profile for Windows VMs in the Managed Cluster.
         :param pulumi.Input[pulumi.InputType['ManagedClusterWorkloadAutoScalerProfileArgs']] workload_auto_scaler_profile: Workload Auto-scaler profile for the managed cluster.
@@ -673,7 +691,7 @@ class ManagedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Managed cluster.
-        API Version: 2023-01-01.
+        API Version: 2023-04-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -723,6 +741,7 @@ class ManagedCluster(pulumi.CustomResource):
                  service_principal_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterServicePrincipalProfileArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ManagedClusterSKUArgs']]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterStorageProfileArgs']]] = None,
+                 support_plan: Optional[pulumi.Input[Union[str, 'KubernetesSupportPlan']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']]] = None,
                  workload_auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterWorkloadAutoScalerProfileArgs']]] = None,
@@ -769,6 +788,7 @@ class ManagedCluster(pulumi.CustomResource):
             __props__.__dict__["service_principal_profile"] = service_principal_profile
             __props__.__dict__["sku"] = sku
             __props__.__dict__["storage_profile"] = storage_profile
+            __props__.__dict__["support_plan"] = support_plan
             __props__.__dict__["tags"] = tags
             __props__.__dict__["windows_profile"] = windows_profile
             __props__.__dict__["workload_auto_scaler_profile"] = workload_auto_scaler_profile
@@ -844,6 +864,7 @@ class ManagedCluster(pulumi.CustomResource):
         __props__.__dict__["service_principal_profile"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["storage_profile"] = None
+        __props__.__dict__["support_plan"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -1154,6 +1175,14 @@ class ManagedCluster(pulumi.CustomResource):
         Storage profile for the managed cluster.
         """
         return pulumi.get(self, "storage_profile")
+
+    @property
+    @pulumi.getter(name="supportPlan")
+    def support_plan(self) -> pulumi.Output[Optional[str]]:
+        """
+        The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
+        """
+        return pulumi.get(self, "support_plan")
 
     @property
     @pulumi.getter(name="systemData")

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Express Route Circuit Connection from the specified express route circuit.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getExpressRouteCircuitConnection(args: GetExpressRouteCircuitConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitConnectionResult> {
 
@@ -92,7 +92,7 @@ export interface GetExpressRouteCircuitConnectionResult {
 }
 /**
  * Gets the specified Express Route Circuit Connection from the specified express route circuit.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getExpressRouteCircuitConnectionOutput(args: GetExpressRouteCircuitConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitConnectionResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCircuitConnection(a, opts))

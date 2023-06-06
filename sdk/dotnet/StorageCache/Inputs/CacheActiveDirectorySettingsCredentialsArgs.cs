@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
         /// <summary>
         /// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.

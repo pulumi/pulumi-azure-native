@@ -45,6 +45,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly string? PlanType;
         /// <summary>
+        /// The list of ProvisioningIssue.
+        /// </summary>
+        public readonly ImmutableArray<string> ProvisioningIssues;
+        /// <summary>
         /// Gets the status of the resource at the time the operation was called.
         /// </summary>
         public readonly string ProvisioningState;
@@ -65,6 +69,8 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             string? planType,
 
+            ImmutableArray<string> provisioningIssues,
+
             string provisioningState)
         {
             AutoRenew = autoRenew;
@@ -74,6 +80,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
             Last = last;
             Next = next;
             PlanType = planType;
+            ProvisioningIssues = provisioningIssues;
             ProvisioningState = provisioningState;
         }
     }

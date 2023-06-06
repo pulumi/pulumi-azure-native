@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridConnectivity
     {
         /// <summary>
         /// Gets the endpoint access credentials to the resource.
-        /// API Version: 2022-05-01-preview.
+        /// API Version: 2023-03-15.
         /// </summary>
         public static Task<ListEndpointCredentialsResult> InvokeAsync(ListEndpointCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEndpointCredentialsResult>("azure-native:hybridconnectivity:listEndpointCredentials", args ?? new ListEndpointCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the endpoint access credentials to the resource.
-        /// API Version: 2022-05-01-preview.
+        /// API Version: 2023-03-15.
         /// </summary>
         public static Output<ListEndpointCredentialsResult> Invoke(ListEndpointCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEndpointCredentialsResult>("azure-native:hybridconnectivity:listEndpointCredentials", args ?? new ListEndpointCredentialsInvokeArgs(), options.WithDefaults());
@@ -47,6 +47,12 @@ namespace Pulumi.AzureNative.HybridConnectivity
         [Input("resourceUri", required: true)]
         public string ResourceUri { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the service. If not provided, the request will by pass the generation of service configuration token 
+        /// </summary>
+        [Input("serviceName")]
+        public Union<string, Pulumi.AzureNative.HybridConnectivity.ServiceName>? ServiceName { get; set; }
+
         public ListEndpointCredentialsArgs()
         {
         }
@@ -72,6 +78,12 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service. If not provided, the request will by pass the generation of service configuration token 
+        /// </summary>
+        [Input("serviceName")]
+        public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.ServiceName>? ServiceName { get; set; }
 
         public ListEndpointCredentialsInvokeArgs()
         {
@@ -103,6 +115,10 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// The suffix domain name of relay namespace.
         /// </summary>
         public readonly string NamespaceNameSuffix;
+        /// <summary>
+        /// The token to access the enabled service.
+        /// </summary>
+        public readonly string? ServiceConfigurationToken;
 
         [OutputConstructor]
         private ListEndpointCredentialsResult(
@@ -114,13 +130,16 @@ namespace Pulumi.AzureNative.HybridConnectivity
 
             string namespaceName,
 
-            string namespaceNameSuffix)
+            string namespaceNameSuffix,
+
+            string? serviceConfigurationToken)
         {
             AccessKey = accessKey;
             ExpiresOn = expiresOn;
             HybridConnectionName = hybridConnectionName;
             NamespaceName = namespaceName;
             NamespaceNameSuffix = namespaceNameSuffix;
+            ServiceConfigurationToken = serviceConfigurationToken;
         }
     }
 }

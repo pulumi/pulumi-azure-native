@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Machine Learning compute object wrapped into ARM resource envelope.
- * API Version: 2022-10-01.
+ * API Version: 2023-04-01.
  */
 export class Compute extends pulumi.CustomResource {
     /**

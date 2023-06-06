@@ -32606,6 +32606,8 @@ class VaultPropertiesResponse(dict):
             suggest = "private_endpoint_state_for_site_recovery"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "secureScore":
+            suggest = "secure_score"
         elif key == "monitoringSettings":
             suggest = "monitoring_settings"
         elif key == "moveDetails":
@@ -32639,6 +32641,7 @@ class VaultPropertiesResponse(dict):
                  private_endpoint_state_for_backup: str,
                  private_endpoint_state_for_site_recovery: str,
                  provisioning_state: str,
+                 secure_score: str,
                  encryption: Optional['outputs.VaultPropertiesResponseEncryption'] = None,
                  monitoring_settings: Optional['outputs.MonitoringSettingsResponse'] = None,
                  move_details: Optional['outputs.VaultPropertiesResponseMoveDetails'] = None,
@@ -32655,6 +32658,7 @@ class VaultPropertiesResponse(dict):
         :param str private_endpoint_state_for_backup: Private endpoint state for backup.
         :param str private_endpoint_state_for_site_recovery: Private endpoint state for site recovery.
         :param str provisioning_state: Provisioning State.
+        :param str secure_score: Secure Score of Recovery Services Vault
         :param 'VaultPropertiesResponseEncryption' encryption: Customer Managed Key details of the resource.
         :param 'MonitoringSettingsResponse' monitoring_settings: Monitoring Settings of the vault
         :param 'VaultPropertiesResponseMoveDetails' move_details: The details of the latest move operation performed on the Azure Resource
@@ -32670,6 +32674,7 @@ class VaultPropertiesResponse(dict):
         pulumi.set(__self__, "private_endpoint_state_for_backup", private_endpoint_state_for_backup)
         pulumi.set(__self__, "private_endpoint_state_for_site_recovery", private_endpoint_state_for_site_recovery)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "secure_score", secure_score)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if monitoring_settings is not None:
@@ -32734,6 +32739,14 @@ class VaultPropertiesResponse(dict):
         Provisioning State.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="secureScore")
+    def secure_score(self) -> str:
+        """
+        Secure Score of Recovery Services Vault
+        """
+        return pulumi.get(self, "secure_score")
 
     @property
     @pulumi.getter

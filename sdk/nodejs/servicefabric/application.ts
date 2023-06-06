@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The application resource.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  * Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Application extends pulumi.CustomResource {

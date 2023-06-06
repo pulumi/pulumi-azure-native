@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.Security.Outputs
     public sealed class DefenderForDatabasesGcpOfferingResponseArcAutoProvisioning
     {
         /// <summary>
+        /// Configuration for servers Arc auto provisioning
+        /// </summary>
+        public readonly Outputs.DefenderForDatabasesGcpOfferingResponseConfiguration? Configuration;
+        /// <summary>
         /// Is arc auto provisioning enabled
         /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]
-        private DefenderForDatabasesGcpOfferingResponseArcAutoProvisioning(bool? enabled)
+        private DefenderForDatabasesGcpOfferingResponseArcAutoProvisioning(
+            Outputs.DefenderForDatabasesGcpOfferingResponseConfiguration? configuration,
+
+            bool? enabled)
         {
+            Configuration = configuration;
             Enabled = enabled;
         }
     }

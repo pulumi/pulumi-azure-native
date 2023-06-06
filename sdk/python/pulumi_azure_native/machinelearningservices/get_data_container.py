@@ -99,7 +99,7 @@ def get_data_container(name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataContainerResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str name: Container name.
@@ -128,7 +128,7 @@ def get_data_container_output(name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataContainerResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str name: Container name.

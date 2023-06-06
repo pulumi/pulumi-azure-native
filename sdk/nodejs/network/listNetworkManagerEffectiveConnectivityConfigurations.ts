@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List all effective connectivity configurations applied on a virtual network.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function listNetworkManagerEffectiveConnectivityConfigurations(args: ListNetworkManagerEffectiveConnectivityConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListNetworkManagerEffectiveConnectivityConfigurationsResult> {
 
@@ -56,7 +56,7 @@ export interface ListNetworkManagerEffectiveConnectivityConfigurationsResult {
 }
 /**
  * List all effective connectivity configurations applied on a virtual network.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function listNetworkManagerEffectiveConnectivityConfigurationsOutput(args: ListNetworkManagerEffectiveConnectivityConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerEffectiveConnectivityConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => listNetworkManagerEffectiveConnectivityConfigurations(a, opts))

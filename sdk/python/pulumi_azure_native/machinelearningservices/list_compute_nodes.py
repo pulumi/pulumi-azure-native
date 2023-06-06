@@ -63,7 +63,7 @@ def list_compute_nodes(compute_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListComputeNodesResult:
     """
     Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str compute_name: Name of the Azure Machine Learning compute.
@@ -89,7 +89,7 @@ def list_compute_nodes_output(compute_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListComputeNodesResult]:
     """
     Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str compute_name: Name of the Azure Machine Learning compute.

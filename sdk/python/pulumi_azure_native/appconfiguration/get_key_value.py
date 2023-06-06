@@ -173,8 +173,8 @@ def get_key_value(config_store_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyValueResult:
     """
-    Gets the properties of the specified key-value.
-    API Version: 2022-05-01.
+    Gets the properties of the specified key-value. NOTE: This operation is intended for use in ARM Template deployments. For all other scenarios involving App Configuration key-values the data plane API should be used instead.
+    API Version: 2023-03-01.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -208,8 +208,8 @@ def get_key_value_output(config_store_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyValueResult]:
     """
-    Gets the properties of the specified key-value.
-    API Version: 2022-05-01.
+    Gets the properties of the specified key-value. NOTE: This operation is intended for use in ARM Template deployments. For all other scenarios involving App Configuration key-values the data plane API should be used instead.
+    API Version: 2023-03-01.
 
 
     :param str config_store_name: The name of the configuration store.

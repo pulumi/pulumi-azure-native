@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified service Endpoint Policies in a specified resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getServiceEndpointPolicy(args: GetServiceEndpointPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointPolicyResult> {
 
@@ -95,7 +95,7 @@ export interface GetServiceEndpointPolicyResult {
 }
 /**
  * Gets the specified service Endpoint Policies in a specified resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getServiceEndpointPolicyOutput(args: GetServiceEndpointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointPolicyResult> {
     return pulumi.output(args).apply((a: any) => getServiceEndpointPolicy(a, opts))

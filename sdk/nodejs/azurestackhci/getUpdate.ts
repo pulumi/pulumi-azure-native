@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get specified Update
- * API Version: 2023-02-01.
+ * API Version: 2023-03-01.
  */
 export function getUpdate(args: GetUpdateArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateResult> {
 
@@ -131,7 +131,7 @@ export interface GetUpdateResult {
 }
 /**
  * Get specified Update
- * API Version: 2023-02-01.
+ * API Version: 2023-03-01.
  */
 export function getUpdateOutput(args: GetUpdateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateResult> {
     return pulumi.output(args).apply((a: any) => getUpdate(a, opts))

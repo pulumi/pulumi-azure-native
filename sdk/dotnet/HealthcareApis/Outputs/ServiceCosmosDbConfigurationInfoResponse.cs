@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.HealthcareApis.Outputs
     public sealed class ServiceCosmosDbConfigurationInfoResponse
     {
         /// <summary>
+        /// The multi-tenant application id used to enable CMK access for services in a data sovereign region.
+        /// </summary>
+        public readonly string? CrossTenantCmkApplicationId;
+        /// <summary>
         /// The URI of the customer-managed key for the backing database.
         /// </summary>
         public readonly string? KeyVaultKeyUri;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.HealthcareApis.Outputs
 
         [OutputConstructor]
         private ServiceCosmosDbConfigurationInfoResponse(
+            string? crossTenantCmkApplicationId,
+
             string? keyVaultKeyUri,
 
             int? offerThroughput)
         {
+            CrossTenantCmkApplicationId = crossTenantCmkApplicationId;
             KeyVaultKeyUri = keyVaultKeyUri;
             OfferThroughput = offerThroughput;
         }

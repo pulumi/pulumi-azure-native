@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about an SSH public key.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getSshPublicKey(args: GetSshPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSshPublicKeyResult> {
 
@@ -59,7 +59,7 @@ export interface GetSshPublicKeyResult {
 }
 /**
  * Retrieves information about an SSH public key.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getSshPublicKeyOutput(args: GetSshPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshPublicKeyResult> {
     return pulumi.output(args).apply((a: any) => getSshPublicKey(a, opts))

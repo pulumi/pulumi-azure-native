@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Machine Extension.
- * API Version: 2022-11-10.
+ * API Version: 2022-12-27.
  * Previous API Version: 2020-08-02. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class MachineExtension extends pulumi.CustomResource {

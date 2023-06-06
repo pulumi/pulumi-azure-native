@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
 {
 
     /// <summary>
-    /// SKU for the Cache.
+    /// SKU for the cache.
     /// </summary>
     [OutputType]
     public sealed class CacheResponseSku
     {
         /// <summary>
-        /// SKU name for this Cache.
+        /// SKU name for this cache.
         /// </summary>
         public readonly string? Name;
 

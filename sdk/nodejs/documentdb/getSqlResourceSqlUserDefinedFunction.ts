@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the SQL userDefinedFunction under an existing Azure Cosmos DB database account.
- * API Version: 2022-11-15.
+ * API Version: 2023-04-15.
  */
 export function getSqlResourceSqlUserDefinedFunction(args: GetSqlResourceSqlUserDefinedFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlUserDefinedFunctionResult> {
 
@@ -74,7 +74,7 @@ export interface GetSqlResourceSqlUserDefinedFunctionResult {
 }
 /**
  * Gets the SQL userDefinedFunction under an existing Azure Cosmos DB database account.
- * API Version: 2022-11-15.
+ * API Version: 2023-04-15.
  */
 export function getSqlResourceSqlUserDefinedFunctionOutput(args: GetSqlResourceSqlUserDefinedFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlUserDefinedFunctionResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlUserDefinedFunction(a, opts))

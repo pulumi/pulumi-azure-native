@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified Network Virtual Appliance.
-        /// API Version: 2022-09-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetNetworkVirtualApplianceResult> InvokeAsync(GetNetworkVirtualApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Network Virtual Appliance.
-        /// API Version: 2022-09-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetNetworkVirtualApplianceResult> Invoke(GetNetworkVirtualApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceInvokeArgs(), options.WithDefaults());
@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.Network
     [OutputType]
     public sealed class GetNetworkVirtualApplianceResult
     {
+        /// <summary>
+        /// Details required for Additional Network Interface.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualApplianceAdditionalNicPropertiesResponse> AdditionalNics;
         /// <summary>
         /// Address Prefix.
         /// </summary>
@@ -160,6 +164,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly double? VirtualApplianceAsn;
         /// <summary>
+        /// List of references to VirtualApplianceConnections.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualApplianceConnections;
+        /// <summary>
         /// List of Virtual Appliance Network Interfaces.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponse> VirtualApplianceNics;
@@ -174,6 +182,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetNetworkVirtualApplianceResult(
+            ImmutableArray<Outputs.VirtualApplianceAdditionalNicPropertiesResponse> additionalNics,
+
             string addressPrefix,
 
             ImmutableArray<string> bootStrapConfigurationBlobs,
@@ -212,12 +222,15 @@ namespace Pulumi.AzureNative.Network
 
             double? virtualApplianceAsn,
 
+            ImmutableArray<Outputs.SubResourceResponse> virtualApplianceConnections,
+
             ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponse> virtualApplianceNics,
 
             ImmutableArray<Outputs.SubResourceResponse> virtualApplianceSites,
 
             Outputs.SubResourceResponse? virtualHub)
         {
+            AdditionalNics = additionalNics;
             AddressPrefix = addressPrefix;
             BootStrapConfigurationBlobs = bootStrapConfigurationBlobs;
             CloudInitConfiguration = cloudInitConfiguration;
@@ -237,6 +250,7 @@ namespace Pulumi.AzureNative.Network
             Tags = tags;
             Type = type;
             VirtualApplianceAsn = virtualApplianceAsn;
+            VirtualApplianceConnections = virtualApplianceConnections;
             VirtualApplianceNics = virtualApplianceNics;
             VirtualApplianceSites = virtualApplianceSites;
             VirtualHub = virtualHub;

@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.ServiceNetworking
 {
     /// <summary>
     /// Frontend Subresource of Traffic Controller.
-    /// API Version: 2022-10-01-preview.
+    /// API Version: 2023-05-01-preview.
     /// Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:FrontendsInterface")]
     public partial class FrontendsInterface : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Frontend IP Address Version (Optional).
+        /// The Fully Qualified Domain Name of the DNS record associated to a Traffic Controller frontend.
         /// </summary>
-        [Output("ipAddressVersion")]
-        public Output<string?> IpAddressVersion { get; private set; } = null!;
+        [Output("fqdn")]
+        public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -30,28 +30,16 @@ namespace Pulumi.AzureNative.ServiceNetworking
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Frontend Mode (Optional).
-        /// </summary>
-        [Output("mode")]
-        public Output<string?> Mode { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// test doc
+        /// Provisioning State of Traffic Controller Frontend Resource
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Frontend Public IP Address (Optional).
-        /// </summary>
-        [Output("publicIPAddress")]
-        public Output<Outputs.FrontendPropertiesIPAddressResponse?> PublicIPAddress { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -128,28 +116,10 @@ namespace Pulumi.AzureNative.ServiceNetworking
         public Input<string>? FrontendName { get; set; }
 
         /// <summary>
-        /// Frontend IP Address Version (Optional).
-        /// </summary>
-        [Input("ipAddressVersion")]
-        public Input<Pulumi.AzureNative.ServiceNetworking.FrontendIPAddressVersion>? IpAddressVersion { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Frontend Mode (Optional).
-        /// </summary>
-        [Input("mode")]
-        public Input<Pulumi.AzureNative.ServiceNetworking.FrontendMode>? Mode { get; set; }
-
-        /// <summary>
-        /// Frontend Public IP Address (Optional).
-        /// </summary>
-        [Input("publicIPAddress")]
-        public Input<Inputs.FrontendPropertiesIPAddressArgs>? PublicIPAddress { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

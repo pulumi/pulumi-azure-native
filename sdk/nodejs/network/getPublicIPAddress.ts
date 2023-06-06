@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified public IP address in a specified resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPAddressResult> {
 
@@ -143,7 +143,7 @@ export interface GetPublicIPAddressResult {
 }
 /**
  * Gets the specified public IP address in a specified resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getPublicIPAddressOutput(args: GetPublicIPAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPAddressResult> {
     return pulumi.output(args).apply((a: any) => getPublicIPAddress(a, opts))

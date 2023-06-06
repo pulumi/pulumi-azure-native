@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves details of a specific security connector
- * API Version: 2022-08-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getSecurityConnector(args: GetSecurityConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConnectorResult> {
 
@@ -38,7 +38,7 @@ export interface GetSecurityConnectorResult {
     /**
      * The security connector environment data.
      */
-    readonly environmentData?: outputs.security.AwsEnvironmentDataResponse | outputs.security.AzureDevOpsScopeEnvironmentDataResponse | outputs.security.GcpProjectEnvironmentDataResponse | outputs.security.GithubScopeEnvironmentDataResponse;
+    readonly environmentData?: outputs.security.AwsEnvironmentDataResponse | outputs.security.AzureDevOpsScopeEnvironmentDataResponse | outputs.security.GcpProjectEnvironmentDataResponse | outputs.security.GithubScopeEnvironmentDataResponse | outputs.security.GitlabScopeEnvironmentDataResponse;
     /**
      * The multi cloud resource's cloud name.
      */
@@ -74,7 +74,7 @@ export interface GetSecurityConnectorResult {
     /**
      * A collection of offerings for the security connector.
      */
-    readonly offerings?: (outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.CspmMonitorAzureDevOpsOfferingResponse | outputs.security.CspmMonitorGcpOfferingResponse | outputs.security.CspmMonitorGithubOfferingResponse | outputs.security.DefenderCspmAwsOfferingResponse | outputs.security.DefenderCspmGcpOfferingResponse | outputs.security.DefenderFoDatabasesAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForContainersGcpOfferingResponse | outputs.security.DefenderForDatabasesGcpOfferingResponse | outputs.security.DefenderForDevOpsAzureDevOpsOfferingResponse | outputs.security.DefenderForDevOpsGithubOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse | outputs.security.DefenderForServersGcpOfferingResponse | outputs.security.InformationProtectionAwsOfferingResponse)[];
+    readonly offerings?: (outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.CspmMonitorAzureDevOpsOfferingResponse | outputs.security.CspmMonitorGcpOfferingResponse | outputs.security.CspmMonitorGitLabOfferingResponse | outputs.security.CspmMonitorGithubOfferingResponse | outputs.security.DefenderCspmAwsOfferingResponse | outputs.security.DefenderCspmGcpOfferingResponse | outputs.security.DefenderFoDatabasesAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForContainersGcpOfferingResponse | outputs.security.DefenderForDatabasesGcpOfferingResponse | outputs.security.DefenderForDevOpsAzureDevOpsOfferingResponse | outputs.security.DefenderForDevOpsGitLabOfferingResponse | outputs.security.DefenderForDevOpsGithubOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse | outputs.security.DefenderForServersGcpOfferingResponse | outputs.security.InformationProtectionAwsOfferingResponse)[];
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -90,7 +90,7 @@ export interface GetSecurityConnectorResult {
 }
 /**
  * Retrieves details of a specific security connector
- * API Version: 2022-08-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getSecurityConnectorOutput(args: GetSecurityConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConnectorResult> {
     return pulumi.output(args).apply((a: any) => getSecurityConnector(a, opts))

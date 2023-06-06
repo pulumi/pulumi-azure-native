@@ -65,6 +65,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly Outputs.RestoreSettingsResponse? RestoreSettings;
         /// <summary>
+        /// Secure Score of Recovery Services Vault
+        /// </summary>
+        public readonly string SecureScore;
+        /// <summary>
         /// Security Settings of the vault
         /// </summary>
         public readonly Outputs.SecuritySettingsResponse? SecuritySettings;
@@ -99,6 +103,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             Outputs.RestoreSettingsResponse? restoreSettings,
 
+            string secureScore,
+
             Outputs.SecuritySettingsResponse? securitySettings,
 
             Outputs.UpgradeDetailsResponse? upgradeDetails)
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             PublicNetworkAccess = publicNetworkAccess;
             RedundancySettings = redundancySettings;
             RestoreSettings = restoreSettings;
+            SecureScore = secureScore;
             SecuritySettings = securitySettings;
             UpgradeDetails = upgradeDetails;
         }

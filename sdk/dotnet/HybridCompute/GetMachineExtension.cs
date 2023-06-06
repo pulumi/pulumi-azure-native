@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridCompute
     {
         /// <summary>
         /// The operation to get the extension.
-        /// API Version: 2022-11-10.
+        /// API Version: 2022-12-27.
         /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:hybridcompute:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the extension.
-        /// API Version: 2022-11-10.
+        /// API Version: 2022-12-27.
         /// </summary>
         public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:hybridcompute:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());

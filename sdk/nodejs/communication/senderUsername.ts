@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class representing a SenderUsername resource.
- * API Version: 2023-03-01-preview.
+ * API Version: 2023-03-31.
  */
 export class SenderUsername extends pulumi.CustomResource {
     /**

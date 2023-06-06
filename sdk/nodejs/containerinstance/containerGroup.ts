@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A container group.
- * API Version: 2022-09-01.
+ * API Version: 2023-05-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class ContainerGroup extends pulumi.CustomResource {
@@ -39,6 +39,10 @@ export class ContainerGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContainerGroup.__pulumiType;
     }
 
+    /**
+     * The properties for confidential container group
+     */
+    public readonly confidentialComputeProperties!: pulumi.Output<outputs.containerinstance.ConfidentialComputePropertiesResponse | undefined>;
     /**
      * The containers within the container group.
      */
@@ -91,6 +95,10 @@ export class ContainerGroup extends pulumi.CustomResource {
      * The operating system type required by the containers in the container group.
      */
     public readonly osType!: pulumi.Output<string>;
+    /**
+     * The priority of the container group.
+     */
+    public readonly priority!: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the container group. This only appears in the response.
      */
@@ -147,6 +155,7 @@ export class ContainerGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["confidentialComputeProperties"] = args ? args.confidentialComputeProperties : undefined;
             resourceInputs["containerGroupName"] = args ? args.containerGroupName : undefined;
             resourceInputs["containers"] = args ? args.containers : undefined;
             resourceInputs["diagnostics"] = args ? args.diagnostics : undefined;
@@ -159,6 +168,7 @@ export class ContainerGroup extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = args ? (args.ipAddress ? pulumi.output(args.ipAddress).apply(inputs.containerinstance.ipAddressArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -171,6 +181,7 @@ export class ContainerGroup extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["confidentialComputeProperties"] = undefined /*out*/;
             resourceInputs["containers"] = undefined /*out*/;
             resourceInputs["diagnostics"] = undefined /*out*/;
             resourceInputs["dnsConfig"] = undefined /*out*/;
@@ -184,6 +195,7 @@ export class ContainerGroup extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["osType"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["restartPolicy"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
@@ -204,6 +216,10 @@ export class ContainerGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a ContainerGroup resource.
  */
 export interface ContainerGroupArgs {
+    /**
+     * The properties for confidential container group
+     */
+    confidentialComputeProperties?: pulumi.Input<inputs.containerinstance.ConfidentialComputePropertiesArgs>;
     /**
      * The name of the container group.
      */
@@ -252,6 +268,10 @@ export interface ContainerGroupArgs {
      * The operating system type required by the containers in the container group.
      */
     osType: pulumi.Input<string | enums.containerinstance.OperatingSystemTypes>;
+    /**
+     * The priority of the container group.
+     */
+    priority?: pulumi.Input<string | enums.containerinstance.ContainerGroupPriority>;
     /**
      * The name of the resource group.
      */

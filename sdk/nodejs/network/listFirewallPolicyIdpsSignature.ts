@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the current status of IDPS signatures for the relevant policy
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function listFirewallPolicyIdpsSignature(args: ListFirewallPolicyIdpsSignatureArgs, opts?: pulumi.InvokeOptions): Promise<ListFirewallPolicyIdpsSignatureResult> {
 
@@ -71,7 +71,7 @@ export interface ListFirewallPolicyIdpsSignatureResult {
 }
 /**
  * Retrieves the current status of IDPS signatures for the relevant policy
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function listFirewallPolicyIdpsSignatureOutput(args: ListFirewallPolicyIdpsSignatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFirewallPolicyIdpsSignatureResult> {
     return pulumi.output(args).apply((a: any) => listFirewallPolicyIdpsSignature(a, opts))

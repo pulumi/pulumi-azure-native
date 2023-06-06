@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the proximity placement group.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class ProximityPlacementGroup extends pulumi.CustomResource {
@@ -60,7 +60,7 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+     * Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
      */
     public readonly proximityPlacementGroupType!: pulumi.Output<string | undefined>;
     /**
@@ -152,7 +152,7 @@ export interface ProximityPlacementGroupArgs {
      */
     proximityPlacementGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+     * Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
      */
     proximityPlacementGroupType?: pulumi.Input<string | enums.compute.ProximityPlacementGroupType>;
     /**

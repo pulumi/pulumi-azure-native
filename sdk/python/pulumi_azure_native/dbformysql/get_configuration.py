@@ -22,10 +22,13 @@ class GetConfigurationResult:
     """
     Represents a Configuration.
     """
-    def __init__(__self__, allowed_values=None, data_type=None, default_value=None, description=None, id=None, is_config_pending_restart=None, is_dynamic_config=None, is_read_only=None, name=None, source=None, system_data=None, type=None, value=None):
+    def __init__(__self__, allowed_values=None, current_value=None, data_type=None, default_value=None, description=None, documentation_link=None, id=None, is_config_pending_restart=None, is_dynamic_config=None, is_read_only=None, name=None, source=None, system_data=None, type=None, value=None):
         if allowed_values and not isinstance(allowed_values, str):
             raise TypeError("Expected argument 'allowed_values' to be a str")
         pulumi.set(__self__, "allowed_values", allowed_values)
+        if current_value and not isinstance(current_value, str):
+            raise TypeError("Expected argument 'current_value' to be a str")
+        pulumi.set(__self__, "current_value", current_value)
         if data_type and not isinstance(data_type, str):
             raise TypeError("Expected argument 'data_type' to be a str")
         pulumi.set(__self__, "data_type", data_type)
@@ -35,6 +38,9 @@ class GetConfigurationResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if documentation_link and not isinstance(documentation_link, str):
+            raise TypeError("Expected argument 'documentation_link' to be a str")
+        pulumi.set(__self__, "documentation_link", documentation_link)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -72,6 +78,14 @@ class GetConfigurationResult:
         return pulumi.get(self, "allowed_values")
 
     @property
+    @pulumi.getter(name="currentValue")
+    def current_value(self) -> Optional[str]:
+        """
+        Current value of the configuration.
+        """
+        return pulumi.get(self, "current_value")
+
+    @property
     @pulumi.getter(name="dataType")
     def data_type(self) -> str:
         """
@@ -94,6 +108,14 @@ class GetConfigurationResult:
         Description of the configuration.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="documentationLink")
+    def documentation_link(self) -> str:
+        """
+        The link used to get the document from community or Azure site.
+        """
+        return pulumi.get(self, "documentation_link")
 
     @property
     @pulumi.getter
@@ -175,9 +197,11 @@ class AwaitableGetConfigurationResult(GetConfigurationResult):
             yield self
         return GetConfigurationResult(
             allowed_values=self.allowed_values,
+            current_value=self.current_value,
             data_type=self.data_type,
             default_value=self.default_value,
             description=self.description,
+            documentation_link=self.documentation_link,
             id=self.id,
             is_config_pending_restart=self.is_config_pending_restart,
             is_dynamic_config=self.is_dynamic_config,
@@ -195,7 +219,7 @@ def get_configuration(configuration_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationResult:
     """
     Gets information about a configuration of server.
-    API Version: 2021-05-01.
+    API Version: 2022-01-01.
 
 
     :param str configuration_name: The name of the server configuration.
@@ -211,9 +235,11 @@ def get_configuration(configuration_name: Optional[str] = None,
 
     return AwaitableGetConfigurationResult(
         allowed_values=__ret__.allowed_values,
+        current_value=__ret__.current_value,
         data_type=__ret__.data_type,
         default_value=__ret__.default_value,
         description=__ret__.description,
+        documentation_link=__ret__.documentation_link,
         id=__ret__.id,
         is_config_pending_restart=__ret__.is_config_pending_restart,
         is_dynamic_config=__ret__.is_dynamic_config,
@@ -232,7 +258,7 @@ def get_configuration_output(configuration_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Gets information about a configuration of server.
-    API Version: 2021-05-01.
+    API Version: 2022-01-01.
 
 
     :param str configuration_name: The name of the server configuration.

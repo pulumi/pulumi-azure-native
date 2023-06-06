@@ -62,6 +62,18 @@ export const E911Type = {
  */
 export type E911Type = (typeof E911Type)[keyof typeof E911Type];
 
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
 export const TeamsCodecs = {
     PCMA: "PCMA",
     PCMU: "PCMU",

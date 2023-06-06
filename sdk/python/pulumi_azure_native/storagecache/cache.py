@@ -33,8 +33,8 @@ class CacheArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cache resource.
-        :param pulumi.Input[str] resource_group_name: Target resource group.
-        :param pulumi.Input[str] cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         :param pulumi.Input[int] cache_size_gb: The size of this Cache, in GB.
         :param pulumi.Input['CacheDirectorySettingsArgs'] directory_services_settings: Specifies Directory Services settings of the cache.
         :param pulumi.Input['CacheEncryptionSettingsArgs'] encryption_settings: Specifies encryption settings of the cache.
@@ -42,10 +42,10 @@ class CacheArgs:
         :param pulumi.Input[str] location: Region name string.
         :param pulumi.Input['CacheNetworkSettingsArgs'] network_settings: Specifies network settings of the cache.
         :param pulumi.Input['CacheSecuritySettingsArgs'] security_settings: Specifies security settings of the cache.
-        :param pulumi.Input['CacheSkuArgs'] sku: SKU for the Cache.
-        :param pulumi.Input[str] subnet: Subnet used for the Cache.
+        :param pulumi.Input['CacheSkuArgs'] sku: SKU for the cache.
+        :param pulumi.Input[str] subnet: Subnet used for the cache.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input['CacheUpgradeSettingsArgs'] upgrade_settings: Upgrade settings of the Cache.
+        :param pulumi.Input['CacheUpgradeSettingsArgs'] upgrade_settings: Upgrade settings of the cache.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability zones for resources. This field should only contain a single element in the array.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -80,7 +80,7 @@ class CacheArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Target resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -92,7 +92,7 @@ class CacheArgs:
     @pulumi.getter(name="cacheName")
     def cache_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         """
         return pulumi.get(self, "cache_name")
 
@@ -188,7 +188,7 @@ class CacheArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['CacheSkuArgs']]:
         """
-        SKU for the Cache.
+        SKU for the cache.
         """
         return pulumi.get(self, "sku")
 
@@ -200,7 +200,7 @@ class CacheArgs:
     @pulumi.getter
     def subnet(self) -> Optional[pulumi.Input[str]]:
         """
-        Subnet used for the Cache.
+        Subnet used for the cache.
         """
         return pulumi.get(self, "subnet")
 
@@ -224,7 +224,7 @@ class CacheArgs:
     @pulumi.getter(name="upgradeSettings")
     def upgrade_settings(self) -> Optional[pulumi.Input['CacheUpgradeSettingsArgs']]:
         """
-        Upgrade settings of the Cache.
+        Upgrade settings of the cache.
         """
         return pulumi.get(self, "upgrade_settings")
 
@@ -266,25 +266,25 @@ class Cache(pulumi.CustomResource):
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        API Version: 2023-01-01.
+        A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+        API Version: 2023-05-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        :param pulumi.Input[str] cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         :param pulumi.Input[int] cache_size_gb: The size of this Cache, in GB.
         :param pulumi.Input[pulumi.InputType['CacheDirectorySettingsArgs']] directory_services_settings: Specifies Directory Services settings of the cache.
         :param pulumi.Input[pulumi.InputType['CacheEncryptionSettingsArgs']] encryption_settings: Specifies encryption settings of the cache.
         :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: The identity of the cache, if configured.
         :param pulumi.Input[str] location: Region name string.
         :param pulumi.Input[pulumi.InputType['CacheNetworkSettingsArgs']] network_settings: Specifies network settings of the cache.
-        :param pulumi.Input[str] resource_group_name: Target resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['CacheSecuritySettingsArgs']] security_settings: Specifies security settings of the cache.
-        :param pulumi.Input[pulumi.InputType['CacheSkuArgs']] sku: SKU for the Cache.
-        :param pulumi.Input[str] subnet: Subnet used for the Cache.
+        :param pulumi.Input[pulumi.InputType['CacheSkuArgs']] sku: SKU for the cache.
+        :param pulumi.Input[str] subnet: Subnet used for the cache.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['CacheUpgradeSettingsArgs']] upgrade_settings: Upgrade settings of the Cache.
+        :param pulumi.Input[pulumi.InputType['CacheUpgradeSettingsArgs']] upgrade_settings: Upgrade settings of the cache.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability zones for resources. This field should only contain a single element in the array.
         """
         ...
@@ -294,8 +294,8 @@ class Cache(pulumi.CustomResource):
                  args: CacheArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        API Version: 2023-01-01.
+        A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+        API Version: 2023-05-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -436,7 +436,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter
     def health(self) -> pulumi.Output['outputs.CacheHealthResponse']:
         """
-        Health of the Cache.
+        Health of the cache.
         """
         return pulumi.get(self, "health")
 
@@ -460,7 +460,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter(name="mountAddresses")
     def mount_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
-        Array of IP addresses that can be used by clients mounting this Cache.
+        Array of IPv4 addresses that can be used by clients mounting this cache.
         """
         return pulumi.get(self, "mount_addresses")
 
@@ -468,7 +468,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of Cache.
+        Name of cache.
         """
         return pulumi.get(self, "name")
 
@@ -508,7 +508,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.CacheResponseSku']]:
         """
-        SKU for the Cache.
+        SKU for the cache.
         """
         return pulumi.get(self, "sku")
 
@@ -524,7 +524,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter
     def subnet(self) -> pulumi.Output[Optional[str]]:
         """
-        Subnet used for the Cache.
+        Subnet used for the cache.
         """
         return pulumi.get(self, "subnet")
 
@@ -548,7 +548,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the Cache; Microsoft.StorageCache/Cache
+        Type of the cache; Microsoft.StorageCache/Cache
         """
         return pulumi.get(self, "type")
 
@@ -556,7 +556,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter(name="upgradeSettings")
     def upgrade_settings(self) -> pulumi.Output[Optional['outputs.CacheUpgradeSettingsResponse']]:
         """
-        Upgrade settings of the Cache.
+        Upgrade settings of the cache.
         """
         return pulumi.get(self, "upgrade_settings")
 
@@ -564,7 +564,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter(name="upgradeStatus")
     def upgrade_status(self) -> pulumi.Output['outputs.CacheUpgradeStatusResponse']:
         """
-        Upgrade status of the Cache.
+        Upgrade status of the cache.
         """
         return pulumi.get(self, "upgrade_status")
 

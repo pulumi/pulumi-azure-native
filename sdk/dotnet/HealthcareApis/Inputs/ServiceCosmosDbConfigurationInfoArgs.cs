@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.HealthcareApis.Inputs
     public sealed class ServiceCosmosDbConfigurationInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The multi-tenant application id used to enable CMK access for services in a data sovereign region.
+        /// </summary>
+        [Input("crossTenantCmkApplicationId")]
+        public Input<string>? CrossTenantCmkApplicationId { get; set; }
+
+        /// <summary>
         /// The URI of the customer-managed key for the backing database.
         /// </summary>
         [Input("keyVaultKeyUri")]

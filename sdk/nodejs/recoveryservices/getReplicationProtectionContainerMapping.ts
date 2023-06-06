@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of a protection container mapping.
- * API Version: 2023-02-01.
+ * API Version: 2023-04-01.
  */
 export function getReplicationProtectionContainerMapping(args: GetReplicationProtectionContainerMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectionContainerMappingResult> {
 
@@ -73,7 +73,7 @@ export interface GetReplicationProtectionContainerMappingResult {
 }
 /**
  * Gets the details of a protection container mapping.
- * API Version: 2023-02-01.
+ * API Version: 2023-04-01.
  */
 export function getReplicationProtectionContainerMappingOutput(args: GetReplicationProtectionContainerMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectionContainerMappingResult> {
     return pulumi.output(args).apply((a: any) => getReplicationProtectionContainerMapping(a, opts))

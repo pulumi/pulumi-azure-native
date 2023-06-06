@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specified connection created by this subscription.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getSubscriptionNetworkManagerConnection(args: GetSubscriptionNetworkManagerConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionNetworkManagerConnectionResult> {
 
@@ -61,7 +61,7 @@ export interface GetSubscriptionNetworkManagerConnectionResult {
 }
 /**
  * Get a specified connection created by this subscription.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getSubscriptionNetworkManagerConnectionOutput(args: GetSubscriptionNetworkManagerConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionNetworkManagerConnectionResult> {
     return pulumi.output(args).apply((a: any) => getSubscriptionNetworkManagerConnection(a, opts))

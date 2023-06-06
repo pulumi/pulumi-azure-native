@@ -150,6 +150,7 @@ from .get_virtual_network_gateway_learned_routes import *
 from .get_virtual_network_gateway_nat_rule import *
 from .get_virtual_network_gateway_vpnclient_connection_health import *
 from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
+from .get_virtual_network_link import *
 from .get_virtual_network_peering import *
 from .get_virtual_network_tap import *
 from .get_virtual_router import *
@@ -235,6 +236,7 @@ from .virtual_network import *
 from .virtual_network_gateway import *
 from .virtual_network_gateway_connection import *
 from .virtual_network_gateway_nat_rule import *
+from .virtual_network_link import *
 from .virtual_network_peering import *
 from .virtual_network_tap import *
 from .virtual_router import *

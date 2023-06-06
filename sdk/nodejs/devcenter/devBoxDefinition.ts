@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a definition for a Developer Machine.
- * API Version: 2022-11-11-preview.
+ * API Version: 2023-04-01.
  * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class DevBoxDefinition extends pulumi.CustomResource {
@@ -70,7 +70,7 @@ export class DevBoxDefinition extends pulumi.CustomResource {
     /**
      * The storage type used for the Operating System disk of Dev Boxes created using this definition.
      */
-    public readonly osStorageType!: pulumi.Output<string>;
+    public readonly osStorageType!: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the resource.
      */
@@ -108,9 +108,6 @@ export class DevBoxDefinition extends pulumi.CustomResource {
             }
             if ((!args || args.imageReference === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageReference'");
-            }
-            if ((!args || args.osStorageType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'osStorageType'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -183,7 +180,7 @@ export interface DevBoxDefinitionArgs {
     /**
      * The storage type used for the Operating System disk of Dev Boxes created using this definition.
      */
-    osStorageType: pulumi.Input<string>;
+    osStorageType?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

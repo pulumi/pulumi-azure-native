@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Bastion Host.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getBastionHost(args: GetBastionHostArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionHostResult> {
 
@@ -51,6 +51,10 @@ export interface GetBastionHostResult {
      * Enable/Disable IP Connect feature of the Bastion Host resource.
      */
     readonly enableIpConnect?: boolean;
+    /**
+     * Enable/Disable Kerberos feature of the Bastion Host resource.
+     */
+    readonly enableKerberos?: boolean;
     /**
      * Enable/Disable Shareable Link of the Bastion Host resource.
      */
@@ -102,7 +106,7 @@ export interface GetBastionHostResult {
 }
 /**
  * Gets the specified Bastion Host.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getBastionHostOutput(args: GetBastionHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionHostResult> {
     return pulumi.output(args).apply((a: any) => getBastionHost(a, opts))

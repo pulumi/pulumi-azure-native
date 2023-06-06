@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Details of a particular extension in HCI Cluster.
-    /// API Version: 2023-02-01.
+    /// API Version: 2023-03-01.
     /// Previous API Version: 2021-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:Extension")]
@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("forceUpdateTag")]
         public Output<string?> ForceUpdateTag { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if the extension is managed by azure or the user.
+        /// </summary>
+        [Output("managedBy")]
+        public Output<string> ManagedBy { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource

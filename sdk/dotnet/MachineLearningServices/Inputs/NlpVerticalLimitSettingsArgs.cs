@@ -37,6 +37,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         {
             MaxConcurrentTrials = 1;
             MaxTrials = 1;
+            Timeout = "P7D";
         }
         public static new NlpVerticalLimitSettingsArgs Empty => new NlpVerticalLimitSettingsArgs();
     }

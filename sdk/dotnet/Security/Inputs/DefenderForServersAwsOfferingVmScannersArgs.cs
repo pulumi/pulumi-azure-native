@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Security.Inputs
         /// configuration for Microsoft Defender for Server VM scanning
         /// </summary>
         [Input("configuration")]
-        public Input<Inputs.DefenderForServersAwsOfferingConfigurationConfigurationArgs>? Configuration { get; set; }
+        public Input<Inputs.DefenderForServersAwsOfferingConfigurationConfigurationConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
         /// Is Microsoft Defender for Server VM scanning enabled

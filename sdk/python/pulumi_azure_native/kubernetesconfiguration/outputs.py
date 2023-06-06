@@ -29,11 +29,13 @@ __all__ = [
     'ObjectStatusConditionDefinitionResponse',
     'ObjectStatusDefinitionResponse',
     'PlanResponse',
+    'PostBuildDefinitionResponse',
     'RepositoryRefDefinitionResponse',
     'ScopeClusterResponse',
     'ScopeNamespaceResponse',
     'ScopeResponse',
     'ServicePrincipalDefinitionResponse',
+    'SubstituteFromDefinitionResponse',
     'SystemDataResponse',
 ]
 
@@ -1030,6 +1032,8 @@ class KustomizationDefinitionResponse(dict):
         suggest = None
         if key == "dependsOn":
             suggest = "depends_on"
+        elif key == "postBuild":
+            suggest = "post_build"
         elif key == "retryIntervalInSeconds":
             suggest = "retry_interval_in_seconds"
         elif key == "syncIntervalInSeconds":
@@ -1053,20 +1057,24 @@ class KustomizationDefinitionResponse(dict):
                  depends_on: Optional[Sequence[str]] = None,
                  force: Optional[bool] = None,
                  path: Optional[str] = None,
+                 post_build: Optional['outputs.PostBuildDefinitionResponse'] = None,
                  prune: Optional[bool] = None,
                  retry_interval_in_seconds: Optional[float] = None,
                  sync_interval_in_seconds: Optional[float] = None,
-                 timeout_in_seconds: Optional[float] = None):
+                 timeout_in_seconds: Optional[float] = None,
+                 wait: Optional[bool] = None):
         """
         The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
         :param str name: Name of the Kustomization, matching the key in the Kustomizations object map.
         :param Sequence[str] depends_on: Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
         :param bool force: Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
         :param str path: The path in the source reference to reconcile on the cluster.
+        :param 'PostBuildDefinitionResponse' post_build: Used for variable substitution for this Kustomization after kustomize build.
         :param bool prune: Enable/disable garbage collections of Kubernetes objects created by this Kustomization.
         :param float retry_interval_in_seconds: The interval at which to re-reconcile the Kustomization on the cluster in the event of failure on reconciliation.
         :param float sync_interval_in_seconds: The interval at which to re-reconcile the Kustomization on the cluster.
         :param float timeout_in_seconds: The maximum time to attempt to reconcile the Kustomization on the cluster.
+        :param bool wait: Enable/disable health check for all Kubernetes objects created by this Kustomization.
         """
         pulumi.set(__self__, "name", name)
         if depends_on is not None:
@@ -1079,6 +1087,8 @@ class KustomizationDefinitionResponse(dict):
             path = ''
         if path is not None:
             pulumi.set(__self__, "path", path)
+        if post_build is not None:
+            pulumi.set(__self__, "post_build", post_build)
         if prune is None:
             prune = False
         if prune is not None:
@@ -1093,6 +1103,10 @@ class KustomizationDefinitionResponse(dict):
             timeout_in_seconds = 600
         if timeout_in_seconds is not None:
             pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if wait is None:
+            wait = True
+        if wait is not None:
+            pulumi.set(__self__, "wait", wait)
 
     @property
     @pulumi.getter
@@ -1127,6 +1141,14 @@ class KustomizationDefinitionResponse(dict):
         return pulumi.get(self, "path")
 
     @property
+    @pulumi.getter(name="postBuild")
+    def post_build(self) -> Optional['outputs.PostBuildDefinitionResponse']:
+        """
+        Used for variable substitution for this Kustomization after kustomize build.
+        """
+        return pulumi.get(self, "post_build")
+
+    @property
     @pulumi.getter
     def prune(self) -> Optional[bool]:
         """
@@ -1157,6 +1179,14 @@ class KustomizationDefinitionResponse(dict):
         The maximum time to attempt to reconcile the Kustomization on the cluster.
         """
         return pulumi.get(self, "timeout_in_seconds")
+
+    @property
+    @pulumi.getter
+    def wait(self) -> Optional[bool]:
+        """
+        Enable/disable health check for all Kubernetes objects created by this Kustomization.
+        """
+        return pulumi.get(self, "wait")
 
 
 @pulumi.output_type
@@ -1526,6 +1556,58 @@ class PlanResponse(dict):
 
 
 @pulumi.output_type
+class PostBuildDefinitionResponse(dict):
+    """
+    The postBuild definitions defining variable substitutions for this Kustomization after kustomize build.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "substituteFrom":
+            suggest = "substitute_from"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PostBuildDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PostBuildDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PostBuildDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 substitute: Optional[Mapping[str, str]] = None,
+                 substitute_from: Optional[Sequence['outputs.SubstituteFromDefinitionResponse']] = None):
+        """
+        The postBuild definitions defining variable substitutions for this Kustomization after kustomize build.
+        :param Mapping[str, str] substitute: Key/value pairs holding the variables to be substituted in this Kustomization.
+        :param Sequence['SubstituteFromDefinitionResponse'] substitute_from: Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
+        """
+        if substitute is not None:
+            pulumi.set(__self__, "substitute", substitute)
+        if substitute_from is not None:
+            pulumi.set(__self__, "substitute_from", substitute_from)
+
+    @property
+    @pulumi.getter
+    def substitute(self) -> Optional[Mapping[str, str]]:
+        """
+        Key/value pairs holding the variables to be substituted in this Kustomization.
+        """
+        return pulumi.get(self, "substitute")
+
+    @property
+    @pulumi.getter(name="substituteFrom")
+    def substitute_from(self) -> Optional[Sequence['outputs.SubstituteFromDefinitionResponse']]:
+        """
+        Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
+        """
+        return pulumi.get(self, "substitute_from")
+
+
+@pulumi.output_type
 class RepositoryRefDefinitionResponse(dict):
     """
     The source reference for the GitRepository object.
@@ -1809,6 +1891,55 @@ class ServicePrincipalDefinitionResponse(dict):
         The tenant Id for authenticating a Service Principal
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class SubstituteFromDefinitionResponse(dict):
+    """
+    Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
+    """
+    def __init__(__self__, *,
+                 kind: Optional[str] = None,
+                 name: Optional[str] = None,
+                 optional: Optional[bool] = None):
+        """
+        Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
+        :param str kind: Define whether it is ConfigMap or Secret that holds the variables to be used in substitution.
+        :param str name: Name of the ConfigMap/Secret that holds the variables to be used in substitution.
+        :param bool optional: Set to True to proceed without ConfigMap/Secret, if it is not present.
+        """
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if optional is None:
+            optional = False
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Define whether it is ConfigMap or Secret that holds the variables to be used in substitution.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the ConfigMap/Secret that holds the variables to be used in substitution.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[bool]:
+        """
+        Set to True to proceed without ConfigMap/Secret, if it is not present.
+        """
+        return pulumi.get(self, "optional")
 
 
 @pulumi.output_type

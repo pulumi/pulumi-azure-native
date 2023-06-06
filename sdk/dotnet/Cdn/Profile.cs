@@ -11,17 +11,29 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// A profile is a logical grouping of endpoints that share the same settings.
-    /// API Version: 2021-06-01.
+    /// API Version: 2023-05-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Profile")]
     public partial class Profile : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Key-Value pair representing additional properties for profiles.
+        /// </summary>
+        [Output("extendedProperties")]
+        public Output<ImmutableDictionary<string, string>> ExtendedProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The Id of the frontdoor.
         /// </summary>
         [Output("frontDoorId")]
         public Output<string> FrontDoorId { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities).
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
@@ -147,6 +159,12 @@ namespace Pulumi.AzureNative.Cdn
 
     public sealed class ProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities).
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
         /// <summary>
         /// Resource location.
         /// </summary>

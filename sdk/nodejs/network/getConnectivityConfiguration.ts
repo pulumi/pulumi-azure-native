@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getConnectivityConfiguration(args: GetConnectivityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectivityConfigurationResult> {
 
@@ -91,7 +91,7 @@ export interface GetConnectivityConfigurationResult {
 }
 /**
  * Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getConnectivityConfigurationOutput(args: GetConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectivityConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConnectivityConfiguration(a, opts))

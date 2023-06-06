@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
-    /// API Version: 2022-06-01.
+    /// API Version: 2023-04-01.
     /// Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:FirewallRule")]

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
 {
     /// <summary>
     /// Association Subresource of Traffic Controller
-    /// API Version: 2022-10-01-preview.
+    /// API Version: 2023-05-01-preview.
     /// Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:AssociationsInterface")]
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning State
+        /// Provisioning State of Traffic Controller Association Resource
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// Association Type
         /// </summary>
         [Input("associationType", required: true)]
-        public Input<Pulumi.AzureNative.ServiceNetworking.AssociationType> AssociationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceNetworking.AssociationType> AssociationType { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

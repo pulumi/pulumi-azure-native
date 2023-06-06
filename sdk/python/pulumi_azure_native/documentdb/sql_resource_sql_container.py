@@ -162,7 +162,7 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Cosmos DB container.
-        API Version: 2022-11-15.
+        API Version: 2023-04-15.
         Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -184,7 +184,7 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB container.
-        API Version: 2022-11-15.
+        API Version: 2023-04-15.
         Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

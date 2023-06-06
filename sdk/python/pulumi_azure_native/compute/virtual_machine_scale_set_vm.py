@@ -41,8 +41,8 @@ class VirtualMachineScaleSetVMArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set where the extension should be create or updated.
         :param pulumi.Input['AdditionalCapabilitiesArgs'] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
-        :param pulumi.Input['SubResourceArgs'] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
-        :param pulumi.Input['DiagnosticsProfileArgs'] diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+        :param pulumi.Input['SubResourceArgs'] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+        :param pulumi.Input['DiagnosticsProfileArgs'] diagnostics_profile: Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         :param pulumi.Input['HardwareProfileArgs'] hardware_profile: Specifies the hardware settings for the virtual machine.
         :param pulumi.Input['VirtualMachineIdentityArgs'] identity: The identity of the virtual machine, if configured.
         :param pulumi.Input[str] instance_id: The instance ID of the virtual machine.
@@ -135,7 +135,7 @@ class VirtualMachineScaleSetVMArgs:
     @pulumi.getter(name="availabilitySet")
     def availability_set(self) -> Optional[pulumi.Input['SubResourceArgs']]:
         """
-        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         """
         return pulumi.get(self, "availability_set")
 
@@ -147,7 +147,7 @@ class VirtualMachineScaleSetVMArgs:
     @pulumi.getter(name="diagnosticsProfile")
     def diagnostics_profile(self) -> Optional[pulumi.Input['DiagnosticsProfileArgs']]:
         """
-        Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+        Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         """
         return pulumi.get(self, "diagnostics_profile")
 
@@ -351,14 +351,14 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a virtual machine scale set virtual machine.
-        API Version: 2022-11-01.
+        API Version: 2023-03-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AdditionalCapabilitiesArgs']] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
-        :param pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']] diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+        :param pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']] diagnostics_profile: Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         :param pulumi.Input[pulumi.InputType['HardwareProfileArgs']] hardware_profile: Specifies the hardware settings for the virtual machine.
         :param pulumi.Input[pulumi.InputType['VirtualMachineIdentityArgs']] identity: The identity of the virtual machine, if configured.
         :param pulumi.Input[str] instance_id: The instance ID of the virtual machine.
@@ -384,7 +384,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a virtual machine scale set virtual machine.
-        API Version: 2022-11-01.
+        API Version: 2023-03-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -528,7 +528,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
     @pulumi.getter(name="availabilitySet")
     def availability_set(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
-        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         """
         return pulumi.get(self, "availability_set")
 
@@ -536,7 +536,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
     @pulumi.getter(name="diagnosticsProfile")
     def diagnostics_profile(self) -> pulumi.Output[Optional['outputs.DiagnosticsProfileResponse']]:
         """
-        Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+        Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         """
         return pulumi.get(self, "diagnostics_profile")
 

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a dedicated host.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
 
@@ -50,7 +50,7 @@ export interface GetDedicatedHostResult {
      */
     readonly autoReplaceOnFailure?: boolean;
     /**
-     * A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
+     * A unique id generated and assigned to the dedicated host by the platform. Does not change throughout the lifetime of the host.
      */
     readonly hostId: string;
     /**
@@ -62,7 +62,7 @@ export interface GetDedicatedHostResult {
      */
     readonly instanceView: outputs.compute.DedicatedHostInstanceViewResponse;
     /**
-     * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+     * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
      */
     readonly licenseType?: string;
     /**
@@ -94,7 +94,7 @@ export interface GetDedicatedHostResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Specifies the time at which the Dedicated Host resource was created.<br><br>Minimum api-version: 2021-11-01.
+     * Specifies the time at which the Dedicated Host resource was created. Minimum api-version: 2021-11-01.
      */
     readonly timeCreated: string;
     /**
@@ -108,7 +108,7 @@ export interface GetDedicatedHostResult {
 }
 /**
  * Retrieves information about a dedicated host.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getDedicatedHostOutput(args: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {
     return pulumi.output(args).apply((a: any) => getDedicatedHost(a, opts))

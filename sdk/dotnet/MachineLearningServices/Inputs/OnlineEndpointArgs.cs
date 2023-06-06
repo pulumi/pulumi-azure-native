@@ -41,6 +41,18 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("keys")]
         public Input<Inputs.EndpointAuthKeysArgs>? Keys { get; set; }
 
+        [Input("mirrorTraffic")]
+        private InputMap<int>? _mirrorTraffic;
+
+        /// <summary>
+        /// Percentage of traffic to be mirrored to each deployment without using returned scoring. Traffic values need to sum to utmost 50.
+        /// </summary>
+        public InputMap<int> MirrorTraffic
+        {
+            get => _mirrorTraffic ?? (_mirrorTraffic = new InputMap<int>());
+            set => _mirrorTraffic = value;
+        }
+
         [Input("properties")]
         private InputMap<string>? _properties;
 

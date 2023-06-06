@@ -112,7 +112,7 @@ class GetProximityPlacementGroupResult:
     @pulumi.getter(name="proximityPlacementGroupType")
     def proximity_placement_group_type(self) -> Optional[str]:
         """
-        Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+        Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
         """
         return pulumi.get(self, "proximity_placement_group_type")
 
@@ -183,7 +183,7 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProximityPlacementGroupResult:
     """
     Retrieves information about a proximity placement group .
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
@@ -219,7 +219,7 @@ def get_proximity_placement_group_output(include_colocation_status: Optional[pul
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProximityPlacementGroupResult]:
     """
     Retrieves information about a proximity placement group .
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.

@@ -51,6 +51,7 @@ export type AnalyticalStorageSchemaType = (typeof AnalyticalStorageSchemaType)[k
 export const AuthenticationMethod = {
     None: "None",
     Cassandra: "Cassandra",
+    Ldap: "Ldap",
 } as const;
 
 /**
@@ -119,6 +120,16 @@ export const ConnectorOffer = {
  * The cassandra connector offer type for the Cosmos DB database C* account.
  */
 export type ConnectorOffer = (typeof ConnectorOffer)[keyof typeof ConnectorOffer];
+
+export const ContinuousTier = {
+    Continuous7Days: "Continuous7Days",
+    Continuous30Days: "Continuous30Days",
+} as const;
+
+/**
+ * Enum to indicate type of Continuous backup mode
+ */
+export type ContinuousTier = (typeof ContinuousTier)[keyof typeof ContinuousTier];
 
 export const CreateMode = {
     Default: "Default",
@@ -234,6 +245,16 @@ export const MinimalTlsVersion = {
  */
 export type MinimalTlsVersion = (typeof MinimalTlsVersion)[keyof typeof MinimalTlsVersion];
 
+export const MongoRoleDefinitionType = {
+    BuiltInRole: "BuiltInRole",
+    CustomRole: "CustomRole",
+} as const;
+
+/**
+ * Indicates whether the Role Definition was built-in or user created.
+ */
+export type MongoRoleDefinitionType = (typeof MongoRoleDefinitionType)[keyof typeof MongoRoleDefinitionType];
+
 export const NetworkAclBypass = {
     None: "None",
     AzureServices: "AzureServices",
@@ -258,6 +279,7 @@ export type PartitionKind = (typeof PartitionKind)[keyof typeof PartitionKind];
 export const PublicNetworkAccess = {
     Enabled: "Enabled",
     Disabled: "Disabled",
+    SecuredByPerimeter: "SecuredByPerimeter",
 } as const;
 
 /**

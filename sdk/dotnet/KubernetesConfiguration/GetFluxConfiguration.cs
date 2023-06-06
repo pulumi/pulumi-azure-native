@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     {
         /// <summary>
         /// Gets details of the Flux Configuration.
-        /// API Version: 2022-11-01.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Task<GetFluxConfigurationResult> InvokeAsync(GetFluxConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration:getFluxConfiguration", args ?? new GetFluxConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets details of the Flux Configuration.
-        /// API Version: 2022-11-01.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Output<GetFluxConfigurationResult> Invoke(GetFluxConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration:getFluxConfiguration", args ?? new GetFluxConfigurationInvokeArgs(), options.WithDefaults());
@@ -152,6 +152,10 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Maximum duration to wait for flux configuration reconciliation. E.g PT1H, PT5M, P1D
+        /// </summary>
+        public readonly string? ReconciliationWaitDuration;
+        /// <summary>
         /// Public Key associated with this fluxConfiguration (either generated within the cluster or provided by the user).
         /// </summary>
         public readonly string RepositoryPublicKey;
@@ -191,6 +195,10 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.
+        /// </summary>
+        public readonly bool? WaitForReconciliation;
 
         [OutputConstructor]
         private GetFluxConfigurationResult(
@@ -216,6 +224,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
             string provisioningState,
 
+            string? reconciliationWaitDuration,
+
             string repositoryPublicKey,
 
             string? scope,
@@ -234,7 +244,9 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
             Outputs.SystemDataResponse systemData,
 
-            string type)
+            string type,
+
+            bool? waitForReconciliation)
         {
             AzureBlob = azureBlob;
             Bucket = bucket;
@@ -247,6 +259,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
             Name = name;
             Namespace = @namespace;
             ProvisioningState = provisioningState;
+            ReconciliationWaitDuration = reconciliationWaitDuration;
             RepositoryPublicKey = repositoryPublicKey;
             Scope = scope;
             SourceKind = sourceKind;
@@ -257,6 +270,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
             Suspend = suspend;
             SystemData = systemData;
             Type = type;
+            WaitForReconciliation = waitForReconciliation;
         }
     }
 }

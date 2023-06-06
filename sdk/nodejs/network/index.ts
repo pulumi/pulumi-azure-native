@@ -724,6 +724,11 @@ export const getVirtualNetworkGatewayVpnclientIpsecParameters: typeof import("./
 export const getVirtualNetworkGatewayVpnclientIpsecParametersOutput: typeof import("./getVirtualNetworkGatewayVpnclientIpsecParameters").getVirtualNetworkGatewayVpnclientIpsecParametersOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualNetworkGatewayVpnclientIpsecParameters","getVirtualNetworkGatewayVpnclientIpsecParametersOutput"], () => require("./getVirtualNetworkGatewayVpnclientIpsecParameters"));
 
+export { GetVirtualNetworkLinkArgs, GetVirtualNetworkLinkResult, GetVirtualNetworkLinkOutputArgs } from "./getVirtualNetworkLink";
+export const getVirtualNetworkLink: typeof import("./getVirtualNetworkLink").getVirtualNetworkLink = null as any;
+export const getVirtualNetworkLinkOutput: typeof import("./getVirtualNetworkLink").getVirtualNetworkLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetworkLink","getVirtualNetworkLinkOutput"], () => require("./getVirtualNetworkLink"));
+
 export { GetVirtualNetworkPeeringArgs, GetVirtualNetworkPeeringResult, GetVirtualNetworkPeeringOutputArgs } from "./getVirtualNetworkPeering";
 export const getVirtualNetworkPeering: typeof import("./getVirtualNetworkPeering").getVirtualNetworkPeering = null as any;
 export const getVirtualNetworkPeeringOutput: typeof import("./getVirtualNetworkPeering").getVirtualNetworkPeeringOutput = null as any;
@@ -1149,6 +1154,11 @@ export type VirtualNetworkGatewayNatRule = import("./virtualNetworkGatewayNatRul
 export const VirtualNetworkGatewayNatRule: typeof import("./virtualNetworkGatewayNatRule").VirtualNetworkGatewayNatRule = null as any;
 utilities.lazyLoad(exports, ["VirtualNetworkGatewayNatRule"], () => require("./virtualNetworkGatewayNatRule"));
 
+export { VirtualNetworkLinkArgs } from "./virtualNetworkLink";
+export type VirtualNetworkLink = import("./virtualNetworkLink").VirtualNetworkLink;
+export const VirtualNetworkLink: typeof import("./virtualNetworkLink").VirtualNetworkLink = null as any;
+utilities.lazyLoad(exports, ["VirtualNetworkLink"], () => require("./virtualNetworkLink"));
+
 export { VirtualNetworkPeeringArgs } from "./virtualNetworkPeering";
 export type VirtualNetworkPeering = import("./virtualNetworkPeering").VirtualNetworkPeering;
 export const VirtualNetworkPeering: typeof import("./virtualNetworkPeering").VirtualNetworkPeering = null as any;
@@ -1505,6 +1515,8 @@ const _module = {
                 return new VirtualNetworkGatewayConnection(name, <any>undefined, { urn })
             case "azure-native:network:VirtualNetworkGatewayNatRule":
                 return new VirtualNetworkGatewayNatRule(name, <any>undefined, { urn })
+            case "azure-native:network:VirtualNetworkLink":
+                return new VirtualNetworkLink(name, <any>undefined, { urn })
             case "azure-native:network:VirtualNetworkPeering":
                 return new VirtualNetworkPeering(name, <any>undefined, { urn })
             case "azure-native:network:VirtualNetworkTap":

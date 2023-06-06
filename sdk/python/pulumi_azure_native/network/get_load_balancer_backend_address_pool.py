@@ -219,7 +219,7 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerBackendAddressPoolResult:
     """
     Gets load balancer backend address pool.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str backend_address_pool_name: The name of the backend address pool.
@@ -258,7 +258,7 @@ def get_load_balancer_backend_address_pool_output(backend_address_pool_name: Opt
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerBackendAddressPoolResult]:
     """
     Gets load balancer backend address pool.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str backend_address_pool_name: The name of the backend address pool.

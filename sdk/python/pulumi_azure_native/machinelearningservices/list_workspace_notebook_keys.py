@@ -52,7 +52,7 @@ def list_workspace_notebook_keys(resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceNotebookKeysResult:
     """
     List keys of a notebook.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -75,7 +75,7 @@ def list_workspace_notebook_keys_output(resource_group_name: Optional[pulumi.Inp
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceNotebookKeysResult]:
     """
     List keys of a notebook.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

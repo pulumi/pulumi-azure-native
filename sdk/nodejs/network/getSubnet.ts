@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified subnet by virtual network and resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
 
@@ -140,7 +140,7 @@ export interface GetSubnetResult {
 }
 /**
  * Gets the specified subnet by virtual network and resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
     return pulumi.output(args).apply((a: any) => getSubnet(a, opts))

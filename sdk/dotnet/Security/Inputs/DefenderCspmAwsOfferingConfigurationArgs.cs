@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Security.Inputs
         }
 
         /// <summary>
-        /// The scanning mode for the vm scan.
+        /// The scanning mode for the VM scan.
         /// </summary>
         [Input("scanningMode")]
         public InputUnion<string, Pulumi.AzureNative.Security.ScanningMode>? ScanningMode { get; set; }

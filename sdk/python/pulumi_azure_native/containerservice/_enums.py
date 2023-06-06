@@ -15,12 +15,15 @@ __all__ = [
     'IpFamily',
     'KeyVaultNetworkAccessTypes',
     'KubeletDiskType',
+    'KubernetesSupportPlan',
     'LicenseType',
     'LoadBalancerSku',
     'ManagedClusterSKUName',
     'ManagedClusterSKUTier',
+    'NetworkDataplane',
     'NetworkMode',
     'NetworkPlugin',
+    'NetworkPluginMode',
     'NetworkPolicy',
     'OSDiskType',
     'OSSKU',
@@ -162,6 +165,20 @@ class KubeletDiskType(str, Enum):
     """
 
 
+class KubernetesSupportPlan(str, Enum):
+    """
+    The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
+    """
+    KUBERNETES_OFFICIAL = "KubernetesOfficial"
+    """
+    Support for the version is the same as for the open source Kubernetes offering. Official Kubernetes open source community support versions for 1 year after release.
+    """
+    AKS_LONG_TERM_SUPPORT = "AKSLongTermSupport"
+    """
+    Support for the version extended past the KubernetesOfficial support of 1 year. AKS continues to patch CVEs for another 1 year, for a total of 2 years of support.
+    """
+
+
 class LicenseType(str, Enum):
     """
     The license type to use for Windows VMs. See [Azure Hybrid User Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/faq/) for more details.
@@ -194,13 +211,9 @@ class ManagedClusterSKUName(str, Enum):
     """
     The name of a managed cluster SKU.
     """
-    BASIC = "Basic"
-    """
-    Basic option for the AKS control plane.
-    """
     BASE = "Base"
     """
-    Not yet available in this version.
+    Base option for the AKS control plane.
     """
 
 
@@ -208,17 +221,31 @@ class ManagedClusterSKUTier(str, Enum):
     """
     If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
     """
-    PAID = "Paid"
+    PREMIUM = "Premium"
     """
-    Recommended for mission-critical and production workloads. Includes Kubernetes control plane autoscaling, workload-intensive testing, and up to 5,000 nodes per cluster. Guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use Availability Zones and 99.9% of availability for clusters that don't use Availability Zones.
+    Cluster has premium capabilities in addition to all of the capabilities included in 'Standard'. Premium enables selection of LongTermSupport (aka.ms/aks/lts) for certain Kubernetes versions.
     """
     STANDARD = "Standard"
     """
-    Not yet available in this version.
+    Recommended for mission-critical and production workloads. Includes Kubernetes control plane autoscaling, workload-intensive testing, and up to 5,000 nodes per cluster. Guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use Availability Zones and 99.9% of availability for clusters that don't use Availability Zones.
     """
     FREE = "Free"
     """
     The cluster management is free, but charged for VM, storage, and networking usage. Best for experimenting, learning, simple testing, or workloads with fewer than 10 nodes. Not recommended for production use cases.
+    """
+
+
+class NetworkDataplane(str, Enum):
+    """
+    Network dataplane used in the Kubernetes cluster.
+    """
+    AZURE = "azure"
+    """
+    Use Azure network dataplane.
+    """
+    CILIUM = "cilium"
+    """
+    Use Cilium network dataplane. See [Azure CNI Powered by Cilium](https://learn.microsoft.com/azure/aks/azure-cni-powered-by-cilium) for more information.
     """
 
 
@@ -254,6 +281,16 @@ class NetworkPlugin(str, Enum):
     """
 
 
+class NetworkPluginMode(str, Enum):
+    """
+    The mode the network plugin should use.
+    """
+    OVERLAY = "overlay"
+    """
+    Used with networkPlugin=azure, pods are given IPs from the PodCIDR address space but use Azure Routing Domains rather than Kubenet's method of route tables. For more information visit https://aka.ms/aks/azure-cni-overlay.
+    """
+
+
 class NetworkPolicy(str, Enum):
     """
     Network policy used for building the Kubernetes network.
@@ -265,6 +302,10 @@ class NetworkPolicy(str, Enum):
     AZURE = "azure"
     """
     Use Azure network policies. See [differences between Azure and Calico policies](https://docs.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities) for more information.
+    """
+    CILIUM = "cilium"
+    """
+    Use Cilium to enforce network policies. This requires networkDataplane to be 'cilium'.
     """
 
 
@@ -287,9 +328,25 @@ class OSSKU(str, Enum):
     Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
     """
     UBUNTU = "Ubuntu"
+    """
+    Use Ubuntu as the OS for node images.
+    """
+    AZURE_LINUX = "AzureLinux"
+    """
+    Use AzureLinux as the OS for node images. Azure Linux is a container-optimized Linux distro built by Microsoft, visit https://aka.ms/azurelinux for more information.
+    """
     CBL_MARINER = "CBLMariner"
+    """
+    Deprecated OSSKU. Microsoft recommends that new deployments choose 'AzureLinux' instead.
+    """
     WINDOWS2019 = "Windows2019"
+    """
+    Use Windows2019 as the OS for node images. Unsupported for system node pools. Windows2019 only supports Windows2019 containers; it cannot run Windows2022 containers and vice versa.
+    """
     WINDOWS2022 = "Windows2022"
+    """
+    Use Windows2022 as the OS for node images. Unsupported for system node pools. Windows2022 only supports Windows2022 containers; it cannot run Windows2019 containers and vice versa.
+    """
 
 
 class OSType(str, Enum):

@@ -156,7 +156,7 @@ def get_batch_deployment(deployment_name: Optional[str] = None,
                          workspace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBatchDeploymentResult:
     """
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str deployment_name: The identifier for the Batch deployments.
@@ -192,7 +192,7 @@ def get_batch_deployment_output(deployment_name: Optional[pulumi.Input[str]] = N
                                 workspace_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBatchDeploymentResult]:
     """
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str deployment_name: The identifier for the Batch deployments.

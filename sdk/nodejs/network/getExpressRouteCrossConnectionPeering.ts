@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified peering for the ExpressRouteCrossConnection.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getExpressRouteCrossConnectionPeering(args: GetExpressRouteCrossConnectionPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCrossConnectionPeeringResult> {
 
@@ -115,7 +115,7 @@ export interface GetExpressRouteCrossConnectionPeeringResult {
 }
 /**
  * Gets the specified peering for the ExpressRouteCrossConnection.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getExpressRouteCrossConnectionPeeringOutput(args: GetExpressRouteCrossConnectionPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCrossConnectionPeeringResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCrossConnectionPeering(a, opts))
