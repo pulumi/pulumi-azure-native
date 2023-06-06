@@ -23,6 +23,7 @@
   "AnalysisServices": [
     "2017-08-01-beta"
   ],
+  "ApiCenter": [],
   "ApiManagement": [
     "2021-12-01-preview",
     "2022-04-01-preview",
@@ -30,7 +31,8 @@
     "2022-09-01-preview"
   ],
   "App": [
-    "2022-11-01-preview"
+    "2022-11-01-preview",
+    "2023-04-01-preview"
   ],
   "AppComplianceAutomation": [],
   "AppConfiguration": [
@@ -38,9 +40,11 @@
   ],
   "AppPlatform": [
     "2023-01-01-preview",
-    "2023-03-01-preview"
+    "2023-03-01-preview",
+    "2023-05-01-preview"
   ],
   "Attestation": [
+    "2021-06-01",
     "2021-06-01-preview"
   ],
   "Authorization": [
@@ -99,7 +103,8 @@
   "Capacity": [],
   "Cdn": [
     "2022-05-01-preview",
-    "2022-11-01-preview"
+    "2022-11-01-preview",
+    "2023-05-01"
   ],
   "CertificateRegistration": [],
   "ChangeAnalysis": [],
@@ -107,10 +112,13 @@
     "2023-04-01-preview",
     "2023-04-15-preview"
   ],
-  "CognitiveServices": [],
+  "CognitiveServices": [
+    "2023-05-01"
+  ],
   "Commerce": [],
   "Communication": [
-    "2023-03-31"
+    "2023-03-31",
+    "2023-04-01-preview"
   ],
   "Compute": [
     "2022-04-04",
@@ -198,7 +206,10 @@
     "2023-02-01",
     "2023-02-02-preview",
     "2023-03-01",
-    "2023-03-02-preview"
+    "2023-03-02-preview",
+    "2023-03-15-preview",
+    "2023-04-01",
+    "2023-04-02-preview"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -213,6 +224,7 @@
     "2022-10-01",
     "2022-10-01-preview",
     "2022-10-05-preview",
+    "2023-03-01",
     "2023-04-01-preview"
   ],
   "CustomProviders": [],
@@ -230,7 +242,8 @@
     "2022-09-30-preview"
   ],
   "DBforPostgreSQL": [
-    "2022-12-01"
+    "2022-12-01",
+    "2023-03-01-preview"
   ],
   "Dashboard": [],
   "DataBox": [],
@@ -252,7 +265,9 @@
     "2023-04-01-preview"
   ],
   "DataShare": [],
-  "Databricks": [],
+  "Databricks": [
+    "2023-05-01"
+  ],
   "Datadog": [],
   "DelegatedNetwork": [],
   "DeploymentManager": [],
@@ -286,6 +301,7 @@
     "2022-11-15-preview",
     "2023-03-01-preview",
     "2023-03-15",
+    "2023-03-15-preview",
     "2023-04-15"
   ],
   "DomainRegistration": [],
@@ -299,11 +315,16 @@
   ],
   "EdgeOrderPartner": [],
   "Education": [],
-  "Elastic": [],
+  "Elastic": [
+    "2023-05-01-preview",
+    "2023-06-01"
+  ],
   "ElasticSan": [],
   "EngagementFabric": [],
   "EnterpriseKnowledgeGraph": [],
-  "EventGrid": [],
+  "EventGrid": [
+    "2023-06-01-preview"
+  ],
   "EventHub": [
     "2022-01-01-preview",
     "2022-10-01-preview"
@@ -313,7 +334,9 @@
   ],
   "Features": [],
   "FluidRelay": [],
-  "GraphServices": [],
+  "GraphServices": [
+    "2023-04-13"
+  ],
   "GuestConfiguration": [],
   "HDInsight": [
     "2023-04-15-preview"
@@ -329,7 +352,8 @@
   "HybridCompute": [
     "2022-12-27",
     "2022-12-27-preview",
-    "2023-03-15-preview"
+    "2023-03-15-preview",
+    "2023-04-25-preview"
   ],
   "HybridConnectivity": [
     "2023-03-15"
@@ -384,7 +408,8 @@
     "2023-01-01",
     "2023-01-01-preview",
     "2023-03-01-preview",
-    "2023-03-15-preview"
+    "2023-03-15-preview",
+    "2023-05-01-preview"
   ],
   "Intune": [
     "2015-01-14-privatepreview"
@@ -392,13 +417,16 @@
   "IoTCentral": [
     "2021-11-01-preview"
   ],
+  "IoTFirmwareDefense": [],
   "IoTSecurity": [],
   "KeyVault": [],
   "Kubernetes": [
     "2022-05-01-preview",
     "2022-10-01-preview"
   ],
-  "KubernetesConfiguration": [],
+  "KubernetesConfiguration": [
+    "2023-05-01"
+  ],
   "Kusto": [],
   "LabServices": [
     "2021-10-01-preview",
@@ -424,9 +452,7 @@
     "2023-04-01",
     "2023-04-01-preview"
   ],
-  "Maintenance": [
-    "2023-04-01"
-  ],
+  "Maintenance": [],
   "ManagedIdentity": [],
   "ManagedNetwork": [],
   "ManagedNetworkFabric": [],
@@ -515,11 +541,13 @@
     "2021-08-01",
     "2022-01-01",
     "2022-02-01-preview",
+    "2022-04-01",
     "2022-04-01-preview",
     "2022-05-01",
     "2022-07-01",
     "2022-09-01",
-    "2022-11-01"
+    "2022-11-01",
+    "2023-07-01-preview"
   ],
   "NetworkCloud": [],
   "NetworkFunction": [],
@@ -580,7 +608,8 @@
     "2022-10-01",
     "2023-01-01",
     "2023-01-15",
-    "2023-02-01"
+    "2023-02-01",
+    "2023-04-01"
   ],
   "RedHatOpenShift": [],
   "Relay": [],
@@ -654,7 +683,8 @@
     "2021-11-01-preview",
     "2022-02-01-preview",
     "2022-05-01-preview",
-    "2022-08-01-preview"
+    "2022-08-01-preview",
+    "2022-11-01-preview"
   ],
   "SqlVirtualMachine": [
     "2022-02-01-preview",
@@ -691,7 +721,9 @@
   "VideoIndexer": [],
   "VirtualMachineImages": [],
   "VisualStudio": [],
-  "VoiceServices": [],
+  "VoiceServices": [
+    "2023-04-03"
+  ],
   "Web": [
     "2016-08-01",
     "2016-09-01",

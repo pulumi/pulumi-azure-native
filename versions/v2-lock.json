@@ -53,6 +53,9 @@
     "ServerDetails": "2017-08-01",
     "listServerGatewayStatus": "2017-08-01"
   },
+  "ApiCenter": {
+    "Service": "2023-07-01-preview"
+  },
   "ApiManagement": {
     "Api": "2022-08-01",
     "ApiDiagnostic": "2022-08-01",
@@ -239,17 +242,13 @@
     "GuestUsage": "2021-04-01"
   },
   "AzureArcData": {
-    "ActiveDirectoryConnector": "2023-03-15-preview",
-    "DataController": "2023-03-15-preview",
-    "FailoverGroup": "2023-03-15-preview",
-    "PostgresInstance": "2023-03-15-preview",
-    "SqlAvailabilityGroup": "2023-03-15-preview",
-    "SqlAvailabilityGroupDatabase": "2023-03-15-preview",
-    "SqlAvailabilityGroupReplica": "2023-03-15-preview",
-    "SqlManagedInstance": "2023-03-15-preview",
-    "SqlServerAvailabilityGroup": "2023-03-15-preview",
-    "SqlServerDatabase": "2023-03-15-preview",
-    "SqlServerInstance": "2023-03-15-preview"
+    "ActiveDirectoryConnector": "2023-01-15-preview",
+    "DataController": "2023-01-15-preview",
+    "FailoverGroup": "2023-01-15-preview",
+    "PostgresInstance": "2023-01-15-preview",
+    "SqlManagedInstance": "2023-01-15-preview",
+    "SqlServerDatabase": "2023-01-15-preview",
+    "SqlServerInstance": "2023-01-15-preview"
   },
   "AzureData": {
     "SqlServer": "2019-07-24-preview",
@@ -284,7 +283,9 @@
     "UpdateRun": "2023-02-01",
     "UpdateSummary": "2023-02-01"
   },
-  "BareMetalInfrastructure": {},
+  "BareMetalInfrastructure": {
+    "AzureBareMetalStorageInstance": "2023-04-06"
+  },
   "Batch": {
     "Application": "2022-10-01",
     "ApplicationPackage": "2022-10-01",
@@ -557,6 +558,7 @@
     "ADCCatalog": "2016-03-30"
   },
   "DataFactory": {
+    "ChangeDataCapture": "2018-06-01",
     "CredentialOperation": "2018-06-01",
     "DataFlow": "2018-06-01",
     "Dataset": "2018-06-01",
@@ -622,6 +624,7 @@
     "listShareSynchronizations": "2021-08-01"
   },
   "Databricks": {
+    "AccessConnector": "2023-05-01",
     "PrivateEndpointConnection": "2023-02-01",
     "Workspace": "2023-02-01",
     "vNetPeering": "2023-02-01"
@@ -977,6 +980,10 @@
   "IoTCentral": {
     "App": "2021-06-01"
   },
+  "IoTFirmwareDefense": {
+    "Firmware": "2023-02-08-preview",
+    "Workspace": "2023-02-08-preview"
+  },
   "IoTSecurity": {
     "DefenderSetting": "2021-02-01-preview",
     "DeviceGroup": "2021-02-01-preview",
@@ -1153,8 +1160,6 @@
   "Maintenance": {
     "ConfigurationAssignment": "2022-11-01-preview",
     "ConfigurationAssignmentParent": "2022-11-01-preview",
-    "ConfigurationAssignmentsForResourceGroup": "2023-04-01",
-    "ConfigurationAssignmentsForSubscription": "2023-04-01",
     "MaintenanceConfiguration": "2022-11-01-preview"
   },
   "ManagedIdentity": {

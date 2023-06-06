@@ -247,6 +247,11 @@
       "listServerGatewayStatus"
     ]
   },
+  "ApiCenter": {
+    "2023-07-01-preview": [
+      "Service"
+    ]
+  },
   "ApiManagement": {
     "2016-07-07": [
       "Api",
@@ -1234,6 +1239,28 @@
       "listContainerAppSecrets",
       "listDaprComponentSecrets",
       "listJobSecrets"
+    ],
+    "2023-04-01-preview": [
+      "Certificate",
+      "ConnectedEnvironment",
+      "ConnectedEnvironmentsCertificate",
+      "ConnectedEnvironmentsDaprComponent",
+      "ConnectedEnvironmentsStorage",
+      "ContainerApp",
+      "ContainerAppsAuthConfig",
+      "ContainerAppsSourceControl",
+      "DaprComponent",
+      "Job",
+      "ManagedCertificate",
+      "ManagedEnvironment",
+      "ManagedEnvironmentsStorage",
+      "getContainerAppAuthToken",
+      "getManagedEnvironmentAuthToken",
+      "listConnectedEnvironmentsDaprComponentSecrets",
+      "listContainerAppCustomHostNameAnalysis",
+      "listContainerAppSecrets",
+      "listDaprComponentSecrets",
+      "listJobSecrets"
     ]
   },
   "AppComplianceAutomation": {
@@ -1610,6 +1637,44 @@
       "listBuildServiceBuilderDeployments",
       "listGatewayEnvSecrets",
       "listServiceTestKeys"
+    ],
+    "2023-05-01-preview": [
+      "ApiPortal",
+      "ApiPortalCustomDomain",
+      "Apm",
+      "App",
+      "ApplicationAccelerator",
+      "ApplicationLiveView",
+      "Binding",
+      "BuildServiceAgentPool",
+      "BuildServiceBuild",
+      "BuildServiceBuilder",
+      "BuildpackBinding",
+      "Certificate",
+      "ConfigServer",
+      "ConfigurationService",
+      "ContainerRegistry",
+      "CustomDomain",
+      "CustomizedAccelerator",
+      "Deployment",
+      "DevToolPortal",
+      "Gateway",
+      "GatewayCustomDomain",
+      "GatewayRouteConfig",
+      "MonitoringSetting",
+      "Service",
+      "ServiceRegistry",
+      "Storage",
+      "getAppResourceUploadUrl",
+      "getBuildServiceBuildResultLog",
+      "getBuildServiceResourceUploadUrl",
+      "getDeploymentLogFileUrl",
+      "getDeploymentRemoteDebuggingConfig",
+      "listApmSecretKeys",
+      "listBuildServiceBuilderDeployments",
+      "listGatewayEnvSecrets",
+      "listServiceGloballyEnabledApms",
+      "listServiceTestKeys"
     ]
   },
   "Attestation": {
@@ -1617,6 +1682,10 @@
       "AttestationProvider"
     ],
     "2020-10-01": [
+      "AttestationProvider",
+      "PrivateEndpointConnection"
+    ],
+    "2021-06-01": [
       "AttestationProvider",
       "PrivateEndpointConnection"
     ],
@@ -1987,19 +2056,6 @@
       "SqlManagedInstance",
       "SqlServerDatabase",
       "SqlServerInstance"
-    ],
-    "2023-03-15-preview": [
-      "ActiveDirectoryConnector",
-      "DataController",
-      "FailoverGroup",
-      "PostgresInstance",
-      "SqlAvailabilityGroup",
-      "SqlAvailabilityGroupDatabase",
-      "SqlAvailabilityGroupReplica",
-      "SqlManagedInstance",
-      "SqlServerAvailabilityGroup",
-      "SqlServerDatabase",
-      "SqlServerInstance"
     ]
   },
   "AzureData": {
@@ -2135,6 +2191,24 @@
       "UpdateRun",
       "UpdateSummary"
     ],
+    "2022-12-15-preview": [
+      "ArcSetting",
+      "Cluster",
+      "Extension",
+      "GalleryImage",
+      "GuestAgent",
+      "HybridIdentityMetadatum",
+      "MachineExtension",
+      "MarketplaceGalleryImage",
+      "NetworkInterface",
+      "StorageContainer",
+      "Update",
+      "UpdateRun",
+      "UpdateSummary",
+      "VirtualHardDisk",
+      "VirtualMachine",
+      "VirtualNetwork"
+    ],
     "2023-02-01": [
       "ArcSetting",
       "Cluster",
@@ -2153,7 +2227,10 @@
     ]
   },
   "BareMetalInfrastructure": {
-    "": []
+    "": [],
+    "2023-04-06": [
+      "AzureBareMetalStorageInstance"
+    ]
   },
   "Batch": {
     "2015-12-01": [
@@ -2663,6 +2740,24 @@
       "Secret",
       "SecurityPolicy",
       "getProfileSupportedOptimizationTypes"
+    ],
+    "2023-05-01": [
+      "AFDCustomDomain",
+      "AFDEndpoint",
+      "AFDOrigin",
+      "AFDOriginGroup",
+      "CustomDomain",
+      "Endpoint",
+      "Origin",
+      "OriginGroup",
+      "Policy",
+      "Profile",
+      "Route",
+      "Rule",
+      "RuleSet",
+      "Secret",
+      "SecurityPolicy",
+      "getProfileSupportedOptimizationTypes"
     ]
   },
   "CertificateRegistration": {
@@ -2796,6 +2891,15 @@
       "PrivateEndpointConnection",
       "SharedCommitmentPlan",
       "listAccountKeys"
+    ],
+    "2023-05-01": [
+      "Account",
+      "CommitmentPlan",
+      "CommitmentPlanAssociation",
+      "Deployment",
+      "PrivateEndpointConnection",
+      "SharedCommitmentPlan",
+      "listAccountKeys"
     ]
   },
   "Commerce": {
@@ -2833,6 +2937,14 @@
       "listEmailServiceVerifiedExchangeOnlineDomains"
     ],
     "2023-03-31": [
+      "CommunicationService",
+      "Domain",
+      "EmailService",
+      "SenderUsername",
+      "listCommunicationServiceKeys",
+      "listEmailServiceVerifiedExchangeOnlineDomains"
+    ],
+    "2023-04-01-preview": [
       "CommunicationService",
       "Domain",
       "EmailService",
@@ -4226,6 +4338,34 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2023-03-15-preview": [
+      "Fleet",
+      "FleetMember",
+      "UpdateRun",
+      "listFleetCredentials"
+    ],
+    "2023-04-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2023-04-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -4317,6 +4457,13 @@
     "2022-10-05-preview": [
       "MarkupRule",
       "SettingByScope",
+      "View",
+      "ViewByScope"
+    ],
+    "2023-03-01": [
+      "Export",
+      "ScheduledAction",
+      "ScheduledActionByScope",
       "View",
       "ViewByScope"
     ],
@@ -4478,7 +4625,8 @@
     ],
     "2022-09-30-preview": [
       "PrivateEndpointConnection",
-      "Server"
+      "Server",
+      "getGetPrivateDnsZoneSuffixExecute"
     ]
   },
   "DBforPostgreSQL": {
@@ -4589,6 +4737,15 @@
       "Configuration",
       "Database",
       "FirewallRule",
+      "Server",
+      "getGetPrivateDnsZoneSuffixExecute"
+    ],
+    "2023-03-01-preview": [
+      "Administrator",
+      "Configuration",
+      "Database",
+      "FirewallRule",
+      "Migration",
       "Server",
       "getGetPrivateDnsZoneSuffixExecute"
     ]
@@ -4902,6 +5059,7 @@
       "listIntegrationRuntimeAuthKeys"
     ],
     "2018-06-01": [
+      "ChangeDataCapture",
       "CredentialOperation",
       "DataFlow",
       "Dataset",
@@ -5238,6 +5396,9 @@
       "PrivateEndpointConnection",
       "Workspace",
       "vNetPeering"
+    ],
+    "2023-05-01": [
+      "AccessConnector"
     ]
   },
   "Datadog": {
@@ -6629,6 +6790,38 @@
       "listDatabaseAccountKeys",
       "listNotebookWorkspaceConnectionInfo"
     ],
+    "2023-03-15-preview": [
+      "CassandraCluster",
+      "CassandraDataCenter",
+      "CassandraResourceCassandraKeyspace",
+      "CassandraResourceCassandraTable",
+      "CassandraResourceCassandraView",
+      "DatabaseAccount",
+      "GraphResourceGraph",
+      "GremlinResourceGremlinDatabase",
+      "GremlinResourceGremlinGraph",
+      "MongoCluster",
+      "MongoClusterFirewallRule",
+      "MongoDBResourceMongoDBCollection",
+      "MongoDBResourceMongoDBDatabase",
+      "MongoDBResourceMongoRoleDefinition",
+      "MongoDBResourceMongoUserDefinition",
+      "NotebookWorkspace",
+      "PrivateEndpointConnection",
+      "Service",
+      "SqlResourceSqlContainer",
+      "SqlResourceSqlDatabase",
+      "SqlResourceSqlRoleAssignment",
+      "SqlResourceSqlRoleDefinition",
+      "SqlResourceSqlStoredProcedure",
+      "SqlResourceSqlTrigger",
+      "SqlResourceSqlUserDefinedFunction",
+      "TableResourceTable",
+      "listDatabaseAccountConnectionStrings",
+      "listDatabaseAccountKeys",
+      "listMongoClusterConnectionStrings",
+      "listNotebookWorkspaceConnectionInfo"
+    ],
     "2023-04-15": [
       "CassandraCluster",
       "CassandraDataCenter",
@@ -6845,6 +7038,28 @@
       "listlistAssociatedTrafficFilter"
     ],
     "2023-02-01-preview": [
+      "Monitor",
+      "TagRule",
+      "getOrganizationApiKey",
+      "listAllTrafficFilter",
+      "listDeploymentInfo",
+      "listMonitoredResource",
+      "listUpgradableVersionDetails",
+      "listVMHost",
+      "listlistAssociatedTrafficFilter"
+    ],
+    "2023-05-01-preview": [
+      "Monitor",
+      "TagRule",
+      "getOrganizationApiKey",
+      "listAllTrafficFilter",
+      "listDeploymentInfo",
+      "listMonitoredResource",
+      "listUpgradableVersionDetails",
+      "listVMHost",
+      "listlistAssociatedTrafficFilter"
+    ],
+    "2023-06-01": [
       "Monitor",
       "TagRule",
       "getOrganizationApiKey",
@@ -7099,6 +7314,51 @@
       "listDomainSharedAccessKeys",
       "listPartnerNamespaceSharedAccessKeys",
       "listTopicSharedAccessKeys"
+    ],
+    "2023-06-01-preview": [
+      "CaCertificate",
+      "Channel",
+      "Client",
+      "ClientGroup",
+      "Domain",
+      "DomainEventSubscription",
+      "DomainTopic",
+      "DomainTopicEventSubscription",
+      "EventSubscription",
+      "Namespace",
+      "NamespaceTopic",
+      "NamespaceTopicEventSubscription",
+      "PartnerConfiguration",
+      "PartnerDestination",
+      "PartnerNamespace",
+      "PartnerRegistration",
+      "PartnerTopic",
+      "PartnerTopicEventSubscription",
+      "PermissionBinding",
+      "PrivateEndpointConnection",
+      "SystemTopic",
+      "SystemTopicEventSubscription",
+      "Topic",
+      "TopicEventSubscription",
+      "TopicSpace",
+      "getChannelFullUrl",
+      "getDomainEventSubscriptionDeliveryAttributes",
+      "getDomainEventSubscriptionFullUrl",
+      "getDomainTopicEventSubscriptionDeliveryAttributes",
+      "getDomainTopicEventSubscriptionFullUrl",
+      "getEventSubscriptionDeliveryAttributes",
+      "getEventSubscriptionFullUrl",
+      "getPartnerTopicEventSubscriptionDeliveryAttributes",
+      "getPartnerTopicEventSubscriptionFullUrl",
+      "getSystemTopicEventSubscriptionDeliveryAttributes",
+      "getSystemTopicEventSubscriptionFullUrl",
+      "getTopicEventSubscriptionDeliveryAttributes",
+      "getTopicEventSubscriptionFullUrl",
+      "listDomainSharedAccessKeys",
+      "listNamespaceSharedAccessKeys",
+      "listNamespaceTopicSharedAccessKeys",
+      "listPartnerNamespaceSharedAccessKeys",
+      "listTopicSharedAccessKeys"
     ]
   },
   "EventHub": {
@@ -7282,6 +7542,9 @@
   },
   "GraphServices": {
     "2022-09-22-preview": [
+      "Account"
+    ],
+    "2023-04-13": [
       "Account"
     ]
   },
@@ -7609,6 +7872,13 @@
       "MachineExtension",
       "PrivateEndpointConnection",
       "PrivateLinkScope"
+    ],
+    "2023-04-25-preview": [
+      "Machine",
+      "MachineExtension",
+      "MachineRunCommand",
+      "PrivateEndpointConnection",
+      "PrivateLinkScope"
     ]
   },
   "HybridConnectivity": {
@@ -7878,6 +8148,9 @@
     ],
     "2023-03-15-preview": [
       "ScheduledQueryRule"
+    ],
+    "2023-05-01-preview": [
+      "TenantActionGroup"
     ]
   },
   "Intune": {
@@ -7900,6 +8173,12 @@
     "2021-11-01-preview": [
       "App",
       "PrivateEndpointConnection"
+    ]
+  },
+  "IoTFirmwareDefense": {
+    "2023-02-08-preview": [
+      "Firmware",
+      "Workspace"
     ]
   },
   "IoTSecurity": {
@@ -8079,6 +8358,11 @@
       "SourceControlConfiguration"
     ],
     "2022-11-01": [
+      "Extension",
+      "FluxConfiguration",
+      "SourceControlConfiguration"
+    ],
+    "2023-05-01": [
       "Extension",
       "FluxConfiguration",
       "SourceControlConfiguration"
@@ -9078,13 +9362,6 @@
     "2022-11-01-preview": [
       "ConfigurationAssignment",
       "ConfigurationAssignmentParent",
-      "MaintenanceConfiguration"
-    ],
-    "2023-04-01": [
-      "ConfigurationAssignment",
-      "ConfigurationAssignmentParent",
-      "ConfigurationAssignmentsForResourceGroup",
-      "ConfigurationAssignmentsForSubscription",
       "MaintenanceConfiguration"
     ]
   },
@@ -12284,6 +12561,11 @@
       "listNetworkManagerEffectiveConnectivityConfigurations",
       "listNetworkManagerEffectiveSecurityAdminRules"
     ],
+    "2022-04-01": [
+      "Endpoint",
+      "Profile",
+      "TrafficManagerUserMetricsKey"
+    ],
     "2022-04-01-preview": [
       "AdminRule",
       "AdminRuleCollection",
@@ -12755,6 +13037,12 @@
       "listNetworkManagerDeploymentStatus",
       "listNetworkManagerEffectiveConnectivityConfigurations",
       "listNetworkManagerEffectiveSecurityAdminRules"
+    ],
+    "2023-07-01-preview": [
+      "DnssecConfig",
+      "RecordSet",
+      "Zone",
+      "getDnsResourceReferenceByTarResources"
     ]
   },
   "NetworkCloud": {
@@ -13657,6 +13945,19 @@
       "ReplicationStorageClassificationMapping",
       "ReplicationvCenter",
       "ResourceGuardProxy",
+      "Vault"
+    ],
+    "2023-04-01": [
+      "ReplicationFabric",
+      "ReplicationMigrationItem",
+      "ReplicationNetworkMapping",
+      "ReplicationPolicy",
+      "ReplicationProtectedItem",
+      "ReplicationProtectionContainerMapping",
+      "ReplicationRecoveryPlan",
+      "ReplicationRecoveryServicesProvider",
+      "ReplicationStorageClassificationMapping",
+      "ReplicationvCenter",
       "Vault"
     ]
   },
@@ -15885,6 +16186,70 @@
       "VirtualNetworkRule",
       "WorkloadClassifier",
       "WorkloadGroup"
+    ],
+    "2022-11-01-preview": [
+      "BackupShortTermRetentionPolicy",
+      "DataMaskingPolicy",
+      "Database",
+      "DatabaseAdvisor",
+      "DatabaseBlobAuditingPolicy",
+      "DatabaseSecurityAlertPolicy",
+      "DatabaseSqlVulnerabilityAssessmentRuleBaseline",
+      "DatabaseVulnerabilityAssessment",
+      "DatabaseVulnerabilityAssessmentRuleBaseline",
+      "DistributedAvailabilityGroup",
+      "ElasticPool",
+      "EncryptionProtector",
+      "ExtendedDatabaseBlobAuditingPolicy",
+      "ExtendedServerBlobAuditingPolicy",
+      "FailoverGroup",
+      "FirewallRule",
+      "GeoBackupPolicy",
+      "IPv6FirewallRule",
+      "InstanceFailoverGroup",
+      "InstancePool",
+      "Job",
+      "JobAgent",
+      "JobCredential",
+      "JobStep",
+      "JobTargetGroup",
+      "LongTermRetentionPolicy",
+      "ManagedDatabase",
+      "ManagedDatabaseSensitivityLabel",
+      "ManagedDatabaseVulnerabilityAssessment",
+      "ManagedDatabaseVulnerabilityAssessmentRuleBaseline",
+      "ManagedInstance",
+      "ManagedInstanceAdministrator",
+      "ManagedInstanceAzureADOnlyAuthentication",
+      "ManagedInstanceKey",
+      "ManagedInstanceLongTermRetentionPolicy",
+      "ManagedInstancePrivateEndpointConnection",
+      "ManagedInstanceVulnerabilityAssessment",
+      "ManagedServerDnsAlias",
+      "OutboundFirewallRule",
+      "PrivateEndpointConnection",
+      "SensitivityLabel",
+      "Server",
+      "ServerAdvisor",
+      "ServerAzureADAdministrator",
+      "ServerAzureADOnlyAuthentication",
+      "ServerBlobAuditingPolicy",
+      "ServerDnsAlias",
+      "ServerKey",
+      "ServerSecurityAlertPolicy",
+      "ServerTrustCertificate",
+      "ServerTrustGroup",
+      "ServerVulnerabilityAssessment",
+      "SqlVulnerabilityAssessmentRuleBaseline",
+      "SqlVulnerabilityAssessmentsSetting",
+      "StartStopManagedInstanceSchedule",
+      "SyncAgent",
+      "SyncGroup",
+      "SyncMember",
+      "TransparentDataEncryption",
+      "VirtualNetworkRule",
+      "WorkloadClassifier",
+      "WorkloadGroup"
     ]
   },
   "SqlVirtualMachine": {
@@ -16806,6 +17171,10 @@
       "TestLine"
     ],
     "2023-01-31": [
+      "CommunicationsGateway",
+      "TestLine"
+    ],
+    "2023-04-03": [
       "CommunicationsGateway",
       "TestLine"
     ]
