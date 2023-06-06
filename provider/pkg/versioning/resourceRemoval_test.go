@@ -9,12 +9,12 @@ import (
 )
 
 func TestSqueezePreserve(t *testing.T) {
-	squeeze := Squeeze{
+	squeeze := ResourceRemovals{
 		"azure-native:provider/version1:resourceA": "azure-native:provider/version2:resourceA",
 	}
 	squeeze.PreserveResources([]string{
 		"azure-native:provider/version1:resourceA",
 	})
 
-	assert.Equal(t, squeeze, Squeeze{})
+	assert.Equal(t, squeeze, ResourceRemovals{})
 }
