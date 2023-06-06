@@ -537,7 +537,9 @@ VisualStudio:
 VoiceServices:
 Web:
   preview: exclude
-  expectAdditions: true
+  explicit: true
+  exclusions:
+    ContainerApp: "2022-09-01"
   notes: |
     Documented within "App Service"
     https://learn.microsoft.com/en-us/rest/api/appservice/
