@@ -30,11 +30,6 @@ export const getWorkloadNetworkDhcp: typeof import("./getWorkloadNetworkDhcp").g
 export const getWorkloadNetworkDhcpOutput: typeof import("./getWorkloadNetworkDhcp").getWorkloadNetworkDhcpOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkloadNetworkDhcp","getWorkloadNetworkDhcpOutput"], () => require("./getWorkloadNetworkDhcp"));
 
-export { ListPrivateCloudAdminCredentialsArgs, ListPrivateCloudAdminCredentialsResult, ListPrivateCloudAdminCredentialsOutputArgs } from "./listPrivateCloudAdminCredentials";
-export const listPrivateCloudAdminCredentials: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentials = null as any;
-export const listPrivateCloudAdminCredentialsOutput: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["listPrivateCloudAdminCredentials","listPrivateCloudAdminCredentialsOutput"], () => require("./listPrivateCloudAdminCredentials"));
-
 export { WorkloadNetworkDhcpArgs } from "./workloadNetworkDhcp";
 export type WorkloadNetworkDhcp = import("./workloadNetworkDhcp").WorkloadNetworkDhcp;
 export const WorkloadNetworkDhcp: typeof import("./workloadNetworkDhcp").WorkloadNetworkDhcp = null as any;

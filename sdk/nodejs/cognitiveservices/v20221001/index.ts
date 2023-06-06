@@ -15,11 +15,6 @@ export const getCommitmentPlan: typeof import("./getCommitmentPlan").getCommitme
 export const getCommitmentPlanOutput: typeof import("./getCommitmentPlan").getCommitmentPlanOutput = null as any;
 utilities.lazyLoad(exports, ["getCommitmentPlan","getCommitmentPlanOutput"], () => require("./getCommitmentPlan"));
 
-export { ListAccountKeysArgs, ListAccountKeysResult, ListAccountKeysOutputArgs } from "./listAccountKeys";
-export const listAccountKeys: typeof import("./listAccountKeys").listAccountKeys = null as any;
-export const listAccountKeysOutput: typeof import("./listAccountKeys").listAccountKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listAccountKeys","listAccountKeysOutput"], () => require("./listAccountKeys"));
-
 
 // Export enums:
 export * from "../../types/enums/cognitiveservices/v20221001";

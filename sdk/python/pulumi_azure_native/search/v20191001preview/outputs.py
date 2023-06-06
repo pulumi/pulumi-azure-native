@@ -15,7 +15,6 @@ __all__ = [
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointConnectionPropertiesResponsePrivateEndpoint',
     'PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState',
-    'QueryKeyResponse',
 ]
 
 @pulumi.output_type
@@ -159,38 +158,5 @@ class PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionSta
         Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
         """
         return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class QueryKeyResponse(dict):
-    """
-    Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 name: str):
-        """
-        Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
-        :param str key: The value of the query API key.
-        :param str name: The name of the query API key; may be empty.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The value of the query API key.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the query API key; may be empty.
-        """
-        return pulumi.get(self, "name")
 
 

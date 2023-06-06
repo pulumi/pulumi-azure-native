@@ -10,10 +10,6 @@ from .endpoint import *
 from .get_endpoint import *
 from .get_profile import *
 from .get_traffic_manager_user_metrics_key import *
-from .get_virtual_network_gateway_advertised_routes import *
-from .get_virtual_network_gateway_bgp_peer_status import *
-from .get_virtual_network_gateway_learned_routes import *
-from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
 from .profile import *
 from .traffic_manager_user_metrics_key import *
 from ._inputs import *

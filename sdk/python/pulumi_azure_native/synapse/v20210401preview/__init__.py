@@ -12,9 +12,6 @@ from .event_hub_data_connection import *
 from .get_database_principal_assignment import *
 from .get_event_grid_data_connection import *
 from .get_event_hub_data_connection import *
-from .get_integration_runtime_connection_info import *
-from .get_integration_runtime_object_metadatum import *
-from .get_integration_runtime_status import *
 from .get_iot_hub_data_connection import *
 from .get_kusto_pool import *
 from .get_kusto_pool_principal_assignment import *
@@ -22,7 +19,6 @@ from .get_read_write_database import *
 from .iot_hub_data_connection import *
 from .kusto_pool import *
 from .kusto_pool_principal_assignment import *
-from .list_integration_runtime_auth_key import *
 from .read_write_database import *
 from ._inputs import *
 from . import outputs

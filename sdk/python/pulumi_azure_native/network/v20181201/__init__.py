@@ -8,9 +8,5 @@ import typing
 from ._enums import *
 from .express_route_circuit import *
 from .get_express_route_circuit import *
-from .get_virtual_network_gateway_advertised_routes import *
-from .get_virtual_network_gateway_bgp_peer_status import *
-from .get_virtual_network_gateway_learned_routes import *
-from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
 from ._inputs import *
 from . import outputs

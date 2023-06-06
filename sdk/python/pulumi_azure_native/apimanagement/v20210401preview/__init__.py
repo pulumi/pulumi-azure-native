@@ -7,18 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_api_management_service_domain_ownership_identifier import *
-from .get_api_management_service_sso_token import *
 from .get_private_endpoint_connection_by_name import *
 from .get_schema import *
-from .get_user_shared_access_token import *
-from .list_authorization_server_secrets import *
-from .list_delegation_setting_secrets import *
-from .list_gateway_keys import *
-from .list_identity_provider_secrets import *
-from .list_named_value import *
-from .list_open_id_connect_provider_secrets import *
-from .list_subscription_secrets import *
-from .list_tenant_access_secrets import *
 from .private_endpoint_connection_by_name import *
 from .schema import *
 from ._inputs import *

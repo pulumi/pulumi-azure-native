@@ -14,12 +14,3 @@ export const listSecurityAdvisoryImpactedResourceByTenantIdAndEventId: typeof im
 export const listSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutput: typeof import("./listSecurityAdvisoryImpactedResourceByTenantIdAndEventId").listSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutput = null as any;
 utilities.lazyLoad(exports, ["listSecurityAdvisoryImpactedResourceByTenantIdAndEventId","listSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutput"], () => require("./listSecurityAdvisoryImpactedResourceByTenantIdAndEventId"));
 
-
-// Export sub-modules:
-import * as v20221001 from "./v20221001";
-import * as v20221001preview from "./v20221001preview";
-
-export {
-    v20221001,
-    v20221001preview,
-};

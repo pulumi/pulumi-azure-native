@@ -15,16 +15,6 @@ export type IotHubResourceEventHubConsumerGroup = import("./iotHubResourceEventH
 export const IotHubResourceEventHubConsumerGroup: typeof import("./iotHubResourceEventHubConsumerGroup").IotHubResourceEventHubConsumerGroup = null as any;
 utilities.lazyLoad(exports, ["IotHubResourceEventHubConsumerGroup"], () => require("./iotHubResourceEventHubConsumerGroup"));
 
-export { ListIotHubResourceKeysArgs, ListIotHubResourceKeysResult, ListIotHubResourceKeysOutputArgs } from "./listIotHubResourceKeys";
-export const listIotHubResourceKeys: typeof import("./listIotHubResourceKeys").listIotHubResourceKeys = null as any;
-export const listIotHubResourceKeysOutput: typeof import("./listIotHubResourceKeys").listIotHubResourceKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listIotHubResourceKeys","listIotHubResourceKeysOutput"], () => require("./listIotHubResourceKeys"));
-
-export { ListIotHubResourceKeysForKeyNameArgs, ListIotHubResourceKeysForKeyNameResult, ListIotHubResourceKeysForKeyNameOutputArgs } from "./listIotHubResourceKeysForKeyName";
-export const listIotHubResourceKeysForKeyName: typeof import("./listIotHubResourceKeysForKeyName").listIotHubResourceKeysForKeyName = null as any;
-export const listIotHubResourceKeysForKeyNameOutput: typeof import("./listIotHubResourceKeysForKeyName").listIotHubResourceKeysForKeyNameOutput = null as any;
-utilities.lazyLoad(exports, ["listIotHubResourceKeysForKeyName","listIotHubResourceKeysForKeyNameOutput"], () => require("./listIotHubResourceKeysForKeyName"));
-
 
 const _module = {
     version: utilities.getVersion(),

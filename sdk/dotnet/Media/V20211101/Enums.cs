@@ -8,47 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Media.V20211101
 {
     /// <summary>
-    /// The permissions to set on the SAS URL.
-    /// </summary>
-    [EnumType]
-    public readonly struct AssetContainerPermission : IEquatable<AssetContainerPermission>
-    {
-        private readonly string _value;
-
-        private AssetContainerPermission(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// The SAS URL will allow read access to the container.
-        /// </summary>
-        public static AssetContainerPermission Read { get; } = new AssetContainerPermission("Read");
-        /// <summary>
-        /// The SAS URL will allow read and write access to the container.
-        /// </summary>
-        public static AssetContainerPermission ReadWrite { get; } = new AssetContainerPermission("ReadWrite");
-        /// <summary>
-        /// The SAS URL will allow read, write and delete access to the container.
-        /// </summary>
-        public static AssetContainerPermission ReadWriteDelete { get; } = new AssetContainerPermission("ReadWriteDelete");
-
-        public static bool operator ==(AssetContainerPermission left, AssetContainerPermission right) => left.Equals(right);
-        public static bool operator !=(AssetContainerPermission left, AssetContainerPermission right) => !left.Equals(right);
-
-        public static explicit operator string(AssetContainerPermission value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AssetContainerPermission other && Equals(other);
-        public bool Equals(AssetContainerPermission other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// When PlayerVisibility is set to "Visible", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to "Hidden", the text will not be available to the client. The default value is "Visible".
     /// </summary>
     [EnumType]

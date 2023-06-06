@@ -19,16 +19,6 @@ export { ListBotConnectionServiceProvidersArgs, ListBotConnectionServiceProvider
 export const listBotConnectionServiceProviders: typeof import("./listBotConnectionServiceProviders").listBotConnectionServiceProviders = null as any;
 utilities.lazyLoad(exports, ["listBotConnectionServiceProviders"], () => require("./listBotConnectionServiceProviders"));
 
-export { ListBotConnectionWithSecretsArgs, ListBotConnectionWithSecretsResult, ListBotConnectionWithSecretsOutputArgs } from "./listBotConnectionWithSecrets";
-export const listBotConnectionWithSecrets: typeof import("./listBotConnectionWithSecrets").listBotConnectionWithSecrets = null as any;
-export const listBotConnectionWithSecretsOutput: typeof import("./listBotConnectionWithSecrets").listBotConnectionWithSecretsOutput = null as any;
-utilities.lazyLoad(exports, ["listBotConnectionWithSecrets","listBotConnectionWithSecretsOutput"], () => require("./listBotConnectionWithSecrets"));
-
-export { ListChannelWithKeysArgs, ListChannelWithKeysResult, ListChannelWithKeysOutputArgs } from "./listChannelWithKeys";
-export const listChannelWithKeys: typeof import("./listChannelWithKeys").listChannelWithKeys = null as any;
-export const listChannelWithKeysOutput: typeof import("./listChannelWithKeys").listChannelWithKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listChannelWithKeys","listChannelWithKeysOutput"], () => require("./listChannelWithKeys"));
-
 
 // Export enums:
 export * from "../../types/enums/botservice/v20180712";

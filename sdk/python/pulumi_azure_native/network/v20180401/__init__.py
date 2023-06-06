@@ -6,10 +6,6 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_virtual_network_gateway_advertised_routes import *
-from .get_virtual_network_gateway_bgp_peer_status import *
-from .get_virtual_network_gateway_learned_routes import *
-from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
 from .get_vpn_connection import *
 from .vpn_connection import *
 from ._inputs import *

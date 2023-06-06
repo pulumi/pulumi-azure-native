@@ -30,7 +30,6 @@ from .gremlin_resource_gremlin_database import *
 from .gremlin_resource_gremlin_graph import *
 from .list_database_account_connection_strings import *
 from .list_database_account_keys import *
-from .list_notebook_workspace_connection_info import *
 from .mongo_db_resource_mongo_db_collection import *
 from .mongo_db_resource_mongo_db_database import *
 from .sql_resource_sql_container import *

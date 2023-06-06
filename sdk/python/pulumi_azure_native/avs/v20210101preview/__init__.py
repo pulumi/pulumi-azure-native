@@ -11,7 +11,6 @@ from .datastore import *
 from .get_addon import *
 from .get_datastore import *
 from .get_workload_network_dhcp import *
-from .list_private_cloud_admin_credentials import *
 from .workload_network_dhcp import *
 from ._inputs import *
 from . import outputs

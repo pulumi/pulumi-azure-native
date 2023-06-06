@@ -23,7 +23,6 @@ __all__ = [
     'DscConfigurationParameterResponse',
     'ErrorResponseResponse',
     'FieldDefinitionResponse',
-    'KeyResponse',
     'LinuxPropertiesResponse',
     'ModuleErrorInfoResponse',
     'NonAzureQueryPropertiesResponse',
@@ -585,50 +584,6 @@ class FieldDefinitionResponse(dict):
         Gets or sets the isOptional flag of the connection field definition.
         """
         return pulumi.get(self, "is_optional")
-
-
-@pulumi.output_type
-class KeyResponse(dict):
-    """
-    Automation key which is used to register a DSC Node
-    """
-    def __init__(__self__, *,
-                 key_name: str,
-                 permissions: str,
-                 value: str):
-        """
-        Automation key which is used to register a DSC Node
-        :param str key_name: Automation key name.
-        :param str permissions: Automation key permissions.
-        :param str value: Value of the Automation Key used for registration.
-        """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> str:
-        """
-        Automation key name.
-        """
-        return pulumi.get(self, "key_name")
-
-    @property
-    @pulumi.getter
-    def permissions(self) -> str:
-        """
-        Automation key permissions.
-        """
-        return pulumi.get(self, "permissions")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Value of the Automation Key used for registration.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

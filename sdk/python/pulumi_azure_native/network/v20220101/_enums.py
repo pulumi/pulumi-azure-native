@@ -5,31 +5,10 @@
 from enum import Enum
 
 __all__ = [
-    'ApplicationGatewayProtocol',
-    'ConfigurationType',
     'DdosCustomPolicyProtocol',
     'DdosCustomPolicyTriggerSensitivityOverride',
-    'FirewallPolicyIDPSQuerySortOrder',
     'VpnPolicyMemberAttributeType',
 ]
-
-
-class ApplicationGatewayProtocol(str, Enum):
-    """
-    The protocol used for the probe.
-    """
-    HTTP = "Http"
-    HTTPS = "Https"
-    TCP = "Tcp"
-    TLS = "Tls"
-
-
-class ConfigurationType(str, Enum):
-    """
-    Configuration Deployment Type.
-    """
-    SECURITY_ADMIN = "SecurityAdmin"
-    CONNECTIVITY = "Connectivity"
 
 
 class DdosCustomPolicyProtocol(str, Enum):
@@ -49,14 +28,6 @@ class DdosCustomPolicyTriggerSensitivityOverride(str, Enum):
     LOW = "Low"
     DEFAULT = "Default"
     HIGH = "High"
-
-
-class FirewallPolicyIDPSQuerySortOrder(str, Enum):
-    """
-    Describes if results should be in ascending/descending order
-    """
-    ASCENDING = "Ascending"
-    DESCENDING = "Descending"
 
 
 class VpnPolicyMemberAttributeType(str, Enum):

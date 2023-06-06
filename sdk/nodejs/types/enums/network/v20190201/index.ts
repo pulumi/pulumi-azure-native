@@ -12,16 +12,6 @@ export const Access = {
  */
 export type Access = (typeof Access)[keyof typeof Access];
 
-export const ApplicationGatewayProtocol = {
-    Http: "Http",
-    Https: "Https",
-} as const;
-
-/**
- * The protocol used for the probe.
- */
-export type ApplicationGatewayProtocol = (typeof ApplicationGatewayProtocol)[keyof typeof ApplicationGatewayProtocol];
-
 export const DdosSettingsProtectionCoverage = {
     Basic: "Basic",
     Standard: "Standard",

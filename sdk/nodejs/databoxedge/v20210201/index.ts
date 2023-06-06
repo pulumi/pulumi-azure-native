@@ -90,11 +90,6 @@ export type KubernetesRole = import("./kubernetesRole").KubernetesRole;
 export const KubernetesRole: typeof import("./kubernetesRole").KubernetesRole = null as any;
 utilities.lazyLoad(exports, ["KubernetesRole"], () => require("./kubernetesRole"));
 
-export { ListOrderDCAccessCodeArgs, ListOrderDCAccessCodeResult, ListOrderDCAccessCodeOutputArgs } from "./listOrderDCAccessCode";
-export const listOrderDCAccessCode: typeof import("./listOrderDCAccessCode").listOrderDCAccessCode = null as any;
-export const listOrderDCAccessCodeOutput: typeof import("./listOrderDCAccessCode").listOrderDCAccessCodeOutput = null as any;
-utilities.lazyLoad(exports, ["listOrderDCAccessCode","listOrderDCAccessCodeOutput"], () => require("./listOrderDCAccessCode"));
-
 export { MECRoleArgs } from "./mecrole";
 export type MECRole = import("./mecrole").MECRole;
 export const MECRole: typeof import("./mecrole").MECRole = null as any;

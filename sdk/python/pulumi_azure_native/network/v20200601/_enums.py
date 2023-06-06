@@ -5,21 +5,12 @@
 from enum import Enum
 
 __all__ = [
-    'ApplicationGatewayProtocol',
     'PcProtocol',
     'RouteNextHopType',
     'SecurityRuleAccess',
     'SecurityRuleDirection',
     'SecurityRuleProtocol',
 ]
-
-
-class ApplicationGatewayProtocol(str, Enum):
-    """
-    The protocol used for the probe.
-    """
-    HTTP = "Http"
-    HTTPS = "Https"
 
 
 class PcProtocol(str, Enum):

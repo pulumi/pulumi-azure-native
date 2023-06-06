@@ -8,9 +8,6 @@ import typing
 from ._enums import *
 from .get_network_watcher import *
 from .get_packet_capture import *
-from .get_virtual_network_gateway_advertised_routes import *
-from .get_virtual_network_gateway_bgp_peer_status import *
-from .get_virtual_network_gateway_learned_routes import *
 from .network_watcher import *
 from .packet_capture import *
 from ._inputs import *

@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetImageUploadUrlForDataArgs, GetImageUploadUrlForDataResult, GetImageUploadUrlForDataOutputArgs } from "./getImageUploadUrlForData";
-export const getImageUploadUrlForData: typeof import("./getImageUploadUrlForData").getImageUploadUrlForData = null as any;
-export const getImageUploadUrlForDataOutput: typeof import("./getImageUploadUrlForData").getImageUploadUrlForDataOutput = null as any;
-utilities.lazyLoad(exports, ["getImageUploadUrlForData","getImageUploadUrlForDataOutput"], () => require("./getImageUploadUrlForData"));
-
-export { GetImageUploadUrlForEntityTypeArgs, GetImageUploadUrlForEntityTypeResult, GetImageUploadUrlForEntityTypeOutputArgs } from "./getImageUploadUrlForEntityType";
-export const getImageUploadUrlForEntityType: typeof import("./getImageUploadUrlForEntityType").getImageUploadUrlForEntityType = null as any;
-export const getImageUploadUrlForEntityTypeOutput: typeof import("./getImageUploadUrlForEntityType").getImageUploadUrlForEntityTypeOutput = null as any;
-utilities.lazyLoad(exports, ["getImageUploadUrlForEntityType","getImageUploadUrlForEntityTypeOutput"], () => require("./getImageUploadUrlForEntityType"));
-
 export { GetLinkArgs, GetLinkResult, GetLinkOutputArgs } from "./getLink";
 export const getLink: typeof import("./getLink").getLink = null as any;
 export const getLinkOutput: typeof import("./getLink").getLinkOutput = null as any;

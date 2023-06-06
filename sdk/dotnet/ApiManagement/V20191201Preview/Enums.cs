@@ -8,37 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
 {
     /// <summary>
-    /// The Key to be used to generate token for user.
-    /// </summary>
-    [EnumType]
-    public readonly struct KeyType : IEquatable<KeyType>
-    {
-        private readonly string _value;
-
-        private KeyType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static KeyType Primary { get; } = new KeyType("primary");
-        public static KeyType Secondary { get; } = new KeyType("secondary");
-
-        public static bool operator ==(KeyType left, KeyType right) => left.Equals(right);
-        public static bool operator !=(KeyType left, KeyType right) => !left.Equals(right);
-
-        public static explicit operator string(KeyType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is KeyType other && Equals(other);
-        public bool Equals(KeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Logger type.
     /// </summary>
     [EnumType]

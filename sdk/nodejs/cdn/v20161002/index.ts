@@ -15,11 +15,6 @@ export const getCustomDomain: typeof import("./getCustomDomain").getCustomDomain
 export const getCustomDomainOutput: typeof import("./getCustomDomain").getCustomDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomDomain","getCustomDomainOutput"], () => require("./getCustomDomain"));
 
-export { GetProfileSupportedOptimizationTypesArgs, GetProfileSupportedOptimizationTypesResult, GetProfileSupportedOptimizationTypesOutputArgs } from "./getProfileSupportedOptimizationTypes";
-export const getProfileSupportedOptimizationTypes: typeof import("./getProfileSupportedOptimizationTypes").getProfileSupportedOptimizationTypes = null as any;
-export const getProfileSupportedOptimizationTypesOutput: typeof import("./getProfileSupportedOptimizationTypes").getProfileSupportedOptimizationTypesOutput = null as any;
-utilities.lazyLoad(exports, ["getProfileSupportedOptimizationTypes","getProfileSupportedOptimizationTypesOutput"], () => require("./getProfileSupportedOptimizationTypes"));
-
 
 const _module = {
     version: utilities.getVersion(),

@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ApplicationGatewayProtocol = {
-    Http: "Http",
-    Https: "Https",
-} as const;
-
-/**
- * The protocol used for the probe.
- */
-export type ApplicationGatewayProtocol = (typeof ApplicationGatewayProtocol)[keyof typeof ApplicationGatewayProtocol];
-
 export const AzureFirewallApplicationRuleProtocolType = {
     Http: "Http",
     Https: "Https",

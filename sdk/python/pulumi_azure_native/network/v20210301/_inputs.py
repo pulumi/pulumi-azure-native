@@ -11,80 +11,13 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'ApplicationGatewayProbeHealthResponseMatch',
-    'BastionShareableLink',
     'CustomIpPrefixArgs',
     'ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs',
     'ExpressRouteGatewayPropertiesBoundsArgs',
     'ExtendedLocationArgs',
-    'SubResource',
-    'VM',
     'VirtualHubIdArgs',
     'VpnNatRuleMappingArgs',
 ]
-
-@pulumi.input_type
-class ApplicationGatewayProbeHealthResponseMatch:
-    def __init__(__self__, *,
-                 body: Optional[str] = None,
-                 status_codes: Optional[Sequence[str]] = None):
-        """
-        Application gateway probe health response match.
-        :param str body: Body that must be contained in the health response. Default value is empty.
-        :param Sequence[str] status_codes: Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399.
-        """
-        if body is not None:
-            pulumi.set(__self__, "body", body)
-        if status_codes is not None:
-            pulumi.set(__self__, "status_codes", status_codes)
-
-    @property
-    @pulumi.getter
-    def body(self) -> Optional[str]:
-        """
-        Body that must be contained in the health response. Default value is empty.
-        """
-        return pulumi.get(self, "body")
-
-    @body.setter
-    def body(self, value: Optional[str]):
-        pulumi.set(self, "body", value)
-
-    @property
-    @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[Sequence[str]]:
-        """
-        Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399.
-        """
-        return pulumi.get(self, "status_codes")
-
-    @status_codes.setter
-    def status_codes(self, value: Optional[Sequence[str]]):
-        pulumi.set(self, "status_codes", value)
-
-
-@pulumi.input_type
-class BastionShareableLink:
-    def __init__(__self__, *,
-                 vm: 'VM'):
-        """
-        Bastion Shareable Link.
-        :param 'VM' vm: Reference of the virtual machine resource.
-        """
-        pulumi.set(__self__, "vm", vm)
-
-    @property
-    @pulumi.getter
-    def vm(self) -> 'VM':
-        """
-        Reference of the virtual machine resource.
-        """
-        return pulumi.get(self, "vm")
-
-    @vm.setter
-    def vm(self, value: 'VM'):
-        pulumi.set(self, "vm", value)
-
 
 @pulumi.input_type
 class CustomIpPrefixArgs:
@@ -356,86 +289,6 @@ class ExtendedLocationArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class SubResource:
-    def __init__(__self__, *,
-                 id: Optional[str] = None):
-        """
-        Reference to another subresource.
-        :param str id: Resource ID.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[str]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
-class VM:
-    def __init__(__self__, *,
-                 id: Optional[str] = None,
-                 location: Optional[str] = None,
-                 tags: Optional[Mapping[str, str]] = None):
-        """
-        Describes a Virtual Machine.
-        :param str id: Resource ID.
-        :param str location: Resource location.
-        :param Mapping[str, str] tags: Resource tags.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[str]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        Resource location.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[str]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[Mapping[str, str]]):
-        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

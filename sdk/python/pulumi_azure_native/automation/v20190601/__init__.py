@@ -28,7 +28,6 @@ from .get_source_control import *
 from .get_variable import *
 from .get_watcher import *
 from .job_schedule import *
-from .list_key_by_automation_account import *
 from .module import *
 from .python2_package import *
 from .runbook import *

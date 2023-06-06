@@ -15,8 +15,6 @@ __all__ = [
     'AzureResourceErrorInfoResponse',
     'ExpressionResponse',
     'ExpressionRootResponse',
-    'KeyVaultKeyResponse',
-    'KeyVaultKeyResponseAttributes',
     'ResourceReferenceResponse',
     'SkuResponse',
     'WorkflowParameterResponse',
@@ -164,88 +162,6 @@ class ExpressionRootResponse(dict):
     @pulumi.getter
     def value(self) -> Optional[Any]:
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class KeyVaultKeyResponse(dict):
-    """
-    The key vault key.
-    """
-    def __init__(__self__, *,
-                 attributes: Optional['outputs.KeyVaultKeyResponseAttributes'] = None,
-                 kid: Optional[str] = None):
-        """
-        The key vault key.
-        :param 'KeyVaultKeyResponseAttributes' attributes: The key attributes.
-        :param str kid: The key id.
-        """
-        if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
-        if kid is not None:
-            pulumi.set(__self__, "kid", kid)
-
-    @property
-    @pulumi.getter
-    def attributes(self) -> Optional['outputs.KeyVaultKeyResponseAttributes']:
-        """
-        The key attributes.
-        """
-        return pulumi.get(self, "attributes")
-
-    @property
-    @pulumi.getter
-    def kid(self) -> Optional[str]:
-        """
-        The key id.
-        """
-        return pulumi.get(self, "kid")
-
-
-@pulumi.output_type
-class KeyVaultKeyResponseAttributes(dict):
-    """
-    The key attributes.
-    """
-    def __init__(__self__, *,
-                 created: Optional[float] = None,
-                 enabled: Optional[bool] = None,
-                 updated: Optional[float] = None):
-        """
-        The key attributes.
-        :param float created: When the key was created.
-        :param bool enabled: Whether the key is enabled or not.
-        :param float updated: When the key was updated.
-        """
-        if created is not None:
-            pulumi.set(__self__, "created", created)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if updated is not None:
-            pulumi.set(__self__, "updated", updated)
-
-    @property
-    @pulumi.getter
-    def created(self) -> Optional[float]:
-        """
-        When the key was created.
-        """
-        return pulumi.get(self, "created")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Whether the key is enabled or not.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def updated(self) -> Optional[float]:
-        """
-        When the key was updated.
-        """
-        return pulumi.get(self, "updated")
 
 
 @pulumi.output_type

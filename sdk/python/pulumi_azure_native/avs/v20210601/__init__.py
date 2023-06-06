@@ -11,9 +11,7 @@ from .cluster import *
 from .get_cloud_link import *
 from .get_cluster import *
 from .get_script_execution import *
-from .get_script_execution_logs import *
 from .get_workload_network_public_ip import *
-from .list_private_cloud_admin_credentials import *
 from .script_execution import *
 from .workload_network_public_ip import *
 from ._inputs import *

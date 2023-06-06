@@ -5,30 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetIntegrationRuntimeConnectionInfoArgs, GetIntegrationRuntimeConnectionInfoResult, GetIntegrationRuntimeConnectionInfoOutputArgs } from "./getIntegrationRuntimeConnectionInfo";
-export const getIntegrationRuntimeConnectionInfo: typeof import("./getIntegrationRuntimeConnectionInfo").getIntegrationRuntimeConnectionInfo = null as any;
-export const getIntegrationRuntimeConnectionInfoOutput: typeof import("./getIntegrationRuntimeConnectionInfo").getIntegrationRuntimeConnectionInfoOutput = null as any;
-utilities.lazyLoad(exports, ["getIntegrationRuntimeConnectionInfo","getIntegrationRuntimeConnectionInfoOutput"], () => require("./getIntegrationRuntimeConnectionInfo"));
-
-export { GetIntegrationRuntimeObjectMetadatumArgs, GetIntegrationRuntimeObjectMetadatumResult, GetIntegrationRuntimeObjectMetadatumOutputArgs } from "./getIntegrationRuntimeObjectMetadatum";
-export const getIntegrationRuntimeObjectMetadatum: typeof import("./getIntegrationRuntimeObjectMetadatum").getIntegrationRuntimeObjectMetadatum = null as any;
-export const getIntegrationRuntimeObjectMetadatumOutput: typeof import("./getIntegrationRuntimeObjectMetadatum").getIntegrationRuntimeObjectMetadatumOutput = null as any;
-utilities.lazyLoad(exports, ["getIntegrationRuntimeObjectMetadatum","getIntegrationRuntimeObjectMetadatumOutput"], () => require("./getIntegrationRuntimeObjectMetadatum"));
-
-export { GetIntegrationRuntimeStatusArgs, GetIntegrationRuntimeStatusResult, GetIntegrationRuntimeStatusOutputArgs } from "./getIntegrationRuntimeStatus";
-export const getIntegrationRuntimeStatus: typeof import("./getIntegrationRuntimeStatus").getIntegrationRuntimeStatus = null as any;
-export const getIntegrationRuntimeStatusOutput: typeof import("./getIntegrationRuntimeStatus").getIntegrationRuntimeStatusOutput = null as any;
-utilities.lazyLoad(exports, ["getIntegrationRuntimeStatus","getIntegrationRuntimeStatusOutput"], () => require("./getIntegrationRuntimeStatus"));
-
 export { GetSqlPoolVulnerabilityAssessmentArgs, GetSqlPoolVulnerabilityAssessmentResult, GetSqlPoolVulnerabilityAssessmentOutputArgs } from "./getSqlPoolVulnerabilityAssessment";
 export const getSqlPoolVulnerabilityAssessment: typeof import("./getSqlPoolVulnerabilityAssessment").getSqlPoolVulnerabilityAssessment = null as any;
 export const getSqlPoolVulnerabilityAssessmentOutput: typeof import("./getSqlPoolVulnerabilityAssessment").getSqlPoolVulnerabilityAssessmentOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlPoolVulnerabilityAssessment","getSqlPoolVulnerabilityAssessmentOutput"], () => require("./getSqlPoolVulnerabilityAssessment"));
-
-export { ListIntegrationRuntimeAuthKeyArgs, ListIntegrationRuntimeAuthKeyResult, ListIntegrationRuntimeAuthKeyOutputArgs } from "./listIntegrationRuntimeAuthKey";
-export const listIntegrationRuntimeAuthKey: typeof import("./listIntegrationRuntimeAuthKey").listIntegrationRuntimeAuthKey = null as any;
-export const listIntegrationRuntimeAuthKeyOutput: typeof import("./listIntegrationRuntimeAuthKey").listIntegrationRuntimeAuthKeyOutput = null as any;
-utilities.lazyLoad(exports, ["listIntegrationRuntimeAuthKey","listIntegrationRuntimeAuthKeyOutput"], () => require("./listIntegrationRuntimeAuthKey"));
 
 export { SqlPoolVulnerabilityAssessmentArgs } from "./sqlPoolVulnerabilityAssessment";
 export type SqlPoolVulnerabilityAssessment = import("./sqlPoolVulnerabilityAssessment").SqlPoolVulnerabilityAssessment;

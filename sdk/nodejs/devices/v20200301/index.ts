@@ -45,16 +45,6 @@ export const listIotDpsResourceKeysForKeyName: typeof import("./listIotDpsResour
 export const listIotDpsResourceKeysForKeyNameOutput: typeof import("./listIotDpsResourceKeysForKeyName").listIotDpsResourceKeysForKeyNameOutput = null as any;
 utilities.lazyLoad(exports, ["listIotDpsResourceKeysForKeyName","listIotDpsResourceKeysForKeyNameOutput"], () => require("./listIotDpsResourceKeysForKeyName"));
 
-export { ListIotHubResourceKeysArgs, ListIotHubResourceKeysResult, ListIotHubResourceKeysOutputArgs } from "./listIotHubResourceKeys";
-export const listIotHubResourceKeys: typeof import("./listIotHubResourceKeys").listIotHubResourceKeys = null as any;
-export const listIotHubResourceKeysOutput: typeof import("./listIotHubResourceKeys").listIotHubResourceKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listIotHubResourceKeys","listIotHubResourceKeysOutput"], () => require("./listIotHubResourceKeys"));
-
-export { ListIotHubResourceKeysForKeyNameArgs, ListIotHubResourceKeysForKeyNameResult, ListIotHubResourceKeysForKeyNameOutputArgs } from "./listIotHubResourceKeysForKeyName";
-export const listIotHubResourceKeysForKeyName: typeof import("./listIotHubResourceKeysForKeyName").listIotHubResourceKeysForKeyName = null as any;
-export const listIotHubResourceKeysForKeyNameOutput: typeof import("./listIotHubResourceKeysForKeyName").listIotHubResourceKeysForKeyNameOutput = null as any;
-utilities.lazyLoad(exports, ["listIotHubResourceKeysForKeyName","listIotHubResourceKeysForKeyNameOutput"], () => require("./listIotHubResourceKeysForKeyName"));
-
 
 // Export enums:
 export * from "../../types/enums/devices/v20200301";

@@ -12,7 +12,6 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AmlComputeNodeInformationResponse',
     'EncryptionPropertyResponse',
     'IdentityResponse',
     'IdentityResponseUserAssignedIdentities',
@@ -28,83 +27,6 @@ __all__ = [
     'SharedPrivateLinkResourceResponse',
     'SkuResponse',
 ]
-
-@pulumi.output_type
-class AmlComputeNodeInformationResponse(dict):
-    """
-    Compute node information related to a AmlCompute.
-    """
-    def __init__(__self__, *,
-                 node_id: str,
-                 node_state: str,
-                 port: float,
-                 private_ip_address: str,
-                 public_ip_address: str,
-                 run_id: str):
-        """
-        Compute node information related to a AmlCompute.
-        :param str node_id: ID of the compute node.
-        :param str node_state: State of the compute node. Values are idle, running, preparing, unusable, leaving and preempted.
-        :param float port: SSH port number of the node.
-        :param str private_ip_address: Private IP address of the compute node.
-        :param str public_ip_address: Public IP address of the compute node.
-        :param str run_id: ID of the Experiment running on the node, if any else null.
-        """
-        pulumi.set(__self__, "node_id", node_id)
-        pulumi.set(__self__, "node_state", node_state)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
-        pulumi.set(__self__, "public_ip_address", public_ip_address)
-        pulumi.set(__self__, "run_id", run_id)
-
-    @property
-    @pulumi.getter(name="nodeId")
-    def node_id(self) -> str:
-        """
-        ID of the compute node.
-        """
-        return pulumi.get(self, "node_id")
-
-    @property
-    @pulumi.getter(name="nodeState")
-    def node_state(self) -> str:
-        """
-        State of the compute node. Values are idle, running, preparing, unusable, leaving and preempted.
-        """
-        return pulumi.get(self, "node_state")
-
-    @property
-    @pulumi.getter
-    def port(self) -> float:
-        """
-        SSH port number of the node.
-        """
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> str:
-        """
-        Private IP address of the compute node.
-        """
-        return pulumi.get(self, "private_ip_address")
-
-    @property
-    @pulumi.getter(name="publicIpAddress")
-    def public_ip_address(self) -> str:
-        """
-        Public IP address of the compute node.
-        """
-        return pulumi.get(self, "public_ip_address")
-
-    @property
-    @pulumi.getter(name="runId")
-    def run_id(self) -> str:
-        """
-        ID of the Experiment running on the node, if any else null.
-        """
-        return pulumi.get(self, "run_id")
-
 
 @pulumi.output_type
 class EncryptionPropertyResponse(dict):

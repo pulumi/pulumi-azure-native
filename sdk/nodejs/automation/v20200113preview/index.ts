@@ -15,11 +15,6 @@ export const getWatcher: typeof import("./getWatcher").getWatcher = null as any;
 export const getWatcherOutput: typeof import("./getWatcher").getWatcherOutput = null as any;
 utilities.lazyLoad(exports, ["getWatcher","getWatcherOutput"], () => require("./getWatcher"));
 
-export { ListKeyByAutomationAccountArgs, ListKeyByAutomationAccountResult, ListKeyByAutomationAccountOutputArgs } from "./listKeyByAutomationAccount";
-export const listKeyByAutomationAccount: typeof import("./listKeyByAutomationAccount").listKeyByAutomationAccount = null as any;
-export const listKeyByAutomationAccountOutput: typeof import("./listKeyByAutomationAccount").listKeyByAutomationAccountOutput = null as any;
-utilities.lazyLoad(exports, ["listKeyByAutomationAccount","listKeyByAutomationAccountOutput"], () => require("./listKeyByAutomationAccount"));
-
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;

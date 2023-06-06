@@ -15,11 +15,6 @@ export type KeyValue = import("./keyValue").KeyValue;
 export const KeyValue: typeof import("./keyValue").KeyValue = null as any;
 utilities.lazyLoad(exports, ["KeyValue"], () => require("./keyValue"));
 
-export { ListConfigurationStoreKeysArgs, ListConfigurationStoreKeysResult, ListConfigurationStoreKeysOutputArgs } from "./listConfigurationStoreKeys";
-export const listConfigurationStoreKeys: typeof import("./listConfigurationStoreKeys").listConfigurationStoreKeys = null as any;
-export const listConfigurationStoreKeysOutput: typeof import("./listConfigurationStoreKeys").listConfigurationStoreKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listConfigurationStoreKeys","listConfigurationStoreKeysOutput"], () => require("./listConfigurationStoreKeys"));
-
 
 const _module = {
     version: utilities.getVersion(),

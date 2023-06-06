@@ -41,15 +41,11 @@ export * from "../types/enums/mixedreality";
 
 // Export sub-modules:
 import * as v20190228preview from "./v20190228preview";
-import * as v20200406preview from "./v20200406preview";
-import * as v20200501 from "./v20200501";
 import * as v20210101 from "./v20210101";
 import * as v20210301preview from "./v20210301preview";
 
 export {
     v20190228preview,
-    v20200406preview,
-    v20200501,
     v20210101,
     v20210301preview,
 };

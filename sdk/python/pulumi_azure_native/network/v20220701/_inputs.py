@@ -12,24 +12,18 @@ from ._enums import *
 
 __all__ = [
     'ApplicationGatewayIPConfigurationArgs',
-    'ApplicationGatewayProbeHealthResponseMatch',
     'ApplicationSecurityGroupArgs',
-    'BastionShareableLink',
     'DelegationArgs',
-    'FilterItems',
     'InboundEndpointIPConfigurationArgs',
     'NetworkSecurityGroupArgs',
-    'OrderBy',
     'RouteTableArgs',
     'RouteArgs',
     'SecurityRuleArgs',
     'ServiceEndpointPolicyDefinitionArgs',
     'ServiceEndpointPolicyArgs',
     'ServiceEndpointPropertiesFormatArgs',
-    'SubResource',
     'SubResourceArgs',
     'TargetDnsServerArgs',
-    'VM',
 ]
 
 @pulumi.input_type
@@ -89,46 +83,6 @@ class ApplicationGatewayIPConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayProbeHealthResponseMatch:
-    def __init__(__self__, *,
-                 body: Optional[str] = None,
-                 status_codes: Optional[Sequence[str]] = None):
-        """
-        Application gateway probe health response match.
-        :param str body: Body that must be contained in the health response. Default value is empty.
-        :param Sequence[str] status_codes: Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399.
-        """
-        if body is not None:
-            pulumi.set(__self__, "body", body)
-        if status_codes is not None:
-            pulumi.set(__self__, "status_codes", status_codes)
-
-    @property
-    @pulumi.getter
-    def body(self) -> Optional[str]:
-        """
-        Body that must be contained in the health response. Default value is empty.
-        """
-        return pulumi.get(self, "body")
-
-    @body.setter
-    def body(self, value: Optional[str]):
-        pulumi.set(self, "body", value)
-
-    @property
-    @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[Sequence[str]]:
-        """
-        Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399.
-        """
-        return pulumi.get(self, "status_codes")
-
-    @status_codes.setter
-    def status_codes(self, value: Optional[Sequence[str]]):
-        pulumi.set(self, "status_codes", value)
-
-
-@pulumi.input_type
 class ApplicationSecurityGroupArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
@@ -182,29 +136,6 @@ class ApplicationSecurityGroupArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-
-@pulumi.input_type
-class BastionShareableLink:
-    def __init__(__self__, *,
-                 vm: 'VM'):
-        """
-        Bastion Shareable Link.
-        :param 'VM' vm: Reference of the virtual machine resource.
-        """
-        pulumi.set(__self__, "vm", vm)
-
-    @property
-    @pulumi.getter
-    def vm(self) -> 'VM':
-        """
-        Reference of the virtual machine resource.
-        """
-        return pulumi.get(self, "vm")
-
-    @vm.setter
-    def vm(self, value: 'VM'):
-        pulumi.set(self, "vm", value)
 
 
 @pulumi.input_type
@@ -277,46 +208,6 @@ class DelegationArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class FilterItems:
-    def __init__(__self__, *,
-                 field: Optional[str] = None,
-                 values: Optional[Sequence[str]] = None):
-        """
-        Will contain the filter name and values to operate on
-        :param str field: The name of the field we would like to filter
-        :param Sequence[str] values: List of values to filter the current field by
-        """
-        if field is not None:
-            pulumi.set(__self__, "field", field)
-        if values is not None:
-            pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def field(self) -> Optional[str]:
-        """
-        The name of the field we would like to filter
-        """
-        return pulumi.get(self, "field")
-
-    @field.setter
-    def field(self, value: Optional[str]):
-        pulumi.set(self, "field", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Optional[Sequence[str]]:
-        """
-        List of values to filter the current field by
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: Optional[Sequence[str]]):
-        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
@@ -462,46 +353,6 @@ class NetworkSecurityGroupArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-
-@pulumi.input_type
-class OrderBy:
-    def __init__(__self__, *,
-                 field: Optional[str] = None,
-                 order: Optional[Union[str, 'FirewallPolicyIDPSQuerySortOrder']] = None):
-        """
-        Describes a column to sort
-        :param str field: Describes the actual column name to sort by
-        :param Union[str, 'FirewallPolicyIDPSQuerySortOrder'] order: Describes if results should be in ascending/descending order
-        """
-        if field is not None:
-            pulumi.set(__self__, "field", field)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter
-    def field(self) -> Optional[str]:
-        """
-        Describes the actual column name to sort by
-        """
-        return pulumi.get(self, "field")
-
-    @field.setter
-    def field(self, value: Optional[str]):
-        pulumi.set(self, "field", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[Union[str, 'FirewallPolicyIDPSQuerySortOrder']]:
-        """
-        Describes if results should be in ascending/descending order
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[Union[str, 'FirewallPolicyIDPSQuerySortOrder']]):
-        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -1253,30 +1104,6 @@ class ServiceEndpointPropertiesFormatArgs:
 
 
 @pulumi.input_type
-class SubResource:
-    def __init__(__self__, *,
-                 id: Optional[str] = None):
-        """
-        Reference to another subresource.
-        :param str id: Resource ID.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[str]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
 class SubResourceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None):
@@ -1339,61 +1166,5 @@ class TargetDnsServerArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
-
-
-@pulumi.input_type
-class VM:
-    def __init__(__self__, *,
-                 id: Optional[str] = None,
-                 location: Optional[str] = None,
-                 tags: Optional[Mapping[str, str]] = None):
-        """
-        Describes a Virtual Machine.
-        :param str id: Resource ID.
-        :param str location: Resource location.
-        :param Mapping[str, str] tags: Resource tags.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[str]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        Resource location.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[str]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[Mapping[str, str]]):
-        pulumi.set(self, "tags", value)
 
 

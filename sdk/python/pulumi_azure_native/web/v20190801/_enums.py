@@ -7,8 +7,6 @@ from enum import Enum
 __all__ = [
     'AccessControlEntryAction',
     'ComputeModeOptions',
-    'DatabaseType',
-    'FrequencyUnit',
     'InternalLoadBalancingMode',
 ]
 
@@ -28,24 +26,6 @@ class ComputeModeOptions(str, Enum):
     SHARED = "Shared"
     DEDICATED = "Dedicated"
     DYNAMIC = "Dynamic"
-
-
-class DatabaseType(str, Enum):
-    """
-    Database type (e.g. SqlAzure / MySql).
-    """
-    SQL_AZURE = "SqlAzure"
-    MY_SQL = "MySql"
-    LOCAL_MY_SQL = "LocalMySql"
-    POSTGRE_SQL = "PostgreSql"
-
-
-class FrequencyUnit(str, Enum):
-    """
-    The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-    """
-    DAY = "Day"
-    HOUR = "Hour"
 
 
 class InternalLoadBalancingMode(str, Enum):

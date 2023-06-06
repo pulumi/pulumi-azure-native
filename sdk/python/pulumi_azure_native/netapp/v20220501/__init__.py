@@ -8,7 +8,5 @@ import typing
 from ._enums import *
 from .account import *
 from .get_account import *
-from .get_subvolume_metadata import *
-from .list_volume_replications import *
 from ._inputs import *
 from . import outputs

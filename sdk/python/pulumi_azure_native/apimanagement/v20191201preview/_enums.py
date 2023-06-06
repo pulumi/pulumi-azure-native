@@ -5,17 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'KeyType',
     'LoggerType',
 ]
-
-
-class KeyType(str, Enum):
-    """
-    The Key to be used to generate token for user.
-    """
-    PRIMARY = "primary"
-    SECONDARY = "secondary"
 
 
 class LoggerType(str, Enum):

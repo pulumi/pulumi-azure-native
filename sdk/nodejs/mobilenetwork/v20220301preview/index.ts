@@ -15,11 +15,6 @@ export const getSim: typeof import("./getSim").getSim = null as any;
 export const getSimOutput: typeof import("./getSim").getSimOutput = null as any;
 utilities.lazyLoad(exports, ["getSim","getSimOutput"], () => require("./getSim"));
 
-export { ListMobileNetworkSimIdsArgs, ListMobileNetworkSimIdsResult, ListMobileNetworkSimIdsOutputArgs } from "./listMobileNetworkSimIds";
-export const listMobileNetworkSimIds: typeof import("./listMobileNetworkSimIds").listMobileNetworkSimIds = null as any;
-export const listMobileNetworkSimIdsOutput: typeof import("./listMobileNetworkSimIds").listMobileNetworkSimIdsOutput = null as any;
-utilities.lazyLoad(exports, ["listMobileNetworkSimIds","listMobileNetworkSimIdsOutput"], () => require("./listMobileNetworkSimIds"));
-
 export { PacketCoreControlPlaneArgs } from "./packetCoreControlPlane";
 export type PacketCoreControlPlane = import("./packetCoreControlPlane").PacketCoreControlPlane;
 export const PacketCoreControlPlane: typeof import("./packetCoreControlPlane").PacketCoreControlPlane = null as any;

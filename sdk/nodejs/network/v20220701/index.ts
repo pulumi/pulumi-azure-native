@@ -20,21 +20,6 @@ export type ForwardingRule = import("./forwardingRule").ForwardingRule;
 export const ForwardingRule: typeof import("./forwardingRule").ForwardingRule = null as any;
 utilities.lazyLoad(exports, ["ForwardingRule"], () => require("./forwardingRule"));
 
-export { GetActiveSessionsArgs, GetActiveSessionsResult, GetActiveSessionsOutputArgs } from "./getActiveSessions";
-export const getActiveSessions: typeof import("./getActiveSessions").getActiveSessions = null as any;
-export const getActiveSessionsOutput: typeof import("./getActiveSessions").getActiveSessionsOutput = null as any;
-utilities.lazyLoad(exports, ["getActiveSessions","getActiveSessionsOutput"], () => require("./getActiveSessions"));
-
-export { GetApplicationGatewayBackendHealthOnDemandArgs, GetApplicationGatewayBackendHealthOnDemandResult, GetApplicationGatewayBackendHealthOnDemandOutputArgs } from "./getApplicationGatewayBackendHealthOnDemand";
-export const getApplicationGatewayBackendHealthOnDemand: typeof import("./getApplicationGatewayBackendHealthOnDemand").getApplicationGatewayBackendHealthOnDemand = null as any;
-export const getApplicationGatewayBackendHealthOnDemandOutput: typeof import("./getApplicationGatewayBackendHealthOnDemand").getApplicationGatewayBackendHealthOnDemandOutput = null as any;
-utilities.lazyLoad(exports, ["getApplicationGatewayBackendHealthOnDemand","getApplicationGatewayBackendHealthOnDemandOutput"], () => require("./getApplicationGatewayBackendHealthOnDemand"));
-
-export { GetBastionShareableLinkArgs, GetBastionShareableLinkResult, GetBastionShareableLinkOutputArgs } from "./getBastionShareableLink";
-export const getBastionShareableLink: typeof import("./getBastionShareableLink").getBastionShareableLink = null as any;
-export const getBastionShareableLinkOutput: typeof import("./getBastionShareableLink").getBastionShareableLinkOutput = null as any;
-utilities.lazyLoad(exports, ["getBastionShareableLink","getBastionShareableLinkOutput"], () => require("./getBastionShareableLink"));
-
 export { GetDnsForwardingRulesetArgs, GetDnsForwardingRulesetResult, GetDnsForwardingRulesetOutputArgs } from "./getDnsForwardingRuleset";
 export const getDnsForwardingRuleset: typeof import("./getDnsForwardingRuleset").getDnsForwardingRuleset = null as any;
 export const getDnsForwardingRulesetOutput: typeof import("./getDnsForwardingRuleset").getDnsForwardingRulesetOutput = null as any;
@@ -60,16 +45,6 @@ export const getOutboundEndpoint: typeof import("./getOutboundEndpoint").getOutb
 export const getOutboundEndpointOutput: typeof import("./getOutboundEndpoint").getOutboundEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getOutboundEndpoint","getOutboundEndpointOutput"], () => require("./getOutboundEndpoint"));
 
-export { GetP2sVpnGatewayP2sVpnConnectionHealthArgs, GetP2sVpnGatewayP2sVpnConnectionHealthResult, GetP2sVpnGatewayP2sVpnConnectionHealthOutputArgs } from "./getP2sVpnGatewayP2sVpnConnectionHealth";
-export const getP2sVpnGatewayP2sVpnConnectionHealth: typeof import("./getP2sVpnGatewayP2sVpnConnectionHealth").getP2sVpnGatewayP2sVpnConnectionHealth = null as any;
-export const getP2sVpnGatewayP2sVpnConnectionHealthOutput: typeof import("./getP2sVpnGatewayP2sVpnConnectionHealth").getP2sVpnGatewayP2sVpnConnectionHealthOutput = null as any;
-utilities.lazyLoad(exports, ["getP2sVpnGatewayP2sVpnConnectionHealth","getP2sVpnGatewayP2sVpnConnectionHealthOutput"], () => require("./getP2sVpnGatewayP2sVpnConnectionHealth"));
-
-export { GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs, GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult, GetP2sVpnGatewayP2sVpnConnectionHealthDetailedOutputArgs } from "./getP2sVpnGatewayP2sVpnConnectionHealthDetailed";
-export const getP2sVpnGatewayP2sVpnConnectionHealthDetailed: typeof import("./getP2sVpnGatewayP2sVpnConnectionHealthDetailed").getP2sVpnGatewayP2sVpnConnectionHealthDetailed = null as any;
-export const getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput: typeof import("./getP2sVpnGatewayP2sVpnConnectionHealthDetailed").getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput = null as any;
-utilities.lazyLoad(exports, ["getP2sVpnGatewayP2sVpnConnectionHealthDetailed","getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput"], () => require("./getP2sVpnGatewayP2sVpnConnectionHealthDetailed"));
-
 export { GetPrivateResolverVirtualNetworkLinkArgs, GetPrivateResolverVirtualNetworkLinkResult, GetPrivateResolverVirtualNetworkLinkOutputArgs } from "./getPrivateResolverVirtualNetworkLink";
 export const getPrivateResolverVirtualNetworkLink: typeof import("./getPrivateResolverVirtualNetworkLink").getPrivateResolverVirtualNetworkLink = null as any;
 export const getPrivateResolverVirtualNetworkLinkOutput: typeof import("./getPrivateResolverVirtualNetworkLink").getPrivateResolverVirtualNetworkLinkOutput = null as any;
@@ -85,80 +60,10 @@ export const getSubnet: typeof import("./getSubnet").getSubnet = null as any;
 export const getSubnetOutput: typeof import("./getSubnet").getSubnetOutput = null as any;
 utilities.lazyLoad(exports, ["getSubnet","getSubnetOutput"], () => require("./getSubnet"));
 
-export { GetVirtualNetworkGatewayAdvertisedRoutesArgs, GetVirtualNetworkGatewayAdvertisedRoutesResult, GetVirtualNetworkGatewayAdvertisedRoutesOutputArgs } from "./getVirtualNetworkGatewayAdvertisedRoutes";
-export const getVirtualNetworkGatewayAdvertisedRoutes: typeof import("./getVirtualNetworkGatewayAdvertisedRoutes").getVirtualNetworkGatewayAdvertisedRoutes = null as any;
-export const getVirtualNetworkGatewayAdvertisedRoutesOutput: typeof import("./getVirtualNetworkGatewayAdvertisedRoutes").getVirtualNetworkGatewayAdvertisedRoutesOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkGatewayAdvertisedRoutes","getVirtualNetworkGatewayAdvertisedRoutesOutput"], () => require("./getVirtualNetworkGatewayAdvertisedRoutes"));
-
-export { GetVirtualNetworkGatewayBgpPeerStatusArgs, GetVirtualNetworkGatewayBgpPeerStatusResult, GetVirtualNetworkGatewayBgpPeerStatusOutputArgs } from "./getVirtualNetworkGatewayBgpPeerStatus";
-export const getVirtualNetworkGatewayBgpPeerStatus: typeof import("./getVirtualNetworkGatewayBgpPeerStatus").getVirtualNetworkGatewayBgpPeerStatus = null as any;
-export const getVirtualNetworkGatewayBgpPeerStatusOutput: typeof import("./getVirtualNetworkGatewayBgpPeerStatus").getVirtualNetworkGatewayBgpPeerStatusOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkGatewayBgpPeerStatus","getVirtualNetworkGatewayBgpPeerStatusOutput"], () => require("./getVirtualNetworkGatewayBgpPeerStatus"));
-
-export { GetVirtualNetworkGatewayLearnedRoutesArgs, GetVirtualNetworkGatewayLearnedRoutesResult, GetVirtualNetworkGatewayLearnedRoutesOutputArgs } from "./getVirtualNetworkGatewayLearnedRoutes";
-export const getVirtualNetworkGatewayLearnedRoutes: typeof import("./getVirtualNetworkGatewayLearnedRoutes").getVirtualNetworkGatewayLearnedRoutes = null as any;
-export const getVirtualNetworkGatewayLearnedRoutesOutput: typeof import("./getVirtualNetworkGatewayLearnedRoutes").getVirtualNetworkGatewayLearnedRoutesOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkGatewayLearnedRoutes","getVirtualNetworkGatewayLearnedRoutesOutput"], () => require("./getVirtualNetworkGatewayLearnedRoutes"));
-
-export { GetVirtualNetworkGatewayVpnclientConnectionHealthArgs, GetVirtualNetworkGatewayVpnclientConnectionHealthResult, GetVirtualNetworkGatewayVpnclientConnectionHealthOutputArgs } from "./getVirtualNetworkGatewayVpnclientConnectionHealth";
-export const getVirtualNetworkGatewayVpnclientConnectionHealth: typeof import("./getVirtualNetworkGatewayVpnclientConnectionHealth").getVirtualNetworkGatewayVpnclientConnectionHealth = null as any;
-export const getVirtualNetworkGatewayVpnclientConnectionHealthOutput: typeof import("./getVirtualNetworkGatewayVpnclientConnectionHealth").getVirtualNetworkGatewayVpnclientConnectionHealthOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkGatewayVpnclientConnectionHealth","getVirtualNetworkGatewayVpnclientConnectionHealthOutput"], () => require("./getVirtualNetworkGatewayVpnclientConnectionHealth"));
-
-export { GetVirtualNetworkGatewayVpnclientIpsecParametersArgs, GetVirtualNetworkGatewayVpnclientIpsecParametersResult, GetVirtualNetworkGatewayVpnclientIpsecParametersOutputArgs } from "./getVirtualNetworkGatewayVpnclientIpsecParameters";
-export const getVirtualNetworkGatewayVpnclientIpsecParameters: typeof import("./getVirtualNetworkGatewayVpnclientIpsecParameters").getVirtualNetworkGatewayVpnclientIpsecParameters = null as any;
-export const getVirtualNetworkGatewayVpnclientIpsecParametersOutput: typeof import("./getVirtualNetworkGatewayVpnclientIpsecParameters").getVirtualNetworkGatewayVpnclientIpsecParametersOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkGatewayVpnclientIpsecParameters","getVirtualNetworkGatewayVpnclientIpsecParametersOutput"], () => require("./getVirtualNetworkGatewayVpnclientIpsecParameters"));
-
 export { InboundEndpointArgs } from "./inboundEndpoint";
 export type InboundEndpoint = import("./inboundEndpoint").InboundEndpoint;
 export const InboundEndpoint: typeof import("./inboundEndpoint").InboundEndpoint = null as any;
 utilities.lazyLoad(exports, ["InboundEndpoint"], () => require("./inboundEndpoint"));
-
-export { ListActiveConnectivityConfigurationsArgs, ListActiveConnectivityConfigurationsResult, ListActiveConnectivityConfigurationsOutputArgs } from "./listActiveConnectivityConfigurations";
-export const listActiveConnectivityConfigurations: typeof import("./listActiveConnectivityConfigurations").listActiveConnectivityConfigurations = null as any;
-export const listActiveConnectivityConfigurationsOutput: typeof import("./listActiveConnectivityConfigurations").listActiveConnectivityConfigurationsOutput = null as any;
-utilities.lazyLoad(exports, ["listActiveConnectivityConfigurations","listActiveConnectivityConfigurationsOutput"], () => require("./listActiveConnectivityConfigurations"));
-
-export { ListActiveSecurityAdminRulesArgs, ListActiveSecurityAdminRulesResult, ListActiveSecurityAdminRulesOutputArgs } from "./listActiveSecurityAdminRules";
-export const listActiveSecurityAdminRules: typeof import("./listActiveSecurityAdminRules").listActiveSecurityAdminRules = null as any;
-export const listActiveSecurityAdminRulesOutput: typeof import("./listActiveSecurityAdminRules").listActiveSecurityAdminRulesOutput = null as any;
-utilities.lazyLoad(exports, ["listActiveSecurityAdminRules","listActiveSecurityAdminRulesOutput"], () => require("./listActiveSecurityAdminRules"));
-
-export { ListDnsForwardingRulesetByVirtualNetworkArgs, ListDnsForwardingRulesetByVirtualNetworkResult, ListDnsForwardingRulesetByVirtualNetworkOutputArgs } from "./listDnsForwardingRulesetByVirtualNetwork";
-export const listDnsForwardingRulesetByVirtualNetwork: typeof import("./listDnsForwardingRulesetByVirtualNetwork").listDnsForwardingRulesetByVirtualNetwork = null as any;
-export const listDnsForwardingRulesetByVirtualNetworkOutput: typeof import("./listDnsForwardingRulesetByVirtualNetwork").listDnsForwardingRulesetByVirtualNetworkOutput = null as any;
-utilities.lazyLoad(exports, ["listDnsForwardingRulesetByVirtualNetwork","listDnsForwardingRulesetByVirtualNetworkOutput"], () => require("./listDnsForwardingRulesetByVirtualNetwork"));
-
-export { ListDnsResolverByVirtualNetworkArgs, ListDnsResolverByVirtualNetworkResult, ListDnsResolverByVirtualNetworkOutputArgs } from "./listDnsResolverByVirtualNetwork";
-export const listDnsResolverByVirtualNetwork: typeof import("./listDnsResolverByVirtualNetwork").listDnsResolverByVirtualNetwork = null as any;
-export const listDnsResolverByVirtualNetworkOutput: typeof import("./listDnsResolverByVirtualNetwork").listDnsResolverByVirtualNetworkOutput = null as any;
-utilities.lazyLoad(exports, ["listDnsResolverByVirtualNetwork","listDnsResolverByVirtualNetworkOutput"], () => require("./listDnsResolverByVirtualNetwork"));
-
-export { ListFirewallPolicyIdpsSignatureArgs, ListFirewallPolicyIdpsSignatureResult, ListFirewallPolicyIdpsSignatureOutputArgs } from "./listFirewallPolicyIdpsSignature";
-export const listFirewallPolicyIdpsSignature: typeof import("./listFirewallPolicyIdpsSignature").listFirewallPolicyIdpsSignature = null as any;
-export const listFirewallPolicyIdpsSignatureOutput: typeof import("./listFirewallPolicyIdpsSignature").listFirewallPolicyIdpsSignatureOutput = null as any;
-utilities.lazyLoad(exports, ["listFirewallPolicyIdpsSignature","listFirewallPolicyIdpsSignatureOutput"], () => require("./listFirewallPolicyIdpsSignature"));
-
-export { ListFirewallPolicyIdpsSignaturesFilterValueArgs, ListFirewallPolicyIdpsSignaturesFilterValueResult, ListFirewallPolicyIdpsSignaturesFilterValueOutputArgs } from "./listFirewallPolicyIdpsSignaturesFilterValue";
-export const listFirewallPolicyIdpsSignaturesFilterValue: typeof import("./listFirewallPolicyIdpsSignaturesFilterValue").listFirewallPolicyIdpsSignaturesFilterValue = null as any;
-export const listFirewallPolicyIdpsSignaturesFilterValueOutput: typeof import("./listFirewallPolicyIdpsSignaturesFilterValue").listFirewallPolicyIdpsSignaturesFilterValueOutput = null as any;
-utilities.lazyLoad(exports, ["listFirewallPolicyIdpsSignaturesFilterValue","listFirewallPolicyIdpsSignaturesFilterValueOutput"], () => require("./listFirewallPolicyIdpsSignaturesFilterValue"));
-
-export { ListNetworkManagerDeploymentStatusArgs, ListNetworkManagerDeploymentStatusResult, ListNetworkManagerDeploymentStatusOutputArgs } from "./listNetworkManagerDeploymentStatus";
-export const listNetworkManagerDeploymentStatus: typeof import("./listNetworkManagerDeploymentStatus").listNetworkManagerDeploymentStatus = null as any;
-export const listNetworkManagerDeploymentStatusOutput: typeof import("./listNetworkManagerDeploymentStatus").listNetworkManagerDeploymentStatusOutput = null as any;
-utilities.lazyLoad(exports, ["listNetworkManagerDeploymentStatus","listNetworkManagerDeploymentStatusOutput"], () => require("./listNetworkManagerDeploymentStatus"));
-
-export { ListNetworkManagerEffectiveConnectivityConfigurationsArgs, ListNetworkManagerEffectiveConnectivityConfigurationsResult, ListNetworkManagerEffectiveConnectivityConfigurationsOutputArgs } from "./listNetworkManagerEffectiveConnectivityConfigurations";
-export const listNetworkManagerEffectiveConnectivityConfigurations: typeof import("./listNetworkManagerEffectiveConnectivityConfigurations").listNetworkManagerEffectiveConnectivityConfigurations = null as any;
-export const listNetworkManagerEffectiveConnectivityConfigurationsOutput: typeof import("./listNetworkManagerEffectiveConnectivityConfigurations").listNetworkManagerEffectiveConnectivityConfigurationsOutput = null as any;
-utilities.lazyLoad(exports, ["listNetworkManagerEffectiveConnectivityConfigurations","listNetworkManagerEffectiveConnectivityConfigurationsOutput"], () => require("./listNetworkManagerEffectiveConnectivityConfigurations"));
-
-export { ListNetworkManagerEffectiveSecurityAdminRulesArgs, ListNetworkManagerEffectiveSecurityAdminRulesResult, ListNetworkManagerEffectiveSecurityAdminRulesOutputArgs } from "./listNetworkManagerEffectiveSecurityAdminRules";
-export const listNetworkManagerEffectiveSecurityAdminRules: typeof import("./listNetworkManagerEffectiveSecurityAdminRules").listNetworkManagerEffectiveSecurityAdminRules = null as any;
-export const listNetworkManagerEffectiveSecurityAdminRulesOutput: typeof import("./listNetworkManagerEffectiveSecurityAdminRules").listNetworkManagerEffectiveSecurityAdminRulesOutput = null as any;
-utilities.lazyLoad(exports, ["listNetworkManagerEffectiveSecurityAdminRules","listNetworkManagerEffectiveSecurityAdminRulesOutput"], () => require("./listNetworkManagerEffectiveSecurityAdminRules"));
 
 export { OutboundEndpointArgs } from "./outboundEndpoint";
 export type OutboundEndpoint = import("./outboundEndpoint").OutboundEndpoint;

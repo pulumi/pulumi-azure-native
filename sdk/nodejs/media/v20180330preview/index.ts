@@ -5,44 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetAssetEncryptionKeyArgs, GetAssetEncryptionKeyResult, GetAssetEncryptionKeyOutputArgs } from "./getAssetEncryptionKey";
-export const getAssetEncryptionKey: typeof import("./getAssetEncryptionKey").getAssetEncryptionKey = null as any;
-export const getAssetEncryptionKeyOutput: typeof import("./getAssetEncryptionKey").getAssetEncryptionKeyOutput = null as any;
-utilities.lazyLoad(exports, ["getAssetEncryptionKey","getAssetEncryptionKeyOutput"], () => require("./getAssetEncryptionKey"));
-
-export { GetContentKeyPolicyPropertiesWithSecretsArgs, GetContentKeyPolicyPropertiesWithSecretsResult, GetContentKeyPolicyPropertiesWithSecretsOutputArgs } from "./getContentKeyPolicyPropertiesWithSecrets";
-export const getContentKeyPolicyPropertiesWithSecrets: typeof import("./getContentKeyPolicyPropertiesWithSecrets").getContentKeyPolicyPropertiesWithSecrets = null as any;
-export const getContentKeyPolicyPropertiesWithSecretsOutput: typeof import("./getContentKeyPolicyPropertiesWithSecrets").getContentKeyPolicyPropertiesWithSecretsOutput = null as any;
-utilities.lazyLoad(exports, ["getContentKeyPolicyPropertiesWithSecrets","getContentKeyPolicyPropertiesWithSecretsOutput"], () => require("./getContentKeyPolicyPropertiesWithSecrets"));
-
 export { GetStreamingLocatorArgs, GetStreamingLocatorResult, GetStreamingLocatorOutputArgs } from "./getStreamingLocator";
 export const getStreamingLocator: typeof import("./getStreamingLocator").getStreamingLocator = null as any;
 export const getStreamingLocatorOutput: typeof import("./getStreamingLocator").getStreamingLocatorOutput = null as any;
 utilities.lazyLoad(exports, ["getStreamingLocator","getStreamingLocatorOutput"], () => require("./getStreamingLocator"));
-
-export { ListAssetContainerSasArgs, ListAssetContainerSasResult, ListAssetContainerSasOutputArgs } from "./listAssetContainerSas";
-export const listAssetContainerSas: typeof import("./listAssetContainerSas").listAssetContainerSas = null as any;
-export const listAssetContainerSasOutput: typeof import("./listAssetContainerSas").listAssetContainerSasOutput = null as any;
-utilities.lazyLoad(exports, ["listAssetContainerSas","listAssetContainerSasOutput"], () => require("./listAssetContainerSas"));
-
-export { ListStreamingLocatorContentKeysArgs, ListStreamingLocatorContentKeysResult, ListStreamingLocatorContentKeysOutputArgs } from "./listStreamingLocatorContentKeys";
-export const listStreamingLocatorContentKeys: typeof import("./listStreamingLocatorContentKeys").listStreamingLocatorContentKeys = null as any;
-export const listStreamingLocatorContentKeysOutput: typeof import("./listStreamingLocatorContentKeys").listStreamingLocatorContentKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listStreamingLocatorContentKeys","listStreamingLocatorContentKeysOutput"], () => require("./listStreamingLocatorContentKeys"));
-
-export { ListStreamingLocatorPathsArgs, ListStreamingLocatorPathsResult, ListStreamingLocatorPathsOutputArgs } from "./listStreamingLocatorPaths";
-export const listStreamingLocatorPaths: typeof import("./listStreamingLocatorPaths").listStreamingLocatorPaths = null as any;
-export const listStreamingLocatorPathsOutput: typeof import("./listStreamingLocatorPaths").listStreamingLocatorPathsOutput = null as any;
-utilities.lazyLoad(exports, ["listStreamingLocatorPaths","listStreamingLocatorPathsOutput"], () => require("./listStreamingLocatorPaths"));
 
 export { StreamingLocatorArgs } from "./streamingLocator";
 export type StreamingLocator = import("./streamingLocator").StreamingLocator;
 export const StreamingLocator: typeof import("./streamingLocator").StreamingLocator = null as any;
 utilities.lazyLoad(exports, ["StreamingLocator"], () => require("./streamingLocator"));
 
-
-// Export enums:
-export * from "../../types/enums/media/v20180330preview";
 
 const _module = {
     version: utilities.getVersion(),

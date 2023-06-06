@@ -56,7 +56,6 @@ export * from "../types/enums/communication";
 
 // Export sub-modules:
 import * as v20200820 from "./v20200820";
-import * as v20200820preview from "./v20200820preview";
 import * as v20211001preview from "./v20211001preview";
 import * as v20220701preview from "./v20220701preview";
 import * as v20230301preview from "./v20230301preview";
@@ -64,7 +63,6 @@ import * as v20230331 from "./v20230331";
 
 export {
     v20200820,
-    v20200820preview,
     v20211001preview,
     v20220701preview,
     v20230301preview,

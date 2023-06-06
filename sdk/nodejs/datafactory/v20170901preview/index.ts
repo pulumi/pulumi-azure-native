@@ -15,21 +15,6 @@ export const getFactory: typeof import("./getFactory").getFactory = null as any;
 export const getFactoryOutput: typeof import("./getFactory").getFactoryOutput = null as any;
 utilities.lazyLoad(exports, ["getFactory","getFactoryOutput"], () => require("./getFactory"));
 
-export { GetIntegrationRuntimeConnectionInfoArgs, GetIntegrationRuntimeConnectionInfoResult, GetIntegrationRuntimeConnectionInfoOutputArgs } from "./getIntegrationRuntimeConnectionInfo";
-export const getIntegrationRuntimeConnectionInfo: typeof import("./getIntegrationRuntimeConnectionInfo").getIntegrationRuntimeConnectionInfo = null as any;
-export const getIntegrationRuntimeConnectionInfoOutput: typeof import("./getIntegrationRuntimeConnectionInfo").getIntegrationRuntimeConnectionInfoOutput = null as any;
-utilities.lazyLoad(exports, ["getIntegrationRuntimeConnectionInfo","getIntegrationRuntimeConnectionInfoOutput"], () => require("./getIntegrationRuntimeConnectionInfo"));
-
-export { GetIntegrationRuntimeStatusArgs, GetIntegrationRuntimeStatusResult, GetIntegrationRuntimeStatusOutputArgs } from "./getIntegrationRuntimeStatus";
-export const getIntegrationRuntimeStatus: typeof import("./getIntegrationRuntimeStatus").getIntegrationRuntimeStatus = null as any;
-export const getIntegrationRuntimeStatusOutput: typeof import("./getIntegrationRuntimeStatus").getIntegrationRuntimeStatusOutput = null as any;
-utilities.lazyLoad(exports, ["getIntegrationRuntimeStatus","getIntegrationRuntimeStatusOutput"], () => require("./getIntegrationRuntimeStatus"));
-
-export { ListIntegrationRuntimeAuthKeysArgs, ListIntegrationRuntimeAuthKeysResult, ListIntegrationRuntimeAuthKeysOutputArgs } from "./listIntegrationRuntimeAuthKeys";
-export const listIntegrationRuntimeAuthKeys: typeof import("./listIntegrationRuntimeAuthKeys").listIntegrationRuntimeAuthKeys = null as any;
-export const listIntegrationRuntimeAuthKeysOutput: typeof import("./listIntegrationRuntimeAuthKeys").listIntegrationRuntimeAuthKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listIntegrationRuntimeAuthKeys","listIntegrationRuntimeAuthKeysOutput"], () => require("./listIntegrationRuntimeAuthKeys"));
-
 
 // Export enums:
 export * from "../../types/enums/datafactory/v20170901preview";

@@ -11,9 +11,6 @@ from .get_endpoint import *
 from .get_profile import *
 from .get_route_filter_rule import *
 from .get_security_rule import *
-from .get_virtual_network_gateway_advertised_routes import *
-from .get_virtual_network_gateway_bgp_peer_status import *
-from .get_virtual_network_gateway_learned_routes import *
 from .profile import *
 from .route_filter_rule import *
 from .security_rule import *

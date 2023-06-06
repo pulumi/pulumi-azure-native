@@ -10,34 +10,11 @@ export const getLocalUser: typeof import("./getLocalUser").getLocalUser = null a
 export const getLocalUserOutput: typeof import("./getLocalUser").getLocalUserOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalUser","getLocalUserOutput"], () => require("./getLocalUser"));
 
-export { ListLocalUserKeysArgs, ListLocalUserKeysResult, ListLocalUserKeysOutputArgs } from "./listLocalUserKeys";
-export const listLocalUserKeys: typeof import("./listLocalUserKeys").listLocalUserKeys = null as any;
-export const listLocalUserKeysOutput: typeof import("./listLocalUserKeys").listLocalUserKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listLocalUserKeys","listLocalUserKeysOutput"], () => require("./listLocalUserKeys"));
-
-export { ListStorageAccountKeysArgs, ListStorageAccountKeysResult, ListStorageAccountKeysOutputArgs } from "./listStorageAccountKeys";
-export const listStorageAccountKeys: typeof import("./listStorageAccountKeys").listStorageAccountKeys = null as any;
-export const listStorageAccountKeysOutput: typeof import("./listStorageAccountKeys").listStorageAccountKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listStorageAccountKeys","listStorageAccountKeysOutput"], () => require("./listStorageAccountKeys"));
-
-export { ListStorageAccountSASArgs, ListStorageAccountSASResult, ListStorageAccountSASOutputArgs } from "./listStorageAccountSAS";
-export const listStorageAccountSAS: typeof import("./listStorageAccountSAS").listStorageAccountSAS = null as any;
-export const listStorageAccountSASOutput: typeof import("./listStorageAccountSAS").listStorageAccountSASOutput = null as any;
-utilities.lazyLoad(exports, ["listStorageAccountSAS","listStorageAccountSASOutput"], () => require("./listStorageAccountSAS"));
-
-export { ListStorageAccountServiceSASArgs, ListStorageAccountServiceSASResult, ListStorageAccountServiceSASOutputArgs } from "./listStorageAccountServiceSAS";
-export const listStorageAccountServiceSAS: typeof import("./listStorageAccountServiceSAS").listStorageAccountServiceSAS = null as any;
-export const listStorageAccountServiceSASOutput: typeof import("./listStorageAccountServiceSAS").listStorageAccountServiceSASOutput = null as any;
-utilities.lazyLoad(exports, ["listStorageAccountServiceSAS","listStorageAccountServiceSASOutput"], () => require("./listStorageAccountServiceSAS"));
-
 export { LocalUserArgs } from "./localUser";
 export type LocalUser = import("./localUser").LocalUser;
 export const LocalUser: typeof import("./localUser").LocalUser = null as any;
 utilities.lazyLoad(exports, ["LocalUser"], () => require("./localUser"));
 
-
-// Export enums:
-export * from "../../types/enums/storage/v20210801";
 
 const _module = {
     version: utilities.getVersion(),

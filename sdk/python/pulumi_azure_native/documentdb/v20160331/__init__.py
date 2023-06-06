@@ -24,7 +24,5 @@ from .get_database_account_mongo_db_database import *
 from .get_database_account_sql_container import *
 from .get_database_account_sql_database import *
 from .get_database_account_table import *
-from .list_database_account_connection_strings import *
-from .list_database_account_keys import *
 from ._inputs import *
 from . import outputs

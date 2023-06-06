@@ -103,38 +103,6 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
     }
 
     /// <summary>
-    /// Configuration Deployment Type.
-    /// </summary>
-    [EnumType]
-    public readonly struct ConfigurationType : IEquatable<ConfigurationType>
-    {
-        private readonly string _value;
-
-        private ConfigurationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConfigurationType SecurityAdmin { get; } = new ConfigurationType("SecurityAdmin");
-        public static ConfigurationType SecurityUser { get; } = new ConfigurationType("SecurityUser");
-        public static ConfigurationType Connectivity { get; } = new ConfigurationType("Connectivity");
-
-        public static bool operator ==(ConfigurationType left, ConfigurationType right) => left.Equals(right);
-        public static bool operator !=(ConfigurationType left, ConfigurationType right) => !left.Equals(right);
-
-        public static explicit operator string(ConfigurationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConfigurationType other && Equals(other);
-        public bool Equals(ConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Flag if need to delete existing network security groups.
     /// </summary>
     [EnumType]

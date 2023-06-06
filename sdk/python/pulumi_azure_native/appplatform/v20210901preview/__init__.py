@@ -6,10 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_app_resource_upload_url import *
-from .get_deployment_log_file_url import *
 from .get_storage import *
-from .list_service_test_keys import *
 from .storage import *
 from ._inputs import *
 from . import outputs

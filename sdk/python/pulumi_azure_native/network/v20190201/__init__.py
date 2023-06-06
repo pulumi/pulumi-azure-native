@@ -7,15 +7,10 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .express_route_circuit_peering import *
-from .get_application_gateway_backend_health_on_demand import *
 from .get_express_route_circuit_peering import *
 from .get_interface_endpoint import *
 from .get_network_interface import *
 from .get_subnet import *
-from .get_virtual_network_gateway_advertised_routes import *
-from .get_virtual_network_gateway_bgp_peer_status import *
-from .get_virtual_network_gateway_learned_routes import *
-from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
 from .interface_endpoint import *
 from .network_interface import *
 from .subnet import *

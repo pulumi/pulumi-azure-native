@@ -265,31 +265,6 @@ export type KustoDatabaseDataSetMapping = import("./kustoDatabaseDataSetMapping"
 export const KustoDatabaseDataSetMapping: typeof import("./kustoDatabaseDataSetMapping").KustoDatabaseDataSetMapping = null as any;
 utilities.lazyLoad(exports, ["KustoDatabaseDataSetMapping"], () => require("./kustoDatabaseDataSetMapping"));
 
-export { ListShareSubscriptionSourceShareSynchronizationSettingsArgs, ListShareSubscriptionSourceShareSynchronizationSettingsResult, ListShareSubscriptionSourceShareSynchronizationSettingsOutputArgs } from "./listShareSubscriptionSourceShareSynchronizationSettings";
-export const listShareSubscriptionSourceShareSynchronizationSettings: typeof import("./listShareSubscriptionSourceShareSynchronizationSettings").listShareSubscriptionSourceShareSynchronizationSettings = null as any;
-export const listShareSubscriptionSourceShareSynchronizationSettingsOutput: typeof import("./listShareSubscriptionSourceShareSynchronizationSettings").listShareSubscriptionSourceShareSynchronizationSettingsOutput = null as any;
-utilities.lazyLoad(exports, ["listShareSubscriptionSourceShareSynchronizationSettings","listShareSubscriptionSourceShareSynchronizationSettingsOutput"], () => require("./listShareSubscriptionSourceShareSynchronizationSettings"));
-
-export { ListShareSubscriptionSynchronizationDetailsArgs, ListShareSubscriptionSynchronizationDetailsResult, ListShareSubscriptionSynchronizationDetailsOutputArgs } from "./listShareSubscriptionSynchronizationDetails";
-export const listShareSubscriptionSynchronizationDetails: typeof import("./listShareSubscriptionSynchronizationDetails").listShareSubscriptionSynchronizationDetails = null as any;
-export const listShareSubscriptionSynchronizationDetailsOutput: typeof import("./listShareSubscriptionSynchronizationDetails").listShareSubscriptionSynchronizationDetailsOutput = null as any;
-utilities.lazyLoad(exports, ["listShareSubscriptionSynchronizationDetails","listShareSubscriptionSynchronizationDetailsOutput"], () => require("./listShareSubscriptionSynchronizationDetails"));
-
-export { ListShareSubscriptionSynchronizationsArgs, ListShareSubscriptionSynchronizationsResult, ListShareSubscriptionSynchronizationsOutputArgs } from "./listShareSubscriptionSynchronizations";
-export const listShareSubscriptionSynchronizations: typeof import("./listShareSubscriptionSynchronizations").listShareSubscriptionSynchronizations = null as any;
-export const listShareSubscriptionSynchronizationsOutput: typeof import("./listShareSubscriptionSynchronizations").listShareSubscriptionSynchronizationsOutput = null as any;
-utilities.lazyLoad(exports, ["listShareSubscriptionSynchronizations","listShareSubscriptionSynchronizationsOutput"], () => require("./listShareSubscriptionSynchronizations"));
-
-export { ListShareSynchronizationDetailsArgs, ListShareSynchronizationDetailsResult, ListShareSynchronizationDetailsOutputArgs } from "./listShareSynchronizationDetails";
-export const listShareSynchronizationDetails: typeof import("./listShareSynchronizationDetails").listShareSynchronizationDetails = null as any;
-export const listShareSynchronizationDetailsOutput: typeof import("./listShareSynchronizationDetails").listShareSynchronizationDetailsOutput = null as any;
-utilities.lazyLoad(exports, ["listShareSynchronizationDetails","listShareSynchronizationDetailsOutput"], () => require("./listShareSynchronizationDetails"));
-
-export { ListShareSynchronizationsArgs, ListShareSynchronizationsResult, ListShareSynchronizationsOutputArgs } from "./listShareSynchronizations";
-export const listShareSynchronizations: typeof import("./listShareSynchronizations").listShareSynchronizations = null as any;
-export const listShareSynchronizationsOutput: typeof import("./listShareSynchronizations").listShareSynchronizationsOutput = null as any;
-utilities.lazyLoad(exports, ["listShareSynchronizations","listShareSynchronizationsOutput"], () => require("./listShareSynchronizations"));
-
 export { ScheduledSynchronizationSettingArgs } from "./scheduledSynchronizationSetting";
 export type ScheduledSynchronizationSetting = import("./scheduledSynchronizationSetting").ScheduledSynchronizationSetting;
 export const ScheduledSynchronizationSetting: typeof import("./scheduledSynchronizationSetting").ScheduledSynchronizationSetting = null as any;

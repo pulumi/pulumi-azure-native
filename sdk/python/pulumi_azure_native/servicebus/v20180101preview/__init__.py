@@ -9,10 +9,6 @@ from ._enums import *
 from .get_namespace_ip_filter_rule import *
 from .get_namespace_virtual_network_rule import *
 from .get_private_endpoint_connection import *
-from .list_disaster_recovery_config_keys import *
-from .list_namespace_keys import *
-from .list_queue_keys import *
-from .list_topic_keys import *
 from .namespace_ip_filter_rule import *
 from .namespace_virtual_network_rule import *
 from .private_endpoint_connection import *

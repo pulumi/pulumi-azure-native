@@ -20,7 +20,6 @@ __all__ = [
     'SimStaticIpPropertiesResponse',
     'SimStaticIpPropertiesResponseStaticIp',
     'SliceResourceIdResponse',
-    'SubResourceResponse',
     'SystemDataResponse',
 ]
 
@@ -315,28 +314,6 @@ class SliceResourceIdResponse(dict):
     def id(self) -> str:
         """
         Slice resource ID.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class SubResourceResponse(dict):
-    """
-    Reference to another sub resource.
-    """
-    def __init__(__self__, *,
-                 id: str):
-        """
-        Reference to another sub resource.
-        :param str id: Resource ID.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource ID.
         """
         return pulumi.get(self, "id")
 

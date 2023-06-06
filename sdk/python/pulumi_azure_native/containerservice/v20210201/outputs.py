@@ -13,7 +13,6 @@ from ._enums import *
 
 __all__ = [
     'AgentPoolUpgradeSettingsResponse',
-    'CredentialResultResponse',
     'KubeletConfigResponse',
     'LinuxOSConfigResponse',
     'PowerStateResponse',
@@ -58,39 +57,6 @@ class AgentPoolUpgradeSettingsResponse(dict):
         Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
         """
         return pulumi.get(self, "max_surge")
-
-
-@pulumi.output_type
-class CredentialResultResponse(dict):
-    """
-    The credential result response.
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 value: str):
-        """
-        The credential result response.
-        :param str name: The name of the credential.
-        :param str value: Base64-encoded Kubernetes configuration file.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the credential.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Base64-encoded Kubernetes configuration file.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

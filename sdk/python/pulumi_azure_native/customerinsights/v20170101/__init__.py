@@ -6,8 +6,6 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_image_upload_url_for_data import *
-from .get_image_upload_url_for_entity_type import *
 from .get_link import *
 from .get_relationship_link import *
 from .link import *
