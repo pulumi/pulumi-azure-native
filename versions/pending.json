@@ -9,9 +9,7 @@
     "2020-07-01-preview"
   ],
   "Addons": [],
-  "Advisor": [
-    "2023-01-01"
-  ],
+  "Advisor": [],
   "AgFoodPlatform": [],
   "AlertsManagement": [
     "2021-07-22-preview",
@@ -35,16 +33,13 @@
     "2023-04-01-preview"
   ],
   "AppComplianceAutomation": [],
-  "AppConfiguration": [
-    "2023-03-01"
-  ],
+  "AppConfiguration": [],
   "AppPlatform": [
     "2023-01-01-preview",
     "2023-03-01-preview",
     "2023-05-01-preview"
   ],
   "Attestation": [
-    "2021-06-01",
     "2021-06-01-preview"
   ],
   "Authorization": [
@@ -82,9 +77,7 @@
   "AzureData": [],
   "AzureSphere": [],
   "AzureStack": [],
-  "AzureStackHCI": [
-    "2023-03-01"
-  ],
+  "AzureStackHCI": [],
   "BareMetalInfrastructure": [],
   "Batch": [],
   "Billing": [],
@@ -101,23 +94,16 @@
     "2023-05-01-preview"
   ],
   "Capacity": [],
-  "Cdn": [
-    "2022-05-01-preview",
-    "2022-11-01-preview",
-    "2023-05-01"
-  ],
+  "Cdn": [],
   "CertificateRegistration": [],
   "ChangeAnalysis": [],
   "Chaos": [
     "2023-04-01-preview",
     "2023-04-15-preview"
   ],
-  "CognitiveServices": [
-    "2023-05-01"
-  ],
+  "CognitiveServices": [],
   "Commerce": [],
   "Communication": [
-    "2023-03-31",
     "2023-04-01-preview"
   ],
   "Compute": [
@@ -134,15 +120,8 @@
   ],
   "Confluent": [],
   "ConnectedVMwarevSphere": [],
-  "Consumption": [
-    "2022-09-01",
-    "2023-03-01"
-  ],
-  "ContainerInstance": [
-    "2022-10-01-preview",
-    "2023-02-01-preview",
-    "2023-05-01"
-  ],
+  "Consumption": [],
+  "ContainerInstance": [],
   "ContainerRegistry": [
     "2019-05-01",
     "2019-05-01-preview",
@@ -236,9 +215,6 @@
     "2020-01-01-privatepreview"
   ],
   "DBforMySQL": [
-    "2021-05-01-preview",
-    "2021-12-01-preview",
-    "2022-01-01",
     "2022-09-30-preview"
   ],
   "DBforPostgreSQL": [
@@ -274,13 +250,8 @@
   "DesktopVirtualization": [
     "2022-10-14-preview"
   ],
-  "DevCenter": [
-    "2023-01-01-preview",
-    "2023-04-01"
-  ],
-  "DevHub": [
-    "2022-10-11-preview"
-  ],
+  "DevCenter": [],
+  "DevHub": [],
   "DevOps": [],
   "DevSpaces": [],
   "DevTestLab": [],
@@ -297,28 +268,17 @@
     "2023-03-01-preview"
   ],
   "DigitalTwins": [],
-  "DocumentDB": [
-    "2022-11-15-preview",
-    "2023-03-01-preview",
-    "2023-03-15",
-    "2023-03-15-preview",
-    "2023-04-15"
-  ],
+  "DocumentDB": [],
   "DomainRegistration": [],
   "Dynamics365Fraudprotection": [],
   "DynamicsTelemetry": [],
-  "Easm": [
-    "2023-04-01-preview"
-  ],
+  "Easm": [],
   "EdgeOrder": [
     "2022-05-01-preview"
   ],
   "EdgeOrderPartner": [],
   "Education": [],
-  "Elastic": [
-    "2023-05-01-preview",
-    "2023-06-01"
-  ],
+  "Elastic": [],
   "ElasticSan": [],
   "EngagementFabric": [],
   "EnterpriseKnowledgeGraph": [],
@@ -334,9 +294,7 @@
   ],
   "Features": [],
   "FluidRelay": [],
-  "GraphServices": [
-    "2023-04-13"
-  ],
+  "GraphServices": [],
   "GuestConfiguration": [],
   "HDInsight": [
     "2023-04-15-preview"
@@ -344,20 +302,15 @@
   "HanaOnAzure": [],
   "HardwareSecurityModules": [],
   "HealthBot": [],
-  "HealthcareApis": [
-    "2023-02-28"
-  ],
+  "HealthcareApis": [],
   "Help": [],
   "HybridCloud": [],
   "HybridCompute": [
-    "2022-12-27",
     "2022-12-27-preview",
     "2023-03-15-preview",
     "2023-04-25-preview"
   ],
-  "HybridConnectivity": [
-    "2023-03-15"
-  ],
+  "HybridConnectivity": [],
   "HybridContainerService": [],
   "HybridData": [],
   "HybridNetwork": [
@@ -424,9 +377,7 @@
     "2022-05-01-preview",
     "2022-10-01-preview"
   ],
-  "KubernetesConfiguration": [
-    "2023-05-01"
-  ],
+  "KubernetesConfiguration": [],
   "Kusto": [],
   "LabServices": [
     "2021-10-01-preview",
@@ -446,10 +397,6 @@
   "MachineLearningCompute": [],
   "MachineLearningExperimentation": [],
   "MachineLearningServices": [
-    "2022-10-01-preview",
-    "2022-12-01-preview",
-    "2023-02-01-preview",
-    "2023-04-01",
     "2023-04-01-preview"
   ],
   "Maintenance": [],
@@ -463,9 +410,7 @@
     "2021-07-01-preview",
     "2021-12-01-preview"
   ],
-  "Marketplace": [
-    "2023-01-01"
-  ],
+  "Marketplace": [],
   "MarketplaceNotifications": [],
   "MarketplaceOrdering": [],
   "Media": [
@@ -499,9 +444,7 @@
     "2021-03-01-preview"
   ],
   "MobileNetwork": [],
-  "Monitor": [
-    "2023-04-03"
-  ],
+  "Monitor": [],
   "NetApp": [],
   "Network": [
     "2018-06-01",
@@ -593,21 +536,6 @@
     "2022-03-01-preview"
   ],
   "RecoveryServices": [
-    "2021-12-01",
-    "2022-01-01",
-    "2022-01-31-preview",
-    "2022-02-01",
-    "2022-03-01",
-    "2022-04-01",
-    "2022-05-01",
-    "2022-06-01-preview",
-    "2022-08-01",
-    "2022-09-01-preview",
-    "2022-09-10",
-    "2022-09-30-preview",
-    "2022-10-01",
-    "2023-01-01",
-    "2023-01-15",
     "2023-02-01",
     "2023-04-01"
   ],
@@ -664,16 +592,12 @@
     "2022-01-01-preview",
     "2022-10-01-preview"
   ],
-  "ServiceFabric": [
-    "2023-03-01-preview"
-  ],
+  "ServiceFabric": [],
   "ServiceFabricMesh": [],
   "ServiceLinker": [
     "2022-11-01-preview"
   ],
-  "ServiceNetworking": [
-    "2023-05-01-preview"
-  ],
+  "ServiceNetworking": [],
   "SignalRService": [
     "2023-03-01-preview"
   ],
@@ -694,10 +618,7 @@
   ],
   "StorSimple": [],
   "Storage": [],
-  "StorageCache": [
-    "2023-03-01-preview",
-    "2023-05-01"
-  ],
+  "StorageCache": [],
   "StorageMover": [],
   "StoragePool": [],
   "StorageSync": [],
@@ -721,9 +642,7 @@
   "VideoIndexer": [],
   "VirtualMachineImages": [],
   "VisualStudio": [],
-  "VoiceServices": [
-    "2023-04-03"
-  ],
+  "VoiceServices": [],
   "Web": [
     "2016-08-01",
     "2016-09-01",
