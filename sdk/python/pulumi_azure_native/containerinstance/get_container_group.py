@@ -22,7 +22,10 @@ class GetContainerGroupResult:
     """
     A container group.
     """
-    def __init__(__self__, containers=None, diagnostics=None, dns_config=None, encryption_properties=None, extensions=None, id=None, identity=None, image_registry_credentials=None, init_containers=None, instance_view=None, ip_address=None, location=None, name=None, os_type=None, provisioning_state=None, restart_policy=None, sku=None, subnet_ids=None, tags=None, type=None, volumes=None, zones=None):
+    def __init__(__self__, confidential_compute_properties=None, containers=None, diagnostics=None, dns_config=None, encryption_properties=None, extensions=None, id=None, identity=None, image_registry_credentials=None, init_containers=None, instance_view=None, ip_address=None, location=None, name=None, os_type=None, priority=None, provisioning_state=None, restart_policy=None, sku=None, subnet_ids=None, tags=None, type=None, volumes=None, zones=None):
+        if confidential_compute_properties and not isinstance(confidential_compute_properties, dict):
+            raise TypeError("Expected argument 'confidential_compute_properties' to be a dict")
+        pulumi.set(__self__, "confidential_compute_properties", confidential_compute_properties)
         if containers and not isinstance(containers, list):
             raise TypeError("Expected argument 'containers' to be a list")
         pulumi.set(__self__, "containers", containers)
@@ -65,6 +68,9 @@ class GetContainerGroupResult:
         if os_type and not isinstance(os_type, str):
             raise TypeError("Expected argument 'os_type' to be a str")
         pulumi.set(__self__, "os_type", os_type)
+        if priority and not isinstance(priority, str):
+            raise TypeError("Expected argument 'priority' to be a str")
+        pulumi.set(__self__, "priority", priority)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -89,6 +95,14 @@ class GetContainerGroupResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="confidentialComputeProperties")
+    def confidential_compute_properties(self) -> Optional['outputs.ConfidentialComputePropertiesResponse']:
+        """
+        The properties for confidential container group
+        """
+        return pulumi.get(self, "confidential_compute_properties")
 
     @property
     @pulumi.getter
@@ -203,6 +217,14 @@ class GetContainerGroupResult:
         return pulumi.get(self, "os_type")
 
     @property
+    @pulumi.getter
+    def priority(self) -> Optional[str]:
+        """
+        The priority of the container group.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -276,6 +298,7 @@ class AwaitableGetContainerGroupResult(GetContainerGroupResult):
         if False:
             yield self
         return GetContainerGroupResult(
+            confidential_compute_properties=self.confidential_compute_properties,
             containers=self.containers,
             diagnostics=self.diagnostics,
             dns_config=self.dns_config,
@@ -290,6 +313,7 @@ class AwaitableGetContainerGroupResult(GetContainerGroupResult):
             location=self.location,
             name=self.name,
             os_type=self.os_type,
+            priority=self.priority,
             provisioning_state=self.provisioning_state,
             restart_policy=self.restart_policy,
             sku=self.sku,
@@ -305,7 +329,7 @@ def get_container_group(container_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerGroupResult:
     """
     Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-    API Version: 2022-09-01.
+    API Version: 2023-05-01.
 
 
     :param str container_group_name: The name of the container group.
@@ -318,6 +342,7 @@ def get_container_group(container_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerinstance:getContainerGroup', __args__, opts=opts, typ=GetContainerGroupResult).value
 
     return AwaitableGetContainerGroupResult(
+        confidential_compute_properties=__ret__.confidential_compute_properties,
         containers=__ret__.containers,
         diagnostics=__ret__.diagnostics,
         dns_config=__ret__.dns_config,
@@ -332,6 +357,7 @@ def get_container_group(container_group_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         os_type=__ret__.os_type,
+        priority=__ret__.priority,
         provisioning_state=__ret__.provisioning_state,
         restart_policy=__ret__.restart_policy,
         sku=__ret__.sku,
@@ -348,7 +374,7 @@ def get_container_group_output(container_group_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerGroupResult]:
     """
     Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-    API Version: 2022-09-01.
+    API Version: 2023-05-01.
 
 
     :param str container_group_name: The name of the container group.

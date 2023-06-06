@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a specific project.
-        /// API Version: 2022-11-11-preview.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:devcenter:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific project.
-        /// API Version: 2022-11-11-preview.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:devcenter:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly string? DevCenterId;
         /// <summary>
-        /// The URI of the resource.
+        /// The URI of the Dev Center resource this project is associated with.
         /// </summary>
         public readonly string DevCenterUri;
         /// <summary>
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.DevCenter
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
+        /// </summary>
+        public readonly int? MaxDevBoxesPerUser;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNative.DevCenter
 
             string location,
 
+            int? maxDevBoxesPerUser,
+
             string name,
 
             string provisioningState,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.DevCenter
             DevCenterUri = devCenterUri;
             Id = id;
             Location = location;
+            MaxDevBoxesPerUser = maxDevBoxesPerUser;
             Name = name;
             ProvisioningState = provisioningState;
             SystemData = systemData;

@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets the endpoint access credentials to the resource.
- * API Version: 2022-05-01-preview.
+ * API Version: 2023-03-15.
  */
 export function listEndpointCredentials(args: ListEndpointCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointCredentialsResult> {
 
@@ -15,6 +18,7 @@ export function listEndpointCredentials(args: ListEndpointCredentialsArgs, opts?
         "endpointName": args.endpointName,
         "expiresin": args.expiresin,
         "resourceUri": args.resourceUri,
+        "serviceName": args.serviceName,
     }, opts);
 }
 
@@ -31,6 +35,10 @@ export interface ListEndpointCredentialsArgs {
      * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: string;
+    /**
+     * The name of the service. If not provided, the request will by pass the generation of service configuration token 
+     */
+    serviceName?: string | enums.hybridconnectivity.ServiceName;
 }
 
 /**
@@ -57,10 +65,14 @@ export interface ListEndpointCredentialsResult {
      * The suffix domain name of relay namespace.
      */
     readonly namespaceNameSuffix: string;
+    /**
+     * The token to access the enabled service.
+     */
+    readonly serviceConfigurationToken?: string;
 }
 /**
  * Gets the endpoint access credentials to the resource.
- * API Version: 2022-05-01-preview.
+ * API Version: 2023-03-15.
  */
 export function listEndpointCredentialsOutput(args: ListEndpointCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listEndpointCredentials(a, opts))
@@ -79,4 +91,8 @@ export interface ListEndpointCredentialsOutputArgs {
      * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: pulumi.Input<string>;
+    /**
+     * The name of the service. If not provided, the request will by pass the generation of service configuration token 
+     */
+    serviceName?: pulumi.Input<string | enums.hybridconnectivity.ServiceName>;
 }

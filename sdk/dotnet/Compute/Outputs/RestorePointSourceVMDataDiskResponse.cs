@@ -19,41 +19,47 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// <summary>
         /// Gets the caching type.
         /// </summary>
-        public readonly string? Caching;
+        public readonly string Caching;
         /// <summary>
-        /// Gets the disk restore point Id.
+        /// Contains Disk Restore Point properties.
         /// </summary>
-        public readonly Outputs.ApiEntityReferenceResponse? DiskRestorePoint;
+        public readonly Outputs.DiskRestorePointAttributesResponse? DiskRestorePoint;
         /// <summary>
         /// Gets the initial disk size in GB for blank data disks, and the new desired size for existing OS and Data disks.
         /// </summary>
-        public readonly int? DiskSizeGB;
+        public readonly int DiskSizeGB;
         /// <summary>
         /// Gets the logical unit number.
         /// </summary>
-        public readonly int? Lun;
+        public readonly int Lun;
         /// <summary>
-        /// Gets the managed disk details
+        /// Contains the managed disk details.
         /// </summary>
         public readonly Outputs.ManagedDiskParametersResponse? ManagedDisk;
         /// <summary>
         /// Gets the disk name.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
+        /// <summary>
+        /// Shows true if the disk is write-accelerator enabled.
+        /// </summary>
+        public readonly bool WriteAcceleratorEnabled;
 
         [OutputConstructor]
         private RestorePointSourceVMDataDiskResponse(
-            string? caching,
+            string caching,
 
-            Outputs.ApiEntityReferenceResponse? diskRestorePoint,
+            Outputs.DiskRestorePointAttributesResponse? diskRestorePoint,
 
-            int? diskSizeGB,
+            int diskSizeGB,
 
-            int? lun,
+            int lun,
 
             Outputs.ManagedDiskParametersResponse? managedDisk,
 
-            string? name)
+            string name,
+
+            bool writeAcceleratorEnabled)
         {
             Caching = caching;
             DiskRestorePoint = diskRestorePoint;
@@ -61,6 +67,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
             Lun = lun;
             ManagedDisk = managedDisk;
             Name = name;
+            WriteAcceleratorEnabled = writeAcceleratorEnabled;
         }
     }
 }

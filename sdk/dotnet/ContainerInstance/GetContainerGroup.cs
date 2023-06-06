@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerInstance
     {
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-        /// API Version: 2022-09-01.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Task<GetContainerGroupResult> InvokeAsync(GetContainerGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-        /// API Version: 2022-09-01.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());
@@ -71,6 +71,10 @@ namespace Pulumi.AzureNative.ContainerInstance
     [OutputType]
     public sealed class GetContainerGroupResult
     {
+        /// <summary>
+        /// The properties for confidential container group
+        /// </summary>
+        public readonly Outputs.ConfidentialComputePropertiesResponse? ConfidentialComputeProperties;
         /// <summary>
         /// The containers within the container group.
         /// </summary>
@@ -128,6 +132,10 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         public readonly string OsType;
         /// <summary>
+        /// The priority of the container group.
+        /// </summary>
+        public readonly string? Priority;
+        /// <summary>
         /// The provisioning state of the container group. This only appears in the response.
         /// </summary>
         public readonly string ProvisioningState;
@@ -165,6 +173,8 @@ namespace Pulumi.AzureNative.ContainerInstance
 
         [OutputConstructor]
         private GetContainerGroupResult(
+            Outputs.ConfidentialComputePropertiesResponse? confidentialComputeProperties,
+
             ImmutableArray<Outputs.ContainerResponse> containers,
 
             Outputs.ContainerGroupDiagnosticsResponse? diagnostics,
@@ -193,6 +203,8 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             string osType,
 
+            string? priority,
+
             string provisioningState,
 
             string? restartPolicy,
@@ -209,6 +221,7 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             ImmutableArray<string> zones)
         {
+            ConfidentialComputeProperties = confidentialComputeProperties;
             Containers = containers;
             Diagnostics = diagnostics;
             DnsConfig = dnsConfig;
@@ -223,6 +236,7 @@ namespace Pulumi.AzureNative.ContainerInstance
             Location = location;
             Name = name;
             OsType = osType;
+            Priority = priority;
             ProvisioningState = provisioningState;
             RestartPolicy = restartPolicy;
             Sku = sku;

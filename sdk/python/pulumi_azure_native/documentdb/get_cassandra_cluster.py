@@ -122,7 +122,7 @@ def get_cassandra_cluster(cluster_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCassandraClusterResult:
     """
     Get the properties of a managed Cassandra cluster.
-    API Version: 2022-11-15.
+    API Version: 2023-04-15.
 
 
     :param str cluster_name: Managed Cassandra cluster name.
@@ -150,7 +150,7 @@ def get_cassandra_cluster_output(cluster_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraClusterResult]:
     """
     Get the properties of a managed Cassandra cluster.
-    API Version: 2022-11-15.
+    API Version: 2023-04-15.
 
 
     :param str cluster_name: Managed Cassandra cluster name.

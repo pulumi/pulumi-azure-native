@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The managed cluster resource
  *
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  * Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class ManagedCluster extends pulumi.CustomResource {
@@ -165,6 +165,10 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+     */
+    public readonly publicIPPrefixId!: pulumi.Output<string | undefined>;
+    /**
      * Service endpoints for subnets in the cluster.
      */
     public readonly serviceEndpoints!: pulumi.Output<outputs.servicefabric.ServiceEndpointResponse[] | undefined>;
@@ -247,6 +251,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkSecurityRules"] = args ? args.networkSecurityRules : undefined;
+            resourceInputs["publicIPPrefixId"] = args ? args.publicIPPrefixId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -298,6 +303,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkSecurityRules"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicIPPrefixId"] = undefined /*out*/;
             resourceInputs["serviceEndpoints"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
@@ -411,6 +417,10 @@ export interface ManagedClusterArgs {
      * Custom Network Security Rules that are applied to the Virtual Network of the cluster.
      */
     networkSecurityRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.NetworkSecurityRuleArgs>[]>;
+    /**
+     * Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+     */
+    publicIPPrefixId?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -45,6 +45,18 @@ namespace Pulumi.AzureNative.Network.Inputs
             set => _fqdnTags = value;
         }
 
+        [Input("httpHeadersToInsert")]
+        private InputList<Inputs.FirewallPolicyHttpHeaderToInsertArgs>? _httpHeadersToInsert;
+
+        /// <summary>
+        /// List of HTTP/S headers to insert.
+        /// </summary>
+        public InputList<Inputs.FirewallPolicyHttpHeaderToInsertArgs> HttpHeadersToInsert
+        {
+            get => _httpHeadersToInsert ?? (_httpHeadersToInsert = new InputList<Inputs.FirewallPolicyHttpHeaderToInsertArgs>());
+            set => _httpHeadersToInsert = value;
+        }
+
         /// <summary>
         /// Name of the rule.
         /// </summary>

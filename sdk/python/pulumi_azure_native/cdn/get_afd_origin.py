@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetAFDOriginResult:
     """
-    CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+    Azure Front Door origin is the source of the content being delivered via Azure Front Door. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     """
     def __init__(__self__, azure_origin=None, deployment_status=None, enabled_state=None, enforce_certificate_name_check=None, host_name=None, http_port=None, https_port=None, id=None, name=None, origin_group_name=None, origin_host_header=None, priority=None, provisioning_state=None, shared_private_link_resource=None, system_data=None, type=None, weight=None):
         if azure_origin and not isinstance(azure_origin, dict):
@@ -156,7 +156,7 @@ class GetAFDOriginResult:
     @pulumi.getter(name="originHostHeader")
     def origin_host_header(self) -> Optional[str]:
         """
-        The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+        The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         """
         return pulumi.get(self, "origin_host_header")
 
@@ -241,7 +241,7 @@ def get_afd_origin(origin_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDOriginResult:
     """
     Gets an existing origin within an origin group.
-    API Version: 2021-06-01.
+    API Version: 2023-05-01.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the profile.
@@ -285,7 +285,7 @@ def get_afd_origin_output(origin_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDOriginResult]:
     """
     Gets an existing origin within an origin group.
-    API Version: 2021-06-01.
+    API Version: 2023-05-01.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the profile.

@@ -134,7 +134,7 @@ def get_email_service(email_service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailServiceResult:
     """
     Get the EmailService and its properties.
-    API Version: 2023-03-01-preview.
+    API Version: 2023-03-31.
 
 
     :param str email_service_name: The name of the EmailService resource.
@@ -163,7 +163,7 @@ def get_email_service_output(email_service_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailServiceResult]:
     """
     Get the EmailService and its properties.
-    API Version: 2023-03-01-preview.
+    API Version: 2023-03-31.
 
 
     :param str email_service_name: The name of the EmailService resource.

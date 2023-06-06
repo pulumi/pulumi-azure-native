@@ -956,6 +956,36 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// Type of the Environment Variable. Possible values are: local - For local variable
+    /// </summary>
+    [EnumType]
+    public readonly struct EnvironmentVariableType : IEquatable<EnvironmentVariableType>
+    {
+        private readonly string _value;
+
+        private EnvironmentVariableType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EnvironmentVariableType Local { get; } = new EnvironmentVariableType("local");
+
+        public static bool operator ==(EnvironmentVariableType left, EnvironmentVariableType right) => left.Equals(right);
+        public static bool operator !=(EnvironmentVariableType left, EnvironmentVariableType right) => !left.Equals(right);
+
+        public static explicit operator string(EnvironmentVariableType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnvironmentVariableType other && Equals(other);
+        public bool Equals(EnvironmentVariableType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Flag for generating lags for the numeric features with 'auto' or null.
     /// </summary>
     [EnumType]
@@ -1287,6 +1317,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IdentityConfigurationType other && Equals(other);
         public bool Equals(IdentityConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+    /// </summary>
+    [EnumType]
+    public readonly struct ImageType : IEquatable<ImageType>
+    {
+        private readonly string _value;
+
+        private ImageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImageType Docker { get; } = new ImageType("docker");
+        public static ImageType Azureml { get; } = new ImageType("azureml");
+
+        public static bool operator ==(ImageType left, ImageType right) => left.Equals(right);
+        public static bool operator !=(ImageType left, ImageType right) => !left.Equals(right);
+
+        public static explicit operator string(ImageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImageType other && Equals(other);
+        public bool Equals(ImageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1745,6 +1806,36 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// [Required] Type of the Nodes value
+    /// </summary>
+    [EnumType]
+    public readonly struct NodesValueType : IEquatable<NodesValueType>
+    {
+        private readonly string _value;
+
+        private NodesValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NodesValueType All { get; } = new NodesValueType("All");
+
+        public static bool operator ==(NodesValueType left, NodesValueType right) => left.Equals(right);
+        public static bool operator !=(NodesValueType left, NodesValueType right) => !left.Equals(right);
+
+        public static explicit operator string(NodesValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NodesValueType other && Equals(other);
+        public bool Equals(NodesValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Primary metric to optimize for this task.
     /// </summary>
     [EnumType]
@@ -1898,6 +1989,38 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
         public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Protocol over which communication will happen over this endpoint
+    /// </summary>
+    [EnumType]
+    public readonly struct Protocol : IEquatable<Protocol>
+    {
+        private readonly string _value;
+
+        private Protocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Protocol Tcp { get; } = new Protocol("tcp");
+        public static Protocol Udp { get; } = new Protocol("udp");
+        public static Protocol Http { get; } = new Protocol("http");
+
+        public static bool operator ==(Protocol left, Protocol right) => left.Equals(right);
+        public static bool operator !=(Protocol left, Protocol right) => !left.Equals(right);
+
+        public static explicit operator string(Protocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Protocol other && Equals(other);
+        public bool Equals(Protocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3088,6 +3211,39 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VmPriority other && Equals(other);
         public bool Equals(VmPriority other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of Volume Definition. Possible Values: bind,volume,tmpfs,npipe
+    /// </summary>
+    [EnumType]
+    public readonly struct VolumeDefinitionType : IEquatable<VolumeDefinitionType>
+    {
+        private readonly string _value;
+
+        private VolumeDefinitionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VolumeDefinitionType Bind { get; } = new VolumeDefinitionType("bind");
+        public static VolumeDefinitionType Volume { get; } = new VolumeDefinitionType("volume");
+        public static VolumeDefinitionType Tmpfs { get; } = new VolumeDefinitionType("tmpfs");
+        public static VolumeDefinitionType Npipe { get; } = new VolumeDefinitionType("npipe");
+
+        public static bool operator ==(VolumeDefinitionType left, VolumeDefinitionType right) => left.Equals(right);
+        public static bool operator !=(VolumeDefinitionType left, VolumeDefinitionType right) => !left.Equals(right);
+
+        public static explicit operator string(VolumeDefinitionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VolumeDefinitionType other && Equals(other);
+        public bool Equals(VolumeDefinitionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

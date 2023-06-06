@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// A pool of Virtual Machines.
-    /// API Version: 2022-11-11-preview.
+    /// API Version: 2023-04-01.
     /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Pool")]
@@ -22,6 +22,18 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("devBoxDefinitionName")]
         public Output<string> DevBoxDefinitionName { get; private set; } = null!;
+
+        /// <summary>
+        /// Overall health status of the Pool. Indicates whether or not the Pool is available to create Dev Boxes.
+        /// </summary>
+        [Output("healthStatus")]
+        public Output<string> HealthStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Details on the Pool health status to help diagnose issues. This is only populated when the pool status indicates the pool is in a non-healthy state
+        /// </summary>
+        [Output("healthStatusDetails")]
+        public Output<ImmutableArray<Outputs.HealthStatusDetailResponse>> HealthStatusDetails { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created.
@@ -58,6 +70,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Stop on disconnect configuration settings for Dev Boxes created in this pool.
+        /// </summary>
+        [Output("stopOnDisconnect")]
+        public Output<Outputs.StopOnDisconnectConfigurationResponse?> StopOnDisconnect { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -178,6 +196,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Stop on disconnect configuration settings for Dev Boxes created in this pool.
+        /// </summary>
+        [Input("stopOnDisconnect")]
+        public Input<Inputs.StopOnDisconnectConfigurationArgs>? StopOnDisconnect { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

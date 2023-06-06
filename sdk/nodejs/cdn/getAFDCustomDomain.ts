@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  */
 export function getAFDCustomDomain(args: GetAFDCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDCustomDomainResult> {
 
@@ -49,6 +49,10 @@ export interface GetAFDCustomDomainResult {
      * Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step. DCV stands for DomainControlValidation.
      */
     readonly domainValidationState: string;
+    /**
+     * Key-Value pair representing migration properties for domains.
+     */
+    readonly extendedProperties?: {[key: string]: string};
     /**
      * The host name of the domain. Must be a domain name.
      */
@@ -92,7 +96,7 @@ export interface GetAFDCustomDomainResult {
 }
 /**
  * Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  */
 export function getAFDCustomDomainOutput(args: GetAFDCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getAFDCustomDomain(a, opts))

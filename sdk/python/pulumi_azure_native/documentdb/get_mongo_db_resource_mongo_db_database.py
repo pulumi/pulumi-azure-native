@@ -117,7 +117,7 @@ def get_mongo_db_resource_mongo_db_database(account_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMongoDBResourceMongoDBDatabaseResult:
     """
     Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
-    API Version: 2022-11-15.
+    API Version: 2023-04-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -148,7 +148,7 @@ def get_mongo_db_resource_mongo_db_database_output(account_name: Optional[pulumi
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMongoDBResourceMongoDBDatabaseResult]:
     """
     Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
-    API Version: 2022-11-15.
+    API Version: 2023-04-15.
 
 
     :param str account_name: Cosmos DB database account name.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves a network manager security admin configuration.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getSecurityAdminConfiguration(args: GetSecurityAdminConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityAdminConfigurationResult> {
 
@@ -75,7 +75,7 @@ export interface GetSecurityAdminConfigurationResult {
 }
 /**
  * Retrieves a network manager security admin configuration.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getSecurityAdminConfigurationOutput(args: GetSecurityAdminConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityAdminConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getSecurityAdminConfiguration(a, opts))

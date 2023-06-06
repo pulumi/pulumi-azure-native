@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceNetworking
     {
         /// <summary>
         /// Get a TrafficController
-        /// API Version: 2022-10-01-preview.
+        /// API Version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetTrafficControllerInterfaceResult> InvokeAsync(GetTrafficControllerInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficControllerInterfaceResult>("azure-native:servicenetworking:getTrafficControllerInterface", args ?? new GetTrafficControllerInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a TrafficController
-        /// API Version: 2022-10-01-preview.
+        /// API Version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetTrafficControllerInterfaceResult> Invoke(GetTrafficControllerInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficControllerInterfaceResult>("azure-native:servicenetworking:getTrafficControllerInterface", args ?? new GetTrafficControllerInterfaceInvokeArgs(), options.WithDefaults());
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Associations References List
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceIDResponse> Associations;
+        public readonly ImmutableArray<Outputs.ResourceIdResponse> Associations;
         /// <summary>
         /// Configuration Endpoints.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Frontends References List
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceIDResponse> Frontends;
+        public readonly ImmutableArray<Outputs.ResourceIdResponse> Frontends;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -114,11 +114,11 @@ namespace Pulumi.AzureNative.ServiceNetworking
 
         [OutputConstructor]
         private GetTrafficControllerInterfaceResult(
-            ImmutableArray<Outputs.ResourceIDResponse> associations,
+            ImmutableArray<Outputs.ResourceIdResponse> associations,
 
             ImmutableArray<string> configurationEndpoints,
 
-            ImmutableArray<Outputs.ResourceIDResponse> frontends,
+            ImmutableArray<Outputs.ResourceIdResponse> frontends,
 
             string id,
 

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified local network gateway in a resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getLocalNetworkGateway(args: GetLocalNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNetworkGatewayResult> {
 
@@ -86,7 +86,7 @@ export interface GetLocalNetworkGatewayResult {
 }
 /**
  * Gets the specified local network gateway in a resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getLocalNetworkGatewayOutput(args: GetLocalNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNetworkGatewayResult> {
     return pulumi.output(args).apply((a: any) => getLocalNetworkGateway(a, opts))

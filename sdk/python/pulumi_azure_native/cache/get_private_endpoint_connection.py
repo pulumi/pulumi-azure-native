@@ -111,7 +111,7 @@ def get_private_endpoint_connection(cache_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection associated with the redis cache.
-    API Version: 2022-06-01.
+    API Version: 2023-04-01.
 
 
     :param str cache_name: The name of the Redis cache.
@@ -141,7 +141,7 @@ def get_private_endpoint_connection_output(cache_name: Optional[pulumi.Input[str
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the redis cache.
-    API Version: 2022-06-01.
+    API Version: 2023-04-01.
 
 
     :param str cache_name: The name of the Redis cache.

@@ -13,6 +13,7 @@ from .list_endpoint_credentials import *
 from .list_endpoint_ingress_gateway_credentials import *
 from .list_endpoint_managed_proxy_details import *
 from .service_configuration import *
+from ._inputs import *
 from . import outputs
 
 # Make subpackages available:

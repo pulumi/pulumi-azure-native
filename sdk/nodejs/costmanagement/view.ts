@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * States and configurations of Cost Analysis.
- * API Version: 2022-10-01.
+ * API Version: 2023-03-01.
  * Previous API Version: 2019-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class View extends pulumi.CustomResource {
@@ -86,7 +86,7 @@ export class View extends pulumi.CustomResource {
     /**
      * Date when the user last modified this view.
      */
-    public /*out*/ readonly modifiedOn!: pulumi.Output<string>;
+    public readonly modifiedOn!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
@@ -138,6 +138,7 @@ export class View extends pulumi.CustomResource {
             resourceInputs["includeMonetaryCommitment"] = args ? args.includeMonetaryCommitment : undefined;
             resourceInputs["kpis"] = args ? args.kpis : undefined;
             resourceInputs["metric"] = args ? args.metric : undefined;
+            resourceInputs["modifiedOn"] = args ? args.modifiedOn : undefined;
             resourceInputs["pivots"] = args ? args.pivots : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
@@ -146,7 +147,6 @@ export class View extends pulumi.CustomResource {
             resourceInputs["viewName"] = args ? args.viewName : undefined;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["currency"] = undefined /*out*/;
-            resourceInputs["modifiedOn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {
             resourceInputs["accumulated"] = undefined /*out*/;
@@ -215,6 +215,10 @@ export interface ViewArgs {
      * Metric to use when displaying costs.
      */
     metric?: pulumi.Input<string | enums.costmanagement.MetricType>;
+    /**
+     * Date when the user last modified this view.
+     */
+    modifiedOn?: pulumi.Input<string>;
     /**
      * Configuration of 3 sub-views in the Cost Analysis UI.
      */

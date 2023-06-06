@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified private endpoint by resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getPrivateEndpoint(args: GetPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointResult> {
 
@@ -107,7 +107,7 @@ export interface GetPrivateEndpointResult {
 }
 /**
  * Gets the specified private endpoint by resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getPrivateEndpointOutput(args: GetPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpoint(a, opts))

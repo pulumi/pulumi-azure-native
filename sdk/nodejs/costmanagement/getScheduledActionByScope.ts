@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the shared scheduled action from the given scope by name.
- * API Version: 2022-10-01.
+ * API Version: 2023-03-01.
  */
 export function getScheduledActionByScope(args: GetScheduledActionByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionByScopeResult> {
 
@@ -94,7 +94,7 @@ export interface GetScheduledActionByScopeResult {
 }
 /**
  * Get the shared scheduled action from the given scope by name.
- * API Version: 2022-10-01.
+ * API Version: 2023-03-01.
  */
 export function getScheduledActionByScopeOutput(args: GetScheduledActionByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionByScopeResult> {
     return pulumi.output(args).apply((a: any) => getScheduledActionByScope(a, opts))

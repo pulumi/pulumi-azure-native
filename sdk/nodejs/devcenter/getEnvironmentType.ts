@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an environment type.
- * API Version: 2022-11-11-preview.
+ * API Version: 2023-04-01.
  */
 export function getEnvironmentType(args: GetEnvironmentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentTypeResult> {
 
@@ -67,7 +67,7 @@ export interface GetEnvironmentTypeResult {
 }
 /**
  * Gets an environment type.
- * API Version: 2022-11-11-preview.
+ * API Version: 2023-04-01.
  */
 export function getEnvironmentTypeOutput(args: GetEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentTypeResult> {
     return pulumi.output(args).apply((a: any) => getEnvironmentType(a, opts))

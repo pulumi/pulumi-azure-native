@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing security policy within a profile.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  */
 export function getSecurityPolicy(args: GetSecurityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPolicyResult> {
 
@@ -72,7 +72,7 @@ export interface GetSecurityPolicyResult {
 }
 /**
  * Gets an existing security policy within a profile.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  */
 export function getSecurityPolicyOutput(args: GetSecurityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSecurityPolicy(a, opts))

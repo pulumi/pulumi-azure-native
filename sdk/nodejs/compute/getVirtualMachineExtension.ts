@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the extension.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getVirtualMachineExtension(args: GetVirtualMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineExtensionResult> {
 
@@ -82,6 +82,10 @@ export interface GetVirtualMachineExtensionResult {
      */
     readonly protectedSettingsFromKeyVault?: outputs.compute.KeyVaultSecretReferenceResponse;
     /**
+     * Collection of extension names after which this extension needs to be provisioned.
+     */
+    readonly provisionAfterExtensions?: string[];
+    /**
      * The provisioning state, which only appears in the response.
      */
     readonly provisioningState: string;
@@ -112,7 +116,7 @@ export interface GetVirtualMachineExtensionResult {
 }
 /**
  * The operation to get the extension.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getVirtualMachineExtensionOutput(args: GetVirtualMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineExtensionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineExtension(a, opts))

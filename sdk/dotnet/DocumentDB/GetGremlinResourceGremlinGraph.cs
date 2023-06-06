@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Gets the Gremlin graph under an existing Azure Cosmos DB database account.
-        /// API Version: 2022-11-15.
+        /// API Version: 2023-04-15.
         /// </summary>
         public static Task<GetGremlinResourceGremlinGraphResult> InvokeAsync(GetGremlinResourceGremlinGraphArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGremlinResourceGremlinGraphResult>("azure-native:documentdb:getGremlinResourceGremlinGraph", args ?? new GetGremlinResourceGremlinGraphArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Gremlin graph under an existing Azure Cosmos DB database account.
-        /// API Version: 2022-11-15.
+        /// API Version: 2023-04-15.
         /// </summary>
         public static Output<GetGremlinResourceGremlinGraphResult> Invoke(GetGremlinResourceGremlinGraphInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGremlinResourceGremlinGraphResult>("azure-native:documentdb:getGremlinResourceGremlinGraph", args ?? new GetGremlinResourceGremlinGraphInvokeArgs(), options.WithDefaults());

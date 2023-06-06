@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes a Virtual Machine Scale Set.
-    /// API Version: 2022-11-01.
+    /// API Version: 2023-03-01.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSet")]
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies information about the dedicated host group that the virtual machine scale set resides in. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-06-01.
+        /// Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
         /// </summary>
         [Output("hostGroup")]
         public Output<Outputs.SubResourceResponse?> HostGroup { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.
+        /// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
         /// </summary>
         [Output("proximityPlacementGroup")]
         public Output<Outputs.SubResourceResponse?> ProximityPlacementGroup { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the time at which the Virtual Machine Scale Set resource was created.&lt;br&gt;&lt;br&gt;Minimum api-version: 2021-11-01.
+        /// Specifies the time at which the Virtual Machine Scale Set resource was created. Minimum api-version: 2021-11-01.
         /// </summary>
         [Output("timeCreated")]
         public Output<string> TimeCreated { get; private set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
-        /// Specifies information about the dedicated host group that the virtual machine scale set resides in. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-06-01.
+        /// Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
         /// </summary>
         [Input("hostGroup")]
         public Input<Inputs.SubResourceArgs>? HostGroup { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.PriorityMixPolicyArgs>? PriorityMixPolicy { get; set; }
 
         /// <summary>
-        /// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.
+        /// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
         /// </summary>
         [Input("proximityPlacementGroup")]
         public Input<Inputs.SubResourceArgs>? ProximityPlacementGroup { get; set; }

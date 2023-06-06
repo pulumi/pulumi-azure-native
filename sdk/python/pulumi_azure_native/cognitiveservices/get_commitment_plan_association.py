@@ -111,7 +111,7 @@ def get_commitment_plan_association(commitment_plan_association_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommitmentPlanAssociationResult:
     """
     Gets the association of the Cognitive Services commitment plan.
-    API Version: 2022-12-01.
+    API Version: 2023-05-01.
 
 
     :param str commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account
@@ -141,7 +141,7 @@ def get_commitment_plan_association_output(commitment_plan_association_name: Opt
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommitmentPlanAssociationResult]:
     """
     Gets the association of the Cognitive Services commitment plan.
-    API Version: 2022-12-01.
+    API Version: 2023-05-01.
 
 
     :param str commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account

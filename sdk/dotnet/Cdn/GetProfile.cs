@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
-        /// API Version: 2021-06-01.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
-        /// API Version: 2021-06-01.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class GetProfileResult
     {
         /// <summary>
+        /// Key-Value pair representing additional properties for profiles.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> ExtendedProperties;
+        /// <summary>
         /// The Id of the frontdoor.
         /// </summary>
         public readonly string FrontDoorId;
@@ -79,6 +83,10 @@ namespace Pulumi.AzureNative.Cdn
         /// Resource ID.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities).
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
         /// </summary>
@@ -122,9 +130,13 @@ namespace Pulumi.AzureNative.Cdn
 
         [OutputConstructor]
         private GetProfileResult(
+            ImmutableDictionary<string, string> extendedProperties,
+
             string frontDoorId,
 
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string kind,
 
@@ -146,8 +158,10 @@ namespace Pulumi.AzureNative.Cdn
 
             string type)
         {
+            ExtendedProperties = extendedProperties;
             FrontDoorId = frontDoorId;
             Id = id;
+            Identity = identity;
             Kind = kind;
             Location = location;
             Name = name;

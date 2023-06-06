@@ -32,7 +32,7 @@ class ProximityPlacementGroupArgs:
         :param pulumi.Input['ProximityPlacementGroupPropertiesIntentArgs'] intent: Specifies the user intent of the proximity placement group.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] proximity_placement_group_name: The name of the proximity placement group.
-        :param pulumi.Input[Union[str, 'ProximityPlacementGroupType']] proximity_placement_group_type: Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+        :param pulumi.Input[Union[str, 'ProximityPlacementGroupType']] proximity_placement_group_type: Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
         """
@@ -116,7 +116,7 @@ class ProximityPlacementGroupArgs:
     @pulumi.getter(name="proximityPlacementGroupType")
     def proximity_placement_group_type(self) -> Optional[pulumi.Input[Union[str, 'ProximityPlacementGroupType']]]:
         """
-        Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+        Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
         """
         return pulumi.get(self, "proximity_placement_group_type")
 
@@ -165,7 +165,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the proximity placement group.
-        API Version: 2022-11-01.
+        API Version: 2023-03-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -174,7 +174,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ProximityPlacementGroupPropertiesIntentArgs']] intent: Specifies the user intent of the proximity placement group.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] proximity_placement_group_name: The name of the proximity placement group.
-        :param pulumi.Input[Union[str, 'ProximityPlacementGroupType']] proximity_placement_group_type: Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+        :param pulumi.Input[Union[str, 'ProximityPlacementGroupType']] proximity_placement_group_type: Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
@@ -187,7 +187,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the proximity placement group.
-        API Version: 2022-11-01.
+        API Version: 2023-03-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -318,7 +318,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
     @pulumi.getter(name="proximityPlacementGroupType")
     def proximity_placement_group_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+        Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
         """
         return pulumi.get(self, "proximity_placement_group_type")
 

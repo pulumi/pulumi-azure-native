@@ -180,7 +180,7 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Cosmos DB User Definition
-        API Version: 2022-11-15.
+        API Version: 2023-04-15.
         Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -203,7 +203,7 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB User Definition
-        API Version: 2022-11-15.
+        API Version: 2023-04-15.
         Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

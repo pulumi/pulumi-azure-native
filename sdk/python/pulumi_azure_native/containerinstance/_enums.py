@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ContainerGroupIpAddressType',
     'ContainerGroupNetworkProtocol',
+    'ContainerGroupPriority',
     'ContainerGroupRestartPolicy',
     'ContainerGroupSku',
     'ContainerNetworkProtocol',
@@ -35,6 +36,14 @@ class ContainerGroupNetworkProtocol(str, Enum):
     UDP = "UDP"
 
 
+class ContainerGroupPriority(str, Enum):
+    """
+    The priority of the container group.
+    """
+    REGULAR = "Regular"
+    SPOT = "Spot"
+
+
 class ContainerGroupRestartPolicy(str, Enum):
     """
     Restart policy for all containers within the container group. 
@@ -53,6 +62,7 @@ class ContainerGroupSku(str, Enum):
     """
     STANDARD = "Standard"
     DEDICATED = "Dedicated"
+    CONFIDENTIAL = "Confidential"
 
 
 class ContainerNetworkProtocol(str, Enum):

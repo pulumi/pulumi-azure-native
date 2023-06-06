@@ -845,17 +845,33 @@ class ServiceCorsConfigurationInfoArgs:
 @pulumi.input_type
 class ServiceCosmosDbConfigurationInfoArgs:
     def __init__(__self__, *,
+                 cross_tenant_cmk_application_id: Optional[pulumi.Input[str]] = None,
                  key_vault_key_uri: Optional[pulumi.Input[str]] = None,
                  offer_throughput: Optional[pulumi.Input[int]] = None):
         """
         The settings for the Cosmos DB database backing the service.
+        :param pulumi.Input[str] cross_tenant_cmk_application_id: The multi-tenant application id used to enable CMK access for services in a data sovereign region.
         :param pulumi.Input[str] key_vault_key_uri: The URI of the customer-managed key for the backing database.
         :param pulumi.Input[int] offer_throughput: The provisioned throughput for the backing database.
         """
+        if cross_tenant_cmk_application_id is not None:
+            pulumi.set(__self__, "cross_tenant_cmk_application_id", cross_tenant_cmk_application_id)
         if key_vault_key_uri is not None:
             pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
         if offer_throughput is not None:
             pulumi.set(__self__, "offer_throughput", offer_throughput)
+
+    @property
+    @pulumi.getter(name="crossTenantCmkApplicationId")
+    def cross_tenant_cmk_application_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The multi-tenant application id used to enable CMK access for services in a data sovereign region.
+        """
+        return pulumi.get(self, "cross_tenant_cmk_application_id")
+
+    @cross_tenant_cmk_application_id.setter
+    def cross_tenant_cmk_application_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cross_tenant_cmk_application_id", value)
 
     @property
     @pulumi.getter(name="keyVaultKeyUri")

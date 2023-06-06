@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines web application firewall policy for Azure CDN.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Policy extends pulumi.CustomResource {
@@ -51,6 +51,10 @@ export class Policy extends pulumi.CustomResource {
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Key-Value pair representing additional properties for Web Application Firewall policy.
+     */
+    public readonly extendedProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource location.
      */
@@ -111,6 +115,7 @@ export class Policy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["customRules"] = args ? args.customRules : undefined;
+            resourceInputs["extendedProperties"] = args ? args.extendedProperties : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedRules"] = args ? args.managedRules : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
@@ -130,6 +135,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["customRules"] = undefined /*out*/;
             resourceInputs["endpointLinks"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["extendedProperties"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedRules"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -157,6 +163,10 @@ export interface PolicyArgs {
      * Describes custom rules inside the policy.
      */
     customRules?: pulumi.Input<inputs.cdn.CustomRuleListArgs>;
+    /**
+     * Key-Value pair representing additional properties for Web Application Firewall policy.
+     */
+    extendedProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource location.
      */

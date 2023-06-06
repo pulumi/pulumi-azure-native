@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AttestationProviderArgs', 'AttestationProvider']
@@ -112,7 +113,7 @@ class AttestationProvider(pulumi.CustomResource):
                  __props__=None):
         """
         Attestation service response message.
-        API Version: 2020-10-01.
+        API Version: 2021-06-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -131,7 +132,7 @@ class AttestationProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attestation service response message.
-        API Version: 2020-10-01.
+        API Version: 2021-06-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -175,8 +176,10 @@ class AttestationProvider(pulumi.CustomResource):
             __props__.__dict__["attest_uri"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
+            __props__.__dict__["public_network_access"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
+            __props__.__dict__["tpm_attestation_authentication"] = None
             __props__.__dict__["trust_model"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:attestation/v20180901preview:AttestationProvider"), pulumi.Alias(type_="azure-native:attestation/v20201001:AttestationProvider"), pulumi.Alias(type_="azure-native:attestation/v20210601:AttestationProvider"), pulumi.Alias(type_="azure-native:attestation/v20210601preview:AttestationProvider")])
@@ -207,9 +210,11 @@ class AttestationProvider(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["tpm_attestation_authentication"] = None
         __props__.__dict__["trust_model"] = None
         __props__.__dict__["type"] = None
         return AttestationProvider(resource_name, opts=opts, __props__=__props__)
@@ -247,6 +252,14 @@ class AttestationProvider(pulumi.CustomResource):
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
@@ -269,6 +282,14 @@ class AttestationProvider(pulumi.CustomResource):
         Resource tags.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tpmAttestationAuthentication")
+    def tpm_attestation_authentication(self) -> pulumi.Output[Optional[str]]:
+        """
+        The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
+        """
+        return pulumi.get(self, "tpm_attestation_authentication")
 
     @property
     @pulumi.getter(name="trustModel")

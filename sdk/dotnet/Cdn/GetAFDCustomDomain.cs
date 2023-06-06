@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
-        /// API Version: 2021-06-01.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Task<GetAFDCustomDomainResult> InvokeAsync(GetAFDCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAFDCustomDomainResult>("azure-native:cdn:getAFDCustomDomain", args ?? new GetAFDCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
-        /// API Version: 2021-06-01.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Output<GetAFDCustomDomainResult> Invoke(GetAFDCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDCustomDomainResult>("azure-native:cdn:getAFDCustomDomain", args ?? new GetAFDCustomDomainInvokeArgs(), options.WithDefaults());
@@ -93,6 +93,10 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly string DomainValidationState;
         /// <summary>
+        /// Key-Value pair representing migration properties for domains.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ExtendedProperties;
+        /// <summary>
         /// The host name of the domain. Must be a domain name.
         /// </summary>
         public readonly string HostName;
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.Cdn
 
             string domainValidationState,
 
+            ImmutableDictionary<string, string>? extendedProperties,
+
             string hostName,
 
             string id,
@@ -164,6 +170,7 @@ namespace Pulumi.AzureNative.Cdn
             AzureDnsZone = azureDnsZone;
             DeploymentStatus = deploymentStatus;
             DomainValidationState = domainValidationState;
+            ExtendedProperties = extendedProperties;
             HostName = hostName;
             Id = id;
             Name = name;

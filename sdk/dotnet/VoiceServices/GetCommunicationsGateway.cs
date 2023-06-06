@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.VoiceServices
     {
         /// <summary>
         /// Get a CommunicationsGateway
-        /// API Version: 2023-01-31.
+        /// API Version: 2023-04-03.
         /// </summary>
         public static Task<GetCommunicationsGatewayResult> InvokeAsync(GetCommunicationsGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCommunicationsGatewayResult>("azure-native:voiceservices:getCommunicationsGateway", args ?? new GetCommunicationsGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a CommunicationsGateway
-        /// API Version: 2023-01-31.
+        /// API Version: 2023-04-03.
         /// </summary>
         public static Output<GetCommunicationsGatewayResult> Invoke(GetCommunicationsGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommunicationsGatewayResult>("azure-native:voiceservices:getCommunicationsGateway", args ?? new GetCommunicationsGatewayInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,14 @@ namespace Pulumi.AzureNative.VoiceServices
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The managed service identities assigned to this resource.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
+        /// Whether an integrated Mobile Control Point is in use.
+        /// </summary>
+        public readonly bool? IntegratedMcpEnabled;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -166,6 +174,10 @@ namespace Pulumi.AzureNative.VoiceServices
 
             string id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
+            bool? integratedMcpEnabled,
+
             string location,
 
             string name,
@@ -196,6 +208,8 @@ namespace Pulumi.AzureNative.VoiceServices
             E911Type = e911Type;
             EmergencyDialStrings = emergencyDialStrings;
             Id = id;
+            Identity = identity;
+            IntegratedMcpEnabled = integratedMcpEnabled;
             Location = location;
             Name = name;
             OnPremMcpEnabled = onPremMcpEnabled;

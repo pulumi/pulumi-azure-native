@@ -133,7 +133,7 @@ def get_virtual_network_gateway_vpnclient_ipsec_parameters(resource_group_name: 
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayVpnclientIpsecParametersResult:
     """
     The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -162,7 +162,7 @@ def get_virtual_network_gateway_vpnclient_ipsec_parameters_output(resource_group
                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayVpnclientIpsecParametersResult]:
     """
     The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str resource_group_name: The name of the resource group.

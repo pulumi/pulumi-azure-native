@@ -95,7 +95,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Monitor Workspace definition
-        API Version: 2021-06-03-preview.
+        API Version: 2023-04-03.
         Previous API Version: 2021-06-03-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -113,7 +113,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Monitor Workspace definition
-        API Version: 2021-06-03-preview.
+        API Version: 2023-04-03.
         Previous API Version: 2021-06-03-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -155,7 +155,9 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["metrics"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["public_network_access"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:monitor/v20210603preview:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor/v20230403:AzureMonitorWorkspace")])
@@ -188,7 +190,9 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["metrics"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -243,12 +247,28 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        List of private endpoint connections
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[str]:
+        """
+        Gets or sets allow or disallow public network access to workspace
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="systemData")

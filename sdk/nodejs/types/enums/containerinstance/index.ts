@@ -38,6 +38,16 @@ export const ContainerGroupNetworkProtocol = {
  */
 export type ContainerGroupNetworkProtocol = (typeof ContainerGroupNetworkProtocol)[keyof typeof ContainerGroupNetworkProtocol];
 
+export const ContainerGroupPriority = {
+    Regular: "Regular",
+    Spot: "Spot",
+} as const;
+
+/**
+ * The priority of the container group.
+ */
+export type ContainerGroupPriority = (typeof ContainerGroupPriority)[keyof typeof ContainerGroupPriority];
+
 export const ContainerGroupRestartPolicy = {
     Always: "Always",
     OnFailure: "OnFailure",
@@ -55,6 +65,7 @@ export type ContainerGroupRestartPolicy = (typeof ContainerGroupRestartPolicy)[k
 export const ContainerGroupSku = {
     Standard: "Standard",
     Dedicated: "Dedicated",
+    Confidential: "Confidential",
 } as const;
 
 /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Dev Box definition
- * API Version: 2022-11-11-preview.
+ * API Version: 2023-04-01.
  */
 export function getDevBoxDefinition(args: GetDevBoxDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDevBoxDefinitionResult> {
 
@@ -75,7 +75,7 @@ export interface GetDevBoxDefinitionResult {
     /**
      * The storage type used for the Operating System disk of Dev Boxes created using this definition.
      */
-    readonly osStorageType: string;
+    readonly osStorageType?: string;
     /**
      * The provisioning state of the resource.
      */
@@ -99,7 +99,7 @@ export interface GetDevBoxDefinitionResult {
 }
 /**
  * Gets a Dev Box definition
- * API Version: 2022-11-11-preview.
+ * API Version: 2023-04-01.
  */
 export function getDevBoxDefinitionOutput(args: GetDevBoxDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevBoxDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getDevBoxDefinition(a, opts))

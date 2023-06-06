@@ -133,7 +133,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     }
 
     /// <summary>
-    /// Enable Storage Auto Grow or not.
+    /// Enable Log On Disk or not.
     /// </summary>
     [EnumType]
     public readonly struct EnableStatusEnum : IEquatable<EnableStatusEnum>

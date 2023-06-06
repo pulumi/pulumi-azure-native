@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// 
-        /// API Version: 2022-10-01.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Task<GetBatchDeploymentResult> InvokeAsync(GetBatchDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBatchDeploymentResult>("azure-native:machinelearningservices:getBatchDeployment", args ?? new GetBatchDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2022-10-01.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Output<GetBatchDeploymentResult> Invoke(GetBatchDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBatchDeploymentResult>("azure-native:machinelearningservices:getBatchDeployment", args ?? new GetBatchDeploymentInvokeArgs(), options.WithDefaults());

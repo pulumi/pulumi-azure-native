@@ -120,7 +120,7 @@ class GetVirtualMachineScaleSetVMResult:
     @pulumi.getter(name="availabilitySet")
     def availability_set(self) -> Optional['outputs.SubResourceResponse']:
         """
-        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         """
         return pulumi.get(self, "availability_set")
 
@@ -128,7 +128,7 @@ class GetVirtualMachineScaleSetVMResult:
     @pulumi.getter(name="diagnosticsProfile")
     def diagnostics_profile(self) -> Optional['outputs.DiagnosticsProfileResponse']:
         """
-        Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+        Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         """
         return pulumi.get(self, "diagnostics_profile")
 
@@ -376,7 +376,7 @@ def get_virtual_machine_scale_set_vm(expand: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMResult:
     """
     Gets a virtual machine from a VM scale set.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
@@ -431,7 +431,7 @@ def get_virtual_machine_scale_set_vm_output(expand: Optional[pulumi.Input[Option
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMResult]:
     """
     Gets a virtual machine from a VM scale set.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -76,7 +76,7 @@ export interface GetServiceResult {
 }
 /**
  * Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

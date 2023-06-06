@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve protection policy with specified name within a resource group.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
 
@@ -47,6 +47,10 @@ export interface GetPolicyResult {
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
+    /**
+     * Key-Value pair representing additional properties for Web Application Firewall policy.
+     */
+    readonly extendedProperties?: {[key: string]: string};
     /**
      * Resource ID.
      */
@@ -95,7 +99,7 @@ export interface GetPolicyResult {
 }
 /**
  * Retrieve protection policy with specified name within a resource group.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPolicy(a, opts))

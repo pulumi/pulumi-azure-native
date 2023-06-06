@@ -22,7 +22,7 @@ class GetManagedClusterResult:
     """
     Managed cluster.
     """
-    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, auto_scaler_profile=None, auto_upgrade_profile=None, azure_monitor_profile=None, azure_portal_fqdn=None, current_kubernetes_version=None, disable_local_accounts=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, extended_location=None, fqdn=None, fqdn_subdomain=None, http_proxy_config=None, id=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, oidc_issuer_profile=None, pod_identity_profile=None, power_state=None, private_fqdn=None, private_link_resources=None, provisioning_state=None, public_network_access=None, security_profile=None, service_principal_profile=None, sku=None, storage_profile=None, system_data=None, tags=None, type=None, windows_profile=None, workload_auto_scaler_profile=None):
+    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, auto_scaler_profile=None, auto_upgrade_profile=None, azure_monitor_profile=None, azure_portal_fqdn=None, current_kubernetes_version=None, disable_local_accounts=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, extended_location=None, fqdn=None, fqdn_subdomain=None, http_proxy_config=None, id=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, oidc_issuer_profile=None, pod_identity_profile=None, power_state=None, private_fqdn=None, private_link_resources=None, provisioning_state=None, public_network_access=None, security_profile=None, service_principal_profile=None, sku=None, storage_profile=None, support_plan=None, system_data=None, tags=None, type=None, windows_profile=None, workload_auto_scaler_profile=None):
         if aad_profile and not isinstance(aad_profile, dict):
             raise TypeError("Expected argument 'aad_profile' to be a dict")
         pulumi.set(__self__, "aad_profile", aad_profile)
@@ -140,6 +140,9 @@ class GetManagedClusterResult:
         if storage_profile and not isinstance(storage_profile, dict):
             raise TypeError("Expected argument 'storage_profile' to be a dict")
         pulumi.set(__self__, "storage_profile", storage_profile)
+        if support_plan and not isinstance(support_plan, str):
+            raise TypeError("Expected argument 'support_plan' to be a str")
+        pulumi.set(__self__, "support_plan", support_plan)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -469,6 +472,14 @@ class GetManagedClusterResult:
         return pulumi.get(self, "storage_profile")
 
     @property
+    @pulumi.getter(name="supportPlan")
+    def support_plan(self) -> Optional[str]:
+        """
+        The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
+        """
+        return pulumi.get(self, "support_plan")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -554,6 +565,7 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             service_principal_profile=self.service_principal_profile,
             sku=self.sku,
             storage_profile=self.storage_profile,
+            support_plan=self.support_plan,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
@@ -566,7 +578,7 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterResult:
     """
     Managed cluster.
-    API Version: 2023-01-01.
+    API Version: 2023-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -618,6 +630,7 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
         service_principal_profile=__ret__.service_principal_profile,
         sku=__ret__.sku,
         storage_profile=__ret__.storage_profile,
+        support_plan=__ret__.support_plan,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
@@ -631,7 +644,7 @@ def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterResult]:
     """
     Managed cluster.
-    API Version: 2023-01-01.
+    API Version: 2023-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

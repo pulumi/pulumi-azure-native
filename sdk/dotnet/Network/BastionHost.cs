@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Bastion Host resource.
-    /// API Version: 2022-09-01.
+    /// API Version: 2022-11-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:BastionHost")]
@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("enableIpConnect")]
         public Output<bool?> EnableIpConnect { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable/Disable Kerberos feature of the Bastion Host resource.
+        /// </summary>
+        [Output("enableKerberos")]
+        public Output<bool?> EnableKerberos { get; private set; } = null!;
 
         /// <summary>
         /// Enable/Disable Shareable Link of the Bastion Host resource.
@@ -209,6 +215,12 @@ namespace Pulumi.AzureNative.Network
         public Input<bool>? EnableIpConnect { get; set; }
 
         /// <summary>
+        /// Enable/Disable Kerberos feature of the Bastion Host resource.
+        /// </summary>
+        [Input("enableKerberos")]
+        public Input<bool>? EnableKerberos { get; set; }
+
+        /// <summary>
         /// Enable/Disable Shareable Link of the Bastion Host resource.
         /// </summary>
         [Input("enableShareableLink")]
@@ -279,6 +291,7 @@ namespace Pulumi.AzureNative.Network
             DisableCopyPaste = false;
             EnableFileCopy = false;
             EnableIpConnect = false;
+            EnableKerberos = false;
             EnableShareableLink = false;
             EnableTunneling = false;
         }

@@ -22,7 +22,7 @@ class GetManagedClusterResult:
     """
     The managed cluster resource
     """
-    def __init__(__self__, addon_features=None, admin_password=None, admin_user_name=None, allow_rdp_access=None, application_type_versions_cleanup_policy=None, auxiliary_subnets=None, azure_active_directory=None, client_connection_port=None, clients=None, cluster_certificate_thumbprints=None, cluster_code_version=None, cluster_id=None, cluster_state=None, cluster_upgrade_cadence=None, cluster_upgrade_mode=None, dns_name=None, enable_auto_os_upgrade=None, enable_ipv6=None, enable_service_public_ip=None, etag=None, fabric_settings=None, fqdn=None, http_gateway_connection_port=None, id=None, ip_tags=None, ipv4_address=None, ipv6_address=None, load_balancing_rules=None, location=None, name=None, network_security_rules=None, provisioning_state=None, service_endpoints=None, sku=None, subnet_id=None, system_data=None, tags=None, type=None, use_custom_vnet=None, zonal_resiliency=None, zonal_update_mode=None):
+    def __init__(__self__, addon_features=None, admin_password=None, admin_user_name=None, allow_rdp_access=None, application_type_versions_cleanup_policy=None, auxiliary_subnets=None, azure_active_directory=None, client_connection_port=None, clients=None, cluster_certificate_thumbprints=None, cluster_code_version=None, cluster_id=None, cluster_state=None, cluster_upgrade_cadence=None, cluster_upgrade_mode=None, dns_name=None, enable_auto_os_upgrade=None, enable_ipv6=None, enable_service_public_ip=None, etag=None, fabric_settings=None, fqdn=None, http_gateway_connection_port=None, id=None, ip_tags=None, ipv4_address=None, ipv6_address=None, load_balancing_rules=None, location=None, name=None, network_security_rules=None, provisioning_state=None, public_ip_prefix_id=None, service_endpoints=None, sku=None, subnet_id=None, system_data=None, tags=None, type=None, use_custom_vnet=None, zonal_resiliency=None, zonal_update_mode=None):
         if addon_features and not isinstance(addon_features, list):
             raise TypeError("Expected argument 'addon_features' to be a list")
         pulumi.set(__self__, "addon_features", addon_features)
@@ -119,6 +119,9 @@ class GetManagedClusterResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_ip_prefix_id and not isinstance(public_ip_prefix_id, str):
+            raise TypeError("Expected argument 'public_ip_prefix_id' to be a str")
+        pulumi.set(__self__, "public_ip_prefix_id", public_ip_prefix_id)
         if service_endpoints and not isinstance(service_endpoints, list):
             raise TypeError("Expected argument 'service_endpoints' to be a list")
         pulumi.set(__self__, "service_endpoints", service_endpoints)
@@ -404,6 +407,14 @@ class GetManagedClusterResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="publicIPPrefixId")
+    def public_ip_prefix_id(self) -> Optional[str]:
+        """
+        Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+        """
+        return pulumi.get(self, "public_ip_prefix_id")
+
+    @property
     @pulumi.getter(name="serviceEndpoints")
     def service_endpoints(self) -> Optional[Sequence['outputs.ServiceEndpointResponse']]:
         """
@@ -514,6 +525,7 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             name=self.name,
             network_security_rules=self.network_security_rules,
             provisioning_state=self.provisioning_state,
+            public_ip_prefix_id=self.public_ip_prefix_id,
             service_endpoints=self.service_endpoints,
             sku=self.sku,
             subnet_id=self.subnet_id,
@@ -530,7 +542,7 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterResult:
     """
     Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
-    API Version: 2023-02-01-preview.
+    API Version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -575,6 +587,7 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
         name=__ret__.name,
         network_security_rules=__ret__.network_security_rules,
         provisioning_state=__ret__.provisioning_state,
+        public_ip_prefix_id=__ret__.public_ip_prefix_id,
         service_endpoints=__ret__.service_endpoints,
         sku=__ret__.sku,
         subnet_id=__ret__.subnet_id,
@@ -592,7 +605,7 @@ def get_managed_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterResult]:
     """
     Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
-    API Version: 2023-02-01-preview.
+    API Version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.

@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.StorageCache
     public static class GetCache
     {
         /// <summary>
-        /// Returns a Cache.
-        /// API Version: 2023-01-01.
+        /// Returns a cache.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:storagecache:getCache", args ?? new GetCacheArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Returns a Cache.
-        /// API Version: 2023-01-01.
+        /// Returns a cache.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:storagecache:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());
@@ -30,13 +30,13 @@ namespace Pulumi.AzureNative.StorageCache
     public sealed class GetCacheArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        /// Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
         [Input("cacheName", required: true)]
         public string CacheName { get; set; } = null!;
 
         /// <summary>
-        /// Target resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -50,13 +50,13 @@ namespace Pulumi.AzureNative.StorageCache
     public sealed class GetCacheInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        /// Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
         [Input("cacheName", required: true)]
         public Input<string> CacheName { get; set; } = null!;
 
         /// <summary>
-        /// Target resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -84,11 +84,11 @@ namespace Pulumi.AzureNative.StorageCache
         /// </summary>
         public readonly Outputs.CacheEncryptionSettingsResponse? EncryptionSettings;
         /// <summary>
-        /// Health of the Cache.
+        /// Health of the cache.
         /// </summary>
         public readonly Outputs.CacheHealthResponse Health;
         /// <summary>
-        /// Resource ID of the Cache.
+        /// Resource ID of the cache.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -100,11 +100,11 @@ namespace Pulumi.AzureNative.StorageCache
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Array of IP addresses that can be used by clients mounting this Cache.
+        /// Array of IPv4 addresses that can be used by clients mounting this cache.
         /// </summary>
         public readonly ImmutableArray<string> MountAddresses;
         /// <summary>
-        /// Name of Cache.
+        /// Name of cache.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.StorageCache
         /// </summary>
         public readonly Outputs.CacheSecuritySettingsResponse? SecuritySettings;
         /// <summary>
-        /// SKU for the Cache.
+        /// SKU for the cache.
         /// </summary>
         public readonly Outputs.CacheResponseSku? Sku;
         /// <summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.StorageCache
         /// </summary>
         public readonly ImmutableArray<Outputs.StorageTargetSpaceAllocationResponse> SpaceAllocation;
         /// <summary>
-        /// Subnet used for the Cache.
+        /// Subnet used for the cache.
         /// </summary>
         public readonly string? Subnet;
         /// <summary>
@@ -144,15 +144,15 @@ namespace Pulumi.AzureNative.StorageCache
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Type of the Cache; Microsoft.StorageCache/Cache
+        /// Type of the cache; Microsoft.StorageCache/Cache
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Upgrade settings of the Cache.
+        /// Upgrade settings of the cache.
         /// </summary>
         public readonly Outputs.CacheUpgradeSettingsResponse? UpgradeSettings;
         /// <summary>
-        /// Upgrade status of the Cache.
+        /// Upgrade status of the cache.
         /// </summary>
         public readonly Outputs.CacheUpgradeStatusResponse UpgradeStatus;
         /// <summary>

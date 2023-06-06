@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
- * API Version: 2022-09-01.
+ * API Version: 2023-05-01.
  */
 export function getContainerGroup(args: GetContainerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerGroupResult> {
 
@@ -35,6 +35,10 @@ export interface GetContainerGroupArgs {
  * A container group.
  */
 export interface GetContainerGroupResult {
+    /**
+     * The properties for confidential container group
+     */
+    readonly confidentialComputeProperties?: outputs.containerinstance.ConfidentialComputePropertiesResponse;
     /**
      * The containers within the container group.
      */
@@ -92,6 +96,10 @@ export interface GetContainerGroupResult {
      */
     readonly osType: string;
     /**
+     * The priority of the container group.
+     */
+    readonly priority?: string;
+    /**
      * The provisioning state of the container group. This only appears in the response.
      */
     readonly provisioningState: string;
@@ -129,7 +137,7 @@ export interface GetContainerGroupResult {
 }
 /**
  * Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
- * API Version: 2022-09-01.
+ * API Version: 2023-05-01.
  */
 export function getContainerGroupOutput(args: GetContainerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerGroupResult> {
     return pulumi.output(args).apply((a: any) => getContainerGroup(a, opts))

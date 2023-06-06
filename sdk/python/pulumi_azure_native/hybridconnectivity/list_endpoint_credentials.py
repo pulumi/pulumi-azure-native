@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ListEndpointCredentialsResult',
@@ -21,7 +22,7 @@ class ListEndpointCredentialsResult:
     """
     The endpoint access for the target resource.
     """
-    def __init__(__self__, access_key=None, expires_on=None, hybrid_connection_name=None, namespace_name=None, namespace_name_suffix=None):
+    def __init__(__self__, access_key=None, expires_on=None, hybrid_connection_name=None, namespace_name=None, namespace_name_suffix=None, service_configuration_token=None):
         if access_key and not isinstance(access_key, str):
             raise TypeError("Expected argument 'access_key' to be a str")
         pulumi.set(__self__, "access_key", access_key)
@@ -37,6 +38,9 @@ class ListEndpointCredentialsResult:
         if namespace_name_suffix and not isinstance(namespace_name_suffix, str):
             raise TypeError("Expected argument 'namespace_name_suffix' to be a str")
         pulumi.set(__self__, "namespace_name_suffix", namespace_name_suffix)
+        if service_configuration_token and not isinstance(service_configuration_token, str):
+            raise TypeError("Expected argument 'service_configuration_token' to be a str")
+        pulumi.set(__self__, "service_configuration_token", service_configuration_token)
 
     @property
     @pulumi.getter(name="accessKey")
@@ -78,6 +82,14 @@ class ListEndpointCredentialsResult:
         """
         return pulumi.get(self, "namespace_name_suffix")
 
+    @property
+    @pulumi.getter(name="serviceConfigurationToken")
+    def service_configuration_token(self) -> Optional[str]:
+        """
+        The token to access the enabled service.
+        """
+        return pulumi.get(self, "service_configuration_token")
+
 
 class AwaitableListEndpointCredentialsResult(ListEndpointCredentialsResult):
     # pylint: disable=using-constant-test
@@ -89,26 +101,30 @@ class AwaitableListEndpointCredentialsResult(ListEndpointCredentialsResult):
             expires_on=self.expires_on,
             hybrid_connection_name=self.hybrid_connection_name,
             namespace_name=self.namespace_name,
-            namespace_name_suffix=self.namespace_name_suffix)
+            namespace_name_suffix=self.namespace_name_suffix,
+            service_configuration_token=self.service_configuration_token)
 
 
 def list_endpoint_credentials(endpoint_name: Optional[str] = None,
                               expiresin: Optional[int] = None,
                               resource_uri: Optional[str] = None,
+                              service_name: Optional[Union[str, 'ServiceName']] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEndpointCredentialsResult:
     """
     Gets the endpoint access credentials to the resource.
-    API Version: 2022-05-01-preview.
+    API Version: 2023-03-15.
 
 
     :param str endpoint_name: The endpoint name.
     :param int expiresin: The is how long the endpoint access token is valid (in seconds).
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
+    :param Union[str, 'ServiceName'] service_name: The name of the service. If not provided, the request will by pass the generation of service configuration token 
     """
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['expiresin'] = expiresin
     __args__['resourceUri'] = resource_uri
+    __args__['serviceName'] = service_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:hybridconnectivity:listEndpointCredentials', __args__, opts=opts, typ=ListEndpointCredentialsResult).value
 
@@ -117,21 +133,24 @@ def list_endpoint_credentials(endpoint_name: Optional[str] = None,
         expires_on=__ret__.expires_on,
         hybrid_connection_name=__ret__.hybrid_connection_name,
         namespace_name=__ret__.namespace_name,
-        namespace_name_suffix=__ret__.namespace_name_suffix)
+        namespace_name_suffix=__ret__.namespace_name_suffix,
+        service_configuration_token=__ret__.service_configuration_token)
 
 
 @_utilities.lift_output_func(list_endpoint_credentials)
 def list_endpoint_credentials_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                                      expiresin: Optional[pulumi.Input[Optional[int]]] = None,
                                      resource_uri: Optional[pulumi.Input[str]] = None,
+                                     service_name: Optional[pulumi.Input[Optional[Union[str, 'ServiceName']]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEndpointCredentialsResult]:
     """
     Gets the endpoint access credentials to the resource.
-    API Version: 2022-05-01-preview.
+    API Version: 2023-03-15.
 
 
     :param str endpoint_name: The endpoint name.
     :param int expiresin: The is how long the endpoint access token is valid (in seconds).
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
+    :param Union[str, 'ServiceName'] service_name: The name of the service. If not provided, the request will by pass the generation of service configuration token 
     """
     ...

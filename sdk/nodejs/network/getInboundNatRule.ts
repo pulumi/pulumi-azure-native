@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified load balancer inbound NAT rule.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getInboundNatRule(args: GetInboundNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInboundNatRuleResult> {
 
@@ -112,7 +112,7 @@ export interface GetInboundNatRuleResult {
 }
 /**
  * Gets the specified load balancer inbound NAT rule.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getInboundNatRuleOutput(args: GetInboundNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInboundNatRuleResult> {
     return pulumi.output(args).apply((a: any) => getInboundNatRule(a, opts))

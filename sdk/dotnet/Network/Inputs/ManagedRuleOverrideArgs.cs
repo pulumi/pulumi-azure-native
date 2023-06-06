@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     public sealed class ManagedRuleOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
+        /// Describes the override action to be applied when rule matches.
         /// </summary>
         [Input("action")]
         public InputUnion<string, Pulumi.AzureNative.Network.ActionType>? Action { get; set; }

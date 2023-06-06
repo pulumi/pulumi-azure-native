@@ -194,6 +194,22 @@ export const KubeletDiskType = {
  */
 export type KubeletDiskType = (typeof KubeletDiskType)[keyof typeof KubeletDiskType];
 
+export const KubernetesSupportPlan = {
+    /**
+     * Support for the version is the same as for the open source Kubernetes offering. Official Kubernetes open source community support versions for 1 year after release.
+     */
+    KubernetesOfficial: "KubernetesOfficial",
+    /**
+     * Support for the version extended past the KubernetesOfficial support of 1 year. AKS continues to patch CVEs for another 1 year, for a total of 2 years of support.
+     */
+    AKSLongTermSupport: "AKSLongTermSupport",
+} as const;
+
+/**
+ * The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
+ */
+export type KubernetesSupportPlan = (typeof KubernetesSupportPlan)[keyof typeof KubernetesSupportPlan];
+
 export const LicenseType = {
     /**
      * No additional licensing is applied.
@@ -228,11 +244,7 @@ export type LoadBalancerSku = (typeof LoadBalancerSku)[keyof typeof LoadBalancer
 
 export const ManagedClusterSKUName = {
     /**
-     * Basic option for the AKS control plane.
-     */
-    Basic: "Basic",
-    /**
-     * Not yet available in this version.
+     * Base option for the AKS control plane.
      */
     Base: "Base",
 } as const;
@@ -244,11 +256,11 @@ export type ManagedClusterSKUName = (typeof ManagedClusterSKUName)[keyof typeof 
 
 export const ManagedClusterSKUTier = {
     /**
-     * Recommended for mission-critical and production workloads. Includes Kubernetes control plane autoscaling, workload-intensive testing, and up to 5,000 nodes per cluster. Guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use Availability Zones and 99.9% of availability for clusters that don't use Availability Zones.
+     * Cluster has premium capabilities in addition to all of the capabilities included in 'Standard'. Premium enables selection of LongTermSupport (aka.ms/aks/lts) for certain Kubernetes versions.
      */
-    Paid: "Paid",
+    Premium: "Premium",
     /**
-     * Not yet available in this version.
+     * Recommended for mission-critical and production workloads. Includes Kubernetes control plane autoscaling, workload-intensive testing, and up to 5,000 nodes per cluster. Guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use Availability Zones and 99.9% of availability for clusters that don't use Availability Zones.
      */
     Standard: "Standard",
     /**
@@ -261,6 +273,22 @@ export const ManagedClusterSKUTier = {
  * If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
  */
 export type ManagedClusterSKUTier = (typeof ManagedClusterSKUTier)[keyof typeof ManagedClusterSKUTier];
+
+export const NetworkDataplane = {
+    /**
+     * Use Azure network dataplane.
+     */
+    Azure: "azure",
+    /**
+     * Use Cilium network dataplane. See [Azure CNI Powered by Cilium](https://learn.microsoft.com/azure/aks/azure-cni-powered-by-cilium) for more information.
+     */
+    Cilium: "cilium",
+} as const;
+
+/**
+ * Network dataplane used in the Kubernetes cluster.
+ */
+export type NetworkDataplane = (typeof NetworkDataplane)[keyof typeof NetworkDataplane];
 
 export const NetworkMode = {
     /**
@@ -298,6 +326,18 @@ export const NetworkPlugin = {
  */
 export type NetworkPlugin = (typeof NetworkPlugin)[keyof typeof NetworkPlugin];
 
+export const NetworkPluginMode = {
+    /**
+     * Used with networkPlugin=azure, pods are given IPs from the PodCIDR address space but use Azure Routing Domains rather than Kubenet's method of route tables. For more information visit https://aka.ms/aks/azure-cni-overlay.
+     */
+    Overlay: "overlay",
+} as const;
+
+/**
+ * The mode the network plugin should use.
+ */
+export type NetworkPluginMode = (typeof NetworkPluginMode)[keyof typeof NetworkPluginMode];
+
 export const NetworkPolicy = {
     /**
      * Use Calico network policies. See [differences between Azure and Calico policies](https://docs.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities) for more information.
@@ -307,6 +347,10 @@ export const NetworkPolicy = {
      * Use Azure network policies. See [differences between Azure and Calico policies](https://docs.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities) for more information.
      */
     Azure: "azure",
+    /**
+     * Use Cilium to enforce network policies. This requires networkDataplane to be 'cilium'.
+     */
+    Cilium: "cilium",
 } as const;
 
 /**
@@ -331,9 +375,25 @@ export const OSDiskType = {
 export type OSDiskType = (typeof OSDiskType)[keyof typeof OSDiskType];
 
 export const OSSKU = {
+    /**
+     * Use Ubuntu as the OS for node images.
+     */
     Ubuntu: "Ubuntu",
+    /**
+     * Use AzureLinux as the OS for node images. Azure Linux is a container-optimized Linux distro built by Microsoft, visit https://aka.ms/azurelinux for more information.
+     */
+    AzureLinux: "AzureLinux",
+    /**
+     * Deprecated OSSKU. Microsoft recommends that new deployments choose 'AzureLinux' instead.
+     */
     CBLMariner: "CBLMariner",
+    /**
+     * Use Windows2019 as the OS for node images. Unsupported for system node pools. Windows2019 only supports Windows2019 containers; it cannot run Windows2022 containers and vice versa.
+     */
     Windows2019: "Windows2019",
+    /**
+     * Use Windows2022 as the OS for node images. Unsupported for system node pools. Windows2022 only supports Windows2022 containers; it cannot run Windows2019 containers and vice versa.
+     */
     Windows2022: "Windows2022",
 } as const;
 

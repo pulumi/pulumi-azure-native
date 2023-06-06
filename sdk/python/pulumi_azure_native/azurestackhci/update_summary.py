@@ -197,7 +197,7 @@ class UpdateSummary(pulumi.CustomResource):
                  __props__=None):
         """
         Get the update summaries for the cluster
-        API Version: 2023-02-01.
+        API Version: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,7 +220,7 @@ class UpdateSummary(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Get the update summaries for the cluster
-        API Version: 2023-02-01.
+        API Version: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param UpdateSummaryArgs args: The arguments to use to populate this resource's properties.

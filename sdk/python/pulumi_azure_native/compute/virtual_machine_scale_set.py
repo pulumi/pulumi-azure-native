@@ -50,7 +50,7 @@ class VirtualMachineScaleSetArgs:
         :param pulumi.Input[bool] constrained_maximum_capacity: Optional property which must either be set to True or omitted.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_vms: When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the Virtual Machine Scale Set.
-        :param pulumi.Input['SubResourceArgs'] host_group: Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
+        :param pulumi.Input['SubResourceArgs'] host_group: Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
         :param pulumi.Input['VirtualMachineScaleSetIdentityArgs'] identity: The identity of the virtual machine scale set, if configured.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Union[str, 'OrchestrationMode']] orchestration_mode: Specifies the orchestration mode for the virtual machine scale set.
@@ -58,7 +58,7 @@ class VirtualMachineScaleSetArgs:
         :param pulumi.Input['PlanArgs'] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         :param pulumi.Input[int] platform_fault_domain_count: Fault Domain count for each placement group.
         :param pulumi.Input['PriorityMixPolicyArgs'] priority_mix_policy: Specifies the desired targets for mixing Spot and Regular priority VMs within the same VMSS Flex instance.
-        :param pulumi.Input['SubResourceArgs'] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+        :param pulumi.Input['SubResourceArgs'] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
         :param pulumi.Input['ScaleInPolicyArgs'] scale_in_policy: Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
         :param pulumi.Input[bool] single_placement_group: When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
         :param pulumi.Input['SkuArgs'] sku: The virtual machine scale set sku.
@@ -196,7 +196,7 @@ class VirtualMachineScaleSetArgs:
     @pulumi.getter(name="hostGroup")
     def host_group(self) -> Optional[pulumi.Input['SubResourceArgs']]:
         """
-        Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
+        Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
         """
         return pulumi.get(self, "host_group")
 
@@ -292,7 +292,7 @@ class VirtualMachineScaleSetArgs:
     @pulumi.getter(name="proximityPlacementGroup")
     def proximity_placement_group(self) -> Optional[pulumi.Input['SubResourceArgs']]:
         """
-        Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+        Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
         """
         return pulumi.get(self, "proximity_placement_group")
 
@@ -454,7 +454,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Virtual Machine Scale Set.
-        API Version: 2022-11-01.
+        API Version: 2023-03-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -464,7 +464,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] constrained_maximum_capacity: Optional property which must either be set to True or omitted.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_vms: When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the Virtual Machine Scale Set.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] host_group: Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] host_group: Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
         :param pulumi.Input[pulumi.InputType['VirtualMachineScaleSetIdentityArgs']] identity: The identity of the virtual machine scale set, if configured.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Union[str, 'OrchestrationMode']] orchestration_mode: Specifies the orchestration mode for the virtual machine scale set.
@@ -472,7 +472,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         :param pulumi.Input[int] platform_fault_domain_count: Fault Domain count for each placement group.
         :param pulumi.Input[pulumi.InputType['PriorityMixPolicyArgs']] priority_mix_policy: Specifies the desired targets for mixing Spot and Regular priority VMs within the same VMSS Flex instance.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['ScaleInPolicyArgs']] scale_in_policy: Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
         :param pulumi.Input[bool] single_placement_group: When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
@@ -493,7 +493,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine Scale Set.
-        API Version: 2022-11-01.
+        API Version: 2023-03-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -675,7 +675,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="hostGroup")
     def host_group(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
-        Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
+        Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
         """
         return pulumi.get(self, "host_group")
 
@@ -755,7 +755,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="proximityPlacementGroup")
     def proximity_placement_group(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
-        Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+        Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
         """
         return pulumi.get(self, "proximity_placement_group")
 
@@ -803,7 +803,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="timeCreated")
     def time_created(self) -> pulumi.Output[str]:
         """
-        Specifies the time at which the Virtual Machine Scale Set resource was created.<br><br>Minimum api-version: 2021-11-01.
+        Specifies the time at which the Virtual Machine Scale Set resource was created. Minimum api-version: 2021-11-01.
         """
         return pulumi.get(self, "time_created")
 

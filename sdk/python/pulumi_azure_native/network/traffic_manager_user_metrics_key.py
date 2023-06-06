@@ -28,7 +28,7 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing Traffic Manager User Metrics.
-        API Version: 2018-08-01.
+        API Version: 2022-04-01.
         Previous API Version: 2018-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -42,7 +42,7 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing Traffic Manager User Metrics.
-        API Version: 2018-08-01.
+        API Version: 2022-04-01.
         Previous API Version: 2018-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

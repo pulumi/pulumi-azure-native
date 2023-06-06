@@ -158,7 +158,7 @@ def get_shared_commitment_plan(commitment_plan_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedCommitmentPlanResult:
     """
     Returns a Cognitive Services commitment plan specified by the parameters.
-    API Version: 2022-12-01.
+    API Version: 2023-05-01.
 
 
     :param str commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
@@ -189,7 +189,7 @@ def get_shared_commitment_plan_output(commitment_plan_name: Optional[pulumi.Inpu
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharedCommitmentPlanResult]:
     """
     Returns a Cognitive Services commitment plan specified by the parameters.
-    API Version: 2022-12-01.
+    API Version: 2023-05-01.
 
 
     :param str commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account

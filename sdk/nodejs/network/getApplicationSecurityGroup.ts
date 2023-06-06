@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified application security group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getApplicationSecurityGroup(args: GetApplicationSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationSecurityGroupResult> {
 
@@ -67,7 +67,7 @@ export interface GetApplicationSecurityGroupResult {
 }
 /**
  * Gets information about the specified application security group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getApplicationSecurityGroupOutput(args: GetApplicationSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationSecurityGroupResult> {
     return pulumi.output(args).apply((a: any) => getApplicationSecurityGroup(a, opts))

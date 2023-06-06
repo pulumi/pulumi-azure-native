@@ -266,7 +266,7 @@ class MachineExtension(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Machine Extension.
-        API Version: 2022-11-10.
+        API Version: 2022-12-27.
         Previous API Version: 2020-08-02. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -294,7 +294,7 @@ class MachineExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Machine Extension.
-        API Version: 2022-11-10.
+        API Version: 2022-12-27.
         Previous API Version: 2020-08-02. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

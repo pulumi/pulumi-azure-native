@@ -56,7 +56,7 @@ class GetTrafficControllerInterfaceResult:
 
     @property
     @pulumi.getter
-    def associations(self) -> Sequence['outputs.ResourceIDResponse']:
+    def associations(self) -> Sequence['outputs.ResourceIdResponse']:
         """
         Associations References List
         """
@@ -72,7 +72,7 @@ class GetTrafficControllerInterfaceResult:
 
     @property
     @pulumi.getter
-    def frontends(self) -> Sequence['outputs.ResourceIDResponse']:
+    def frontends(self) -> Sequence['outputs.ResourceIdResponse']:
         """
         Frontends References List
         """
@@ -158,7 +158,7 @@ def get_traffic_controller_interface(resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficControllerInterfaceResult:
     """
     Get a TrafficController
-    API Version: 2022-10-01-preview.
+    API Version: 2023-05-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -189,7 +189,7 @@ def get_traffic_controller_interface_output(resource_group_name: Optional[pulumi
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficControllerInterfaceResult]:
     """
     Get a TrafficController
-    API Version: 2022-10-01-preview.
+    API Version: 2023-05-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

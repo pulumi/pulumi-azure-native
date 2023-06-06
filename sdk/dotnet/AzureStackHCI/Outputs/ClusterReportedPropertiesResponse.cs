@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly string ClusterName;
         /// <summary>
+        /// The node type of all the nodes of the cluster.
+        /// </summary>
+        public readonly string ClusterType;
+        /// <summary>
         /// Version of the cluster software.
         /// </summary>
         public readonly string ClusterVersion;
@@ -41,6 +45,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly string LastUpdated;
         /// <summary>
+        /// The manufacturer of all the nodes of the cluster.
+        /// </summary>
+        public readonly string Manufacturer;
+        /// <summary>
         /// List of nodes reported by the cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterNodeResponse> Nodes;
@@ -55,6 +63,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string clusterName,
 
+            string clusterType,
+
             string clusterVersion,
 
             string? diagnosticLevel,
@@ -63,16 +73,20 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string lastUpdated,
 
+            string manufacturer,
+
             ImmutableArray<Outputs.ClusterNodeResponse> nodes,
 
             ImmutableArray<string> supportedCapabilities)
         {
             ClusterId = clusterId;
             ClusterName = clusterName;
+            ClusterType = clusterType;
             ClusterVersion = clusterVersion;
             DiagnosticLevel = diagnosticLevel;
             ImdsAttestation = imdsAttestation;
             LastUpdated = lastUpdated;
+            Manufacturer = manufacturer;
             Nodes = nodes;
             SupportedCapabilities = supportedCapabilities;
         }

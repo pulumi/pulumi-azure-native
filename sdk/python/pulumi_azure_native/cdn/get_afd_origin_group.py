@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetAFDOriginGroupResult:
     """
-    AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+    AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from Azure Front Door.
     """
     def __init__(__self__, deployment_status=None, health_probe_settings=None, id=None, load_balancing_settings=None, name=None, profile_name=None, provisioning_state=None, session_affinity_state=None, system_data=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
         if deployment_status and not isinstance(deployment_status, str):
@@ -168,7 +168,7 @@ def get_afd_origin_group(origin_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDOriginGroupResult:
     """
     Gets an existing origin group within a profile.
-    API Version: 2021-06-01.
+    API Version: 2023-05-01.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the endpoint.
@@ -203,7 +203,7 @@ def get_afd_origin_group_output(origin_group_name: Optional[pulumi.Input[str]] =
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDOriginGroupResult]:
     """
     Gets an existing origin group within a profile.
-    API Version: 2021-06-01.
+    API Version: 2023-05-01.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the endpoint.

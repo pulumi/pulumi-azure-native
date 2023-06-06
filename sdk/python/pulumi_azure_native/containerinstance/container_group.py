@@ -20,6 +20,7 @@ class ContainerGroupArgs:
                  containers: pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]],
                  os_type: pulumi.Input[Union[str, 'OperatingSystemTypes']],
                  resource_group_name: pulumi.Input[str],
+                 confidential_compute_properties: Optional[pulumi.Input['ConfidentialComputePropertiesArgs']] = None,
                  container_group_name: Optional[pulumi.Input[str]] = None,
                  diagnostics: Optional[pulumi.Input['ContainerGroupDiagnosticsArgs']] = None,
                  dns_config: Optional[pulumi.Input['DnsConfigurationArgs']] = None,
@@ -30,6 +31,7 @@ class ContainerGroupArgs:
                  init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]]] = None,
                  ip_address: Optional[pulumi.Input['IpAddressArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[Union[str, 'ContainerGroupPriority']]] = None,
                  restart_policy: Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'ContainerGroupSku']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]] = None,
@@ -41,6 +43,7 @@ class ContainerGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]] containers: The containers within the container group.
         :param pulumi.Input[Union[str, 'OperatingSystemTypes']] os_type: The operating system type required by the containers in the container group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['ConfidentialComputePropertiesArgs'] confidential_compute_properties: The properties for confidential container group
         :param pulumi.Input[str] container_group_name: The name of the container group.
         :param pulumi.Input['ContainerGroupDiagnosticsArgs'] diagnostics: The diagnostic information for a container group.
         :param pulumi.Input['DnsConfigurationArgs'] dns_config: The DNS config information for a container group.
@@ -51,6 +54,7 @@ class ContainerGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]] init_containers: The init containers for a container group.
         :param pulumi.Input['IpAddressArgs'] ip_address: The IP address type of the container group.
         :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[Union[str, 'ContainerGroupPriority']] priority: The priority of the container group.
         :param pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']] restart_policy: Restart policy for all containers within the container group. 
                - `Always` Always restart
                - `OnFailure` Restart on failure
@@ -64,6 +68,8 @@ class ContainerGroupArgs:
         pulumi.set(__self__, "containers", containers)
         pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if confidential_compute_properties is not None:
+            pulumi.set(__self__, "confidential_compute_properties", confidential_compute_properties)
         if container_group_name is not None:
             pulumi.set(__self__, "container_group_name", container_group_name)
         if diagnostics is not None:
@@ -84,6 +90,8 @@ class ContainerGroupArgs:
             pulumi.set(__self__, "ip_address", ip_address)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
         if restart_policy is not None:
             pulumi.set(__self__, "restart_policy", restart_policy)
         if sku is not None:
@@ -132,6 +140,18 @@ class ContainerGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="confidentialComputeProperties")
+    def confidential_compute_properties(self) -> Optional[pulumi.Input['ConfidentialComputePropertiesArgs']]:
+        """
+        The properties for confidential container group
+        """
+        return pulumi.get(self, "confidential_compute_properties")
+
+    @confidential_compute_properties.setter
+    def confidential_compute_properties(self, value: Optional[pulumi.Input['ConfidentialComputePropertiesArgs']]):
+        pulumi.set(self, "confidential_compute_properties", value)
 
     @property
     @pulumi.getter(name="containerGroupName")
@@ -254,6 +274,18 @@ class ContainerGroupArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[Union[str, 'ContainerGroupPriority']]]:
+        """
+        The priority of the container group.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[Union[str, 'ContainerGroupPriority']]]):
+        pulumi.set(self, "priority", value)
+
+    @property
     @pulumi.getter(name="restartPolicy")
     def restart_policy(self) -> Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]]:
         """
@@ -334,6 +366,7 @@ class ContainerGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 confidential_compute_properties: Optional[pulumi.Input[pulumi.InputType['ConfidentialComputePropertiesArgs']]] = None,
                  container_group_name: Optional[pulumi.Input[str]] = None,
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerArgs']]]]] = None,
                  diagnostics: Optional[pulumi.Input[pulumi.InputType['ContainerGroupDiagnosticsArgs']]] = None,
@@ -346,6 +379,7 @@ class ContainerGroup(pulumi.CustomResource):
                  ip_address: Optional[pulumi.Input[pulumi.InputType['IpAddressArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OperatingSystemTypes']]] = None,
+                 priority: Optional[pulumi.Input[Union[str, 'ContainerGroupPriority']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'ContainerGroupSku']]] = None,
@@ -356,11 +390,12 @@ class ContainerGroup(pulumi.CustomResource):
                  __props__=None):
         """
         A container group.
-        API Version: 2022-09-01.
+        API Version: 2023-05-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ConfidentialComputePropertiesArgs']] confidential_compute_properties: The properties for confidential container group
         :param pulumi.Input[str] container_group_name: The name of the container group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerArgs']]]] containers: The containers within the container group.
         :param pulumi.Input[pulumi.InputType['ContainerGroupDiagnosticsArgs']] diagnostics: The diagnostic information for a container group.
@@ -373,6 +408,7 @@ class ContainerGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IpAddressArgs']] ip_address: The IP address type of the container group.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Union[str, 'OperatingSystemTypes']] os_type: The operating system type required by the containers in the container group.
+        :param pulumi.Input[Union[str, 'ContainerGroupPriority']] priority: The priority of the container group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']] restart_policy: Restart policy for all containers within the container group. 
                - `Always` Always restart
@@ -392,7 +428,7 @@ class ContainerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A container group.
-        API Version: 2022-09-01.
+        API Version: 2023-05-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -410,6 +446,7 @@ class ContainerGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 confidential_compute_properties: Optional[pulumi.Input[pulumi.InputType['ConfidentialComputePropertiesArgs']]] = None,
                  container_group_name: Optional[pulumi.Input[str]] = None,
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerArgs']]]]] = None,
                  diagnostics: Optional[pulumi.Input[pulumi.InputType['ContainerGroupDiagnosticsArgs']]] = None,
@@ -422,6 +459,7 @@ class ContainerGroup(pulumi.CustomResource):
                  ip_address: Optional[pulumi.Input[pulumi.InputType['IpAddressArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OperatingSystemTypes']]] = None,
+                 priority: Optional[pulumi.Input[Union[str, 'ContainerGroupPriority']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'ContainerGroupSku']]] = None,
@@ -438,6 +476,7 @@ class ContainerGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContainerGroupArgs.__new__(ContainerGroupArgs)
 
+            __props__.__dict__["confidential_compute_properties"] = confidential_compute_properties
             __props__.__dict__["container_group_name"] = container_group_name
             if containers is None and not opts.urn:
                 raise TypeError("Missing required property 'containers'")
@@ -454,6 +493,7 @@ class ContainerGroup(pulumi.CustomResource):
             if os_type is None and not opts.urn:
                 raise TypeError("Missing required property 'os_type'")
             __props__.__dict__["os_type"] = os_type
+            __props__.__dict__["priority"] = priority
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -491,6 +531,7 @@ class ContainerGroup(pulumi.CustomResource):
 
         __props__ = ContainerGroupArgs.__new__(ContainerGroupArgs)
 
+        __props__.__dict__["confidential_compute_properties"] = None
         __props__.__dict__["containers"] = None
         __props__.__dict__["diagnostics"] = None
         __props__.__dict__["dns_config"] = None
@@ -504,6 +545,7 @@ class ContainerGroup(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["os_type"] = None
+        __props__.__dict__["priority"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["restart_policy"] = None
         __props__.__dict__["sku"] = None
@@ -513,6 +555,14 @@ class ContainerGroup(pulumi.CustomResource):
         __props__.__dict__["volumes"] = None
         __props__.__dict__["zones"] = None
         return ContainerGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="confidentialComputeProperties")
+    def confidential_compute_properties(self) -> pulumi.Output[Optional['outputs.ConfidentialComputePropertiesResponse']]:
+        """
+        The properties for confidential container group
+        """
+        return pulumi.get(self, "confidential_compute_properties")
 
     @property
     @pulumi.getter
@@ -617,6 +667,14 @@ class ContainerGroup(pulumi.CustomResource):
         The operating system type required by the containers in the container group.
         """
         return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Output[Optional[str]]:
+        """
+        The priority of the container group.
+        """
+        return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="provisioningState")

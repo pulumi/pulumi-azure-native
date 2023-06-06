@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a connection monitor by name.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getConnectionMonitor(args: GetConnectionMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorResult> {
 
@@ -119,7 +119,7 @@ export interface GetConnectionMonitorResult {
 }
 /**
  * Gets a connection monitor by name.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getConnectionMonitorOutput(args: GetConnectionMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorResult> {
     return pulumi.output(args).apply((a: any) => getConnectionMonitor(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Vault details.
- * API Version: 2023-02-01.
+ * API Version: 2023-04-01.
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
 
@@ -78,7 +78,7 @@ export interface GetVaultResult {
 }
 /**
  * Get the Vault details.
- * API Version: 2023-02-01.
+ * API Version: 2023-04-01.
  */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
     return pulumi.output(args).apply((a: any) => getVault(a, opts))

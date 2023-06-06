@@ -111,7 +111,7 @@ def get_database(database_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     Gets information about a database.
-    API Version: 2021-05-01.
+    API Version: 2022-01-01.
 
 
     :param str database_name: The name of the database.
@@ -141,7 +141,7 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Gets information about a database.
-    API Version: 2021-05-01.
+    API Version: 2022-01-01.
 
 
     :param str database_name: The name of the database.

@@ -123,7 +123,7 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection associated with the Cognitive Services account.
-    API Version: 2022-12-01.
+    API Version: 2023-05-01.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -154,7 +154,7 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the Cognitive Services account.
-    API Version: 2022-12-01.
+    API Version: 2023-05-01.
 
 
     :param str account_name: The name of Cognitive Services account.

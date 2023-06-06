@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
- * API Version: 2023-01-01.
+ * API Version: 2023-04-01.
  */
 export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceConfigurationResult> {
 
@@ -67,7 +67,7 @@ export interface GetMaintenanceConfigurationResult {
 }
 /**
  * See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
- * API Version: 2023-01-01.
+ * API Version: 2023-04-01.
  */
 export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getMaintenanceConfiguration(a, opts))

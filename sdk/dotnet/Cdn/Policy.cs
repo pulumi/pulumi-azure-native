@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Defines web application firewall policy for Azure CDN.
-    /// API Version: 2021-06-01.
+    /// API Version: 2023-05-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Policy")]
@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-Value pair representing additional properties for Web Application Firewall policy.
+        /// </summary>
+        [Output("extendedProperties")]
+        public Output<ImmutableDictionary<string, string>?> ExtendedProperties { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -160,6 +166,18 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Input("customRules")]
         public Input<Inputs.CustomRuleListArgs>? CustomRules { get; set; }
+
+        [Input("extendedProperties")]
+        private InputMap<string>? _extendedProperties;
+
+        /// <summary>
+        /// Key-Value pair representing additional properties for Web Application Firewall policy.
+        /// </summary>
+        public InputMap<string> ExtendedProperties
+        {
+            get => _extendedProperties ?? (_extendedProperties = new InputMap<string>());
+            set => _extendedProperties = value;
+        }
 
         /// <summary>
         /// Resource location.

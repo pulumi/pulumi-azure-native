@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a Dev Box definition
-        /// API Version: 2022-11-11-preview.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Task<GetDevBoxDefinitionResult> InvokeAsync(GetDevBoxDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevBoxDefinitionResult>("azure-native:devcenter:getDevBoxDefinition", args ?? new GetDevBoxDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Dev Box definition
-        /// API Version: 2022-11-11-preview.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Output<GetDevBoxDefinitionResult> Invoke(GetDevBoxDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevBoxDefinitionResult>("azure-native:devcenter:getDevBoxDefinition", args ?? new GetDevBoxDefinitionInvokeArgs(), options.WithDefaults());
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The storage type used for the Operating System disk of Dev Boxes created using this definition.
         /// </summary>
-        public readonly string OsStorageType;
+        public readonly string? OsStorageType;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.DevCenter
 
             string name,
 
-            string osStorageType,
+            string? osStorageType,
 
             string provisioningState,
 

@@ -554,7 +554,7 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayResult:
     """
     Gets the specified application gateway.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str application_gateway_name: The name of the application gateway.
@@ -618,7 +618,7 @@ def get_application_gateway_output(application_gateway_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGatewayResult]:
     """
     Gets the specified application gateway.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str application_gateway_name: The name of the application gateway.

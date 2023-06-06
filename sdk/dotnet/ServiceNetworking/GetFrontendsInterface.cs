@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.ServiceNetworking
     public static class GetFrontendsInterface
     {
         /// <summary>
-        /// Get a Traffic Controller Frontend
-        /// API Version: 2022-10-01-preview.
+        /// Get a Frontend
+        /// API Version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetFrontendsInterfaceResult> InvokeAsync(GetFrontendsInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontendsInterfaceResult>("azure-native:servicenetworking:getFrontendsInterface", args ?? new GetFrontendsInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a Traffic Controller Frontend
-        /// API Version: 2022-10-01-preview.
+        /// Get a Frontend
+        /// API Version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetFrontendsInterfaceResult> Invoke(GetFrontendsInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontendsInterfaceResult>("azure-native:servicenetworking:getFrontendsInterface", args ?? new GetFrontendsInterfaceInvokeArgs(), options.WithDefaults());
@@ -84,33 +84,25 @@ namespace Pulumi.AzureNative.ServiceNetworking
     public sealed class GetFrontendsInterfaceResult
     {
         /// <summary>
+        /// The Fully Qualified Domain Name of the DNS record associated to a Traffic Controller frontend.
+        /// </summary>
+        public readonly string Fqdn;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Frontend IP Address Version (Optional).
-        /// </summary>
-        public readonly string? IpAddressVersion;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Frontend Mode (Optional).
-        /// </summary>
-        public readonly string? Mode;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// test doc
+        /// Provisioning State of Traffic Controller Frontend Resource
         /// </summary>
         public readonly string ProvisioningState;
-        /// <summary>
-        /// Frontend Public IP Address (Optional).
-        /// </summary>
-        public readonly Outputs.FrontendPropertiesIPAddressResponse? PublicIPAddress;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -126,19 +118,15 @@ namespace Pulumi.AzureNative.ServiceNetworking
 
         [OutputConstructor]
         private GetFrontendsInterfaceResult(
+            string fqdn,
+
             string id,
 
-            string? ipAddressVersion,
-
             string location,
-
-            string? mode,
 
             string name,
 
             string provisioningState,
-
-            Outputs.FrontendPropertiesIPAddressResponse? publicIPAddress,
 
             Outputs.SystemDataResponse systemData,
 
@@ -146,13 +134,11 @@ namespace Pulumi.AzureNative.ServiceNetworking
 
             string type)
         {
+            Fqdn = fqdn;
             Id = id;
-            IpAddressVersion = ipAddressVersion;
             Location = location;
-            Mode = mode;
             Name = name;
             ProvisioningState = provisioningState;
-            PublicIPAddress = publicIPAddress;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -53,6 +53,7 @@ namespace Pulumi.AzureNative.DocumentDB
 
         public static AuthenticationMethod None { get; } = new AuthenticationMethod("None");
         public static AuthenticationMethod Cassandra { get; } = new AuthenticationMethod("Cassandra");
+        public static AuthenticationMethod Ldap { get; } = new AuthenticationMethod("Ldap");
 
         public static bool operator ==(AuthenticationMethod left, AuthenticationMethod right) => left.Equals(right);
         public static bool operator !=(AuthenticationMethod left, AuthenticationMethod right) => !left.Equals(right);
@@ -250,6 +251,37 @@ namespace Pulumi.AzureNative.DocumentDB
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConnectorOffer other && Equals(other);
         public bool Equals(ConnectorOffer other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enum to indicate type of Continuous backup mode
+    /// </summary>
+    [EnumType]
+    public readonly struct ContinuousTier : IEquatable<ContinuousTier>
+    {
+        private readonly string _value;
+
+        private ContinuousTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContinuousTier Continuous7Days { get; } = new ContinuousTier("Continuous7Days");
+        public static ContinuousTier Continuous30Days { get; } = new ContinuousTier("Continuous30Days");
+
+        public static bool operator ==(ContinuousTier left, ContinuousTier right) => left.Equals(right);
+        public static bool operator !=(ContinuousTier left, ContinuousTier right) => !left.Equals(right);
+
+        public static explicit operator string(ContinuousTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContinuousTier other && Equals(other);
+        public bool Equals(ContinuousTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -582,6 +614,37 @@ namespace Pulumi.AzureNative.DocumentDB
     }
 
     /// <summary>
+    /// Indicates whether the Role Definition was built-in or user created.
+    /// </summary>
+    [EnumType]
+    public readonly struct MongoRoleDefinitionType : IEquatable<MongoRoleDefinitionType>
+    {
+        private readonly string _value;
+
+        private MongoRoleDefinitionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MongoRoleDefinitionType BuiltInRole { get; } = new MongoRoleDefinitionType("BuiltInRole");
+        public static MongoRoleDefinitionType CustomRole { get; } = new MongoRoleDefinitionType("CustomRole");
+
+        public static bool operator ==(MongoRoleDefinitionType left, MongoRoleDefinitionType right) => left.Equals(right);
+        public static bool operator !=(MongoRoleDefinitionType left, MongoRoleDefinitionType right) => !left.Equals(right);
+
+        public static explicit operator string(MongoRoleDefinitionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MongoRoleDefinitionType other && Equals(other);
+        public bool Equals(MongoRoleDefinitionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates what services are allowed to bypass firewall checks.
     /// </summary>
     [EnumType]
@@ -659,6 +722,7 @@ namespace Pulumi.AzureNative.DocumentDB
 
         public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
         public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+        public static PublicNetworkAccess SecuredByPerimeter { get; } = new PublicNetworkAccess("SecuredByPerimeter");
 
         public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
         public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);

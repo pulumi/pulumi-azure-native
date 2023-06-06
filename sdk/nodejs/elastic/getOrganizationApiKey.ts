@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Fetch User API Key from internal database, if it was generated and stored while creating the Elasticsearch Organization.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-06-01.
  */
 export function getOrganizationApiKey(args?: GetOrganizationApiKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationApiKeyResult> {
     args = args || {};
@@ -35,7 +35,7 @@ export interface GetOrganizationApiKeyResult {
 }
 /**
  * Fetch User API Key from internal database, if it was generated and stored while creating the Elasticsearch Organization.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-06-01.
  */
 export function getOrganizationApiKeyOutput(args?: GetOrganizationApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationApiKeyResult> {
     return pulumi.output(args).apply((a: any) => getOrganizationApiKey(a, opts))

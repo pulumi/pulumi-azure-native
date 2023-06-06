@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// States and configurations of Cost Analysis.
-    /// API Version: 2022-10-01.
+    /// API Version: 2023-03-01.
     /// Previous API Version: 2019-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:View")]
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// Date when the user last modified this view.
         /// </summary>
         [Output("modifiedOn")]
-        public Output<string> ModifiedOn { get; private set; } = null!;
+        public Output<string?> ModifiedOn { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -242,6 +242,12 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         [Input("metric")]
         public InputUnion<string, Pulumi.AzureNative.CostManagement.MetricType>? Metric { get; set; }
+
+        /// <summary>
+        /// Date when the user last modified this view.
+        /// </summary>
+        [Input("modifiedOn")]
+        public Input<string>? ModifiedOn { get; set; }
 
         [Input("pivots")]
         private InputList<Inputs.PivotPropertiesArgs>? _pivots;

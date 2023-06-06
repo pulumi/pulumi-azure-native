@@ -205,7 +205,7 @@ def get_scheduled_action(name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledActionResult:
     """
     Get the private scheduled action by name.
-    API Version: 2022-10-01.
+    API Version: 2023-03-01.
 
 
     :param str name: Scheduled action name.
@@ -237,7 +237,7 @@ def get_scheduled_action_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledActionResult]:
     """
     Get the private scheduled action by name.
-    API Version: 2022-10-01.
+    API Version: 2023-03-01.
 
 
     :param str name: Scheduled action name.

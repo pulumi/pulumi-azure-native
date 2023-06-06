@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the association of the Cognitive Services commitment plan.
- * API Version: 2022-12-01.
+ * API Version: 2023-05-01.
  */
 export function getCommitmentPlanAssociation(args: GetCommitmentPlanAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanAssociationResult> {
 
@@ -67,7 +67,7 @@ export interface GetCommitmentPlanAssociationResult {
 }
 /**
  * Gets the association of the Cognitive Services commitment plan.
- * API Version: 2022-12-01.
+ * API Version: 2023-05-01.
  */
 export function getCommitmentPlanAssociationOutput(args: GetCommitmentPlanAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanAssociationResult> {
     return pulumi.output(args).apply((a: any) => getCommitmentPlanAssociation(a, opts))

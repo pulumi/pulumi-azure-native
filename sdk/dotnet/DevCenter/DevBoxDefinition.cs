@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a definition for a Developer Machine.
-    /// API Version: 2022-11-11-preview.
+    /// API Version: 2023-04-01.
     /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:DevBoxDefinition")]
@@ -63,7 +63,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// The storage type used for the Operating System disk of Dev Boxes created using this definition.
         /// </summary>
         [Output("osStorageType")]
-        public Output<string> OsStorageType { get; private set; } = null!;
+        public Output<string?> OsStorageType { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the resource.
@@ -182,8 +182,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The storage type used for the Operating System disk of Dev Boxes created using this definition.
         /// </summary>
-        [Input("osStorageType", required: true)]
-        public Input<string> OsStorageType { get; set; } = null!;
+        [Input("osStorageType")]
+        public Input<string>? OsStorageType { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

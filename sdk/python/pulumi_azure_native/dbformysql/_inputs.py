@@ -33,6 +33,8 @@ class BackupArgs:
         """
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+        if geo_redundant_backup is None:
+            geo_redundant_backup = 'Disabled'
         if geo_redundant_backup is not None:
             pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
 
@@ -383,18 +385,32 @@ class SkuArgs:
 class StorageArgs:
     def __init__(__self__, *,
                  auto_grow: Optional[pulumi.Input[Union[str, 'EnableStatusEnum']]] = None,
+                 auto_io_scaling: Optional[pulumi.Input[Union[str, 'EnableStatusEnum']]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
+                 log_on_disk: Optional[pulumi.Input[Union[str, 'EnableStatusEnum']]] = None,
                  storage_size_gb: Optional[pulumi.Input[int]] = None):
         """
         Storage Profile properties of a server
         :param pulumi.Input[Union[str, 'EnableStatusEnum']] auto_grow: Enable Storage Auto Grow or not.
+        :param pulumi.Input[Union[str, 'EnableStatusEnum']] auto_io_scaling: Enable IO Auto Scaling or not.
         :param pulumi.Input[int] iops: Storage IOPS for a server.
+        :param pulumi.Input[Union[str, 'EnableStatusEnum']] log_on_disk: Enable Log On Disk or not.
         :param pulumi.Input[int] storage_size_gb: Max storage size allowed for a server.
         """
+        if auto_grow is None:
+            auto_grow = 'Disabled'
         if auto_grow is not None:
             pulumi.set(__self__, "auto_grow", auto_grow)
+        if auto_io_scaling is None:
+            auto_io_scaling = 'Disabled'
+        if auto_io_scaling is not None:
+            pulumi.set(__self__, "auto_io_scaling", auto_io_scaling)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if log_on_disk is None:
+            log_on_disk = 'Disabled'
+        if log_on_disk is not None:
+            pulumi.set(__self__, "log_on_disk", log_on_disk)
         if storage_size_gb is not None:
             pulumi.set(__self__, "storage_size_gb", storage_size_gb)
 
@@ -411,6 +427,18 @@ class StorageArgs:
         pulumi.set(self, "auto_grow", value)
 
     @property
+    @pulumi.getter(name="autoIoScaling")
+    def auto_io_scaling(self) -> Optional[pulumi.Input[Union[str, 'EnableStatusEnum']]]:
+        """
+        Enable IO Auto Scaling or not.
+        """
+        return pulumi.get(self, "auto_io_scaling")
+
+    @auto_io_scaling.setter
+    def auto_io_scaling(self, value: Optional[pulumi.Input[Union[str, 'EnableStatusEnum']]]):
+        pulumi.set(self, "auto_io_scaling", value)
+
+    @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
         """
@@ -421,6 +449,18 @@ class StorageArgs:
     @iops.setter
     def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter(name="logOnDisk")
+    def log_on_disk(self) -> Optional[pulumi.Input[Union[str, 'EnableStatusEnum']]]:
+        """
+        Enable Log On Disk or not.
+        """
+        return pulumi.get(self, "log_on_disk")
+
+    @log_on_disk.setter
+    def log_on_disk(self, value: Optional[pulumi.Input[Union[str, 'EnableStatusEnum']]]):
+        pulumi.set(self, "log_on_disk", value)
 
     @property
     @pulumi.getter(name="storageSizeGB")

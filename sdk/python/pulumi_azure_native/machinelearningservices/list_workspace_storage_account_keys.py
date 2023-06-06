@@ -43,7 +43,7 @@ def list_workspace_storage_account_keys(resource_group_name: Optional[str] = Non
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceStorageAccountKeysResult:
     """
     List storage account keys of a workspace.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -65,7 +65,7 @@ def list_workspace_storage_account_keys_output(resource_group_name: Optional[pul
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceStorageAccountKeysResult]:
     """
     List storage account keys of a workspace.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

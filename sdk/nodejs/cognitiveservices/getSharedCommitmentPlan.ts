@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a Cognitive Services commitment plan specified by the parameters.
- * API Version: 2022-12-01.
+ * API Version: 2023-05-01.
  */
 export function getSharedCommitmentPlan(args: GetSharedCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedCommitmentPlanResult> {
 
@@ -78,7 +78,7 @@ export interface GetSharedCommitmentPlanResult {
 }
 /**
  * Returns a Cognitive Services commitment plan specified by the parameters.
- * API Version: 2022-12-01.
+ * API Version: 2023-05-01.
  */
 export function getSharedCommitmentPlanOutput(args: GetSharedCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedCommitmentPlanResult> {
     return pulumi.output(args).apply((a: any) => getSharedCommitmentPlan(a, opts))

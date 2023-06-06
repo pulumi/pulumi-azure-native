@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get private DNS zone suffix in the cloud.
- * API Version: 2021-05-01.
+ * API Version: 2022-01-01.
  */
 export function getGetPrivateDnsZoneSuffixExecute(args?: GetGetPrivateDnsZoneSuffixExecuteArgs, opts?: pulumi.InvokeOptions): Promise<GetGetPrivateDnsZoneSuffixExecuteResult> {
     args = args || {};

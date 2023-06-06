@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the connection strings for the specified Azure Cosmos DB database account.
- * API Version: 2022-11-15.
+ * API Version: 2023-04-15.
  */
 export function listDatabaseAccountConnectionStrings(args: ListDatabaseAccountConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseAccountConnectionStringsResult> {
 
@@ -42,7 +42,7 @@ export interface ListDatabaseAccountConnectionStringsResult {
 }
 /**
  * Lists the connection strings for the specified Azure Cosmos DB database account.
- * API Version: 2022-11-15.
+ * API Version: 2023-04-15.
  */
 export function listDatabaseAccountConnectionStringsOutput(args: ListDatabaseAccountConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseAccountConnectionStringsResult> {
     return pulumi.output(args).apply((a: any) => listDatabaseAccountConnectionStrings(a, opts))

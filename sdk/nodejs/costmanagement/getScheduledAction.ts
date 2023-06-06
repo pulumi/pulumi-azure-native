@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the private scheduled action by name.
- * API Version: 2022-10-01.
+ * API Version: 2023-03-01.
  */
 export function getScheduledAction(args: GetScheduledActionArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionResult> {
 
@@ -89,7 +89,7 @@ export interface GetScheduledActionResult {
 }
 /**
  * Get the private scheduled action by name.
- * API Version: 2022-10-01.
+ * API Version: 2023-03-01.
  */
 export function getScheduledActionOutput(args: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionResult> {
     return pulumi.output(args).apply((a: any) => getScheduledAction(a, opts))

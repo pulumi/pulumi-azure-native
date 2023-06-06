@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Get the details of an Asset in the Media Services account
-        /// API Version: 2022-08-01.
+        /// API Version: 2023-01-01.
         /// </summary>
         public static Task<GetAssetResult> InvokeAsync(GetAssetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("azure-native:media:getAsset", args ?? new GetAssetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the details of an Asset in the Media Services account
-        /// API Version: 2022-08-01.
+        /// API Version: 2023-01-01.
         /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:media:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The Asset container encryption scope in the storage account.
+        /// </summary>
+        public readonly string? EncryptionScope;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNative.Media
 
             string? description,
 
+            string? encryptionScope,
+
             string id,
 
             string lastModified,
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNative.Media
             Container = container;
             Created = created;
             Description = description;
+            EncryptionScope = encryptionScope;
             Id = id;
             LastModified = lastModified;
             Name = name;

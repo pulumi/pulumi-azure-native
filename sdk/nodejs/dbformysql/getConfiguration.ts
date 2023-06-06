@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a configuration of server.
- * API Version: 2021-05-01.
+ * API Version: 2022-01-01.
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
 
@@ -45,6 +45,10 @@ export interface GetConfigurationResult {
      */
     readonly allowedValues: string;
     /**
+     * Current value of the configuration.
+     */
+    readonly currentValue?: string;
+    /**
      * Data type of the configuration.
      */
     readonly dataType: string;
@@ -56,6 +60,10 @@ export interface GetConfigurationResult {
      * Description of the configuration.
      */
     readonly description: string;
+    /**
+     * The link used to get the document from community or Azure site.
+     */
+    readonly documentationLink: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -95,7 +103,7 @@ export interface GetConfigurationResult {
 }
 /**
  * Gets information about a configuration of server.
- * API Version: 2021-05-01.
+ * API Version: 2022-01-01.
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// Managed cluster.
-    /// API Version: 2023-01-01.
+    /// API Version: 2023-04-01.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:ManagedCluster")]
@@ -244,6 +244,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Output("storageProfile")]
         public Output<Outputs.ManagedClusterStorageProfileResponse?> StorageProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
+        /// </summary>
+        [Output("supportPlan")]
+        public Output<string?> SupportPlan { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -592,6 +598,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Input("storageProfile")]
         public Input<Inputs.ManagedClusterStorageProfileArgs>? StorageProfile { get; set; }
+
+        /// <summary>
+        /// The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
+        /// </summary>
+        [Input("supportPlan")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.KubernetesSupportPlan>? SupportPlan { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

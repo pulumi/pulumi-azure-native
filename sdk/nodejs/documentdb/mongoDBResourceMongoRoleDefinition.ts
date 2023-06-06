@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB Mongo Role Definition.
- * API Version: 2022-11-15.
+ * API Version: 2023-04-15.
  * Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class MongoDBResourceMongoRoleDefinition extends pulumi.CustomResource {
@@ -140,5 +140,5 @@ export interface MongoDBResourceMongoRoleDefinitionArgs {
     /**
      * Indicates whether the Role Definition was built-in or user created.
      */
-    type?: pulumi.Input<number>;
+    type?: pulumi.Input<enums.documentdb.MongoRoleDefinitionType>;
 }

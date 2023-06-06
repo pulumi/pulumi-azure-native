@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         [Input("scaleSettings")]
         public Input<Inputs.DeploymentScaleSettingsArgs>? ScaleSettings { get; set; }
 
+        /// <summary>
+        /// Deployment model version upgrade option.
+        /// </summary>
+        [Input("versionUpgradeOption")]
+        public InputUnion<string, Pulumi.AzureNative.CognitiveServices.DeploymentModelVersionUpgradeOption>? VersionUpgradeOption { get; set; }
+
         public DeploymentPropertiesArgs()
         {
         }

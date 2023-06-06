@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified route table.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
 
@@ -87,7 +87,7 @@ export interface GetRouteTableResult {
 }
 /**
  * Gets the specified route table.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
     return pulumi.output(args).apply((a: any) => getRouteTable(a, opts))

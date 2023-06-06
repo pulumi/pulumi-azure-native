@@ -22,7 +22,7 @@ class GetProjectResult:
     """
     Represents a project resource.
     """
-    def __init__(__self__, description=None, dev_center_id=None, dev_center_uri=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, description=None, dev_center_id=None, dev_center_uri=None, id=None, location=None, max_dev_boxes_per_user=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -38,6 +38,9 @@ class GetProjectResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if max_dev_boxes_per_user and not isinstance(max_dev_boxes_per_user, int):
+            raise TypeError("Expected argument 'max_dev_boxes_per_user' to be a int")
+        pulumi.set(__self__, "max_dev_boxes_per_user", max_dev_boxes_per_user)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -74,7 +77,7 @@ class GetProjectResult:
     @pulumi.getter(name="devCenterUri")
     def dev_center_uri(self) -> str:
         """
-        The URI of the resource.
+        The URI of the Dev Center resource this project is associated with.
         """
         return pulumi.get(self, "dev_center_uri")
 
@@ -93,6 +96,14 @@ class GetProjectResult:
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxDevBoxesPerUser")
+    def max_dev_boxes_per_user(self) -> Optional[int]:
+        """
+        When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
+        """
+        return pulumi.get(self, "max_dev_boxes_per_user")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetProjectResult(GetProjectResult):
             dev_center_uri=self.dev_center_uri,
             id=self.id,
             location=self.location,
+            max_dev_boxes_per_user=self.max_dev_boxes_per_user,
             name=self.name,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
@@ -158,7 +170,7 @@ def get_project(project_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     Gets a specific project.
-    API Version: 2022-11-11-preview.
+    API Version: 2023-04-01.
 
 
     :param str project_name: The name of the project.
@@ -176,6 +188,7 @@ def get_project(project_name: Optional[str] = None,
         dev_center_uri=__ret__.dev_center_uri,
         id=__ret__.id,
         location=__ret__.location,
+        max_dev_boxes_per_user=__ret__.max_dev_boxes_per_user,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
@@ -189,7 +202,7 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
     Gets a specific project.
-    API Version: 2022-11-11-preview.
+    API Version: 2023-04-01.
 
 
     :param str project_name: The name of the project.

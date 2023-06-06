@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? AuxiliaryMode;
         /// <summary>
+        /// Auxiliary sku of Network Interface resource.
+        /// </summary>
+        public readonly string? AuxiliarySku;
+        /// <summary>
         /// Indicates whether to disable tcp state tracking.
         /// </summary>
         public readonly bool? DisableTcpStateTracking;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.Network.Outputs
         private NetworkInterfaceResponse(
             string? auxiliaryMode,
 
+            string? auxiliarySku,
+
             bool? disableTcpStateTracking,
 
             Outputs.NetworkInterfaceDnsSettingsResponse? dnsSettings,
@@ -194,6 +200,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             string? workloadType)
         {
             AuxiliaryMode = auxiliaryMode;
+            AuxiliarySku = auxiliarySku;
             DisableTcpStateTracking = disableTcpStateTracking;
             DnsSettings = dnsSettings;
             DscpConfiguration = dscpConfiguration;

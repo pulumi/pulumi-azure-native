@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the capacity reservation.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  * Previous API Version: 2021-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class CapacityReservation extends pulumi.CustomResource {
@@ -52,7 +52,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the value of fault domain count that Capacity Reservation supports for requested VM size.<br>NOTE: The fault domain count specified for a resource (like virtual machines scale set) must be less than or equal to this value if it deploys using capacity reservation.<br><br>Minimum api-version: 2022-08-01.
+     * Specifies the value of fault domain count that Capacity Reservation supports for requested VM size. **Note:** The fault domain count specified for a resource (like virtual machines scale set) must be less than or equal to this value if it deploys using capacity reservation. Minimum api-version: 2022-08-01.
      */
     public /*out*/ readonly platformFaultDomainCount!: pulumi.Output<number>;
     /**
@@ -76,7 +76,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies the time at which the Capacity Reservation resource was created.<br><br>Minimum api-version: 2021-11-01.
+     * Specifies the time at which the Capacity Reservation resource was created. Minimum api-version: 2021-11-01.
      */
     public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**

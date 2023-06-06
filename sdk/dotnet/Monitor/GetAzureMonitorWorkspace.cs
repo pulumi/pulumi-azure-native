@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Monitor
     {
         /// <summary>
         /// Returns the specific Azure Monitor workspace
-        /// API Version: 2021-06-03-preview.
+        /// API Version: 2023-04-03.
         /// </summary>
         public static Task<GetAzureMonitorWorkspaceResult> InvokeAsync(GetAzureMonitorWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureMonitorWorkspaceResult>("azure-native:monitor:getAzureMonitorWorkspace", args ?? new GetAzureMonitorWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the specific Azure Monitor workspace
-        /// API Version: 2021-06-03-preview.
+        /// API Version: 2023-04-03.
         /// </summary>
         public static Output<GetAzureMonitorWorkspaceResult> Invoke(GetAzureMonitorWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureMonitorWorkspaceResult>("azure-native:monitor:getAzureMonitorWorkspace", args ?? new GetAzureMonitorWorkspaceInvokeArgs(), options.WithDefaults());
@@ -100,9 +100,17 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// List of private endpoint connections
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Gets or sets allow or disallow public network access to workspace
+        /// </summary>
+        public readonly string PublicNetworkAccess;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -132,7 +140,11 @@ namespace Pulumi.AzureNative.Monitor
 
             string name,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string publicNetworkAccess,
 
             Outputs.SystemDataResponse systemData,
 
@@ -147,7 +159,9 @@ namespace Pulumi.AzureNative.Monitor
             Location = location;
             Metrics = metrics;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             SystemData = systemData;
             Tags = tags;
             Type = type;

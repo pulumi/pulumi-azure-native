@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// Gets the view for the defined scope by view name.
-        /// API Version: 2022-10-01.
+        /// API Version: 2023-03-01.
         /// </summary>
         public static Task<GetViewByScopeResult> InvokeAsync(GetViewByScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetViewByScopeResult>("azure-native:costmanagement:getViewByScope", args ?? new GetViewByScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the view for the defined scope by view name.
-        /// API Version: 2022-10-01.
+        /// API Version: 2023-03-01.
         /// </summary>
         public static Output<GetViewByScopeResult> Invoke(GetViewByScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetViewByScopeResult>("azure-native:costmanagement:getViewByScope", args ?? new GetViewByScopeInvokeArgs(), options.WithDefaults());
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Date when the user last modified this view.
         /// </summary>
-        public readonly string ModifiedOn;
+        public readonly string? ModifiedOn;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.CostManagement
 
             string? metric,
 
-            string modifiedOn,
+            string? modifiedOn,
 
             string name,
 

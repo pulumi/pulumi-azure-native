@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Get the properties of a managed Cassandra cluster.
-        /// API Version: 2022-11-15.
+        /// API Version: 2023-04-15.
         /// </summary>
         public static Task<GetCassandraClusterResult> InvokeAsync(GetCassandraClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCassandraClusterResult>("azure-native:documentdb:getCassandraCluster", args ?? new GetCassandraClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of a managed Cassandra cluster.
-        /// API Version: 2022-11-15.
+        /// API Version: 2023-04-15.
         /// </summary>
         public static Output<GetCassandraClusterResult> Invoke(GetCassandraClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCassandraClusterResult>("azure-native:documentdb:getCassandraCluster", args ?? new GetCassandraClusterInvokeArgs(), options.WithDefaults());

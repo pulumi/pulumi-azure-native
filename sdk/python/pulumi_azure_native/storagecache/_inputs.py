@@ -299,27 +299,16 @@ class BlobNfsTargetArgs:
 @pulumi.input_type
 class CacheActiveDirectorySettingsCredentialsArgs:
     def __init__(__self__, *,
-                 password: pulumi.Input[str],
-                 username: pulumi.Input[str]):
+                 username: pulumi.Input[str],
+                 password: Optional[pulumi.Input[str]] = None):
         """
         Active Directory admin credentials used to join the HPC Cache to a domain.
-        :param pulumi.Input[str] password: Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         :param pulumi.Input[str] username: Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+        :param pulumi.Input[str] password: Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         """
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
-        """
-        Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "password", value)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
 
     @property
     @pulumi.getter
@@ -332,6 +321,18 @@ class CacheActiveDirectorySettingsCredentialsArgs:
     @username.setter
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
 
 
 @pulumi.input_type
@@ -481,8 +482,8 @@ class CacheEncryptionSettingsArgs:
                  rotation_to_latest_key_version_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Cache encryption settings.
-        :param pulumi.Input['KeyVaultKeyReferenceArgs'] key_encryption_key: Specifies the location of the key encryption key in Key Vault.
-        :param pulumi.Input[bool] rotation_to_latest_key_version_enabled: Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+        :param pulumi.Input['KeyVaultKeyReferenceArgs'] key_encryption_key: Specifies the location of the key encryption key in key vault.
+        :param pulumi.Input[bool] rotation_to_latest_key_version_enabled: Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
         """
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
@@ -493,7 +494,7 @@ class CacheEncryptionSettingsArgs:
     @pulumi.getter(name="keyEncryptionKey")
     def key_encryption_key(self) -> Optional[pulumi.Input['KeyVaultKeyReferenceArgs']]:
         """
-        Specifies the location of the key encryption key in Key Vault.
+        Specifies the location of the key encryption key in key vault.
         """
         return pulumi.get(self, "key_encryption_key")
 
@@ -505,7 +506,7 @@ class CacheEncryptionSettingsArgs:
     @pulumi.getter(name="rotationToLatestKeyVersionEnabled")
     def rotation_to_latest_key_version_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+        Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
         """
         return pulumi.get(self, "rotation_to_latest_key_version_enabled")
 
@@ -659,8 +660,8 @@ class CacheSkuArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        SKU for the Cache.
-        :param pulumi.Input[str] name: SKU name for this Cache.
+        SKU for the cache.
+        :param pulumi.Input[str] name: SKU name for this cache.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -669,7 +670,7 @@ class CacheSkuArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        SKU name for this Cache.
+        SKU name for this cache.
         """
         return pulumi.get(self, "name")
 
@@ -786,12 +787,16 @@ class CacheUsernameDownloadSettingsArgs:
         :param pulumi.Input[str] user_file_uri: The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
         :param pulumi.Input[Union[str, 'UsernameSource']] username_source: This setting determines how the cache gets username and group names for clients.
         """
+        if auto_download_certificate is None:
+            auto_download_certificate = False
         if auto_download_certificate is not None:
             pulumi.set(__self__, "auto_download_certificate", auto_download_certificate)
         if ca_certificate_uri is not None:
             pulumi.set(__self__, "ca_certificate_uri", ca_certificate_uri)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if encrypt_ldap_connection is None:
+            encrypt_ldap_connection = False
         if encrypt_ldap_connection is not None:
             pulumi.set(__self__, "encrypt_ldap_connection", encrypt_ldap_connection)
         if extended_groups is not None:
@@ -802,6 +807,8 @@ class CacheUsernameDownloadSettingsArgs:
             pulumi.set(__self__, "ldap_base_dn", ldap_base_dn)
         if ldap_server is not None:
             pulumi.set(__self__, "ldap_server", ldap_server)
+        if require_valid_certificate is None:
+            require_valid_certificate = False
         if require_valid_certificate is not None:
             pulumi.set(__self__, "require_valid_certificate", require_valid_certificate)
         if user_file_uri is not None:
@@ -1039,7 +1046,7 @@ class NamespaceJunctionArgs:
                  target_path: Optional[pulumi.Input[str]] = None):
         """
         A namespace junction.
-        :param pulumi.Input[str] namespace_path: Namespace path on a Cache for a Storage Target.
+        :param pulumi.Input[str] namespace_path: Namespace path on a cache for a Storage Target.
         :param pulumi.Input[str] nfs_access_policy: Name of the access policy applied to this junction.
         :param pulumi.Input[str] nfs_export: NFS export where targetPath exists.
         :param pulumi.Input[str] target_path: Path in Storage Target to which namespacePath points.
@@ -1059,7 +1066,7 @@ class NamespaceJunctionArgs:
     @pulumi.getter(name="namespacePath")
     def namespace_path(self) -> Optional[pulumi.Input[str]]:
         """
-        Namespace path on a Cache for a Storage Target.
+        Namespace path on a cache for a Storage Target.
         """
         return pulumi.get(self, "namespace_path")
 

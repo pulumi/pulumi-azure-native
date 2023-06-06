@@ -133,7 +133,7 @@ def get_ddos_custom_policy(ddos_custom_policy_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDdosCustomPolicyResult:
     """
     Gets information about the specified DDoS custom policy.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str ddos_custom_policy_name: The name of the DDoS custom policy.
@@ -162,7 +162,7 @@ def get_ddos_custom_policy_output(ddos_custom_policy_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDdosCustomPolicyResult]:
     """
     Gets information about the specified DDoS custom policy.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str ddos_custom_policy_name: The name of the DDoS custom policy.

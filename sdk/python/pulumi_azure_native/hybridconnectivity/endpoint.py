@@ -8,7 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['EndpointArgs', 'Endpoint']
 
@@ -16,7 +18,6 @@ __all__ = ['EndpointArgs', 'Endpoint']
 class EndpointArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[str],
-                 type: pulumi.Input[Union[str, 'Type']],
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
@@ -24,11 +25,10 @@ class EndpointArgs:
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
+                 properties: Optional[pulumi.Input['EndpointPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Endpoint resource.
         :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
-        :param pulumi.Input[Union[str, 'Type']] type: The type of endpoint.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
@@ -36,10 +36,9 @@ class EndpointArgs:
         :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
-        :param pulumi.Input[str] resource_id: The resource Id of the connectivity endpoint (optional).
+        :param pulumi.Input['EndpointPropertiesArgs'] properties: The endpoint properties.
         """
         pulumi.set(__self__, "resource_uri", resource_uri)
-        pulumi.set(__self__, "type", type)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if created_by is not None:
@@ -54,8 +53,8 @@ class EndpointArgs:
             pulumi.set(__self__, "last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
             pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="resourceUri")
@@ -68,18 +67,6 @@ class EndpointArgs:
     @resource_uri.setter
     def resource_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_uri", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'Type']]:
-        """
-        The type of endpoint.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'Type']]):
-        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -166,16 +153,16 @@ class EndpointArgs:
         pulumi.set(self, "last_modified_by_type", value)
 
     @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['EndpointPropertiesArgs']]:
         """
-        The resource Id of the connectivity endpoint (optional).
+        The endpoint properties.
         """
-        return pulumi.get(self, "resource_id")
+        return pulumi.get(self, "properties")
 
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['EndpointPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 class Endpoint(pulumi.CustomResource):
@@ -190,13 +177,12 @@ class Endpoint(pulumi.CustomResource):
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['EndpointPropertiesArgs']]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'Type']]] = None,
                  __props__=None):
         """
         The endpoint for the target resource.
-        API Version: 2022-05-01-preview.
+        API Version: 2023-03-15.
         Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -208,9 +194,8 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
-        :param pulumi.Input[str] resource_id: The resource Id of the connectivity endpoint (optional).
+        :param pulumi.Input[pulumi.InputType['EndpointPropertiesArgs']] properties: The endpoint properties.
         :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
-        :param pulumi.Input[Union[str, 'Type']] type: The type of endpoint.
         """
         ...
     @overload
@@ -220,7 +205,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The endpoint for the target resource.
-        API Version: 2022-05-01-preview.
+        API Version: 2023-03-15.
         Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -245,9 +230,8 @@ class Endpoint(pulumi.CustomResource):
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['EndpointPropertiesArgs']]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'Type']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -264,15 +248,13 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["last_modified_at"] = last_modified_at
             __props__.__dict__["last_modified_by"] = last_modified_by
             __props__.__dict__["last_modified_by_type"] = last_modified_by_type
-            __props__.__dict__["resource_id"] = resource_id
+            __props__.__dict__["properties"] = properties
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
-            if type is None and not opts.urn:
-                raise TypeError("Missing required property 'type'")
-            __props__.__dict__["type"] = type
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridconnectivity/v20211006preview:Endpoint"), pulumi.Alias(type_="azure-native:hybridconnectivity/v20220501preview:Endpoint"), pulumi.Alias(type_="azure-native:hybridconnectivity/v20230315:Endpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Endpoint, __self__).__init__(
@@ -304,8 +286,8 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["last_modified_by"] = None
         __props__.__dict__["last_modified_by_type"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["resource_id"] = None
+        __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
@@ -366,20 +348,20 @@ class Endpoint(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.EndpointPropertiesResponse']:
         """
-        The resource provisioning state.
+        The endpoint properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The resource Id of the connectivity endpoint (optional).
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
-        return pulumi.get(self, "resource_id")
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

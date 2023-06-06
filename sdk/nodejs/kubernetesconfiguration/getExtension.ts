@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets Kubernetes Cluster Extension.
- * API Version: 2022-11-01.
+ * API Version: 2023-05-01.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
 
@@ -137,7 +137,7 @@ export interface GetExtensionResult {
 }
 /**
  * Gets Kubernetes Cluster Extension.
- * API Version: 2022-11-01.
+ * API Version: 2023-05-01.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getExtension(a, opts))

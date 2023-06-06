@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class WindowsVMGuestPatchAutomaticByPlatformSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enables customer to schedule patching without accidental upgrades
+        /// </summary>
+        [Input("bypassPlatformSafetyChecksOnUserSchedule")]
+        public Input<bool>? BypassPlatformSafetyChecksOnUserSchedule { get; set; }
+
+        /// <summary>
         /// Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
         /// </summary>
         [Input("rebootSetting")]

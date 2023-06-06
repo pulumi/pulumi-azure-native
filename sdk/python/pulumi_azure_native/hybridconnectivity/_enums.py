@@ -23,7 +23,7 @@ class CreatedByType(str, Enum):
 
 class ServiceName(str, Enum):
     """
-    The name of the service.
+    The name of the service. It is an optional property, if not provided, service configuration tokens issue code would be by passed.
     """
     SSH = "SSH"
     WAC = "WAC"

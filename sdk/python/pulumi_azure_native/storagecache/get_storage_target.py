@@ -102,7 +102,7 @@ class GetStorageTargetResult:
     @pulumi.getter
     def junctions(self) -> Optional[Sequence['outputs.NamespaceJunctionResponse']]:
         """
-        List of Cache namespace junctions to target for namespace associations.
+        List of cache namespace junctions to target for namespace associations.
         """
         return pulumi.get(self, "junctions")
 
@@ -206,12 +206,12 @@ def get_storage_target(cache_name: Optional[str] = None,
                        storage_target_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageTargetResult:
     """
-    Returns a Storage Target from a Cache.
-    API Version: 2023-01-01.
+    Returns a Storage Target from a cache.
+    API Version: 2023-05-01.
 
 
-    :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
-    :param str resource_group_name: Target resource group.
+    :param str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_target_name: Name of Storage Target.
     """
     __args__ = dict()
@@ -244,12 +244,12 @@ def get_storage_target_output(cache_name: Optional[pulumi.Input[str]] = None,
                               storage_target_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageTargetResult]:
     """
-    Returns a Storage Target from a Cache.
-    API Version: 2023-01-01.
+    Returns a Storage Target from a cache.
+    API Version: 2023-05-01.
 
 
-    :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
-    :param str resource_group_name: Target resource group.
+    :param str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_target_name: Name of Storage Target.
     """
     ...

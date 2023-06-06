@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Details of a particular extension in HCI Cluster.
- * API Version: 2023-02-01.
+ * API Version: 2023-03-01.
  * Previous API Version: 2021-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Extension extends pulumi.CustomResource {
@@ -55,6 +55,10 @@ export class Extension extends pulumi.CustomResource {
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
     public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates if the extension is managed by azure or the user.
+     */
+    public /*out*/ readonly managedBy!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -125,6 +129,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             resourceInputs["aggregateState"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["perNodeExtensionDetails"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -134,6 +139,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["autoUpgradeMinorVersion"] = undefined /*out*/;
             resourceInputs["enableAutomaticUpgrade"] = undefined /*out*/;
             resourceInputs["forceUpdateTag"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["perNodeExtensionDetails"] = undefined /*out*/;
             resourceInputs["protectedSettings"] = undefined /*out*/;

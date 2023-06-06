@@ -83,6 +83,9 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
 
         public CacheUsernameDownloadSettingsArgs()
         {
+            AutoDownloadCertificate = false;
+            EncryptLdapConnection = false;
+            RequireValidCertificate = false;
             UsernameSource = "None";
         }
         public static new CacheUsernameDownloadSettingsArgs Empty => new CacheUsernameDownloadSettingsArgs();

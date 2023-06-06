@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Network Virtual Appliance.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getNetworkVirtualAppliance(args: GetNetworkVirtualApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceResult> {
 
@@ -40,6 +40,10 @@ export interface GetNetworkVirtualApplianceArgs {
  * NetworkVirtualAppliance Resource.
  */
 export interface GetNetworkVirtualApplianceResult {
+    /**
+     * Details required for Additional Network Interface.
+     */
+    readonly additionalNics?: outputs.network.VirtualApplianceAdditionalNicPropertiesResponse[];
     /**
      * Address Prefix.
      */
@@ -117,6 +121,10 @@ export interface GetNetworkVirtualApplianceResult {
      */
     readonly virtualApplianceAsn?: number;
     /**
+     * List of references to VirtualApplianceConnections.
+     */
+    readonly virtualApplianceConnections: outputs.network.SubResourceResponse[];
+    /**
      * List of Virtual Appliance Network Interfaces.
      */
     readonly virtualApplianceNics: outputs.network.VirtualApplianceNicPropertiesResponse[];
@@ -131,7 +139,7 @@ export interface GetNetworkVirtualApplianceResult {
 }
 /**
  * Gets the specified Network Virtual Appliance.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getNetworkVirtualApplianceOutput(args: GetNetworkVirtualApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkVirtualApplianceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkVirtualAppliance(a, opts))

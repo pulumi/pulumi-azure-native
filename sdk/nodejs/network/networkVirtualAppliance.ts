@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * NetworkVirtualAppliance Resource.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class NetworkVirtualAppliance extends pulumi.CustomResource {
@@ -39,6 +39,10 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkVirtualAppliance.__pulumiType;
     }
 
+    /**
+     * Details required for Additional Network Interface.
+     */
+    public readonly additionalNics!: pulumi.Output<outputs.network.VirtualApplianceAdditionalNicPropertiesResponse[] | undefined>;
     /**
      * Address Prefix.
      */
@@ -112,6 +116,10 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      */
     public readonly virtualApplianceAsn!: pulumi.Output<number | undefined>;
     /**
+     * List of references to VirtualApplianceConnections.
+     */
+    public /*out*/ readonly virtualApplianceConnections!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    /**
      * List of Virtual Appliance Network Interfaces.
      */
     public /*out*/ readonly virtualApplianceNics!: pulumi.Output<outputs.network.VirtualApplianceNicPropertiesResponse[]>;
@@ -138,6 +146,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["additionalNics"] = args ? args.additionalNics : undefined;
             resourceInputs["bootStrapConfigurationBlobs"] = args ? args.bootStrapConfigurationBlobs : undefined;
             resourceInputs["cloudInitConfiguration"] = args ? args.cloudInitConfiguration : undefined;
             resourceInputs["cloudInitConfigurationBlobs"] = args ? args.cloudInitConfigurationBlobs : undefined;
@@ -160,9 +169,11 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             resourceInputs["partnerManagedResource"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualApplianceConnections"] = undefined /*out*/;
             resourceInputs["virtualApplianceNics"] = undefined /*out*/;
             resourceInputs["virtualApplianceSites"] = undefined /*out*/;
         } else {
+            resourceInputs["additionalNics"] = undefined /*out*/;
             resourceInputs["addressPrefix"] = undefined /*out*/;
             resourceInputs["bootStrapConfigurationBlobs"] = undefined /*out*/;
             resourceInputs["cloudInitConfiguration"] = undefined /*out*/;
@@ -181,6 +192,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualApplianceAsn"] = undefined /*out*/;
+            resourceInputs["virtualApplianceConnections"] = undefined /*out*/;
             resourceInputs["virtualApplianceNics"] = undefined /*out*/;
             resourceInputs["virtualApplianceSites"] = undefined /*out*/;
             resourceInputs["virtualHub"] = undefined /*out*/;
@@ -196,6 +208,10 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkVirtualAppliance resource.
  */
 export interface NetworkVirtualApplianceArgs {
+    /**
+     * Details required for Additional Network Interface.
+     */
+    additionalNics?: pulumi.Input<pulumi.Input<inputs.network.VirtualApplianceAdditionalNicPropertiesArgs>[]>;
     /**
      * BootStrapConfigurationBlobs storage URLs.
      */

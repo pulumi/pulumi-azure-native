@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a hybrid machine.
- * API Version: 2022-11-10.
+ * API Version: 2022-12-27.
  * Previous API Version: 2020-08-02. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Machine extends pulumi.CustomResource {
@@ -47,6 +47,10 @@ export class Machine extends pulumi.CustomResource {
      * Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
      */
     public /*out*/ readonly agentConfiguration!: pulumi.Output<outputs.hybridcompute.AgentConfigurationResponse>;
+    /**
+     * The info of the machine w.r.t Agent Upgrade
+     */
+    public readonly agentUpgrade!: pulumi.Output<outputs.hybridcompute.AgentUpgradeResponse | undefined>;
     /**
      * The hybrid machine agent full version.
      */
@@ -190,6 +194,7 @@ export class Machine extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["agentUpgrade"] = args ? args.agentUpgrade : undefined;
             resourceInputs["clientPublicKey"] = args ? args.clientPublicKey : undefined;
             resourceInputs["extensions"] = args ? args.extensions : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -229,6 +234,7 @@ export class Machine extends pulumi.CustomResource {
         } else {
             resourceInputs["adFqdn"] = undefined /*out*/;
             resourceInputs["agentConfiguration"] = undefined /*out*/;
+            resourceInputs["agentUpgrade"] = undefined /*out*/;
             resourceInputs["agentVersion"] = undefined /*out*/;
             resourceInputs["clientPublicKey"] = undefined /*out*/;
             resourceInputs["cloudMetadata"] = undefined /*out*/;
@@ -273,6 +279,10 @@ export class Machine extends pulumi.CustomResource {
  * The set of arguments for constructing a Machine resource.
  */
 export interface MachineArgs {
+    /**
+     * The info of the machine w.r.t Agent Upgrade
+     */
+    agentUpgrade?: pulumi.Input<inputs.hybridcompute.AgentUpgradeArgs>;
     /**
      * Public Key that the client provides to be used during initial resource onboarding
      */

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a RouteMap.
-        /// API Version: 2022-09-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetRouteMapResult> InvokeAsync(GetRouteMapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteMapResult>("azure-native:network:getRouteMap", args ?? new GetRouteMapArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a RouteMap.
-        /// API Version: 2022-09-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetRouteMapResult> Invoke(GetRouteMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteMapResult>("azure-native:network:getRouteMap", args ?? new GetRouteMapInvokeArgs(), options.WithDefaults());

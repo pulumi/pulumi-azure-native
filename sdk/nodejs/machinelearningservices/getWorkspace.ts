@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified machine learning workspace.
- * API Version: 2022-10-01.
+ * API Version: 2023-04-01.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
 
@@ -170,7 +170,7 @@ export interface GetWorkspaceResult {
 }
 /**
  * Gets the properties of the specified machine learning workspace.
- * API Version: 2022-10-01.
+ * API Version: 2023-04-01.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

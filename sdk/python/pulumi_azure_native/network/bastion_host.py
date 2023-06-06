@@ -23,6 +23,7 @@ class BastionHostArgs:
                  dns_name: Optional[pulumi.Input[str]] = None,
                  enable_file_copy: Optional[pulumi.Input[bool]] = None,
                  enable_ip_connect: Optional[pulumi.Input[bool]] = None,
+                 enable_kerberos: Optional[pulumi.Input[bool]] = None,
                  enable_shareable_link: Optional[pulumi.Input[bool]] = None,
                  enable_tunneling: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -39,6 +40,7 @@ class BastionHostArgs:
         :param pulumi.Input[str] dns_name: FQDN for the endpoint on which bastion host is accessible.
         :param pulumi.Input[bool] enable_file_copy: Enable/Disable File Copy feature of the Bastion Host resource.
         :param pulumi.Input[bool] enable_ip_connect: Enable/Disable IP Connect feature of the Bastion Host resource.
+        :param pulumi.Input[bool] enable_kerberos: Enable/Disable Kerberos feature of the Bastion Host resource.
         :param pulumi.Input[bool] enable_shareable_link: Enable/Disable Shareable Link of the Bastion Host resource.
         :param pulumi.Input[bool] enable_tunneling: Enable/Disable Tunneling feature of the Bastion Host resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -65,6 +67,10 @@ class BastionHostArgs:
             enable_ip_connect = False
         if enable_ip_connect is not None:
             pulumi.set(__self__, "enable_ip_connect", enable_ip_connect)
+        if enable_kerberos is None:
+            enable_kerberos = False
+        if enable_kerberos is not None:
+            pulumi.set(__self__, "enable_kerberos", enable_kerberos)
         if enable_shareable_link is None:
             enable_shareable_link = False
         if enable_shareable_link is not None:
@@ -157,6 +163,18 @@ class BastionHostArgs:
     @enable_ip_connect.setter
     def enable_ip_connect(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_ip_connect", value)
+
+    @property
+    @pulumi.getter(name="enableKerberos")
+    def enable_kerberos(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable/Disable Kerberos feature of the Bastion Host resource.
+        """
+        return pulumi.get(self, "enable_kerberos")
+
+    @enable_kerberos.setter
+    def enable_kerberos(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_kerberos", value)
 
     @property
     @pulumi.getter(name="enableShareableLink")
@@ -265,6 +283,7 @@ class BastionHost(pulumi.CustomResource):
                  dns_name: Optional[pulumi.Input[str]] = None,
                  enable_file_copy: Optional[pulumi.Input[bool]] = None,
                  enable_ip_connect: Optional[pulumi.Input[bool]] = None,
+                 enable_kerberos: Optional[pulumi.Input[bool]] = None,
                  enable_shareable_link: Optional[pulumi.Input[bool]] = None,
                  enable_tunneling: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -277,7 +296,7 @@ class BastionHost(pulumi.CustomResource):
                  __props__=None):
         """
         Bastion Host resource.
-        API Version: 2022-09-01.
+        API Version: 2022-11-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -287,6 +306,7 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[str] dns_name: FQDN for the endpoint on which bastion host is accessible.
         :param pulumi.Input[bool] enable_file_copy: Enable/Disable File Copy feature of the Bastion Host resource.
         :param pulumi.Input[bool] enable_ip_connect: Enable/Disable IP Connect feature of the Bastion Host resource.
+        :param pulumi.Input[bool] enable_kerberos: Enable/Disable Kerberos feature of the Bastion Host resource.
         :param pulumi.Input[bool] enable_shareable_link: Enable/Disable Shareable Link of the Bastion Host resource.
         :param pulumi.Input[bool] enable_tunneling: Enable/Disable Tunneling feature of the Bastion Host resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -305,7 +325,7 @@ class BastionHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Bastion Host resource.
-        API Version: 2022-09-01.
+        API Version: 2022-11-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -328,6 +348,7 @@ class BastionHost(pulumi.CustomResource):
                  dns_name: Optional[pulumi.Input[str]] = None,
                  enable_file_copy: Optional[pulumi.Input[bool]] = None,
                  enable_ip_connect: Optional[pulumi.Input[bool]] = None,
+                 enable_kerberos: Optional[pulumi.Input[bool]] = None,
                  enable_shareable_link: Optional[pulumi.Input[bool]] = None,
                  enable_tunneling: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -357,6 +378,9 @@ class BastionHost(pulumi.CustomResource):
             if enable_ip_connect is None:
                 enable_ip_connect = False
             __props__.__dict__["enable_ip_connect"] = enable_ip_connect
+            if enable_kerberos is None:
+                enable_kerberos = False
+            __props__.__dict__["enable_kerberos"] = enable_kerberos
             if enable_shareable_link is None:
                 enable_shareable_link = False
             __props__.__dict__["enable_shareable_link"] = enable_shareable_link
@@ -404,6 +428,7 @@ class BastionHost(pulumi.CustomResource):
         __props__.__dict__["dns_name"] = None
         __props__.__dict__["enable_file_copy"] = None
         __props__.__dict__["enable_ip_connect"] = None
+        __props__.__dict__["enable_kerberos"] = None
         __props__.__dict__["enable_shareable_link"] = None
         __props__.__dict__["enable_tunneling"] = None
         __props__.__dict__["etag"] = None
@@ -448,6 +473,14 @@ class BastionHost(pulumi.CustomResource):
         Enable/Disable IP Connect feature of the Bastion Host resource.
         """
         return pulumi.get(self, "enable_ip_connect")
+
+    @property
+    @pulumi.getter(name="enableKerberos")
+    def enable_kerberos(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable/Disable Kerberos feature of the Bastion Host resource.
+        """
+        return pulumi.get(self, "enable_kerberos")
 
     @property
     @pulumi.getter(name="enableShareableLink")

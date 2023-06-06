@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified ExpressRouteConnection.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getExpressRouteConnection(args: GetExpressRouteConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteConnectionResult> {
 
@@ -83,7 +83,7 @@ export interface GetExpressRouteConnectionResult {
 }
 /**
  * Gets the specified ExpressRouteConnection.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getExpressRouteConnectionOutput(args: GetExpressRouteConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteConnectionResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteConnection(a, opts))

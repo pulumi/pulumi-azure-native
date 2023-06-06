@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the status of Attestation Provider.
- * API Version: 2020-10-01.
+ * API Version: 2021-06-01.
  */
 export function getAttestationProvider(args: GetAttestationProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationProviderResult> {
 
@@ -56,6 +56,10 @@ export interface GetAttestationProviderResult {
      */
     readonly privateEndpointConnections: outputs.attestation.PrivateEndpointConnectionResponse[];
     /**
+     * Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
      * Status of attestation service.
      */
     readonly status?: string;
@@ -68,6 +72,10 @@ export interface GetAttestationProviderResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
+     */
+    readonly tpmAttestationAuthentication?: string;
+    /**
      * Trust model for the attestation provider.
      */
     readonly trustModel?: string;
@@ -78,7 +86,7 @@ export interface GetAttestationProviderResult {
 }
 /**
  * Get the status of Attestation Provider.
- * API Version: 2020-10-01.
+ * API Version: 2021-06-01.
  */
 export function getAttestationProviderOutput(args: GetAttestationProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationProviderResult> {
     return pulumi.output(args).apply((a: any) => getAttestationProvider(a, opts))

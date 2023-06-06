@@ -253,7 +253,7 @@ def get_route(endpoint_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResult:
     """
     Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
-    API Version: 2021-06-01.
+    API Version: 2023-05-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -298,7 +298,7 @@ def get_route_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
     """
     Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
-    API Version: 2021-06-01.
+    API Version: 2023-05-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.

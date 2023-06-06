@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get a Traffic Controller Association
- * API Version: 2022-10-01-preview.
+ * Get a Association
+ * API Version: 2023-05-01-preview.
  */
 export function getAssociationsInterface(args: GetAssociationsInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociationsInterfaceResult> {
 
@@ -57,7 +57,7 @@ export interface GetAssociationsInterfaceResult {
      */
     readonly name: string;
     /**
-     * Provisioning State
+     * Provisioning State of Traffic Controller Association Resource
      */
     readonly provisioningState: string;
     /**
@@ -78,8 +78,8 @@ export interface GetAssociationsInterfaceResult {
     readonly type: string;
 }
 /**
- * Get a Traffic Controller Association
- * API Version: 2022-10-01-preview.
+ * Get a Association
+ * API Version: 2023-05-01-preview.
  */
 export function getAssociationsInterfaceOutput(args: GetAssociationsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationsInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getAssociationsInterface(a, opts))

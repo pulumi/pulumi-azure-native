@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  * Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class NodeType extends pulumi.CustomResource {
@@ -116,6 +116,10 @@ export class NodeType extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
+     */
+    public readonly natGatewayId!: pulumi.Output<string | undefined>;
+    /**
      * The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
      */
     public readonly networkSecurityRules!: pulumi.Output<outputs.servicefabric.NetworkSecurityRuleResponse[] | undefined>;
@@ -179,6 +183,10 @@ export class NodeType extends pulumi.CustomResource {
      * The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
      */
     public readonly vmImageOffer!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+     */
+    public readonly vmImagePlan!: pulumi.Output<outputs.servicefabric.VmImagePlanResponse | undefined>;
     /**
      * The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
      */
@@ -266,6 +274,7 @@ export class NodeType extends pulumi.CustomResource {
             resourceInputs["isSpotVM"] = args ? args.isSpotVM : undefined;
             resourceInputs["isStateless"] = (args ? args.isStateless : undefined) ?? false;
             resourceInputs["multiplePlacementGroups"] = (args ? args.multiplePlacementGroups : undefined) ?? false;
+            resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
             resourceInputs["networkSecurityRules"] = args ? args.networkSecurityRules : undefined;
             resourceInputs["nodeTypeName"] = args ? args.nodeTypeName : undefined;
             resourceInputs["placementProperties"] = args ? args.placementProperties : undefined;
@@ -281,6 +290,7 @@ export class NodeType extends pulumi.CustomResource {
             resourceInputs["useTempDataDisk"] = args ? args.useTempDataDisk : undefined;
             resourceInputs["vmExtensions"] = args ? args.vmExtensions : undefined;
             resourceInputs["vmImageOffer"] = args ? args.vmImageOffer : undefined;
+            resourceInputs["vmImagePlan"] = args ? args.vmImagePlan : undefined;
             resourceInputs["vmImagePublisher"] = args ? args.vmImagePublisher : undefined;
             resourceInputs["vmImageResourceId"] = args ? args.vmImageResourceId : undefined;
             resourceInputs["vmImageSku"] = args ? args.vmImageSku : undefined;
@@ -316,6 +326,7 @@ export class NodeType extends pulumi.CustomResource {
             resourceInputs["isStateless"] = undefined /*out*/;
             resourceInputs["multiplePlacementGroups"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["natGatewayId"] = undefined /*out*/;
             resourceInputs["networkSecurityRules"] = undefined /*out*/;
             resourceInputs["placementProperties"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -332,6 +343,7 @@ export class NodeType extends pulumi.CustomResource {
             resourceInputs["useTempDataDisk"] = undefined /*out*/;
             resourceInputs["vmExtensions"] = undefined /*out*/;
             resourceInputs["vmImageOffer"] = undefined /*out*/;
+            resourceInputs["vmImagePlan"] = undefined /*out*/;
             resourceInputs["vmImagePublisher"] = undefined /*out*/;
             resourceInputs["vmImageResourceId"] = undefined /*out*/;
             resourceInputs["vmImageSku"] = undefined /*out*/;
@@ -432,6 +444,10 @@ export interface NodeTypeArgs {
      */
     multiplePlacementGroups?: pulumi.Input<boolean>;
     /**
+     * Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
+     */
+    natGatewayId?: pulumi.Input<string>;
+    /**
      * The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
      */
     networkSecurityRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.NetworkSecurityRuleArgs>[]>;
@@ -491,6 +507,10 @@ export interface NodeTypeArgs {
      * The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
      */
     vmImageOffer?: pulumi.Input<string>;
+    /**
+     * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+     */
+    vmImagePlan?: pulumi.Input<inputs.servicefabric.VmImagePlanArgs>;
     /**
      * The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
      */

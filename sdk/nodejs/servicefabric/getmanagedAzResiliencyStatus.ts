@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getmanagedAzResiliencyStatus(args: GetmanagedAzResiliencyStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetmanagedAzResiliencyStatusResult> {
 
@@ -46,7 +46,7 @@ export interface GetmanagedAzResiliencyStatusResult {
 }
 /**
  * Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getmanagedAzResiliencyStatusOutput(args: GetmanagedAzResiliencyStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmanagedAzResiliencyStatusResult> {
     return pulumi.output(args).apply((a: any) => getmanagedAzResiliencyStatus(a, opts))

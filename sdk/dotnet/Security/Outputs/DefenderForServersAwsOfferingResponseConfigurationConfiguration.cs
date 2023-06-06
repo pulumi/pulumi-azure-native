@@ -11,35 +11,20 @@ namespace Pulumi.AzureNative.Security.Outputs
 {
 
     /// <summary>
-    /// configuration for Microsoft Defender for Server VM scanning
+    /// configuration for Vulnerability Assessment autoprovisioning
     /// </summary>
     [OutputType]
     public sealed class DefenderForServersAwsOfferingResponseConfigurationConfiguration
     {
         /// <summary>
-        /// The cloud role ARN in AWS for this feature
+        /// The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
         /// </summary>
-        public readonly string? CloudRoleArn;
-        /// <summary>
-        /// VM tags that indicates that VM should not be scanned
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? ExclusionTags;
-        /// <summary>
-        /// The scanning mode for the vm scan.
-        /// </summary>
-        public readonly string? ScanningMode;
+        public readonly string? Type;
 
         [OutputConstructor]
-        private DefenderForServersAwsOfferingResponseConfigurationConfiguration(
-            string? cloudRoleArn,
-
-            ImmutableDictionary<string, string>? exclusionTags,
-
-            string? scanningMode)
+        private DefenderForServersAwsOfferingResponseConfigurationConfiguration(string? type)
         {
-            CloudRoleArn = cloudRoleArn;
-            ExclusionTags = exclusionTags;
-            ScanningMode = scanningMode;
+            Type = type;
         }
     }
 }

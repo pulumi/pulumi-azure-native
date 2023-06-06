@@ -24,7 +24,7 @@ class ScheduleArgs:
                  time_zone: pulumi.Input[str],
                  type: pulumi.Input[Union[str, 'ScheduledType']],
                  schedule_name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'ScheduleEnableStatus']]] = None,
                  top: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Schedule resource.
@@ -36,7 +36,7 @@ class ScheduleArgs:
         :param pulumi.Input[str] time_zone: The IANA timezone id at which the schedule should execute.
         :param pulumi.Input[Union[str, 'ScheduledType']] type: Supported type this scheduled task represents.
         :param pulumi.Input[str] schedule_name: The name of the schedule that uniquely identifies it.
-        :param pulumi.Input[Union[str, 'EnableStatus']] state: Indicates whether or not this scheduled task is enabled.
+        :param pulumi.Input[Union[str, 'ScheduleEnableStatus']] state: Indicates whether or not this scheduled task is enabled.
         :param pulumi.Input[int] top: The maximum number of resources to return from the operation. Example: '$top=10'.
         """
         pulumi.set(__self__, "frequency", frequency)
@@ -151,14 +151,14 @@ class ScheduleArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'EnableStatus']]]:
+    def state(self) -> Optional[pulumi.Input[Union[str, 'ScheduleEnableStatus']]]:
         """
         Indicates whether or not this scheduled task is enabled.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'EnableStatus']]]):
+    def state(self, value: Optional[pulumi.Input[Union[str, 'ScheduleEnableStatus']]]):
         pulumi.set(self, "state", value)
 
     @property
@@ -184,7 +184,7 @@ class Schedule(pulumi.CustomResource):
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule_name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'ScheduleEnableStatus']]] = None,
                  time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  top: Optional[pulumi.Input[int]] = None,
@@ -192,7 +192,7 @@ class Schedule(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Schedule to execute a task.
-        API Version: 2022-11-11-preview.
+        API Version: 2023-04-01.
         Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -202,7 +202,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] project_name: The name of the project.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] schedule_name: The name of the schedule that uniquely identifies it.
-        :param pulumi.Input[Union[str, 'EnableStatus']] state: Indicates whether or not this scheduled task is enabled.
+        :param pulumi.Input[Union[str, 'ScheduleEnableStatus']] state: Indicates whether or not this scheduled task is enabled.
         :param pulumi.Input[str] time: The target time to trigger the action. The format is HH:MM.
         :param pulumi.Input[str] time_zone: The IANA timezone id at which the schedule should execute.
         :param pulumi.Input[int] top: The maximum number of resources to return from the operation. Example: '$top=10'.
@@ -216,7 +216,7 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Schedule to execute a task.
-        API Version: 2022-11-11-preview.
+        API Version: 2023-04-01.
         Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -239,7 +239,7 @@ class Schedule(pulumi.CustomResource):
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule_name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'ScheduleEnableStatus']]] = None,
                  time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  top: Optional[pulumi.Input[int]] = None,

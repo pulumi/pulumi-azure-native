@@ -11,11 +11,19 @@ namespace Pulumi.AzureNative.Security.Outputs
 {
 
     /// <summary>
-    /// The CSPM P1 for Aws offering
+    /// The CSPM P1 for AWS offering
     /// </summary>
     [OutputType]
     public sealed class DefenderCspmAwsOfferingResponse
     {
+        /// <summary>
+        /// The Microsoft Defender Data Sensitivity discovery configuration
+        /// </summary>
+        public readonly Outputs.DefenderCspmAwsOfferingResponseDataSensitivityDiscovery? DataSensitivityDiscovery;
+        /// <summary>
+        /// The databases DSPM configuration
+        /// </summary>
+        public readonly Outputs.DefenderCspmAwsOfferingResponseDatabasesDspm? DatabasesDspm;
         /// <summary>
         /// The offering description.
         /// </summary>
@@ -32,12 +40,18 @@ namespace Pulumi.AzureNative.Security.Outputs
 
         [OutputConstructor]
         private DefenderCspmAwsOfferingResponse(
+            Outputs.DefenderCspmAwsOfferingResponseDataSensitivityDiscovery? dataSensitivityDiscovery,
+
+            Outputs.DefenderCspmAwsOfferingResponseDatabasesDspm? databasesDspm,
+
             string description,
 
             string offeringType,
 
             Outputs.DefenderCspmAwsOfferingResponseVmScanners? vmScanners)
         {
+            DataSensitivityDiscovery = dataSensitivityDiscovery;
+            DatabasesDspm = databasesDspm;
             Description = description;
             OfferingType = offeringType;
             VmScanners = vmScanners;

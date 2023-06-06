@@ -30,6 +30,7 @@ __all__ = [
     'EndpointAuthMode',
     'EndpointComputeType',
     'EndpointServiceConnectionStatus',
+    'EnvironmentVariableType',
     'FeatureLags',
     'FeaturizationMode',
     'ForecastHorizonMode',
@@ -37,6 +38,7 @@ __all__ = [
     'ForecastingPrimaryMetrics',
     'Goal',
     'IdentityConfigurationType',
+    'ImageType',
     'InputDeliveryMode',
     'InstanceSegmentationPrimaryMetrics',
     'JobInputType',
@@ -49,11 +51,13 @@ __all__ = [
     'ManagedServiceIdentityType',
     'ModelSize',
     'NCrossValidationsMode',
+    'NodesValueType',
     'ObjectDetectionPrimaryMetrics',
     'OperatingSystemType',
     'OsType',
     'OutputDeliveryMode',
     'PrivateEndpointServiceConnectionStatus',
+    'Protocol',
     'PublicNetworkAccess',
     'PublicNetworkAccessType',
     'RandomSamplingAlgorithmRule',
@@ -85,6 +89,7 @@ __all__ = [
     'ValidationMetricType',
     'ValueFormat',
     'VmPriority',
+    'VolumeDefinitionType',
     'WeekDay',
 ]
 
@@ -462,6 +467,13 @@ class EndpointServiceConnectionStatus(str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+class EnvironmentVariableType(str, Enum):
+    """
+    Type of the Environment Variable. Possible values are: local - For local variable
+    """
+    LOCAL = "local"
+
+
 class FeatureLags(str, Enum):
     """
     Flag for generating lags for the numeric features with 'auto' or null.
@@ -640,6 +652,14 @@ class IdentityConfigurationType(str, Enum):
     USER_IDENTITY = "UserIdentity"
 
 
+class ImageType(str, Enum):
+    """
+    Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+    """
+    DOCKER = "docker"
+    AZUREML = "azureml"
+
+
 class InputDeliveryMode(str, Enum):
     """
     Input Asset Delivery Mode.
@@ -814,6 +834,13 @@ class NCrossValidationsMode(str, Enum):
     """
 
 
+class NodesValueType(str, Enum):
+    """
+    [Required] Type of the Nodes value
+    """
+    ALL = "All"
+
+
 class ObjectDetectionPrimaryMetrics(str, Enum):
     """
     Primary metric to optimize for this task.
@@ -858,6 +885,15 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
     TIMEOUT = "Timeout"
+
+
+class Protocol(str, Enum):
+    """
+    Protocol over which communication will happen over this endpoint
+    """
+    TCP = "tcp"
+    UDP = "udp"
+    HTTP = "http"
 
 
 class PublicNetworkAccess(str, Enum):
@@ -1335,6 +1371,16 @@ class VmPriority(str, Enum):
     """
     DEDICATED = "Dedicated"
     LOW_PRIORITY = "LowPriority"
+
+
+class VolumeDefinitionType(str, Enum):
+    """
+    Type of Volume Definition. Possible Values: bind,volume,tmpfs,npipe
+    """
+    BIND = "bind"
+    VOLUME = "volume"
+    TMPFS = "tmpfs"
+    NPIPE = "npipe"
 
 
 class WeekDay(str, Enum):

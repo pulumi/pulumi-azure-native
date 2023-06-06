@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * ArcSetting details.
- * API Version: 2023-02-01.
+ * API Version: 2023-03-01.
  * Previous API Version: 2021-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class ArcSetting extends pulumi.CustomResource {
@@ -68,6 +68,10 @@ export class ArcSetting extends pulumi.CustomResource {
      */
     public readonly connectivityProperties!: pulumi.Output<outputs.azurestackhci.ArcConnectivityPropertiesResponse[] | undefined>;
     /**
+     * Properties for each of the default extensions category
+     */
+    public /*out*/ readonly defaultExtensions!: pulumi.Output<outputs.azurestackhci.DefaultExtensionDetailsResponse[]>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -115,6 +119,7 @@ export class ArcSetting extends pulumi.CustomResource {
             resourceInputs["connectivityProperties"] = args ? args.connectivityProperties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["aggregateState"] = undefined /*out*/;
+            resourceInputs["defaultExtensions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["perNodeDetails"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -128,6 +133,7 @@ export class ArcSetting extends pulumi.CustomResource {
             resourceInputs["arcInstanceResourceGroup"] = undefined /*out*/;
             resourceInputs["arcServicePrincipalObjectId"] = undefined /*out*/;
             resourceInputs["connectivityProperties"] = undefined /*out*/;
+            resourceInputs["defaultExtensions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["perNodeDetails"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

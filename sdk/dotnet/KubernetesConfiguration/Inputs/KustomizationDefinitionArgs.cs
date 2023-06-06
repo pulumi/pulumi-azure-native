@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
+        /// Used for variable substitution for this Kustomization after kustomize build.
+        /// </summary>
+        [Input("postBuild")]
+        public Input<Inputs.PostBuildDefinitionArgs>? PostBuild { get; set; }
+
+        /// <summary>
         /// Enable/disable garbage collections of Kubernetes objects created by this Kustomization.
         /// </summary>
         [Input("prune")]
@@ -63,6 +69,12 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
         [Input("timeoutInSeconds")]
         public Input<double>? TimeoutInSeconds { get; set; }
 
+        /// <summary>
+        /// Enable/disable health check for all Kubernetes objects created by this Kustomization.
+        /// </summary>
+        [Input("wait")]
+        public Input<bool>? Wait { get; set; }
+
         public KustomizationDefinitionArgs()
         {
             Force = false;
@@ -70,6 +82,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
             Prune = false;
             SyncIntervalInSeconds = 600;
             TimeoutInSeconds = 600;
+            Wait = true;
         }
         public static new KustomizationDefinitionArgs Empty => new KustomizationDefinitionArgs();
     }

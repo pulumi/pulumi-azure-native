@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the view by view name.
- * API Version: 2022-10-01.
+ * API Version: 2023-03-01.
  */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
 
@@ -81,7 +81,7 @@ export interface GetViewResult {
     /**
      * Date when the user last modified this view.
      */
-    readonly modifiedOn: string;
+    readonly modifiedOn?: string;
     /**
      * Resource name.
      */
@@ -109,7 +109,7 @@ export interface GetViewResult {
 }
 /**
  * Gets the view by view name.
- * API Version: 2022-10-01.
+ * API Version: 2023-03-01.
  */
 export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
     return pulumi.output(args).apply((a: any) => getView(a, opts))

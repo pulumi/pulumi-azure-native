@@ -219,7 +219,7 @@ def get_machine_extension(extension_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineExtensionResult:
     """
     The operation to get the extension.
-    API Version: 2022-11-10.
+    API Version: 2022-12-27.
 
 
     :param str extension_name: The name of the machine extension.
@@ -258,7 +258,7 @@ def get_machine_extension_output(extension_name: Optional[pulumi.Input[str]] = N
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineExtensionResult]:
     """
     The operation to get the extension.
-    API Version: 2022-11-10.
+    API Version: 2022-12-27.
 
 
     :param str extension_name: The name of the machine extension.

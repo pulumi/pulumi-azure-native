@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the restore point.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getRestorePoint(args: GetRestorePointArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorePointResult> {
 
@@ -72,7 +72,7 @@ export interface GetRestorePointResult {
     /**
      * Gets the details of the VM captured at the time of the restore point creation.
      */
-    readonly sourceMetadata: outputs.compute.RestorePointSourceMetadataResponse;
+    readonly sourceMetadata?: outputs.compute.RestorePointSourceMetadataResponse;
     /**
      * Resource Id of the source restore point from which a copy needs to be created.
      */
@@ -88,7 +88,7 @@ export interface GetRestorePointResult {
 }
 /**
  * The operation to get the restore point.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getRestorePointOutput(args: GetRestorePointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorePointResult> {
     return pulumi.output(args).apply((a: any) => getRestorePoint(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Concrete tracked resource types can be created by aliasing this type using a specific property type.
- * API Version: 2022-10-01-preview.
+ * API Version: 2023-05-01-preview.
  * Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class TrafficControllerInterface extends pulumi.CustomResource {
@@ -42,7 +42,7 @@ export class TrafficControllerInterface extends pulumi.CustomResource {
     /**
      * Associations References List
      */
-    public /*out*/ readonly associations!: pulumi.Output<outputs.servicenetworking.ResourceIDResponse[]>;
+    public /*out*/ readonly associations!: pulumi.Output<outputs.servicenetworking.ResourceIdResponse[]>;
     /**
      * Configuration Endpoints.
      */
@@ -50,7 +50,7 @@ export class TrafficControllerInterface extends pulumi.CustomResource {
     /**
      * Frontends References List
      */
-    public /*out*/ readonly frontends!: pulumi.Output<outputs.servicenetworking.ResourceIDResponse[]>;
+    public /*out*/ readonly frontends!: pulumi.Output<outputs.servicenetworking.ResourceIdResponse[]>;
     /**
      * The geo-location where the resource lives
      */

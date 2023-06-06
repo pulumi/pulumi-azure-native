@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A network interface in a resource group.
-    /// API Version: 2022-09-01.
+    /// API Version: 2022-11-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkInterface")]
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("auxiliaryMode")]
         public Output<string?> AuxiliaryMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Auxiliary sku of Network Interface resource.
+        /// </summary>
+        [Output("auxiliarySku")]
+        public Output<string?> AuxiliarySku { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether to disable tcp state tracking.
@@ -277,6 +283,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("auxiliaryMode")]
         public InputUnion<string, Pulumi.AzureNative.Network.NetworkInterfaceAuxiliaryMode>? AuxiliaryMode { get; set; }
+
+        /// <summary>
+        /// Auxiliary sku of Network Interface resource.
+        /// </summary>
+        [Input("auxiliarySku")]
+        public InputUnion<string, Pulumi.AzureNative.Network.NetworkInterfaceAuxiliarySku>? AuxiliarySku { get; set; }
 
         /// <summary>
         /// Indicates whether to disable tcp state tracking.

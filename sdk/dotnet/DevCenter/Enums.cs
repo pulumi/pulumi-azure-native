@@ -39,29 +39,29 @@ namespace Pulumi.AzureNative.DevCenter
     }
 
     /// <summary>
-    /// Indicates whether or not this scheduled task is enabled.
+    /// Defines whether this Environment Type can be used in this Project.
     /// </summary>
     [EnumType]
-    public readonly struct EnableStatus : IEquatable<EnableStatus>
+    public readonly struct EnvironmentTypeEnableStatus : IEquatable<EnvironmentTypeEnableStatus>
     {
         private readonly string _value;
 
-        private EnableStatus(string value)
+        private EnvironmentTypeEnableStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static EnableStatus Enabled { get; } = new EnableStatus("Enabled");
-        public static EnableStatus Disabled { get; } = new EnableStatus("Disabled");
+        public static EnvironmentTypeEnableStatus Enabled { get; } = new EnvironmentTypeEnableStatus("Enabled");
+        public static EnvironmentTypeEnableStatus Disabled { get; } = new EnvironmentTypeEnableStatus("Disabled");
 
-        public static bool operator ==(EnableStatus left, EnableStatus right) => left.Equals(right);
-        public static bool operator !=(EnableStatus left, EnableStatus right) => !left.Equals(right);
+        public static bool operator ==(EnvironmentTypeEnableStatus left, EnvironmentTypeEnableStatus right) => left.Equals(right);
+        public static bool operator !=(EnvironmentTypeEnableStatus left, EnvironmentTypeEnableStatus right) => !left.Equals(right);
 
-        public static explicit operator string(EnableStatus value) => value._value;
+        public static explicit operator string(EnvironmentTypeEnableStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EnableStatus other && Equals(other);
-        public bool Equals(EnableStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is EnvironmentTypeEnableStatus other && Equals(other);
+        public bool Equals(EnvironmentTypeEnableStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -195,6 +195,37 @@ namespace Pulumi.AzureNative.DevCenter
     }
 
     /// <summary>
+    /// Indicates whether or not this scheduled task is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScheduleEnableStatus : IEquatable<ScheduleEnableStatus>
+    {
+        private readonly string _value;
+
+        private ScheduleEnableStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScheduleEnableStatus Enabled { get; } = new ScheduleEnableStatus("Enabled");
+        public static ScheduleEnableStatus Disabled { get; } = new ScheduleEnableStatus("Disabled");
+
+        public static bool operator ==(ScheduleEnableStatus left, ScheduleEnableStatus right) => left.Equals(right);
+        public static bool operator !=(ScheduleEnableStatus left, ScheduleEnableStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ScheduleEnableStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScheduleEnableStatus other && Equals(other);
+        public bool Equals(ScheduleEnableStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The frequency of this scheduled task.
     /// </summary>
     [EnumType]
@@ -280,6 +311,37 @@ namespace Pulumi.AzureNative.DevCenter
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
         public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct StopOnDisconnectEnableStatus : IEquatable<StopOnDisconnectEnableStatus>
+    {
+        private readonly string _value;
+
+        private StopOnDisconnectEnableStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StopOnDisconnectEnableStatus Enabled { get; } = new StopOnDisconnectEnableStatus("Enabled");
+        public static StopOnDisconnectEnableStatus Disabled { get; } = new StopOnDisconnectEnableStatus("Disabled");
+
+        public static bool operator ==(StopOnDisconnectEnableStatus left, StopOnDisconnectEnableStatus right) => left.Equals(right);
+        public static bool operator !=(StopOnDisconnectEnableStatus left, StopOnDisconnectEnableStatus right) => !left.Equals(right);
+
+        public static explicit operator string(StopOnDisconnectEnableStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StopOnDisconnectEnableStatus other && Equals(other);
+        public bool Equals(StopOnDisconnectEnableStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

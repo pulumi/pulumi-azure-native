@@ -22,7 +22,7 @@ class GetNodeTypeResult:
     """
     Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     """
-    def __init__(__self__, additional_data_disks=None, application_ports=None, capacities=None, data_disk_letter=None, data_disk_size_gb=None, data_disk_type=None, enable_accelerated_networking=None, enable_encryption_at_host=None, enable_node_public_ip=None, enable_over_provisioning=None, ephemeral_ports=None, eviction_policy=None, frontend_configurations=None, host_group_id=None, id=None, is_primary=None, is_spot_vm=None, is_stateless=None, multiple_placement_groups=None, name=None, network_security_rules=None, placement_properties=None, provisioning_state=None, secure_boot_enabled=None, security_type=None, sku=None, spot_restore_timeout=None, subnet_id=None, system_data=None, tags=None, type=None, use_default_public_load_balancer=None, use_ephemeral_os_disk=None, use_temp_data_disk=None, vm_extensions=None, vm_image_offer=None, vm_image_publisher=None, vm_image_resource_id=None, vm_image_sku=None, vm_image_version=None, vm_instance_count=None, vm_managed_identity=None, vm_secrets=None, vm_setup_actions=None, vm_shared_gallery_image_id=None, vm_size=None, zones=None):
+    def __init__(__self__, additional_data_disks=None, application_ports=None, capacities=None, data_disk_letter=None, data_disk_size_gb=None, data_disk_type=None, enable_accelerated_networking=None, enable_encryption_at_host=None, enable_node_public_ip=None, enable_over_provisioning=None, ephemeral_ports=None, eviction_policy=None, frontend_configurations=None, host_group_id=None, id=None, is_primary=None, is_spot_vm=None, is_stateless=None, multiple_placement_groups=None, name=None, nat_gateway_id=None, network_security_rules=None, placement_properties=None, provisioning_state=None, secure_boot_enabled=None, security_type=None, sku=None, spot_restore_timeout=None, subnet_id=None, system_data=None, tags=None, type=None, use_default_public_load_balancer=None, use_ephemeral_os_disk=None, use_temp_data_disk=None, vm_extensions=None, vm_image_offer=None, vm_image_plan=None, vm_image_publisher=None, vm_image_resource_id=None, vm_image_sku=None, vm_image_version=None, vm_instance_count=None, vm_managed_identity=None, vm_secrets=None, vm_setup_actions=None, vm_shared_gallery_image_id=None, vm_size=None, zones=None):
         if additional_data_disks and not isinstance(additional_data_disks, list):
             raise TypeError("Expected argument 'additional_data_disks' to be a list")
         pulumi.set(__self__, "additional_data_disks", additional_data_disks)
@@ -83,6 +83,9 @@ class GetNodeTypeResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if nat_gateway_id and not isinstance(nat_gateway_id, str):
+            raise TypeError("Expected argument 'nat_gateway_id' to be a str")
+        pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if network_security_rules and not isinstance(network_security_rules, list):
             raise TypeError("Expected argument 'network_security_rules' to be a list")
         pulumi.set(__self__, "network_security_rules", network_security_rules)
@@ -131,6 +134,9 @@ class GetNodeTypeResult:
         if vm_image_offer and not isinstance(vm_image_offer, str):
             raise TypeError("Expected argument 'vm_image_offer' to be a str")
         pulumi.set(__self__, "vm_image_offer", vm_image_offer)
+        if vm_image_plan and not isinstance(vm_image_plan, dict):
+            raise TypeError("Expected argument 'vm_image_plan' to be a dict")
+        pulumi.set(__self__, "vm_image_plan", vm_image_plan)
         if vm_image_publisher and not isinstance(vm_image_publisher, str):
             raise TypeError("Expected argument 'vm_image_publisher' to be a str")
         pulumi.set(__self__, "vm_image_publisher", vm_image_publisher)
@@ -326,6 +332,14 @@ class GetNodeTypeResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="natGatewayId")
+    def nat_gateway_id(self) -> Optional[str]:
+        """
+        Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
+        """
+        return pulumi.get(self, "nat_gateway_id")
+
+    @property
     @pulumi.getter(name="networkSecurityRules")
     def network_security_rules(self) -> Optional[Sequence['outputs.NetworkSecurityRuleResponse']]:
         """
@@ -454,6 +468,14 @@ class GetNodeTypeResult:
         return pulumi.get(self, "vm_image_offer")
 
     @property
+    @pulumi.getter(name="vmImagePlan")
+    def vm_image_plan(self) -> Optional['outputs.VmImagePlanResponse']:
+        """
+        Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+        """
+        return pulumi.get(self, "vm_image_plan")
+
+    @property
     @pulumi.getter(name="vmImagePublisher")
     def vm_image_publisher(self) -> Optional[str]:
         """
@@ -568,6 +590,7 @@ class AwaitableGetNodeTypeResult(GetNodeTypeResult):
             is_stateless=self.is_stateless,
             multiple_placement_groups=self.multiple_placement_groups,
             name=self.name,
+            nat_gateway_id=self.nat_gateway_id,
             network_security_rules=self.network_security_rules,
             placement_properties=self.placement_properties,
             provisioning_state=self.provisioning_state,
@@ -584,6 +607,7 @@ class AwaitableGetNodeTypeResult(GetNodeTypeResult):
             use_temp_data_disk=self.use_temp_data_disk,
             vm_extensions=self.vm_extensions,
             vm_image_offer=self.vm_image_offer,
+            vm_image_plan=self.vm_image_plan,
             vm_image_publisher=self.vm_image_publisher,
             vm_image_resource_id=self.vm_image_resource_id,
             vm_image_sku=self.vm_image_sku,
@@ -603,7 +627,7 @@ def get_node_type(cluster_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNodeTypeResult:
     """
     Get a Service Fabric node type of a given managed cluster.
-    API Version: 2023-02-01-preview.
+    API Version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -638,6 +662,7 @@ def get_node_type(cluster_name: Optional[str] = None,
         is_stateless=__ret__.is_stateless,
         multiple_placement_groups=__ret__.multiple_placement_groups,
         name=__ret__.name,
+        nat_gateway_id=__ret__.nat_gateway_id,
         network_security_rules=__ret__.network_security_rules,
         placement_properties=__ret__.placement_properties,
         provisioning_state=__ret__.provisioning_state,
@@ -654,6 +679,7 @@ def get_node_type(cluster_name: Optional[str] = None,
         use_temp_data_disk=__ret__.use_temp_data_disk,
         vm_extensions=__ret__.vm_extensions,
         vm_image_offer=__ret__.vm_image_offer,
+        vm_image_plan=__ret__.vm_image_plan,
         vm_image_publisher=__ret__.vm_image_publisher,
         vm_image_resource_id=__ret__.vm_image_resource_id,
         vm_image_sku=__ret__.vm_image_sku,
@@ -674,7 +700,7 @@ def get_node_type_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodeTypeResult]:
     """
     Get a Service Fabric node type of a given managed cluster.
-    API Version: 2023-02-01-preview.
+    API Version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.

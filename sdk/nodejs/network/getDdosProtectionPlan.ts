@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified DDoS protection plan.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getDdosProtectionPlan(args: GetDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosProtectionPlanResult> {
 
@@ -78,7 +78,7 @@ export interface GetDdosProtectionPlanResult {
 }
 /**
  * Gets information about the specified DDoS protection plan.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getDdosProtectionPlanOutput(args: GetDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosProtectionPlanResult> {
     return pulumi.output(args).apply((a: any) => getDdosProtectionPlan(a, opts))

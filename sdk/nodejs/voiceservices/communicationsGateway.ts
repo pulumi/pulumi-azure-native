@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A CommunicationsGateway resource
- * API Version: 2023-01-31.
+ * API Version: 2023-04-03.
  * Previous API Version: 2022-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class CommunicationsGateway extends pulumi.CustomResource {
@@ -67,6 +67,14 @@ export class CommunicationsGateway extends pulumi.CustomResource {
      * A list of dial strings used for emergency calling.
      */
     public readonly emergencyDialStrings!: pulumi.Output<string[] | undefined>;
+    /**
+     * The managed service identities assigned to this resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.voiceservices.ManagedServiceIdentityResponse | undefined>;
+    /**
+     * Whether an integrated Mobile Control Point is in use.
+     */
+    public readonly integratedMcpEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -148,6 +156,8 @@ export class CommunicationsGateway extends pulumi.CustomResource {
             resourceInputs["connectivity"] = args ? args.connectivity : undefined;
             resourceInputs["e911Type"] = args ? args.e911Type : undefined;
             resourceInputs["emergencyDialStrings"] = args ? args.emergencyDialStrings : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["integratedMcpEnabled"] = (args ? args.integratedMcpEnabled : undefined) ?? false;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["onPremMcpEnabled"] = (args ? args.onPremMcpEnabled : undefined) ?? false;
             resourceInputs["platforms"] = args ? args.platforms : undefined;
@@ -169,6 +179,8 @@ export class CommunicationsGateway extends pulumi.CustomResource {
             resourceInputs["connectivity"] = undefined /*out*/;
             resourceInputs["e911Type"] = undefined /*out*/;
             resourceInputs["emergencyDialStrings"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["integratedMcpEnabled"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["onPremMcpEnabled"] = undefined /*out*/;
@@ -220,6 +232,14 @@ export interface CommunicationsGatewayArgs {
      * A list of dial strings used for emergency calling.
      */
     emergencyDialStrings?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The managed service identities assigned to this resource.
+     */
+    identity?: pulumi.Input<inputs.voiceservices.ManagedServiceIdentityArgs>;
+    /**
+     * Whether an integrated Mobile Control Point is in use.
+     */
+    integratedMcpEnabled?: pulumi.Input<boolean>;
     /**
      * The geo-location where the resource lives
      */

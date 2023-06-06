@@ -111,7 +111,7 @@ def get_environment_type(dev_center_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentTypeResult:
     """
     Gets an environment type.
-    API Version: 2022-11-11-preview.
+    API Version: 2023-04-01.
 
 
     :param str dev_center_name: The name of the devcenter.
@@ -141,7 +141,7 @@ def get_environment_type_output(dev_center_name: Optional[pulumi.Input[str]] = N
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentTypeResult]:
     """
     Gets an environment type.
-    API Version: 2022-11-11-preview.
+    API Version: 2023-04-01.
 
 
     :param str dev_center_name: The name of the devcenter.

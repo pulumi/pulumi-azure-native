@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the EmailService and its properties.
- * API Version: 2023-03-01-preview.
+ * API Version: 2023-03-31.
  */
 export function getEmailService(args: GetEmailServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailServiceResult> {
 
@@ -70,7 +70,7 @@ export interface GetEmailServiceResult {
 }
 /**
  * Get the EmailService and its properties.
- * API Version: 2023-03-01-preview.
+ * API Version: 2023-03-31.
  */
 export function getEmailServiceOutput(args: GetEmailServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailServiceResult> {
     return pulumi.output(args).apply((a: any) => getEmailService(a, opts))

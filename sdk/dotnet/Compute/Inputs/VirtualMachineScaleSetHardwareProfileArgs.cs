@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class VirtualMachineScaleSetHardwareProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the properties for customizing the size of the virtual machine. Minimum api-version: 2021-11-01. &lt;br&gt;&lt;br&gt; Please follow the instructions in [VM Customization](https://aka.ms/vmcustomization) for more details.
+        /// Specifies the properties for customizing the size of the virtual machine. Minimum api-version: 2021-11-01. Please follow the instructions in [VM Customization](https://aka.ms/vmcustomization) for more details.
         /// </summary>
         [Input("vmSizeProperties")]
         public Input<Inputs.VMSizePropertiesArgs>? VmSizeProperties { get; set; }

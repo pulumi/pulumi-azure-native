@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the current filter values for the signatures overrides
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function listFirewallPolicyIdpsSignaturesFilterValue(args: ListFirewallPolicyIdpsSignaturesFilterValueArgs, opts?: pulumi.InvokeOptions): Promise<ListFirewallPolicyIdpsSignaturesFilterValueResult> {
 
@@ -44,7 +44,7 @@ export interface ListFirewallPolicyIdpsSignaturesFilterValueResult {
 }
 /**
  * Retrieves the current filter values for the signatures overrides
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function listFirewallPolicyIdpsSignaturesFilterValueOutput(args: ListFirewallPolicyIdpsSignaturesFilterValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFirewallPolicyIdpsSignaturesFilterValueResult> {
     return pulumi.output(args).apply((a: any) => listFirewallPolicyIdpsSignaturesFilterValue(a, opts))

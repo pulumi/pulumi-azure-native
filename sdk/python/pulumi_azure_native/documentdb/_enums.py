@@ -13,6 +13,7 @@ __all__ = [
     'CompositePathSortOrder',
     'ConflictResolutionMode',
     'ConnectorOffer',
+    'ContinuousTier',
     'CreateMode',
     'DataType',
     'DatabaseAccountKind',
@@ -23,6 +24,7 @@ __all__ = [
     'ManagedCassandraProvisioningState',
     'ManagedCassandraResourceIdentityType',
     'MinimalTlsVersion',
+    'MongoRoleDefinitionType',
     'NetworkAclBypass',
     'PartitionKind',
     'PublicNetworkAccess',
@@ -52,6 +54,7 @@ class AuthenticationMethod(str, Enum):
     """
     NONE = "None"
     CASSANDRA = "Cassandra"
+    LDAP = "Ldap"
 
 
 class BackupPolicyMigrationStatus(str, Enum):
@@ -102,6 +105,14 @@ class ConnectorOffer(str, Enum):
     The cassandra connector offer type for the Cosmos DB database C* account.
     """
     SMALL = "Small"
+
+
+class ContinuousTier(str, Enum):
+    """
+    Enum to indicate type of Continuous backup mode
+    """
+    CONTINUOUS7_DAYS = "Continuous7Days"
+    CONTINUOUS30_DAYS = "Continuous30Days"
 
 
 class CreateMode(str, Enum):
@@ -198,6 +209,14 @@ class MinimalTlsVersion(str, Enum):
     TLS12 = "Tls12"
 
 
+class MongoRoleDefinitionType(str, Enum):
+    """
+    Indicates whether the Role Definition was built-in or user created.
+    """
+    BUILT_IN_ROLE = "BuiltInRole"
+    CUSTOM_ROLE = "CustomRole"
+
+
 class NetworkAclBypass(str, Enum):
     """
     Indicates what services are allowed to bypass firewall checks.
@@ -221,6 +240,7 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
 class ResourceIdentityType(str, Enum):

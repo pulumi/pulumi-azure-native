@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
+    /// Deployment model version upgrade option.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeploymentModelVersionUpgradeOption : IEquatable<DeploymentModelVersionUpgradeOption>
+    {
+        private readonly string _value;
+
+        private DeploymentModelVersionUpgradeOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeploymentModelVersionUpgradeOption OnceNewDefaultVersionAvailable { get; } = new DeploymentModelVersionUpgradeOption("OnceNewDefaultVersionAvailable");
+        public static DeploymentModelVersionUpgradeOption OnceCurrentVersionExpired { get; } = new DeploymentModelVersionUpgradeOption("OnceCurrentVersionExpired");
+        public static DeploymentModelVersionUpgradeOption NoAutoUpgrade { get; } = new DeploymentModelVersionUpgradeOption("NoAutoUpgrade");
+
+        public static bool operator ==(DeploymentModelVersionUpgradeOption left, DeploymentModelVersionUpgradeOption right) => left.Equals(right);
+        public static bool operator !=(DeploymentModelVersionUpgradeOption left, DeploymentModelVersionUpgradeOption right) => !left.Equals(right);
+
+        public static explicit operator string(DeploymentModelVersionUpgradeOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeploymentModelVersionUpgradeOption other && Equals(other);
+        public bool Equals(DeploymentModelVersionUpgradeOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Deployment scale type.
     /// </summary>
     [EnumType]
@@ -54,6 +86,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         public static HostingModel Web { get; } = new HostingModel("Web");
         public static HostingModel ConnectedContainer { get; } = new HostingModel("ConnectedContainer");
         public static HostingModel DisconnectedContainer { get; } = new HostingModel("DisconnectedContainer");
+        public static HostingModel ProvisionedWeb { get; } = new HostingModel("ProvisionedWeb");
 
         public static bool operator ==(HostingModel left, HostingModel right) => left.Equals(right);
         public static bool operator !=(HostingModel left, HostingModel right) => !left.Equals(right);

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Managed cluster.
-        /// API Version: 2023-01-01.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:containerservice:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Managed cluster.
-        /// API Version: 2023-01-01.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:containerservice:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
@@ -228,6 +228,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly Outputs.ManagedClusterStorageProfileResponse? StorageProfile;
         /// <summary>
+        /// The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
+        /// </summary>
+        public readonly string? SupportPlan;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -328,6 +332,8 @@ namespace Pulumi.AzureNative.ContainerService
 
             Outputs.ManagedClusterStorageProfileResponse? storageProfile,
 
+            string? supportPlan,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -377,6 +383,7 @@ namespace Pulumi.AzureNative.ContainerService
             ServicePrincipalProfile = servicePrincipalProfile;
             Sku = sku;
             StorageProfile = storageProfile;
+            SupportPlan = supportPlan;
             SystemData = systemData;
             Tags = tags;
             Type = type;

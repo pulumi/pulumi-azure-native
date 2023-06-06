@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Restore Point details.
-    /// API Version: 2022-11-01.
+    /// API Version: 2023-03-01.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:RestorePoint")]
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.Compute
         /// Gets the details of the VM captured at the time of the restore point creation.
         /// </summary>
         [Output("sourceMetadata")]
-        public Output<Outputs.RestorePointSourceMetadataResponse> SourceMetadata { get; private set; } = null!;
+        public Output<Outputs.RestorePointSourceMetadataResponse?> SourceMetadata { get; private set; } = null!;
 
         /// <summary>
         /// Resource Id of the source restore point from which a copy needs to be created.
@@ -162,6 +162,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("restorePointName")]
         public Input<string>? RestorePointName { get; set; }
+
+        /// <summary>
+        /// Gets the details of the VM captured at the time of the restore point creation.
+        /// </summary>
+        [Input("sourceMetadata")]
+        public Input<Inputs.RestorePointSourceMetadataArgs>? SourceMetadata { get; set; }
 
         /// <summary>
         /// Resource Id of the source restore point from which a copy needs to be created.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified network interface.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
 
@@ -44,6 +44,10 @@ export interface GetNetworkInterfaceResult {
      * Auxiliary mode of Network Interface resource.
      */
     readonly auxiliaryMode?: string;
+    /**
+     * Auxiliary sku of Network Interface resource.
+     */
+    readonly auxiliarySku?: string;
     /**
      * Indicates whether to disable tcp state tracking.
      */
@@ -155,7 +159,7 @@ export interface GetNetworkInterfaceResult {
 }
 /**
  * Gets information about the specified network interface.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkInterface(a, opts))

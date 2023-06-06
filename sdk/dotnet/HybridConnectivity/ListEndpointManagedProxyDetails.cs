@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridConnectivity
     {
         /// <summary>
         /// Fetches the managed proxy details 
-        /// API Version: 2022-05-01-preview.
+        /// API Version: 2023-03-15.
         /// </summary>
         public static Task<ListEndpointManagedProxyDetailsResult> InvokeAsync(ListEndpointManagedProxyDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEndpointManagedProxyDetailsResult>("azure-native:hybridconnectivity:listEndpointManagedProxyDetails", args ?? new ListEndpointManagedProxyDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Fetches the managed proxy details 
-        /// API Version: 2022-05-01-preview.
+        /// API Version: 2023-03-15.
         /// </summary>
         public static Output<ListEndpointManagedProxyDetailsResult> Invoke(ListEndpointManagedProxyDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEndpointManagedProxyDetailsResult>("azure-native:hybridconnectivity:listEndpointManagedProxyDetails", args ?? new ListEndpointManagedProxyDetailsInvokeArgs(), options.WithDefaults());
@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.HybridConnectivity
         [Input("service", required: true)]
         public string Service { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the service. It is an optional property, if not provided, service configuration tokens issue code would be by passed.
+        /// </summary>
+        [Input("serviceName")]
+        public Union<string, Pulumi.AzureNative.HybridConnectivity.ServiceName>? ServiceName { get; set; }
+
         public ListEndpointManagedProxyDetailsArgs()
         {
         }
@@ -84,6 +90,12 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service. It is an optional property, if not provided, service configuration tokens issue code would be by passed.
+        /// </summary>
+        [Input("serviceName")]
+        public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.ServiceName>? ServiceName { get; set; }
 
         public ListEndpointManagedProxyDetailsInvokeArgs()
         {

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CognitiveServices
     {
         /// <summary>
         /// Gets the specified deployments associated with the Cognitive Services account.
-        /// API Version: 2022-12-01.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:cognitiveservices:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified deployments associated with the Cognitive Services account.
-        /// API Version: 2022-12-01.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:cognitiveservices:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         public readonly Outputs.DeploymentPropertiesResponse Properties;
         /// <summary>
+        /// The resource model definition representing SKU
+        /// </summary>
+        public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.CognitiveServices
 
             Outputs.DeploymentPropertiesResponse properties,
 
+            Outputs.SkuResponse? sku,
+
             Outputs.SystemDataResponse systemData,
 
             string type)
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.CognitiveServices
             Id = id;
             Name = name;
             Properties = properties;
+            Sku = sku;
             SystemData = systemData;
             Type = type;
         }

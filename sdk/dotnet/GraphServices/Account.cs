@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.GraphServices
 {
     /// <summary>
     /// Account details
-    /// API Version: 2022-09-22-preview.
+    /// API Version: 2023-04-13.
     /// Previous API Version: 2022-09-22-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:graphservices:Account")]

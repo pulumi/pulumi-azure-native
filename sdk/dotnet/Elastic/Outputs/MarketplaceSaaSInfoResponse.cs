@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Elastic.Outputs
         /// </summary>
         public readonly string? MarketplaceResourceId;
         /// <summary>
+        /// Marketplace Subscription Details: SaaS Subscription Status
+        /// </summary>
+        public readonly string? MarketplaceStatus;
+        /// <summary>
         /// Marketplace Subscription
         /// </summary>
         public readonly Outputs.MarketplaceSaaSInfoResponseMarketplaceSubscription? MarketplaceSubscription;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.Elastic.Outputs
 
             string? marketplaceResourceId,
 
+            string? marketplaceStatus,
+
             Outputs.MarketplaceSaaSInfoResponseMarketplaceSubscription? marketplaceSubscription)
         {
             MarketplaceName = marketplaceName;
             MarketplaceResourceId = marketplaceResourceId;
+            MarketplaceStatus = marketplaceStatus;
             MarketplaceSubscription = marketplaceSubscription;
         }
     }

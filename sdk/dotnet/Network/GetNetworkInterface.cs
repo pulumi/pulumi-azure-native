@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets information about the specified network interface.
-        /// API Version: 2022-09-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure-native:network:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified network interface.
-        /// API Version: 2022-09-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure-native:network:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.Network
         /// Auxiliary mode of Network Interface resource.
         /// </summary>
         public readonly string? AuxiliaryMode;
+        /// <summary>
+        /// Auxiliary sku of Network Interface resource.
+        /// </summary>
+        public readonly string? AuxiliarySku;
         /// <summary>
         /// Indicates whether to disable tcp state tracking.
         /// </summary>
@@ -200,6 +204,8 @@ namespace Pulumi.AzureNative.Network
         private GetNetworkInterfaceResult(
             string? auxiliaryMode,
 
+            string? auxiliarySku,
+
             bool? disableTcpStateTracking,
 
             Outputs.NetworkInterfaceDnsSettingsResponse? dnsSettings,
@@ -255,6 +261,7 @@ namespace Pulumi.AzureNative.Network
             string? workloadType)
         {
             AuxiliaryMode = auxiliaryMode;
+            AuxiliarySku = auxiliarySku;
             DisableTcpStateTracking = disableTcpStateTracking;
             DnsSettings = dnsSettings;
             DscpConfiguration = dscpConfiguration;

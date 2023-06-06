@@ -434,7 +434,7 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayConnectionResult:
     """
     Gets the specified virtual network gateway connection by resource group.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -488,7 +488,7 @@ def get_virtual_network_gateway_connection_output(resource_group_name: Optional[
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayConnectionResult]:
     """
     Gets the specified virtual network gateway connection by resource group.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str resource_group_name: The name of the resource group.

@@ -95,7 +95,7 @@ class TrafficControllerInterface(pulumi.CustomResource):
                  __props__=None):
         """
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
-        API Version: 2022-10-01-preview.
+        API Version: 2023-05-01-preview.
         Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -113,7 +113,7 @@ class TrafficControllerInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
-        API Version: 2022-10-01-preview.
+        API Version: 2023-05-01-preview.
         Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -194,7 +194,7 @@ class TrafficControllerInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def associations(self) -> pulumi.Output[Sequence['outputs.ResourceIDResponse']]:
+    def associations(self) -> pulumi.Output[Sequence['outputs.ResourceIdResponse']]:
         """
         Associations References List
         """
@@ -210,7 +210,7 @@ class TrafficControllerInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frontends(self) -> pulumi.Output[Sequence['outputs.ResourceIDResponse']]:
+    def frontends(self) -> pulumi.Output[Sequence['outputs.ResourceIdResponse']]:
         """
         Frontends References List
         """

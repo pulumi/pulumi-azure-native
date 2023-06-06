@@ -95,7 +95,7 @@ class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The Network Manager Connection resource
-        API Version: 2022-09-01.
+        API Version: 2022-11-01.
         Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -113,7 +113,7 @@ class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Network Manager Connection resource
-        API Version: 2022-09-01.
+        API Version: 2022-11-01.
         Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

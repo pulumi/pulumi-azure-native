@@ -13,10 +13,12 @@ from ._enums import *
 __all__ = [
     'AnalyticalStorageConfigurationArgs',
     'ApiPropertiesArgs',
+    'AuthenticationMethodLdapPropertiesArgs',
     'AutoscaleSettingsArgs',
     'BackupPolicyMigrationStateArgs',
     'CapabilityArgs',
     'CapacityArgs',
+    'CassandraErrorArgs',
     'CassandraKeyspaceResourceArgs',
     'CassandraPartitionKeyArgs',
     'CassandraSchemaArgs',
@@ -32,6 +34,7 @@ __all__ = [
     'ConsistencyPolicyArgs',
     'ContainerPartitionKeyArgs',
     'ContinuousModeBackupPolicyArgs',
+    'ContinuousModePropertiesArgs',
     'CorsPolicyArgs',
     'CreateUpdateOptionsArgs',
     'DataCenterResourcePropertiesArgs',
@@ -119,6 +122,138 @@ class ApiPropertiesArgs:
     @server_version.setter
     def server_version(self, value: Optional[pulumi.Input[Union[str, 'ServerVersion']]]):
         pulumi.set(self, "server_version", value)
+
+
+@pulumi.input_type
+class AuthenticationMethodLdapPropertiesArgs:
+    def __init__(__self__, *,
+                 connection_timeout_in_ms: Optional[pulumi.Input[int]] = None,
+                 search_base_distinguished_name: Optional[pulumi.Input[str]] = None,
+                 search_filter_template: Optional[pulumi.Input[str]] = None,
+                 server_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]]] = None,
+                 server_hostname: Optional[pulumi.Input[str]] = None,
+                 server_port: Optional[pulumi.Input[int]] = None,
+                 service_user_distinguished_name: Optional[pulumi.Input[str]] = None,
+                 service_user_password: Optional[pulumi.Input[str]] = None):
+        """
+        Ldap authentication method properties. This feature is in preview.
+        :param pulumi.Input[int] connection_timeout_in_ms: Timeout for connecting to the LDAP server in miliseconds. The default is 5000 ms.
+        :param pulumi.Input[str] search_base_distinguished_name: Distinguished name of the object to start the recursive search of users from.
+        :param pulumi.Input[str] search_filter_template: Template to use for searching. Defaults to (cn=%s) where %s will be replaced by the username used to login.
+        :param pulumi.Input[str] server_hostname: Hostname of the LDAP server.
+        :param pulumi.Input[int] server_port: Port of the LDAP server.
+        :param pulumi.Input[str] service_user_distinguished_name: Distinguished name of the look up user account, who can look up user details on authentication.
+        :param pulumi.Input[str] service_user_password: Password of the look up user.
+        """
+        if connection_timeout_in_ms is not None:
+            pulumi.set(__self__, "connection_timeout_in_ms", connection_timeout_in_ms)
+        if search_base_distinguished_name is not None:
+            pulumi.set(__self__, "search_base_distinguished_name", search_base_distinguished_name)
+        if search_filter_template is not None:
+            pulumi.set(__self__, "search_filter_template", search_filter_template)
+        if server_certificates is not None:
+            pulumi.set(__self__, "server_certificates", server_certificates)
+        if server_hostname is not None:
+            pulumi.set(__self__, "server_hostname", server_hostname)
+        if server_port is not None:
+            pulumi.set(__self__, "server_port", server_port)
+        if service_user_distinguished_name is not None:
+            pulumi.set(__self__, "service_user_distinguished_name", service_user_distinguished_name)
+        if service_user_password is not None:
+            pulumi.set(__self__, "service_user_password", service_user_password)
+
+    @property
+    @pulumi.getter(name="connectionTimeoutInMs")
+    def connection_timeout_in_ms(self) -> Optional[pulumi.Input[int]]:
+        """
+        Timeout for connecting to the LDAP server in miliseconds. The default is 5000 ms.
+        """
+        return pulumi.get(self, "connection_timeout_in_ms")
+
+    @connection_timeout_in_ms.setter
+    def connection_timeout_in_ms(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "connection_timeout_in_ms", value)
+
+    @property
+    @pulumi.getter(name="searchBaseDistinguishedName")
+    def search_base_distinguished_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Distinguished name of the object to start the recursive search of users from.
+        """
+        return pulumi.get(self, "search_base_distinguished_name")
+
+    @search_base_distinguished_name.setter
+    def search_base_distinguished_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "search_base_distinguished_name", value)
+
+    @property
+    @pulumi.getter(name="searchFilterTemplate")
+    def search_filter_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Template to use for searching. Defaults to (cn=%s) where %s will be replaced by the username used to login.
+        """
+        return pulumi.get(self, "search_filter_template")
+
+    @search_filter_template.setter
+    def search_filter_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "search_filter_template", value)
+
+    @property
+    @pulumi.getter(name="serverCertificates")
+    def server_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]]]:
+        return pulumi.get(self, "server_certificates")
+
+    @server_certificates.setter
+    def server_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]]]):
+        pulumi.set(self, "server_certificates", value)
+
+    @property
+    @pulumi.getter(name="serverHostname")
+    def server_hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        Hostname of the LDAP server.
+        """
+        return pulumi.get(self, "server_hostname")
+
+    @server_hostname.setter
+    def server_hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_hostname", value)
+
+    @property
+    @pulumi.getter(name="serverPort")
+    def server_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port of the LDAP server.
+        """
+        return pulumi.get(self, "server_port")
+
+    @server_port.setter
+    def server_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "server_port", value)
+
+    @property
+    @pulumi.getter(name="serviceUserDistinguishedName")
+    def service_user_distinguished_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Distinguished name of the look up user account, who can look up user details on authentication.
+        """
+        return pulumi.get(self, "service_user_distinguished_name")
+
+    @service_user_distinguished_name.setter
+    def service_user_distinguished_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_user_distinguished_name", value)
+
+    @property
+    @pulumi.getter(name="serviceUserPassword")
+    def service_user_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password of the look up user.
+        """
+        return pulumi.get(self, "service_user_password")
+
+    @service_user_password.setter
+    def service_user_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_user_password", value)
 
 
 @pulumi.input_type
@@ -246,6 +381,77 @@ class CapacityArgs:
     @total_throughput_limit.setter
     def total_throughput_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "total_throughput_limit", value)
+
+
+@pulumi.input_type
+class CassandraErrorArgs:
+    def __init__(__self__, *,
+                 additional_error_info: Optional[pulumi.Input[str]] = None,
+                 code: Optional[pulumi.Input[str]] = None,
+                 message: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] additional_error_info: Additional information about the error.
+        :param pulumi.Input[str] code: The code of error that occurred.
+        :param pulumi.Input[str] message: The message of the error.
+        :param pulumi.Input[str] target: The target resource of the error.
+        """
+        if additional_error_info is not None:
+            pulumi.set(__self__, "additional_error_info", additional_error_info)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalErrorInfo")
+    def additional_error_info(self) -> Optional[pulumi.Input[str]]:
+        """
+        Additional information about the error.
+        """
+        return pulumi.get(self, "additional_error_info")
+
+    @additional_error_info.setter
+    def additional_error_info(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_error_info", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The code of error that occurred.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[str]]:
+        """
+        The message of the error.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target resource of the error.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
 
 
 @pulumi.input_type
@@ -606,6 +812,7 @@ class ClusterResourcePropertiesArgs:
                  hours_between_backups: Optional[pulumi.Input[int]] = None,
                  initial_cassandra_admin_password: Optional[pulumi.Input[str]] = None,
                  prometheus_endpoint: Optional[pulumi.Input['SeedNodeArgs']] = None,
+                 provision_error: Optional[pulumi.Input['CassandraErrorArgs']] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ManagedCassandraProvisioningState']]] = None,
                  repair_enabled: Optional[pulumi.Input[bool]] = None,
                  restore_from_backup_id: Optional[pulumi.Input[str]] = None):
@@ -620,9 +827,10 @@ class ClusterResourcePropertiesArgs:
         :param pulumi.Input[str] delegated_management_subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
         :param pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]] external_gossip_certificates: List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
         :param pulumi.Input[Sequence[pulumi.Input['SeedNodeArgs']]] external_seed_nodes: List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
-        :param pulumi.Input[int] hours_between_backups: Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+        :param pulumi.Input[int] hours_between_backups: (Deprecated) Number of hours to wait between taking a backup of the cluster.
         :param pulumi.Input[str] initial_cassandra_admin_password: Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
         :param pulumi.Input['SeedNodeArgs'] prometheus_endpoint: Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+        :param pulumi.Input['CassandraErrorArgs'] provision_error: Error related to resource provisioning.
         :param pulumi.Input[Union[str, 'ManagedCassandraProvisioningState']] provisioning_state: The status of the resource at the time the operation was called.
         :param pulumi.Input[bool] repair_enabled: Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
         :param pulumi.Input[str] restore_from_backup_id: To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
@@ -651,6 +859,8 @@ class ClusterResourcePropertiesArgs:
             pulumi.set(__self__, "initial_cassandra_admin_password", initial_cassandra_admin_password)
         if prometheus_endpoint is not None:
             pulumi.set(__self__, "prometheus_endpoint", prometheus_endpoint)
+        if provision_error is not None:
+            pulumi.set(__self__, "provision_error", provision_error)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if repair_enabled is not None:
@@ -770,7 +980,7 @@ class ClusterResourcePropertiesArgs:
     @pulumi.getter(name="hoursBetweenBackups")
     def hours_between_backups(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+        (Deprecated) Number of hours to wait between taking a backup of the cluster.
         """
         return pulumi.get(self, "hours_between_backups")
 
@@ -801,6 +1011,18 @@ class ClusterResourcePropertiesArgs:
     @prometheus_endpoint.setter
     def prometheus_endpoint(self, value: Optional[pulumi.Input['SeedNodeArgs']]):
         pulumi.set(self, "prometheus_endpoint", value)
+
+    @property
+    @pulumi.getter(name="provisionError")
+    def provision_error(self) -> Optional[pulumi.Input['CassandraErrorArgs']]:
+        """
+        Error related to resource provisioning.
+        """
+        return pulumi.get(self, "provision_error")
+
+    @provision_error.setter
+    def provision_error(self, value: Optional[pulumi.Input['CassandraErrorArgs']]):
+        pulumi.set(self, "provision_error", value)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -1093,14 +1315,18 @@ class ContainerPartitionKeyArgs:
 class ContinuousModeBackupPolicyArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 continuous_mode_properties: Optional[pulumi.Input['ContinuousModePropertiesArgs']] = None,
                  migration_state: Optional[pulumi.Input['BackupPolicyMigrationStateArgs']] = None):
         """
         The object representing continuous mode backup policy.
         :param pulumi.Input[str] type: Describes the mode of backups.
                Expected value is 'Continuous'.
+        :param pulumi.Input['ContinuousModePropertiesArgs'] continuous_mode_properties: Configuration values for continuous mode backup
         :param pulumi.Input['BackupPolicyMigrationStateArgs'] migration_state: The object representing the state of the migration between the backup policies.
         """
         pulumi.set(__self__, "type", 'Continuous')
+        if continuous_mode_properties is not None:
+            pulumi.set(__self__, "continuous_mode_properties", continuous_mode_properties)
         if migration_state is not None:
             pulumi.set(__self__, "migration_state", migration_state)
 
@@ -1118,6 +1344,18 @@ class ContinuousModeBackupPolicyArgs:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="continuousModeProperties")
+    def continuous_mode_properties(self) -> Optional[pulumi.Input['ContinuousModePropertiesArgs']]:
+        """
+        Configuration values for continuous mode backup
+        """
+        return pulumi.get(self, "continuous_mode_properties")
+
+    @continuous_mode_properties.setter
+    def continuous_mode_properties(self, value: Optional[pulumi.Input['ContinuousModePropertiesArgs']]):
+        pulumi.set(self, "continuous_mode_properties", value)
+
+    @property
     @pulumi.getter(name="migrationState")
     def migration_state(self) -> Optional[pulumi.Input['BackupPolicyMigrationStateArgs']]:
         """
@@ -1128,6 +1366,30 @@ class ContinuousModeBackupPolicyArgs:
     @migration_state.setter
     def migration_state(self, value: Optional[pulumi.Input['BackupPolicyMigrationStateArgs']]):
         pulumi.set(self, "migration_state", value)
+
+
+@pulumi.input_type
+class ContinuousModePropertiesArgs:
+    def __init__(__self__, *,
+                 tier: Optional[pulumi.Input[Union[str, 'ContinuousTier']]] = None):
+        """
+        Configuration values for periodic mode backup
+        :param pulumi.Input[Union[str, 'ContinuousTier']] tier: Enum to indicate type of Continuous backup mode
+        """
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'ContinuousTier']]]:
+        """
+        Enum to indicate type of Continuous backup mode
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'ContinuousTier']]]):
+        pulumi.set(self, "tier", value)
 
 
 @pulumi.input_type
@@ -1260,31 +1522,39 @@ class CreateUpdateOptionsArgs:
 @pulumi.input_type
 class DataCenterResourcePropertiesArgs:
     def __init__(__self__, *,
+                 authentication_method_ldap_properties: Optional[pulumi.Input['AuthenticationMethodLdapPropertiesArgs']] = None,
                  availability_zone: Optional[pulumi.Input[bool]] = None,
                  backup_storage_customer_key_uri: Optional[pulumi.Input[str]] = None,
                  base64_encoded_cassandra_yaml_fragment: Optional[pulumi.Input[str]] = None,
                  data_center_location: Optional[pulumi.Input[str]] = None,
+                 deallocated: Optional[pulumi.Input[bool]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[str]] = None,
                  disk_capacity: Optional[pulumi.Input[int]] = None,
                  disk_sku: Optional[pulumi.Input[str]] = None,
                  managed_disk_customer_key_uri: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
+                 provision_error: Optional[pulumi.Input['CassandraErrorArgs']] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ManagedCassandraProvisioningState']]] = None,
                  sku: Optional[pulumi.Input[str]] = None):
         """
         Properties of a managed Cassandra data center.
-        :param pulumi.Input[bool] availability_zone: If the azure data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
+        :param pulumi.Input['AuthenticationMethodLdapPropertiesArgs'] authentication_method_ldap_properties: Ldap authentication method properties. This feature is in preview.
+        :param pulumi.Input[bool] availability_zone: If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
         :param pulumi.Input[str] backup_storage_customer_key_uri: Indicates the Key Uri of the customer key to use for encryption of the backup storage account.
         :param pulumi.Input[str] base64_encoded_cassandra_yaml_fragment: A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
         :param pulumi.Input[str] data_center_location: The region this data center should be created in.
+        :param pulumi.Input[bool] deallocated: Whether the data center has been deallocated.
         :param pulumi.Input[str] delegated_subnet_id: Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
-        :param pulumi.Input[int] disk_capacity: Number of disk used for data centers. Default value is 4.
+        :param pulumi.Input[int] disk_capacity: Number of disks attached to each node. Default is 4.
         :param pulumi.Input[str] disk_sku: Disk SKU used for data centers. Default value is P30.
         :param pulumi.Input[str] managed_disk_customer_key_uri: Key uri to use for encryption of managed disks. Ensure the system assigned identity of the cluster has been assigned appropriate permissions(key get/wrap/unwrap permissions) on the key.
         :param pulumi.Input[int] node_count: The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
+        :param pulumi.Input['CassandraErrorArgs'] provision_error: Error related to resource provisioning.
         :param pulumi.Input[Union[str, 'ManagedCassandraProvisioningState']] provisioning_state: The status of the resource at the time the operation was called.
         :param pulumi.Input[str] sku: Virtual Machine SKU used for data centers. Default value is Standard_DS14_v2
         """
+        if authentication_method_ldap_properties is not None:
+            pulumi.set(__self__, "authentication_method_ldap_properties", authentication_method_ldap_properties)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if backup_storage_customer_key_uri is not None:
@@ -1293,6 +1563,8 @@ class DataCenterResourcePropertiesArgs:
             pulumi.set(__self__, "base64_encoded_cassandra_yaml_fragment", base64_encoded_cassandra_yaml_fragment)
         if data_center_location is not None:
             pulumi.set(__self__, "data_center_location", data_center_location)
+        if deallocated is not None:
+            pulumi.set(__self__, "deallocated", deallocated)
         if delegated_subnet_id is not None:
             pulumi.set(__self__, "delegated_subnet_id", delegated_subnet_id)
         if disk_capacity is not None:
@@ -1303,16 +1575,30 @@ class DataCenterResourcePropertiesArgs:
             pulumi.set(__self__, "managed_disk_customer_key_uri", managed_disk_customer_key_uri)
         if node_count is not None:
             pulumi.set(__self__, "node_count", node_count)
+        if provision_error is not None:
+            pulumi.set(__self__, "provision_error", provision_error)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
 
     @property
+    @pulumi.getter(name="authenticationMethodLdapProperties")
+    def authentication_method_ldap_properties(self) -> Optional[pulumi.Input['AuthenticationMethodLdapPropertiesArgs']]:
+        """
+        Ldap authentication method properties. This feature is in preview.
+        """
+        return pulumi.get(self, "authentication_method_ldap_properties")
+
+    @authentication_method_ldap_properties.setter
+    def authentication_method_ldap_properties(self, value: Optional[pulumi.Input['AuthenticationMethodLdapPropertiesArgs']]):
+        pulumi.set(self, "authentication_method_ldap_properties", value)
+
+    @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[bool]]:
         """
-        If the azure data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
+        If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -1357,6 +1643,18 @@ class DataCenterResourcePropertiesArgs:
         pulumi.set(self, "data_center_location", value)
 
     @property
+    @pulumi.getter
+    def deallocated(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the data center has been deallocated.
+        """
+        return pulumi.get(self, "deallocated")
+
+    @deallocated.setter
+    def deallocated(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "deallocated", value)
+
+    @property
     @pulumi.getter(name="delegatedSubnetId")
     def delegated_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1372,7 +1670,7 @@ class DataCenterResourcePropertiesArgs:
     @pulumi.getter(name="diskCapacity")
     def disk_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of disk used for data centers. Default value is 4.
+        Number of disks attached to each node. Default is 4.
         """
         return pulumi.get(self, "disk_capacity")
 
@@ -1415,6 +1713,18 @@ class DataCenterResourcePropertiesArgs:
     @node_count.setter
     def node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "node_count", value)
+
+    @property
+    @pulumi.getter(name="provisionError")
+    def provision_error(self) -> Optional[pulumi.Input['CassandraErrorArgs']]:
+        """
+        Error related to resource provisioning.
+        """
+        return pulumi.get(self, "provision_error")
+
+    @provision_error.setter
+    def provision_error(self, value: Optional[pulumi.Input['CassandraErrorArgs']]):
+        pulumi.set(self, "provision_error", value)
 
     @property
     @pulumi.getter(name="provisioningState")

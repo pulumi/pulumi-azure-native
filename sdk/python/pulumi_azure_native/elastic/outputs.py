@@ -630,17 +630,21 @@ class MarketplaceSaaSInfoResponse(dict):
     def __init__(__self__, *,
                  marketplace_name: Optional[str] = None,
                  marketplace_resource_id: Optional[str] = None,
+                 marketplace_status: Optional[str] = None,
                  marketplace_subscription: Optional['outputs.MarketplaceSaaSInfoResponseMarketplaceSubscription'] = None):
         """
         Marketplace SAAS Info of the resource.
         :param str marketplace_name: Marketplace Subscription Details: SAAS Name
         :param str marketplace_resource_id: Marketplace Subscription Details: Resource URI
+        :param str marketplace_status: Marketplace Subscription Details: SaaS Subscription Status
         :param 'MarketplaceSaaSInfoResponseMarketplaceSubscription' marketplace_subscription: Marketplace Subscription
         """
         if marketplace_name is not None:
             pulumi.set(__self__, "marketplace_name", marketplace_name)
         if marketplace_resource_id is not None:
             pulumi.set(__self__, "marketplace_resource_id", marketplace_resource_id)
+        if marketplace_status is not None:
+            pulumi.set(__self__, "marketplace_status", marketplace_status)
         if marketplace_subscription is not None:
             pulumi.set(__self__, "marketplace_subscription", marketplace_subscription)
 
@@ -659,6 +663,14 @@ class MarketplaceSaaSInfoResponse(dict):
         Marketplace Subscription Details: Resource URI
         """
         return pulumi.get(self, "marketplace_resource_id")
+
+    @property
+    @pulumi.getter(name="marketplaceStatus")
+    def marketplace_status(self) -> Optional[str]:
+        """
+        Marketplace Subscription Details: SaaS Subscription Status
+        """
+        return pulumi.get(self, "marketplace_status")
 
     @property
     @pulumi.getter(name="marketplaceSubscription")

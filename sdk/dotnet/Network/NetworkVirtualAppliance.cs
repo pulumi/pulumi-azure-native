@@ -11,12 +11,18 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// NetworkVirtualAppliance Resource.
-    /// API Version: 2022-09-01.
+    /// API Version: 2022-11-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkVirtualAppliance")]
     public partial class NetworkVirtualAppliance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Details required for Additional Network Interface.
+        /// </summary>
+        [Output("additionalNics")]
+        public Output<ImmutableArray<Outputs.VirtualApplianceAdditionalNicPropertiesResponse>> AdditionalNics { get; private set; } = null!;
+
         /// <summary>
         /// Address Prefix.
         /// </summary>
@@ -126,6 +132,12 @@ namespace Pulumi.AzureNative.Network
         public Output<double?> VirtualApplianceAsn { get; private set; } = null!;
 
         /// <summary>
+        /// List of references to VirtualApplianceConnections.
+        /// </summary>
+        [Output("virtualApplianceConnections")]
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> VirtualApplianceConnections { get; private set; } = null!;
+
+        /// <summary>
         /// List of Virtual Appliance Network Interfaces.
         /// </summary>
         [Output("virtualApplianceNics")]
@@ -208,6 +220,18 @@ namespace Pulumi.AzureNative.Network
 
     public sealed class NetworkVirtualApplianceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalNics")]
+        private InputList<Inputs.VirtualApplianceAdditionalNicPropertiesArgs>? _additionalNics;
+
+        /// <summary>
+        /// Details required for Additional Network Interface.
+        /// </summary>
+        public InputList<Inputs.VirtualApplianceAdditionalNicPropertiesArgs> AdditionalNics
+        {
+            get => _additionalNics ?? (_additionalNics = new InputList<Inputs.VirtualApplianceAdditionalNicPropertiesArgs>());
+            set => _additionalNics = value;
+        }
+
         [Input("bootStrapConfigurationBlobs")]
         private InputList<string>? _bootStrapConfigurationBlobs;
 

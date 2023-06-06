@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a CommunicationsGateway
- * API Version: 2023-01-31.
+ * API Version: 2023-04-03.
  */
 export function getCommunicationsGateway(args: GetCommunicationsGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationsGatewayResult> {
 
@@ -68,6 +68,14 @@ export interface GetCommunicationsGatewayResult {
      */
     readonly id: string;
     /**
+     * The managed service identities assigned to this resource.
+     */
+    readonly identity?: outputs.voiceservices.ManagedServiceIdentityResponse;
+    /**
+     * Whether an integrated Mobile Control Point is in use.
+     */
+    readonly integratedMcpEnabled?: boolean;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -114,7 +122,7 @@ export interface GetCommunicationsGatewayResult {
 }
 /**
  * Get a CommunicationsGateway
- * API Version: 2023-01-31.
+ * API Version: 2023-04-03.
  */
 export function getCommunicationsGatewayOutput(args: GetCommunicationsGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationsGatewayResult> {
     return pulumi.output(args).apply((a: any) => getCommunicationsGateway(a, opts))

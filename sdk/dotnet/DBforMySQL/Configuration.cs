@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
     /// Represents a Configuration.
-    /// API Version: 2021-05-01.
+    /// API Version: 2022-01-01.
     /// Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Configuration")]
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         [Output("allowedValues")]
         public Output<string> AllowedValues { get; private set; } = null!;
+
+        /// <summary>
+        /// Current value of the configuration.
+        /// </summary>
+        [Output("currentValue")]
+        public Output<string?> CurrentValue { get; private set; } = null!;
 
         /// <summary>
         /// Data type of the configuration.
@@ -40,6 +46,12 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The link used to get the document from community or Azure site.
+        /// </summary>
+        [Output("documentationLink")]
+        public Output<string> DocumentationLink { get; private set; } = null!;
 
         /// <summary>
         /// If is the configuration pending restart or not.
@@ -148,6 +160,12 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         [Input("configurationName")]
         public Input<string>? ConfigurationName { get; set; }
+
+        /// <summary>
+        /// Current value of the configuration.
+        /// </summary>
+        [Input("currentValue")]
+        public Input<string>? CurrentValue { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

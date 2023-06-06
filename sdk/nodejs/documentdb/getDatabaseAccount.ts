@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the properties of an existing Azure Cosmos DB database account.
- * API Version: 2022-11-15.
+ * API Version: 2023-04-15.
  */
 export function getDatabaseAccount(args: GetDatabaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountResult> {
 
@@ -218,7 +218,7 @@ export interface GetDatabaseAccountResult {
 }
 /**
  * Retrieves the properties of an existing Azure Cosmos DB database account.
- * API Version: 2022-11-15.
+ * API Version: 2023-04-15.
  */
 export function getDatabaseAccountOutput(args: GetDatabaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccount(a, opts))

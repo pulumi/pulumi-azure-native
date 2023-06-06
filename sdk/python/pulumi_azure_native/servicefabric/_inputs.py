@@ -52,6 +52,7 @@ __all__ = [
     'VMSSExtensionArgs',
     'VaultCertificateArgs',
     'VaultSecretGroupArgs',
+    'VmImagePlanArgs',
     'VmManagedIdentityArgs',
     'VmssDataDiskArgs',
 ]
@@ -3059,6 +3060,78 @@ class VaultSecretGroupArgs:
     @vault_certificates.setter
     def vault_certificates(self, value: pulumi.Input[Sequence[pulumi.Input['VaultCertificateArgs']]]):
         pulumi.set(self, "vault_certificates", value)
+
+
+@pulumi.input_type
+class VmImagePlanArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 product: Optional[pulumi.Input[str]] = None,
+                 promotion_code: Optional[pulumi.Input[str]] = None,
+                 publisher: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+        :param pulumi.Input[str] name: The plan ID.
+        :param pulumi.Input[str] product: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        :param pulumi.Input[str] promotion_code: The promotion code.
+        :param pulumi.Input[str] publisher: The publisher ID.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if product is not None:
+            pulumi.set(__self__, "product", product)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The plan ID.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def product(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        """
+        return pulumi.get(self, "product")
+
+    @product.setter
+    def product(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "product", value)
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The promotion code.
+        """
+        return pulumi.get(self, "promotion_code")
+
+    @promotion_code.setter
+    def promotion_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "promotion_code", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[pulumi.Input[str]]:
+        """
+        The publisher ID.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "publisher", value)
 
 
 @pulumi.input_type

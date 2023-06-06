@@ -111,7 +111,7 @@ def get_virtual_hub_route_table_v2(resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubRouteTableV2Result:
     """
     Retrieves the details of a VirtualHubRouteTableV2.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHubRouteTableV2.
@@ -141,7 +141,7 @@ def get_virtual_hub_route_table_v2_output(resource_group_name: Optional[pulumi.I
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubRouteTableV2Result]:
     """
     Retrieves the details of a VirtualHubRouteTableV2.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHubRouteTableV2.

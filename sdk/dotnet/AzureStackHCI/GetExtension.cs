@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Get particular Arc Extension of HCI Cluster.
-        /// API Version: 2023-02-01.
+        /// API Version: 2023-03-01.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:azurestackhci:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get particular Arc Extension of HCI Cluster.
-        /// API Version: 2023-02-01.
+        /// API Version: 2023-03-01.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:azurestackhci:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
@@ -116,6 +116,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Indicates if the extension is managed by azure or the user.
+        /// </summary>
+        public readonly string ManagedBy;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -164,6 +168,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string id,
 
+            string managedBy,
+
             string name,
 
             ImmutableArray<Outputs.PerNodeExtensionStateResponse> perNodeExtensionDetails,
@@ -187,6 +193,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
             EnableAutomaticUpgrade = enableAutomaticUpgrade;
             ForceUpdateTag = forceUpdateTag;
             Id = id;
+            ManagedBy = managedBy;
             Name = name;
             PerNodeExtensionDetails = perNodeExtensionDetails;
             ProtectedSettings = protectedSettings;

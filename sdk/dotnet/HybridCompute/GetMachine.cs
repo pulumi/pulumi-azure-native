@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridCompute
     {
         /// <summary>
         /// Retrieves information about the model view or the instance view of a hybrid machine.
-        /// API Version: 2022-11-10.
+        /// API Version: 2022-12-27.
         /// </summary>
         public static Task<GetMachineResult> InvokeAsync(GetMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azure-native:hybridcompute:getMachine", args ?? new GetMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about the model view or the instance view of a hybrid machine.
-        /// API Version: 2022-11-10.
+        /// API Version: 2022-12-27.
         /// </summary>
         public static Output<GetMachineResult> Invoke(GetMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineResult>("azure-native:hybridcompute:getMachine", args ?? new GetMachineInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.HybridCompute
         /// Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
         /// </summary>
         public readonly Outputs.AgentConfigurationResponse AgentConfiguration;
+        /// <summary>
+        /// The info of the machine w.r.t Agent Upgrade
+        /// </summary>
+        public readonly Outputs.AgentUpgradeResponse? AgentUpgrade;
         /// <summary>
         /// The hybrid machine agent full version.
         /// </summary>
@@ -230,6 +234,8 @@ namespace Pulumi.AzureNative.HybridCompute
 
             Outputs.AgentConfigurationResponse agentConfiguration,
 
+            Outputs.AgentUpgradeResponse? agentUpgrade,
+
             string agentVersion,
 
             string? clientPublicKey,
@@ -298,6 +304,7 @@ namespace Pulumi.AzureNative.HybridCompute
         {
             AdFqdn = adFqdn;
             AgentConfiguration = agentConfiguration;
+            AgentUpgrade = agentUpgrade;
             AgentVersion = agentVersion;
             ClientPublicKey = clientPublicKey;
             CloudMetadata = cloudMetadata;

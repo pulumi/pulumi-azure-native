@@ -28,6 +28,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? JobServiceType { get; set; }
 
         /// <summary>
+        /// Nodes that user would like to start the service on.
+        /// If Nodes is not set or set to null, the service will only be started on leader node.
+        /// </summary>
+        [Input("nodes")]
+        public Input<Inputs.AllNodesArgs>? Nodes { get; set; }
+
+        /// <summary>
         /// Port for endpoint.
         /// </summary>
         [Input("port")]

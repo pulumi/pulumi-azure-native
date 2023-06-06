@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StorageCache
 {
     /// <summary>
     /// Type of the Storage Target.
-    /// API Version: 2023-01-01.
+    /// API Version: 2023-05-01.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache:StorageTarget")]
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.StorageCache
         public Output<Outputs.ClfsTargetResponse?> Clfs { get; private set; } = null!;
 
         /// <summary>
-        /// List of Cache namespace junctions to target for namespace associations.
+        /// List of cache namespace junctions to target for namespace associations.
         /// </summary>
         [Output("junctions")]
         public Output<ImmutableArray<Outputs.NamespaceJunctionResponse>> Junctions { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.StorageCache
         public Input<Inputs.BlobNfsTargetArgs>? BlobNfs { get; set; }
 
         /// <summary>
-        /// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        /// Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
         [Input("cacheName", required: true)]
         public Input<string> CacheName { get; set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.AzureNative.StorageCache
         private InputList<Inputs.NamespaceJunctionArgs>? _junctions;
 
         /// <summary>
-        /// List of Cache namespace junctions to target for namespace associations.
+        /// List of cache namespace junctions to target for namespace associations.
         /// </summary>
         public InputList<Inputs.NamespaceJunctionArgs> Junctions
         {
@@ -192,7 +192,7 @@ namespace Pulumi.AzureNative.StorageCache
         public Input<Inputs.Nfs3TargetArgs>? Nfs3 { get; set; }
 
         /// <summary>
-        /// Target resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

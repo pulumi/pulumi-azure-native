@@ -99,7 +99,7 @@ def get_schedule(name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str name: Schedule name.
@@ -128,7 +128,7 @@ def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str name: Schedule name.

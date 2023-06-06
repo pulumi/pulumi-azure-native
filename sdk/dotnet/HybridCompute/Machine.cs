@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// Describes a hybrid machine.
-    /// API Version: 2022-11-10.
+    /// API Version: 2022-12-27.
     /// Previous API Version: 2020-08-02. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:Machine")]
@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         [Output("agentConfiguration")]
         public Output<Outputs.AgentConfigurationResponse> AgentConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The info of the machine w.r.t Agent Upgrade
+        /// </summary>
+        [Output("agentUpgrade")]
+        public Output<Outputs.AgentUpgradeResponse?> AgentUpgrade { get; private set; } = null!;
 
         /// <summary>
         /// The hybrid machine agent full version.
@@ -290,6 +296,12 @@ namespace Pulumi.AzureNative.HybridCompute
 
     public sealed class MachineArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The info of the machine w.r.t Agent Upgrade
+        /// </summary>
+        [Input("agentUpgrade")]
+        public Input<Inputs.AgentUpgradeArgs>? AgentUpgrade { get; set; }
+
         /// <summary>
         /// Public Key that the client provides to be used during initial resource onboarding
         /// </summary>

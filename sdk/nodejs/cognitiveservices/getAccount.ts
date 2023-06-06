@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a Cognitive Services account specified by the parameters.
- * API Version: 2022-12-01.
+ * API Version: 2023-05-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -82,7 +82,7 @@ export interface GetAccountResult {
 }
 /**
  * Returns a Cognitive Services account specified by the parameters.
- * API Version: 2022-12-01.
+ * API Version: 2023-05-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

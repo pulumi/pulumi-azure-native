@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a VirtualWAN.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getVirtualWan(args: GetVirtualWanArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualWanResult> {
 
@@ -90,7 +90,7 @@ export interface GetVirtualWanResult {
 }
 /**
  * Retrieves the details of a VirtualWAN.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getVirtualWanOutput(args: GetVirtualWanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualWanResult> {
     return pulumi.output(args).apply((a: any) => getVirtualWan(a, opts))

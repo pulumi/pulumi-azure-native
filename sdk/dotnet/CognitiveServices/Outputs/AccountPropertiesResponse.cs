@@ -16,6 +16,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
     [OutputType]
     public sealed class AccountPropertiesResponse
     {
+        /// <summary>
+        /// The abuse penalty.
+        /// </summary>
+        public readonly Outputs.AbusePenaltyResponse AbusePenalty;
         public readonly ImmutableArray<string> AllowedFqdnList;
         /// <summary>
         /// The api properties for special APIs.
@@ -92,7 +96,6 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly string? PublicNetworkAccess;
         public readonly Outputs.QuotaLimitResponse QuotaLimit;
-        public readonly bool? Restore;
         public readonly bool? RestrictOutboundNetworkAccess;
         /// <summary>
         /// The scheduled purge date, only available for deleted account.
@@ -109,6 +112,8 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
         [OutputConstructor]
         private AccountPropertiesResponse(
+            Outputs.AbusePenaltyResponse abusePenalty,
+
             ImmutableArray<string> allowedFqdnList,
 
             Outputs.ApiPropertiesResponse? apiProperties,
@@ -153,8 +158,6 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             Outputs.QuotaLimitResponse quotaLimit,
 
-            bool? restore,
-
             bool? restrictOutboundNetworkAccess,
 
             string scheduledPurgeDate,
@@ -163,6 +166,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             ImmutableArray<Outputs.UserOwnedStorageResponse> userOwnedStorage)
         {
+            AbusePenalty = abusePenalty;
             AllowedFqdnList = allowedFqdnList;
             ApiProperties = apiProperties;
             CallRateLimit = callRateLimit;
@@ -185,7 +189,6 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             QuotaLimit = quotaLimit;
-            Restore = restore;
             RestrictOutboundNetworkAccess = restrictOutboundNetworkAccess;
             ScheduledPurgeDate = scheduledPurgeDate;
             SkuChangeInfo = skuChangeInfo;

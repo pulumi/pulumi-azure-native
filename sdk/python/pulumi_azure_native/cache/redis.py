@@ -338,7 +338,7 @@ class Redis(pulumi.CustomResource):
                  __props__=None):
         """
         A single Redis item in List or Get Operation.
-        API Version: 2022-06-01.
+        API Version: 2023-04-01.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -370,7 +370,7 @@ class Redis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A single Redis item in List or Get Operation.
-        API Version: 2022-06-01.
+        API Version: 2023-04-01.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

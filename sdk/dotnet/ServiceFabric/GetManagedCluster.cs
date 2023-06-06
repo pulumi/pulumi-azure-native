@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
-        /// API Version: 2023-02-01-preview.
+        /// API Version: 2023-03-01-preview.
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:servicefabric:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
-        /// API Version: 2023-02-01-preview.
+        /// API Version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:servicefabric:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
@@ -200,6 +200,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+        /// </summary>
+        public readonly string? PublicIPPrefixId;
+        /// <summary>
         /// Service endpoints for subnets in the cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceEndpointResponse> ServiceEndpoints;
@@ -302,6 +306,8 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string provisioningState,
 
+            string? publicIPPrefixId,
+
             ImmutableArray<Outputs.ServiceEndpointResponse> serviceEndpoints,
 
             Outputs.SkuResponse sku,
@@ -352,6 +358,7 @@ namespace Pulumi.AzureNative.ServiceFabric
             Name = name;
             NetworkSecurityRules = networkSecurityRules;
             ProvisioningState = provisioningState;
+            PublicIPPrefixId = publicIPPrefixId;
             ServiceEndpoints = serviceEndpoints;
             Sku = sku;
             SubnetId = subnetId;

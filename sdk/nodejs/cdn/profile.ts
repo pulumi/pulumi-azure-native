@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A profile is a logical grouping of endpoints that share the same settings.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Profile extends pulumi.CustomResource {
@@ -40,9 +40,17 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /**
+     * Key-Value pair representing additional properties for profiles.
+     */
+    public /*out*/ readonly extendedProperties!: pulumi.Output<{[key: string]: string}>;
+    /**
      * The Id of the frontdoor.
      */
     public /*out*/ readonly frontDoorId!: pulumi.Output<string>;
+    /**
+     * Managed service identity (system assigned and/or user assigned identities).
+     */
+    public readonly identity!: pulumi.Output<outputs.cdn.ManagedServiceIdentityResponse | undefined>;
     /**
      * Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
      */
@@ -101,12 +109,14 @@ export class Profile extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["originResponseTimeoutSeconds"] = args ? args.originResponseTimeoutSeconds : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["extendedProperties"] = undefined /*out*/;
             resourceInputs["frontDoorId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -115,7 +125,9 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["extendedProperties"] = undefined /*out*/;
             resourceInputs["frontDoorId"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -138,6 +150,10 @@ export class Profile extends pulumi.CustomResource {
  * The set of arguments for constructing a Profile resource.
  */
 export interface ProfileArgs {
+    /**
+     * Managed service identity (system assigned and/or user assigned identities).
+     */
+    identity?: pulumi.Input<inputs.cdn.ManagedServiceIdentityArgs>;
     /**
      * Resource location.
      */

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getApplicationType(args: GetApplicationTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeResult> {
 
@@ -71,7 +71,7 @@ export interface GetApplicationTypeResult {
 }
 /**
  * Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
- * API Version: 2023-02-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getApplicationTypeOutput(args: GetApplicationTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationTypeResult> {
     return pulumi.output(args).apply((a: any) => getApplicationType(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Easm
     {
         /// <summary>
         /// Returns a label in the given workspace.
-        /// API Version: 2022-04-01-preview.
+        /// API Version: 2023-04-01-preview.
         /// </summary>
         public static Task<GetLabelByWorkspaceResult> InvokeAsync(GetLabelByWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabelByWorkspaceResult>("azure-native:easm:getLabelByWorkspace", args ?? new GetLabelByWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a label in the given workspace.
-        /// API Version: 2022-04-01-preview.
+        /// API Version: 2023-04-01-preview.
         /// </summary>
         public static Output<GetLabelByWorkspaceResult> Invoke(GetLabelByWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabelByWorkspaceResult>("azure-native:easm:getLabelByWorkspace", args ?? new GetLabelByWorkspaceInvokeArgs(), options.WithDefaults());

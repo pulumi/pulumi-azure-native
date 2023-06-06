@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
     /// Cognitive Services account deployment.
-    /// API Version: 2022-12-01.
+    /// API Version: 2023-05-01.
     /// Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:Deployment")]
@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         [Output("properties")]
         public Output<Outputs.DeploymentPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource model definition representing SKU
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -123,6 +129,12 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource model definition representing SKU
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         public DeploymentArgs()
         {

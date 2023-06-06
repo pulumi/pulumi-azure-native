@@ -123,7 +123,7 @@ def get_firewall_policy_rule_collection_group(firewall_policy_name: Optional[str
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyRuleCollectionGroupResult:
     """
     Gets the specified FirewallPolicyRuleCollectionGroup.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.
@@ -154,7 +154,7 @@ def get_firewall_policy_rule_collection_group_output(firewall_policy_name: Optio
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallPolicyRuleCollectionGroupResult]:
     """
     Gets the specified FirewallPolicyRuleCollectionGroup.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.

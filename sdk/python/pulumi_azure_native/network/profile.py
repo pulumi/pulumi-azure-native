@@ -34,7 +34,7 @@ class ProfileArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Profile resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Traffic Manager profile.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AllowedEndpointRecordType']]]] allowed_endpoint_record_types: The list of allowed endpoint record types.
         :param pulumi.Input['DnsConfigArgs'] dns_config: The DNS settings of the Traffic Manager profile.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointArgs']]] endpoints: The list of endpoints in the Traffic Manager profile.
@@ -84,7 +84,7 @@ class ProfileArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the Traffic Manager profile.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -284,7 +284,7 @@ class Profile(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a Traffic Manager profile.
-        API Version: 2018-08-01.
+        API Version: 2022-04-01.
         Previous API Version: 2018-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -299,7 +299,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the resource
         :param pulumi.Input[str] profile_name: The name of the Traffic Manager profile.
         :param pulumi.Input[Union[str, 'ProfileStatus']] profile_status: The status of the Traffic Manager profile.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Traffic Manager profile.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'TrafficRoutingMethod']] traffic_routing_method: The traffic routing method of the Traffic Manager profile.
         :param pulumi.Input[Union[str, 'TrafficViewEnrollmentStatus']] traffic_view_enrollment_status: Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
@@ -313,7 +313,7 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Traffic Manager profile.
-        API Version: 2018-08-01.
+        API Version: 2022-04-01.
         Previous API Version: 2018-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

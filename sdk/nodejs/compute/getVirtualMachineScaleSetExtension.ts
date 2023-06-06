@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the extension.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetExtension(args: GetVirtualMachineScaleSetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetExtensionResult> {
 
@@ -104,7 +104,7 @@ export interface GetVirtualMachineScaleSetExtensionResult {
 }
 /**
  * The operation to get the extension.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetExtensionOutput(args: GetVirtualMachineScaleSetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetExtension(a, opts))

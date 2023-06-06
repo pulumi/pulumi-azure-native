@@ -129,7 +129,7 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         PrivateEndpointConnection resource.
-        API Version: 2022-09-01.
+        API Version: 2022-11-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -149,7 +149,7 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         PrivateEndpointConnection resource.
-        API Version: 2022-09-01.
+        API Version: 2022-11-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -195,6 +195,7 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["link_identifier"] = None
             __props__.__dict__["private_endpoint"] = None
+            __props__.__dict__["private_endpoint_location"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20190901:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20191101:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20191201:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20200301:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20200401:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20200501:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20200601:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20200701:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20200801:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20201101:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20210201:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20210301:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20210501:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20210801:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20220101:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20220501:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20220701:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20220901:PrivateLinkServicePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20221101:PrivateLinkServicePrivateEndpointConnection")])
@@ -225,6 +226,7 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
         __props__.__dict__["link_identifier"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint"] = None
+        __props__.__dict__["private_endpoint_location"] = None
         __props__.__dict__["private_link_service_connection_state"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["type"] = None
@@ -261,6 +263,14 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
         The resource of private end point.
         """
         return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateEndpointLocation")
+    def private_endpoint_location(self) -> pulumi.Output[str]:
+        """
+        The location of the private endpoint.
+        """
+        return pulumi.get(self, "private_endpoint_location")
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")

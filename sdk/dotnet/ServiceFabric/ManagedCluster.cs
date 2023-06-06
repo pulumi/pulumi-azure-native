@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     /// <summary>
     /// The managed cluster resource
     /// 
-    /// API Version: 2023-02-01-preview.
+    /// API Version: 2023-03-01-preview.
     /// Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:ManagedCluster")]
@@ -203,6 +203,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+        /// </summary>
+        [Output("publicIPPrefixId")]
+        public Output<string?> PublicIPPrefixId { get; private set; } = null!;
 
         /// <summary>
         /// Service endpoints for subnets in the cluster.
@@ -498,6 +504,12 @@ namespace Pulumi.AzureNative.ServiceFabric
             get => _networkSecurityRules ?? (_networkSecurityRules = new InputList<Inputs.NetworkSecurityRuleArgs>());
             set => _networkSecurityRules = value;
         }
+
+        /// <summary>
+        /// Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+        /// </summary>
+        [Input("publicIPPrefixId")]
+        public Input<string>? PublicIPPrefixId { get; set; }
 
         /// <summary>
         /// The name of the resource group.

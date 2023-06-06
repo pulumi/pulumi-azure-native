@@ -244,7 +244,7 @@ def get_update_run(cluster_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUpdateRunResult:
     """
     Get the Update run for a specified update
-    API Version: 2023-02-01.
+    API Version: 2023-03-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -288,7 +288,7 @@ def get_update_run_output(cluster_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUpdateRunResult]:
     """
     Get the Update run for a specified update
-    API Version: 2023-02-01.
+    API Version: 2023-03-01.
 
 
     :param str cluster_name: The name of the cluster.

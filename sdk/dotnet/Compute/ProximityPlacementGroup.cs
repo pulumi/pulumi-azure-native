@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the proximity placement group.
-    /// API Version: 2022-11-01.
+    /// API Version: 2023-03-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:ProximityPlacementGroup")]
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of the proximity placement group. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Standard** : Co-locate resources within an Azure region or Availability Zone. &lt;br&gt;&lt;br&gt; **Ultra** : For future use.
+        /// Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
         /// </summary>
         [Output("proximityPlacementGroupType")]
         public Output<string?> ProximityPlacementGroupType { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? ProximityPlacementGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the type of the proximity placement group. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Standard** : Co-locate resources within an Azure region or Availability Zone. &lt;br&gt;&lt;br&gt; **Ultra** : For future use.
+        /// Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
         /// </summary>
         [Input("proximityPlacementGroupType")]
         public InputUnion<string, Pulumi.AzureNative.Compute.ProximityPlacementGroupType>? ProximityPlacementGroupType { get; set; }

@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
 {
 
     /// <summary>
-    /// Properties describing the software upgrade state of the Cache.
+    /// Properties describing the software upgrade state of the cache.
     /// </summary>
     [OutputType]
     public sealed class CacheUpgradeStatusResponse
     {
         /// <summary>
-        /// Version string of the firmware currently installed on this Cache.
+        /// Version string of the firmware currently installed on this cache.
         /// </summary>
         public readonly string CurrentFirmwareVersion;
         /// <summary>
-        /// Time at which the pending firmware update will automatically be installed on the Cache.
+        /// Time at which the pending firmware update will automatically be installed on the cache.
         /// </summary>
         public readonly string FirmwareUpdateDeadline;
         /// <summary>
-        /// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        /// True if there is a firmware update ready to install on this cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
         /// </summary>
         public readonly string FirmwareUpdateStatus;
         /// <summary>

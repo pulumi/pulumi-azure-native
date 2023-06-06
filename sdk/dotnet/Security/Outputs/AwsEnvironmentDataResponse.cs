@@ -11,11 +11,15 @@ namespace Pulumi.AzureNative.Security.Outputs
 {
 
     /// <summary>
-    /// The aws connector environment data
+    /// The AWS connector environment data
     /// </summary>
     [OutputType]
     public sealed class AwsEnvironmentDataResponse
     {
+        /// <summary>
+        /// The AWS account name
+        /// </summary>
+        public readonly string AccountName;
         /// <summary>
         /// The type of the environment data.
         /// Expected value is 'AwsAccount'.
@@ -25,15 +29,25 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// The AWS account's organizational data
         /// </summary>
         public readonly Union<Outputs.AwsOrganizationalDataMasterResponse, Outputs.AwsOrganizationalDataMemberResponse>? OrganizationalData;
+        /// <summary>
+        /// list of regions to scan
+        /// </summary>
+        public readonly ImmutableArray<string> Regions;
 
         [OutputConstructor]
         private AwsEnvironmentDataResponse(
+            string accountName,
+
             string environmentType,
 
-            Union<Outputs.AwsOrganizationalDataMasterResponse, Outputs.AwsOrganizationalDataMemberResponse>? organizationalData)
+            Union<Outputs.AwsOrganizationalDataMasterResponse, Outputs.AwsOrganizationalDataMemberResponse>? organizationalData,
+
+            ImmutableArray<string> regions)
         {
+            AccountName = accountName;
             EnvironmentType = environmentType;
             OrganizationalData = organizationalData;
+            Regions = regions;
         }
     }
 }

@@ -162,6 +162,7 @@ __all__ = [
     'FirewallPolicyFilterRuleCollectionActionResponse',
     'FirewallPolicyFilterRuleCollectionResponse',
     'FirewallPolicyFilterRuleResponse',
+    'FirewallPolicyHttpHeaderToInsertResponse',
     'FirewallPolicyInsightsResponse',
     'FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsResponse',
     'FirewallPolicyIntrusionDetectionConfigurationResponse',
@@ -195,6 +196,8 @@ __all__ = [
     'GatewayCustomBgpIpAddressIpConfigurationResponse',
     'GatewayLoadBalancerTunnelInterfaceResponse',
     'GatewayRouteResponse',
+    'GroupByUserSessionResponse',
+    'GroupByVariableResponse',
     'HTTPHeaderResponse',
     'HeaderActionResponse',
     'HealthProbeSettingsModelResponse',
@@ -268,6 +271,7 @@ __all__ = [
     'PartnerManagedResourcePropertiesResponse',
     'PeerExpressRouteCircuitConnectionResponse',
     'PolicySettingsResponse',
+    'PolicySettingsResponseLogScrubbing',
     'PrivateDnsZoneConfigResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointIPConfigurationResponse',
@@ -332,6 +336,7 @@ __all__ = [
     'TunnelConnectionHealthResponse',
     'TxtRecordResponse',
     'VMResponse',
+    'VirtualApplianceAdditionalNicPropertiesResponse',
     'VirtualApplianceNicPropertiesResponse',
     'VirtualApplianceSkuPropertiesResponse',
     'VirtualHubIdResponse',
@@ -373,6 +378,7 @@ __all__ = [
     'VpnSiteLinkConnectionResponse',
     'VpnSiteLinkResponse',
     'WebApplicationFirewallCustomRuleResponse',
+    'WebApplicationFirewallScrubbingRulesResponse',
 ]
 
 @pulumi.output_type
@@ -6868,6 +6874,8 @@ class ApplicationRuleResponse(dict):
             suggest = "destination_addresses"
         elif key == "fqdnTags":
             suggest = "fqdn_tags"
+        elif key == "httpHeadersToInsert":
+            suggest = "http_headers_to_insert"
         elif key == "sourceAddresses":
             suggest = "source_addresses"
         elif key == "sourceIpGroups":
@@ -6897,6 +6905,7 @@ class ApplicationRuleResponse(dict):
                  description: Optional[str] = None,
                  destination_addresses: Optional[Sequence[str]] = None,
                  fqdn_tags: Optional[Sequence[str]] = None,
+                 http_headers_to_insert: Optional[Sequence['outputs.FirewallPolicyHttpHeaderToInsertResponse']] = None,
                  name: Optional[str] = None,
                  protocols: Optional[Sequence['outputs.FirewallPolicyRuleApplicationProtocolResponse']] = None,
                  source_addresses: Optional[Sequence[str]] = None,
@@ -6912,6 +6921,7 @@ class ApplicationRuleResponse(dict):
         :param str description: Description of the rule.
         :param Sequence[str] destination_addresses: List of destination IP addresses or Service Tags.
         :param Sequence[str] fqdn_tags: List of FQDN Tags for this rule.
+        :param Sequence['FirewallPolicyHttpHeaderToInsertResponse'] http_headers_to_insert: List of HTTP/S headers to insert.
         :param str name: Name of the rule.
         :param Sequence['FirewallPolicyRuleApplicationProtocolResponse'] protocols: Array of Application Protocols.
         :param Sequence[str] source_addresses: List of source IP addresses for this rule.
@@ -6928,6 +6938,8 @@ class ApplicationRuleResponse(dict):
             pulumi.set(__self__, "destination_addresses", destination_addresses)
         if fqdn_tags is not None:
             pulumi.set(__self__, "fqdn_tags", fqdn_tags)
+        if http_headers_to_insert is not None:
+            pulumi.set(__self__, "http_headers_to_insert", http_headers_to_insert)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if protocols is not None:
@@ -6977,6 +6989,14 @@ class ApplicationRuleResponse(dict):
         List of FQDN Tags for this rule.
         """
         return pulumi.get(self, "fqdn_tags")
+
+    @property
+    @pulumi.getter(name="httpHeadersToInsert")
+    def http_headers_to_insert(self) -> Optional[Sequence['outputs.FirewallPolicyHttpHeaderToInsertResponse']]:
+        """
+        List of HTTP/S headers to insert.
+        """
+        return pulumi.get(self, "http_headers_to_insert")
 
     @property
     @pulumi.getter
@@ -12491,7 +12511,9 @@ class EndpointResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customHeaders":
+        if key == "alwaysServe":
+            suggest = "always_serve"
+        elif key == "customHeaders":
             suggest = "custom_headers"
         elif key == "endpointLocation":
             suggest = "endpoint_location"
@@ -12522,6 +12544,7 @@ class EndpointResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 always_serve: Optional[str] = None,
                  custom_headers: Optional[Sequence['outputs.EndpointPropertiesResponseCustomHeaders']] = None,
                  endpoint_location: Optional[str] = None,
                  endpoint_monitor_status: Optional[str] = None,
@@ -12540,6 +12563,7 @@ class EndpointResponse(dict):
                  weight: Optional[float] = None):
         """
         Class representing a Traffic Manager endpoint.
+        :param str always_serve: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
         :param Sequence['EndpointPropertiesResponseCustomHeaders'] custom_headers: List of custom headers.
         :param str endpoint_location: Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
         :param str endpoint_monitor_status: The monitoring status of the endpoint.
@@ -12557,6 +12581,8 @@ class EndpointResponse(dict):
         :param str type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         :param float weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
+        if always_serve is not None:
+            pulumi.set(__self__, "always_serve", always_serve)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if endpoint_location is not None:
@@ -12589,6 +12615,14 @@ class EndpointResponse(dict):
             pulumi.set(__self__, "type", type)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="alwaysServe")
+    def always_serve(self) -> Optional[str]:
+        """
+        If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+        """
+        return pulumi.get(self, "always_serve")
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -14806,6 +14840,60 @@ class FirewallPolicyFilterRuleResponse(dict):
         Collection of rule conditions used by a rule.
         """
         return pulumi.get(self, "rule_conditions")
+
+
+@pulumi.output_type
+class FirewallPolicyHttpHeaderToInsertResponse(dict):
+    """
+    name and value of HTTP/S header to insert
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerName":
+            suggest = "header_name"
+        elif key == "headerValue":
+            suggest = "header_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyHttpHeaderToInsertResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyHttpHeaderToInsertResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyHttpHeaderToInsertResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_name: Optional[str] = None,
+                 header_value: Optional[str] = None):
+        """
+        name and value of HTTP/S header to insert
+        :param str header_name: Contains the name of the header
+        :param str header_value: Contains the value of the header
+        """
+        if header_name is not None:
+            pulumi.set(__self__, "header_name", header_name)
+        if header_value is not None:
+            pulumi.set(__self__, "header_value", header_value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> Optional[str]:
+        """
+        Contains the name of the header
+        """
+        return pulumi.get(self, "header_name")
+
+    @property
+    @pulumi.getter(name="headerValue")
+    def header_value(self) -> Optional[str]:
+        """
+        Contains the value of the header
+        """
+        return pulumi.get(self, "header_value")
 
 
 @pulumi.output_type
@@ -17248,6 +17336,84 @@ class GatewayRouteResponse(dict):
         The route's weight.
         """
         return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class GroupByUserSessionResponse(dict):
+    """
+    Define user session identifier group by clauses.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupByVariables":
+            suggest = "group_by_variables"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupByUserSessionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupByUserSessionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupByUserSessionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_by_variables: Sequence['outputs.GroupByVariableResponse']):
+        """
+        Define user session identifier group by clauses.
+        :param Sequence['GroupByVariableResponse'] group_by_variables: List of group by clause variables.
+        """
+        pulumi.set(__self__, "group_by_variables", group_by_variables)
+
+    @property
+    @pulumi.getter(name="groupByVariables")
+    def group_by_variables(self) -> Sequence['outputs.GroupByVariableResponse']:
+        """
+        List of group by clause variables.
+        """
+        return pulumi.get(self, "group_by_variables")
+
+
+@pulumi.output_type
+class GroupByVariableResponse(dict):
+    """
+    Define user session group by clause variables.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "variableName":
+            suggest = "variable_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupByVariableResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupByVariableResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupByVariableResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 variable_name: str):
+        """
+        Define user session group by clause variables.
+        :param str variable_name: User Session clause variable.
+        """
+        pulumi.set(__self__, "variable_name", variable_name)
+
+    @property
+    @pulumi.getter(name="variableName")
+    def variable_name(self) -> str:
+        """
+        User Session clause variable.
+        """
+        return pulumi.get(self, "variable_name")
 
 
 @pulumi.output_type
@@ -19893,7 +20059,7 @@ class ManagedRuleOverrideResponse(dict):
         """
         Defines a managed rule group override setting.
         :param str rule_id: Identifier for the managed rule.
-        :param str action: Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
+        :param str action: Describes the override action to be applied when rule matches.
         :param str state: The state of the managed rule. Defaults to Disabled if not specified.
         """
         pulumi.set(__self__, "rule_id", rule_id)
@@ -19914,7 +20080,7 @@ class ManagedRuleOverrideResponse(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
+        Describes the override action to be applied when rule matches.
         """
         return pulumi.get(self, "action")
 
@@ -21649,6 +21815,8 @@ class NetworkInterfaceResponse(dict):
             suggest = "vnet_encryption_supported"
         elif key == "auxiliaryMode":
             suggest = "auxiliary_mode"
+        elif key == "auxiliarySku":
+            suggest = "auxiliary_sku"
         elif key == "disableTcpStateTracking":
             suggest = "disable_tcp_state_tracking"
         elif key == "dnsSettings":
@@ -21700,6 +21868,7 @@ class NetworkInterfaceResponse(dict):
                  virtual_machine: 'outputs.SubResourceResponse',
                  vnet_encryption_supported: bool,
                  auxiliary_mode: Optional[str] = None,
+                 auxiliary_sku: Optional[str] = None,
                  disable_tcp_state_tracking: Optional[bool] = None,
                  dns_settings: Optional['outputs.NetworkInterfaceDnsSettingsResponse'] = None,
                  enable_accelerated_networking: Optional[bool] = None,
@@ -21731,6 +21900,7 @@ class NetworkInterfaceResponse(dict):
         :param 'SubResourceResponse' virtual_machine: The reference to a virtual machine.
         :param bool vnet_encryption_supported: Whether the virtual machine this nic is attached to supports encryption.
         :param str auxiliary_mode: Auxiliary mode of Network Interface resource.
+        :param str auxiliary_sku: Auxiliary sku of Network Interface resource.
         :param bool disable_tcp_state_tracking: Indicates whether to disable tcp state tracking.
         :param 'NetworkInterfaceDnsSettingsResponse' dns_settings: The DNS settings in network interface.
         :param bool enable_accelerated_networking: If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
@@ -21762,6 +21932,8 @@ class NetworkInterfaceResponse(dict):
         pulumi.set(__self__, "vnet_encryption_supported", vnet_encryption_supported)
         if auxiliary_mode is not None:
             pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+        if auxiliary_sku is not None:
+            pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
         if disable_tcp_state_tracking is not None:
             pulumi.set(__self__, "disable_tcp_state_tracking", disable_tcp_state_tracking)
         if dns_settings is not None:
@@ -21904,6 +22076,14 @@ class NetworkInterfaceResponse(dict):
         Auxiliary mode of Network Interface resource.
         """
         return pulumi.get(self, "auxiliary_mode")
+
+    @property
+    @pulumi.getter(name="auxiliarySku")
+    def auxiliary_sku(self) -> Optional[str]:
+        """
+        Auxiliary sku of Network Interface resource.
+        """
+        return pulumi.get(self, "auxiliary_sku")
 
     @property
     @pulumi.getter(name="disableTcpStateTracking")
@@ -24418,12 +24598,20 @@ class PolicySettingsResponse(dict):
             suggest = "custom_block_response_body"
         elif key == "customBlockResponseStatusCode":
             suggest = "custom_block_response_status_code"
+        elif key == "fileUploadEnforcement":
+            suggest = "file_upload_enforcement"
         elif key == "fileUploadLimitInMb":
             suggest = "file_upload_limit_in_mb"
+        elif key == "logScrubbing":
+            suggest = "log_scrubbing"
         elif key == "maxRequestBodySizeInKb":
             suggest = "max_request_body_size_in_kb"
         elif key == "requestBodyCheck":
             suggest = "request_body_check"
+        elif key == "requestBodyEnforcement":
+            suggest = "request_body_enforcement"
+        elif key == "requestBodyInspectLimitInKB":
+            suggest = "request_body_inspect_limit_in_kb"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PolicySettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -24439,33 +24627,53 @@ class PolicySettingsResponse(dict):
     def __init__(__self__, *,
                  custom_block_response_body: Optional[str] = None,
                  custom_block_response_status_code: Optional[int] = None,
+                 file_upload_enforcement: Optional[bool] = None,
                  file_upload_limit_in_mb: Optional[int] = None,
+                 log_scrubbing: Optional['outputs.PolicySettingsResponseLogScrubbing'] = None,
                  max_request_body_size_in_kb: Optional[int] = None,
                  mode: Optional[str] = None,
                  request_body_check: Optional[bool] = None,
+                 request_body_enforcement: Optional[bool] = None,
+                 request_body_inspect_limit_in_kb: Optional[int] = None,
                  state: Optional[str] = None):
         """
         Defines contents of a web application firewall global configuration.
         :param str custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
         :param int custom_block_response_status_code: If the action type is block, customer can override the response status code.
+        :param bool file_upload_enforcement: Whether allow WAF to enforce file upload limits.
         :param int file_upload_limit_in_mb: Maximum file upload size in Mb for WAF.
+        :param 'PolicySettingsResponseLogScrubbing' log_scrubbing: To scrub sensitive log fields
         :param int max_request_body_size_in_kb: Maximum request body size in Kb for WAF.
         :param str mode: The mode of the policy.
         :param bool request_body_check: Whether to allow WAF to check request Body.
+        :param bool request_body_enforcement: Whether allow WAF to enforce request body limits.
+        :param int request_body_inspect_limit_in_kb: Max inspection limit in KB for request body inspection for WAF.
         :param str state: The state of the policy.
         """
         if custom_block_response_body is not None:
             pulumi.set(__self__, "custom_block_response_body", custom_block_response_body)
         if custom_block_response_status_code is not None:
             pulumi.set(__self__, "custom_block_response_status_code", custom_block_response_status_code)
+        if file_upload_enforcement is None:
+            file_upload_enforcement = True
+        if file_upload_enforcement is not None:
+            pulumi.set(__self__, "file_upload_enforcement", file_upload_enforcement)
         if file_upload_limit_in_mb is not None:
             pulumi.set(__self__, "file_upload_limit_in_mb", file_upload_limit_in_mb)
+        if log_scrubbing is not None:
+            pulumi.set(__self__, "log_scrubbing", log_scrubbing)
         if max_request_body_size_in_kb is not None:
             pulumi.set(__self__, "max_request_body_size_in_kb", max_request_body_size_in_kb)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if request_body_check is not None:
             pulumi.set(__self__, "request_body_check", request_body_check)
+        if request_body_enforcement is None:
+            request_body_enforcement = True
+        if request_body_enforcement is not None:
+            pulumi.set(__self__, "request_body_enforcement", request_body_enforcement)
+        if request_body_inspect_limit_in_kb is not None:
+            pulumi.set(__self__, "request_body_inspect_limit_in_kb", request_body_inspect_limit_in_kb)
         if state is not None:
             pulumi.set(__self__, "state", state)
 
@@ -24486,12 +24694,28 @@ class PolicySettingsResponse(dict):
         return pulumi.get(self, "custom_block_response_status_code")
 
     @property
+    @pulumi.getter(name="fileUploadEnforcement")
+    def file_upload_enforcement(self) -> Optional[bool]:
+        """
+        Whether allow WAF to enforce file upload limits.
+        """
+        return pulumi.get(self, "file_upload_enforcement")
+
+    @property
     @pulumi.getter(name="fileUploadLimitInMb")
     def file_upload_limit_in_mb(self) -> Optional[int]:
         """
         Maximum file upload size in Mb for WAF.
         """
         return pulumi.get(self, "file_upload_limit_in_mb")
+
+    @property
+    @pulumi.getter(name="logScrubbing")
+    def log_scrubbing(self) -> Optional['outputs.PolicySettingsResponseLogScrubbing']:
+        """
+        To scrub sensitive log fields
+        """
+        return pulumi.get(self, "log_scrubbing")
 
     @property
     @pulumi.getter(name="maxRequestBodySizeInKb")
@@ -24518,10 +24742,78 @@ class PolicySettingsResponse(dict):
         return pulumi.get(self, "request_body_check")
 
     @property
+    @pulumi.getter(name="requestBodyEnforcement")
+    def request_body_enforcement(self) -> Optional[bool]:
+        """
+        Whether allow WAF to enforce request body limits.
+        """
+        return pulumi.get(self, "request_body_enforcement")
+
+    @property
+    @pulumi.getter(name="requestBodyInspectLimitInKB")
+    def request_body_inspect_limit_in_kb(self) -> Optional[int]:
+        """
+        Max inspection limit in KB for request body inspection for WAF.
+        """
+        return pulumi.get(self, "request_body_inspect_limit_in_kb")
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[str]:
         """
         The state of the policy.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class PolicySettingsResponseLogScrubbing(dict):
+    """
+    To scrub sensitive log fields
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scrubbingRules":
+            suggest = "scrubbing_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicySettingsResponseLogScrubbing. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicySettingsResponseLogScrubbing.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicySettingsResponseLogScrubbing.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scrubbing_rules: Optional[Sequence['outputs.WebApplicationFirewallScrubbingRulesResponse']] = None,
+                 state: Optional[str] = None):
+        """
+        To scrub sensitive log fields
+        :param Sequence['WebApplicationFirewallScrubbingRulesResponse'] scrubbing_rules: The rules that are applied to the logs for scrubbing.
+        :param str state: State of the log scrubbing config. Default value is Enabled.
+        """
+        if scrubbing_rules is not None:
+            pulumi.set(__self__, "scrubbing_rules", scrubbing_rules)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="scrubbingRules")
+    def scrubbing_rules(self) -> Optional[Sequence['outputs.WebApplicationFirewallScrubbingRulesResponse']]:
+        """
+        The rules that are applied to the logs for scrubbing.
+        """
+        return pulumi.get(self, "scrubbing_rules")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        State of the log scrubbing config. Default value is Enabled.
         """
         return pulumi.get(self, "state")
 
@@ -24603,6 +24895,8 @@ class PrivateEndpointConnectionResponse(dict):
             suggest = "link_identifier"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
+        elif key == "privateEndpointLocation":
+            suggest = "private_endpoint_location"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "privateLinkServiceConnectionState":
@@ -24623,6 +24917,7 @@ class PrivateEndpointConnectionResponse(dict):
                  etag: str,
                  link_identifier: str,
                  private_endpoint: 'outputs.PrivateEndpointResponse',
+                 private_endpoint_location: str,
                  provisioning_state: str,
                  type: str,
                  id: Optional[str] = None,
@@ -24633,6 +24928,7 @@ class PrivateEndpointConnectionResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str link_identifier: The consumer link id.
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        :param str private_endpoint_location: The location of the private endpoint.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param str type: The resource type.
         :param str id: Resource ID.
@@ -24642,6 +24938,7 @@ class PrivateEndpointConnectionResponse(dict):
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "link_identifier", link_identifier)
         pulumi.set(__self__, "private_endpoint", private_endpoint)
+        pulumi.set(__self__, "private_endpoint_location", private_endpoint_location)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
         if id is not None:
@@ -24674,6 +24971,14 @@ class PrivateEndpointConnectionResponse(dict):
         The resource of private end point.
         """
         return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateEndpointLocation")
+    def private_endpoint_location(self) -> str:
+        """
+        The location of the private endpoint.
+        """
+        return pulumi.get(self, "private_endpoint_location")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -25969,6 +26274,8 @@ class PublicIPAddressDnsSettingsResponse(dict):
         suggest = None
         if key == "domainNameLabel":
             suggest = "domain_name_label"
+        elif key == "domainNameLabelScope":
+            suggest = "domain_name_label_scope"
         elif key == "reverseFqdn":
             suggest = "reverse_fqdn"
 
@@ -25985,16 +26292,20 @@ class PublicIPAddressDnsSettingsResponse(dict):
 
     def __init__(__self__, *,
                  domain_name_label: Optional[str] = None,
+                 domain_name_label_scope: Optional[str] = None,
                  fqdn: Optional[str] = None,
                  reverse_fqdn: Optional[str] = None):
         """
         Contains FQDN of the DNS record associated with the public IP address.
         :param str domain_name_label: The domain name label. The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        :param str domain_name_label_scope: The domain name label scope. If a domain name label and a domain name label scope are specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN.
         :param str fqdn: The Fully Qualified Domain Name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
         :param str reverse_fqdn: The reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         """
         if domain_name_label is not None:
             pulumi.set(__self__, "domain_name_label", domain_name_label)
+        if domain_name_label_scope is not None:
+            pulumi.set(__self__, "domain_name_label_scope", domain_name_label_scope)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
         if reverse_fqdn is not None:
@@ -26007,6 +26318,14 @@ class PublicIPAddressDnsSettingsResponse(dict):
         The domain name label. The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         """
         return pulumi.get(self, "domain_name_label")
+
+    @property
+    @pulumi.getter(name="domainNameLabelScope")
+    def domain_name_label_scope(self) -> Optional[str]:
+        """
+        The domain name label scope. If a domain name label and a domain name label scope are specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN.
+        """
+        return pulumi.get(self, "domain_name_label_scope")
 
     @property
     @pulumi.getter
@@ -30623,6 +30942,58 @@ class VMResponse(dict):
 
 
 @pulumi.output_type
+class VirtualApplianceAdditionalNicPropertiesResponse(dict):
+    """
+    Network Virtual Appliance Additional NIC properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hasPublicIp":
+            suggest = "has_public_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualApplianceAdditionalNicPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualApplianceAdditionalNicPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualApplianceAdditionalNicPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 has_public_ip: Optional[bool] = None,
+                 name: Optional[str] = None):
+        """
+        Network Virtual Appliance Additional NIC properties.
+        :param bool has_public_ip: Customer Intent for Public Ip on additional nic
+        :param str name: Customer Name for additional nic
+        """
+        if has_public_ip is not None:
+            pulumi.set(__self__, "has_public_ip", has_public_ip)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="hasPublicIp")
+    def has_public_ip(self) -> Optional[bool]:
+        """
+        Customer Intent for Public Ip on additional nic
+        """
+        return pulumi.get(self, "has_public_ip")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Customer Name for additional nic
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class VirtualApplianceNicPropertiesResponse(dict):
     """
     Network Virtual Appliance NIC properties.
@@ -30630,7 +31001,9 @@ class VirtualApplianceNicPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "privateIpAddress":
+        if key == "instanceName":
+            suggest = "instance_name"
+        elif key == "privateIpAddress":
             suggest = "private_ip_address"
         elif key == "publicIpAddress":
             suggest = "public_ip_address"
@@ -30647,18 +31020,29 @@ class VirtualApplianceNicPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 instance_name: str,
                  name: str,
                  private_ip_address: str,
                  public_ip_address: str):
         """
         Network Virtual Appliance NIC properties.
+        :param str instance_name: Instance on which nic is attached.
         :param str name: NIC name.
         :param str private_ip_address: Private IP address.
         :param str public_ip_address: Public IP address.
         """
+        pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
         pulumi.set(__self__, "public_ip_address", public_ip_address)
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> str:
+        """
+        Instance on which nic is attached.
+        """
+        return pulumi.get(self, "instance_name")
 
     @property
     @pulumi.getter
@@ -34896,6 +35280,12 @@ class WebApplicationFirewallCustomRuleResponse(dict):
             suggest = "match_conditions"
         elif key == "ruleType":
             suggest = "rule_type"
+        elif key == "groupByUserSession":
+            suggest = "group_by_user_session"
+        elif key == "rateLimitDuration":
+            suggest = "rate_limit_duration"
+        elif key == "rateLimitThreshold":
+            suggest = "rate_limit_threshold"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebApplicationFirewallCustomRuleResponse. Access the value via the '{suggest}' property getter instead.")
@@ -34914,7 +35304,10 @@ class WebApplicationFirewallCustomRuleResponse(dict):
                  match_conditions: Sequence['outputs.MatchConditionResponse'],
                  priority: int,
                  rule_type: str,
+                 group_by_user_session: Optional[Sequence['outputs.GroupByUserSessionResponse']] = None,
                  name: Optional[str] = None,
+                 rate_limit_duration: Optional[str] = None,
+                 rate_limit_threshold: Optional[int] = None,
                  state: Optional[str] = None):
         """
         Defines contents of a web application rule.
@@ -34923,7 +35316,10 @@ class WebApplicationFirewallCustomRuleResponse(dict):
         :param Sequence['MatchConditionResponse'] match_conditions: List of match conditions.
         :param int priority: Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param str rule_type: The rule type.
+        :param Sequence['GroupByUserSessionResponse'] group_by_user_session: List of user session identifier group by clauses.
         :param str name: The name of the resource that is unique within a policy. This name can be used to access the resource.
+        :param str rate_limit_duration: Duration over which Rate Limit policy will be applied. Applies only when ruleType is RateLimitRule.
+        :param int rate_limit_threshold: Rate Limit threshold to apply in case ruleType is RateLimitRule. Must be greater than or equal to 1
         :param str state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
         """
         pulumi.set(__self__, "action", action)
@@ -34931,8 +35327,14 @@ class WebApplicationFirewallCustomRuleResponse(dict):
         pulumi.set(__self__, "match_conditions", match_conditions)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_type", rule_type)
+        if group_by_user_session is not None:
+            pulumi.set(__self__, "group_by_user_session", group_by_user_session)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if rate_limit_duration is not None:
+            pulumi.set(__self__, "rate_limit_duration", rate_limit_duration)
+        if rate_limit_threshold is not None:
+            pulumi.set(__self__, "rate_limit_threshold", rate_limit_threshold)
         if state is not None:
             pulumi.set(__self__, "state", state)
 
@@ -34977,6 +35379,14 @@ class WebApplicationFirewallCustomRuleResponse(dict):
         return pulumi.get(self, "rule_type")
 
     @property
+    @pulumi.getter(name="groupByUserSession")
+    def group_by_user_session(self) -> Optional[Sequence['outputs.GroupByUserSessionResponse']]:
+        """
+        List of user session identifier group by clauses.
+        """
+        return pulumi.get(self, "group_by_user_session")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
@@ -34985,10 +35395,102 @@ class WebApplicationFirewallCustomRuleResponse(dict):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="rateLimitDuration")
+    def rate_limit_duration(self) -> Optional[str]:
+        """
+        Duration over which Rate Limit policy will be applied. Applies only when ruleType is RateLimitRule.
+        """
+        return pulumi.get(self, "rate_limit_duration")
+
+    @property
+    @pulumi.getter(name="rateLimitThreshold")
+    def rate_limit_threshold(self) -> Optional[int]:
+        """
+        Rate Limit threshold to apply in case ruleType is RateLimitRule. Must be greater than or equal to 1
+        """
+        return pulumi.get(self, "rate_limit_threshold")
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[str]:
         """
         Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class WebApplicationFirewallScrubbingRulesResponse(dict):
+    """
+    Allow certain variables to be scrubbed on WAF logs
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+        elif key == "selectorMatchOperator":
+            suggest = "selector_match_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebApplicationFirewallScrubbingRulesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebApplicationFirewallScrubbingRulesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebApplicationFirewallScrubbingRulesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_variable: str,
+                 selector_match_operator: str,
+                 selector: Optional[str] = None,
+                 state: Optional[str] = None):
+        """
+        Allow certain variables to be scrubbed on WAF logs
+        :param str match_variable: The variable to be scrubbed from the logs.
+        :param str selector_match_operator: When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
+        :param str selector: When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
+        :param str state: Defines the state of log scrubbing rule. Default value is Enabled.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "selector_match_operator", selector_match_operator)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> str:
+        """
+        The variable to be scrubbed from the logs.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @property
+    @pulumi.getter(name="selectorMatchOperator")
+    def selector_match_operator(self) -> str:
+        """
+        When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
+        """
+        return pulumi.get(self, "selector_match_operator")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        """
+        When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
+        """
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Defines the state of log scrubbing rule. Default value is Enabled.
         """
         return pulumi.get(self, "state")
 

@@ -24,15 +24,29 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// Microsoft Defender settings for the security profile.
         /// </summary>
         public readonly Outputs.ManagedClusterSecurityProfileDefenderResponse? Defender;
+        /// <summary>
+        /// Image Cleaner settings for the security profile.
+        /// </summary>
+        public readonly Outputs.ManagedClusterSecurityProfileImageCleanerResponse? ImageCleaner;
+        /// <summary>
+        /// Workload identity settings for the security profile. Workload identity enables Kubernetes applications to access Azure cloud resources securely with Azure AD. See https://aka.ms/aks/wi for more details.
+        /// </summary>
+        public readonly Outputs.ManagedClusterSecurityProfileWorkloadIdentityResponse? WorkloadIdentity;
 
         [OutputConstructor]
         private ManagedClusterSecurityProfileResponse(
             Outputs.AzureKeyVaultKmsResponse? azureKeyVaultKms,
 
-            Outputs.ManagedClusterSecurityProfileDefenderResponse? defender)
+            Outputs.ManagedClusterSecurityProfileDefenderResponse? defender,
+
+            Outputs.ManagedClusterSecurityProfileImageCleanerResponse? imageCleaner,
+
+            Outputs.ManagedClusterSecurityProfileWorkloadIdentityResponse? workloadIdentity)
         {
             AzureKeyVaultKms = azureKeyVaultKms;
             Defender = defender;
+            ImageCleaner = imageCleaner;
+            WorkloadIdentity = workloadIdentity;
         }
     }
 }

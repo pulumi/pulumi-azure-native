@@ -16,7 +16,13 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
     public sealed class DataCenterResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If the azure data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
+        /// Ldap authentication method properties. This feature is in preview.
+        /// </summary>
+        [Input("authenticationMethodLdapProperties")]
+        public Input<Inputs.AuthenticationMethodLdapPropertiesArgs>? AuthenticationMethodLdapProperties { get; set; }
+
+        /// <summary>
+        /// If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
         /// </summary>
         [Input("availabilityZone")]
         public Input<bool>? AvailabilityZone { get; set; }
@@ -40,13 +46,19 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         public Input<string>? DataCenterLocation { get; set; }
 
         /// <summary>
+        /// Whether the data center has been deallocated.
+        /// </summary>
+        [Input("deallocated")]
+        public Input<bool>? Deallocated { get; set; }
+
+        /// <summary>
         /// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/&lt;subscription id&gt;/resourceGroups/&lt;resource group&gt;/providers/Microsoft.Network/virtualNetworks/&lt;virtual network&gt;/subnets/&lt;subnet&gt;'.
         /// </summary>
         [Input("delegatedSubnetId")]
         public Input<string>? DelegatedSubnetId { get; set; }
 
         /// <summary>
-        /// Number of disk used for data centers. Default value is 4.
+        /// Number of disks attached to each node. Default is 4.
         /// </summary>
         [Input("diskCapacity")]
         public Input<int>? DiskCapacity { get; set; }
@@ -68,6 +80,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
+
+        /// <summary>
+        /// Error related to resource provisioning.
+        /// </summary>
+        [Input("provisionError")]
+        public Input<Inputs.CassandraErrorArgs>? ProvisionError { get; set; }
 
         /// <summary>
         /// The status of the resource at the time the operation was called.

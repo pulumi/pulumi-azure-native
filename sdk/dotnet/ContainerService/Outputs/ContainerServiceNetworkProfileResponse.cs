@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string? DnsServiceIP;
         /// <summary>
-        /// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
-        /// </summary>
-        public readonly string? DockerBridgeCidr;
-        /// <summary>
         /// IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
         /// </summary>
         public readonly ImmutableArray<string> IpFamilies;
@@ -41,6 +37,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly Outputs.ManagedClusterNATGatewayProfileResponse? NatGatewayProfile;
         /// <summary>
+        /// Network dataplane used in the Kubernetes cluster.
+        /// </summary>
+        public readonly string? NetworkDataplane;
+        /// <summary>
         /// This cannot be specified if networkPlugin is anything other than 'azure'.
         /// </summary>
         public readonly string? NetworkMode;
@@ -48,6 +48,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// Network plugin used for building the Kubernetes network.
         /// </summary>
         public readonly string? NetworkPlugin;
+        /// <summary>
+        /// The mode the network plugin should use.
+        /// </summary>
+        public readonly string? NetworkPluginMode;
         /// <summary>
         /// Network policy used for building the Kubernetes network.
         /// </summary>
@@ -77,8 +81,6 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         private ContainerServiceNetworkProfileResponse(
             string? dnsServiceIP,
 
-            string? dockerBridgeCidr,
-
             ImmutableArray<string> ipFamilies,
 
             Outputs.ManagedClusterLoadBalancerProfileResponse? loadBalancerProfile,
@@ -87,9 +89,13 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             Outputs.ManagedClusterNATGatewayProfileResponse? natGatewayProfile,
 
+            string? networkDataplane,
+
             string? networkMode,
 
             string? networkPlugin,
+
+            string? networkPluginMode,
 
             string? networkPolicy,
 
@@ -104,13 +110,14 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
             ImmutableArray<string> serviceCidrs)
         {
             DnsServiceIP = dnsServiceIP;
-            DockerBridgeCidr = dockerBridgeCidr;
             IpFamilies = ipFamilies;
             LoadBalancerProfile = loadBalancerProfile;
             LoadBalancerSku = loadBalancerSku;
             NatGatewayProfile = natGatewayProfile;
+            NetworkDataplane = networkDataplane;
             NetworkMode = networkMode;
             NetworkPlugin = networkPlugin;
+            NetworkPluginMode = networkPluginMode;
             NetworkPolicy = networkPolicy;
             OutboundType = outboundType;
             PodCidr = podCidr;

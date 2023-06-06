@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetCacheResult:
     """
-    A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+    A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     """
     def __init__(__self__, cache_size_gb=None, directory_services_settings=None, encryption_settings=None, health=None, id=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, priming_jobs=None, provisioning_state=None, security_settings=None, sku=None, space_allocation=None, subnet=None, system_data=None, tags=None, type=None, upgrade_settings=None, upgrade_status=None, zones=None):
         if cache_size_gb and not isinstance(cache_size_gb, int):
@@ -118,7 +118,7 @@ class GetCacheResult:
     @pulumi.getter
     def health(self) -> 'outputs.CacheHealthResponse':
         """
-        Health of the Cache.
+        Health of the cache.
         """
         return pulumi.get(self, "health")
 
@@ -126,7 +126,7 @@ class GetCacheResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID of the Cache.
+        Resource ID of the cache.
         """
         return pulumi.get(self, "id")
 
@@ -150,7 +150,7 @@ class GetCacheResult:
     @pulumi.getter(name="mountAddresses")
     def mount_addresses(self) -> Sequence[str]:
         """
-        Array of IP addresses that can be used by clients mounting this Cache.
+        Array of IPv4 addresses that can be used by clients mounting this cache.
         """
         return pulumi.get(self, "mount_addresses")
 
@@ -158,7 +158,7 @@ class GetCacheResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of Cache.
+        Name of cache.
         """
         return pulumi.get(self, "name")
 
@@ -198,7 +198,7 @@ class GetCacheResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.CacheResponseSku']:
         """
-        SKU for the Cache.
+        SKU for the cache.
         """
         return pulumi.get(self, "sku")
 
@@ -214,7 +214,7 @@ class GetCacheResult:
     @pulumi.getter
     def subnet(self) -> Optional[str]:
         """
-        Subnet used for the Cache.
+        Subnet used for the cache.
         """
         return pulumi.get(self, "subnet")
 
@@ -238,7 +238,7 @@ class GetCacheResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the Cache; Microsoft.StorageCache/Cache
+        Type of the cache; Microsoft.StorageCache/Cache
         """
         return pulumi.get(self, "type")
 
@@ -246,7 +246,7 @@ class GetCacheResult:
     @pulumi.getter(name="upgradeSettings")
     def upgrade_settings(self) -> Optional['outputs.CacheUpgradeSettingsResponse']:
         """
-        Upgrade settings of the Cache.
+        Upgrade settings of the cache.
         """
         return pulumi.get(self, "upgrade_settings")
 
@@ -254,7 +254,7 @@ class GetCacheResult:
     @pulumi.getter(name="upgradeStatus")
     def upgrade_status(self) -> 'outputs.CacheUpgradeStatusResponse':
         """
-        Upgrade status of the Cache.
+        Upgrade status of the cache.
         """
         return pulumi.get(self, "upgrade_status")
 
@@ -301,12 +301,12 @@ def get_cache(cache_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
-    Returns a Cache.
-    API Version: 2023-01-01.
+    Returns a cache.
+    API Version: 2023-05-01.
 
 
-    :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
-    :param str resource_group_name: Target resource group.
+    :param str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['cacheName'] = cache_name
@@ -344,11 +344,11 @@ def get_cache_output(cache_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
     """
-    Returns a Cache.
-    API Version: 2023-01-01.
+    Returns a cache.
+    API Version: 2023-05-01.
 
 
-    :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
-    :param str resource_group_name: Target resource group.
+    :param str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

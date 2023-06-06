@@ -53,6 +53,10 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         /// </summary>
         public readonly Outputs.ResourceRequirementsResponse Resources;
         /// <summary>
+        /// The container security properties.
+        /// </summary>
+        public readonly Outputs.SecurityContextDefinitionResponse? SecurityContext;
+        /// <summary>
         /// The volume mounts available to the container instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.VolumeMountResponse> VolumeMounts;
@@ -77,6 +81,8 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
 
             Outputs.ResourceRequirementsResponse resources,
 
+            Outputs.SecurityContextDefinitionResponse? securityContext,
+
             ImmutableArray<Outputs.VolumeMountResponse> volumeMounts)
         {
             Command = command;
@@ -88,6 +94,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
             Ports = ports;
             ReadinessProbe = readinessProbe;
             Resources = resources;
+            SecurityContext = securityContext;
             VolumeMounts = volumeMounts;
         }
     }

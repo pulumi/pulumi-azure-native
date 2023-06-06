@@ -6,8 +6,6 @@ from enum import Enum
 
 __all__ = [
     'AssociationType',
-    'FrontendIPAddressVersion',
-    'FrontendMode',
 ]
 
 
@@ -16,18 +14,3 @@ class AssociationType(str, Enum):
     Association Type
     """
     SUBNETS = "subnets"
-
-
-class FrontendIPAddressVersion(str, Enum):
-    """
-    Frontend IP Address Version (Optional).
-    """
-    I_PV4 = "IPv4"
-    I_PV6 = "IPv6"
-
-
-class FrontendMode(str, Enum):
-    """
-    Frontend Mode (Optional).
-    """
-    PUBLIC = "public"

@@ -22,13 +22,16 @@ class GetMachineResult:
     """
     Describes a hybrid machine.
     """
-    def __init__(__self__, ad_fqdn=None, agent_configuration=None, agent_version=None, client_public_key=None, cloud_metadata=None, detected_properties=None, display_name=None, dns_fqdn=None, domain_name=None, error_details=None, extensions=None, id=None, identity=None, last_status_change=None, location=None, location_data=None, machine_fqdn=None, mssql_discovered=None, name=None, os_name=None, os_profile=None, os_sku=None, os_type=None, os_version=None, parent_cluster_resource_id=None, private_link_scope_resource_id=None, provisioning_state=None, resources=None, service_statuses=None, status=None, system_data=None, tags=None, type=None, vm_id=None, vm_uuid=None):
+    def __init__(__self__, ad_fqdn=None, agent_configuration=None, agent_upgrade=None, agent_version=None, client_public_key=None, cloud_metadata=None, detected_properties=None, display_name=None, dns_fqdn=None, domain_name=None, error_details=None, extensions=None, id=None, identity=None, last_status_change=None, location=None, location_data=None, machine_fqdn=None, mssql_discovered=None, name=None, os_name=None, os_profile=None, os_sku=None, os_type=None, os_version=None, parent_cluster_resource_id=None, private_link_scope_resource_id=None, provisioning_state=None, resources=None, service_statuses=None, status=None, system_data=None, tags=None, type=None, vm_id=None, vm_uuid=None):
         if ad_fqdn and not isinstance(ad_fqdn, str):
             raise TypeError("Expected argument 'ad_fqdn' to be a str")
         pulumi.set(__self__, "ad_fqdn", ad_fqdn)
         if agent_configuration and not isinstance(agent_configuration, dict):
             raise TypeError("Expected argument 'agent_configuration' to be a dict")
         pulumi.set(__self__, "agent_configuration", agent_configuration)
+        if agent_upgrade and not isinstance(agent_upgrade, dict):
+            raise TypeError("Expected argument 'agent_upgrade' to be a dict")
+        pulumi.set(__self__, "agent_upgrade", agent_upgrade)
         if agent_version and not isinstance(agent_version, str):
             raise TypeError("Expected argument 'agent_version' to be a str")
         pulumi.set(__self__, "agent_version", agent_version)
@@ -144,6 +147,14 @@ class GetMachineResult:
         Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
         """
         return pulumi.get(self, "agent_configuration")
+
+    @property
+    @pulumi.getter(name="agentUpgrade")
+    def agent_upgrade(self) -> Optional['outputs.AgentUpgradeResponse']:
+        """
+        The info of the machine w.r.t Agent Upgrade
+        """
+        return pulumi.get(self, "agent_upgrade")
 
     @property
     @pulumi.getter(name="agentVersion")
@@ -418,6 +429,7 @@ class AwaitableGetMachineResult(GetMachineResult):
         return GetMachineResult(
             ad_fqdn=self.ad_fqdn,
             agent_configuration=self.agent_configuration,
+            agent_upgrade=self.agent_upgrade,
             agent_version=self.agent_version,
             client_public_key=self.client_public_key,
             cloud_metadata=self.cloud_metadata,
@@ -459,7 +471,7 @@ def get_machine(expand: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineResult:
     """
     Retrieves information about the model view or the instance view of a hybrid machine.
-    API Version: 2022-11-10.
+    API Version: 2022-12-27.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -476,6 +488,7 @@ def get_machine(expand: Optional[str] = None,
     return AwaitableGetMachineResult(
         ad_fqdn=__ret__.ad_fqdn,
         agent_configuration=__ret__.agent_configuration,
+        agent_upgrade=__ret__.agent_upgrade,
         agent_version=__ret__.agent_version,
         client_public_key=__ret__.client_public_key,
         cloud_metadata=__ret__.cloud_metadata,
@@ -518,7 +531,7 @@ def get_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineResult]:
     """
     Retrieves information about the model view or the instance view of a hybrid machine.
-    API Version: 2022-11-10.
+    API Version: 2022-12-27.
 
 
     :param str expand: The expand expression to apply on the operation.

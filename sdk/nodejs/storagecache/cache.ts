@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
- * API Version: 2023-01-01.
+ * A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+ * API Version: 2023-05-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Cache extends pulumi.CustomResource {
@@ -52,7 +52,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly encryptionSettings!: pulumi.Output<outputs.storagecache.CacheEncryptionSettingsResponse | undefined>;
     /**
-     * Health of the Cache.
+     * Health of the cache.
      */
     public /*out*/ readonly health!: pulumi.Output<outputs.storagecache.CacheHealthResponse>;
     /**
@@ -64,11 +64,11 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * Array of IP addresses that can be used by clients mounting this Cache.
+     * Array of IPv4 addresses that can be used by clients mounting this cache.
      */
     public /*out*/ readonly mountAddresses!: pulumi.Output<string[]>;
     /**
-     * Name of Cache.
+     * Name of cache.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -88,7 +88,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly securitySettings!: pulumi.Output<outputs.storagecache.CacheSecuritySettingsResponse | undefined>;
     /**
-     * SKU for the Cache.
+     * SKU for the cache.
      */
     public readonly sku!: pulumi.Output<outputs.storagecache.CacheResponseSku | undefined>;
     /**
@@ -96,7 +96,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public /*out*/ readonly spaceAllocation!: pulumi.Output<outputs.storagecache.StorageTargetSpaceAllocationResponse[]>;
     /**
-     * Subnet used for the Cache.
+     * Subnet used for the cache.
      */
     public readonly subnet!: pulumi.Output<string | undefined>;
     /**
@@ -108,15 +108,15 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Type of the Cache; Microsoft.StorageCache/Cache
+     * Type of the cache; Microsoft.StorageCache/Cache
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Upgrade settings of the Cache.
+     * Upgrade settings of the cache.
      */
     public readonly upgradeSettings!: pulumi.Output<outputs.storagecache.CacheUpgradeSettingsResponse | undefined>;
     /**
-     * Upgrade status of the Cache.
+     * Upgrade status of the cache.
      */
     public /*out*/ readonly upgradeStatus!: pulumi.Output<outputs.storagecache.CacheUpgradeStatusResponse>;
     /**
@@ -196,7 +196,7 @@ export class Cache extends pulumi.CustomResource {
  */
 export interface CacheArgs {
     /**
-     * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+     * Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     cacheName?: pulumi.Input<string>;
     /**
@@ -224,7 +224,7 @@ export interface CacheArgs {
      */
     networkSettings?: pulumi.Input<inputs.storagecache.CacheNetworkSettingsArgs>;
     /**
-     * Target resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -232,11 +232,11 @@ export interface CacheArgs {
      */
     securitySettings?: pulumi.Input<inputs.storagecache.CacheSecuritySettingsArgs>;
     /**
-     * SKU for the Cache.
+     * SKU for the cache.
      */
     sku?: pulumi.Input<inputs.storagecache.CacheSkuArgs>;
     /**
-     * Subnet used for the Cache.
+     * Subnet used for the cache.
      */
     subnet?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface CacheArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Upgrade settings of the Cache.
+     * Upgrade settings of the cache.
      */
     upgradeSettings?: pulumi.Input<inputs.storagecache.CacheUpgradeSettingsArgs>;
     /**

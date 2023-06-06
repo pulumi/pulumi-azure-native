@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// configuration for Microsoft Defender for Server VM scanning
         /// </summary>
-        public readonly Outputs.DefenderForServersAwsOfferingResponseConfigurationConfiguration? Configuration;
+        public readonly Outputs.DefenderForServersAwsOfferingResponseConfigurationConfigurationConfiguration? Configuration;
         /// <summary>
         /// Is Microsoft Defender for Server VM scanning enabled
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Security.Outputs
 
         [OutputConstructor]
         private DefenderForServersAwsOfferingResponseVmScanners(
-            Outputs.DefenderForServersAwsOfferingResponseConfigurationConfiguration? configuration,
+            Outputs.DefenderForServersAwsOfferingResponseConfigurationConfigurationConfiguration? configuration,
 
             bool? enabled)
         {

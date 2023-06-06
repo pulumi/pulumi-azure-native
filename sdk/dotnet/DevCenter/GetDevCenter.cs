@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a devcenter.
-        /// API Version: 2022-11-11-preview.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Task<GetDevCenterResult> InvokeAsync(GetDevCenterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevCenterResult>("azure-native:devcenter:getDevCenter", args ?? new GetDevCenterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a devcenter.
-        /// API Version: 2022-11-11-preview.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Output<GetDevCenterResult> Invoke(GetDevCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevCenterResult>("azure-native:devcenter:getDevCenter", args ?? new GetDevCenterInvokeArgs(), options.WithDefaults());
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DevCenter
     public sealed class GetDevCenterResult
     {
         /// <summary>
-        /// The URI of the resource.
+        /// The URI of the Dev Center.
         /// </summary>
         public readonly string DevCenterUri;
         /// <summary>

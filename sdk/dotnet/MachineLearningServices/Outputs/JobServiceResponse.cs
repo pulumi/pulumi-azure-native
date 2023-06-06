@@ -29,6 +29,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? JobServiceType;
         /// <summary>
+        /// Nodes that user would like to start the service on.
+        /// If Nodes is not set or set to null, the service will only be started on leader node.
+        /// </summary>
+        public readonly Outputs.AllNodesResponse? Nodes;
+        /// <summary>
         /// Port for endpoint.
         /// </summary>
         public readonly int? Port;
@@ -49,6 +54,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? jobServiceType,
 
+            Outputs.AllNodesResponse? nodes,
+
             int? port,
 
             ImmutableDictionary<string, string>? properties,
@@ -58,6 +65,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             Endpoint = endpoint;
             ErrorMessage = errorMessage;
             JobServiceType = jobServiceType;
+            Nodes = nodes;
             Port = port;
             Properties = properties;
             Status = status;

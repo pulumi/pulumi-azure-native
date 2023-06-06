@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing origin within an origin group.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  */
 export function getAFDOrigin(args: GetAFDOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginResult> {
 
@@ -42,7 +42,7 @@ export interface GetAFDOriginArgs {
 }
 
 /**
- * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+ * Azure Front Door origin is the source of the content being delivered via Azure Front Door. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
  */
 export interface GetAFDOriginResult {
     /**
@@ -83,7 +83,7 @@ export interface GetAFDOriginResult {
      */
     readonly originGroupName: string;
     /**
-     * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+     * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
      */
     readonly originHostHeader?: string;
     /**
@@ -113,7 +113,7 @@ export interface GetAFDOriginResult {
 }
 /**
  * Gets an existing origin within an origin group.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  */
 export function getAFDOriginOutput(args: GetAFDOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDOriginResult> {
     return pulumi.output(args).apply((a: any) => getAFDOrigin(a, opts))

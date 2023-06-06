@@ -147,7 +147,7 @@ def get_compute(compute_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComputeResult:
     """
     Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str compute_name: Name of the Azure Machine Learning compute.
@@ -180,7 +180,7 @@ def get_compute_output(compute_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComputeResult]:
     """
     Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
-    API Version: 2022-10-01.
+    API Version: 2023-04-01.
 
 
     :param str compute_name: Name of the Azure Machine Learning compute.

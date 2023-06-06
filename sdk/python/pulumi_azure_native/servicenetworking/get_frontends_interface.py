@@ -22,28 +22,22 @@ class GetFrontendsInterfaceResult:
     """
     Frontend Subresource of Traffic Controller.
     """
-    def __init__(__self__, id=None, ip_address_version=None, location=None, mode=None, name=None, provisioning_state=None, public_ip_address=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, fqdn=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if fqdn and not isinstance(fqdn, str):
+            raise TypeError("Expected argument 'fqdn' to be a str")
+        pulumi.set(__self__, "fqdn", fqdn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if ip_address_version and not isinstance(ip_address_version, str):
-            raise TypeError("Expected argument 'ip_address_version' to be a str")
-        pulumi.set(__self__, "ip_address_version", ip_address_version)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if mode and not isinstance(mode, str):
-            raise TypeError("Expected argument 'mode' to be a str")
-        pulumi.set(__self__, "mode", mode)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if public_ip_address and not isinstance(public_ip_address, dict):
-            raise TypeError("Expected argument 'public_ip_address' to be a dict")
-        pulumi.set(__self__, "public_ip_address", public_ip_address)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -56,19 +50,19 @@ class GetFrontendsInterfaceResult:
 
     @property
     @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The Fully Qualified Domain Name of the DNS record associated to a Traffic Controller frontend.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="ipAddressVersion")
-    def ip_address_version(self) -> Optional[str]:
-        """
-        Frontend IP Address Version (Optional).
-        """
-        return pulumi.get(self, "ip_address_version")
 
     @property
     @pulumi.getter
@@ -77,14 +71,6 @@ class GetFrontendsInterfaceResult:
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional[str]:
-        """
-        Frontend Mode (Optional).
-        """
-        return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter
@@ -98,17 +84,9 @@ class GetFrontendsInterfaceResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        test doc
+        Provisioning State of Traffic Controller Frontend Resource
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicIPAddress")
-    def public_ip_address(self) -> Optional['outputs.FrontendPropertiesIPAddressResponse']:
-        """
-        Frontend Public IP Address (Optional).
-        """
-        return pulumi.get(self, "public_ip_address")
 
     @property
     @pulumi.getter(name="systemData")
@@ -141,13 +119,11 @@ class AwaitableGetFrontendsInterfaceResult(GetFrontendsInterfaceResult):
         if False:
             yield self
         return GetFrontendsInterfaceResult(
+            fqdn=self.fqdn,
             id=self.id,
-            ip_address_version=self.ip_address_version,
             location=self.location,
-            mode=self.mode,
             name=self.name,
             provisioning_state=self.provisioning_state,
-            public_ip_address=self.public_ip_address,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -158,8 +134,8 @@ def get_frontends_interface(frontend_name: Optional[str] = None,
                             traffic_controller_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontendsInterfaceResult:
     """
-    Get a Traffic Controller Frontend
-    API Version: 2022-10-01-preview.
+    Get a Frontend
+    API Version: 2023-05-01-preview.
 
 
     :param str frontend_name: Frontends
@@ -174,13 +150,11 @@ def get_frontends_interface(frontend_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicenetworking:getFrontendsInterface', __args__, opts=opts, typ=GetFrontendsInterfaceResult).value
 
     return AwaitableGetFrontendsInterfaceResult(
+        fqdn=__ret__.fqdn,
         id=__ret__.id,
-        ip_address_version=__ret__.ip_address_version,
         location=__ret__.location,
-        mode=__ret__.mode,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
-        public_ip_address=__ret__.public_ip_address,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -192,8 +166,8 @@ def get_frontends_interface_output(frontend_name: Optional[pulumi.Input[str]] = 
                                    traffic_controller_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontendsInterfaceResult]:
     """
-    Get a Traffic Controller Frontend
-    API Version: 2022-10-01-preview.
+    Get a Frontend
+    API Version: 2023-05-01-preview.
 
 
     :param str frontend_name: Frontends

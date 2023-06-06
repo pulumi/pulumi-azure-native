@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// configuration for Vulnerability Assessment autoprovisioning
         /// </summary>
-        public readonly Outputs.DefenderForServersAwsOfferingResponseConfiguration? Configuration;
+        public readonly Outputs.DefenderForServersAwsOfferingResponseConfigurationConfiguration? Configuration;
         /// <summary>
         /// Is Vulnerability Assessment auto provisioning enabled
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Security.Outputs
 
         [OutputConstructor]
         private DefenderForServersAwsOfferingResponseVaAutoProvisioning(
-            Outputs.DefenderForServersAwsOfferingResponseConfiguration? configuration,
+            Outputs.DefenderForServersAwsOfferingResponseConfigurationConfiguration? configuration,
 
             bool? enabled)
         {

@@ -52,6 +52,12 @@ namespace Pulumi.AzureNative.Security.Inputs
         [Input("vaAutoProvisioning")]
         public Input<Inputs.DefenderForServersGcpOfferingVaAutoProvisioningArgs>? VaAutoProvisioning { get; set; }
 
+        /// <summary>
+        /// The Microsoft Defender for Server VM scanning configuration
+        /// </summary>
+        [Input("vmScanners")]
+        public Input<Inputs.DefenderForServersGcpOfferingVmScannersArgs>? VmScanners { get; set; }
+
         public DefenderForServersGcpOfferingArgs()
         {
         }

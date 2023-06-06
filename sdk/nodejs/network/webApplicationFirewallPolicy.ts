@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines web application firewall policy.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
@@ -114,7 +114,7 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedRules"] = args ? args.managedRules : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["policySettings"] = args ? args.policySettings : undefined;
+            resourceInputs["policySettings"] = args ? (args.policySettings ? pulumi.output(args.policySettings).apply(inputs.network.policySettingsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["applicationGateways"] = undefined /*out*/;

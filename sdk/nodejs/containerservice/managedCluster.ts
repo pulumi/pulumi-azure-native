@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Managed cluster.
- * API Version: 2023-01-01.
+ * API Version: 2023-04-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class ManagedCluster extends pulumi.CustomResource {
@@ -192,6 +192,10 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly storageProfile!: pulumi.Output<outputs.containerservice.ManagedClusterStorageProfileResponse | undefined>;
     /**
+     * The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
+     */
+    public readonly supportPlan!: pulumi.Output<string | undefined>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.containerservice.SystemDataResponse>;
@@ -258,6 +262,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["supportPlan"] = args ? args.supportPlan : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["windowsProfile"] = args ? args.windowsProfile : undefined;
             resourceInputs["workloadAutoScalerProfile"] = args ? args.workloadAutoScalerProfile : undefined;
@@ -310,6 +315,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["servicePrincipalProfile"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["supportPlan"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -455,6 +461,10 @@ export interface ManagedClusterArgs {
      * Storage profile for the managed cluster.
      */
     storageProfile?: pulumi.Input<inputs.containerservice.ManagedClusterStorageProfileArgs>;
+    /**
+     * The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
+     */
+    supportPlan?: pulumi.Input<string | enums.containerservice.KubernetesSupportPlan>;
     /**
      * Resource tags.
      */

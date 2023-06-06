@@ -17,6 +17,7 @@ __all__ = [
     'AccountKeyDatastoreSecretsArgs',
     'AcrDetailsArgs',
     'AksNetworkingConfigurationArgs',
+    'AllNodesArgs',
     'AmlComputePropertiesArgs',
     'AmlComputeArgs',
     'AmlTokenArgs',
@@ -40,6 +41,7 @@ __all__ = [
     'BatchEndpointArgs',
     'BatchRetrySettingsArgs',
     'BayesianSamplingAlgorithmArgs',
+    'BindOptionsArgs',
     'BuildContextArgs',
     'CertificateDatastoreCredentialsArgs',
     'CertificateDatastoreSecretsArgs',
@@ -68,6 +70,7 @@ __all__ = [
     'CustomModelJobOutputArgs',
     'CustomNCrossValidationsArgs',
     'CustomSeasonalityArgs',
+    'CustomServiceArgs',
     'CustomTargetLagsArgs',
     'CustomTargetRollingWindowSizeArgs',
     'DataContainerArgs',
@@ -79,11 +82,14 @@ __all__ = [
     'DatabricksArgs',
     'DefaultScaleSettingsArgs',
     'DeploymentResourceConfigurationArgs',
+    'DockerArgs',
     'EncryptionKeyVaultPropertiesArgs',
     'EncryptionPropertyArgs',
     'EndpointAuthKeysArgs',
     'EndpointScheduleActionArgs',
+    'EndpointArgs',
     'EnvironmentContainerArgs',
+    'EnvironmentVariableArgs',
     'EnvironmentVersionArgs',
     'FlavorDataArgs',
     'ForecastingSettingsArgs',
@@ -104,6 +110,7 @@ __all__ = [
     'ImageModelSettingsObjectDetectionArgs',
     'ImageObjectDetectionArgs',
     'ImageSweepSettingsArgs',
+    'ImageArgs',
     'InferenceContainerPropertiesArgs',
     'InstanceTypeSchemaResourcesArgs',
     'InstanceTypeSchemaArgs',
@@ -185,6 +192,7 @@ __all__ = [
     'TextClassificationMultilabelArgs',
     'TextClassificationArgs',
     'TextNerArgs',
+    'TmpfsOptionsArgs',
     'TrialComponentArgs',
     'TritonModelJobInputArgs',
     'TritonModelJobOutputArgs',
@@ -204,6 +212,8 @@ __all__ = [
     'VirtualMachineSchemaPropertiesArgs',
     'VirtualMachineSshCredentialsArgs',
     'VirtualMachineArgs',
+    'VolumeDefinitionArgs',
+    'VolumeOptionsArgs',
     'WorkspaceConnectionManagedIdentityArgs',
     'WorkspaceConnectionPersonalAccessTokenArgs',
     'WorkspaceConnectionSharedAccessSignatureArgs',
@@ -646,6 +656,31 @@ class AksNetworkingConfigurationArgs:
     @subnet_id.setter
     def subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class AllNodesArgs:
+    def __init__(__self__, *,
+                 nodes_value_type: pulumi.Input[str]):
+        """
+        All nodes means the service will be running on all of the nodes of the job
+        :param pulumi.Input[str] nodes_value_type: The enumerated types for the nodes value
+               Expected value is 'All'.
+        """
+        pulumi.set(__self__, "nodes_value_type", 'All')
+
+    @property
+    @pulumi.getter(name="nodesValueType")
+    def nodes_value_type(self) -> pulumi.Input[str]:
+        """
+        The enumerated types for the nodes value
+        Expected value is 'All'.
+        """
+        return pulumi.get(self, "nodes_value_type")
+
+    @nodes_value_type.setter
+    def nodes_value_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "nodes_value_type", value)
 
 
 @pulumi.input_type
@@ -2692,6 +2727,62 @@ class BayesianSamplingAlgorithmArgs:
 
 
 @pulumi.input_type
+class BindOptionsArgs:
+    def __init__(__self__, *,
+                 create_host_path: Optional[pulumi.Input[bool]] = None,
+                 propagation: Optional[pulumi.Input[str]] = None,
+                 selinux: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the bind options for the container
+        :param pulumi.Input[bool] create_host_path: Indicate whether to create host path.
+        :param pulumi.Input[str] propagation: Type of Bind Option
+        :param pulumi.Input[str] selinux: Mention the selinux options.
+        """
+        if create_host_path is not None:
+            pulumi.set(__self__, "create_host_path", create_host_path)
+        if propagation is not None:
+            pulumi.set(__self__, "propagation", propagation)
+        if selinux is not None:
+            pulumi.set(__self__, "selinux", selinux)
+
+    @property
+    @pulumi.getter(name="createHostPath")
+    def create_host_path(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate whether to create host path.
+        """
+        return pulumi.get(self, "create_host_path")
+
+    @create_host_path.setter
+    def create_host_path(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_host_path", value)
+
+    @property
+    @pulumi.getter
+    def propagation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of Bind Option
+        """
+        return pulumi.get(self, "propagation")
+
+    @propagation.setter
+    def propagation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "propagation", value)
+
+    @property
+    @pulumi.getter
+    def selinux(self) -> Optional[pulumi.Input[str]]:
+        """
+        Mention the selinux options.
+        """
+        return pulumi.get(self, "selinux")
+
+    @selinux.setter
+    def selinux(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "selinux", value)
+
+
+@pulumi.input_type
 class BuildContextArgs:
     def __init__(__self__, *,
                  context_uri: pulumi.Input[str],
@@ -4169,6 +4260,7 @@ class ComputeInstancePropertiesArgs:
     def __init__(__self__, *,
                  application_sharing_policy: Optional[pulumi.Input[Union[str, 'ApplicationSharingPolicy']]] = None,
                  compute_instance_authorization_type: Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]] = None,
+                 custom_services: Optional[pulumi.Input[Sequence[pulumi.Input['CustomServiceArgs']]]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  personal_compute_instance_settings: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']] = None,
                  schedules: Optional[pulumi.Input['ComputeSchedulesArgs']] = None,
@@ -4180,6 +4272,7 @@ class ComputeInstancePropertiesArgs:
         Compute Instance properties
         :param pulumi.Input[Union[str, 'ApplicationSharingPolicy']] application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         :param pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']] compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
+        :param pulumi.Input[Sequence[pulumi.Input['CustomServiceArgs']]] custom_services: List of Custom Services added to the compute.
         :param pulumi.Input[bool] enable_node_public_ip: Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
         :param pulumi.Input['PersonalComputeInstanceSettingsArgs'] personal_compute_instance_settings: Settings for a personal compute instance.
         :param pulumi.Input['ComputeSchedulesArgs'] schedules: The list of schedules to be applied on the computes.
@@ -4196,6 +4289,8 @@ class ComputeInstancePropertiesArgs:
             compute_instance_authorization_type = 'personal'
         if compute_instance_authorization_type is not None:
             pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
+        if custom_services is not None:
+            pulumi.set(__self__, "custom_services", custom_services)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if personal_compute_instance_settings is not None:
@@ -4234,6 +4329,18 @@ class ComputeInstancePropertiesArgs:
     @compute_instance_authorization_type.setter
     def compute_instance_authorization_type(self, value: Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]]):
         pulumi.set(self, "compute_instance_authorization_type", value)
+
+    @property
+    @pulumi.getter(name="customServices")
+    def custom_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomServiceArgs']]]]:
+        """
+        List of Custom Services added to the compute.
+        """
+        return pulumi.get(self, "custom_services")
+
+    @custom_services.setter
+    def custom_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomServiceArgs']]]]):
+        pulumi.set(self, "custom_services", value)
 
     @property
     @pulumi.getter(name="enableNodePublicIp")
@@ -5145,6 +5252,110 @@ class CustomSeasonalityArgs:
 
 
 @pulumi.input_type
+class CustomServiceArgs:
+    def __init__(__self__, *,
+                 docker: Optional[pulumi.Input['DockerArgs']] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointArgs']]]] = None,
+                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 image: Optional[pulumi.Input['ImageArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeDefinitionArgs']]]] = None):
+        """
+        Specifies the custom service configuration
+        :param pulumi.Input['DockerArgs'] docker: Describes the docker settings for the image
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointArgs']]] endpoints: Configuring the endpoints for the container
+        :param pulumi.Input[Mapping[str, pulumi.Input['EnvironmentVariableArgs']]] environment_variables: Environment Variable for the container
+        :param pulumi.Input['ImageArgs'] image: Describes the Image Specifications
+        :param pulumi.Input[str] name: Name of the Custom Service
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeDefinitionArgs']]] volumes: Configuring the volumes for the container
+        """
+        if docker is not None:
+            pulumi.set(__self__, "docker", docker)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def docker(self) -> Optional[pulumi.Input['DockerArgs']]:
+        """
+        Describes the docker settings for the image
+        """
+        return pulumi.get(self, "docker")
+
+    @docker.setter
+    def docker(self, value: Optional[pulumi.Input['DockerArgs']]):
+        pulumi.set(self, "docker", value)
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointArgs']]]]:
+        """
+        Configuring the endpoints for the container
+        """
+        return pulumi.get(self, "endpoints")
+
+    @endpoints.setter
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointArgs']]]]):
+        pulumi.set(self, "endpoints", value)
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['EnvironmentVariableArgs']]]]:
+        """
+        Environment Variable for the container
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @environment_variables.setter
+    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['EnvironmentVariableArgs']]]]):
+        pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input['ImageArgs']]:
+        """
+        Describes the Image Specifications
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input['ImageArgs']]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Custom Service
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeDefinitionArgs']]]]:
+        """
+        Configuring the volumes for the container
+        """
+        return pulumi.get(self, "volumes")
+
+    @volumes.setter
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeDefinitionArgs']]]]):
+        pulumi.set(self, "volumes", value)
+
+
+@pulumi.input_type
 class CustomTargetLagsArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
@@ -5808,6 +6019,30 @@ class DeploymentResourceConfigurationArgs:
 
 
 @pulumi.input_type
+class DockerArgs:
+    def __init__(__self__, *,
+                 privileged: Optional[pulumi.Input[bool]] = None):
+        """
+        Docker container configuration
+        :param pulumi.Input[bool] privileged: Indicate whether container shall run in privileged or non-privileged mode.
+        """
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+
+    @property
+    @pulumi.getter
+    def privileged(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate whether container shall run in privileged or non-privileged mode.
+        """
+        return pulumi.get(self, "privileged")
+
+    @privileged.setter
+    def privileged(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "privileged", value)
+
+
+@pulumi.input_type
 class EncryptionKeyVaultPropertiesArgs:
     def __init__(__self__, *,
                  key_identifier: pulumi.Input[str],
@@ -5995,6 +6230,96 @@ class EndpointScheduleActionArgs:
 
 
 @pulumi.input_type
+class EndpointArgs:
+    def __init__(__self__, *,
+                 host_ip: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[Union[str, 'Protocol']]] = None,
+                 published: Optional[pulumi.Input[int]] = None,
+                 target: Optional[pulumi.Input[int]] = None):
+        """
+        Describes the endpoint configuration for the container
+        :param pulumi.Input[str] host_ip: Host IP over which the application is exposed from the container
+        :param pulumi.Input[str] name: Name of the Endpoint
+        :param pulumi.Input[Union[str, 'Protocol']] protocol: Protocol over which communication will happen over this endpoint
+        :param pulumi.Input[int] published: Port over which the application is exposed from container.
+        :param pulumi.Input[int] target: Application port inside the container.
+        """
+        if host_ip is not None:
+            pulumi.set(__self__, "host_ip", host_ip)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protocol is None:
+            protocol = 'tcp'
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if published is not None:
+            pulumi.set(__self__, "published", published)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="hostIp")
+    def host_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        Host IP over which the application is exposed from the container
+        """
+        return pulumi.get(self, "host_ip")
+
+    @host_ip.setter
+    def host_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_ip", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Endpoint
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[Union[str, 'Protocol']]]:
+        """
+        Protocol over which communication will happen over this endpoint
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[Union[str, 'Protocol']]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def published(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port over which the application is exposed from container.
+        """
+        return pulumi.get(self, "published")
+
+    @published.setter
+    def published(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "published", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[int]]:
+        """
+        Application port inside the container.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target", value)
+
+
+@pulumi.input_type
 class EnvironmentContainerArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
@@ -6066,6 +6391,48 @@ class EnvironmentContainerArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class EnvironmentVariableArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'EnvironmentVariableType']]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Environment Variables for the container
+        :param pulumi.Input[Union[str, 'EnvironmentVariableType']] type: Type of the Environment Variable. Possible values are: local - For local variable
+        :param pulumi.Input[str] value: Value of the Environment variable
+        """
+        if type is None:
+            type = 'local'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'EnvironmentVariableType']]]:
+        """
+        Type of the Environment Variable. Possible values are: local - For local variable
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'EnvironmentVariableType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of the Environment variable
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -7918,11 +8285,11 @@ class ImageModelDistributionSettingsClassificationArgs:
         Distribution expressions to sweep over values of model settings.
         <example>
         Some examples are:
-        <code>
+        ```
         ModelName = "choice('seresnext', 'resnest50')";
         LearningRate = "uniform(0.001, 0.01)";
         LayersToFreeze = "choice(0, 2)";
-        </code></example>
+        ```</example>
         For more details on how to compose distribution expressions please check the documentation:
         https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
         For more information on the available settings please visit the official documentation:
@@ -8478,11 +8845,11 @@ class ImageModelDistributionSettingsObjectDetectionArgs:
         Distribution expressions to sweep over values of model settings.
         <example>
         Some examples are:
-        <code>
+        ```
         ModelName = "choice('seresnext', 'resnest50')";
         LearningRate = "uniform(0.001, 0.01)";
         LayersToFreeze = "choice(0, 2)";
-        </code></example>
+        ```</example>
         For more details on how to compose distribution expressions please check the documentation:
         https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
         For more information on the available settings please visit the official documentation:
@@ -10793,6 +11160,48 @@ class ImageSweepSettingsArgs:
 
 
 @pulumi.input_type
+class ImageArgs:
+    def __init__(__self__, *,
+                 reference: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ImageType']]] = None):
+        """
+        Describes the Image Specifications
+        :param pulumi.Input[str] reference: Image reference
+        :param pulumi.Input[Union[str, 'ImageType']] type: Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+        """
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+        if type is None:
+            type = 'docker'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def reference(self) -> Optional[pulumi.Input[str]]:
+        """
+        Image reference
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reference", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ImageType']]]:
+        """
+        Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ImageType']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class InferenceContainerPropertiesArgs:
     def __init__(__self__, *,
                  liveness_route: Optional[pulumi.Input['RouteArgs']] = None,
@@ -11062,12 +11471,15 @@ class JobServiceArgs:
     def __init__(__self__, *,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  job_service_type: Optional[pulumi.Input[str]] = None,
+                 nodes: Optional[pulumi.Input['AllNodesArgs']] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Job endpoint definition
         :param pulumi.Input[str] endpoint: Url for endpoint.
         :param pulumi.Input[str] job_service_type: Endpoint type.
+        :param pulumi.Input['AllNodesArgs'] nodes: Nodes that user would like to start the service on.
+               If Nodes is not set or set to null, the service will only be started on leader node.
         :param pulumi.Input[int] port: Port for endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Additional properties to set on the endpoint.
         """
@@ -11075,6 +11487,8 @@ class JobServiceArgs:
             pulumi.set(__self__, "endpoint", endpoint)
         if job_service_type is not None:
             pulumi.set(__self__, "job_service_type", job_service_type)
+        if nodes is not None:
+            pulumi.set(__self__, "nodes", nodes)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if properties is not None:
@@ -11103,6 +11517,19 @@ class JobServiceArgs:
     @job_service_type.setter
     def job_service_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "job_service_type", value)
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Optional[pulumi.Input['AllNodesArgs']]:
+        """
+        Nodes that user would like to start the service on.
+        If Nodes is not set or set to null, the service will only be started on leader node.
+        """
+        return pulumi.get(self, "nodes")
+
+    @nodes.setter
+    def nodes(self, value: Optional[pulumi.Input['AllNodesArgs']]):
+        pulumi.set(self, "nodes", value)
 
     @property
     @pulumi.getter
@@ -12994,6 +13421,8 @@ class NlpVerticalLimitSettingsArgs:
             max_trials = 1
         if max_trials is not None:
             pulumi.set(__self__, "max_trials", max_trials)
+        if timeout is None:
+            timeout = 'P7D'
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -13188,6 +13617,7 @@ class OnlineEndpointArgs:
                  compute: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  keys: Optional[pulumi.Input['EndpointAuthKeysArgs']] = None,
+                 mirror_traffic: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
                  traffic: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]] = None):
@@ -13199,6 +13629,7 @@ class OnlineEndpointArgs:
         :param pulumi.Input[str] description: Description of the inference endpoint.
         :param pulumi.Input['EndpointAuthKeysArgs'] keys: EndpointAuthKeys to set initially on an Endpoint.
                This property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.
+        :param pulumi.Input[Mapping[str, pulumi.Input[int]]] mirror_traffic: Percentage of traffic to be mirrored to each deployment without using returned scoring. Traffic values need to sum to utmost 50.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Property dictionary. Properties can be added, but not removed or altered.
         :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access: Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[int]]] traffic: Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100.
@@ -13210,6 +13641,8 @@ class OnlineEndpointArgs:
             pulumi.set(__self__, "description", description)
         if keys is not None:
             pulumi.set(__self__, "keys", keys)
+        if mirror_traffic is not None:
+            pulumi.set(__self__, "mirror_traffic", mirror_traffic)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if public_network_access is None:
@@ -13268,6 +13701,18 @@ class OnlineEndpointArgs:
     @keys.setter
     def keys(self, value: Optional[pulumi.Input['EndpointAuthKeysArgs']]):
         pulumi.set(self, "keys", value)
+
+    @property
+    @pulumi.getter(name="mirrorTraffic")
+    def mirror_traffic(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]]:
+        """
+        Percentage of traffic to be mirrored to each deployment without using returned scoring. Traffic values need to sum to utmost 50.
+        """
+        return pulumi.get(self, "mirror_traffic")
+
+    @mirror_traffic.setter
+    def mirror_traffic(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]]):
+        pulumi.set(self, "mirror_traffic", value)
 
     @property
     @pulumi.getter
@@ -17954,6 +18399,30 @@ class TextNerArgs:
 
 
 @pulumi.input_type
+class TmpfsOptionsArgs:
+    def __init__(__self__, *,
+                 size: Optional[pulumi.Input[int]] = None):
+        """
+        Describes the tmpfs options for the container
+        :param pulumi.Input[int] size: Mention the Tmpfs size
+        """
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Mention the Tmpfs size
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "size", value)
+
+
+@pulumi.input_type
 class TrialComponentArgs:
     def __init__(__self__, *,
                  command: pulumi.Input[str],
@@ -19342,6 +19811,168 @@ class VirtualMachineArgs:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class VolumeDefinitionArgs:
+    def __init__(__self__, *,
+                 bind: Optional[pulumi.Input['BindOptionsArgs']] = None,
+                 consistency: Optional[pulumi.Input[str]] = None,
+                 read_only: Optional[pulumi.Input[bool]] = None,
+                 source: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 tmpfs: Optional[pulumi.Input['TmpfsOptionsArgs']] = None,
+                 type: Optional[pulumi.Input[Union[str, 'VolumeDefinitionType']]] = None,
+                 volume: Optional[pulumi.Input['VolumeOptionsArgs']] = None):
+        """
+        Describes the volume configuration for the container
+        :param pulumi.Input['BindOptionsArgs'] bind: Bind Options of the mount
+        :param pulumi.Input[str] consistency: Consistency of the volume
+        :param pulumi.Input[bool] read_only: Indicate whether to mount volume as readOnly. Default value for this is false.
+        :param pulumi.Input[str] source: Source of the mount. For bind mounts this is the host path.
+        :param pulumi.Input[str] target: Target of the mount. For bind mounts this is the path in the container.
+        :param pulumi.Input['TmpfsOptionsArgs'] tmpfs: tmpfs option of the mount
+        :param pulumi.Input[Union[str, 'VolumeDefinitionType']] type: Type of Volume Definition. Possible Values: bind,volume,tmpfs,npipe
+        :param pulumi.Input['VolumeOptionsArgs'] volume: Volume Options of the mount
+        """
+        if bind is not None:
+            pulumi.set(__self__, "bind", bind)
+        if consistency is not None:
+            pulumi.set(__self__, "consistency", consistency)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if tmpfs is not None:
+            pulumi.set(__self__, "tmpfs", tmpfs)
+        if type is None:
+            type = 'bind'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if volume is not None:
+            pulumi.set(__self__, "volume", volume)
+
+    @property
+    @pulumi.getter
+    def bind(self) -> Optional[pulumi.Input['BindOptionsArgs']]:
+        """
+        Bind Options of the mount
+        """
+        return pulumi.get(self, "bind")
+
+    @bind.setter
+    def bind(self, value: Optional[pulumi.Input['BindOptionsArgs']]):
+        pulumi.set(self, "bind", value)
+
+    @property
+    @pulumi.getter
+    def consistency(self) -> Optional[pulumi.Input[str]]:
+        """
+        Consistency of the volume
+        """
+        return pulumi.get(self, "consistency")
+
+    @consistency.setter
+    def consistency(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consistency", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate whether to mount volume as readOnly. Default value for this is false.
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source of the mount. For bind mounts this is the host path.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        Target of the mount. For bind mounts this is the path in the container.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def tmpfs(self) -> Optional[pulumi.Input['TmpfsOptionsArgs']]:
+        """
+        tmpfs option of the mount
+        """
+        return pulumi.get(self, "tmpfs")
+
+    @tmpfs.setter
+    def tmpfs(self, value: Optional[pulumi.Input['TmpfsOptionsArgs']]):
+        pulumi.set(self, "tmpfs", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'VolumeDefinitionType']]]:
+        """
+        Type of Volume Definition. Possible Values: bind,volume,tmpfs,npipe
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'VolumeDefinitionType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def volume(self) -> Optional[pulumi.Input['VolumeOptionsArgs']]:
+        """
+        Volume Options of the mount
+        """
+        return pulumi.get(self, "volume")
+
+    @volume.setter
+    def volume(self, value: Optional[pulumi.Input['VolumeOptionsArgs']]):
+        pulumi.set(self, "volume", value)
+
+
+@pulumi.input_type
+class VolumeOptionsArgs:
+    def __init__(__self__, *,
+                 nocopy: Optional[pulumi.Input[bool]] = None):
+        """
+        Describes the volume options for the container
+        :param pulumi.Input[bool] nocopy: Indicate whether volume is nocopy
+        """
+        if nocopy is not None:
+            pulumi.set(__self__, "nocopy", nocopy)
+
+    @property
+    @pulumi.getter
+    def nocopy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate whether volume is nocopy
+        """
+        return pulumi.get(self, "nocopy")
+
+    @nocopy.setter
+    def nocopy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "nocopy", value)
 
 
 @pulumi.input_type

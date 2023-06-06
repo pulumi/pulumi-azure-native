@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List Content Keys used by this Streaming Locator
- * API Version: 2022-08-01.
+ * API Version: 2023-01-01.
  */
 export function listStreamingLocatorContentKeys(args: ListStreamingLocatorContentKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListStreamingLocatorContentKeysResult> {
 
@@ -47,7 +47,7 @@ export interface ListStreamingLocatorContentKeysResult {
 }
 /**
  * List Content Keys used by this Streaming Locator
- * API Version: 2022-08-01.
+ * API Version: 2023-01-01.
  */
 export function listStreamingLocatorContentKeysOutput(args: ListStreamingLocatorContentKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStreamingLocatorContentKeysResult> {
     return pulumi.output(args).apply((a: any) => listStreamingLocatorContentKeys(a, opts))

@@ -17,7 +17,7 @@ __all__ = ['AssociationsInterfaceArgs', 'AssociationsInterface']
 @pulumi.input_type
 class AssociationsInterfaceArgs:
     def __init__(__self__, *,
-                 association_type: pulumi.Input['AssociationType'],
+                 association_type: pulumi.Input[Union[str, 'AssociationType']],
                  resource_group_name: pulumi.Input[str],
                  traffic_controller_name: pulumi.Input[str],
                  association_name: Optional[pulumi.Input[str]] = None,
@@ -26,7 +26,7 @@ class AssociationsInterfaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AssociationsInterface resource.
-        :param pulumi.Input['AssociationType'] association_type: Association Type
+        :param pulumi.Input[Union[str, 'AssociationType']] association_type: Association Type
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] traffic_controller_name: traffic controller name for path
         :param pulumi.Input[str] association_name: Name of Association
@@ -48,14 +48,14 @@ class AssociationsInterfaceArgs:
 
     @property
     @pulumi.getter(name="associationType")
-    def association_type(self) -> pulumi.Input['AssociationType']:
+    def association_type(self) -> pulumi.Input[Union[str, 'AssociationType']]:
         """
         Association Type
         """
         return pulumi.get(self, "association_type")
 
     @association_type.setter
-    def association_type(self, value: pulumi.Input['AssociationType']):
+    def association_type(self, value: pulumi.Input[Union[str, 'AssociationType']]):
         pulumi.set(self, "association_type", value)
 
     @property
@@ -137,7 +137,7 @@ class AssociationsInterface(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  association_name: Optional[pulumi.Input[str]] = None,
-                 association_type: Optional[pulumi.Input['AssociationType']] = None,
+                 association_type: Optional[pulumi.Input[Union[str, 'AssociationType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input[pulumi.InputType['AssociationSubnetArgs']]] = None,
@@ -146,13 +146,13 @@ class AssociationsInterface(pulumi.CustomResource):
                  __props__=None):
         """
         Association Subresource of Traffic Controller
-        API Version: 2022-10-01-preview.
+        API Version: 2023-05-01-preview.
         Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] association_name: Name of Association
-        :param pulumi.Input['AssociationType'] association_type: Association Type
+        :param pulumi.Input[Union[str, 'AssociationType']] association_type: Association Type
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['AssociationSubnetArgs']] subnet: Association Subnet
@@ -167,7 +167,7 @@ class AssociationsInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Association Subresource of Traffic Controller
-        API Version: 2022-10-01-preview.
+        API Version: 2023-05-01-preview.
         Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -186,7 +186,7 @@ class AssociationsInterface(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  association_name: Optional[pulumi.Input[str]] = None,
-                 association_type: Optional[pulumi.Input['AssociationType']] = None,
+                 association_type: Optional[pulumi.Input[Union[str, 'AssociationType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input[pulumi.InputType['AssociationSubnetArgs']]] = None,
@@ -280,7 +280,7 @@ class AssociationsInterface(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Provisioning State
+        Provisioning State of Traffic Controller Association Resource
         """
         return pulumi.get(self, "provisioning_state")
 

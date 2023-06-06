@@ -129,7 +129,7 @@ class Service(pulumi.CustomResource):
                  __props__=None):
         """
         Properties for the database account.
-        API Version: 2022-11-15.
+        API Version: 2023-04-15.
         Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -149,7 +149,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties for the database account.
-        API Version: 2022-11-15.
+        API Version: 2023-04-15.
         Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

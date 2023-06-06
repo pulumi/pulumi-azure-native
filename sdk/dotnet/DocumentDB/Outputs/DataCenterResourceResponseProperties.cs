@@ -17,7 +17,11 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
     public sealed class DataCenterResourceResponseProperties
     {
         /// <summary>
-        /// If the azure data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
+        /// Ldap authentication method properties. This feature is in preview.
+        /// </summary>
+        public readonly Outputs.AuthenticationMethodLdapPropertiesResponse? AuthenticationMethodLdapProperties;
+        /// <summary>
+        /// If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
         /// </summary>
         public readonly bool? AvailabilityZone;
         /// <summary>
@@ -33,11 +37,15 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly string? DataCenterLocation;
         /// <summary>
+        /// Whether the data center has been deallocated.
+        /// </summary>
+        public readonly bool? Deallocated;
+        /// <summary>
         /// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/&lt;subscription id&gt;/resourceGroups/&lt;resource group&gt;/providers/Microsoft.Network/virtualNetworks/&lt;virtual network&gt;/subnets/&lt;subnet&gt;'.
         /// </summary>
         public readonly string? DelegatedSubnetId;
         /// <summary>
-        /// Number of disk used for data centers. Default value is 4.
+        /// Number of disks attached to each node. Default is 4.
         /// </summary>
         public readonly int? DiskCapacity;
         /// <summary>
@@ -53,6 +61,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly int? NodeCount;
         /// <summary>
+        /// Error related to resource provisioning.
+        /// </summary>
+        public readonly Outputs.CassandraErrorResponse? ProvisionError;
+        /// <summary>
         /// The status of the resource at the time the operation was called.
         /// </summary>
         public readonly string? ProvisioningState;
@@ -67,6 +79,8 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
         [OutputConstructor]
         private DataCenterResourceResponseProperties(
+            Outputs.AuthenticationMethodLdapPropertiesResponse? authenticationMethodLdapProperties,
+
             bool? availabilityZone,
 
             string? backupStorageCustomerKeyUri,
@@ -74,6 +88,8 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
             string? base64EncodedCassandraYamlFragment,
 
             string? dataCenterLocation,
+
+            bool? deallocated,
 
             string? delegatedSubnetId,
 
@@ -85,21 +101,26 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
             int? nodeCount,
 
+            Outputs.CassandraErrorResponse? provisionError,
+
             string? provisioningState,
 
             ImmutableArray<Outputs.SeedNodeResponse> seedNodes,
 
             string? sku)
         {
+            AuthenticationMethodLdapProperties = authenticationMethodLdapProperties;
             AvailabilityZone = availabilityZone;
             BackupStorageCustomerKeyUri = backupStorageCustomerKeyUri;
             Base64EncodedCassandraYamlFragment = base64EncodedCassandraYamlFragment;
             DataCenterLocation = dataCenterLocation;
+            Deallocated = deallocated;
             DelegatedSubnetId = delegatedSubnetId;
             DiskCapacity = diskCapacity;
             DiskSku = diskSku;
             ManagedDiskCustomerKeyUri = managedDiskCustomerKeyUri;
             NodeCount = nodeCount;
+            ProvisionError = provisionError;
             ProvisioningState = provisioningState;
             SeedNodes = seedNodes;
             Sku = sku;

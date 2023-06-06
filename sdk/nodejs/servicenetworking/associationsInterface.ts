@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Association Subresource of Traffic Controller
- * API Version: 2022-10-01-preview.
+ * API Version: 2023-05-01-preview.
  * Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class AssociationsInterface extends pulumi.CustomResource {
@@ -52,7 +52,7 @@ export class AssociationsInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning State
+     * Provisioning State of Traffic Controller Association Resource
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -131,7 +131,7 @@ export interface AssociationsInterfaceArgs {
     /**
      * Association Type
      */
-    associationType: pulumi.Input<enums.servicenetworking.AssociationType>;
+    associationType: pulumi.Input<string | enums.servicenetworking.AssociationType>;
     /**
      * The geo-location where the resource lives
      */

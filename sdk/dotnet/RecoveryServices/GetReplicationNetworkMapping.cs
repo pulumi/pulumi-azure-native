@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Gets the details of an ASR network mapping.
-        /// API Version: 2023-02-01.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Task<GetReplicationNetworkMappingResult> InvokeAsync(GetReplicationNetworkMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationNetworkMappingResult>("azure-native:recoveryservices:getReplicationNetworkMapping", args ?? new GetReplicationNetworkMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of an ASR network mapping.
-        /// API Version: 2023-02-01.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Output<GetReplicationNetworkMappingResult> Invoke(GetReplicationNetworkMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationNetworkMappingResult>("azure-native:recoveryservices:getReplicationNetworkMapping", args ?? new GetReplicationNetworkMappingInvokeArgs(), options.WithDefaults());

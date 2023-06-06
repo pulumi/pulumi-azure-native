@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a server.
- * API Version: 2021-05-01.
+ * API Version: 2022-01-01.
  * Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Server extends pulumi.CustomResource {
@@ -141,7 +141,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["backup"] = args ? args.backup : undefined;
+            resourceInputs["backup"] = args ? (args.backup ? pulumi.output(args.backup).apply(inputs.dbformysql.backupArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["createMode"] = args ? args.createMode : undefined;
             resourceInputs["dataEncryption"] = args ? args.dataEncryption : undefined;
             resourceInputs["highAvailability"] = args ? args.highAvailability : undefined;
@@ -155,7 +155,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["sourceServerResourceId"] = args ? args.sourceServerResourceId : undefined;
-            resourceInputs["storage"] = args ? args.storage : undefined;
+            resourceInputs["storage"] = args ? (args.storage ? pulumi.output(args.storage).apply(inputs.dbformysql.storageArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// PrivateEndpointConnection resource.
-    /// API Version: 2022-09-01.
+    /// API Version: 2022-11-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateLinkServicePrivateEndpointConnection")]
@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("privateEndpoint")]
         public Output<Outputs.PrivateEndpointResponse> PrivateEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The location of the private endpoint.
+        /// </summary>
+        [Output("privateEndpointLocation")]
+        public Output<string> PrivateEndpointLocation { get; private set; } = null!;
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.

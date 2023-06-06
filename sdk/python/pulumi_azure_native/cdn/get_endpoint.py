@@ -351,7 +351,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
     Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-    API Version: 2021-06-01.
+    API Version: 2023-05-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -401,7 +401,7 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-    API Version: 2021-06-01.
+    API Version: 2023-05-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.

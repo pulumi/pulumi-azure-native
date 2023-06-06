@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// </summary>
     public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+        /// </summary>
+        [Input("alwaysServe")]
+        public InputUnion<string, Pulumi.AzureNative.Network.AlwaysServe>? AlwaysServe { get; set; }
+
         [Input("customHeaders")]
         private InputList<Inputs.EndpointPropertiesCustomHeadersArgs>? _customHeaders;
 

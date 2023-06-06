@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the account keys for the specified Cognitive Services account.
- * API Version: 2022-12-01.
+ * API Version: 2023-05-01.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
 
@@ -43,7 +43,7 @@ export interface ListAccountKeysResult {
 }
 /**
  * Lists the account keys for the specified Cognitive Services account.
- * API Version: 2022-12-01.
+ * API Version: 2023-05-01.
  */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listAccountKeys(a, opts))

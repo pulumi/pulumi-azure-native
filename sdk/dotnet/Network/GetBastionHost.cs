@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified Bastion Host.
-        /// API Version: 2022-09-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetBastionHostResult> InvokeAsync(GetBastionHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBastionHostResult>("azure-native:network:getBastionHost", args ?? new GetBastionHostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Bastion Host.
-        /// API Version: 2022-09-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetBastionHostResult> Invoke(GetBastionHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBastionHostResult>("azure-native:network:getBastionHost", args ?? new GetBastionHostInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly bool? EnableIpConnect;
         /// <summary>
+        /// Enable/Disable Kerberos feature of the Bastion Host resource.
+        /// </summary>
+        public readonly bool? EnableKerberos;
+        /// <summary>
         /// Enable/Disable Shareable Link of the Bastion Host resource.
         /// </summary>
         public readonly bool? EnableShareableLink;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNative.Network
 
             bool? enableIpConnect,
 
+            bool? enableKerberos,
+
             bool? enableShareableLink,
 
             bool? enableTunneling,
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNative.Network
             DnsName = dnsName;
             EnableFileCopy = enableFileCopy;
             EnableIpConnect = enableIpConnect;
+            EnableKerberos = enableKerberos;
             EnableShareableLink = enableShareableLink;
             EnableTunneling = enableTunneling;
             Etag = etag;

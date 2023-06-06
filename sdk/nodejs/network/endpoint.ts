@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Traffic Manager endpoint.
- * API Version: 2018-08-01.
+ * API Version: 2022-04-01.
  * Previous API Version: 2018-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class Endpoint extends pulumi.CustomResource {
@@ -39,6 +39,10 @@ export class Endpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === Endpoint.__pulumiType;
     }
 
+    /**
+     * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+     */
+    public readonly alwaysServe!: pulumi.Output<string | undefined>;
     /**
      * List of custom headers.
      */
@@ -120,6 +124,7 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["alwaysServe"] = args ? args.alwaysServe : undefined;
             resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
             resourceInputs["endpointLocation"] = args ? args.endpointLocation : undefined;
             resourceInputs["endpointMonitorStatus"] = args ? args.endpointMonitorStatus : undefined;
@@ -141,6 +146,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["weight"] = args ? args.weight : undefined;
         } else {
+            resourceInputs["alwaysServe"] = undefined /*out*/;
             resourceInputs["customHeaders"] = undefined /*out*/;
             resourceInputs["endpointLocation"] = undefined /*out*/;
             resourceInputs["endpointMonitorStatus"] = undefined /*out*/;
@@ -168,6 +174,10 @@ export class Endpoint extends pulumi.CustomResource {
  * The set of arguments for constructing a Endpoint resource.
  */
 export interface EndpointArgs {
+    /**
+     * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+     */
+    alwaysServe?: pulumi.Input<string | enums.network.AlwaysServe>;
     /**
      * List of custom headers.
      */
@@ -225,7 +235,7 @@ export interface EndpointArgs {
      */
     profileName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Traffic Manager endpoint to be created or updated.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -22,7 +22,7 @@ class GetVirtualMachineScaleSetVMExtensionResult:
     """
     Describes a VMSS VM Extension.
     """
-    def __init__(__self__, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, instance_view=None, name=None, protected_settings=None, protected_settings_from_key_vault=None, provisioning_state=None, publisher=None, settings=None, suppress_failures=None, type=None, type_handler_version=None):
+    def __init__(__self__, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, instance_view=None, location=None, name=None, protected_settings=None, protected_settings_from_key_vault=None, provision_after_extensions=None, provisioning_state=None, publisher=None, settings=None, suppress_failures=None, type=None, type_handler_version=None):
         if auto_upgrade_minor_version and not isinstance(auto_upgrade_minor_version, bool):
             raise TypeError("Expected argument 'auto_upgrade_minor_version' to be a bool")
         pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
@@ -38,6 +38,9 @@ class GetVirtualMachineScaleSetVMExtensionResult:
         if instance_view and not isinstance(instance_view, dict):
             raise TypeError("Expected argument 'instance_view' to be a dict")
         pulumi.set(__self__, "instance_view", instance_view)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -47,6 +50,9 @@ class GetVirtualMachineScaleSetVMExtensionResult:
         if protected_settings_from_key_vault and not isinstance(protected_settings_from_key_vault, dict):
             raise TypeError("Expected argument 'protected_settings_from_key_vault' to be a dict")
         pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
+        if provision_after_extensions and not isinstance(provision_after_extensions, list):
+            raise TypeError("Expected argument 'provision_after_extensions' to be a list")
+        pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -108,6 +114,14 @@ class GetVirtualMachineScaleSetVMExtensionResult:
 
     @property
     @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the extension.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the extension.
@@ -129,6 +143,14 @@ class GetVirtualMachineScaleSetVMExtensionResult:
         The extensions protected settings that are passed by reference, and consumed from key vault
         """
         return pulumi.get(self, "protected_settings_from_key_vault")
+
+    @property
+    @pulumi.getter(name="provisionAfterExtensions")
+    def provision_after_extensions(self) -> Optional[Sequence[str]]:
+        """
+        Collection of extension names after which this extension needs to be provisioned.
+        """
+        return pulumi.get(self, "provision_after_extensions")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -190,9 +212,11 @@ class AwaitableGetVirtualMachineScaleSetVMExtensionResult(GetVirtualMachineScale
             force_update_tag=self.force_update_tag,
             id=self.id,
             instance_view=self.instance_view,
+            location=self.location,
             name=self.name,
             protected_settings=self.protected_settings,
             protected_settings_from_key_vault=self.protected_settings_from_key_vault,
+            provision_after_extensions=self.provision_after_extensions,
             provisioning_state=self.provisioning_state,
             publisher=self.publisher,
             settings=self.settings,
@@ -209,7 +233,7 @@ def get_virtual_machine_scale_set_vm_extension(expand: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMExtensionResult:
     """
     The operation to get the VMSS VM extension.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -233,9 +257,11 @@ def get_virtual_machine_scale_set_vm_extension(expand: Optional[str] = None,
         force_update_tag=__ret__.force_update_tag,
         id=__ret__.id,
         instance_view=__ret__.instance_view,
+        location=__ret__.location,
         name=__ret__.name,
         protected_settings=__ret__.protected_settings,
         protected_settings_from_key_vault=__ret__.protected_settings_from_key_vault,
+        provision_after_extensions=__ret__.provision_after_extensions,
         provisioning_state=__ret__.provisioning_state,
         publisher=__ret__.publisher,
         settings=__ret__.settings,
@@ -253,7 +279,7 @@ def get_virtual_machine_scale_set_vm_extension_output(expand: Optional[pulumi.In
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMExtensionResult]:
     """
     The operation to get the VMSS VM extension.
-    API Version: 2022-11-01.
+    API Version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.

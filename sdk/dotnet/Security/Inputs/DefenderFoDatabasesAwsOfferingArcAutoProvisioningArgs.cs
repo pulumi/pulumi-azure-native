@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.Inputs
         public Input<string>? CloudRoleArn { get; set; }
 
         /// <summary>
+        /// Configuration for servers Arc auto provisioning
+        /// </summary>
+        [Input("configuration")]
+        public Input<Inputs.DefenderFoDatabasesAwsOfferingConfigurationArgs>? Configuration { get; set; }
+
+        /// <summary>
         /// Is arc auto provisioning enabled
         /// </summary>
         [Input("enabled")]

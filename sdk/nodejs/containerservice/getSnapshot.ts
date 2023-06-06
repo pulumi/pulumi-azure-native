@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A node pool snapshot resource.
- * API Version: 2023-01-01.
+ * API Version: 2023-04-01.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
 
@@ -94,7 +94,7 @@ export interface GetSnapshotResult {
 }
 /**
  * A node pool snapshot resource.
- * API Version: 2023-01-01.
+ * API Version: 2023-04-01.
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))

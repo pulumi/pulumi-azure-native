@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 {
     /// <summary>
     /// The Extension object.
-    /// API Version: 2022-11-01.
+    /// API Version: 2023-05-01.
     /// Previous API Version: 2020-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration:Extension")]

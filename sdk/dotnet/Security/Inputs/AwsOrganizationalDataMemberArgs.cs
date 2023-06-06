@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security.Inputs
 {
 
     /// <summary>
-    /// The awsOrganization data for the member account
+    /// The AWS organization data for the member account
     /// </summary>
     public sealed class AwsOrganizationalDataMemberArgs : global::Pulumi.ResourceArgs
     {

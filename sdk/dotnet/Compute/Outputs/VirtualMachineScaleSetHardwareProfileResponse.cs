@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class VirtualMachineScaleSetHardwareProfileResponse
     {
         /// <summary>
-        /// Specifies the properties for customizing the size of the virtual machine. Minimum api-version: 2021-11-01. &lt;br&gt;&lt;br&gt; Please follow the instructions in [VM Customization](https://aka.ms/vmcustomization) for more details.
+        /// Specifies the properties for customizing the size of the virtual machine. Minimum api-version: 2021-11-01. Please follow the instructions in [VM Customization](https://aka.ms/vmcustomization) for more details.
         /// </summary>
         public readonly Outputs.VMSizePropertiesResponse? VmSizeProperties;
 

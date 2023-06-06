@@ -906,23 +906,16 @@ class CacheActiveDirectorySettingsResponseCredentials(dict):
     Active Directory admin credentials used to join the HPC Cache to a domain.
     """
     def __init__(__self__, *,
-                 password: str,
-                 username: str):
+                 username: str,
+                 password: Optional[str] = None):
         """
         Active Directory admin credentials used to join the HPC Cache to a domain.
-        :param str password: Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         :param str username: Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+        :param str password: Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         """
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def password(self) -> str:
-        """
-        Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
-        """
-        return pulumi.get(self, "password")
+        if password is not None:
+            pulumi.set(__self__, "password", password)
 
     @property
     @pulumi.getter
@@ -931,6 +924,14 @@ class CacheActiveDirectorySettingsResponseCredentials(dict):
         Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+        """
+        return pulumi.get(self, "password")
 
 
 @pulumi.output_type
@@ -1016,8 +1017,8 @@ class CacheEncryptionSettingsResponse(dict):
                  rotation_to_latest_key_version_enabled: Optional[bool] = None):
         """
         Cache encryption settings.
-        :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the key encryption key in Key Vault.
-        :param bool rotation_to_latest_key_version_enabled: Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+        :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the key encryption key in key vault.
+        :param bool rotation_to_latest_key_version_enabled: Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
         """
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
@@ -1028,7 +1029,7 @@ class CacheEncryptionSettingsResponse(dict):
     @pulumi.getter(name="keyEncryptionKey")
     def key_encryption_key(self) -> Optional['outputs.KeyVaultKeyReferenceResponse']:
         """
-        Specifies the location of the key encryption key in Key Vault.
+        Specifies the location of the key encryption key in key vault.
         """
         return pulumi.get(self, "key_encryption_key")
 
@@ -1036,7 +1037,7 @@ class CacheEncryptionSettingsResponse(dict):
     @pulumi.getter(name="rotationToLatestKeyVersionEnabled")
     def rotation_to_latest_key_version_enabled(self) -> Optional[bool]:
         """
-        Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+        Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
         """
         return pulumi.get(self, "rotation_to_latest_key_version_enabled")
 
@@ -1044,7 +1045,7 @@ class CacheEncryptionSettingsResponse(dict):
 @pulumi.output_type
 class CacheHealthResponse(dict):
     """
-    An indication of Cache health. Gives more information about health than just that related to provisioning.
+    An indication of cache health. Gives more information about health than just that related to provisioning.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1068,9 +1069,9 @@ class CacheHealthResponse(dict):
                  state: Optional[str] = None,
                  status_description: Optional[str] = None):
         """
-        An indication of Cache health. Gives more information about health than just that related to provisioning.
+        An indication of cache health. Gives more information about health than just that related to provisioning.
         :param Sequence['ConditionResponse'] conditions: Outstanding conditions that need to be investigated and resolved.
-        :param str state: List of Cache health states.
+        :param str state: List of cache health states. Down is when the cluster is not responding.  Degraded is when its functioning but has some alerts. Transitioning when it is creating or deleting. Unknown will be returned in old api versions when a new value is added in future versions. WaitingForKey is when the create is waiting for the system assigned identity to be given access to the encryption key in the encryption settings.
         :param str status_description: Describes explanation of state.
         """
         pulumi.set(__self__, "conditions", conditions)
@@ -1091,7 +1092,7 @@ class CacheHealthResponse(dict):
     @pulumi.getter
     def state(self) -> Optional[str]:
         """
-        List of Cache health states.
+        List of cache health states. Down is when the cluster is not responding.  Degraded is when its functioning but has some alerts. Transitioning when it is creating or deleting. Unknown will be returned in old api versions when a new value is added in future versions. WaitingForKey is when the create is waiting for the system assigned identity to be given access to the encryption key in the encryption settings.
         """
         return pulumi.get(self, "state")
 
@@ -1266,7 +1267,7 @@ class CacheNetworkSettingsResponse(dict):
                  ntp_server: Optional[str] = None):
         """
         Cache network settings.
-        :param Sequence[str] utility_addresses: Array of additional IP addresses used by this Cache.
+        :param Sequence[str] utility_addresses: Array of additional IP addresses used by this cache.
         :param str dns_search_domain: DNS search domain
         :param Sequence[str] dns_servers: DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
         :param int mtu: The IPv4 maximum transmission unit configured for the subnet.
@@ -1290,7 +1291,7 @@ class CacheNetworkSettingsResponse(dict):
     @pulumi.getter(name="utilityAddresses")
     def utility_addresses(self) -> Sequence[str]:
         """
-        Array of additional IP addresses used by this Cache.
+        Array of additional IP addresses used by this cache.
         """
         return pulumi.get(self, "utility_addresses")
 
@@ -1330,13 +1331,13 @@ class CacheNetworkSettingsResponse(dict):
 @pulumi.output_type
 class CacheResponseSku(dict):
     """
-    SKU for the Cache.
+    SKU for the cache.
     """
     def __init__(__self__, *,
                  name: Optional[str] = None):
         """
-        SKU for the Cache.
-        :param str name: SKU name for this Cache.
+        SKU for the cache.
+        :param str name: SKU name for this cache.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -1345,7 +1346,7 @@ class CacheResponseSku(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        SKU name for this Cache.
+        SKU name for this cache.
         """
         return pulumi.get(self, "name")
 
@@ -1447,7 +1448,7 @@ class CacheUpgradeSettingsResponse(dict):
 @pulumi.output_type
 class CacheUpgradeStatusResponse(dict):
     """
-    Properties describing the software upgrade state of the Cache.
+    Properties describing the software upgrade state of the cache.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1481,10 +1482,10 @@ class CacheUpgradeStatusResponse(dict):
                  last_firmware_update: str,
                  pending_firmware_version: str):
         """
-        Properties describing the software upgrade state of the Cache.
-        :param str current_firmware_version: Version string of the firmware currently installed on this Cache.
-        :param str firmware_update_deadline: Time at which the pending firmware update will automatically be installed on the Cache.
-        :param str firmware_update_status: True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        Properties describing the software upgrade state of the cache.
+        :param str current_firmware_version: Version string of the firmware currently installed on this cache.
+        :param str firmware_update_deadline: Time at which the pending firmware update will automatically be installed on the cache.
+        :param str firmware_update_status: True if there is a firmware update ready to install on this cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
         :param str last_firmware_update: Time of the last successful firmware update.
         :param str pending_firmware_version: When firmwareUpdateAvailable is true, this field holds the version string for the update.
         """
@@ -1498,7 +1499,7 @@ class CacheUpgradeStatusResponse(dict):
     @pulumi.getter(name="currentFirmwareVersion")
     def current_firmware_version(self) -> str:
         """
-        Version string of the firmware currently installed on this Cache.
+        Version string of the firmware currently installed on this cache.
         """
         return pulumi.get(self, "current_firmware_version")
 
@@ -1506,7 +1507,7 @@ class CacheUpgradeStatusResponse(dict):
     @pulumi.getter(name="firmwareUpdateDeadline")
     def firmware_update_deadline(self) -> str:
         """
-        Time at which the pending firmware update will automatically be installed on the Cache.
+        Time at which the pending firmware update will automatically be installed on the cache.
         """
         return pulumi.get(self, "firmware_update_deadline")
 
@@ -1514,7 +1515,7 @@ class CacheUpgradeStatusResponse(dict):
     @pulumi.getter(name="firmwareUpdateStatus")
     def firmware_update_status(self) -> str:
         """
-        True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        True if there is a firmware update ready to install on this cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
         """
         return pulumi.get(self, "firmware_update_status")
 
@@ -1606,12 +1607,16 @@ class CacheUsernameDownloadSettingsResponse(dict):
         :param str username_source: This setting determines how the cache gets username and group names for clients.
         """
         pulumi.set(__self__, "username_downloaded", username_downloaded)
+        if auto_download_certificate is None:
+            auto_download_certificate = False
         if auto_download_certificate is not None:
             pulumi.set(__self__, "auto_download_certificate", auto_download_certificate)
         if ca_certificate_uri is not None:
             pulumi.set(__self__, "ca_certificate_uri", ca_certificate_uri)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if encrypt_ldap_connection is None:
+            encrypt_ldap_connection = False
         if encrypt_ldap_connection is not None:
             pulumi.set(__self__, "encrypt_ldap_connection", encrypt_ldap_connection)
         if extended_groups is not None:
@@ -1622,6 +1627,8 @@ class CacheUsernameDownloadSettingsResponse(dict):
             pulumi.set(__self__, "ldap_base_dn", ldap_base_dn)
         if ldap_server is not None:
             pulumi.set(__self__, "ldap_server", ldap_server)
+        if require_valid_certificate is None:
+            require_valid_certificate = False
         if require_valid_certificate is not None:
             pulumi.set(__self__, "require_valid_certificate", require_valid_certificate)
         if user_file_uri is not None:
@@ -1948,7 +1955,7 @@ class NamespaceJunctionResponse(dict):
                  target_path: Optional[str] = None):
         """
         A namespace junction.
-        :param str namespace_path: Namespace path on a Cache for a Storage Target.
+        :param str namespace_path: Namespace path on a cache for a Storage Target.
         :param str nfs_access_policy: Name of the access policy applied to this junction.
         :param str nfs_export: NFS export where targetPath exists.
         :param str target_path: Path in Storage Target to which namespacePath points.
@@ -1968,7 +1975,7 @@ class NamespaceJunctionResponse(dict):
     @pulumi.getter(name="namespacePath")
     def namespace_path(self) -> Optional[str]:
         """
-        Namespace path on a Cache for a Storage Target.
+        Namespace path on a cache for a Storage Target.
         """
         return pulumi.get(self, "namespace_path")
 

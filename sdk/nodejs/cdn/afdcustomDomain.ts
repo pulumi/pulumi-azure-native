@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
- * API Version: 2021-06-01.
+ * API Version: 2023-05-01.
  * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class AFDCustomDomain extends pulumi.CustomResource {
@@ -48,6 +48,10 @@ export class AFDCustomDomain extends pulumi.CustomResource {
      * Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step. DCV stands for DomainControlValidation.
      */
     public /*out*/ readonly domainValidationState!: pulumi.Output<string>;
+    /**
+     * Key-Value pair representing migration properties for domains.
+     */
+    public readonly extendedProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The host name of the domain. Must be a domain name.
      */
@@ -107,6 +111,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             }
             resourceInputs["azureDnsZone"] = args ? args.azureDnsZone : undefined;
             resourceInputs["customDomainName"] = args ? args.customDomainName : undefined;
+            resourceInputs["extendedProperties"] = args ? args.extendedProperties : undefined;
             resourceInputs["hostName"] = args ? args.hostName : undefined;
             resourceInputs["preValidatedCustomDomainResourceId"] = args ? args.preValidatedCustomDomainResourceId : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
@@ -123,6 +128,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             resourceInputs["azureDnsZone"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["domainValidationState"] = undefined /*out*/;
+            resourceInputs["extendedProperties"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["preValidatedCustomDomainResourceId"] = undefined /*out*/;
@@ -152,6 +158,10 @@ export interface AFDCustomDomainArgs {
      * Name of the domain under the profile which is unique globally
      */
     customDomainName?: pulumi.Input<string>;
+    /**
+     * Key-Value pair representing migration properties for domains.
+     */
+    extendedProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The host name of the domain. Must be a domain name.
      */

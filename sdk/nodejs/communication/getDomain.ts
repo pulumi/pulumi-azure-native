@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Domains resource and its properties.
- * API Version: 2023-03-01-preview.
+ * API Version: 2023-03-31.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
 
@@ -99,7 +99,7 @@ export interface GetDomainResult {
 }
 /**
  * Get the Domains resource and its properties.
- * API Version: 2023-03-01-preview.
+ * API Version: 2023-03-31.
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply((a: any) => getDomain(a, opts))

@@ -136,7 +136,7 @@ def get_sender_username(domain_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSenderUsernameResult:
     """
     Get a valid sender username for a domains resource.
-    API Version: 2023-03-01-preview.
+    API Version: 2023-03-31.
 
 
     :param str domain_name: The name of the Domains resource.
@@ -171,7 +171,7 @@ def get_sender_username_output(domain_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSenderUsernameResult]:
     """
     Get a valid sender username for a domains resource.
-    API Version: 2023-03-01-preview.
+    API Version: 2023-03-31.
 
 
     :param str domain_name: The name of the Domains resource.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class VirtualMachineScaleSet extends pulumi.CustomResource {
@@ -60,7 +60,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly extendedLocation!: pulumi.Output<outputs.compute.ExtendedLocationResponse | undefined>;
     /**
-     * Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
+     * Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
      */
     public readonly hostGroup!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
@@ -100,7 +100,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+     * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
      */
     public readonly proximityPlacementGroup!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
@@ -124,7 +124,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies the time at which the Virtual Machine Scale Set resource was created.<br><br>Minimum api-version: 2021-11-01.
+     * Specifies the time at which the Virtual Machine Scale Set resource was created. Minimum api-version: 2021-11-01.
      */
     public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**
@@ -258,7 +258,7 @@ export interface VirtualMachineScaleSetArgs {
      */
     extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocationArgs>;
     /**
-     * Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
+     * Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
      */
     hostGroup?: pulumi.Input<inputs.compute.SubResourceArgs>;
     /**
@@ -290,7 +290,7 @@ export interface VirtualMachineScaleSetArgs {
      */
     priorityMixPolicy?: pulumi.Input<inputs.compute.PriorityMixPolicyArgs>;
     /**
-     * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+     * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
      */
     proximityPlacementGroup?: pulumi.Input<inputs.compute.SubResourceArgs>;
     /**

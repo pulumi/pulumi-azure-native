@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified virtual network gateway connection by resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionResult> {
 
@@ -170,7 +170,7 @@ export interface GetVirtualNetworkGatewayConnectionResult {
 }
 /**
  * Gets the specified virtual network gateway connection by resource group.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getVirtualNetworkGatewayConnectionOutput(args: GetVirtualNetworkGatewayConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayConnection(a, opts))

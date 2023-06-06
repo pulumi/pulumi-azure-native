@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
         /// </summary>
         public readonly string? NtpServer;
         /// <summary>
-        /// Array of additional IP addresses used by this Cache.
+        /// Array of additional IP addresses used by this cache.
         /// </summary>
         public readonly ImmutableArray<string> UtilityAddresses;
 

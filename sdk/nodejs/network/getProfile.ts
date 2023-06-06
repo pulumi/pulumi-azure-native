@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Traffic Manager profile.
- * API Version: 2018-08-01.
+ * API Version: 2022-04-01.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
 
@@ -26,7 +26,7 @@ export interface GetProfileArgs {
      */
     profileName: string;
     /**
-     * The name of the resource group containing the Traffic Manager profile.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -90,7 +90,7 @@ export interface GetProfileResult {
 }
 /**
  * Gets a Traffic Manager profile.
- * API Version: 2018-08-01.
+ * API Version: 2022-04-01.
  */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
     return pulumi.output(args).apply((a: any) => getProfile(a, opts))
@@ -102,7 +102,7 @@ export interface GetProfileOutputArgs {
      */
     profileName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Traffic Manager profile.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

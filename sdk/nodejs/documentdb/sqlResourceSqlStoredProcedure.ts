@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB storedProcedure.
- * API Version: 2022-11-15.
+ * API Version: 2023-04-15.
  * Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class SqlResourceSqlStoredProcedure extends pulumi.CustomResource {

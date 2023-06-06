@@ -10,10 +10,13 @@ __all__ = [
     'AddressPrefixType',
     'AdminRuleKind',
     'AllowedEndpointRecordType',
+    'AlwaysServe',
     'ApplicationGatewayClientRevocationOptions',
     'ApplicationGatewayCookieBasedAffinity',
     'ApplicationGatewayCustomErrorStatusCode',
     'ApplicationGatewayFirewallMode',
+    'ApplicationGatewayFirewallRateLimitDuration',
+    'ApplicationGatewayFirewallUserSessionVariable',
     'ApplicationGatewayLoadDistributionAlgorithm',
     'ApplicationGatewayProtocol',
     'ApplicationGatewayRedirectType',
@@ -121,6 +124,7 @@ __all__ = [
     'NatGatewaySkuName',
     'NetworkIntentPolicyBasedService',
     'NetworkInterfaceAuxiliaryMode',
+    'NetworkInterfaceAuxiliarySku',
     'NetworkInterfaceMigrationPhase',
     'NetworkInterfaceNicType',
     'NextStep',
@@ -145,6 +149,7 @@ __all__ = [
     'PublicIPAddressSkuTier',
     'PublicIPPrefixSkuName',
     'PublicIPPrefixSkuTier',
+    'PublicIpAddressDnsSettingsDomainNameLabelScope',
     'ResourceIdentityType',
     'RouteFilterRuleType',
     'RouteMapActionType',
@@ -154,6 +159,9 @@ __all__ = [
     'RuleType',
     'RulesEngineMatchVariable',
     'RulesEngineOperator',
+    'ScrubbingRuleEntryMatchOperator',
+    'ScrubbingRuleEntryMatchVariable',
+    'ScrubbingRuleEntryState',
     'SecurityConfigurationRuleAccess',
     'SecurityConfigurationRuleDirection',
     'SecurityConfigurationRuleProtocol',
@@ -198,6 +206,7 @@ __all__ = [
     'WebApplicationFirewallMode',
     'WebApplicationFirewallOperator',
     'WebApplicationFirewallRuleType',
+    'WebApplicationFirewallScrubbingState',
     'WebApplicationFirewallState',
     'WebApplicationFirewallTransform',
     'ZoneType',
@@ -214,7 +223,7 @@ class Access(str, Enum):
 
 class ActionType(str, Enum):
     """
-    Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
+    Describes the override action to be applied when rule matches.
     """
     ANOMALY_SCORING = "AnomalyScoring"
     ALLOW = "Allow"
@@ -246,6 +255,14 @@ class AllowedEndpointRecordType(str, Enum):
     I_PV4_ADDRESS = "IPv4Address"
     I_PV6_ADDRESS = "IPv6Address"
     ANY = "Any"
+
+
+class AlwaysServe(str, Enum):
+    """
+    If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ApplicationGatewayClientRevocationOptions(str, Enum):
@@ -286,6 +303,23 @@ class ApplicationGatewayFirewallMode(str, Enum):
     """
     DETECTION = "Detection"
     PREVENTION = "Prevention"
+
+
+class ApplicationGatewayFirewallRateLimitDuration(str, Enum):
+    """
+    Duration over which Rate Limit policy will be applied. Applies only when ruleType is RateLimitRule.
+    """
+    ONE_MIN = "OneMin"
+    FIVE_MINS = "FiveMins"
+
+
+class ApplicationGatewayFirewallUserSessionVariable(str, Enum):
+    """
+    User Session clause variable.
+    """
+    CLIENT_ADDR = "ClientAddr"
+    GEO_LOCATION = "GeoLocation"
+    NONE = "None"
 
 
 class ApplicationGatewayLoadDistributionAlgorithm(str, Enum):
@@ -652,6 +686,7 @@ class EndpointMonitorStatus(str, Enum):
     DISABLED = "Disabled"
     INACTIVE = "Inactive"
     STOPPED = "Stopped"
+    UNMONITORED = "Unmonitored"
 
 
 class EndpointStatus(str, Enum):
@@ -1169,7 +1204,6 @@ class LoadBalancerBackendAddressAdminState(str, Enum):
     NONE = "None"
     UP = "Up"
     DOWN = "Down"
-    DRAIN = "Drain"
 
 
 class LoadBalancerOutboundRuleProtocol(str, Enum):
@@ -1286,6 +1320,18 @@ class NetworkInterfaceAuxiliaryMode(str, Enum):
     NONE = "None"
     MAX_CONNECTIONS = "MaxConnections"
     FLOATING = "Floating"
+    ACCELERATED_CONNECTIONS = "AcceleratedConnections"
+
+
+class NetworkInterfaceAuxiliarySku(str, Enum):
+    """
+    Auxiliary sku of Network Interface resource.
+    """
+    NONE = "None"
+    A1 = "A1"
+    A2 = "A2"
+    A4 = "A4"
+    A8 = "A8"
 
 
 class NetworkInterfaceMigrationPhase(str, Enum):
@@ -1525,6 +1571,16 @@ class PublicIPPrefixSkuTier(str, Enum):
     GLOBAL_ = "Global"
 
 
+class PublicIpAddressDnsSettingsDomainNameLabelScope(str, Enum):
+    """
+    The domain name label scope. If a domain name label and a domain name label scope are specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN.
+    """
+    TENANT_REUSE = "TenantReuse"
+    SUBSCRIPTION_REUSE = "SubscriptionReuse"
+    RESOURCE_GROUP_REUSE = "ResourceGroupReuse"
+    NO_REUSE = "NoReuse"
+
+
 class ResourceIdentityType(str, Enum):
     """
     The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
@@ -1624,6 +1680,34 @@ class RulesEngineOperator(str, Enum):
     GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
     BEGINS_WITH = "BeginsWith"
     ENDS_WITH = "EndsWith"
+
+
+class ScrubbingRuleEntryMatchOperator(str, Enum):
+    """
+    When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
+    """
+    EQUALS = "Equals"
+    EQUALS_ANY = "EqualsAny"
+
+
+class ScrubbingRuleEntryMatchVariable(str, Enum):
+    """
+    The variable to be scrubbed from the logs.
+    """
+    REQUEST_HEADER_NAMES = "RequestHeaderNames"
+    REQUEST_COOKIE_NAMES = "RequestCookieNames"
+    REQUEST_ARG_NAMES = "RequestArgNames"
+    REQUEST_POST_ARG_NAMES = "RequestPostArgNames"
+    REQUEST_JSON_ARG_NAMES = "RequestJSONArgNames"
+    REQUEST_IP_ADDRESS = "RequestIPAddress"
+
+
+class ScrubbingRuleEntryState(str, Enum):
+    """
+    Defines the state of log scrubbing rule. Default value is Enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SecurityConfigurationRuleAccess(str, Enum):
@@ -2060,7 +2144,16 @@ class WebApplicationFirewallRuleType(str, Enum):
     The rule type.
     """
     MATCH_RULE = "MatchRule"
+    RATE_LIMIT_RULE = "RateLimitRule"
     INVALID = "Invalid"
+
+
+class WebApplicationFirewallScrubbingState(str, Enum):
+    """
+    State of the log scrubbing config. Default value is Enabled.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
 
 
 class WebApplicationFirewallState(str, Enum):

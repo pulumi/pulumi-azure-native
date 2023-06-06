@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Display information about a virtual machine scale set.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetResult> {
 
@@ -61,7 +61,7 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly extendedLocation?: outputs.compute.ExtendedLocationResponse;
     /**
-     * Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
+     * Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
      */
     readonly hostGroup?: outputs.compute.SubResourceResponse;
     /**
@@ -105,7 +105,7 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly provisioningState: string;
     /**
-     * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+     * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
      */
     readonly proximityPlacementGroup?: outputs.compute.SubResourceResponse;
     /**
@@ -129,7 +129,7 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Specifies the time at which the Virtual Machine Scale Set resource was created.<br><br>Minimum api-version: 2021-11-01.
+     * Specifies the time at which the Virtual Machine Scale Set resource was created. Minimum api-version: 2021-11-01.
      */
     readonly timeCreated: string;
     /**
@@ -159,7 +159,7 @@ export interface GetVirtualMachineScaleSetResult {
 }
 /**
  * Display information about a virtual machine scale set.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetOutput(args: GetVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSet(a, opts))

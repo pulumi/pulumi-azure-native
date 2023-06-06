@@ -22,10 +22,22 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
         public InputUnion<string, Pulumi.AzureNative.DBforMySQL.EnableStatusEnum>? AutoGrow { get; set; }
 
         /// <summary>
+        /// Enable IO Auto Scaling or not.
+        /// </summary>
+        [Input("autoIoScaling")]
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.EnableStatusEnum>? AutoIoScaling { get; set; }
+
+        /// <summary>
         /// Storage IOPS for a server.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
+
+        /// <summary>
+        /// Enable Log On Disk or not.
+        /// </summary>
+        [Input("logOnDisk")]
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.EnableStatusEnum>? LogOnDisk { get; set; }
 
         /// <summary>
         /// Max storage size allowed for a server.
@@ -35,6 +47,9 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
 
         public StorageArgs()
         {
+            AutoGrow = "Disabled";
+            AutoIoScaling = "Disabled";
+            LogOnDisk = "Disabled";
         }
         public static new StorageArgs Empty => new StorageArgs();
     }

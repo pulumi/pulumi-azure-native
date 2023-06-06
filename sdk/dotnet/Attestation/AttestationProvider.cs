@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Attestation
 {
     /// <summary>
     /// Attestation service response message.
-    /// API Version: 2020-10-01.
+    /// API Version: 2021-06-01.
     /// Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:attestation:AttestationProvider")]
@@ -42,6 +42,12 @@ namespace Pulumi.AzureNative.Attestation
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
+        /// Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// Status of attestation service.
         /// </summary>
         [Output("status")]
@@ -58,6 +64,12 @@ namespace Pulumi.AzureNative.Attestation
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
+        /// </summary>
+        [Output("tpmAttestationAuthentication")]
+        public Output<string?> TpmAttestationAuthentication { get; private set; } = null!;
 
         /// <summary>
         /// Trust model for the attestation provider.

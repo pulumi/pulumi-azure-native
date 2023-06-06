@@ -45,6 +45,8 @@ __all__ = [
     'ManagedClusterSKUArgs',
     'ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs',
     'ManagedClusterSecurityProfileDefenderArgs',
+    'ManagedClusterSecurityProfileImageCleanerArgs',
+    'ManagedClusterSecurityProfileWorkloadIdentityArgs',
     'ManagedClusterSecurityProfileArgs',
     'ManagedClusterServicePrincipalProfileArgs',
     'ManagedClusterStorageProfileBlobCSIDriverArgs',
@@ -215,13 +217,14 @@ class ContainerServiceLinuxProfileArgs:
 class ContainerServiceNetworkProfileArgs:
     def __init__(__self__, *,
                  dns_service_ip: Optional[pulumi.Input[str]] = None,
-                 docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
                  ip_families: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'IpFamily']]]]] = None,
                  load_balancer_profile: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileArgs']] = None,
                  load_balancer_sku: Optional[pulumi.Input[Union[str, 'LoadBalancerSku']]] = None,
                  nat_gateway_profile: Optional[pulumi.Input['ManagedClusterNATGatewayProfileArgs']] = None,
+                 network_dataplane: Optional[pulumi.Input[Union[str, 'NetworkDataplane']]] = None,
                  network_mode: Optional[pulumi.Input[Union[str, 'NetworkMode']]] = None,
                  network_plugin: Optional[pulumi.Input[Union[str, 'NetworkPlugin']]] = None,
+                 network_plugin_mode: Optional[pulumi.Input[Union[str, 'NetworkPluginMode']]] = None,
                  network_policy: Optional[pulumi.Input[Union[str, 'NetworkPolicy']]] = None,
                  outbound_type: Optional[pulumi.Input[Union[str, 'OutboundType']]] = None,
                  pod_cidr: Optional[pulumi.Input[str]] = None,
@@ -231,13 +234,14 @@ class ContainerServiceNetworkProfileArgs:
         """
         Profile of network configuration.
         :param pulumi.Input[str] dns_service_ip: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-        :param pulumi.Input[str] docker_bridge_cidr: A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'IpFamily']]]] ip_families: IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
         :param pulumi.Input['ManagedClusterLoadBalancerProfileArgs'] load_balancer_profile: Profile of the cluster load balancer.
         :param pulumi.Input[Union[str, 'LoadBalancerSku']] load_balancer_sku: The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
         :param pulumi.Input['ManagedClusterNATGatewayProfileArgs'] nat_gateway_profile: Profile of the cluster NAT gateway.
+        :param pulumi.Input[Union[str, 'NetworkDataplane']] network_dataplane: Network dataplane used in the Kubernetes cluster.
         :param pulumi.Input[Union[str, 'NetworkMode']] network_mode: This cannot be specified if networkPlugin is anything other than 'azure'.
         :param pulumi.Input[Union[str, 'NetworkPlugin']] network_plugin: Network plugin used for building the Kubernetes network.
+        :param pulumi.Input[Union[str, 'NetworkPluginMode']] network_plugin_mode: The mode the network plugin should use.
         :param pulumi.Input[Union[str, 'NetworkPolicy']] network_policy: Network policy used for building the Kubernetes network.
         :param pulumi.Input[Union[str, 'OutboundType']] outbound_type: This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
         :param pulumi.Input[str] pod_cidr: A CIDR notation IP range from which to assign pod IPs when kubenet is used.
@@ -249,10 +253,6 @@ class ContainerServiceNetworkProfileArgs:
             dns_service_ip = '10.0.0.10'
         if dns_service_ip is not None:
             pulumi.set(__self__, "dns_service_ip", dns_service_ip)
-        if docker_bridge_cidr is None:
-            docker_bridge_cidr = '172.17.0.1/16'
-        if docker_bridge_cidr is not None:
-            pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
         if ip_families is not None:
             pulumi.set(__self__, "ip_families", ip_families)
         if load_balancer_profile is not None:
@@ -261,12 +261,16 @@ class ContainerServiceNetworkProfileArgs:
             pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
         if nat_gateway_profile is not None:
             pulumi.set(__self__, "nat_gateway_profile", nat_gateway_profile)
+        if network_dataplane is not None:
+            pulumi.set(__self__, "network_dataplane", network_dataplane)
         if network_mode is not None:
             pulumi.set(__self__, "network_mode", network_mode)
         if network_plugin is None:
             network_plugin = 'kubenet'
         if network_plugin is not None:
             pulumi.set(__self__, "network_plugin", network_plugin)
+        if network_plugin_mode is not None:
+            pulumi.set(__self__, "network_plugin_mode", network_plugin_mode)
         if network_policy is not None:
             pulumi.set(__self__, "network_policy", network_policy)
         if outbound_type is None:
@@ -297,18 +301,6 @@ class ContainerServiceNetworkProfileArgs:
     @dns_service_ip.setter
     def dns_service_ip(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_service_ip", value)
-
-    @property
-    @pulumi.getter(name="dockerBridgeCidr")
-    def docker_bridge_cidr(self) -> Optional[pulumi.Input[str]]:
-        """
-        A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
-        """
-        return pulumi.get(self, "docker_bridge_cidr")
-
-    @docker_bridge_cidr.setter
-    def docker_bridge_cidr(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "docker_bridge_cidr", value)
 
     @property
     @pulumi.getter(name="ipFamilies")
@@ -359,6 +351,18 @@ class ContainerServiceNetworkProfileArgs:
         pulumi.set(self, "nat_gateway_profile", value)
 
     @property
+    @pulumi.getter(name="networkDataplane")
+    def network_dataplane(self) -> Optional[pulumi.Input[Union[str, 'NetworkDataplane']]]:
+        """
+        Network dataplane used in the Kubernetes cluster.
+        """
+        return pulumi.get(self, "network_dataplane")
+
+    @network_dataplane.setter
+    def network_dataplane(self, value: Optional[pulumi.Input[Union[str, 'NetworkDataplane']]]):
+        pulumi.set(self, "network_dataplane", value)
+
+    @property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> Optional[pulumi.Input[Union[str, 'NetworkMode']]]:
         """
@@ -381,6 +385,18 @@ class ContainerServiceNetworkProfileArgs:
     @network_plugin.setter
     def network_plugin(self, value: Optional[pulumi.Input[Union[str, 'NetworkPlugin']]]):
         pulumi.set(self, "network_plugin", value)
+
+    @property
+    @pulumi.getter(name="networkPluginMode")
+    def network_plugin_mode(self) -> Optional[pulumi.Input[Union[str, 'NetworkPluginMode']]]:
+        """
+        The mode the network plugin should use.
+        """
+        return pulumi.get(self, "network_plugin_mode")
+
+    @network_plugin_mode.setter
+    def network_plugin_mode(self, value: Optional[pulumi.Input[Union[str, 'NetworkPluginMode']]]):
+        pulumi.set(self, "network_plugin_mode", value)
 
     @property
     @pulumi.getter(name="networkPolicy")
@@ -2841,19 +2857,91 @@ class ManagedClusterSecurityProfileDefenderArgs:
 
 
 @pulumi.input_type
+class ManagedClusterSecurityProfileImageCleanerArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 interval_hours: Optional[pulumi.Input[int]] = None):
+        """
+        Image Cleaner removes unused images from nodes, freeing up disk space and helping to reduce attack surface area. Here are settings for the security profile.
+        :param pulumi.Input[bool] enabled: Whether to enable Image Cleaner on AKS cluster.
+        :param pulumi.Input[int] interval_hours: Image Cleaner scanning interval in hours.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if interval_hours is not None:
+            pulumi.set(__self__, "interval_hours", interval_hours)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable Image Cleaner on AKS cluster.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="intervalHours")
+    def interval_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        Image Cleaner scanning interval in hours.
+        """
+        return pulumi.get(self, "interval_hours")
+
+    @interval_hours.setter
+    def interval_hours(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval_hours", value)
+
+
+@pulumi.input_type
+class ManagedClusterSecurityProfileWorkloadIdentityArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Workload identity settings for the security profile.
+        :param pulumi.Input[bool] enabled: Whether to enable workload identity.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable workload identity.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
 class ManagedClusterSecurityProfileArgs:
     def __init__(__self__, *,
                  azure_key_vault_kms: Optional[pulumi.Input['AzureKeyVaultKmsArgs']] = None,
-                 defender: Optional[pulumi.Input['ManagedClusterSecurityProfileDefenderArgs']] = None):
+                 defender: Optional[pulumi.Input['ManagedClusterSecurityProfileDefenderArgs']] = None,
+                 image_cleaner: Optional[pulumi.Input['ManagedClusterSecurityProfileImageCleanerArgs']] = None,
+                 workload_identity: Optional[pulumi.Input['ManagedClusterSecurityProfileWorkloadIdentityArgs']] = None):
         """
         Security profile for the container service cluster.
         :param pulumi.Input['AzureKeyVaultKmsArgs'] azure_key_vault_kms: Azure Key Vault [key management service](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/) settings for the security profile.
         :param pulumi.Input['ManagedClusterSecurityProfileDefenderArgs'] defender: Microsoft Defender settings for the security profile.
+        :param pulumi.Input['ManagedClusterSecurityProfileImageCleanerArgs'] image_cleaner: Image Cleaner settings for the security profile.
+        :param pulumi.Input['ManagedClusterSecurityProfileWorkloadIdentityArgs'] workload_identity: Workload identity settings for the security profile. Workload identity enables Kubernetes applications to access Azure cloud resources securely with Azure AD. See https://aka.ms/aks/wi for more details.
         """
         if azure_key_vault_kms is not None:
             pulumi.set(__self__, "azure_key_vault_kms", azure_key_vault_kms)
         if defender is not None:
             pulumi.set(__self__, "defender", defender)
+        if image_cleaner is not None:
+            pulumi.set(__self__, "image_cleaner", image_cleaner)
+        if workload_identity is not None:
+            pulumi.set(__self__, "workload_identity", workload_identity)
 
     @property
     @pulumi.getter(name="azureKeyVaultKms")
@@ -2878,6 +2966,30 @@ class ManagedClusterSecurityProfileArgs:
     @defender.setter
     def defender(self, value: Optional[pulumi.Input['ManagedClusterSecurityProfileDefenderArgs']]):
         pulumi.set(self, "defender", value)
+
+    @property
+    @pulumi.getter(name="imageCleaner")
+    def image_cleaner(self) -> Optional[pulumi.Input['ManagedClusterSecurityProfileImageCleanerArgs']]:
+        """
+        Image Cleaner settings for the security profile.
+        """
+        return pulumi.get(self, "image_cleaner")
+
+    @image_cleaner.setter
+    def image_cleaner(self, value: Optional[pulumi.Input['ManagedClusterSecurityProfileImageCleanerArgs']]):
+        pulumi.set(self, "image_cleaner", value)
+
+    @property
+    @pulumi.getter(name="workloadIdentity")
+    def workload_identity(self) -> Optional[pulumi.Input['ManagedClusterSecurityProfileWorkloadIdentityArgs']]:
+        """
+        Workload identity settings for the security profile. Workload identity enables Kubernetes applications to access Azure cloud resources securely with Azure AD. See https://aka.ms/aks/wi for more details.
+        """
+        return pulumi.get(self, "workload_identity")
+
+    @workload_identity.setter
+    def workload_identity(self, value: Optional[pulumi.Input['ManagedClusterSecurityProfileWorkloadIdentityArgs']]):
+        pulumi.set(self, "workload_identity", value)
 
 
 @pulumi.input_type

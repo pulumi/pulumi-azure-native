@@ -549,17 +549,21 @@ class DeploymentModelArgs:
     def __init__(__self__, *,
                  format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Properties of Cognitive Services account deployment model.
         :param pulumi.Input[str] format: Deployment model format.
         :param pulumi.Input[str] name: Deployment model name.
-        :param pulumi.Input[str] version: Deployment model version.
+        :param pulumi.Input[str] source: Optional. Deployment model source ARM resource ID.
+        :param pulumi.Input[str] version: Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
         """
         if format is not None:
             pulumi.set(__self__, "format", format)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -589,9 +593,21 @@ class DeploymentModelArgs:
 
     @property
     @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional. Deployment model source ARM resource ID.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Deployment model version.
+        Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
         """
         return pulumi.get(self, "version")
 
@@ -605,12 +621,14 @@ class DeploymentPropertiesArgs:
     def __init__(__self__, *,
                  model: Optional[pulumi.Input['DeploymentModelArgs']] = None,
                  rai_policy_name: Optional[pulumi.Input[str]] = None,
-                 scale_settings: Optional[pulumi.Input['DeploymentScaleSettingsArgs']] = None):
+                 scale_settings: Optional[pulumi.Input['DeploymentScaleSettingsArgs']] = None,
+                 version_upgrade_option: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]] = None):
         """
         Properties of Cognitive Services account deployment.
         :param pulumi.Input['DeploymentModelArgs'] model: Properties of Cognitive Services account deployment model.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
         :param pulumi.Input['DeploymentScaleSettingsArgs'] scale_settings: Properties of Cognitive Services account deployment model.
+        :param pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']] version_upgrade_option: Deployment model version upgrade option.
         """
         if model is not None:
             pulumi.set(__self__, "model", model)
@@ -618,6 +636,8 @@ class DeploymentPropertiesArgs:
             pulumi.set(__self__, "rai_policy_name", rai_policy_name)
         if scale_settings is not None:
             pulumi.set(__self__, "scale_settings", scale_settings)
+        if version_upgrade_option is not None:
+            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
 
     @property
     @pulumi.getter
@@ -654,6 +674,18 @@ class DeploymentPropertiesArgs:
     @scale_settings.setter
     def scale_settings(self, value: Optional[pulumi.Input['DeploymentScaleSettingsArgs']]):
         pulumi.set(self, "scale_settings", value)
+
+    @property
+    @pulumi.getter(name="versionUpgradeOption")
+    def version_upgrade_option(self) -> Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]:
+        """
+        Deployment model version upgrade option.
+        """
+        return pulumi.get(self, "version_upgrade_option")
+
+    @version_upgrade_option.setter
+    def version_upgrade_option(self, value: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]):
+        pulumi.set(self, "version_upgrade_option", value)
 
 
 @pulumi.input_type

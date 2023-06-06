@@ -7,24 +7,24 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.ServiceNetworking.Outputs
+namespace Pulumi.AzureNative.ContainerInstance.Outputs
 {
 
     /// <summary>
-    /// Frontend IP Address.
+    /// The properties for confidential container group
     /// </summary>
     [OutputType]
-    public sealed class FrontendPropertiesIPAddressResponse
+    public sealed class ConfidentialComputePropertiesResponse
     {
         /// <summary>
-        /// IP Address.
+        /// The base64 encoded confidential compute enforcement policy
         /// </summary>
-        public readonly string Id;
+        public readonly string? CcePolicy;
 
         [OutputConstructor]
-        private FrontendPropertiesIPAddressResponse(string id)
+        private ConfidentialComputePropertiesResponse(string? ccePolicy)
         {
-            Id = id;
+            CcePolicy = ccePolicy;
         }
     }
 }

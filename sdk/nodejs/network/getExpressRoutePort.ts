@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the requested ExpressRoutePort resource.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getExpressRoutePort(args: GetExpressRoutePortArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRoutePortResult> {
 
@@ -114,7 +114,7 @@ export interface GetExpressRoutePortResult {
 }
 /**
  * Retrieves the requested ExpressRoutePort resource.
- * API Version: 2022-09-01.
+ * API Version: 2022-11-01.
  */
 export function getExpressRoutePortOutput(args: GetExpressRoutePortOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRoutePortResult> {
     return pulumi.output(args).apply((a: any) => getExpressRoutePort(a, opts))

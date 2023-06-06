@@ -50,7 +50,7 @@ def listlist_associated_traffic_filter(monitor_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListlistAssociatedTrafficFilterResult:
     """
     List of elastic traffic filters in the account
-    API Version: 2023-02-01-preview.
+    API Version: 2023-06-01.
 
 
     :param str monitor_name: Monitor resource name
@@ -72,7 +72,7 @@ def listlist_associated_traffic_filter_output(monitor_name: Optional[pulumi.Inpu
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListlistAssociatedTrafficFilterResult]:
     """
     List of elastic traffic filters in the account
-    API Version: 2023-02-01-preview.
+    API Version: 2023-06-01.
 
 
     :param str monitor_name: Monitor resource name

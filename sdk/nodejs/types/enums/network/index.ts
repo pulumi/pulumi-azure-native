@@ -104,7 +104,7 @@ export const ActionType = {
 } as const;
 
 /**
- * Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
+ * Describes the override action to be applied when rule matches.
  */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
@@ -139,6 +139,16 @@ export const AllowedEndpointRecordType = {
  * The allowed type DNS record types for this profile.
  */
 export type AllowedEndpointRecordType = (typeof AllowedEndpointRecordType)[keyof typeof AllowedEndpointRecordType];
+
+export const AlwaysServe = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+ */
+export type AlwaysServe = (typeof AlwaysServe)[keyof typeof AlwaysServe];
 
 export const ApplicationGatewayClientRevocationOptions = {
     None: "None",
@@ -187,6 +197,27 @@ export const ApplicationGatewayFirewallMode = {
  * Web application firewall mode.
  */
 export type ApplicationGatewayFirewallMode = (typeof ApplicationGatewayFirewallMode)[keyof typeof ApplicationGatewayFirewallMode];
+
+export const ApplicationGatewayFirewallRateLimitDuration = {
+    OneMin: "OneMin",
+    FiveMins: "FiveMins",
+} as const;
+
+/**
+ * Duration over which Rate Limit policy will be applied. Applies only when ruleType is RateLimitRule.
+ */
+export type ApplicationGatewayFirewallRateLimitDuration = (typeof ApplicationGatewayFirewallRateLimitDuration)[keyof typeof ApplicationGatewayFirewallRateLimitDuration];
+
+export const ApplicationGatewayFirewallUserSessionVariable = {
+    ClientAddr: "ClientAddr",
+    GeoLocation: "GeoLocation",
+    None: "None",
+} as const;
+
+/**
+ * User Session clause variable.
+ */
+export type ApplicationGatewayFirewallUserSessionVariable = (typeof ApplicationGatewayFirewallUserSessionVariable)[keyof typeof ApplicationGatewayFirewallUserSessionVariable];
 
 export const ApplicationGatewayLoadDistributionAlgorithm = {
     RoundRobin: "RoundRobin",
@@ -621,6 +652,7 @@ export const EndpointMonitorStatus = {
     Disabled: "Disabled",
     Inactive: "Inactive",
     Stopped: "Stopped",
+    Unmonitored: "Unmonitored",
 } as const;
 
 /**
@@ -1252,7 +1284,6 @@ export const LoadBalancerBackendAddressAdminState = {
     None: "None",
     Up: "Up",
     Down: "Down",
-    Drain: "Drain",
 } as const;
 
 /**
@@ -1395,12 +1426,26 @@ export const NetworkInterfaceAuxiliaryMode = {
     None: "None",
     MaxConnections: "MaxConnections",
     Floating: "Floating",
+    AcceleratedConnections: "AcceleratedConnections",
 } as const;
 
 /**
  * Auxiliary mode of Network Interface resource.
  */
 export type NetworkInterfaceAuxiliaryMode = (typeof NetworkInterfaceAuxiliaryMode)[keyof typeof NetworkInterfaceAuxiliaryMode];
+
+export const NetworkInterfaceAuxiliarySku = {
+    None: "None",
+    A1: "A1",
+    A2: "A2",
+    A4: "A4",
+    A8: "A8",
+} as const;
+
+/**
+ * Auxiliary sku of Network Interface resource.
+ */
+export type NetworkInterfaceAuxiliarySku = (typeof NetworkInterfaceAuxiliarySku)[keyof typeof NetworkInterfaceAuxiliarySku];
 
 export const NetworkInterfaceMigrationPhase = {
     None: "None",
@@ -1687,6 +1732,18 @@ export const PublicIPPrefixSkuTier = {
  */
 export type PublicIPPrefixSkuTier = (typeof PublicIPPrefixSkuTier)[keyof typeof PublicIPPrefixSkuTier];
 
+export const PublicIpAddressDnsSettingsDomainNameLabelScope = {
+    TenantReuse: "TenantReuse",
+    SubscriptionReuse: "SubscriptionReuse",
+    ResourceGroupReuse: "ResourceGroupReuse",
+    NoReuse: "NoReuse",
+} as const;
+
+/**
+ * The domain name label scope. If a domain name label and a domain name label scope are specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN.
+ */
+export type PublicIpAddressDnsSettingsDomainNameLabelScope = (typeof PublicIpAddressDnsSettingsDomainNameLabelScope)[keyof typeof PublicIpAddressDnsSettingsDomainNameLabelScope];
+
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
@@ -1805,6 +1862,40 @@ export const RulesEngineOperator = {
  * Describes operator to apply to the match condition.
  */
 export type RulesEngineOperator = (typeof RulesEngineOperator)[keyof typeof RulesEngineOperator];
+
+export const ScrubbingRuleEntryMatchOperator = {
+    Equals: "Equals",
+    EqualsAny: "EqualsAny",
+} as const;
+
+/**
+ * When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
+ */
+export type ScrubbingRuleEntryMatchOperator = (typeof ScrubbingRuleEntryMatchOperator)[keyof typeof ScrubbingRuleEntryMatchOperator];
+
+export const ScrubbingRuleEntryMatchVariable = {
+    RequestHeaderNames: "RequestHeaderNames",
+    RequestCookieNames: "RequestCookieNames",
+    RequestArgNames: "RequestArgNames",
+    RequestPostArgNames: "RequestPostArgNames",
+    RequestJSONArgNames: "RequestJSONArgNames",
+    RequestIPAddress: "RequestIPAddress",
+} as const;
+
+/**
+ * The variable to be scrubbed from the logs.
+ */
+export type ScrubbingRuleEntryMatchVariable = (typeof ScrubbingRuleEntryMatchVariable)[keyof typeof ScrubbingRuleEntryMatchVariable];
+
+export const ScrubbingRuleEntryState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Defines the state of log scrubbing rule. Default value is Enabled.
+ */
+export type ScrubbingRuleEntryState = (typeof ScrubbingRuleEntryState)[keyof typeof ScrubbingRuleEntryState];
 
 export const SecurityConfigurationRuleAccess = {
     Allow: "Allow",
@@ -2323,6 +2414,7 @@ export type WebApplicationFirewallOperator = (typeof WebApplicationFirewallOpera
 
 export const WebApplicationFirewallRuleType = {
     MatchRule: "MatchRule",
+    RateLimitRule: "RateLimitRule",
     Invalid: "Invalid",
 } as const;
 
@@ -2330,6 +2422,16 @@ export const WebApplicationFirewallRuleType = {
  * The rule type.
  */
 export type WebApplicationFirewallRuleType = (typeof WebApplicationFirewallRuleType)[keyof typeof WebApplicationFirewallRuleType];
+
+export const WebApplicationFirewallScrubbingState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * State of the log scrubbing config. Default value is Enabled.
+ */
+export type WebApplicationFirewallScrubbingState = (typeof WebApplicationFirewallScrubbingState)[keyof typeof WebApplicationFirewallScrubbingState];
 
 export const WebApplicationFirewallState = {
     Disabled: "Disabled",

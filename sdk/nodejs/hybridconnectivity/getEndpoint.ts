@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets the endpoint to the resource.
- * API Version: 2022-05-01-preview.
+ * API Version: 2023-03-15.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
 
@@ -45,7 +48,7 @@ export interface GetEndpointResult {
      */
     readonly createdByType?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -65,13 +68,13 @@ export interface GetEndpointResult {
      */
     readonly name: string;
     /**
-     * The resource provisioning state.
+     * The endpoint properties.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.hybridconnectivity.EndpointPropertiesResponse;
     /**
-     * The resource Id of the connectivity endpoint (optional).
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly resourceId?: string;
+    readonly systemData: outputs.hybridconnectivity.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -79,7 +82,7 @@ export interface GetEndpointResult {
 }
 /**
  * Gets the endpoint to the resource.
- * API Version: 2022-05-01-preview.
+ * API Version: 2023-03-15.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))

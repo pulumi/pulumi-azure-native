@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an attached NetworkConnection.
- * API Version: 2022-11-11-preview.
+ * API Version: 2023-04-01.
  */
 export function getAttachedNetworkByDevCenter(args: GetAttachedNetworkByDevCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedNetworkByDevCenterResult> {
 
@@ -79,7 +79,7 @@ export interface GetAttachedNetworkByDevCenterResult {
 }
 /**
  * Gets an attached NetworkConnection.
- * API Version: 2022-11-11-preview.
+ * API Version: 2023-04-01.
  */
 export function getAttachedNetworkByDevCenterOutput(args: GetAttachedNetworkByDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedNetworkByDevCenterResult> {
     return pulumi.output(args).apply((a: any) => getAttachedNetworkByDevCenter(a, opts))

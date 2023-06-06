@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-        /// API Version: 2021-06-01.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Task<GetAFDEndpointResult> InvokeAsync(GetAFDEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAFDEndpointResult>("azure-native:cdn:getAFDEndpoint", args ?? new GetAFDEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-        /// API Version: 2021-06-01.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Output<GetAFDEndpointResult> Invoke(GetAFDEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDEndpointResult>("azure-native:cdn:getAFDEndpoint", args ?? new GetAFDEndpointInvokeArgs(), options.WithDefaults());

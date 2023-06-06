@@ -100,7 +100,7 @@ def get_replication_fabric(fabric_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationFabricResult:
     """
     Gets the details of an Azure Site Recovery fabric.
-    API Version: 2023-02-01.
+    API Version: 2023-04-01.
 
 
     :param str fabric_name: Fabric name.
@@ -132,7 +132,7 @@ def get_replication_fabric_output(fabric_name: Optional[pulumi.Input[str]] = Non
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationFabricResult]:
     """
     Gets the details of an Azure Site Recovery fabric.
-    API Version: 2023-02-01.
+    API Version: 2023-04-01.
 
 
     :param str fabric_name: Fabric name.

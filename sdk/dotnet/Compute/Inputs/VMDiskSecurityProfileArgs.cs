@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
 {
 
     /// <summary>
-    /// Specifies the security profile settings for the managed disk. &lt;br&gt;&lt;br&gt; NOTE: It can only be set for Confidential VMs
+    /// Specifies the security profile settings for the managed disk. **Note:** It can only be set for Confidential VMs.
     /// </summary>
     public sealed class VMDiskSecurityProfileArgs : global::Pulumi.ResourceArgs
     {
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.DiskEncryptionSetParametersArgs>? DiskEncryptionSet { get; set; }
 
         /// <summary>
-        /// Specifies the EncryptionType of the managed disk. &lt;br&gt; It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. &lt;br&gt;&lt;br&gt; NOTE: It can be set for only Confidential VMs.
+        /// Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. **Note:** It can be set for only Confidential VMs.
         /// </summary>
         [Input("securityEncryptionType")]
         public InputUnion<string, Pulumi.AzureNative.Compute.SecurityEncryptionTypes>? SecurityEncryptionType { get; set; }

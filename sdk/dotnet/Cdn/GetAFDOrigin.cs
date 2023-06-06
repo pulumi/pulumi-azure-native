@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Gets an existing origin within an origin group.
-        /// API Version: 2021-06-01.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Task<GetAFDOriginResult> InvokeAsync(GetAFDOriginArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginResult>("azure-native:cdn:getAFDOrigin", args ?? new GetAFDOriginArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing origin within an origin group.
-        /// API Version: 2021-06-01.
+        /// API Version: 2023-05-01.
         /// </summary>
         public static Output<GetAFDOriginResult> Invoke(GetAFDOriginInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDOriginResult>("azure-native:cdn:getAFDOrigin", args ?? new GetAFDOriginInvokeArgs(), options.WithDefaults());
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly string OriginGroupName;
         /// <summary>
-        /// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+        /// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         /// </summary>
         public readonly string? OriginHostHeader;
         /// <summary>

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Restore Point details.
- * API Version: 2022-11-01.
+ * API Version: 2023-03-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class RestorePoint extends pulumi.CustomResource {
@@ -62,7 +62,7 @@ export class RestorePoint extends pulumi.CustomResource {
     /**
      * Gets the details of the VM captured at the time of the restore point creation.
      */
-    public /*out*/ readonly sourceMetadata!: pulumi.Output<outputs.compute.RestorePointSourceMetadataResponse>;
+    public readonly sourceMetadata!: pulumi.Output<outputs.compute.RestorePointSourceMetadataResponse | undefined>;
     /**
      * Resource Id of the source restore point from which a copy needs to be created.
      */
@@ -98,12 +98,12 @@ export class RestorePoint extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restorePointCollectionName"] = args ? args.restorePointCollectionName : undefined;
             resourceInputs["restorePointName"] = args ? args.restorePointName : undefined;
+            resourceInputs["sourceMetadata"] = args ? args.sourceMetadata : undefined;
             resourceInputs["sourceRestorePoint"] = args ? args.sourceRestorePoint : undefined;
             resourceInputs["timeCreated"] = args ? args.timeCreated : undefined;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["sourceMetadata"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["consistencyMode"] = undefined /*out*/;
@@ -147,6 +147,10 @@ export interface RestorePointArgs {
      * The name of the restore point.
      */
     restorePointName?: pulumi.Input<string>;
+    /**
+     * Gets the details of the VM captured at the time of the restore point creation.
+     */
+    sourceMetadata?: pulumi.Input<inputs.compute.RestorePointSourceMetadataArgs>;
     /**
      * Resource Id of the source restore point from which a copy needs to be created.
      */

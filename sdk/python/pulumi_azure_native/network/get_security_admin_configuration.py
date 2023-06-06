@@ -135,7 +135,7 @@ def get_security_admin_configuration(configuration_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityAdminConfigurationResult:
     """
     Retrieves a network manager security admin configuration.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -167,7 +167,7 @@ def get_security_admin_configuration_output(configuration_name: Optional[pulumi.
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityAdminConfigurationResult]:
     """
     Retrieves a network manager security admin configuration.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.

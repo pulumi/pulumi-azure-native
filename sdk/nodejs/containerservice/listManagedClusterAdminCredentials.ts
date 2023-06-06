@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The list credential result response.
- * API Version: 2023-01-01.
+ * API Version: 2023-04-01.
  */
 export function listManagedClusterAdminCredentials(args: ListManagedClusterAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterAdminCredentialsResult> {
 
@@ -47,7 +47,7 @@ export interface ListManagedClusterAdminCredentialsResult {
 }
 /**
  * The list credential result response.
- * API Version: 2023-01-01.
+ * API Version: 2023-04-01.
  */
 export function listManagedClusterAdminCredentialsOutput(args: ListManagedClusterAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterAdminCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listManagedClusterAdminCredentials(a, opts))

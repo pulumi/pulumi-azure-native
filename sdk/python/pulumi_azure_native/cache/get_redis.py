@@ -362,7 +362,7 @@ def get_redis(name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRedisResult:
     """
     Gets a Redis cache (resource description).
-    API Version: 2022-06-01.
+    API Version: 2023-04-01.
 
 
     :param str name: The name of the Redis cache.
@@ -410,7 +410,7 @@ def get_redis_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRedisResult]:
     """
     Gets a Redis cache (resource description).
-    API Version: 2022-06-01.
+    API Version: 2023-04-01.
 
 
     :param str name: The name of the Redis cache.

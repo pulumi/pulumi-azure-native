@@ -22,7 +22,7 @@ class GetBastionHostResult:
     """
     Bastion Host resource.
     """
-    def __init__(__self__, disable_copy_paste=None, dns_name=None, enable_file_copy=None, enable_ip_connect=None, enable_shareable_link=None, enable_tunneling=None, etag=None, id=None, ip_configurations=None, location=None, name=None, provisioning_state=None, scale_units=None, sku=None, tags=None, type=None):
+    def __init__(__self__, disable_copy_paste=None, dns_name=None, enable_file_copy=None, enable_ip_connect=None, enable_kerberos=None, enable_shareable_link=None, enable_tunneling=None, etag=None, id=None, ip_configurations=None, location=None, name=None, provisioning_state=None, scale_units=None, sku=None, tags=None, type=None):
         if disable_copy_paste and not isinstance(disable_copy_paste, bool):
             raise TypeError("Expected argument 'disable_copy_paste' to be a bool")
         pulumi.set(__self__, "disable_copy_paste", disable_copy_paste)
@@ -35,6 +35,9 @@ class GetBastionHostResult:
         if enable_ip_connect and not isinstance(enable_ip_connect, bool):
             raise TypeError("Expected argument 'enable_ip_connect' to be a bool")
         pulumi.set(__self__, "enable_ip_connect", enable_ip_connect)
+        if enable_kerberos and not isinstance(enable_kerberos, bool):
+            raise TypeError("Expected argument 'enable_kerberos' to be a bool")
+        pulumi.set(__self__, "enable_kerberos", enable_kerberos)
         if enable_shareable_link and not isinstance(enable_shareable_link, bool):
             raise TypeError("Expected argument 'enable_shareable_link' to be a bool")
         pulumi.set(__self__, "enable_shareable_link", enable_shareable_link)
@@ -103,6 +106,14 @@ class GetBastionHostResult:
         Enable/Disable IP Connect feature of the Bastion Host resource.
         """
         return pulumi.get(self, "enable_ip_connect")
+
+    @property
+    @pulumi.getter(name="enableKerberos")
+    def enable_kerberos(self) -> Optional[bool]:
+        """
+        Enable/Disable Kerberos feature of the Bastion Host resource.
+        """
+        return pulumi.get(self, "enable_kerberos")
 
     @property
     @pulumi.getter(name="enableShareableLink")
@@ -211,6 +222,7 @@ class AwaitableGetBastionHostResult(GetBastionHostResult):
             dns_name=self.dns_name,
             enable_file_copy=self.enable_file_copy,
             enable_ip_connect=self.enable_ip_connect,
+            enable_kerberos=self.enable_kerberos,
             enable_shareable_link=self.enable_shareable_link,
             enable_tunneling=self.enable_tunneling,
             etag=self.etag,
@@ -230,7 +242,7 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBastionHostResult:
     """
     Gets the specified Bastion Host.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.
@@ -247,6 +259,7 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
         dns_name=__ret__.dns_name,
         enable_file_copy=__ret__.enable_file_copy,
         enable_ip_connect=__ret__.enable_ip_connect,
+        enable_kerberos=__ret__.enable_kerberos,
         enable_shareable_link=__ret__.enable_shareable_link,
         enable_tunneling=__ret__.enable_tunneling,
         etag=__ret__.etag,
@@ -267,7 +280,7 @@ def get_bastion_host_output(bastion_host_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBastionHostResult]:
     """
     Gets the specified Bastion Host.
-    API Version: 2022-09-01.
+    API Version: 2022-11-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.

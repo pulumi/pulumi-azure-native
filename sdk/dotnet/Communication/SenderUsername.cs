@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Communication
 {
     /// <summary>
     /// A class representing a SenderUsername resource.
-    /// API Version: 2023-03-01-preview.
+    /// API Version: 2023-03-31.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:SenderUsername")]
     public partial class SenderUsername : global::Pulumi.CustomResource

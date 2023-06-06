@@ -207,7 +207,7 @@ def get_domain(domain_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
     Get the Domains resource and its properties.
-    API Version: 2023-03-01-preview.
+    API Version: 2023-03-31.
 
 
     :param str domain_name: The name of the Domains resource.
@@ -245,7 +245,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
     Get the Domains resource and its properties.
-    API Version: 2023-03-01-preview.
+    API Version: 2023-03-31.
 
 
     :param str domain_name: The name of the Domains resource.

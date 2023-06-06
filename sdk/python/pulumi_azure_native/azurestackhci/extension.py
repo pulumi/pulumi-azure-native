@@ -229,7 +229,7 @@ class Extension(pulumi.CustomResource):
                  __props__=None):
         """
         Details of a particular extension in HCI Cluster.
-        API Version: 2023-02-01.
+        API Version: 2023-03-01.
         Previous API Version: 2021-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -255,7 +255,7 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Details of a particular extension in HCI Cluster.
-        API Version: 2023-02-01.
+        API Version: 2023-03-01.
         Previous API Version: 2021-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -313,6 +313,7 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["type_handler_version"] = type_handler_version
             __props__.__dict__["aggregate_state"] = None
+            __props__.__dict__["managed_by"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["per_node_extension_details"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -345,6 +346,7 @@ class Extension(pulumi.CustomResource):
         __props__.__dict__["auto_upgrade_minor_version"] = None
         __props__.__dict__["enable_automatic_upgrade"] = None
         __props__.__dict__["force_update_tag"] = None
+        __props__.__dict__["managed_by"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["per_node_extension_details"] = None
         __props__.__dict__["protected_settings"] = None
@@ -387,6 +389,14 @@ class Extension(pulumi.CustomResource):
         How the extension handler should be forced to update even if the extension configuration has not changed.
         """
         return pulumi.get(self, "force_update_tag")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> pulumi.Output[str]:
+        """
+        Indicates if the extension is managed by azure or the user.
+        """
+        return pulumi.get(self, "managed_by")
 
     @property
     @pulumi.getter

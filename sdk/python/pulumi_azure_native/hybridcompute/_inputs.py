@@ -11,6 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AgentUpgradeArgs',
     'HybridComputePrivateLinkScopePropertiesArgs',
     'IdentityArgs',
     'LocationDataArgs',
@@ -25,6 +26,62 @@ __all__ = [
     'ServiceStatusesArgs',
     'ServiceStatusArgs',
 ]
+
+@pulumi.input_type
+class AgentUpgradeArgs:
+    def __init__(__self__, *,
+                 correlation_id: Optional[pulumi.Input[str]] = None,
+                 desired_version: Optional[pulumi.Input[str]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None):
+        """
+        The info w.r.t Agent Upgrade.
+        :param pulumi.Input[str] correlation_id: The correlation ID passed in from RSM per upgrade.
+        :param pulumi.Input[str] desired_version: Specifies the version info w.r.t AgentUpgrade for the machine.
+        :param pulumi.Input[bool] enable_automatic_upgrade: Specifies if RSM should try to upgrade this machine
+        """
+        if correlation_id is not None:
+            pulumi.set(__self__, "correlation_id", correlation_id)
+        if desired_version is not None:
+            pulumi.set(__self__, "desired_version", desired_version)
+        if enable_automatic_upgrade is not None:
+            pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
+
+    @property
+    @pulumi.getter(name="correlationId")
+    def correlation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The correlation ID passed in from RSM per upgrade.
+        """
+        return pulumi.get(self, "correlation_id")
+
+    @correlation_id.setter
+    def correlation_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "correlation_id", value)
+
+    @property
+    @pulumi.getter(name="desiredVersion")
+    def desired_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the version info w.r.t AgentUpgrade for the machine.
+        """
+        return pulumi.get(self, "desired_version")
+
+    @desired_version.setter
+    def desired_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "desired_version", value)
+
+    @property
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if RSM should try to upgrade this machine
+        """
+        return pulumi.get(self, "enable_automatic_upgrade")
+
+    @enable_automatic_upgrade.setter
+    def enable_automatic_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_upgrade", value)
+
 
 @pulumi.input_type
 class HybridComputePrivateLinkScopePropertiesArgs:

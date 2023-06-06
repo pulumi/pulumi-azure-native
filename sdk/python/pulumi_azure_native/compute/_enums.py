@@ -58,6 +58,7 @@ __all__ = [
     'RepairAction',
     'ReplicationMode',
     'ResourceIdentityType',
+    'RestorePointEncryptionType',
     'SecurityEncryptionTypes',
     'SecurityTypes',
     'SettingNames',
@@ -86,7 +87,7 @@ class Architecture(str, Enum):
 
 class CachingTypes(str, Enum):
     """
-    Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None** for Standard storage. **ReadOnly** for Premium storage.
+    Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The defaulting behavior is: **None for Standard storage. ReadOnly for Premium storage.**
     """
     NONE = "None"
     READ_ONLY = "ReadOnly"
@@ -165,7 +166,7 @@ class DataAccessAuthMode(str, Enum):
 
 class DedicatedHostLicenseTypes(str, Enum):
     """
-    Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+    Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
     """
     NONE = "None"
     WINDOWS_SERVER_HYBRID = "Windows_Server_Hybrid"
@@ -189,7 +190,7 @@ class DiffDiskOptions(str, Enum):
 
 class DiffDiskPlacement(str, Enum):
     """
-    Specifies the ephemeral disk placement for operating system disk.<br><br> Possible values are: <br><br> **CacheDisk** <br><br> **ResourceDisk** <br><br> Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.<br><br> Refer to VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+    Specifies the ephemeral disk placement for operating system disk. Possible values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used. Refer to the VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
     """
     CACHE_DISK = "CacheDisk"
     RESOURCE_DISK = "ResourceDisk"
@@ -197,7 +198,7 @@ class DiffDiskPlacement(str, Enum):
 
 class DiskControllerTypes(str, Enum):
     """
-    Specifies the disk controller type configured for the VM. <br><br>NOTE: This property will be set to the default disk controller type if not specified provided virtual machine is being created as a hyperVGeneration: V2 based on the capabilities of the operating system disk and VM size from the the specified minimum api version. <br>You need to deallocate the VM before updating its disk controller type unless you are updating the VM size in the VM configuration which implicitly deallocates and reallocates the VM. <br><br> Minimum api-version: 2022-08-01
+    Specifies the disk controller type configured for the VM. **Note:** This property will be set to the default disk controller type if not specified provided virtual machine is being created with 'hyperVGeneration' set to V2 based on the capabilities of the operating system disk and VM size from the the specified minimum api version. You need to deallocate the VM before updating its disk controller type unless you are updating the VM size in the VM configuration which implicitly deallocates and reallocates the VM. Minimum api-version: 2022-08-01.
     """
     SCSI = "SCSI"
     NV_ME = "NVMe"
@@ -251,7 +252,7 @@ class DiskCreateOption(str, Enum):
 
 class DiskCreateOptionTypes(str, Enum):
     """
-    Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \\u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \\u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
+    Specifies how the virtual machine should be created. Possible values are: **Attach.** This value is used when you are using a specialized disk to create the virtual machine. **FromImage.** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described.
     """
     FROM_IMAGE = "FromImage"
     EMPTY = "Empty"
@@ -260,7 +261,7 @@ class DiskCreateOptionTypes(str, Enum):
 
 class DiskDeleteOptionTypes(str, Enum):
     """
-    Specifies whether OS Disk should be deleted or detached upon VM deletion. <br><br> Possible values: <br><br> **Delete** If this value is used, the OS disk is deleted when VM is deleted.<br><br> **Detach** If this value is used, the os disk is retained after VM is deleted. <br><br> The default value is set to **detach**. For an ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for ephemeral OS Disk.
+    Specifies whether OS Disk should be deleted or detached upon VM deletion. Possible values are: **Delete.** If this value is used, the OS disk is deleted when VM is deleted. **Detach.** If this value is used, the os disk is retained after VM is deleted. The default value is set to **Detach**. For an ephemeral OS Disk, the default value is set to **Delete**. The user cannot change the delete option for an ephemeral OS Disk.
     """
     DELETE = "Delete"
     DETACH = "Detach"
@@ -268,7 +269,7 @@ class DiskDeleteOptionTypes(str, Enum):
 
 class DiskDetachOptionTypes(str, Enum):
     """
-    Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. <br><br> detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+    Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview** mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
     """
     FORCE_DETACH = "ForceDetach"
 
@@ -536,7 +537,7 @@ class OperatingSystemStateTypes(str, Enum):
 
 class OperatingSystemTypes(str, Enum):
     """
-    This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+    This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
     """
     WINDOWS = "Windows"
     LINUX = "Linux"
@@ -568,7 +569,7 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
 
 class ProtocolTypes(str, Enum):
     """
-    Specifies the protocol of WinRM listener. <br><br> Possible values are: <br>**http** <br><br> **https**
+    Specifies the protocol of WinRM listener. Possible values are: **http,** **https.**
     """
     HTTP = "Http"
     HTTPS = "Https"
@@ -576,7 +577,7 @@ class ProtocolTypes(str, Enum):
 
 class ProximityPlacementGroupType(str, Enum):
     """
-    Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+    Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
     """
     STANDARD = "Standard"
     ULTRA = "Ultra"
@@ -647,9 +648,27 @@ class ResourceIdentityType(str, Enum):
     NONE = "None"
 
 
+class RestorePointEncryptionType(str, Enum):
+    """
+    The type of key used to encrypt the data of the disk restore point.
+    """
+    ENCRYPTION_AT_REST_WITH_PLATFORM_KEY = "EncryptionAtRestWithPlatformKey"
+    """
+    Disk Restore Point is encrypted at rest with Platform managed key. 
+    """
+    ENCRYPTION_AT_REST_WITH_CUSTOMER_KEY = "EncryptionAtRestWithCustomerKey"
+    """
+    Disk Restore Point is encrypted at rest with Customer managed key that can be changed and revoked by a customer.
+    """
+    ENCRYPTION_AT_REST_WITH_PLATFORM_AND_CUSTOMER_KEYS = "EncryptionAtRestWithPlatformAndCustomerKeys"
+    """
+    Disk Restore Point is encrypted at rest with 2 layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
+    """
+
+
 class SecurityEncryptionTypes(str, Enum):
     """
-    Specifies the EncryptionType of the managed disk. <br> It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. <br><br> NOTE: It can be set for only Confidential VMs.
+    Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. **Note:** It can be set for only Confidential VMs.
     """
     VM_GUEST_STATE_ONLY = "VMGuestStateOnly"
     DISK_WITH_VM_GUEST_STATE = "DiskWithVMGuestState"
@@ -657,7 +676,7 @@ class SecurityEncryptionTypes(str, Enum):
 
 class SecurityTypes(str, Enum):
     """
-    Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set.
+    Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
     """
     TRUSTED_LAUNCH = "TrustedLaunch"
     CONFIDENTIAL_VM = "ConfidentialVM"
@@ -731,7 +750,7 @@ class UpgradeMode(str, Enum):
 
 class VirtualMachineEvictionPolicyTypes(str, Enum):
     """
-    Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
+    Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
     """
     DEALLOCATE = "Deallocate"
     DELETE = "Delete"
@@ -739,7 +758,7 @@ class VirtualMachineEvictionPolicyTypes(str, Enum):
 
 class VirtualMachinePriorityTypes(str, Enum):
     """
-    Specifies the priority for the virtual machines in the scale set. <br><br>Minimum api-version: 2017-10-30-preview
+    Specifies the priority for the virtual machines in the scale set. Minimum api-version: 2017-10-30-preview.
     """
     REGULAR = "Regular"
     LOW = "Low"
@@ -754,7 +773,7 @@ class VirtualMachineScaleSetScaleInRules(str, Enum):
 
 class VirtualMachineSizeTypes(str, Enum):
     """
-    Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
+    Specifies the size of the virtual machine. The enum data type is currently deprecated and will be removed by December 23rd 2023. The recommended way to get the list of available sizes is using these APIs: [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes), [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list), [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). The available VM sizes depend on region and availability set.
     """
     BASIC_A0 = "Basic_A0"
     BASIC_A1 = "Basic_A1"

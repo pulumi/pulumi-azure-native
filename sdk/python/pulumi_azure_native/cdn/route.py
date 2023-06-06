@@ -287,7 +287,7 @@ class Route(pulumi.CustomResource):
                  __props__=None):
         """
         Friendly Routes name mapping to the any Routes or secret related information.
-        API Version: 2021-06-01.
+        API Version: 2023-05-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -316,7 +316,7 @@ class Route(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Friendly Routes name mapping to the any Routes or secret related information.
-        API Version: 2021-06-01.
+        API Version: 2023-05-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

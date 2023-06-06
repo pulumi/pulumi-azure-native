@@ -22,7 +22,7 @@ class GetExtensionResult:
     """
     Details of a particular extension in HCI Cluster.
     """
-    def __init__(__self__, aggregate_state=None, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, name=None, per_node_extension_details=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, system_data=None, type=None, type_handler_version=None):
+    def __init__(__self__, aggregate_state=None, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, managed_by=None, name=None, per_node_extension_details=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, system_data=None, type=None, type_handler_version=None):
         if aggregate_state and not isinstance(aggregate_state, str):
             raise TypeError("Expected argument 'aggregate_state' to be a str")
         pulumi.set(__self__, "aggregate_state", aggregate_state)
@@ -38,6 +38,9 @@ class GetExtensionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if managed_by and not isinstance(managed_by, str):
+            raise TypeError("Expected argument 'managed_by' to be a str")
+        pulumi.set(__self__, "managed_by", managed_by)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -105,6 +108,14 @@ class GetExtensionResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> str:
+        """
+        Indicates if the extension is managed by azure or the user.
+        """
+        return pulumi.get(self, "managed_by")
 
     @property
     @pulumi.getter
@@ -190,6 +201,7 @@ class AwaitableGetExtensionResult(GetExtensionResult):
             enable_automatic_upgrade=self.enable_automatic_upgrade,
             force_update_tag=self.force_update_tag,
             id=self.id,
+            managed_by=self.managed_by,
             name=self.name,
             per_node_extension_details=self.per_node_extension_details,
             protected_settings=self.protected_settings,
@@ -208,7 +220,7 @@ def get_extension(arc_setting_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
     Get particular Arc Extension of HCI Cluster.
-    API Version: 2023-02-01.
+    API Version: 2023-03-01.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
@@ -230,6 +242,7 @@ def get_extension(arc_setting_name: Optional[str] = None,
         enable_automatic_upgrade=__ret__.enable_automatic_upgrade,
         force_update_tag=__ret__.force_update_tag,
         id=__ret__.id,
+        managed_by=__ret__.managed_by,
         name=__ret__.name,
         per_node_extension_details=__ret__.per_node_extension_details,
         protected_settings=__ret__.protected_settings,
@@ -249,7 +262,7 @@ def get_extension_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Get particular Arc Extension of HCI Cluster.
-    API Version: 2023-02-01.
+    API Version: 2023-03-01.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
