@@ -426,23 +426,6 @@ class MCASDataConnectorDataTypesResponse(dict):
     """
     The available data types for MCAS (Microsoft Cloud App Security) data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "discoveryLogs":
-            suggest = "discovery_logs"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MCASDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MCASDataConnectorDataTypesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MCASDataConnectorDataTypesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  alerts: Optional['outputs.DataConnectorDataTypeCommonResponse'] = None,
                  discovery_logs: Optional['outputs.DataConnectorDataTypeCommonResponse'] = None):
@@ -478,23 +461,6 @@ class OfficeDataConnectorDataTypesResponse(dict):
     """
     The available data types for office data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sharePoint":
-            suggest = "share_point"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OfficeDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        OfficeDataConnectorDataTypesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        OfficeDataConnectorDataTypesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  exchange: Optional['outputs.OfficeDataConnectorDataTypesResponseExchange'] = None,
                  share_point: Optional['outputs.OfficeDataConnectorDataTypesResponseSharePoint'] = None,

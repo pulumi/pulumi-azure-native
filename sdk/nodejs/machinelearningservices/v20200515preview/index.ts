@@ -5,21 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ACIServiceArgs } from "./aciservice";
-export type ACIService = import("./aciservice").ACIService;
-export const ACIService: typeof import("./aciservice").ACIService = null as any;
-utilities.lazyLoad(exports, ["ACIService"], () => require("./aciservice"));
-
-export { AKSServiceArgs } from "./aksservice";
-export type AKSService = import("./aksservice").AKSService;
-export const AKSService: typeof import("./aksservice").AKSService = null as any;
-utilities.lazyLoad(exports, ["AKSService"], () => require("./aksservice"));
-
-export { EndpointVariantArgs } from "./endpointVariant";
-export type EndpointVariant = import("./endpointVariant").EndpointVariant;
-export const EndpointVariant: typeof import("./endpointVariant").EndpointVariant = null as any;
-utilities.lazyLoad(exports, ["EndpointVariant"], () => require("./endpointVariant"));
-
 export { GetACIServiceArgs, GetACIServiceResult, GetACIServiceOutputArgs } from "./getACIService";
 export const getACIService: typeof import("./getACIService").getACIService = null as any;
 export const getACIServiceOutput: typeof import("./getACIService").getACIServiceOutput = null as any;
@@ -53,12 +38,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:machinelearningservices/v20200515preview:ACIService":
-                return new ACIService(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20200515preview:AKSService":
-                return new AKSService(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20200515preview:EndpointVariant":
-                return new EndpointVariant(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200515preview:LinkedWorkspace":
                 return new LinkedWorkspace(name, <any>undefined, { urn })
             default:

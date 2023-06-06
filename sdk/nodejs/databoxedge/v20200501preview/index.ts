@@ -10,11 +10,6 @@ export type Device = import("./device").Device;
 export const Device: typeof import("./device").Device = null as any;
 utilities.lazyLoad(exports, ["Device"], () => require("./device"));
 
-export { FileEventTriggerArgs } from "./fileEventTrigger";
-export type FileEventTrigger = import("./fileEventTrigger").FileEventTrigger;
-export const FileEventTrigger: typeof import("./fileEventTrigger").FileEventTrigger = null as any;
-utilities.lazyLoad(exports, ["FileEventTrigger"], () => require("./fileEventTrigger"));
-
 export { GetDeviceArgs, GetDeviceResult, GetDeviceOutputArgs } from "./getDevice";
 export const getDevice: typeof import("./getDevice").getDevice = null as any;
 export const getDeviceOutput: typeof import("./getDevice").getDeviceOutput = null as any;
@@ -50,20 +45,10 @@ export const getStorageAccount: typeof import("./getStorageAccount").getStorageA
 export const getStorageAccountOutput: typeof import("./getStorageAccount").getStorageAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageAccount","getStorageAccountOutput"], () => require("./getStorageAccount"));
 
-export { IoTRoleArgs } from "./ioTRole";
-export type IoTRole = import("./ioTRole").IoTRole;
-export const IoTRole: typeof import("./ioTRole").IoTRole = null as any;
-utilities.lazyLoad(exports, ["IoTRole"], () => require("./ioTRole"));
-
 export { OrderArgs } from "./order";
 export type Order = import("./order").Order;
 export const Order: typeof import("./order").Order = null as any;
 utilities.lazyLoad(exports, ["Order"], () => require("./order"));
-
-export { PeriodicTimerEventTriggerArgs } from "./periodicTimerEventTrigger";
-export type PeriodicTimerEventTrigger = import("./periodicTimerEventTrigger").PeriodicTimerEventTrigger;
-export const PeriodicTimerEventTrigger: typeof import("./periodicTimerEventTrigger").PeriodicTimerEventTrigger = null as any;
-utilities.lazyLoad(exports, ["PeriodicTimerEventTrigger"], () => require("./periodicTimerEventTrigger"));
 
 export { StorageAccountArgs } from "./storageAccount";
 export type StorageAccount = import("./storageAccount").StorageAccount;
@@ -80,14 +65,8 @@ const _module = {
         switch (type) {
             case "azure-native:databoxedge/v20200501preview:Device":
                 return new Device(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20200501preview:FileEventTrigger":
-                return new FileEventTrigger(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20200501preview:IoTRole":
-                return new IoTRole(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:Order":
                 return new Order(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20200501preview:PeriodicTimerEventTrigger":
-                return new PeriodicTimerEventTrigger(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:StorageAccount":
                 return new StorageAccount(name, <any>undefined, { urn })
             default:

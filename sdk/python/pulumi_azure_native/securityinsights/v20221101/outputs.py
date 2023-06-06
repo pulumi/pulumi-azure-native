@@ -38,29 +38,6 @@ class AlertDetailsOverrideResponse(dict):
     """
     Settings for how to dynamically override alert static details
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "alertDescriptionFormat":
-            suggest = "alert_description_format"
-        elif key == "alertDisplayNameFormat":
-            suggest = "alert_display_name_format"
-        elif key == "alertSeverityColumnName":
-            suggest = "alert_severity_column_name"
-        elif key == "alertTacticsColumnName":
-            suggest = "alert_tactics_column_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AlertDetailsOverrideResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AlertDetailsOverrideResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AlertDetailsOverrideResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  alert_description_format: Optional[str] = None,
                  alert_display_name_format: Optional[str] = None,
@@ -212,25 +189,6 @@ class EntityMappingResponse(dict):
     """
     Single entity mapping for the alert rule
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "entityType":
-            suggest = "entity_type"
-        elif key == "fieldMappings":
-            suggest = "field_mappings"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EntityMappingResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EntityMappingResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EntityMappingResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  entity_type: Optional[str] = None,
                  field_mappings: Optional[Sequence['outputs.FieldMappingResponse']] = None):
@@ -266,23 +224,6 @@ class EventGroupingSettingsResponse(dict):
     """
     Event grouping settings property bag.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "aggregationKind":
-            suggest = "aggregation_kind"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EventGroupingSettingsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EventGroupingSettingsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EventGroupingSettingsResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  aggregation_kind: Optional[str] = None):
         """
@@ -306,23 +247,6 @@ class FieldMappingResponse(dict):
     """
     A single field mapping of the mapped entity
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "columnName":
-            suggest = "column_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FieldMappingResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FieldMappingResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FieldMappingResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  column_name: Optional[str] = None,
                  identifier: Optional[str] = None):
@@ -358,33 +282,6 @@ class GroupingConfigurationResponse(dict):
     """
     Grouping configuration property bag.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lookbackDuration":
-            suggest = "lookback_duration"
-        elif key == "matchingMethod":
-            suggest = "matching_method"
-        elif key == "reopenClosedIncident":
-            suggest = "reopen_closed_incident"
-        elif key == "groupByAlertDetails":
-            suggest = "group_by_alert_details"
-        elif key == "groupByCustomDetails":
-            suggest = "group_by_custom_details"
-        elif key == "groupByEntities":
-            suggest = "group_by_entities"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GroupingConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GroupingConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GroupingConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  enabled: bool,
                  lookback_duration: str,
@@ -476,25 +373,6 @@ class IncidentConfigurationResponse(dict):
     """
     Incident Configuration property bag.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createIncident":
-            suggest = "create_incident"
-        elif key == "groupingConfiguration":
-            suggest = "grouping_configuration"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IncidentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IncidentConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IncidentConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  create_incident: bool,
                  grouping_configuration: Optional['outputs.GroupingConfigurationResponse'] = None):
@@ -529,23 +407,6 @@ class MCASDataConnectorDataTypesResponse(dict):
     """
     The available data types for MCAS (Microsoft Cloud App Security) data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "discoveryLogs":
-            suggest = "discovery_logs"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MCASDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MCASDataConnectorDataTypesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MCASDataConnectorDataTypesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  alerts: Optional['outputs.DataConnectorDataTypeCommonResponse'] = None,
                  discovery_logs: Optional['outputs.DataConnectorDataTypeCommonResponse'] = None):
@@ -581,23 +442,6 @@ class OfficeDataConnectorDataTypesResponse(dict):
     """
     The available data types for office data connector.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sharePoint":
-            suggest = "share_point"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OfficeDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        OfficeDataConnectorDataTypesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        OfficeDataConnectorDataTypesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  exchange: Optional['outputs.OfficeDataConnectorDataTypesResponseExchange'] = None,
                  share_point: Optional['outputs.OfficeDataConnectorDataTypesResponseSharePoint'] = None,
@@ -714,25 +558,6 @@ class SecurityMLAnalyticsSettingsDataSourceResponse(dict):
     """
     security ml analytics settings data sources
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "connectorId":
-            suggest = "connector_id"
-        elif key == "dataTypes":
-            suggest = "data_types"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SecurityMLAnalyticsSettingsDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SecurityMLAnalyticsSettingsDataSourceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SecurityMLAnalyticsSettingsDataSourceResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  connector_id: Optional[str] = None,
                  data_types: Optional[Sequence[str]] = None):
@@ -768,33 +593,6 @@ class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,

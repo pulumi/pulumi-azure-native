@@ -149,25 +149,6 @@ class CniConfigResponse(dict):
     """
     Cni configuration
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "podSubnet":
-            suggest = "pod_subnet"
-        elif key == "serviceSubnet":
-            suggest = "service_subnet"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CniConfigResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CniConfigResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CniConfigResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  pod_subnet: str,
                  service_subnet: str,
@@ -223,25 +204,6 @@ class ComputeResourceResponse(dict):
     """
     Compute infrastructure Resource
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "memoryInGB":
-            suggest = "memory_in_gb"
-        elif key == "processorCount":
-            suggest = "processor_count"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ComputeResourceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ComputeResourceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ComputeResourceResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  memory_in_gb: float,
                  processor_count: int):
@@ -298,37 +260,6 @@ class EdgeProfileSubscriptionResponse(dict):
     """
     Subscription details for the Edge Profile
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "locationPlacementId":
-            suggest = "location_placement_id"
-        elif key == "quotaId":
-            suggest = "quota_id"
-        elif key == "registeredFeatures":
-            suggest = "registered_features"
-        elif key == "registrationDate":
-            suggest = "registration_date"
-        elif key == "registrationId":
-            suggest = "registration_id"
-        elif key == "serializedDetails":
-            suggest = "serialized_details"
-        elif key == "subscriptionId":
-            suggest = "subscription_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EdgeProfileSubscriptionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EdgeProfileSubscriptionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EdgeProfileSubscriptionResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  location_placement_id: Optional[str] = None,
@@ -461,23 +392,6 @@ class FileSourceInfoResponse(dict):
     """
     File source details.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "shareId":
-            suggest = "share_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FileSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FileSourceInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FileSourceInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  share_id: str):
         """
@@ -500,25 +414,6 @@ class ImageRepositoryCredentialResponse(dict):
     """
     Image repository credential.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "imageRepositoryUrl":
-            suggest = "image_repository_url"
-        elif key == "userName":
-            suggest = "user_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ImageRepositoryCredentialResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ImageRepositoryCredentialResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ImageRepositoryCredentialResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  image_repository_url: str,
                  user_name: str,
@@ -642,25 +537,6 @@ class IoTEdgeAgentInfoResponse(dict):
     """
     IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "imageName":
-            suggest = "image_name"
-        elif key == "imageRepository":
-            suggest = "image_repository"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IoTEdgeAgentInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IoTEdgeAgentInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IoTEdgeAgentInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  image_name: str,
                  tag: str,
@@ -706,23 +582,6 @@ class KubernetesClusterInfoResponse(dict):
     """
     Kubernetes cluster configuration
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "etcdInfo":
-            suggest = "etcd_info"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesClusterInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesClusterInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  etcd_info: 'outputs.EtcdInfoResponse',
                  nodes: Sequence['outputs.NodeInfoResponse'],
@@ -767,23 +626,6 @@ class KubernetesIPConfigurationResponse(dict):
     """
     Kubernetes node IP configuration
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipAddress":
-            suggest = "ip_address"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesIPConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesIPConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  port: str,
                  ip_address: Optional[str] = None):
@@ -818,27 +660,6 @@ class KubernetesRoleComputeResponse(dict):
     """
     Kubernetes role compute resource
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "memoryInBytes":
-            suggest = "memory_in_bytes"
-        elif key == "processorCount":
-            suggest = "processor_count"
-        elif key == "vmProfile":
-            suggest = "vm_profile"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesRoleComputeResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesRoleComputeResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesRoleComputeResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  memory_in_bytes: float,
                  processor_count: int,
@@ -883,25 +704,6 @@ class KubernetesRoleNetworkResponse(dict):
     """
     Kubernetes role network resource
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "cniConfig":
-            suggest = "cni_config"
-        elif key == "loadBalancerConfig":
-            suggest = "load_balancer_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesRoleNetworkResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesRoleNetworkResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesRoleNetworkResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  cni_config: 'outputs.CniConfigResponse',
                  load_balancer_config: 'outputs.LoadBalancerConfigResponse'):
@@ -980,23 +782,6 @@ class KubernetesRoleStorageClassInfoResponse(dict):
     """
     Kubernetes storage class info.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "posixCompliant":
-            suggest = "posix_compliant"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesRoleStorageClassInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesRoleStorageClassInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesRoleStorageClassInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  name: str,
                  posix_compliant: str,
@@ -1041,23 +826,6 @@ class KubernetesRoleStorageResponse(dict):
     """
     Kubernetes role storage resource
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "storageClasses":
-            suggest = "storage_classes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesRoleStorageResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesRoleStorageResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesRoleStorageResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  storage_classes: Sequence['outputs.KubernetesRoleStorageClassInfoResponse'],
                  endpoints: Optional[Sequence['outputs.MountPointMapResponse']] = None):
@@ -1125,31 +893,6 @@ class MountPointMapResponse(dict):
     """
     The share mount point.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "mountPoint":
-            suggest = "mount_point"
-        elif key == "mountType":
-            suggest = "mount_type"
-        elif key == "roleId":
-            suggest = "role_id"
-        elif key == "roleType":
-            suggest = "role_type"
-        elif key == "shareId":
-            suggest = "share_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MountPointMapResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MountPointMapResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MountPointMapResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  mount_point: str,
                  mount_type: str,
@@ -1216,23 +959,6 @@ class NodeInfoResponse(dict):
     """
     Kubernetes node info
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipConfiguration":
-            suggest = "ip_configuration"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NodeInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NodeInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NodeInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -1278,23 +1004,6 @@ class PeriodicTimerSourceInfoResponse(dict):
     """
     Periodic timer event source.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "startTime":
-            suggest = "start_time"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PeriodicTimerSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PeriodicTimerSourceInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PeriodicTimerSourceInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  schedule: str,
                  start_time: str,
@@ -1340,23 +1049,6 @@ class RoleSinkInfoResponse(dict):
     """
     Compute role against which events will be raised.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "roleId":
-            suggest = "role_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoleSinkInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoleSinkInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoleSinkInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  role_id: str):
         """

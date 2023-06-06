@@ -7,19 +7,14 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .cluster import *
-from .event_grid_data_connection import *
-from .event_hub_data_connection import *
 from .get_cluster import *
 from .get_event_grid_data_connection import *
 from .get_event_hub_data_connection import *
 from .get_iot_hub_data_connection import *
 from .get_read_only_following_database import *
 from .get_read_write_database import *
-from .iot_hub_data_connection import *
 from .list_cluster_follower_databases import *
 from .list_cluster_language_extensions import *
 from .list_database_principals import *
-from .read_only_following_database import *
-from .read_write_database import *
 from ._inputs import *
 from . import outputs

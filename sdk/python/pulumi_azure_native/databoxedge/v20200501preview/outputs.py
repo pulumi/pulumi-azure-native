@@ -147,25 +147,6 @@ class AsymmetricEncryptedSecretResponse(dict):
     """
     Represent the secrets intended for encryption with asymmetric key pair.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "encryptionAlgorithm":
-            suggest = "encryption_algorithm"
-        elif key == "encryptionCertThumbprint":
-            suggest = "encryption_cert_thumbprint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AsymmetricEncryptedSecretResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AsymmetricEncryptedSecretResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AsymmetricEncryptedSecretResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  encryption_algorithm: str,
                  value: str,
@@ -211,23 +192,6 @@ class AuthenticationResponse(dict):
     """
     Authentication mechanism for IoT devices.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "symmetricKey":
-            suggest = "symmetric_key"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AuthenticationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AuthenticationResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  symmetric_key: Optional['outputs.SymmetricKeyResponse'] = None):
         """
@@ -327,23 +291,6 @@ class FileSourceInfoResponse(dict):
     """
     File source details.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "shareId":
-            suggest = "share_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FileSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FileSourceInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FileSourceInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  share_id: str):
         """
@@ -366,25 +313,6 @@ class ImageRepositoryCredentialResponse(dict):
     """
     Image repository credential.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "imageRepositoryUrl":
-            suggest = "image_repository_url"
-        elif key == "userName":
-            suggest = "user_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ImageRepositoryCredentialResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ImageRepositoryCredentialResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ImageRepositoryCredentialResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  image_repository_url: str,
                  user_name: str,
@@ -430,27 +358,6 @@ class IoTDeviceInfoResponse(dict):
     """
     Metadata of IoT device/IoT Edge device to be configured.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "deviceId":
-            suggest = "device_id"
-        elif key == "ioTHostHub":
-            suggest = "io_t_host_hub"
-        elif key == "ioTHostHubId":
-            suggest = "io_t_host_hub_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IoTDeviceInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IoTDeviceInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IoTDeviceInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  device_id: str,
                  io_t_host_hub: str,
@@ -508,25 +415,6 @@ class IoTEdgeAgentInfoResponse(dict):
     """
     IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "imageName":
-            suggest = "image_name"
-        elif key == "imageRepository":
-            suggest = "image_repository"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IoTEdgeAgentInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IoTEdgeAgentInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IoTEdgeAgentInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  image_name: str,
                  tag: str,
@@ -572,31 +460,6 @@ class MountPointMapResponse(dict):
     """
     The share mount point.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "mountPoint":
-            suggest = "mount_point"
-        elif key == "mountType":
-            suggest = "mount_type"
-        elif key == "roleId":
-            suggest = "role_id"
-        elif key == "roleType":
-            suggest = "role_type"
-        elif key == "shareId":
-            suggest = "share_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MountPointMapResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MountPointMapResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MountPointMapResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  mount_point: str,
                  mount_type: str,
@@ -740,23 +603,6 @@ class PeriodicTimerSourceInfoResponse(dict):
     """
     Periodic timer event source.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "startTime":
-            suggest = "start_time"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PeriodicTimerSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PeriodicTimerSourceInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PeriodicTimerSourceInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  schedule: str,
                  start_time: str,
@@ -802,23 +648,6 @@ class RoleSinkInfoResponse(dict):
     """
     Compute role against which events will be raised.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "roleId":
-            suggest = "role_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoleSinkInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoleSinkInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoleSinkInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  role_id: str):
         """
@@ -876,23 +705,6 @@ class SymmetricKeyResponse(dict):
     """
     Symmetric key for authentication.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "connectionString":
-            suggest = "connection_string"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SymmetricKeyResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SymmetricKeyResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SymmetricKeyResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  connection_string: Optional['outputs.AsymmetricEncryptedSecretResponse'] = None):
         """

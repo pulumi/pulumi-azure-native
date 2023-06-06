@@ -19,23 +19,6 @@ class TagInheritancePropertiesResponse(dict):
     """
     The properties of the tag inheritance setting.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "preferContainerTags":
-            suggest = "prefer_container_tags"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TagInheritancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TagInheritancePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TagInheritancePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  prefer_container_tags: bool):
         """

@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { EventGridDataConnectionArgs } from "./eventGridDataConnection";
-export type EventGridDataConnection = import("./eventGridDataConnection").EventGridDataConnection;
-export const EventGridDataConnection: typeof import("./eventGridDataConnection").EventGridDataConnection = null as any;
-utilities.lazyLoad(exports, ["EventGridDataConnection"], () => require("./eventGridDataConnection"));
-
-export { EventHubDataConnectionArgs } from "./eventHubDataConnection";
-export type EventHubDataConnection = import("./eventHubDataConnection").EventHubDataConnection;
-export const EventHubDataConnection: typeof import("./eventHubDataConnection").EventHubDataConnection = null as any;
-utilities.lazyLoad(exports, ["EventHubDataConnection"], () => require("./eventHubDataConnection"));
-
 export { GetEventGridDataConnectionArgs, GetEventGridDataConnectionResult, GetEventGridDataConnectionOutputArgs } from "./getEventGridDataConnection";
 export const getEventGridDataConnection: typeof import("./getEventGridDataConnection").getEventGridDataConnection = null as any;
 export const getEventGridDataConnectionOutput: typeof import("./getEventGridDataConnection").getEventGridDataConnectionOutput = null as any;
@@ -55,11 +45,6 @@ export const getScript: typeof import("./getScript").getScript = null as any;
 export const getScriptOutput: typeof import("./getScript").getScriptOutput = null as any;
 utilities.lazyLoad(exports, ["getScript","getScriptOutput"], () => require("./getScript"));
 
-export { IotHubDataConnectionArgs } from "./iotHubDataConnection";
-export type IotHubDataConnection = import("./iotHubDataConnection").IotHubDataConnection;
-export const IotHubDataConnection: typeof import("./iotHubDataConnection").IotHubDataConnection = null as any;
-utilities.lazyLoad(exports, ["IotHubDataConnection"], () => require("./iotHubDataConnection"));
-
 export { ManagedPrivateEndpointArgs } from "./managedPrivateEndpoint";
 export type ManagedPrivateEndpoint = import("./managedPrivateEndpoint").ManagedPrivateEndpoint;
 export const ManagedPrivateEndpoint: typeof import("./managedPrivateEndpoint").ManagedPrivateEndpoint = null as any;
@@ -69,16 +54,6 @@ export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
-export { ReadOnlyFollowingDatabaseArgs } from "./readOnlyFollowingDatabase";
-export type ReadOnlyFollowingDatabase = import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase;
-export const ReadOnlyFollowingDatabase: typeof import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase = null as any;
-utilities.lazyLoad(exports, ["ReadOnlyFollowingDatabase"], () => require("./readOnlyFollowingDatabase"));
-
-export { ReadWriteDatabaseArgs } from "./readWriteDatabase";
-export type ReadWriteDatabase = import("./readWriteDatabase").ReadWriteDatabase;
-export const ReadWriteDatabase: typeof import("./readWriteDatabase").ReadWriteDatabase = null as any;
-utilities.lazyLoad(exports, ["ReadWriteDatabase"], () => require("./readWriteDatabase"));
 
 export { ScriptArgs } from "./script";
 export type Script = import("./script").Script;
@@ -93,20 +68,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:kusto/v20210827:EventGridDataConnection":
-                return new EventGridDataConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20210827:EventHubDataConnection":
-                return new EventHubDataConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20210827:IotHubDataConnection":
-                return new IotHubDataConnection(name, <any>undefined, { urn })
             case "azure-native:kusto/v20210827:ManagedPrivateEndpoint":
                 return new ManagedPrivateEndpoint(name, <any>undefined, { urn })
             case "azure-native:kusto/v20210827:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20210827:ReadOnlyFollowingDatabase":
-                return new ReadOnlyFollowingDatabase(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20210827:ReadWriteDatabase":
-                return new ReadWriteDatabase(name, <any>undefined, { urn })
             case "azure-native:kusto/v20210827:Script":
                 return new Script(name, <any>undefined, { urn })
             default:

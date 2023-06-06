@@ -5,25 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ArcAddonArgs } from "./arcAddon";
-export type ArcAddon = import("./arcAddon").ArcAddon;
-export const ArcAddon: typeof import("./arcAddon").ArcAddon = null as any;
-utilities.lazyLoad(exports, ["ArcAddon"], () => require("./arcAddon"));
-
-export { CloudEdgeManagementRoleArgs } from "./cloudEdgeManagementRole";
-export type CloudEdgeManagementRole = import("./cloudEdgeManagementRole").CloudEdgeManagementRole;
-export const CloudEdgeManagementRole: typeof import("./cloudEdgeManagementRole").CloudEdgeManagementRole = null as any;
-utilities.lazyLoad(exports, ["CloudEdgeManagementRole"], () => require("./cloudEdgeManagementRole"));
-
 export { DeviceArgs } from "./device";
 export type Device = import("./device").Device;
 export const Device: typeof import("./device").Device = null as any;
 utilities.lazyLoad(exports, ["Device"], () => require("./device"));
-
-export { FileEventTriggerArgs } from "./fileEventTrigger";
-export type FileEventTrigger = import("./fileEventTrigger").FileEventTrigger;
-export const FileEventTrigger: typeof import("./fileEventTrigger").FileEventTrigger = null as any;
-utilities.lazyLoad(exports, ["FileEventTrigger"], () => require("./fileEventTrigger"));
 
 export { GetArcAddonArgs, GetArcAddonResult, GetArcAddonOutputArgs } from "./getArcAddon";
 export const getArcAddon: typeof import("./getArcAddon").getArcAddon = null as any;
@@ -75,31 +60,6 @@ export const getPeriodicTimerEventTrigger: typeof import("./getPeriodicTimerEven
 export const getPeriodicTimerEventTriggerOutput: typeof import("./getPeriodicTimerEventTrigger").getPeriodicTimerEventTriggerOutput = null as any;
 utilities.lazyLoad(exports, ["getPeriodicTimerEventTrigger","getPeriodicTimerEventTriggerOutput"], () => require("./getPeriodicTimerEventTrigger"));
 
-export { IoTAddonArgs } from "./ioTAddon";
-export type IoTAddon = import("./ioTAddon").IoTAddon;
-export const IoTAddon: typeof import("./ioTAddon").IoTAddon = null as any;
-utilities.lazyLoad(exports, ["IoTAddon"], () => require("./ioTAddon"));
-
-export { IoTRoleArgs } from "./ioTRole";
-export type IoTRole = import("./ioTRole").IoTRole;
-export const IoTRole: typeof import("./ioTRole").IoTRole = null as any;
-utilities.lazyLoad(exports, ["IoTRole"], () => require("./ioTRole"));
-
-export { KubernetesRoleArgs } from "./kubernetesRole";
-export type KubernetesRole = import("./kubernetesRole").KubernetesRole;
-export const KubernetesRole: typeof import("./kubernetesRole").KubernetesRole = null as any;
-utilities.lazyLoad(exports, ["KubernetesRole"], () => require("./kubernetesRole"));
-
-export { MECRoleArgs } from "./mecrole";
-export type MECRole = import("./mecrole").MECRole;
-export const MECRole: typeof import("./mecrole").MECRole = null as any;
-utilities.lazyLoad(exports, ["MECRole"], () => require("./mecrole"));
-
-export { PeriodicTimerEventTriggerArgs } from "./periodicTimerEventTrigger";
-export type PeriodicTimerEventTrigger = import("./periodicTimerEventTrigger").PeriodicTimerEventTrigger;
-export const PeriodicTimerEventTrigger: typeof import("./periodicTimerEventTrigger").PeriodicTimerEventTrigger = null as any;
-utilities.lazyLoad(exports, ["PeriodicTimerEventTrigger"], () => require("./periodicTimerEventTrigger"));
-
 
 // Export enums:
 export * from "../../types/enums/databoxedge/v20210201";
@@ -108,24 +68,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:databoxedge/v20210201:ArcAddon":
-                return new ArcAddon(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20210201:CloudEdgeManagementRole":
-                return new CloudEdgeManagementRole(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20210201:Device":
                 return new Device(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20210201:FileEventTrigger":
-                return new FileEventTrigger(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20210201:IoTAddon":
-                return new IoTAddon(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20210201:IoTRole":
-                return new IoTRole(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20210201:KubernetesRole":
-                return new KubernetesRole(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20210201:MECRole":
-                return new MECRole(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20210201:PeriodicTimerEventTrigger":
-                return new PeriodicTimerEventTrigger(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

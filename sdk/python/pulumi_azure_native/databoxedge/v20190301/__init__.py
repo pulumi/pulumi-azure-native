@@ -6,11 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .file_event_trigger import *
 from .get_file_event_trigger import *
 from .get_io_t_role import *
 from .get_periodic_timer_event_trigger import *
-from .io_t_role import *
-from .periodic_timer_event_trigger import *
-from ._inputs import *
 from . import outputs

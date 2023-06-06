@@ -207,23 +207,6 @@ class LocalTimestampResponse(dict):
     """
     An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "timeZoneOffset":
-            suggest = "time_zone_offset"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LocalTimestampResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LocalTimestampResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LocalTimestampResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  format: Optional[str] = None,
                  time_zone_offset: Optional['outputs.LocalTimestampResponseTimeZoneOffset'] = None):
@@ -259,23 +242,6 @@ class LocalTimestampResponseTimeZoneOffset(dict):
     """
     An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "propertyName":
-            suggest = "property_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LocalTimestampResponseTimeZoneOffset. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LocalTimestampResponseTimeZoneOffset.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LocalTimestampResponseTimeZoneOffset.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  property_name: Optional[str] = None):
         """

@@ -15,11 +15,6 @@ export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
 utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
 
-export { EventHubEventSourceArgs } from "./eventHubEventSource";
-export type EventHubEventSource = import("./eventHubEventSource").EventHubEventSource;
-export const EventHubEventSource: typeof import("./eventHubEventSource").EventHubEventSource = null as any;
-utilities.lazyLoad(exports, ["EventHubEventSource"], () => require("./eventHubEventSource"));
-
 export { GetAccessPolicyArgs, GetAccessPolicyResult, GetAccessPolicyOutputArgs } from "./getAccessPolicy";
 export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy = null as any;
 export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
@@ -45,11 +40,6 @@ export const getReferenceDataSet: typeof import("./getReferenceDataSet").getRefe
 export const getReferenceDataSetOutput: typeof import("./getReferenceDataSet").getReferenceDataSetOutput = null as any;
 utilities.lazyLoad(exports, ["getReferenceDataSet","getReferenceDataSetOutput"], () => require("./getReferenceDataSet"));
 
-export { IoTHubEventSourceArgs } from "./ioTHubEventSource";
-export type IoTHubEventSource = import("./ioTHubEventSource").IoTHubEventSource;
-export const IoTHubEventSource: typeof import("./ioTHubEventSource").IoTHubEventSource = null as any;
-utilities.lazyLoad(exports, ["IoTHubEventSource"], () => require("./ioTHubEventSource"));
-
 export { ReferenceDataSetArgs } from "./referenceDataSet";
 export type ReferenceDataSet = import("./referenceDataSet").ReferenceDataSet;
 export const ReferenceDataSet: typeof import("./referenceDataSet").ReferenceDataSet = null as any;
@@ -67,10 +57,6 @@ const _module = {
                 return new AccessPolicy(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20171115:Environment":
                 return new Environment(name, <any>undefined, { urn })
-            case "azure-native:timeseriesinsights/v20171115:EventHubEventSource":
-                return new EventHubEventSource(name, <any>undefined, { urn })
-            case "azure-native:timeseriesinsights/v20171115:IoTHubEventSource":
-                return new IoTHubEventSource(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20171115:ReferenceDataSet":
                 return new ReferenceDataSet(name, <any>undefined, { urn })
             default:
