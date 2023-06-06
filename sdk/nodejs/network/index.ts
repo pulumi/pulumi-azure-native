@@ -1215,14 +1215,10 @@ import * as v20160330 from "./v20160330";
 import * as v20160401 from "./v20160401";
 import * as v20160601 from "./v20160601";
 import * as v20160901 from "./v20160901";
-import * as v20161201 from "./v20161201";
 import * as v20170301 from "./v20170301";
-import * as v20170601 from "./v20170601";
-import * as v20170801 from "./v20170801";
 import * as v20170901 from "./v20170901";
 import * as v20170901preview from "./v20170901preview";
 import * as v20171001 from "./v20171001";
-import * as v20171101 from "./v20171101";
 import * as v20180101 from "./v20180101";
 import * as v20180201 from "./v20180201";
 import * as v20180401 from "./v20180401";
@@ -1230,30 +1226,22 @@ import * as v20180501 from "./v20180501";
 import * as v20180601 from "./v20180601";
 import * as v20180701 from "./v20180701";
 import * as v20180801 from "./v20180801";
-import * as v20181001 from "./v20181001";
-import * as v20181101 from "./v20181101";
 import * as v20181201 from "./v20181201";
 import * as v20190201 from "./v20190201";
-import * as v20190401 from "./v20190401";
 import * as v20190601 from "./v20190601";
 import * as v20190701 from "./v20190701";
 import * as v20190801 from "./v20190801";
 import * as v20190901 from "./v20190901";
 import * as v20191101 from "./v20191101";
-import * as v20191201 from "./v20191201";
-import * as v20200301 from "./v20200301";
 import * as v20200401 from "./v20200401";
 import * as v20200401preview from "./v20200401preview";
 import * as v20200501 from "./v20200501";
 import * as v20200601 from "./v20200601";
-import * as v20200701 from "./v20200701";
-import * as v20200801 from "./v20200801";
 import * as v20201101 from "./v20201101";
 import * as v20210201 from "./v20210201";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210301 from "./v20210301";
 import * as v20210301preview from "./v20210301preview";
-import * as v20210501 from "./v20210501";
 import * as v20210501preview from "./v20210501preview";
 import * as v20210601 from "./v20210601";
 import * as v20210801 from "./v20210801";
@@ -1272,14 +1260,10 @@ export {
     v20160401,
     v20160601,
     v20160901,
-    v20161201,
     v20170301,
-    v20170601,
-    v20170801,
     v20170901,
     v20170901preview,
     v20171001,
-    v20171101,
     v20180101,
     v20180201,
     v20180401,
@@ -1287,30 +1271,22 @@ export {
     v20180601,
     v20180701,
     v20180801,
-    v20181001,
-    v20181101,
     v20181201,
     v20190201,
-    v20190401,
     v20190601,
     v20190701,
     v20190801,
     v20190901,
     v20191101,
-    v20191201,
-    v20200301,
     v20200401,
     v20200401preview,
     v20200501,
     v20200601,
-    v20200701,
-    v20200801,
     v20201101,
     v20210201,
     v20210201preview,
     v20210301,
     v20210301preview,
-    v20210501,
     v20210501preview,
     v20210601,
     v20210801,

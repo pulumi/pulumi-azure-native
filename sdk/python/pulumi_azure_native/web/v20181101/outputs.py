@@ -18,9 +18,7 @@ __all__ = [
     'AutoHealRulesResponse',
     'AutoHealTriggersResponse',
     'AzureStorageInfoValueResponse',
-    'BackupScheduleResponse',
     'ConnStringInfoResponse',
-    'ConnStringValueTypePairResponse',
     'CorsSettingsResponse',
     'DatabaseBackupSettingResponse',
     'ExperimentsResponse',
@@ -396,92 +394,6 @@ class AzureStorageInfoValueResponse(dict):
 
 
 @pulumi.output_type
-class BackupScheduleResponse(dict):
-    """
-    Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
-    """
-    def __init__(__self__, *,
-                 frequency_interval: int,
-                 frequency_unit: str,
-                 keep_at_least_one_backup: bool,
-                 last_execution_time: str,
-                 retention_period_in_days: int,
-                 start_time: Optional[str] = None):
-        """
-        Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
-        :param int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
-        :param str frequency_unit: The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-        :param bool keep_at_least_one_backup: True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
-        :param str last_execution_time: Last time when this schedule was triggered.
-        :param int retention_period_in_days: After how many days backups should be deleted.
-        :param str start_time: When the schedule should start working.
-        """
-        if frequency_interval is None:
-            frequency_interval = 7
-        pulumi.set(__self__, "frequency_interval", frequency_interval)
-        if frequency_unit is None:
-            frequency_unit = 'Day'
-        pulumi.set(__self__, "frequency_unit", frequency_unit)
-        if keep_at_least_one_backup is None:
-            keep_at_least_one_backup = True
-        pulumi.set(__self__, "keep_at_least_one_backup", keep_at_least_one_backup)
-        pulumi.set(__self__, "last_execution_time", last_execution_time)
-        if retention_period_in_days is None:
-            retention_period_in_days = 30
-        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
-        if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
-
-    @property
-    @pulumi.getter(name="frequencyInterval")
-    def frequency_interval(self) -> int:
-        """
-        How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
-        """
-        return pulumi.get(self, "frequency_interval")
-
-    @property
-    @pulumi.getter(name="frequencyUnit")
-    def frequency_unit(self) -> str:
-        """
-        The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-        """
-        return pulumi.get(self, "frequency_unit")
-
-    @property
-    @pulumi.getter(name="keepAtLeastOneBackup")
-    def keep_at_least_one_backup(self) -> bool:
-        """
-        True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
-        """
-        return pulumi.get(self, "keep_at_least_one_backup")
-
-    @property
-    @pulumi.getter(name="lastExecutionTime")
-    def last_execution_time(self) -> str:
-        """
-        Last time when this schedule was triggered.
-        """
-        return pulumi.get(self, "last_execution_time")
-
-    @property
-    @pulumi.getter(name="retentionPeriodInDays")
-    def retention_period_in_days(self) -> int:
-        """
-        After how many days backups should be deleted.
-        """
-        return pulumi.get(self, "retention_period_in_days")
-
-    @property
-    @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[str]:
-        """
-        When the schedule should start working.
-        """
-        return pulumi.get(self, "start_time")
-
-
-@pulumi.output_type
 class ConnStringInfoResponse(dict):
     """
     Database connection string information.
@@ -543,39 +455,6 @@ class ConnStringInfoResponse(dict):
         Type of database.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ConnStringValueTypePairResponse(dict):
-    """
-    Database connection string value to type pair.
-    """
-    def __init__(__self__, *,
-                 type: str,
-                 value: str):
-        """
-        Database connection string value to type pair.
-        :param str type: Type of database.
-        :param str value: Value of pair.
-        """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of database.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Value of pair.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

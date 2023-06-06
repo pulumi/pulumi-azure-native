@@ -10,25 +10,10 @@ export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
 utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
-export { GetAppResourceUploadUrlArgs, GetAppResourceUploadUrlResult, GetAppResourceUploadUrlOutputArgs } from "./getAppResourceUploadUrl";
-export const getAppResourceUploadUrl: typeof import("./getAppResourceUploadUrl").getAppResourceUploadUrl = null as any;
-export const getAppResourceUploadUrlOutput: typeof import("./getAppResourceUploadUrl").getAppResourceUploadUrlOutput = null as any;
-utilities.lazyLoad(exports, ["getAppResourceUploadUrl","getAppResourceUploadUrlOutput"], () => require("./getAppResourceUploadUrl"));
-
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
-
-export { GetDeploymentLogFileUrlArgs, GetDeploymentLogFileUrlResult, GetDeploymentLogFileUrlOutputArgs } from "./getDeploymentLogFileUrl";
-export const getDeploymentLogFileUrl: typeof import("./getDeploymentLogFileUrl").getDeploymentLogFileUrl = null as any;
-export const getDeploymentLogFileUrlOutput: typeof import("./getDeploymentLogFileUrl").getDeploymentLogFileUrlOutput = null as any;
-utilities.lazyLoad(exports, ["getDeploymentLogFileUrl","getDeploymentLogFileUrlOutput"], () => require("./getDeploymentLogFileUrl"));
-
-export { ListServiceTestKeysArgs, ListServiceTestKeysResult, ListServiceTestKeysOutputArgs } from "./listServiceTestKeys";
-export const listServiceTestKeys: typeof import("./listServiceTestKeys").listServiceTestKeys = null as any;
-export const listServiceTestKeysOutput: typeof import("./listServiceTestKeys").listServiceTestKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listServiceTestKeys","listServiceTestKeysOutput"], () => require("./listServiceTestKeys"));
 
 
 const _module = {

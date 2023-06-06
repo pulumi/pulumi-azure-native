@@ -15,16 +15,6 @@ export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
-export { GetSubvolumeMetadataArgs, GetSubvolumeMetadataResult, GetSubvolumeMetadataOutputArgs } from "./getSubvolumeMetadata";
-export const getSubvolumeMetadata: typeof import("./getSubvolumeMetadata").getSubvolumeMetadata = null as any;
-export const getSubvolumeMetadataOutput: typeof import("./getSubvolumeMetadata").getSubvolumeMetadataOutput = null as any;
-utilities.lazyLoad(exports, ["getSubvolumeMetadata","getSubvolumeMetadataOutput"], () => require("./getSubvolumeMetadata"));
-
-export { ListVolumeReplicationsArgs, ListVolumeReplicationsResult, ListVolumeReplicationsOutputArgs } from "./listVolumeReplications";
-export const listVolumeReplications: typeof import("./listVolumeReplications").listVolumeReplications = null as any;
-export const listVolumeReplicationsOutput: typeof import("./listVolumeReplications").listVolumeReplicationsOutput = null as any;
-utilities.lazyLoad(exports, ["listVolumeReplications","listVolumeReplicationsOutput"], () => require("./listVolumeReplications"));
-
 
 // Export enums:
 export * from "../../types/enums/netapp/v20220501";

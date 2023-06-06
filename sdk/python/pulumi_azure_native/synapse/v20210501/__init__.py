@@ -8,12 +8,8 @@ import typing
 from ._enums import *
 from .big_data_pool import *
 from .get_big_data_pool import *
-from .get_integration_runtime_connection_info import *
-from .get_integration_runtime_object_metadatum import *
-from .get_integration_runtime_status import *
 from .get_sql_pool import *
 from .get_workspace import *
-from .list_integration_runtime_auth_key import *
 from .sql_pool import *
 from .workspace import *
 from ._inputs import *

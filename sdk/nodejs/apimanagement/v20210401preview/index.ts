@@ -9,11 +9,6 @@ export { GetApiManagementServiceDomainOwnershipIdentifierArgs, GetApiManagementS
 export const getApiManagementServiceDomainOwnershipIdentifier: typeof import("./getApiManagementServiceDomainOwnershipIdentifier").getApiManagementServiceDomainOwnershipIdentifier = null as any;
 utilities.lazyLoad(exports, ["getApiManagementServiceDomainOwnershipIdentifier"], () => require("./getApiManagementServiceDomainOwnershipIdentifier"));
 
-export { GetApiManagementServiceSsoTokenArgs, GetApiManagementServiceSsoTokenResult, GetApiManagementServiceSsoTokenOutputArgs } from "./getApiManagementServiceSsoToken";
-export const getApiManagementServiceSsoToken: typeof import("./getApiManagementServiceSsoToken").getApiManagementServiceSsoToken = null as any;
-export const getApiManagementServiceSsoTokenOutput: typeof import("./getApiManagementServiceSsoToken").getApiManagementServiceSsoTokenOutput = null as any;
-utilities.lazyLoad(exports, ["getApiManagementServiceSsoToken","getApiManagementServiceSsoTokenOutput"], () => require("./getApiManagementServiceSsoToken"));
-
 export { GetPrivateEndpointConnectionByNameArgs, GetPrivateEndpointConnectionByNameResult, GetPrivateEndpointConnectionByNameOutputArgs } from "./getPrivateEndpointConnectionByName";
 export const getPrivateEndpointConnectionByName: typeof import("./getPrivateEndpointConnectionByName").getPrivateEndpointConnectionByName = null as any;
 export const getPrivateEndpointConnectionByNameOutput: typeof import("./getPrivateEndpointConnectionByName").getPrivateEndpointConnectionByNameOutput = null as any;
@@ -23,51 +18,6 @@ export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema
 export const getSchema: typeof import("./getSchema").getSchema = null as any;
 export const getSchemaOutput: typeof import("./getSchema").getSchemaOutput = null as any;
 utilities.lazyLoad(exports, ["getSchema","getSchemaOutput"], () => require("./getSchema"));
-
-export { GetUserSharedAccessTokenArgs, GetUserSharedAccessTokenResult, GetUserSharedAccessTokenOutputArgs } from "./getUserSharedAccessToken";
-export const getUserSharedAccessToken: typeof import("./getUserSharedAccessToken").getUserSharedAccessToken = null as any;
-export const getUserSharedAccessTokenOutput: typeof import("./getUserSharedAccessToken").getUserSharedAccessTokenOutput = null as any;
-utilities.lazyLoad(exports, ["getUserSharedAccessToken","getUserSharedAccessTokenOutput"], () => require("./getUserSharedAccessToken"));
-
-export { ListAuthorizationServerSecretsArgs, ListAuthorizationServerSecretsResult, ListAuthorizationServerSecretsOutputArgs } from "./listAuthorizationServerSecrets";
-export const listAuthorizationServerSecrets: typeof import("./listAuthorizationServerSecrets").listAuthorizationServerSecrets = null as any;
-export const listAuthorizationServerSecretsOutput: typeof import("./listAuthorizationServerSecrets").listAuthorizationServerSecretsOutput = null as any;
-utilities.lazyLoad(exports, ["listAuthorizationServerSecrets","listAuthorizationServerSecretsOutput"], () => require("./listAuthorizationServerSecrets"));
-
-export { ListDelegationSettingSecretsArgs, ListDelegationSettingSecretsResult, ListDelegationSettingSecretsOutputArgs } from "./listDelegationSettingSecrets";
-export const listDelegationSettingSecrets: typeof import("./listDelegationSettingSecrets").listDelegationSettingSecrets = null as any;
-export const listDelegationSettingSecretsOutput: typeof import("./listDelegationSettingSecrets").listDelegationSettingSecretsOutput = null as any;
-utilities.lazyLoad(exports, ["listDelegationSettingSecrets","listDelegationSettingSecretsOutput"], () => require("./listDelegationSettingSecrets"));
-
-export { ListGatewayKeysArgs, ListGatewayKeysResult, ListGatewayKeysOutputArgs } from "./listGatewayKeys";
-export const listGatewayKeys: typeof import("./listGatewayKeys").listGatewayKeys = null as any;
-export const listGatewayKeysOutput: typeof import("./listGatewayKeys").listGatewayKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listGatewayKeys","listGatewayKeysOutput"], () => require("./listGatewayKeys"));
-
-export { ListIdentityProviderSecretsArgs, ListIdentityProviderSecretsResult, ListIdentityProviderSecretsOutputArgs } from "./listIdentityProviderSecrets";
-export const listIdentityProviderSecrets: typeof import("./listIdentityProviderSecrets").listIdentityProviderSecrets = null as any;
-export const listIdentityProviderSecretsOutput: typeof import("./listIdentityProviderSecrets").listIdentityProviderSecretsOutput = null as any;
-utilities.lazyLoad(exports, ["listIdentityProviderSecrets","listIdentityProviderSecretsOutput"], () => require("./listIdentityProviderSecrets"));
-
-export { ListNamedValueArgs, ListNamedValueResult, ListNamedValueOutputArgs } from "./listNamedValue";
-export const listNamedValue: typeof import("./listNamedValue").listNamedValue = null as any;
-export const listNamedValueOutput: typeof import("./listNamedValue").listNamedValueOutput = null as any;
-utilities.lazyLoad(exports, ["listNamedValue","listNamedValueOutput"], () => require("./listNamedValue"));
-
-export { ListOpenIdConnectProviderSecretsArgs, ListOpenIdConnectProviderSecretsResult, ListOpenIdConnectProviderSecretsOutputArgs } from "./listOpenIdConnectProviderSecrets";
-export const listOpenIdConnectProviderSecrets: typeof import("./listOpenIdConnectProviderSecrets").listOpenIdConnectProviderSecrets = null as any;
-export const listOpenIdConnectProviderSecretsOutput: typeof import("./listOpenIdConnectProviderSecrets").listOpenIdConnectProviderSecretsOutput = null as any;
-utilities.lazyLoad(exports, ["listOpenIdConnectProviderSecrets","listOpenIdConnectProviderSecretsOutput"], () => require("./listOpenIdConnectProviderSecrets"));
-
-export { ListSubscriptionSecretsArgs, ListSubscriptionSecretsResult, ListSubscriptionSecretsOutputArgs } from "./listSubscriptionSecrets";
-export const listSubscriptionSecrets: typeof import("./listSubscriptionSecrets").listSubscriptionSecrets = null as any;
-export const listSubscriptionSecretsOutput: typeof import("./listSubscriptionSecrets").listSubscriptionSecretsOutput = null as any;
-utilities.lazyLoad(exports, ["listSubscriptionSecrets","listSubscriptionSecretsOutput"], () => require("./listSubscriptionSecrets"));
-
-export { ListTenantAccessSecretsArgs, ListTenantAccessSecretsResult, ListTenantAccessSecretsOutputArgs } from "./listTenantAccessSecrets";
-export const listTenantAccessSecrets: typeof import("./listTenantAccessSecrets").listTenantAccessSecrets = null as any;
-export const listTenantAccessSecretsOutput: typeof import("./listTenantAccessSecrets").listTenantAccessSecretsOutput = null as any;
-utilities.lazyLoad(exports, ["listTenantAccessSecrets","listTenantAccessSecretsOutput"], () => require("./listTenantAccessSecrets"));
 
 export { PrivateEndpointConnectionByNameArgs } from "./privateEndpointConnectionByName";
 export type PrivateEndpointConnectionByName = import("./privateEndpointConnectionByName").PrivateEndpointConnectionByName;

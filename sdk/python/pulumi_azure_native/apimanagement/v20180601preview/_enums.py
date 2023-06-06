@@ -8,7 +8,6 @@ __all__ = [
     'ApiType',
     'BearerTokenSendingMethods',
     'ContentFormat',
-    'KeyType',
     'PolicyContentFormat',
     'Protocol',
     'SoapApiType',
@@ -77,14 +76,6 @@ class ContentFormat(str, Enum):
     """
     The Open Api 3.0 document is hosted on a publicly accessible internet address.
     """
-
-
-class KeyType(str, Enum):
-    """
-    The Key to be used to generate token for user.
-    """
-    PRIMARY = "primary"
-    SECONDARY = "secondary"
 
 
 class PolicyContentFormat(str, Enum):

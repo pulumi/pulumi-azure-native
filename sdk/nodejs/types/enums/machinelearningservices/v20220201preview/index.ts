@@ -163,16 +163,6 @@ export const ClassificationPrimaryMetrics = {
  */
 export type ClassificationPrimaryMetrics = (typeof ClassificationPrimaryMetrics)[keyof typeof ClassificationPrimaryMetrics];
 
-export const ContainerType = {
-    StorageInitializer: "StorageInitializer",
-    InferenceServer: "InferenceServer",
-} as const;
-
-/**
- * The type of container to retrieve logs from.
- */
-export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
-
 export const CredentialsType = {
     AccountKey: "AccountKey",
     Certificate: "Certificate",

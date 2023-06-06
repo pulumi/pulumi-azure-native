@@ -5,20 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'ApplicationGatewayProtocol',
     'CommissionedState',
     'ExtendedLocationTypes',
     'VpnNatRuleMode',
     'VpnNatRuleType',
 ]
-
-
-class ApplicationGatewayProtocol(str, Enum):
-    """
-    The protocol used for the probe.
-    """
-    HTTP = "Http"
-    HTTPS = "Https"
 
 
 class CommissionedState(str, Enum):

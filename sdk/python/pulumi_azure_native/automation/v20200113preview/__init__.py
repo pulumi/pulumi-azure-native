@@ -7,7 +7,6 @@ import typing
 # Export this package's modules as members:
 from .get_private_endpoint_connection import *
 from .get_watcher import *
-from .list_key_by_automation_account import *
 from .private_endpoint_connection import *
 from .watcher import *
 from ._inputs import *

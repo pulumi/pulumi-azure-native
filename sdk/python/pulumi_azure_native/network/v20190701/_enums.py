@@ -5,7 +5,6 @@
 from enum import Enum
 
 __all__ = [
-    'ApplicationGatewayProtocol',
     'DhGroup',
     'IkeEncryption',
     'IkeIntegrity',
@@ -21,14 +20,6 @@ __all__ = [
     'WebApplicationFirewallRuleType',
     'WebApplicationFirewallTransform',
 ]
-
-
-class ApplicationGatewayProtocol(str, Enum):
-    """
-    The protocol used for the probe.
-    """
-    HTTP = "Http"
-    HTTPS = "Https"
 
 
 class DhGroup(str, Enum):

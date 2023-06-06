@@ -84,7 +84,6 @@ __all__ = [
     'NetworkInterfaceTapConfigurationResponse',
     'NetworkSecurityGroupResponse',
     'OutboundRuleResponse',
-    'P2SConnectionConfigurationResponse',
     'PeerExpressRouteCircuitConnectionResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -120,7 +119,6 @@ __all__ = [
     'VirtualNetworkTapResponse',
     'VpnClientConfigurationResponse',
     'VpnClientConnectionHealthDetailResponse',
-    'VpnClientConnectionHealthResponse',
     'VpnClientRevokedCertificateResponse',
     'VpnClientRootCertificateResponse',
 ]
@@ -8234,75 +8232,6 @@ class OutboundRuleResponse(dict):
 
 
 @pulumi.output_type
-class P2SConnectionConfigurationResponse(dict):
-    """
-    P2SConnectionConfiguration Resource.
-    """
-    def __init__(__self__, *,
-                 etag: str,
-                 provisioning_state: str,
-                 id: Optional[str] = None,
-                 name: Optional[str] = None,
-                 vpn_client_address_pool: Optional['outputs.AddressSpaceResponse'] = None):
-        """
-        P2SConnectionConfiguration Resource.
-        :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param str provisioning_state: The provisioning state of the P2SConnectionConfiguration resource.
-        :param str id: Resource ID.
-        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'AddressSpaceResponse' vpn_client_address_pool: The reference of the address space resource which represents Address space for P2S VpnClient.
-        """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if vpn_client_address_pool is not None:
-            pulumi.set(__self__, "vpn_client_address_pool", vpn_client_address_pool)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> str:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the P2SConnectionConfiguration resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="vpnClientAddressPool")
-    def vpn_client_address_pool(self) -> Optional['outputs.AddressSpaceResponse']:
-        """
-        The reference of the address space resource which represents Address space for P2S VpnClient.
-        """
-        return pulumi.get(self, "vpn_client_address_pool")
-
-
-@pulumi.output_type
 class PeerExpressRouteCircuitConnectionResponse(dict):
     """
     Peer Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
@@ -12571,63 +12500,6 @@ class VpnClientConnectionHealthDetailResponse(dict):
         The user name of a connected vpn client.
         """
         return pulumi.get(self, "vpn_user_name")
-
-
-@pulumi.output_type
-class VpnClientConnectionHealthResponse(dict):
-    """
-    VpnClientConnectionHealth properties.
-    """
-    def __init__(__self__, *,
-                 total_egress_bytes_transferred: float,
-                 total_ingress_bytes_transferred: float,
-                 allocated_ip_addresses: Optional[Sequence[str]] = None,
-                 vpn_client_connections_count: Optional[int] = None):
-        """
-        VpnClientConnectionHealth properties.
-        :param float total_egress_bytes_transferred: Total of the Egress Bytes Transferred in this connection.
-        :param float total_ingress_bytes_transferred: Total of the Ingress Bytes Transferred in this P2S Vpn connection.
-        :param Sequence[str] allocated_ip_addresses: List of allocated ip addresses to the connected p2s vpn clients.
-        :param int vpn_client_connections_count: The total of p2s vpn clients connected at this time to this P2SVpnGateway.
-        """
-        pulumi.set(__self__, "total_egress_bytes_transferred", total_egress_bytes_transferred)
-        pulumi.set(__self__, "total_ingress_bytes_transferred", total_ingress_bytes_transferred)
-        if allocated_ip_addresses is not None:
-            pulumi.set(__self__, "allocated_ip_addresses", allocated_ip_addresses)
-        if vpn_client_connections_count is not None:
-            pulumi.set(__self__, "vpn_client_connections_count", vpn_client_connections_count)
-
-    @property
-    @pulumi.getter(name="totalEgressBytesTransferred")
-    def total_egress_bytes_transferred(self) -> float:
-        """
-        Total of the Egress Bytes Transferred in this connection.
-        """
-        return pulumi.get(self, "total_egress_bytes_transferred")
-
-    @property
-    @pulumi.getter(name="totalIngressBytesTransferred")
-    def total_ingress_bytes_transferred(self) -> float:
-        """
-        Total of the Ingress Bytes Transferred in this P2S Vpn connection.
-        """
-        return pulumi.get(self, "total_ingress_bytes_transferred")
-
-    @property
-    @pulumi.getter(name="allocatedIpAddresses")
-    def allocated_ip_addresses(self) -> Optional[Sequence[str]]:
-        """
-        List of allocated ip addresses to the connected p2s vpn clients.
-        """
-        return pulumi.get(self, "allocated_ip_addresses")
-
-    @property
-    @pulumi.getter(name="vpnClientConnectionsCount")
-    def vpn_client_connections_count(self) -> Optional[int]:
-        """
-        The total of p2s vpn clients connected at this time to this P2SVpnGateway.
-        """
-        return pulumi.get(self, "vpn_client_connections_count")
 
 
 @pulumi.output_type

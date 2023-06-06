@@ -30,21 +30,6 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
-export { ListDisasterRecoveryConfigKeysArgs, ListDisasterRecoveryConfigKeysResult, ListDisasterRecoveryConfigKeysOutputArgs } from "./listDisasterRecoveryConfigKeys";
-export const listDisasterRecoveryConfigKeys: typeof import("./listDisasterRecoveryConfigKeys").listDisasterRecoveryConfigKeys = null as any;
-export const listDisasterRecoveryConfigKeysOutput: typeof import("./listDisasterRecoveryConfigKeys").listDisasterRecoveryConfigKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listDisasterRecoveryConfigKeys","listDisasterRecoveryConfigKeysOutput"], () => require("./listDisasterRecoveryConfigKeys"));
-
-export { ListEventHubKeysArgs, ListEventHubKeysResult, ListEventHubKeysOutputArgs } from "./listEventHubKeys";
-export const listEventHubKeys: typeof import("./listEventHubKeys").listEventHubKeys = null as any;
-export const listEventHubKeysOutput: typeof import("./listEventHubKeys").listEventHubKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listEventHubKeys","listEventHubKeysOutput"], () => require("./listEventHubKeys"));
-
-export { ListNamespaceKeysArgs, ListNamespaceKeysResult, ListNamespaceKeysOutputArgs } from "./listNamespaceKeys";
-export const listNamespaceKeys: typeof import("./listNamespaceKeys").listNamespaceKeys = null as any;
-export const listNamespaceKeysOutput: typeof import("./listNamespaceKeys").listNamespaceKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listNamespaceKeys","listNamespaceKeysOutput"], () => require("./listNamespaceKeys"));
-
 export { NamespaceIpFilterRuleArgs } from "./namespaceIpFilterRule";
 export type NamespaceIpFilterRule = import("./namespaceIpFilterRule").NamespaceIpFilterRule;
 export const NamespaceIpFilterRule: typeof import("./namespaceIpFilterRule").NamespaceIpFilterRule = null as any;

@@ -7,8 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_workspace import *
-from .list_machine_learning_compute_keys import *
-from .list_machine_learning_compute_nodes import *
 from .list_workspace_keys import *
 from .workspace import *
 from ._inputs import *

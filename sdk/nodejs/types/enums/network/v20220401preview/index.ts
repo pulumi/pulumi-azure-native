@@ -34,17 +34,6 @@ export const AlwaysServe = {
  */
 export type AlwaysServe = (typeof AlwaysServe)[keyof typeof AlwaysServe];
 
-export const ConfigurationType = {
-    SecurityAdmin: "SecurityAdmin",
-    SecurityUser: "SecurityUser",
-    Connectivity: "Connectivity",
-} as const;
-
-/**
- * Configuration Deployment Type.
- */
-export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
-
 export const DeleteExistingNSGs = {
     False: "False",
     True: "True",

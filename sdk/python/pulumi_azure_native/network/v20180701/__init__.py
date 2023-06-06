@@ -10,10 +10,6 @@ from .get_network_interface import *
 from .get_service_endpoint_policy import *
 from .get_service_endpoint_policy_definition import *
 from .get_virtual_hub import *
-from .get_virtual_network_gateway_advertised_routes import *
-from .get_virtual_network_gateway_bgp_peer_status import *
-from .get_virtual_network_gateway_learned_routes import *
-from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
 from .get_virtual_wan import *
 from .get_vpn_connection import *
 from .get_vpn_gateway import *

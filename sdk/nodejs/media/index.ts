@@ -208,15 +208,11 @@ export * from "../types/enums/media";
 import * as v20151001 from "./v20151001";
 import * as v20180330preview from "./v20180330preview";
 import * as v20180601preview from "./v20180601preview";
-import * as v20180701 from "./v20180701";
 import * as v20190501preview from "./v20190501preview";
 import * as v20200201preview from "./v20200201preview";
 import * as v20200501 from "./v20200501";
-import * as v20210501 from "./v20210501";
-import * as v20210601 from "./v20210601";
 import * as v20211101 from "./v20211101";
 import * as v20220701 from "./v20220701";
-import * as v20220801 from "./v20220801";
 import * as v20221101 from "./v20221101";
 import * as v20230101 from "./v20230101";
 
@@ -224,15 +220,11 @@ export {
     v20151001,
     v20180330preview,
     v20180601preview,
-    v20180701,
     v20190501preview,
     v20200201preview,
     v20200501,
-    v20210501,
-    v20210601,
     v20211101,
     v20220701,
-    v20220801,
     v20221101,
     v20230101,
 };

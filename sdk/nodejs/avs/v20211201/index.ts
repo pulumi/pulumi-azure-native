@@ -10,16 +10,6 @@ export const getPlacementPolicy: typeof import("./getPlacementPolicy").getPlacem
 export const getPlacementPolicyOutput: typeof import("./getPlacementPolicy").getPlacementPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getPlacementPolicy","getPlacementPolicyOutput"], () => require("./getPlacementPolicy"));
 
-export { GetScriptExecutionLogsArgs, GetScriptExecutionLogsResult, GetScriptExecutionLogsOutputArgs } from "./getScriptExecutionLogs";
-export const getScriptExecutionLogs: typeof import("./getScriptExecutionLogs").getScriptExecutionLogs = null as any;
-export const getScriptExecutionLogsOutput: typeof import("./getScriptExecutionLogs").getScriptExecutionLogsOutput = null as any;
-utilities.lazyLoad(exports, ["getScriptExecutionLogs","getScriptExecutionLogsOutput"], () => require("./getScriptExecutionLogs"));
-
-export { ListPrivateCloudAdminCredentialsArgs, ListPrivateCloudAdminCredentialsResult, ListPrivateCloudAdminCredentialsOutputArgs } from "./listPrivateCloudAdminCredentials";
-export const listPrivateCloudAdminCredentials: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentials = null as any;
-export const listPrivateCloudAdminCredentialsOutput: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["listPrivateCloudAdminCredentials","listPrivateCloudAdminCredentialsOutput"], () => require("./listPrivateCloudAdminCredentials"));
-
 export { PlacementPolicyArgs } from "./placementPolicy";
 export type PlacementPolicy = import("./placementPolicy").PlacementPolicy;
 export const PlacementPolicy: typeof import("./placementPolicy").PlacementPolicy = null as any;

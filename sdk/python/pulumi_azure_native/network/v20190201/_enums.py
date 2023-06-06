@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'Access',
-    'ApplicationGatewayProtocol',
     'DdosSettingsProtectionCoverage',
     'ExpressRouteCircuitPeeringAdvertisedPublicPrefixState',
     'ExpressRouteCircuitPeeringState',
@@ -30,14 +29,6 @@ class Access(str, Enum):
     """
     ALLOW = "Allow"
     DENY = "Deny"
-
-
-class ApplicationGatewayProtocol(str, Enum):
-    """
-    The protocol used for the probe.
-    """
-    HTTP = "Http"
-    HTTPS = "Https"
 
 
 class DdosSettingsProtectionCoverage(str, Enum):

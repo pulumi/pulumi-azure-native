@@ -274,37 +274,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
     }
 
     /// <summary>
-    /// The type of container to retrieve logs from.
-    /// </summary>
-    [EnumType]
-    public readonly struct ContainerType : IEquatable<ContainerType>
-    {
-        private readonly string _value;
-
-        private ContainerType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ContainerType StorageInitializer { get; } = new ContainerType("StorageInitializer");
-        public static ContainerType InferenceServer { get; } = new ContainerType("InferenceServer");
-
-        public static bool operator ==(ContainerType left, ContainerType right) => left.Equals(right);
-        public static bool operator !=(ContainerType left, ContainerType right) => !left.Equals(right);
-
-        public static explicit operator string(ContainerType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ContainerType other && Equals(other);
-        public bool Equals(ContainerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// [Required] Credential type used to authentication with storage.
     /// </summary>
     [EnumType]

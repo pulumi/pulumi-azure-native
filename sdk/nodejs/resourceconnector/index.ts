@@ -31,12 +31,10 @@ export * from "../types/enums/resourceconnector";
 
 // Export sub-modules:
 import * as v20211031preview from "./v20211031preview";
-import * as v20220415preview from "./v20220415preview";
 import * as v20221027 from "./v20221027";
 
 export {
     v20211031preview,
-    v20220415preview,
     v20221027,
 };
 

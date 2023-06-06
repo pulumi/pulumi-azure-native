@@ -16,7 +16,6 @@ from .get_workload_network_port_mirroring import *
 from .get_workload_network_segment import *
 from .get_workload_network_vm_group import *
 from .global_reach_connection import *
-from .list_private_cloud_admin_credentials import *
 from .workload_network_dhcp import *
 from .workload_network_dns_service import *
 from .workload_network_dns_zone import *

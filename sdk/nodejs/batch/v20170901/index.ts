@@ -25,11 +25,6 @@ export const getApplicationPackage: typeof import("./getApplicationPackage").get
 export const getApplicationPackageOutput: typeof import("./getApplicationPackage").getApplicationPackageOutput = null as any;
 utilities.lazyLoad(exports, ["getApplicationPackage","getApplicationPackageOutput"], () => require("./getApplicationPackage"));
 
-export { ListBatchAccountKeysArgs, ListBatchAccountKeysResult, ListBatchAccountKeysOutputArgs } from "./listBatchAccountKeys";
-export const listBatchAccountKeys: typeof import("./listBatchAccountKeys").listBatchAccountKeys = null as any;
-export const listBatchAccountKeysOutput: typeof import("./listBatchAccountKeys").listBatchAccountKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listBatchAccountKeys","listBatchAccountKeysOutput"], () => require("./listBatchAccountKeys"));
-
 
 const _module = {
     version: utilities.getVersion(),

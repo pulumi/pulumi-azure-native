@@ -10,7 +10,6 @@ __all__ = [
     'ClassificationModels',
     'ClassificationMultilabelPrimaryMetrics',
     'ClassificationPrimaryMetrics',
-    'ContainerType',
     'CredentialsType',
     'DataType',
     'DatastoreType',
@@ -218,14 +217,6 @@ class ClassificationPrimaryMetrics(str, Enum):
     """
     The arithmetic mean of precision for each class, weighted by number of true instances in each class.
     """
-
-
-class ContainerType(str, Enum):
-    """
-    The type of container to retrieve logs from.
-    """
-    STORAGE_INITIALIZER = "StorageInitializer"
-    INFERENCE_SERVER = "InferenceServer"
 
 
 class CredentialsType(str, Enum):

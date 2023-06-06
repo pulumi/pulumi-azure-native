@@ -17,9 +17,6 @@ from .get_read_only_following_database import *
 from .get_read_write_database import *
 from .get_script import *
 from .iot_hub_data_connection import *
-from .list_cluster_follower_databases import *
-from .list_cluster_language_extensions import *
-from .list_database_principals import *
 from .managed_private_endpoint import *
 from .private_endpoint_connection import *
 from .read_only_following_database import *

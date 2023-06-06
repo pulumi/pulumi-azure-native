@@ -5,17 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'ApplicationGatewayProtocol',
     'State',
 ]
-
-
-class ApplicationGatewayProtocol(str, Enum):
-    """
-    The protocol used for the probe.
-    """
-    HTTP = "Http"
-    HTTPS = "Https"
 
 
 class State(str, Enum):

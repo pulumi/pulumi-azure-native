@@ -135,20 +135,10 @@ export const getOnlineDeployment: typeof import("./getOnlineDeployment").getOnli
 export const getOnlineDeploymentOutput: typeof import("./getOnlineDeployment").getOnlineDeploymentOutput = null as any;
 utilities.lazyLoad(exports, ["getOnlineDeployment","getOnlineDeploymentOutput"], () => require("./getOnlineDeployment"));
 
-export { GetOnlineDeploymentLogsArgs, GetOnlineDeploymentLogsResult, GetOnlineDeploymentLogsOutputArgs } from "./getOnlineDeploymentLogs";
-export const getOnlineDeploymentLogs: typeof import("./getOnlineDeploymentLogs").getOnlineDeploymentLogs = null as any;
-export const getOnlineDeploymentLogsOutput: typeof import("./getOnlineDeploymentLogs").getOnlineDeploymentLogsOutput = null as any;
-utilities.lazyLoad(exports, ["getOnlineDeploymentLogs","getOnlineDeploymentLogsOutput"], () => require("./getOnlineDeploymentLogs"));
-
 export { GetOnlineEndpointArgs, GetOnlineEndpointResult, GetOnlineEndpointOutputArgs } from "./getOnlineEndpoint";
 export const getOnlineEndpoint: typeof import("./getOnlineEndpoint").getOnlineEndpoint = null as any;
 export const getOnlineEndpointOutput: typeof import("./getOnlineEndpoint").getOnlineEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getOnlineEndpoint","getOnlineEndpointOutput"], () => require("./getOnlineEndpoint"));
-
-export { GetOnlineEndpointTokenArgs, GetOnlineEndpointTokenResult, GetOnlineEndpointTokenOutputArgs } from "./getOnlineEndpointToken";
-export const getOnlineEndpointToken: typeof import("./getOnlineEndpointToken").getOnlineEndpointToken = null as any;
-export const getOnlineEndpointTokenOutput: typeof import("./getOnlineEndpointToken").getOnlineEndpointTokenOutput = null as any;
-utilities.lazyLoad(exports, ["getOnlineEndpointToken","getOnlineEndpointTokenOutput"], () => require("./getOnlineEndpointToken"));
 
 export { GetWorkspaceConnectionArgs, GetWorkspaceConnectionResult, GetWorkspaceConnectionOutputArgs } from "./getWorkspaceConnection";
 export const getWorkspaceConnection: typeof import("./getWorkspaceConnection").getWorkspaceConnection = null as any;
@@ -159,51 +149,6 @@ export { JobArgs } from "./job";
 export type Job = import("./job").Job;
 export const Job: typeof import("./job").Job = null as any;
 utilities.lazyLoad(exports, ["Job"], () => require("./job"));
-
-export { ListBatchEndpointKeysArgs, ListBatchEndpointKeysResult, ListBatchEndpointKeysOutputArgs } from "./listBatchEndpointKeys";
-export const listBatchEndpointKeys: typeof import("./listBatchEndpointKeys").listBatchEndpointKeys = null as any;
-export const listBatchEndpointKeysOutput: typeof import("./listBatchEndpointKeys").listBatchEndpointKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listBatchEndpointKeys","listBatchEndpointKeysOutput"], () => require("./listBatchEndpointKeys"));
-
-export { ListComputeKeysArgs, ListComputeKeysResult, ListComputeKeysOutputArgs } from "./listComputeKeys";
-export const listComputeKeys: typeof import("./listComputeKeys").listComputeKeys = null as any;
-export const listComputeKeysOutput: typeof import("./listComputeKeys").listComputeKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listComputeKeys","listComputeKeysOutput"], () => require("./listComputeKeys"));
-
-export { ListComputeNodesArgs, ListComputeNodesResult, ListComputeNodesOutputArgs } from "./listComputeNodes";
-export const listComputeNodes: typeof import("./listComputeNodes").listComputeNodes = null as any;
-export const listComputeNodesOutput: typeof import("./listComputeNodes").listComputeNodesOutput = null as any;
-utilities.lazyLoad(exports, ["listComputeNodes","listComputeNodesOutput"], () => require("./listComputeNodes"));
-
-export { ListDatastoreSecretsArgs, ListDatastoreSecretsResult, ListDatastoreSecretsOutputArgs } from "./listDatastoreSecrets";
-export const listDatastoreSecrets: typeof import("./listDatastoreSecrets").listDatastoreSecrets = null as any;
-export const listDatastoreSecretsOutput: typeof import("./listDatastoreSecrets").listDatastoreSecretsOutput = null as any;
-utilities.lazyLoad(exports, ["listDatastoreSecrets","listDatastoreSecretsOutput"], () => require("./listDatastoreSecrets"));
-
-export { ListOnlineEndpointKeysArgs, ListOnlineEndpointKeysResult, ListOnlineEndpointKeysOutputArgs } from "./listOnlineEndpointKeys";
-export const listOnlineEndpointKeys: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeys = null as any;
-export const listOnlineEndpointKeysOutput: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listOnlineEndpointKeys","listOnlineEndpointKeysOutput"], () => require("./listOnlineEndpointKeys"));
-
-export { ListWorkspaceKeysArgs, ListWorkspaceKeysResult, ListWorkspaceKeysOutputArgs } from "./listWorkspaceKeys";
-export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspaceKeys = null as any;
-export const listWorkspaceKeysOutput: typeof import("./listWorkspaceKeys").listWorkspaceKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listWorkspaceKeys","listWorkspaceKeysOutput"], () => require("./listWorkspaceKeys"));
-
-export { ListWorkspaceNotebookAccessTokenArgs, ListWorkspaceNotebookAccessTokenResult, ListWorkspaceNotebookAccessTokenOutputArgs } from "./listWorkspaceNotebookAccessToken";
-export const listWorkspaceNotebookAccessToken: typeof import("./listWorkspaceNotebookAccessToken").listWorkspaceNotebookAccessToken = null as any;
-export const listWorkspaceNotebookAccessTokenOutput: typeof import("./listWorkspaceNotebookAccessToken").listWorkspaceNotebookAccessTokenOutput = null as any;
-utilities.lazyLoad(exports, ["listWorkspaceNotebookAccessToken","listWorkspaceNotebookAccessTokenOutput"], () => require("./listWorkspaceNotebookAccessToken"));
-
-export { ListWorkspaceNotebookKeysArgs, ListWorkspaceNotebookKeysResult, ListWorkspaceNotebookKeysOutputArgs } from "./listWorkspaceNotebookKeys";
-export const listWorkspaceNotebookKeys: typeof import("./listWorkspaceNotebookKeys").listWorkspaceNotebookKeys = null as any;
-export const listWorkspaceNotebookKeysOutput: typeof import("./listWorkspaceNotebookKeys").listWorkspaceNotebookKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listWorkspaceNotebookKeys","listWorkspaceNotebookKeysOutput"], () => require("./listWorkspaceNotebookKeys"));
-
-export { ListWorkspaceStorageAccountKeysArgs, ListWorkspaceStorageAccountKeysResult, ListWorkspaceStorageAccountKeysOutputArgs } from "./listWorkspaceStorageAccountKeys";
-export const listWorkspaceStorageAccountKeys: typeof import("./listWorkspaceStorageAccountKeys").listWorkspaceStorageAccountKeys = null as any;
-export const listWorkspaceStorageAccountKeysOutput: typeof import("./listWorkspaceStorageAccountKeys").listWorkspaceStorageAccountKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listWorkspaceStorageAccountKeys","listWorkspaceStorageAccountKeysOutput"], () => require("./listWorkspaceStorageAccountKeys"));
 
 export { ModelContainerArgs } from "./modelContainer";
 export type ModelContainer = import("./modelContainer").ModelContainer;

@@ -41,7 +41,6 @@ __all__ = [
     'IntegrationAccountMapPropertiesParametersSchemaArgs',
     'KeyVaultKeyReferenceKeyVaultArgs',
     'KeyVaultKeyReferenceArgs',
-    'KeyVaultReference',
     'PartnerContentArgs',
     'RosettaNetPipAcknowledgmentOfReceiptSettingsArgs',
     'RosettaNetPipActivityBehaviorArgs',
@@ -3437,30 +3436,6 @@ class KeyVaultKeyReferenceArgs:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
-
-
-@pulumi.input_type
-class KeyVaultReference:
-    def __init__(__self__, *,
-                 name: Optional[str] = None):
-        """
-        The key vault reference.
-        :param str name: The key vault name.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The key vault name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[str]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

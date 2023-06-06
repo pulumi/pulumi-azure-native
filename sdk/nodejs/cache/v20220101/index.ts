@@ -15,11 +15,6 @@ export const getEnterprisePrivateEndpointConnection: typeof import("./getEnterpr
 export const getEnterprisePrivateEndpointConnectionOutput: typeof import("./getEnterprisePrivateEndpointConnection").getEnterprisePrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getEnterprisePrivateEndpointConnection","getEnterprisePrivateEndpointConnectionOutput"], () => require("./getEnterprisePrivateEndpointConnection"));
 
-export { ListDatabaseKeysArgs, ListDatabaseKeysResult, ListDatabaseKeysOutputArgs } from "./listDatabaseKeys";
-export const listDatabaseKeys: typeof import("./listDatabaseKeys").listDatabaseKeys = null as any;
-export const listDatabaseKeysOutput: typeof import("./listDatabaseKeys").listDatabaseKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listDatabaseKeys","listDatabaseKeysOutput"], () => require("./listDatabaseKeys"));
-
 
 // Export enums:
 export * from "../../types/enums/cache/v20220101";

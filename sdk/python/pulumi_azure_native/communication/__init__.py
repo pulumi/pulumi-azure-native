@@ -21,8 +21,6 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.communication.v20200820 as __v20200820
     v20200820 = __v20200820
-    import pulumi_azure_native.communication.v20200820preview as __v20200820preview
-    v20200820preview = __v20200820preview
     import pulumi_azure_native.communication.v20211001preview as __v20211001preview
     v20211001preview = __v20211001preview
     import pulumi_azure_native.communication.v20220701preview as __v20220701preview
@@ -33,7 +31,6 @@ if typing.TYPE_CHECKING:
     v20230331 = __v20230331
 else:
     v20200820 = _utilities.lazy_import('pulumi_azure_native.communication.v20200820')
-    v20200820preview = _utilities.lazy_import('pulumi_azure_native.communication.v20200820preview')
     v20211001preview = _utilities.lazy_import('pulumi_azure_native.communication.v20211001preview')
     v20220701preview = _utilities.lazy_import('pulumi_azure_native.communication.v20220701preview')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.communication.v20230301preview')

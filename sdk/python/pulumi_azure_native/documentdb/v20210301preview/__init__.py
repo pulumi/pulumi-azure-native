@@ -12,9 +12,6 @@ from .get_cassandra_cluster import *
 from .get_cassandra_data_center import *
 from .get_sql_resource_sql_role_assignment import *
 from .get_sql_resource_sql_role_definition import *
-from .list_database_account_connection_strings import *
-from .list_database_account_keys import *
-from .list_notebook_workspace_connection_info import *
 from .sql_resource_sql_role_assignment import *
 from .sql_resource_sql_role_definition import *
 from ._inputs import *

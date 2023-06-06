@@ -15,11 +15,6 @@ export const getSignalRCustomDomain: typeof import("./getSignalRCustomDomain").g
 export const getSignalRCustomDomainOutput: typeof import("./getSignalRCustomDomain").getSignalRCustomDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getSignalRCustomDomain","getSignalRCustomDomainOutput"], () => require("./getSignalRCustomDomain"));
 
-export { ListSignalRKeysArgs, ListSignalRKeysResult, ListSignalRKeysOutputArgs } from "./listSignalRKeys";
-export const listSignalRKeys: typeof import("./listSignalRKeys").listSignalRKeys = null as any;
-export const listSignalRKeysOutput: typeof import("./listSignalRKeys").listSignalRKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listSignalRKeys","listSignalRKeysOutput"], () => require("./listSignalRKeys"));
-
 export { SignalRCustomCertificateArgs } from "./signalRCustomCertificate";
 export type SignalRCustomCertificate = import("./signalRCustomCertificate").SignalRCustomCertificate;
 export const SignalRCustomCertificate: typeof import("./signalRCustomCertificate").SignalRCustomCertificate = null as any;

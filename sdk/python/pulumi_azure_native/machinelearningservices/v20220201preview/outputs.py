@@ -13,7 +13,6 @@ from ._enums import *
 
 __all__ = [
     'AccountKeyDatastoreCredentialsResponse',
-    'AmlComputeNodeInformationResponse',
     'AmlTokenResponse',
     'AutoForecastHorizonResponse',
     'AutoMLJobResponse',
@@ -81,7 +80,6 @@ __all__ = [
     'KerberosKeytabCredentialsResponse',
     'KerberosPasswordCredentialsResponse',
     'KubernetesOnlineDeploymentResponse',
-    'ListNotebookKeysResultResponse',
     'LiteralJobInputResponse',
     'MLFlowModelJobInputResponse',
     'MLFlowModelJobOutputResponse',
@@ -104,14 +102,12 @@ __all__ = [
     'OnlineEndpointResponse',
     'OnlineRequestSettingsResponse',
     'OutputPathAssetReferenceResponse',
-    'PasswordResponse',
     'PipelineJobResponse',
     'ProbeSettingsResponse',
     'PyTorchResponse',
     'RandomSamplingAlgorithmResponse',
     'RecurrencePatternResponse',
     'RecurrenceScheduleResponse',
-    'RegistryListCredentialsResultResponse',
     'RegressionResponse',
     'ResourceConfigurationResponse',
     'RouteResponse',
@@ -187,83 +183,6 @@ class AccountKeyDatastoreCredentialsResponse(dict):
         Expected value is 'AccountKey'.
         """
         return pulumi.get(self, "credentials_type")
-
-
-@pulumi.output_type
-class AmlComputeNodeInformationResponse(dict):
-    """
-    Compute node information related to a AmlCompute.
-    """
-    def __init__(__self__, *,
-                 node_id: str,
-                 node_state: str,
-                 port: float,
-                 private_ip_address: str,
-                 public_ip_address: str,
-                 run_id: str):
-        """
-        Compute node information related to a AmlCompute.
-        :param str node_id: ID of the compute node.
-        :param str node_state: State of the compute node. Values are idle, running, preparing, unusable, leaving and preempted.
-        :param float port: SSH port number of the node.
-        :param str private_ip_address: Private IP address of the compute node.
-        :param str public_ip_address: Public IP address of the compute node.
-        :param str run_id: ID of the Experiment running on the node, if any else null.
-        """
-        pulumi.set(__self__, "node_id", node_id)
-        pulumi.set(__self__, "node_state", node_state)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
-        pulumi.set(__self__, "public_ip_address", public_ip_address)
-        pulumi.set(__self__, "run_id", run_id)
-
-    @property
-    @pulumi.getter(name="nodeId")
-    def node_id(self) -> str:
-        """
-        ID of the compute node.
-        """
-        return pulumi.get(self, "node_id")
-
-    @property
-    @pulumi.getter(name="nodeState")
-    def node_state(self) -> str:
-        """
-        State of the compute node. Values are idle, running, preparing, unusable, leaving and preempted.
-        """
-        return pulumi.get(self, "node_state")
-
-    @property
-    @pulumi.getter
-    def port(self) -> float:
-        """
-        SSH port number of the node.
-        """
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> str:
-        """
-        Private IP address of the compute node.
-        """
-        return pulumi.get(self, "private_ip_address")
-
-    @property
-    @pulumi.getter(name="publicIpAddress")
-    def public_ip_address(self) -> str:
-        """
-        Public IP address of the compute node.
-        """
-        return pulumi.get(self, "public_ip_address")
-
-    @property
-    @pulumi.getter(name="runId")
-    def run_id(self) -> str:
-        """
-        ID of the Experiment running on the node, if any else null.
-        """
-        return pulumi.get(self, "run_id")
 
 
 @pulumi.output_type
@@ -8839,25 +8758,6 @@ class KubernetesOnlineDeploymentResponse(dict):
 
 
 @pulumi.output_type
-class ListNotebookKeysResultResponse(dict):
-    def __init__(__self__, *,
-                 primary_access_key: str,
-                 secondary_access_key: str):
-        pulumi.set(__self__, "primary_access_key", primary_access_key)
-        pulumi.set(__self__, "secondary_access_key", secondary_access_key)
-
-    @property
-    @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> str:
-        return pulumi.get(self, "primary_access_key")
-
-    @property
-    @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> str:
-        return pulumi.get(self, "secondary_access_key")
-
-
-@pulumi.output_type
 class LiteralJobInputResponse(dict):
     """
     Literal input type.
@@ -10802,25 +10702,6 @@ class OutputPathAssetReferenceResponse(dict):
 
 
 @pulumi.output_type
-class PasswordResponse(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 value: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class PipelineJobResponse(dict):
     """
     Pipeline Job definition: defines generic to MFE attributes.
@@ -11462,33 +11343,6 @@ class RecurrenceScheduleResponse(dict):
         TimeZone should follow Windows time zone format.
         """
         return pulumi.get(self, "time_zone")
-
-
-@pulumi.output_type
-class RegistryListCredentialsResultResponse(dict):
-    def __init__(__self__, *,
-                 location: str,
-                 username: str,
-                 passwords: Optional[Sequence['outputs.PasswordResponse']] = None):
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "username", username)
-        if passwords is not None:
-            pulumi.set(__self__, "passwords", passwords)
-
-    @property
-    @pulumi.getter
-    def location(self) -> str:
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter
-    def passwords(self) -> Optional[Sequence['outputs.PasswordResponse']]:
-        return pulumi.get(self, "passwords")
 
 
 @pulumi.output_type

@@ -20,11 +20,6 @@ export const getRedisEnterprise: typeof import("./getRedisEnterprise").getRedisE
 export const getRedisEnterpriseOutput: typeof import("./getRedisEnterprise").getRedisEnterpriseOutput = null as any;
 utilities.lazyLoad(exports, ["getRedisEnterprise","getRedisEnterpriseOutput"], () => require("./getRedisEnterprise"));
 
-export { ListDatabaseKeysArgs, ListDatabaseKeysResult, ListDatabaseKeysOutputArgs } from "./listDatabaseKeys";
-export const listDatabaseKeys: typeof import("./listDatabaseKeys").listDatabaseKeys = null as any;
-export const listDatabaseKeysOutput: typeof import("./listDatabaseKeys").listDatabaseKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listDatabaseKeys","listDatabaseKeysOutput"], () => require("./listDatabaseKeys"));
-
 export { RedisEnterpriseArgs } from "./redisEnterprise";
 export type RedisEnterprise = import("./redisEnterprise").RedisEnterprise;
 export const RedisEnterprise: typeof import("./redisEnterprise").RedisEnterprise = null as any;

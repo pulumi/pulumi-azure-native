@@ -6,8 +6,6 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_subvolume_metadata import *
 from .get_volume_quota_rule import *
-from .list_volume_replications import *
 from .volume_quota_rule import *
 from . import outputs

@@ -5,20 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetSubvolumeMetadataArgs, GetSubvolumeMetadataResult, GetSubvolumeMetadataOutputArgs } from "./getSubvolumeMetadata";
-export const getSubvolumeMetadata: typeof import("./getSubvolumeMetadata").getSubvolumeMetadata = null as any;
-export const getSubvolumeMetadataOutput: typeof import("./getSubvolumeMetadata").getSubvolumeMetadataOutput = null as any;
-utilities.lazyLoad(exports, ["getSubvolumeMetadata","getSubvolumeMetadataOutput"], () => require("./getSubvolumeMetadata"));
-
 export { GetVolumeQuotaRuleArgs, GetVolumeQuotaRuleResult, GetVolumeQuotaRuleOutputArgs } from "./getVolumeQuotaRule";
 export const getVolumeQuotaRule: typeof import("./getVolumeQuotaRule").getVolumeQuotaRule = null as any;
 export const getVolumeQuotaRuleOutput: typeof import("./getVolumeQuotaRule").getVolumeQuotaRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getVolumeQuotaRule","getVolumeQuotaRuleOutput"], () => require("./getVolumeQuotaRule"));
-
-export { ListVolumeReplicationsArgs, ListVolumeReplicationsResult, ListVolumeReplicationsOutputArgs } from "./listVolumeReplications";
-export const listVolumeReplications: typeof import("./listVolumeReplications").listVolumeReplications = null as any;
-export const listVolumeReplicationsOutput: typeof import("./listVolumeReplications").listVolumeReplicationsOutput = null as any;
-utilities.lazyLoad(exports, ["listVolumeReplications","listVolumeReplicationsOutput"], () => require("./listVolumeReplications"));
 
 export { VolumeQuotaRuleArgs } from "./volumeQuotaRule";
 export type VolumeQuotaRule = import("./volumeQuotaRule").VolumeQuotaRule;

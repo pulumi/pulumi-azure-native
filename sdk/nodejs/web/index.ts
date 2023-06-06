@@ -826,17 +826,13 @@ import * as v20160301 from "./v20160301";
 import * as v20160601 from "./v20160601";
 import * as v20160801 from "./v20160801";
 import * as v20160901 from "./v20160901";
-import * as v20180201 from "./v20180201";
 import * as v20181101 from "./v20181101";
 import * as v20190801 from "./v20190801";
-import * as v20200601 from "./v20200601";
-import * as v20200901 from "./v20200901";
 import * as v20201001 from "./v20201001";
 import * as v20201201 from "./v20201201";
 import * as v20210101 from "./v20210101";
 import * as v20210115 from "./v20210115";
 import * as v20210201 from "./v20210201";
-import * as v20210301 from "./v20210301";
 import * as v20220301 from "./v20220301";
 import * as v20220901 from "./v20220901";
 
@@ -847,17 +843,13 @@ export {
     v20160601,
     v20160801,
     v20160901,
-    v20180201,
     v20181101,
     v20190801,
-    v20200601,
-    v20200901,
     v20201001,
     v20201201,
     v20210101,
     v20210115,
     v20210201,
-    v20210301,
     v20220301,
     v20220901,
 };

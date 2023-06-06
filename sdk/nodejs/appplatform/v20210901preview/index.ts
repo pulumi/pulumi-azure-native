@@ -5,25 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetAppResourceUploadUrlArgs, GetAppResourceUploadUrlResult, GetAppResourceUploadUrlOutputArgs } from "./getAppResourceUploadUrl";
-export const getAppResourceUploadUrl: typeof import("./getAppResourceUploadUrl").getAppResourceUploadUrl = null as any;
-export const getAppResourceUploadUrlOutput: typeof import("./getAppResourceUploadUrl").getAppResourceUploadUrlOutput = null as any;
-utilities.lazyLoad(exports, ["getAppResourceUploadUrl","getAppResourceUploadUrlOutput"], () => require("./getAppResourceUploadUrl"));
-
-export { GetDeploymentLogFileUrlArgs, GetDeploymentLogFileUrlResult, GetDeploymentLogFileUrlOutputArgs } from "./getDeploymentLogFileUrl";
-export const getDeploymentLogFileUrl: typeof import("./getDeploymentLogFileUrl").getDeploymentLogFileUrl = null as any;
-export const getDeploymentLogFileUrlOutput: typeof import("./getDeploymentLogFileUrl").getDeploymentLogFileUrlOutput = null as any;
-utilities.lazyLoad(exports, ["getDeploymentLogFileUrl","getDeploymentLogFileUrlOutput"], () => require("./getDeploymentLogFileUrl"));
-
 export { GetStorageArgs, GetStorageResult, GetStorageOutputArgs } from "./getStorage";
 export const getStorage: typeof import("./getStorage").getStorage = null as any;
 export const getStorageOutput: typeof import("./getStorage").getStorageOutput = null as any;
 utilities.lazyLoad(exports, ["getStorage","getStorageOutput"], () => require("./getStorage"));
-
-export { ListServiceTestKeysArgs, ListServiceTestKeysResult, ListServiceTestKeysOutputArgs } from "./listServiceTestKeys";
-export const listServiceTestKeys: typeof import("./listServiceTestKeys").listServiceTestKeys = null as any;
-export const listServiceTestKeysOutput: typeof import("./listServiceTestKeys").listServiceTestKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listServiceTestKeys","listServiceTestKeysOutput"], () => require("./listServiceTestKeys"));
 
 export { StorageArgs } from "./storage";
 export type Storage = import("./storage").Storage;

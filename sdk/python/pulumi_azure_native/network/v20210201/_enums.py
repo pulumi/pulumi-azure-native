@@ -5,7 +5,6 @@
 from enum import Enum
 
 __all__ = [
-    'ApplicationGatewayProtocol',
     'DdosSettingsProtectionCoverage',
     'DeleteOptions',
     'ExtendedLocationTypes',
@@ -22,14 +21,6 @@ __all__ = [
     'VirtualNetworkPrivateEndpointNetworkPolicies',
     'VirtualNetworkPrivateLinkServiceNetworkPolicies',
 ]
-
-
-class ApplicationGatewayProtocol(str, Enum):
-    """
-    The protocol used for the probe.
-    """
-    HTTP = "Http"
-    HTTPS = "Https"
 
 
 class DdosSettingsProtectionCoverage(str, Enum):

@@ -8,70 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Network.V20220101
 {
     /// <summary>
-    /// The protocol used for the probe.
-    /// </summary>
-    [EnumType]
-    public readonly struct ApplicationGatewayProtocol : IEquatable<ApplicationGatewayProtocol>
-    {
-        private readonly string _value;
-
-        private ApplicationGatewayProtocol(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ApplicationGatewayProtocol Http { get; } = new ApplicationGatewayProtocol("Http");
-        public static ApplicationGatewayProtocol Https { get; } = new ApplicationGatewayProtocol("Https");
-        public static ApplicationGatewayProtocol Tcp { get; } = new ApplicationGatewayProtocol("Tcp");
-        public static ApplicationGatewayProtocol Tls { get; } = new ApplicationGatewayProtocol("Tls");
-
-        public static bool operator ==(ApplicationGatewayProtocol left, ApplicationGatewayProtocol right) => left.Equals(right);
-        public static bool operator !=(ApplicationGatewayProtocol left, ApplicationGatewayProtocol right) => !left.Equals(right);
-
-        public static explicit operator string(ApplicationGatewayProtocol value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ApplicationGatewayProtocol other && Equals(other);
-        public bool Equals(ApplicationGatewayProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Configuration Deployment Type.
-    /// </summary>
-    [EnumType]
-    public readonly struct ConfigurationType : IEquatable<ConfigurationType>
-    {
-        private readonly string _value;
-
-        private ConfigurationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConfigurationType SecurityAdmin { get; } = new ConfigurationType("SecurityAdmin");
-        public static ConfigurationType Connectivity { get; } = new ConfigurationType("Connectivity");
-
-        public static bool operator ==(ConfigurationType left, ConfigurationType right) => left.Equals(right);
-        public static bool operator !=(ConfigurationType left, ConfigurationType right) => !left.Equals(right);
-
-        public static explicit operator string(ConfigurationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConfigurationType other && Equals(other);
-        public bool Equals(ConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The protocol for which the DDoS protection policy is being customized.
     /// </summary>
     [EnumType]
@@ -129,37 +65,6 @@ namespace Pulumi.AzureNative.Network.V20220101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DdosCustomPolicyTriggerSensitivityOverride other && Equals(other);
         public bool Equals(DdosCustomPolicyTriggerSensitivityOverride other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Describes if results should be in ascending/descending order
-    /// </summary>
-    [EnumType]
-    public readonly struct FirewallPolicyIDPSQuerySortOrder : IEquatable<FirewallPolicyIDPSQuerySortOrder>
-    {
-        private readonly string _value;
-
-        private FirewallPolicyIDPSQuerySortOrder(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static FirewallPolicyIDPSQuerySortOrder Ascending { get; } = new FirewallPolicyIDPSQuerySortOrder("Ascending");
-        public static FirewallPolicyIDPSQuerySortOrder Descending { get; } = new FirewallPolicyIDPSQuerySortOrder("Descending");
-
-        public static bool operator ==(FirewallPolicyIDPSQuerySortOrder left, FirewallPolicyIDPSQuerySortOrder right) => left.Equals(right);
-        public static bool operator !=(FirewallPolicyIDPSQuerySortOrder left, FirewallPolicyIDPSQuerySortOrder right) => !left.Equals(right);
-
-        public static explicit operator string(FirewallPolicyIDPSQuerySortOrder value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FirewallPolicyIDPSQuerySortOrder other && Equals(other);
-        public bool Equals(FirewallPolicyIDPSQuerySortOrder other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

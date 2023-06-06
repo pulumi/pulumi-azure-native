@@ -30,20 +30,10 @@ export const getScriptExecution: typeof import("./getScriptExecution").getScript
 export const getScriptExecutionOutput: typeof import("./getScriptExecution").getScriptExecutionOutput = null as any;
 utilities.lazyLoad(exports, ["getScriptExecution","getScriptExecutionOutput"], () => require("./getScriptExecution"));
 
-export { GetScriptExecutionLogsArgs, GetScriptExecutionLogsResult, GetScriptExecutionLogsOutputArgs } from "./getScriptExecutionLogs";
-export const getScriptExecutionLogs: typeof import("./getScriptExecutionLogs").getScriptExecutionLogs = null as any;
-export const getScriptExecutionLogsOutput: typeof import("./getScriptExecutionLogs").getScriptExecutionLogsOutput = null as any;
-utilities.lazyLoad(exports, ["getScriptExecutionLogs","getScriptExecutionLogsOutput"], () => require("./getScriptExecutionLogs"));
-
 export { GetWorkloadNetworkPublicIPArgs, GetWorkloadNetworkPublicIPResult, GetWorkloadNetworkPublicIPOutputArgs } from "./getWorkloadNetworkPublicIP";
 export const getWorkloadNetworkPublicIP: typeof import("./getWorkloadNetworkPublicIP").getWorkloadNetworkPublicIP = null as any;
 export const getWorkloadNetworkPublicIPOutput: typeof import("./getWorkloadNetworkPublicIP").getWorkloadNetworkPublicIPOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkloadNetworkPublicIP","getWorkloadNetworkPublicIPOutput"], () => require("./getWorkloadNetworkPublicIP"));
-
-export { ListPrivateCloudAdminCredentialsArgs, ListPrivateCloudAdminCredentialsResult, ListPrivateCloudAdminCredentialsOutputArgs } from "./listPrivateCloudAdminCredentials";
-export const listPrivateCloudAdminCredentials: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentials = null as any;
-export const listPrivateCloudAdminCredentialsOutput: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["listPrivateCloudAdminCredentials","listPrivateCloudAdminCredentialsOutput"], () => require("./listPrivateCloudAdminCredentials"));
 
 export { ScriptExecutionArgs } from "./scriptExecution";
 export type ScriptExecution = import("./scriptExecution").ScriptExecution;

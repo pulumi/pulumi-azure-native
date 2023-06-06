@@ -5,7 +5,6 @@
 from enum import Enum
 
 __all__ = [
-    'ApplicationGatewayProtocol',
     'BackendEnabledState',
     'DynamicCompressionEnabled',
     'EnforceCertificateNameCheckEnabledState',
@@ -25,14 +24,6 @@ __all__ = [
     'SessionAffinityEnabledState',
     'Transform',
 ]
-
-
-class ApplicationGatewayProtocol(str, Enum):
-    """
-    The protocol used for the probe.
-    """
-    HTTP = "Http"
-    HTTPS = "Https"
 
 
 class BackendEnabledState(str, Enum):

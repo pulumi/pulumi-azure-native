@@ -15,10 +15,7 @@ from .get_pipeline_run import *
 from .get_private_endpoint_connection import *
 from .get_scope_map import *
 from .get_token import *
-from .get_webhook_callback_config import *
 from .import_pipeline import *
-from .list_registry_credentials import *
-from .list_webhook_events import *
 from .pipeline_run import *
 from .private_endpoint_connection import *
 from .scope_map import *

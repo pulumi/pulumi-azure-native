@@ -45,21 +45,6 @@ export type IotHubDataConnection = import("./iotHubDataConnection").IotHubDataCo
 export const IotHubDataConnection: typeof import("./iotHubDataConnection").IotHubDataConnection = null as any;
 utilities.lazyLoad(exports, ["IotHubDataConnection"], () => require("./iotHubDataConnection"));
 
-export { ListClusterFollowerDatabasesArgs, ListClusterFollowerDatabasesResult, ListClusterFollowerDatabasesOutputArgs } from "./listClusterFollowerDatabases";
-export const listClusterFollowerDatabases: typeof import("./listClusterFollowerDatabases").listClusterFollowerDatabases = null as any;
-export const listClusterFollowerDatabasesOutput: typeof import("./listClusterFollowerDatabases").listClusterFollowerDatabasesOutput = null as any;
-utilities.lazyLoad(exports, ["listClusterFollowerDatabases","listClusterFollowerDatabasesOutput"], () => require("./listClusterFollowerDatabases"));
-
-export { ListClusterLanguageExtensionsArgs, ListClusterLanguageExtensionsResult, ListClusterLanguageExtensionsOutputArgs } from "./listClusterLanguageExtensions";
-export const listClusterLanguageExtensions: typeof import("./listClusterLanguageExtensions").listClusterLanguageExtensions = null as any;
-export const listClusterLanguageExtensionsOutput: typeof import("./listClusterLanguageExtensions").listClusterLanguageExtensionsOutput = null as any;
-utilities.lazyLoad(exports, ["listClusterLanguageExtensions","listClusterLanguageExtensionsOutput"], () => require("./listClusterLanguageExtensions"));
-
-export { ListDatabasePrincipalsArgs, ListDatabasePrincipalsResult, ListDatabasePrincipalsOutputArgs } from "./listDatabasePrincipals";
-export const listDatabasePrincipals: typeof import("./listDatabasePrincipals").listDatabasePrincipals = null as any;
-export const listDatabasePrincipalsOutput: typeof import("./listDatabasePrincipals").listDatabasePrincipalsOutput = null as any;
-utilities.lazyLoad(exports, ["listDatabasePrincipals","listDatabasePrincipalsOutput"], () => require("./listDatabasePrincipals"));
-
 export { ReadOnlyFollowingDatabaseArgs } from "./readOnlyFollowingDatabase";
 export type ReadOnlyFollowingDatabase = import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase;
 export const ReadOnlyFollowingDatabase: typeof import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase = null as any;

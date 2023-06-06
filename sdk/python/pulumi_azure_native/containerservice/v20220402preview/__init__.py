@@ -9,9 +9,6 @@ from ._enums import *
 from .agent_pool import *
 from .get_agent_pool import *
 from .get_trusted_access_role_binding import *
-from .list_managed_cluster_admin_credentials import *
-from .list_managed_cluster_monitoring_user_credentials import *
-from .list_managed_cluster_user_credentials import *
 from .trusted_access_role_binding import *
 from ._inputs import *
 from . import outputs

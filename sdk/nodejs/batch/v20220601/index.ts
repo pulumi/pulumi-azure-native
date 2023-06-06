@@ -15,11 +15,6 @@ export const getCertificate: typeof import("./getCertificate").getCertificate = 
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
-export { ListBatchAccountKeysArgs, ListBatchAccountKeysResult, ListBatchAccountKeysOutputArgs } from "./listBatchAccountKeys";
-export const listBatchAccountKeys: typeof import("./listBatchAccountKeys").listBatchAccountKeys = null as any;
-export const listBatchAccountKeysOutput: typeof import("./listBatchAccountKeys").listBatchAccountKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listBatchAccountKeys","listBatchAccountKeysOutput"], () => require("./listBatchAccountKeys"));
-
 
 // Export enums:
 export * from "../../types/enums/batch/v20220601";

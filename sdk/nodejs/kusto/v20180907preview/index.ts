@@ -25,11 +25,6 @@ export const getEventHubConnection: typeof import("./getEventHubConnection").get
 export const getEventHubConnectionOutput: typeof import("./getEventHubConnection").getEventHubConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getEventHubConnection","getEventHubConnectionOutput"], () => require("./getEventHubConnection"));
 
-export { ListDatabasePrincipalsArgs, ListDatabasePrincipalsResult, ListDatabasePrincipalsOutputArgs } from "./listDatabasePrincipals";
-export const listDatabasePrincipals: typeof import("./listDatabasePrincipals").listDatabasePrincipals = null as any;
-export const listDatabasePrincipalsOutput: typeof import("./listDatabasePrincipals").listDatabasePrincipalsOutput = null as any;
-utilities.lazyLoad(exports, ["listDatabasePrincipals","listDatabasePrincipalsOutput"], () => require("./listDatabasePrincipals"));
-
 
 // Export enums:
 export * from "../../types/enums/kusto/v20180907preview";

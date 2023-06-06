@@ -5,27 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'AssetContainerPermission',
     'Visibility',
 ]
-
-
-class AssetContainerPermission(str, Enum):
-    """
-    The permissions to set on the SAS URL.
-    """
-    READ = "Read"
-    """
-    The SAS URL will allow read access to the container.
-    """
-    READ_WRITE = "ReadWrite"
-    """
-    The SAS URL will allow read and write access to the container.
-    """
-    READ_WRITE_DELETE = "ReadWriteDelete"
-    """
-    The SAS URL will allow read, write and delete access to the container.
-    """
 
 
 class Visibility(str, Enum):

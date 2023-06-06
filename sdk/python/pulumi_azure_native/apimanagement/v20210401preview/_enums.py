@@ -5,18 +5,9 @@
 from enum import Enum
 
 __all__ = [
-    'KeyType',
     'PrivateEndpointServiceConnectionStatus',
     'SchemaType',
 ]
-
-
-class KeyType(str, Enum):
-    """
-    The Key to be used to generate token for user.
-    """
-    PRIMARY = "primary"
-    SECONDARY = "secondary"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):

@@ -58,42 +58,21 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.appplatform.v20200701 as __v20200701
     v20200701 = __v20200701
-    import pulumi_azure_native.appplatform.v20201101preview as __v20201101preview
-    v20201101preview = __v20201101preview
     import pulumi_azure_native.appplatform.v20210601preview as __v20210601preview
     v20210601preview = __v20210601preview
     import pulumi_azure_native.appplatform.v20210901preview as __v20210901preview
     v20210901preview = __v20210901preview
     import pulumi_azure_native.appplatform.v20220101preview as __v20220101preview
     v20220101preview = __v20220101preview
-    import pulumi_azure_native.appplatform.v20220301preview as __v20220301preview
-    v20220301preview = __v20220301preview
-    import pulumi_azure_native.appplatform.v20220401 as __v20220401
-    v20220401 = __v20220401
-    import pulumi_azure_native.appplatform.v20220501preview as __v20220501preview
-    v20220501preview = __v20220501preview
-    import pulumi_azure_native.appplatform.v20220901preview as __v20220901preview
-    v20220901preview = __v20220901preview
-    import pulumi_azure_native.appplatform.v20221101preview as __v20221101preview
-    v20221101preview = __v20221101preview
-    import pulumi_azure_native.appplatform.v20221201 as __v20221201
-    v20221201 = __v20221201
     import pulumi_azure_native.appplatform.v20230101preview as __v20230101preview
     v20230101preview = __v20230101preview
     import pulumi_azure_native.appplatform.v20230301preview as __v20230301preview
     v20230301preview = __v20230301preview
 else:
     v20200701 = _utilities.lazy_import('pulumi_azure_native.appplatform.v20200701')
-    v20201101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20201101preview')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20210601preview')
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20210901preview')
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20220101preview')
-    v20220301preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20220301preview')
-    v20220401 = _utilities.lazy_import('pulumi_azure_native.appplatform.v20220401')
-    v20220501preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20220501preview')
-    v20220901preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20220901preview')
-    v20221101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20221101preview')
-    v20221201 = _utilities.lazy_import('pulumi_azure_native.appplatform.v20221201')
     v20230101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20230101preview')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20230301preview')
 

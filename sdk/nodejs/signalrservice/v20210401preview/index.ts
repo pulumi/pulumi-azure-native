@@ -10,11 +10,6 @@ export const getSignalRSharedPrivateLinkResource: typeof import("./getSignalRSha
 export const getSignalRSharedPrivateLinkResourceOutput: typeof import("./getSignalRSharedPrivateLinkResource").getSignalRSharedPrivateLinkResourceOutput = null as any;
 utilities.lazyLoad(exports, ["getSignalRSharedPrivateLinkResource","getSignalRSharedPrivateLinkResourceOutput"], () => require("./getSignalRSharedPrivateLinkResource"));
 
-export { ListSignalRKeysArgs, ListSignalRKeysResult, ListSignalRKeysOutputArgs } from "./listSignalRKeys";
-export const listSignalRKeys: typeof import("./listSignalRKeys").listSignalRKeys = null as any;
-export const listSignalRKeysOutput: typeof import("./listSignalRKeys").listSignalRKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listSignalRKeys","listSignalRKeysOutput"], () => require("./listSignalRKeys"));
-
 export { SignalRSharedPrivateLinkResourceArgs } from "./signalRSharedPrivateLinkResource";
 export type SignalRSharedPrivateLinkResource = import("./signalRSharedPrivateLinkResource").SignalRSharedPrivateLinkResource;
 export const SignalRSharedPrivateLinkResource: typeof import("./signalRSharedPrivateLinkResource").SignalRSharedPrivateLinkResource = null as any;

@@ -9,7 +9,5 @@ from ._enums import *
 from .enterprise_channel import *
 from .get_enterprise_channel import *
 from .list_bot_connection_service_providers import *
-from .list_bot_connection_with_secrets import *
-from .list_channel_with_keys import *
 from ._inputs import *
 from . import outputs

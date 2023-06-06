@@ -8,7 +8,6 @@ __all__ = [
     'AddressPrefixType',
     'AllowedEndpointRecordType',
     'AlwaysServe',
-    'ConfigurationType',
     'DeleteExistingNSGs',
     'EndpointMonitorStatus',
     'EndpointStatus',
@@ -47,15 +46,6 @@ class AlwaysServe(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class ConfigurationType(str, Enum):
-    """
-    Configuration Deployment Type.
-    """
-    SECURITY_ADMIN = "SecurityAdmin"
-    SECURITY_USER = "SecurityUser"
-    CONNECTIVITY = "Connectivity"
 
 
 class DeleteExistingNSGs(str, Enum):

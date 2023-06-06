@@ -11,7 +11,6 @@ from ... import _utilities
 
 __all__ = [
     'CertificatePropertiesResponse',
-    'SharedAccessSignatureAuthorizationRuleResponse',
 ]
 
 @pulumi.output_type
@@ -118,62 +117,5 @@ class CertificatePropertiesResponse(dict):
         The certificate content
         """
         return pulumi.get(self, "certificate")
-
-
-@pulumi.output_type
-class SharedAccessSignatureAuthorizationRuleResponse(dict):
-    """
-    The properties of an IoT hub shared access policy.
-    """
-    def __init__(__self__, *,
-                 key_name: str,
-                 rights: str,
-                 primary_key: Optional[str] = None,
-                 secondary_key: Optional[str] = None):
-        """
-        The properties of an IoT hub shared access policy.
-        :param str key_name: The name of the shared access policy.
-        :param str rights: The permissions assigned to the shared access policy.
-        :param str primary_key: The primary key.
-        :param str secondary_key: The secondary key.
-        """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "rights", rights)
-        if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
-        if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
-
-    @property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> str:
-        """
-        The name of the shared access policy.
-        """
-        return pulumi.get(self, "key_name")
-
-    @property
-    @pulumi.getter
-    def rights(self) -> str:
-        """
-        The permissions assigned to the shared access policy.
-        """
-        return pulumi.get(self, "rights")
-
-    @property
-    @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[str]:
-        """
-        The primary key.
-        """
-        return pulumi.get(self, "primary_key")
-
-    @property
-    @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[str]:
-        """
-        The secondary key.
-        """
-        return pulumi.get(self, "secondary_key")
 
 

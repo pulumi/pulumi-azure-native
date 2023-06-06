@@ -47,8 +47,6 @@ if typing.TYPE_CHECKING:
     v20210410privatepreview = __v20210410privatepreview
     import pulumi_azure_native.dbforpostgresql.v20210615privatepreview as __v20210615privatepreview
     v20210615privatepreview = __v20210615privatepreview
-    import pulumi_azure_native.dbforpostgresql.v20220308privatepreview as __v20220308privatepreview
-    v20220308privatepreview = __v20220308privatepreview
     import pulumi_azure_native.dbforpostgresql.v20220501preview as __v20220501preview
     v20220501preview = __v20220501preview
     import pulumi_azure_native.dbforpostgresql.v20221108 as __v20221108
@@ -66,7 +64,6 @@ else:
     v20201005privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20201005privatepreview')
     v20210410privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20210410privatepreview')
     v20210615privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20210615privatepreview')
-    v20220308privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20220308privatepreview')
     v20220501preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20220501preview')
     v20221108 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20221108')
     v20221201 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20221201')

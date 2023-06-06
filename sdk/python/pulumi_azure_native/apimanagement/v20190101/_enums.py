@@ -8,7 +8,6 @@ __all__ = [
     'AlwaysLog',
     'HttpCorrelationProtocol',
     'IdentityProviderType',
-    'KeyType',
     'SamplingType',
     'SubscriptionState',
     'Verbosity',
@@ -71,14 +70,6 @@ class IdentityProviderType(str, Enum):
     """
     Azure Active Directory B2C as Identity provider.
     """
-
-
-class KeyType(str, Enum):
-    """
-    The Key to be used to generate token for user.
-    """
-    PRIMARY = "primary"
-    SECONDARY = "secondary"
 
 
 class SamplingType(str, Enum):

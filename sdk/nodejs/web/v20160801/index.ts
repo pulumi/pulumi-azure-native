@@ -45,26 +45,6 @@ export const getWebAppSlot: typeof import("./getWebAppSlot").getWebAppSlot = nul
 export const getWebAppSlotOutput: typeof import("./getWebAppSlot").getWebAppSlotOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppSlot","getWebAppSlotOutput"], () => require("./getWebAppSlot"));
 
-export { ListWebAppApplicationSettingsArgs, ListWebAppApplicationSettingsResult, ListWebAppApplicationSettingsOutputArgs } from "./listWebAppApplicationSettings";
-export const listWebAppApplicationSettings: typeof import("./listWebAppApplicationSettings").listWebAppApplicationSettings = null as any;
-export const listWebAppApplicationSettingsOutput: typeof import("./listWebAppApplicationSettings").listWebAppApplicationSettingsOutput = null as any;
-utilities.lazyLoad(exports, ["listWebAppApplicationSettings","listWebAppApplicationSettingsOutput"], () => require("./listWebAppApplicationSettings"));
-
-export { ListWebAppApplicationSettingsSlotArgs, ListWebAppApplicationSettingsSlotResult, ListWebAppApplicationSettingsSlotOutputArgs } from "./listWebAppApplicationSettingsSlot";
-export const listWebAppApplicationSettingsSlot: typeof import("./listWebAppApplicationSettingsSlot").listWebAppApplicationSettingsSlot = null as any;
-export const listWebAppApplicationSettingsSlotOutput: typeof import("./listWebAppApplicationSettingsSlot").listWebAppApplicationSettingsSlotOutput = null as any;
-utilities.lazyLoad(exports, ["listWebAppApplicationSettingsSlot","listWebAppApplicationSettingsSlotOutput"], () => require("./listWebAppApplicationSettingsSlot"));
-
-export { ListWebAppAuthSettingsArgs, ListWebAppAuthSettingsResult, ListWebAppAuthSettingsOutputArgs } from "./listWebAppAuthSettings";
-export const listWebAppAuthSettings: typeof import("./listWebAppAuthSettings").listWebAppAuthSettings = null as any;
-export const listWebAppAuthSettingsOutput: typeof import("./listWebAppAuthSettings").listWebAppAuthSettingsOutput = null as any;
-utilities.lazyLoad(exports, ["listWebAppAuthSettings","listWebAppAuthSettingsOutput"], () => require("./listWebAppAuthSettings"));
-
-export { ListWebAppAuthSettingsSlotArgs, ListWebAppAuthSettingsSlotResult, ListWebAppAuthSettingsSlotOutputArgs } from "./listWebAppAuthSettingsSlot";
-export const listWebAppAuthSettingsSlot: typeof import("./listWebAppAuthSettingsSlot").listWebAppAuthSettingsSlot = null as any;
-export const listWebAppAuthSettingsSlotOutput: typeof import("./listWebAppAuthSettingsSlot").listWebAppAuthSettingsSlotOutput = null as any;
-utilities.lazyLoad(exports, ["listWebAppAuthSettingsSlot","listWebAppAuthSettingsSlotOutput"], () => require("./listWebAppAuthSettingsSlot"));
-
 export { ListWebAppBackupConfigurationArgs, ListWebAppBackupConfigurationResult, ListWebAppBackupConfigurationOutputArgs } from "./listWebAppBackupConfiguration";
 export const listWebAppBackupConfiguration: typeof import("./listWebAppBackupConfiguration").listWebAppBackupConfiguration = null as any;
 export const listWebAppBackupConfigurationOutput: typeof import("./listWebAppBackupConfiguration").listWebAppBackupConfigurationOutput = null as any;
@@ -85,16 +65,6 @@ export const listWebAppBackupStatusSecretsSlot: typeof import("./listWebAppBacku
 export const listWebAppBackupStatusSecretsSlotOutput: typeof import("./listWebAppBackupStatusSecretsSlot").listWebAppBackupStatusSecretsSlotOutput = null as any;
 utilities.lazyLoad(exports, ["listWebAppBackupStatusSecretsSlot","listWebAppBackupStatusSecretsSlotOutput"], () => require("./listWebAppBackupStatusSecretsSlot"));
 
-export { ListWebAppConnectionStringsArgs, ListWebAppConnectionStringsResult, ListWebAppConnectionStringsOutputArgs } from "./listWebAppConnectionStrings";
-export const listWebAppConnectionStrings: typeof import("./listWebAppConnectionStrings").listWebAppConnectionStrings = null as any;
-export const listWebAppConnectionStringsOutput: typeof import("./listWebAppConnectionStrings").listWebAppConnectionStringsOutput = null as any;
-utilities.lazyLoad(exports, ["listWebAppConnectionStrings","listWebAppConnectionStringsOutput"], () => require("./listWebAppConnectionStrings"));
-
-export { ListWebAppConnectionStringsSlotArgs, ListWebAppConnectionStringsSlotResult, ListWebAppConnectionStringsSlotOutputArgs } from "./listWebAppConnectionStringsSlot";
-export const listWebAppConnectionStringsSlot: typeof import("./listWebAppConnectionStringsSlot").listWebAppConnectionStringsSlot = null as any;
-export const listWebAppConnectionStringsSlotOutput: typeof import("./listWebAppConnectionStringsSlot").listWebAppConnectionStringsSlotOutput = null as any;
-utilities.lazyLoad(exports, ["listWebAppConnectionStringsSlot","listWebAppConnectionStringsSlotOutput"], () => require("./listWebAppConnectionStringsSlot"));
-
 export { ListWebAppFunctionSecretsArgs, ListWebAppFunctionSecretsResult, ListWebAppFunctionSecretsOutputArgs } from "./listWebAppFunctionSecrets";
 export const listWebAppFunctionSecrets: typeof import("./listWebAppFunctionSecrets").listWebAppFunctionSecrets = null as any;
 export const listWebAppFunctionSecretsOutput: typeof import("./listWebAppFunctionSecrets").listWebAppFunctionSecretsOutput = null as any;
@@ -105,26 +75,6 @@ export const listWebAppFunctionSecretsSlot: typeof import("./listWebAppFunctionS
 export const listWebAppFunctionSecretsSlotOutput: typeof import("./listWebAppFunctionSecretsSlot").listWebAppFunctionSecretsSlotOutput = null as any;
 utilities.lazyLoad(exports, ["listWebAppFunctionSecretsSlot","listWebAppFunctionSecretsSlotOutput"], () => require("./listWebAppFunctionSecretsSlot"));
 
-export { ListWebAppHybridConnectionKeysArgs, ListWebAppHybridConnectionKeysResult, ListWebAppHybridConnectionKeysOutputArgs } from "./listWebAppHybridConnectionKeys";
-export const listWebAppHybridConnectionKeys: typeof import("./listWebAppHybridConnectionKeys").listWebAppHybridConnectionKeys = null as any;
-export const listWebAppHybridConnectionKeysOutput: typeof import("./listWebAppHybridConnectionKeys").listWebAppHybridConnectionKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listWebAppHybridConnectionKeys","listWebAppHybridConnectionKeysOutput"], () => require("./listWebAppHybridConnectionKeys"));
-
-export { ListWebAppHybridConnectionKeysSlotArgs, ListWebAppHybridConnectionKeysSlotResult, ListWebAppHybridConnectionKeysSlotOutputArgs } from "./listWebAppHybridConnectionKeysSlot";
-export const listWebAppHybridConnectionKeysSlot: typeof import("./listWebAppHybridConnectionKeysSlot").listWebAppHybridConnectionKeysSlot = null as any;
-export const listWebAppHybridConnectionKeysSlotOutput: typeof import("./listWebAppHybridConnectionKeysSlot").listWebAppHybridConnectionKeysSlotOutput = null as any;
-utilities.lazyLoad(exports, ["listWebAppHybridConnectionKeysSlot","listWebAppHybridConnectionKeysSlotOutput"], () => require("./listWebAppHybridConnectionKeysSlot"));
-
-export { ListWebAppMetadataArgs, ListWebAppMetadataResult, ListWebAppMetadataOutputArgs } from "./listWebAppMetadata";
-export const listWebAppMetadata: typeof import("./listWebAppMetadata").listWebAppMetadata = null as any;
-export const listWebAppMetadataOutput: typeof import("./listWebAppMetadata").listWebAppMetadataOutput = null as any;
-utilities.lazyLoad(exports, ["listWebAppMetadata","listWebAppMetadataOutput"], () => require("./listWebAppMetadata"));
-
-export { ListWebAppMetadataSlotArgs, ListWebAppMetadataSlotResult, ListWebAppMetadataSlotOutputArgs } from "./listWebAppMetadataSlot";
-export const listWebAppMetadataSlot: typeof import("./listWebAppMetadataSlot").listWebAppMetadataSlot = null as any;
-export const listWebAppMetadataSlotOutput: typeof import("./listWebAppMetadataSlot").listWebAppMetadataSlotOutput = null as any;
-utilities.lazyLoad(exports, ["listWebAppMetadataSlot","listWebAppMetadataSlotOutput"], () => require("./listWebAppMetadataSlot"));
-
 export { ListWebAppPublishingCredentialsArgs, ListWebAppPublishingCredentialsResult, ListWebAppPublishingCredentialsOutputArgs } from "./listWebAppPublishingCredentials";
 export const listWebAppPublishingCredentials: typeof import("./listWebAppPublishingCredentials").listWebAppPublishingCredentials = null as any;
 export const listWebAppPublishingCredentialsOutput: typeof import("./listWebAppPublishingCredentials").listWebAppPublishingCredentialsOutput = null as any;
@@ -134,16 +84,6 @@ export { ListWebAppPublishingCredentialsSlotArgs, ListWebAppPublishingCredential
 export const listWebAppPublishingCredentialsSlot: typeof import("./listWebAppPublishingCredentialsSlot").listWebAppPublishingCredentialsSlot = null as any;
 export const listWebAppPublishingCredentialsSlotOutput: typeof import("./listWebAppPublishingCredentialsSlot").listWebAppPublishingCredentialsSlotOutput = null as any;
 utilities.lazyLoad(exports, ["listWebAppPublishingCredentialsSlot","listWebAppPublishingCredentialsSlotOutput"], () => require("./listWebAppPublishingCredentialsSlot"));
-
-export { ListWebAppSitePushSettingsArgs, ListWebAppSitePushSettingsResult, ListWebAppSitePushSettingsOutputArgs } from "./listWebAppSitePushSettings";
-export const listWebAppSitePushSettings: typeof import("./listWebAppSitePushSettings").listWebAppSitePushSettings = null as any;
-export const listWebAppSitePushSettingsOutput: typeof import("./listWebAppSitePushSettings").listWebAppSitePushSettingsOutput = null as any;
-utilities.lazyLoad(exports, ["listWebAppSitePushSettings","listWebAppSitePushSettingsOutput"], () => require("./listWebAppSitePushSettings"));
-
-export { ListWebAppSitePushSettingsSlotArgs, ListWebAppSitePushSettingsSlotResult, ListWebAppSitePushSettingsSlotOutputArgs } from "./listWebAppSitePushSettingsSlot";
-export const listWebAppSitePushSettingsSlot: typeof import("./listWebAppSitePushSettingsSlot").listWebAppSitePushSettingsSlot = null as any;
-export const listWebAppSitePushSettingsSlotOutput: typeof import("./listWebAppSitePushSettingsSlot").listWebAppSitePushSettingsSlotOutput = null as any;
-utilities.lazyLoad(exports, ["listWebAppSitePushSettingsSlot","listWebAppSitePushSettingsSlotOutput"], () => require("./listWebAppSitePushSettingsSlot"));
 
 export { ListWebAppSyncFunctionTriggersArgs, ListWebAppSyncFunctionTriggersResult, ListWebAppSyncFunctionTriggersOutputArgs } from "./listWebAppSyncFunctionTriggers";
 export const listWebAppSyncFunctionTriggers: typeof import("./listWebAppSyncFunctionTriggers").listWebAppSyncFunctionTriggers = null as any;

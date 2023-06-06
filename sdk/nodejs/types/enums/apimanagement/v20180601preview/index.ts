@@ -72,16 +72,6 @@ export const ContentFormat = {
  */
 export type ContentFormat = (typeof ContentFormat)[keyof typeof ContentFormat];
 
-export const KeyType = {
-    Primary: "primary",
-    Secondary: "secondary",
-} as const;
-
-/**
- * The Key to be used to generate token for user.
- */
-export type KeyType = (typeof KeyType)[keyof typeof KeyType];
-
 export const PolicyContentFormat = {
     /**
      * The contents are inline and Content type is an XML document.

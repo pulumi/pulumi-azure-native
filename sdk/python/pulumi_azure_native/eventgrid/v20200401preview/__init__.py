@@ -8,14 +8,11 @@ import typing
 from ._enums import *
 from .domain import *
 from .get_domain import *
-from .get_event_subscription_full_url import *
 from .get_partner_topic_event_subscription import *
 from .get_partner_topic_event_subscription_full_url import *
 from .get_system_topic_event_subscription import *
-from .get_system_topic_event_subscription_full_url import *
 from .get_topic import *
 from .list_domain_shared_access_keys import *
-from .list_partner_namespace_shared_access_keys import *
 from .list_topic_shared_access_keys import *
 from .partner_topic_event_subscription import *
 from .system_topic_event_subscription import *

@@ -30,11 +30,6 @@ export const getCloudEdgeManagementRole: typeof import("./getCloudEdgeManagement
 export const getCloudEdgeManagementRoleOutput: typeof import("./getCloudEdgeManagementRole").getCloudEdgeManagementRoleOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudEdgeManagementRole","getCloudEdgeManagementRoleOutput"], () => require("./getCloudEdgeManagementRole"));
 
-export { GetDeviceExtendedInformationArgs, GetDeviceExtendedInformationResult, GetDeviceExtendedInformationOutputArgs } from "./getDeviceExtendedInformation";
-export const getDeviceExtendedInformation: typeof import("./getDeviceExtendedInformation").getDeviceExtendedInformation = null as any;
-export const getDeviceExtendedInformationOutput: typeof import("./getDeviceExtendedInformation").getDeviceExtendedInformationOutput = null as any;
-utilities.lazyLoad(exports, ["getDeviceExtendedInformation","getDeviceExtendedInformationOutput"], () => require("./getDeviceExtendedInformation"));
-
 export { GetFileEventTriggerArgs, GetFileEventTriggerResult, GetFileEventTriggerOutputArgs } from "./getFileEventTrigger";
 export const getFileEventTrigger: typeof import("./getFileEventTrigger").getFileEventTrigger = null as any;
 export const getFileEventTriggerOutput: typeof import("./getFileEventTrigger").getFileEventTriggerOutput = null as any;
@@ -79,11 +74,6 @@ export { KubernetesRoleArgs } from "./kubernetesRole";
 export type KubernetesRole = import("./kubernetesRole").KubernetesRole;
 export const KubernetesRole: typeof import("./kubernetesRole").KubernetesRole = null as any;
 utilities.lazyLoad(exports, ["KubernetesRole"], () => require("./kubernetesRole"));
-
-export { ListOrderDCAccessCodeArgs, ListOrderDCAccessCodeResult, ListOrderDCAccessCodeOutputArgs } from "./listOrderDCAccessCode";
-export const listOrderDCAccessCode: typeof import("./listOrderDCAccessCode").listOrderDCAccessCode = null as any;
-export const listOrderDCAccessCodeOutput: typeof import("./listOrderDCAccessCode").listOrderDCAccessCodeOutput = null as any;
-utilities.lazyLoad(exports, ["listOrderDCAccessCode","listOrderDCAccessCodeOutput"], () => require("./listOrderDCAccessCode"));
 
 export { MECRoleArgs } from "./mecrole";
 export type MECRole = import("./mecrole").MECRole;

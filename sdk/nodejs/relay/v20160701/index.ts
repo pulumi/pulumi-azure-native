@@ -10,21 +10,6 @@ export const getWCFRelay: typeof import("./getWCFRelay").getWCFRelay = null as a
 export const getWCFRelayOutput: typeof import("./getWCFRelay").getWCFRelayOutput = null as any;
 utilities.lazyLoad(exports, ["getWCFRelay","getWCFRelayOutput"], () => require("./getWCFRelay"));
 
-export { ListHybridConnectionKeysArgs, ListHybridConnectionKeysResult, ListHybridConnectionKeysOutputArgs } from "./listHybridConnectionKeys";
-export const listHybridConnectionKeys: typeof import("./listHybridConnectionKeys").listHybridConnectionKeys = null as any;
-export const listHybridConnectionKeysOutput: typeof import("./listHybridConnectionKeys").listHybridConnectionKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listHybridConnectionKeys","listHybridConnectionKeysOutput"], () => require("./listHybridConnectionKeys"));
-
-export { ListNamespaceKeysArgs, ListNamespaceKeysResult, ListNamespaceKeysOutputArgs } from "./listNamespaceKeys";
-export const listNamespaceKeys: typeof import("./listNamespaceKeys").listNamespaceKeys = null as any;
-export const listNamespaceKeysOutput: typeof import("./listNamespaceKeys").listNamespaceKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listNamespaceKeys","listNamespaceKeysOutput"], () => require("./listNamespaceKeys"));
-
-export { ListWCFRelayKeysArgs, ListWCFRelayKeysResult, ListWCFRelayKeysOutputArgs } from "./listWCFRelayKeys";
-export const listWCFRelayKeys: typeof import("./listWCFRelayKeys").listWCFRelayKeys = null as any;
-export const listWCFRelayKeysOutput: typeof import("./listWCFRelayKeys").listWCFRelayKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listWCFRelayKeys","listWCFRelayKeysOutput"], () => require("./listWCFRelayKeys"));
-
 export { WCFRelayArgs } from "./wcfrelay";
 export type WCFRelay = import("./wcfrelay").WCFRelay;
 export const WCFRelay: typeof import("./wcfrelay").WCFRelay = null as any;

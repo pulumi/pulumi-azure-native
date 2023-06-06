@@ -15,11 +15,6 @@ export const getAssessment: typeof import("./getAssessment").getAssessment = nul
 export const getAssessmentOutput: typeof import("./getAssessment").getAssessmentOutput = null as any;
 utilities.lazyLoad(exports, ["getAssessment","getAssessmentOutput"], () => require("./getAssessment"));
 
-export { GetProjectKeysArgs, GetProjectKeysResult, GetProjectKeysOutputArgs } from "./getProjectKeys";
-export const getProjectKeys: typeof import("./getProjectKeys").getProjectKeys = null as any;
-export const getProjectKeysOutput: typeof import("./getProjectKeys").getProjectKeysOutput = null as any;
-utilities.lazyLoad(exports, ["getProjectKeys","getProjectKeysOutput"], () => require("./getProjectKeys"));
-
 
 // Export enums:
 export * from "../../types/enums/migrate/v20171111preview";

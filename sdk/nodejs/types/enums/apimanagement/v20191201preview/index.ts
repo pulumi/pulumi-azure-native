@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const KeyType = {
-    Primary: "primary",
-    Secondary: "secondary",
-} as const;
-
-/**
- * The Key to be used to generate token for user.
- */
-export type KeyType = (typeof KeyType)[keyof typeof KeyType];
-
 export const LoggerType = {
     /**
      * Azure Event Hub as log destination.

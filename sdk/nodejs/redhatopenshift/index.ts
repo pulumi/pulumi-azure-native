@@ -71,14 +71,10 @@ export * from "../types/enums/redhatopenshift";
 
 // Export sub-modules:
 import * as v20200430 from "./v20200430";
-import * as v20210901preview from "./v20210901preview";
-import * as v20220401 from "./v20220401";
 import * as v20220904 from "./v20220904";
 
 export {
     v20200430,
-    v20210901preview,
-    v20220401,
     v20220904,
 };
 

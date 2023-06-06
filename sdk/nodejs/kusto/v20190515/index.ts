@@ -45,11 +45,6 @@ export type IotHubDataConnection = import("./iotHubDataConnection").IotHubDataCo
 export const IotHubDataConnection: typeof import("./iotHubDataConnection").IotHubDataConnection = null as any;
 utilities.lazyLoad(exports, ["IotHubDataConnection"], () => require("./iotHubDataConnection"));
 
-export { ListDatabasePrincipalsArgs, ListDatabasePrincipalsResult, ListDatabasePrincipalsOutputArgs } from "./listDatabasePrincipals";
-export const listDatabasePrincipals: typeof import("./listDatabasePrincipals").listDatabasePrincipals = null as any;
-export const listDatabasePrincipalsOutput: typeof import("./listDatabasePrincipals").listDatabasePrincipalsOutput = null as any;
-utilities.lazyLoad(exports, ["listDatabasePrincipals","listDatabasePrincipalsOutput"], () => require("./listDatabasePrincipals"));
-
 
 // Export enums:
 export * from "../../types/enums/kusto/v20190515";
