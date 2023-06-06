@@ -22,6 +22,8 @@ AlertsManagement:
         SmartDetectorAlertRule: "2021-04-01"
 AnalysisServices:
     tracking: "2017-08-01"
+ApiCenter:
+    tracking: 2023-07-01-preview
 ApiManagement:
     tracking: "2022-08-01"
     additions:
@@ -68,6 +70,14 @@ AzureActiveDirectory:
     tracking: "2021-04-01"
 AzureArcData:
     tracking: 2023-03-15-preview
+    additions:
+        ActiveDirectoryConnector: 2023-01-15-preview
+        DataController: 2023-01-15-preview
+        FailoverGroup: 2023-01-15-preview
+        PostgresInstance: 2023-01-15-preview
+        SqlManagedInstance: 2023-01-15-preview
+        SqlServerDatabase: 2023-01-15-preview
+        SqlServerInstance: 2023-01-15-preview
 AzureData:
     tracking: 2019-07-24-preview
 AzureSphere:
@@ -76,7 +86,8 @@ AzureStack:
     tracking: "2022-06-01"
 AzureStackHCI:
     tracking: "2023-02-01"
-BareMetalInfrastructure: {}
+BareMetalInfrastructure:
+    tracking: "2023-04-06"
 Batch:
     tracking: "2022-10-01"
 Billing:
@@ -209,6 +220,8 @@ DataShare:
     tracking: "2021-08-01"
 Databricks:
     tracking: "2023-02-01"
+    additions:
+        AccessConnector: "2023-05-01"
 Datadog:
     tracking: "2022-06-01"
 DelegatedNetwork:
@@ -331,6 +344,8 @@ Intune:
     tracking: 2015-01-14-preview
 IoTCentral:
     tracking: "2021-06-01"
+IoTFirmwareDefense:
+    tracking: 2023-02-08-preview
 IoTSecurity:
     tracking: 2021-02-01-preview
 KeyVault:
@@ -390,9 +405,6 @@ MachineLearningServices:
         RegistryModelVersion: "2023-04-01"
 Maintenance:
     tracking: 2022-11-01-preview
-    additions:
-        ConfigurationAssignmentsForResourceGroup: "2023-04-01"
-        ConfigurationAssignmentsForSubscription: "2023-04-01"
 ManagedIdentity:
     tracking: "2023-01-31"
 ManagedNetwork:
