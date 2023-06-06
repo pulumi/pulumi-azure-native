@@ -2008,7 +2008,6 @@
     "Certificate": "2022-09-01",
     "Connection": "2016-06-01",
     "ConnectionGateway": "2016-06-01",
-    "ContainerApp": "2022-09-01",
     "CustomApi": "2016-06-01",
     "KubeEnvironment": "2022-09-01",
     "StaticSite": "2022-09-01",
