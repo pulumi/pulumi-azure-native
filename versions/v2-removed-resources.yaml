@@ -8394,7 +8394,7 @@ azure-native:web/v20210301:AppServiceEnvironmentPrivateEndpointConnection: azure
 azure-native:web/v20210301:AppServicePlan: azure-native:web/v20220901:AppServicePlan
 azure-native:web/v20210301:AppServicePlanRouteForVnet: azure-native:web/v20220901:AppServicePlanRouteForVnet
 azure-native:web/v20210301:Certificate: azure-native:web/v20220901:Certificate
-azure-native:web/v20210301:ContainerApp: azure-native:web/v20220901:ContainerApp
+azure-native:web/v20210301:ContainerApp: 
 azure-native:web/v20210301:KubeEnvironment: azure-native:web/v20220901:KubeEnvironment
 azure-native:web/v20210301:listContainerAppSecrets: 
 azure-native:web/v20210301:listSiteIdentifiersAssignedToHostName: 
@@ -8452,7 +8452,7 @@ azure-native:web/v20220301:AppServiceEnvironmentPrivateEndpointConnection: azure
 azure-native:web/v20220301:AppServicePlan: azure-native:web/v20220901:AppServicePlan
 azure-native:web/v20220301:AppServicePlanRouteForVnet: azure-native:web/v20220901:AppServicePlanRouteForVnet
 azure-native:web/v20220301:Certificate: azure-native:web/v20220901:Certificate
-azure-native:web/v20220301:ContainerApp: azure-native:web/v20220901:ContainerApp
+azure-native:web/v20220301:ContainerApp: 
 azure-native:web/v20220301:KubeEnvironment: azure-native:web/v20220901:KubeEnvironment
 azure-native:web/v20220301:StaticSite: azure-native:web/v20220901:StaticSite
 azure-native:web/v20220301:StaticSiteCustomDomain: azure-native:web/v20220901:StaticSiteCustomDomain
@@ -8503,6 +8503,7 @@ azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnection: azure-native:web
 azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnectionSlot: azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnectionSlot
 azure-native:web/v20220301:WebAppVnetConnection: azure-native:web/v20220901:WebAppVnetConnection
 azure-native:web/v20220301:WebAppVnetConnectionSlot: azure-native:web/v20220901:WebAppVnetConnectionSlot
+azure-native:web/v20220901:ContainerApp: 
 azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection: azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection
 azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource: azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource
 azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection: azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection
