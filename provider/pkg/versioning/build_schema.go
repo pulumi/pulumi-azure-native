@@ -66,20 +66,12 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		return nil, err
 	}
 
-	if args.Version2 {
-		providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.V2Lock, versionMetadata.V1Lock, nil, removed)
-	} else {
-		providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.V1Lock, nil, versionMetadata.Deprecated, removed)
-	}
+	providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.V2Lock, versionSources.v1Lock, nil, removed)
 
-	if args.Version2 {
-		pathChanges := findPathChanges(providers, versionMetadata.V2Lock, versionMetadata.V1Lock, versionSources.v2Config)
-		printPathChanges(pathChanges)
-	}
+	pathChanges := findPathChanges(providers, versionMetadata.V2Lock, versionSources.v1Lock, versionSources.v2Config)
+	printPathChanges(pathChanges)
 
-	if args.Version2 {
-		providers = openapi.RemoveResources(providers, openapi.RemovableResources(versionSources.v2ResourcesToRemove))
-	}
+	providers = openapi.RemoveResources(providers, openapi.RemovableResources(versionSources.v2ResourcesToRemove))
 
 	if args.ExcludeExplicitVersions {
 		providers = openapi.SingleVersion(providers)

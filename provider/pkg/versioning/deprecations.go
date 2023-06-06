@@ -35,3 +35,7 @@ func RemoveDeprecations(versions ProvidersVersionResources, deprecations openapi
 	}
 	return filteredSpec
 }
+
+func ReadDeprecations(deprecationPath string) (openapi.ProviderVersionList, error) {
+	return openapi.ReadProviderVersionList(deprecationPath)
+}
