@@ -78,7 +78,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	}
 
 	if args.Version2 {
-		providers = openapi.RemoveResources(providers, openapi.RemovableResources(versionMetadata.V2ResourcesToRemove))
+		providers = openapi.RemoveResources(providers, openapi.RemovableResources(versionSources.v2ResourcesToRemove))
 	}
 
 	if args.ExcludeExplicitVersions {
