@@ -11,26 +11,24 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201.Inputs
 {
 
     /// <summary>
-    /// Network properties of a server
+    /// Network properties of a server.
     /// </summary>
     public sealed class NetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// delegated subnet arm resource id.
+        /// Delegated subnet arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
         /// </summary>
         [Input("delegatedSubnetResourceId")]
         public Input<string>? DelegatedSubnetResourceId { get; set; }
 
         /// <summary>
-        /// private dns zone arm resource id.
+        /// Private dns zone arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
         /// </summary>
         [Input("privateDnsZoneArmResourceId")]
         public Input<string>? PrivateDnsZoneArmResourceId { get; set; }
 
         public NetworkArgs()
         {
-            DelegatedSubnetResourceId = "";
-            PrivateDnsZoneArmResourceId = "";
         }
         public static new NetworkArgs Empty => new NetworkArgs();
     }

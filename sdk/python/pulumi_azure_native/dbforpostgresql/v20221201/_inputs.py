@@ -313,16 +313,12 @@ class NetworkArgs:
                  delegated_subnet_resource_id: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_arm_resource_id: Optional[pulumi.Input[str]] = None):
         """
-        Network properties of a server
-        :param pulumi.Input[str] delegated_subnet_resource_id: delegated subnet arm resource id.
-        :param pulumi.Input[str] private_dns_zone_arm_resource_id: private dns zone arm resource id.
+        Network properties of a server.
+        :param pulumi.Input[str] delegated_subnet_resource_id: Delegated subnet arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
+        :param pulumi.Input[str] private_dns_zone_arm_resource_id: Private dns zone arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
         """
-        if delegated_subnet_resource_id is None:
-            delegated_subnet_resource_id = ''
         if delegated_subnet_resource_id is not None:
             pulumi.set(__self__, "delegated_subnet_resource_id", delegated_subnet_resource_id)
-        if private_dns_zone_arm_resource_id is None:
-            private_dns_zone_arm_resource_id = ''
         if private_dns_zone_arm_resource_id is not None:
             pulumi.set(__self__, "private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
 
@@ -330,7 +326,7 @@ class NetworkArgs:
     @pulumi.getter(name="delegatedSubnetResourceId")
     def delegated_subnet_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        delegated subnet arm resource id.
+        Delegated subnet arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
         """
         return pulumi.get(self, "delegated_subnet_resource_id")
 
@@ -342,7 +338,7 @@ class NetworkArgs:
     @pulumi.getter(name="privateDnsZoneArmResourceId")
     def private_dns_zone_arm_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        private dns zone arm resource id.
+        Private dns zone arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
         """
         return pulumi.get(self, "private_dns_zone_arm_resource_id")
 
@@ -420,7 +416,7 @@ class UserAssignedIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]]] = None):
         """
         Information describing the identities associated with this application.
-        :param pulumi.Input[Union[str, 'IdentityType']] type: the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'
+        :param pulumi.Input[Union[str, 'IdentityType']] type: the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
         :param pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]] user_assigned_identities: represents user assigned identities map.
         """
         pulumi.set(__self__, "type", type)
@@ -431,7 +427,7 @@ class UserAssignedIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Union[str, 'IdentityType']]:
         """
-        the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'
+        the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
         """
         return pulumi.get(self, "type")
 

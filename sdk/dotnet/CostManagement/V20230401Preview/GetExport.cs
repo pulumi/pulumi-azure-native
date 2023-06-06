@@ -102,6 +102,14 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The managed identity associated with Export
+        /// </summary>
+        public readonly Outputs.SystemAssignedServiceIdentityResponse? Identity;
+        /// <summary>
+        /// The location of the Export's managed identity. Only required when utilizing managed identity.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -138,6 +146,10 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
 
             string id,
 
+            Outputs.SystemAssignedServiceIdentityResponse? identity,
+
+            string? location,
+
             string name,
 
             string nextRunTimeEstimate,
@@ -155,6 +167,8 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
             ETag = eTag;
             Format = format;
             Id = id;
+            Identity = identity;
+            Location = location;
             Name = name;
             NextRunTimeEstimate = nextRunTimeEstimate;
             PartitionData = partitionData;

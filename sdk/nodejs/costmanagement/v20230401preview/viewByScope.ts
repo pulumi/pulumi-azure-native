@@ -60,7 +60,7 @@ export class ViewByScope extends pulumi.CustomResource {
     /**
      * Date range of the current view.
      */
-    public /*out*/ readonly dateRange!: pulumi.Output<string>;
+    public readonly dateRange!: pulumi.Output<string | undefined>;
     /**
      * User input name of the view. Required.
      */
@@ -84,7 +84,7 @@ export class ViewByScope extends pulumi.CustomResource {
     /**
      * Date when the user last modified this view.
      */
-    public /*out*/ readonly modifiedOn!: pulumi.Output<string>;
+    public readonly modifiedOn!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -133,11 +133,13 @@ export class ViewByScope extends pulumi.CustomResource {
             resourceInputs["accumulated"] = args ? args.accumulated : undefined;
             resourceInputs["chart"] = args ? args.chart : undefined;
             resourceInputs["dataSet"] = args ? args.dataSet : undefined;
+            resourceInputs["dateRange"] = args ? args.dateRange : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["eTag"] = args ? args.eTag : undefined;
             resourceInputs["includeMonetaryCommitment"] = args ? args.includeMonetaryCommitment : undefined;
             resourceInputs["kpis"] = args ? args.kpis : undefined;
             resourceInputs["metric"] = args ? args.metric : undefined;
+            resourceInputs["modifiedOn"] = args ? args.modifiedOn : undefined;
             resourceInputs["pivots"] = args ? args.pivots : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
@@ -146,8 +148,6 @@ export class ViewByScope extends pulumi.CustomResource {
             resourceInputs["viewName"] = args ? args.viewName : undefined;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["currency"] = undefined /*out*/;
-            resourceInputs["dateRange"] = undefined /*out*/;
-            resourceInputs["modifiedOn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {
             resourceInputs["accumulated"] = undefined /*out*/;
@@ -170,7 +170,7 @@ export class ViewByScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:ViewByScope" }, { type: "azure-native:costmanagement/v20190401preview:ViewByScope" }, { type: "azure-native:costmanagement/v20191101:ViewByScope" }, { type: "azure-native:costmanagement/v20200601:ViewByScope" }, { type: "azure-native:costmanagement/v20211001:ViewByScope" }, { type: "azure-native:costmanagement/v20220801preview:ViewByScope" }, { type: "azure-native:costmanagement/v20221001:ViewByScope" }, { type: "azure-native:costmanagement/v20221001preview:ViewByScope" }, { type: "azure-native:costmanagement/v20221005preview:ViewByScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:ViewByScope" }, { type: "azure-native:costmanagement/v20190401preview:ViewByScope" }, { type: "azure-native:costmanagement/v20191101:ViewByScope" }, { type: "azure-native:costmanagement/v20200601:ViewByScope" }, { type: "azure-native:costmanagement/v20211001:ViewByScope" }, { type: "azure-native:costmanagement/v20220801preview:ViewByScope" }, { type: "azure-native:costmanagement/v20221001:ViewByScope" }, { type: "azure-native:costmanagement/v20221001preview:ViewByScope" }, { type: "azure-native:costmanagement/v20221005preview:ViewByScope" }, { type: "azure-native:costmanagement/v20230301:ViewByScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ViewByScope.__pulumiType, name, resourceInputs, opts);
     }
@@ -193,6 +193,10 @@ export interface ViewByScopeArgs {
      */
     dataSet?: pulumi.Input<inputs.costmanagement.v20230401preview.ReportConfigDatasetArgs>;
     /**
+     * Date range of the current view.
+     */
+    dateRange?: pulumi.Input<string>;
+    /**
      * User input name of the view. Required.
      */
     displayName?: pulumi.Input<string>;
@@ -212,6 +216,10 @@ export interface ViewByScopeArgs {
      * Metric to use when displaying costs.
      */
     metric?: pulumi.Input<string | enums.costmanagement.v20230401preview.MetricType>;
+    /**
+     * Date when the user last modified this view.
+     */
+    modifiedOn?: pulumi.Input<string>;
     /**
      * Configuration of 3 sub-views in the Cost Analysis UI.
      */

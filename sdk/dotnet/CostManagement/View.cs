@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// Date range of the current view.
         /// </summary>
         [Output("dateRange")]
-        public Output<string> DateRange { get; private set; } = null!;
+        public Output<string?> DateRange { get; private set; } = null!;
 
         /// <summary>
         /// User input name of the view. Required.
@@ -158,6 +158,7 @@ namespace Pulumi.AzureNative.CostManagement
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001:View"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001preview:View"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221005preview:View"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230301:View"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230401preview:View"},
                 },
             };
@@ -199,6 +200,12 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         [Input("dataSet")]
         public Input<Inputs.ReportConfigDatasetArgs>? DataSet { get; set; }
+
+        /// <summary>
+        /// Date range of the current view.
+        /// </summary>
+        [Input("dateRange")]
+        public Input<string>? DateRange { get; set; }
 
         /// <summary>
         /// User input name of the view. Required.

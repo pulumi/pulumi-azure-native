@@ -95,7 +95,7 @@ class FailoverGroup(pulumi.CustomResource):
                  __props__=None):
         """
         A failover group resource.
-        API Version: 2023-03-15-preview.
+        API Version: 2023-01-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +112,7 @@ class FailoverGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A failover group resource.
-        API Version: 2023-03-15-preview.
+        API Version: 2023-01-15-preview.
 
         :param str resource_name: The name of the resource.
         :param FailoverGroupArgs args: The arguments to use to populate this resource's properties.
@@ -155,7 +155,7 @@ class FailoverGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:FailoverGroup"), pulumi.Alias(type_="azure-native:azurearcdata/v20230315preview:FailoverGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:FailoverGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FailoverGroup, __self__).__init__(
             'azure-native:azurearcdata:FailoverGroup',

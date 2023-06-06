@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.EventHub.V20221001Preview
         }
 
         public static CleanupPolicyRetentionDescription Delete { get; } = new CleanupPolicyRetentionDescription("Delete");
-        public static CleanupPolicyRetentionDescription Compaction { get; } = new CleanupPolicyRetentionDescription("Compaction");
+        public static CleanupPolicyRetentionDescription Compact { get; } = new CleanupPolicyRetentionDescription("Compact");
 
         public static bool operator ==(CleanupPolicyRetentionDescription left, CleanupPolicyRetentionDescription right) => left.Equals(right);
         public static bool operator !=(CleanupPolicyRetentionDescription left, CleanupPolicyRetentionDescription right) => !left.Equals(right);

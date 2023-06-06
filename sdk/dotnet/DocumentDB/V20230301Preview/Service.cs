@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20230301Preview
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:Service"},
                 },
             };

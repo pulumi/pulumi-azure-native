@@ -22,13 +22,13 @@ class GetFleetMemberResult:
     """
     A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
     """
-    def __init__(__self__, cluster_resource_id=None, etag=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, cluster_resource_id=None, e_tag=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if cluster_resource_id and not isinstance(cluster_resource_id, str):
             raise TypeError("Expected argument 'cluster_resource_id' to be a str")
         pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        pulumi.set(__self__, "etag", etag)
+        if e_tag and not isinstance(e_tag, str):
+            raise TypeError("Expected argument 'e_tag' to be a str")
+        pulumi.set(__self__, "e_tag", e_tag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -47,19 +47,19 @@ class GetFleetMemberResult:
 
     @property
     @pulumi.getter(name="clusterResourceId")
-    def cluster_resource_id(self) -> Optional[str]:
+    def cluster_resource_id(self) -> str:
         """
         The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
         """
         return pulumi.get(self, "cluster_resource_id")
 
     @property
-    @pulumi.getter
-    def etag(self) -> str:
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> str:
         """
-        Resource Etag.
+        If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
-        return pulumi.get(self, "etag")
+        return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter
@@ -81,7 +81,7 @@ class GetFleetMemberResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The provisioning state of the last accepted operation.
+        The status of the last operation.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -109,7 +109,7 @@ class AwaitableGetFleetMemberResult(GetFleetMemberResult):
             yield self
         return GetFleetMemberResult(
             cluster_resource_id=self.cluster_resource_id,
-            etag=self.etag,
+            e_tag=self.e_tag,
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -122,7 +122,7 @@ def get_fleet_member(fleet_member_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFleetMemberResult:
     """
-    A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
+    Get a FleetMember
 
 
     :param str fleet_member_name: The name of the Fleet member resource.
@@ -138,7 +138,7 @@ def get_fleet_member(fleet_member_name: Optional[str] = None,
 
     return AwaitableGetFleetMemberResult(
         cluster_resource_id=__ret__.cluster_resource_id,
-        etag=__ret__.etag,
+        e_tag=__ret__.e_tag,
         id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
@@ -152,7 +152,7 @@ def get_fleet_member_output(fleet_member_name: Optional[pulumi.Input[str]] = Non
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetMemberResult]:
     """
-    A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
+    Get a FleetMember
 
 
     :param str fleet_member_name: The name of the Fleet member resource.

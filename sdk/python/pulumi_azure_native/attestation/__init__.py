@@ -17,9 +17,12 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.attestation.v20201001 as __v20201001
     v20201001 = __v20201001
+    import pulumi_azure_native.attestation.v20210601 as __v20210601
+    v20210601 = __v20210601
     import pulumi_azure_native.attestation.v20210601preview as __v20210601preview
     v20210601preview = __v20210601preview
 else:
     v20201001 = _utilities.lazy_import('pulumi_azure_native.attestation.v20201001')
+    v20210601 = _utilities.lazy_import('pulumi_azure_native.attestation.v20210601')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.attestation.v20210601preview')
 

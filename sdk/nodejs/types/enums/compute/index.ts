@@ -367,6 +367,18 @@ export const DiskStorageAccountTypes = {
  */
 export type DiskStorageAccountTypes = (typeof DiskStorageAccountTypes)[keyof typeof DiskStorageAccountTypes];
 
+export const EdgeZoneStorageAccountType = {
+    Standard_LRS: "Standard_LRS",
+    Standard_ZRS: "Standard_ZRS",
+    StandardSSD_LRS: "StandardSSD_LRS",
+    Premium_LRS: "Premium_LRS",
+} as const;
+
+/**
+ * Specifies the storage account type to be used to store the image. This property is not updatable.
+ */
+export type EdgeZoneStorageAccountType = (typeof EdgeZoneStorageAccountType)[keyof typeof EdgeZoneStorageAccountType];
+
 export const EncryptionType = {
     /**
      * Disk is encrypted at rest with Platform managed key. It is the default encryption type. This is not a valid encryption type for disk encryption sets.

@@ -15,23 +15,34 @@ __all__ = ['FleetMemberArgs', 'FleetMember']
 @pulumi.input_type
 class FleetMemberArgs:
     def __init__(__self__, *,
+                 cluster_resource_id: pulumi.Input[str],
                  fleet_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 cluster_resource_id: Optional[pulumi.Input[str]] = None,
                  fleet_member_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FleetMember resource.
+        :param pulumi.Input[str] cluster_resource_id: The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
         :param pulumi.Input[str] fleet_name: The name of the Fleet resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] cluster_resource_id: The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
         :param pulumi.Input[str] fleet_member_name: The name of the Fleet member resource.
         """
+        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
         pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if cluster_resource_id is not None:
-            pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
         if fleet_member_name is not None:
             pulumi.set(__self__, "fleet_member_name", fleet_member_name)
+
+    @property
+    @pulumi.getter(name="clusterResourceId")
+    def cluster_resource_id(self) -> pulumi.Input[str]:
+        """
+        The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
+        """
+        return pulumi.get(self, "cluster_resource_id")
+
+    @cluster_resource_id.setter
+    def cluster_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_resource_id", value)
 
     @property
     @pulumi.getter(name="fleetName")
@@ -56,18 +67,6 @@ class FleetMemberArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="clusterResourceId")
-    def cluster_resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
-        """
-        return pulumi.get(self, "cluster_resource_id")
-
-    @cluster_resource_id.setter
-    def cluster_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cluster_resource_id", value)
 
     @property
     @pulumi.getter(name="fleetMemberName")
@@ -139,6 +138,8 @@ class FleetMember(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FleetMemberArgs.__new__(FleetMemberArgs)
 
+            if cluster_resource_id is None and not opts.urn:
+                raise TypeError("Missing required property 'cluster_resource_id'")
             __props__.__dict__["cluster_resource_id"] = cluster_resource_id
             __props__.__dict__["fleet_member_name"] = fleet_member_name
             if fleet_name is None and not opts.urn:
@@ -147,12 +148,12 @@ class FleetMember(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["etag"] = None
+            __props__.__dict__["e_tag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20220602preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20220702preview:FleetMember")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20220602preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20220702preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20230315preview:FleetMember")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FleetMember, __self__).__init__(
             'azure-native:containerservice/v20220902preview:FleetMember',
@@ -177,7 +178,7 @@ class FleetMember(pulumi.CustomResource):
         __props__ = FleetMemberArgs.__new__(FleetMemberArgs)
 
         __props__.__dict__["cluster_resource_id"] = None
-        __props__.__dict__["etag"] = None
+        __props__.__dict__["e_tag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
@@ -186,19 +187,19 @@ class FleetMember(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterResourceId")
-    def cluster_resource_id(self) -> pulumi.Output[Optional[str]]:
+    def cluster_resource_id(self) -> pulumi.Output[str]:
         """
         The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
         """
         return pulumi.get(self, "cluster_resource_id")
 
     @property
-    @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> pulumi.Output[str]:
         """
-        Resource Etag.
+        If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
-        return pulumi.get(self, "etag")
+        return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter
@@ -212,7 +213,7 @@ class FleetMember(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The provisioning state of the last accepted operation.
+        The status of the last operation.
         """
         return pulumi.get(self, "provisioning_state")
 

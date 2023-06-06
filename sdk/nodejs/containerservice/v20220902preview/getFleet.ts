@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Fleet resource which contains multiple Kubernetes clusters as its members.
+ * Gets a Fleet.
  */
 export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
 
@@ -31,13 +31,13 @@ export interface GetFleetArgs {
 }
 
 /**
- * The Fleet resource which contains multiple Kubernetes clusters as its members.
+ * The Fleet resource.
  */
 export interface GetFleetResult {
     /**
-     * Resource Etag.
+     * If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
-    readonly etag: string;
+    readonly eTag: string;
     /**
      * The FleetHubProfile configures the Fleet's hub.
      */
@@ -55,7 +55,7 @@ export interface GetFleetResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the last accepted operation.
+     * The status of the last operation.
      */
     readonly provisioningState: string;
     /**
@@ -72,7 +72,7 @@ export interface GetFleetResult {
     readonly type: string;
 }
 /**
- * The Fleet resource which contains multiple Kubernetes clusters as its members.
+ * Gets a Fleet.
  */
 export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
     return pulumi.output(args).apply((a: any) => getFleet(a, opts))

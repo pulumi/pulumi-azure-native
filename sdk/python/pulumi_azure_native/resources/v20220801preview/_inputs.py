@@ -21,25 +21,36 @@ __all__ = [
 @pulumi.input_type
 class DenySettingsArgs:
     def __init__(__self__, *,
+                 mode: pulumi.Input[Union[str, 'DenySettingsMode']],
                  apply_to_child_scopes: Optional[pulumi.Input[bool]] = None,
                  excluded_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 excluded_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 mode: Optional[pulumi.Input[Union[str, 'DenySettingsMode']]] = None):
+                 excluded_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Defines how resources deployed by the deployment stack are locked.
+        :param pulumi.Input[Union[str, 'DenySettingsMode']] mode: denySettings Mode.
         :param pulumi.Input[bool] apply_to_child_scopes: DenySettings will be applied to child scopes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_actions: List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_principals: List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
-        :param pulumi.Input[Union[str, 'DenySettingsMode']] mode: denySettings Mode.
         """
+        pulumi.set(__self__, "mode", mode)
         if apply_to_child_scopes is not None:
             pulumi.set(__self__, "apply_to_child_scopes", apply_to_child_scopes)
         if excluded_actions is not None:
             pulumi.set(__self__, "excluded_actions", excluded_actions)
         if excluded_principals is not None:
             pulumi.set(__self__, "excluded_principals", excluded_principals)
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[Union[str, 'DenySettingsMode']]:
+        """
+        denySettings Mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[Union[str, 'DenySettingsMode']]):
+        pulumi.set(self, "mode", value)
 
     @property
     @pulumi.getter(name="applyToChildScopes")
@@ -76,18 +87,6 @@ class DenySettingsArgs:
     @excluded_principals.setter
     def excluded_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excluded_principals", value)
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Union[str, 'DenySettingsMode']]]:
-        """
-        denySettings Mode.
-        """
-        return pulumi.get(self, "mode")
-
-    @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Union[str, 'DenySettingsMode']]]):
-        pulumi.set(self, "mode", value)
 
 
 @pulumi.input_type

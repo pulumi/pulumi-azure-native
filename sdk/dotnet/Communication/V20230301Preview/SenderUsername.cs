@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Communication.V20230301Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:communication:SenderUsername"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230331:SenderUsername"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230401preview:SenderUsername"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

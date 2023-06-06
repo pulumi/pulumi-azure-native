@@ -17,7 +17,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201.Outputs
     public sealed class UserAssignedIdentityResponse
     {
         /// <summary>
-        /// the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'
+        /// Tenant id of the server.
+        /// </summary>
+        public readonly string TenantId;
+        /// <summary>
+        /// the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201.Outputs
 
         [OutputConstructor]
         private UserAssignedIdentityResponse(
+            string tenantId,
+
             string type,
 
             ImmutableDictionary<string, Outputs.UserIdentityResponse>? userAssignedIdentities)
         {
+            TenantId = tenantId;
             Type = type;
             UserAssignedIdentities = userAssignedIdentities;
         }

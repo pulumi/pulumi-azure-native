@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Network.V20170301
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180301:Profile"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180401:Profile"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:Profile"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401:Profile"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:Profile"},
                 },
             };

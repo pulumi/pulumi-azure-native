@@ -23,6 +23,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview.Inputs
 
         public VirtualmachinesPropertiesSecurityProfileArgs()
         {
+            EnableTPM = false;
         }
         public static new VirtualmachinesPropertiesSecurityProfileArgs Empty => new VirtualmachinesPropertiesSecurityProfileArgs();
     }

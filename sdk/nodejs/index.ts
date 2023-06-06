@@ -19,6 +19,7 @@ import * as advisor from "./advisor";
 import * as agfoodplatform from "./agfoodplatform";
 import * as alertsmanagement from "./alertsmanagement";
 import * as analysisservices from "./analysisservices";
+import * as apicenter from "./apicenter";
 import * as apimanagement from "./apimanagement";
 import * as app from "./app";
 import * as appcomplianceautomation from "./appcomplianceautomation";
@@ -36,6 +37,7 @@ import * as azuredata from "./azuredata";
 import * as azuresphere from "./azuresphere";
 import * as azurestack from "./azurestack";
 import * as azurestackhci from "./azurestackhci";
+import * as baremetalinfrastructure from "./baremetalinfrastructure";
 import * as batch from "./batch";
 import * as billing from "./billing";
 import * as blockchain from "./blockchain";
@@ -118,6 +120,7 @@ import * as importexport from "./importexport";
 import * as insights from "./insights";
 import * as intune from "./intune";
 import * as iotcentral from "./iotcentral";
+import * as iotfirmwaredefense from "./iotfirmwaredefense";
 import * as iotsecurity from "./iotsecurity";
 import * as keyvault from "./keyvault";
 import * as kubernetes from "./kubernetes";
@@ -226,6 +229,7 @@ export {
     agfoodplatform,
     alertsmanagement,
     analysisservices,
+    apicenter,
     apimanagement,
     app,
     appcomplianceautomation,
@@ -243,6 +247,7 @@ export {
     azuresphere,
     azurestack,
     azurestackhci,
+    baremetalinfrastructure,
     batch,
     billing,
     blockchain,
@@ -325,6 +330,7 @@ export {
     insights,
     intune,
     iotcentral,
+    iotfirmwaredefense,
     iotsecurity,
     keyvault,
     kubernetes,

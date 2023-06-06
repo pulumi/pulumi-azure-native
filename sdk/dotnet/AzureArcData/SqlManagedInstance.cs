@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureArcData
 {
     /// <summary>
     /// A SqlManagedInstance.
-    /// API Version: 2023-03-15-preview.
+    /// API Version: 2023-01-15-preview.
     /// Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:SqlManagedInstance")]
@@ -97,7 +97,6 @@ namespace Pulumi.AzureNative.AzureArcData
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:SqlManagedInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:SqlManagedInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:SqlManagedInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230315preview:SqlManagedInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

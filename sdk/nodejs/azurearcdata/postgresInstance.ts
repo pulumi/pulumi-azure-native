@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Postgres Instance.
- * API Version: 2023-03-15-preview.
+ * API Version: 2023-01-15-preview.
  * Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class PostgresInstance extends pulumi.CustomResource {
@@ -110,7 +110,7 @@ export class PostgresInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20210701preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20220301preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20220615preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20230115preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20230315preview:PostgresInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20210701preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20220301preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20220615preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20230115preview:PostgresInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PostgresInstance.__pulumiType, name, resourceInputs, opts);
     }

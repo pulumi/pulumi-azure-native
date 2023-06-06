@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:DatabaseAccountMongoDBCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:DatabaseAccountMongoDBCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:DatabaseAccountMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:DatabaseAccountMongoDBCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:DatabaseAccountMongoDBCollection"},
                 },
             };

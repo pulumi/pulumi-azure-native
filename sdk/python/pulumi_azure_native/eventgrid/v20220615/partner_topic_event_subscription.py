@@ -330,7 +330,7 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["topic"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid:PartnerTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:PartnerTopicEventSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid:PartnerTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:PartnerTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:PartnerTopicEventSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PartnerTopicEventSubscription, __self__).__init__(
             'azure-native:eventgrid/v20220615:PartnerTopicEventSubscription',

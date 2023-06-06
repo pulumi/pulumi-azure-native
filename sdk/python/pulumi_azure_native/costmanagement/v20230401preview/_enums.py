@@ -32,6 +32,7 @@ __all__ = [
     'ScheduledActionKind',
     'ScheduledActionStatus',
     'StatusType',
+    'SystemAssignedServiceIdentityType',
     'ThresholdType',
     'TimeGrainType',
     'TimeframeType',
@@ -365,6 +366,14 @@ class StatusType(str, Enum):
     """
     ACTIVE = "Active"
     INACTIVE = "Inactive"
+
+
+class SystemAssignedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (either system assigned, or none).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 class ThresholdType(str, Enum):

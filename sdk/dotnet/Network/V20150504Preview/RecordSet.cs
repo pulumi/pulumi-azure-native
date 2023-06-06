@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.Network.V20150504Preview
                     new global::Pulumi.Alias { Type = "azure-native:network/v20171001:RecordSet"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180301preview:RecordSet"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180501:RecordSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:RecordSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

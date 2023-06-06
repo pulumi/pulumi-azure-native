@@ -152,6 +152,7 @@ namespace Pulumi.AzureNative.VoiceServices
                 {
                     new global::Pulumi.Alias { Type = "azure-native:voiceservices/v20221201preview:CommunicationsGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:voiceservices/v20230131:CommunicationsGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:voiceservices/v20230403:CommunicationsGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

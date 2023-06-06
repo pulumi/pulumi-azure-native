@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Date range of the current view.
         /// </summary>
-        public readonly string DateRange;
+        public readonly string? DateRange;
         /// <summary>
         /// User input name of the view. Required.
         /// </summary>
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.CostManagement
 
             Outputs.ReportConfigDatasetResponse? dataSet,
 
-            string dateRange,
+            string? dateRange,
 
             string? displayName,
 

@@ -129,7 +129,7 @@ class SqlServerDatabase(pulumi.CustomResource):
                  __props__=None):
         """
         Arc Sql Server database
-        API Version: 2023-03-15-preview.
+        API Version: 2023-01-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +148,7 @@ class SqlServerDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Arc Sql Server database
-        API Version: 2023-03-15-preview.
+        API Version: 2023-01-15-preview.
 
         :param str resource_name: The name of the resource.
         :param SqlServerDatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -195,7 +195,7 @@ class SqlServerDatabase(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:SqlServerDatabase"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:SqlServerDatabase"), pulumi.Alias(type_="azure-native:azurearcdata/v20230315preview:SqlServerDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:SqlServerDatabase"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:SqlServerDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlServerDatabase, __self__).__init__(
             'azure-native:azurearcdata:SqlServerDatabase',

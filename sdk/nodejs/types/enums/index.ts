@@ -7,6 +7,7 @@ import * as aadiam from "./aadiam";
 import * as agfoodplatform from "./agfoodplatform";
 import * as alertsmanagement from "./alertsmanagement";
 import * as analysisservices from "./analysisservices";
+import * as apicenter from "./apicenter";
 import * as apimanagement from "./apimanagement";
 import * as app from "./app";
 import * as appconfiguration from "./appconfiguration";
@@ -22,6 +23,7 @@ import * as azurearcdata from "./azurearcdata";
 import * as azuresphere from "./azuresphere";
 import * as azurestack from "./azurestack";
 import * as azurestackhci from "./azurestackhci";
+import * as baremetalinfrastructure from "./baremetalinfrastructure";
 import * as batch from "./batch";
 import * as blockchain from "./blockchain";
 import * as blueprint from "./blueprint";
@@ -95,6 +97,7 @@ import * as hybridnetwork from "./hybridnetwork";
 import * as importexport from "./importexport";
 import * as insights from "./insights";
 import * as iotcentral from "./iotcentral";
+import * as iotfirmwaredefense from "./iotfirmwaredefense";
 import * as iotsecurity from "./iotsecurity";
 import * as keyvault from "./keyvault";
 import * as kubernetes from "./kubernetes";
@@ -186,6 +189,7 @@ export {
     agfoodplatform,
     alertsmanagement,
     analysisservices,
+    apicenter,
     apimanagement,
     app,
     appconfiguration,
@@ -201,6 +205,7 @@ export {
     azuresphere,
     azurestack,
     azurestackhci,
+    baremetalinfrastructure,
     batch,
     blockchain,
     blueprint,
@@ -274,6 +279,7 @@ export {
     importexport,
     insights,
     iotcentral,
+    iotfirmwaredefense,
     iotsecurity,
     keyvault,
     kubernetes,

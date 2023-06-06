@@ -147,7 +147,7 @@ export class Marketplacegalleryimage extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:marketplacegalleryimage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:marketplacegalleryimage" }, { type: "azure-native:azurestackhci/v20221215preview:Marketplacegalleryimage" }, { type: "azure-native:azurestackhci/v20221215preview:marketplacegalleryimage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Marketplacegalleryimage.__pulumiType, name, resourceInputs, opts);
     }

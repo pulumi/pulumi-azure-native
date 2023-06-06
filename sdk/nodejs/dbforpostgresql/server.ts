@@ -88,13 +88,13 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Network properties of a server.
+     * Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
      */
     public readonly network!: pulumi.Output<outputs.dbforpostgresql.NetworkResponse | undefined>;
     /**
      * Replicas allowed for a server.
      */
-    public readonly replicaCapacity!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly replicaCapacity!: pulumi.Output<number>;
     /**
      * Replication role of the server
      */
@@ -103,6 +103,10 @@ export class Server extends pulumi.CustomResource {
      * The SKU (pricing tier) of the server.
      */
     public readonly sku!: pulumi.Output<outputs.dbforpostgresql.SkuResponse | undefined>;
+    /**
+     * The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
+     */
+    public readonly sourceServerResourceId!: pulumi.Output<string | undefined>;
     /**
      * A state of a server that is visible to user.
      */
@@ -153,9 +157,8 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maintenanceWindow"] = args ? (args.maintenanceWindow ? pulumi.output(args.maintenanceWindow).apply(inputs.dbforpostgresql.maintenanceWindowArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["network"] = args ? (args.network ? pulumi.output(args.network).apply(inputs.dbforpostgresql.networkArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["network"] = args ? args.network : undefined;
             resourceInputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
-            resourceInputs["replicaCapacity"] = args ? args.replicaCapacity : undefined;
             resourceInputs["replicationRole"] = args ? args.replicationRole : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
@@ -167,6 +170,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["minorVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["replicaCapacity"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -187,6 +191,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["replicaCapacity"] = undefined /*out*/;
             resourceInputs["replicationRole"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["sourceServerResourceId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["storage"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -195,7 +200,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20200214preview:Server" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210601:Server" }, { type: "azure-native:dbforpostgresql/v20210601preview:Server" }, { type: "azure-native:dbforpostgresql/v20210615privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20220120preview:Server" }, { type: "azure-native:dbforpostgresql/v20220308preview:Server" }, { type: "azure-native:dbforpostgresql/v20221201:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20200214preview:Server" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210601:Server" }, { type: "azure-native:dbforpostgresql/v20210601preview:Server" }, { type: "azure-native:dbforpostgresql/v20210615privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20220120preview:Server" }, { type: "azure-native:dbforpostgresql/v20220308preview:Server" }, { type: "azure-native:dbforpostgresql/v20221201:Server" }, { type: "azure-native:dbforpostgresql/v20230301preview:Server" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Server.__pulumiType, name, resourceInputs, opts);
     }
@@ -250,17 +255,13 @@ export interface ServerArgs {
      */
     maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.MaintenanceWindowArgs>;
     /**
-     * Network properties of a server.
+     * Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
      */
     network?: pulumi.Input<inputs.dbforpostgresql.NetworkArgs>;
     /**
      * Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore'.
      */
     pointInTimeUTC?: pulumi.Input<string>;
-    /**
-     * Replicas allowed for a server.
-     */
-    replicaCapacity?: pulumi.Input<number>;
     /**
      * Replication role of the server
      */
@@ -278,7 +279,7 @@ export interface ServerArgs {
      */
     sku?: pulumi.Input<inputs.dbforpostgresql.SkuArgs>;
     /**
-     * The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'.
+     * The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
      */
     sourceServerResourceId?: pulumi.Input<string>;
     /**

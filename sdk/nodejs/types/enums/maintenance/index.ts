@@ -4,12 +4,10 @@
 // Export sub-modules:
 import * as v20200401 from "./v20200401";
 import * as v20221101preview from "./v20221101preview";
-import * as v20230401 from "./v20230401";
 
 export {
     v20200401,
     v20221101preview,
-    v20230401,
 };
 
 export const MaintenanceScope = {
@@ -58,16 +56,6 @@ export const RebootOptions = {
  * Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
  */
 export type RebootOptions = (typeof RebootOptions)[keyof typeof RebootOptions];
-
-export const TagOperators = {
-    All: "All",
-    Any: "Any",
-} as const;
-
-/**
- * Filter VMs by Any or All specified tags.
- */
-export type TagOperators = (typeof TagOperators)[keyof typeof TagOperators];
 
 export const TaskScope = {
     Global: "Global",

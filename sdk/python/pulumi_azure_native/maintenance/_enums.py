@@ -7,7 +7,6 @@ from enum import Enum
 __all__ = [
     'MaintenanceScope',
     'RebootOptions',
-    'TagOperators',
     'TaskScope',
     'Visibility',
 ]
@@ -54,14 +53,6 @@ class RebootOptions(str, Enum):
     IF_REQUIRED = "IfRequired"
     NEVER = "Never"
     ALWAYS = "Always"
-
-
-class TagOperators(str, Enum):
-    """
-    Filter VMs by Any or All specified tags.
-    """
-    ALL = "All"
-    ANY = "Any"
 
 
 class TaskScope(str, Enum):

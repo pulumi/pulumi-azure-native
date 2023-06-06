@@ -667,8 +667,8 @@ class RetentionDescriptionArgs:
         """
         Properties to configure retention settings for the  eventhub
         :param pulumi.Input[Union[str, 'CleanupPolicyRetentionDescription']] cleanup_policy: Enumerates the possible values for cleanup policy
-        :param pulumi.Input[float] retention_time_in_hours: Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compaction the returned value of this property is Long.MaxValue 
-        :param pulumi.Input[int] tombstone_retention_time_in_hours: Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compaction. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
+        :param pulumi.Input[float] retention_time_in_hours: Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
+        :param pulumi.Input[int] tombstone_retention_time_in_hours: Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
         """
         if cleanup_policy is not None:
             pulumi.set(__self__, "cleanup_policy", cleanup_policy)
@@ -693,7 +693,7 @@ class RetentionDescriptionArgs:
     @pulumi.getter(name="retentionTimeInHours")
     def retention_time_in_hours(self) -> Optional[pulumi.Input[float]]:
         """
-        Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compaction the returned value of this property is Long.MaxValue 
+        Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
         """
         return pulumi.get(self, "retention_time_in_hours")
 
@@ -705,7 +705,7 @@ class RetentionDescriptionArgs:
     @pulumi.getter(name="tombstoneRetentionTimeInHours")
     def tombstone_retention_time_in_hours(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compaction. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
+        Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
         """
         return pulumi.get(self, "tombstone_retention_time_in_hours")
 

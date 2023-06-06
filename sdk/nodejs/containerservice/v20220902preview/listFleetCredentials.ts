@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The list credential result response.
+ * Lists the user credentials of a Fleet.
  */
 export function listFleetCredentials(args: ListFleetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListFleetCredentialsResult> {
 
@@ -31,16 +31,16 @@ export interface ListFleetCredentialsArgs {
 }
 
 /**
- * The list credential result response.
+ * The Credential results response.
  */
 export interface ListFleetCredentialsResult {
     /**
-     * Base64-encoded Kubernetes configuration file.
+     * Array of base64-encoded Kubernetes configuration files.
      */
     readonly kubeconfigs: outputs.containerservice.v20220902preview.FleetCredentialResultResponse[];
 }
 /**
- * The list credential result response.
+ * Lists the user credentials of a Fleet.
  */
 export function listFleetCredentialsOutput(args: ListFleetCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFleetCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listFleetCredentials(a, opts))

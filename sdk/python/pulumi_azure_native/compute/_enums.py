@@ -27,6 +27,7 @@ __all__ = [
     'DiskEncryptionSetType',
     'DiskSecurityTypes',
     'DiskStorageAccountTypes',
+    'EdgeZoneStorageAccountType',
     'EncryptionType',
     'ExtendedLocationTypes',
     'GalleryApplicationCustomActionParameterType',
@@ -354,6 +355,16 @@ class DiskStorageAccountTypes(str, Enum):
     """
     Premium SSD v2 locally redundant storage. Best for production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput.
     """
+
+
+class EdgeZoneStorageAccountType(str, Enum):
+    """
+    Specifies the storage account type to be used to store the image. This property is not updatable.
+    """
+    STANDARD_LRS = "Standard_LRS"
+    STANDARD_ZRS = "Standard_ZRS"
+    STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    PREMIUM_LRS = "Premium_LRS"
 
 
 class EncryptionType(str, Enum):

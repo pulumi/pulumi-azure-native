@@ -82,7 +82,7 @@ export class GlobalSchedule extends pulumi.CustomResource {
      */
     public readonly taskType!: pulumi.Output<string | undefined>;
     /**
-     * The time zone ID (e.g. Pacific Standard time).
+     * The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
      */
     public readonly timeZoneId!: pulumi.Output<string | undefined>;
     /**
@@ -197,7 +197,7 @@ export interface GlobalScheduleArgs {
      */
     taskType?: pulumi.Input<string>;
     /**
-     * The time zone ID (e.g. Pacific Standard time).
+     * The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
      */
     timeZoneId?: pulumi.Input<string>;
     /**

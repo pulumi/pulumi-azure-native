@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.App.V20220301.Outputs
     public sealed class AppLogsConfigurationResponse
     {
         /// <summary>
-        /// Logs destination
+        /// Logs destination, can be 'log-analytics', 'azure-monitor' or 'none'
         /// </summary>
         public readonly string? Destination;
         /// <summary>
-        /// Log Analytics configuration
+        /// Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
         /// </summary>
         public readonly Outputs.LogAnalyticsConfigurationResponse? LogAnalyticsConfiguration;
 

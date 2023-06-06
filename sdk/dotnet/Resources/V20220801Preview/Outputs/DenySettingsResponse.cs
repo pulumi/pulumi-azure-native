@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Resources.V20220801Preview.Outputs
         /// <summary>
         /// denySettings Mode.
         /// </summary>
-        public readonly string? Mode;
+        public readonly string Mode;
 
         [OutputConstructor]
         private DenySettingsResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Resources.V20220801Preview.Outputs
 
             ImmutableArray<string> excludedPrincipals,
 
-            string? mode)
+            string mode)
         {
             ApplyToChildScopes = applyToChildScopes;
             ExcludedActions = excludedActions;

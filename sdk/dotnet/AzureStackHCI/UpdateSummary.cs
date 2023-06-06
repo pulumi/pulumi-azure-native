@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221201:UpdateSummary"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:UpdateSummary"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230201:UpdateSummary"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230301:UpdateSummary"},
                 },

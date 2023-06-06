@@ -173,6 +173,8 @@ class MongoClusterFirewallRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20230315preview:MongoClusterFirewallRule")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MongoClusterFirewallRule, __self__).__init__(
             'azure-native:documentdb/v20230301preview:MongoClusterFirewallRule',
             resource_name,

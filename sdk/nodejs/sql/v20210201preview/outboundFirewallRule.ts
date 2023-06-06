@@ -76,7 +76,7 @@ export class OutboundFirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:OutboundFirewallRule" }, { type: "azure-native:sql/v20210501preview:OutboundFirewallRule" }, { type: "azure-native:sql/v20210801preview:OutboundFirewallRule" }, { type: "azure-native:sql/v20211101:OutboundFirewallRule" }, { type: "azure-native:sql/v20211101preview:OutboundFirewallRule" }, { type: "azure-native:sql/v20220201preview:OutboundFirewallRule" }, { type: "azure-native:sql/v20220501preview:OutboundFirewallRule" }, { type: "azure-native:sql/v20220801preview:OutboundFirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:OutboundFirewallRule" }, { type: "azure-native:sql/v20210501preview:OutboundFirewallRule" }, { type: "azure-native:sql/v20210801preview:OutboundFirewallRule" }, { type: "azure-native:sql/v20211101:OutboundFirewallRule" }, { type: "azure-native:sql/v20211101preview:OutboundFirewallRule" }, { type: "azure-native:sql/v20220201preview:OutboundFirewallRule" }, { type: "azure-native:sql/v20220501preview:OutboundFirewallRule" }, { type: "azure-native:sql/v20220801preview:OutboundFirewallRule" }, { type: "azure-native:sql/v20221101preview:OutboundFirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OutboundFirewallRule.__pulumiType, name, resourceInputs, opts);
     }

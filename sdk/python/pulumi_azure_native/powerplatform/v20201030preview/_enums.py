@@ -30,6 +30,7 @@ class HealthStatus(str, Enum):
     """
     UNDETERMINED = "Undetermined"
     HEALTHY = "Healthy"
+    WARNING = "Warning"
     UNHEALTHY = "Unhealthy"
 
 

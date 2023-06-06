@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        [Input("onInactiveMarkAs")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.ActivityOnInactiveMarkAs>? OnInactiveMarkAs { get; set; }
+
         [Input("parameters")]
         private InputMap<object>? _parameters;
 
@@ -62,6 +68,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("policy")]
         public Input<Inputs.ExecutePipelineActivityPolicyArgs>? Policy { get; set; }
+
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        [Input("state")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.ActivityState>? State { get; set; }
 
         /// <summary>
         /// Type of activity.

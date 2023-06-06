@@ -112,7 +112,7 @@ class Fleet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        The Fleet resource which contains multiple Kubernetes clusters as its members.
+        The Fleet resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class Fleet(pulumi.CustomResource):
                  args: FleetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The Fleet resource which contains multiple Kubernetes clusters as its members.
+        The Fleet resource.
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.
@@ -167,12 +167,12 @@ class Fleet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["etag"] = None
+            __props__.__dict__["e_tag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20220602preview:Fleet"), pulumi.Alias(type_="azure-native:containerservice/v20220702preview:Fleet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20220602preview:Fleet"), pulumi.Alias(type_="azure-native:containerservice/v20220702preview:Fleet"), pulumi.Alias(type_="azure-native:containerservice/v20230315preview:Fleet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Fleet, __self__).__init__(
             'azure-native:containerservice/v20220902preview:Fleet',
@@ -196,7 +196,7 @@ class Fleet(pulumi.CustomResource):
 
         __props__ = FleetArgs.__new__(FleetArgs)
 
-        __props__.__dict__["etag"] = None
+        __props__.__dict__["e_tag"] = None
         __props__.__dict__["hub_profile"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -207,12 +207,12 @@ class Fleet(pulumi.CustomResource):
         return Fleet(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> pulumi.Output[str]:
         """
-        Resource Etag.
+        If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
-        return pulumi.get(self, "etag")
+        return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter(name="hubProfile")
@@ -242,7 +242,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The provisioning state of the last accepted operation.
+        The status of the last operation.
         """
         return pulumi.get(self, "provisioning_state")
 

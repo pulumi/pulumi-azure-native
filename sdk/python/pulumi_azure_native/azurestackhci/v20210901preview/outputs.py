@@ -2366,6 +2366,8 @@ class VirtualmachinesPropertiesResponseHardwareProfile(dict):
             pulumi.set(__self__, "memory_gb", memory_gb)
         if processors is not None:
             pulumi.set(__self__, "processors", processors)
+        if vm_size is None:
+            vm_size = 'Default'
         if vm_size is not None:
             pulumi.set(__self__, "vm_size", vm_size)
 
@@ -2789,6 +2791,8 @@ class VirtualmachinesPropertiesResponseSecurityProfile(dict):
         """
         SecurityProfile - Specifies the security settings for the virtual machine.
         """
+        if enable_tpm is None:
+            enable_tpm = False
         if enable_tpm is not None:
             pulumi.set(__self__, "enable_tpm", enable_tpm)
         if uefi_settings is not None:
@@ -2991,6 +2995,8 @@ class VirtualmachinesPropertiesResponseUefiSettings(dict):
         """
         :param bool secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine.
         """
+        if secure_boot_enabled is None:
+            secure_boot_enabled = False
         if secure_boot_enabled is not None:
             pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
 

@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.Attestation.V20210601Preview
                     new global::Pulumi.Alias { Type = "azure-native:attestation:AttestationProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:attestation/v20180901preview:AttestationProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:attestation/v20201001:AttestationProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:attestation/v20210601:AttestationProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

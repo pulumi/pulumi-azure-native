@@ -40,6 +40,18 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
         public Output<string?> Format { get; private set; } = null!;
 
         /// <summary>
+        /// The managed identity associated with Export
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The location of the Export's managed identity. Only required when utilizing managed identity.
+        /// </summary>
+        [Output("location")]
+        public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -110,6 +122,7 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20210101:Export"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20211001:Export"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001:Export"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230301:Export"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -162,6 +175,18 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
         /// </summary>
         [Input("format")]
         public InputUnion<string, Pulumi.AzureNative.CostManagement.V20230401Preview.FormatType>? Format { get; set; }
+
+        /// <summary>
+        /// The managed identity associated with Export
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The location of the Export's managed identity. Only required when utilizing managed identity.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.

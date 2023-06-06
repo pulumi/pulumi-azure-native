@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
         /// Date range of the current view.
         /// </summary>
         [Output("dateRange")]
-        public Output<string> DateRange { get; private set; } = null!;
+        public Output<string?> DateRange { get; private set; } = null!;
 
         /// <summary>
         /// User input name of the view. Required.
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
         /// Date when the user last modified this view.
         /// </summary>
         [Output("modifiedOn")]
-        public Output<string> ModifiedOn { get; private set; } = null!;
+        public Output<string?> ModifiedOn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -157,6 +157,7 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001:View"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001preview:View"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221005preview:View"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230301:View"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -199,6 +200,12 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
         public Input<Inputs.ReportConfigDatasetArgs>? DataSet { get; set; }
 
         /// <summary>
+        /// Date range of the current view.
+        /// </summary>
+        [Input("dateRange")]
+        public Input<string>? DateRange { get; set; }
+
+        /// <summary>
         /// User input name of the view. Required.
         /// </summary>
         [Input("displayName")]
@@ -233,6 +240,12 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
         /// </summary>
         [Input("metric")]
         public InputUnion<string, Pulumi.AzureNative.CostManagement.V20230401Preview.MetricType>? Metric { get; set; }
+
+        /// <summary>
+        /// Date when the user last modified this view.
+        /// </summary>
+        [Input("modifiedOn")]
+        public Input<string>? ModifiedOn { get; set; }
 
         [Input("pivots")]
         private InputList<Inputs.PivotPropertiesArgs>? _pivots;

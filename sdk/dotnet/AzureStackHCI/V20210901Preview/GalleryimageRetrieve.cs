@@ -139,6 +139,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:galleryimageRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:GalleryimageRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:galleryimageRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:GalleryimageRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:galleryimageRetrieve"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

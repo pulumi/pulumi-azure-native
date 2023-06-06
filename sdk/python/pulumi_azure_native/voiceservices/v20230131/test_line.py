@@ -214,7 +214,7 @@ class TestLine(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:voiceservices:TestLine"), pulumi.Alias(type_="azure-native:voiceservices/v20221201preview:TestLine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:voiceservices:TestLine"), pulumi.Alias(type_="azure-native:voiceservices/v20221201preview:TestLine"), pulumi.Alias(type_="azure-native:voiceservices/v20230403:TestLine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TestLine, __self__).__init__(
             'azure-native:voiceservices/v20230131:TestLine',

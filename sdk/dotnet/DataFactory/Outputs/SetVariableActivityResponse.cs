@@ -29,9 +29,17 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// If set to true, it sets the pipeline run return value.
         /// </summary>
         public readonly bool? SetSystemVariable;
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// Type of activity.
         /// Expected value is 'SetVariable'.
@@ -58,7 +66,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string name,
 
+            string? onInactiveMarkAs,
+
             bool? setSystemVariable,
+
+            string? state,
 
             string type,
 
@@ -71,7 +83,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             DependsOn = dependsOn;
             Description = description;
             Name = name;
+            OnInactiveMarkAs = onInactiveMarkAs;
             SetSystemVariable = setSystemVariable;
+            State = state;
             Type = type;
             UserProperties = userProperties;
             Value = value;

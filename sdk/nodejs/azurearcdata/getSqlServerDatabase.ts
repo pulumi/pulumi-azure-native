@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves an Arc Sql Server database.
- * API Version: 2023-03-15-preview.
+ * API Version: 2023-01-15-preview.
  */
 export function getSqlServerDatabase(args: GetSqlServerDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerDatabaseResult> {
 
@@ -71,7 +71,7 @@ export interface GetSqlServerDatabaseResult {
 }
 /**
  * Retrieves an Arc Sql Server database.
- * API Version: 2023-03-15-preview.
+ * API Version: 2023-01-15-preview.
  */
 export function getSqlServerDatabaseOutput(args: GetSqlServerDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getSqlServerDatabase(a, opts))

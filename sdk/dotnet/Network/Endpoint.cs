@@ -139,6 +139,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180301:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180401:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:Endpoint"},
                 },
             };

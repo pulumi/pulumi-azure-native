@@ -295,7 +295,7 @@ class DaprComponent(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20220101preview:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20220301:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20220601preview:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20221101preview:DaprComponent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20220101preview:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20220301:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20220601preview:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20221101preview:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20230401preview:DaprComponent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DaprComponent, __self__).__init__(
             'azure-native:app/v20221001:DaprComponent',

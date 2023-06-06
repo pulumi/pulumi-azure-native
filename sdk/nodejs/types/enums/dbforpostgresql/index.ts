@@ -13,6 +13,7 @@ import * as v20210615privatepreview from "./v20210615privatepreview";
 import * as v20220501preview from "./v20220501preview";
 import * as v20221108 from "./v20221108";
 import * as v20221201 from "./v20221201";
+import * as v20230301preview from "./v20230301preview";
 
 export {
     v20171201,
@@ -26,6 +27,7 @@ export {
     v20220501preview,
     v20221108,
     v20221201,
+    v20230301preview,
 };
 
 export const ActiveDirectoryAuthEnum = {
@@ -89,7 +91,7 @@ export const IdentityType = {
 } as const;
 
 /**
- * the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'
+ * the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 

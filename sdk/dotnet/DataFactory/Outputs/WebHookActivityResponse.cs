@@ -45,9 +45,17 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode &gt;= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         public readonly object? ReportStatusOnCallBack;
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// The timeout within which the webhook should be called back. If there is no value specified, it defaults to 10 minutes. Type: string. Pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
@@ -82,7 +90,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string name,
 
+            string? onInactiveMarkAs,
+
             object? reportStatusOnCallBack,
+
+            string? state,
 
             string? timeout,
 
@@ -99,7 +111,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Headers = headers;
             Method = method;
             Name = name;
+            OnInactiveMarkAs = onInactiveMarkAs;
             ReportStatusOnCallBack = reportStatusOnCallBack;
+            State = state;
             Timeout = timeout;
             Type = type;
             Url = url;

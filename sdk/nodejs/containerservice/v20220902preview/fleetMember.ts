@@ -40,17 +40,17 @@ export class FleetMember extends pulumi.CustomResource {
     /**
      * The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
      */
-    public readonly clusterResourceId!: pulumi.Output<string | undefined>;
+    public readonly clusterResourceId!: pulumi.Output<string>;
     /**
-     * Resource Etag.
+     * If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly eTag!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the last accepted operation.
+     * The status of the last operation.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -73,6 +73,9 @@ export class FleetMember extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.clusterResourceId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'clusterResourceId'");
+            }
             if ((!args || args.fleetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fleetName'");
             }
@@ -83,21 +86,21 @@ export class FleetMember extends pulumi.CustomResource {
             resourceInputs["fleetMemberName"] = args ? args.fleetMemberName : undefined;
             resourceInputs["fleetName"] = args ? args.fleetName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["clusterResourceId"] = undefined /*out*/;
-            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220602preview:FleetMember" }, { type: "azure-native:containerservice/v20220702preview:FleetMember" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220602preview:FleetMember" }, { type: "azure-native:containerservice/v20220702preview:FleetMember" }, { type: "azure-native:containerservice/v20230315preview:FleetMember" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FleetMember.__pulumiType, name, resourceInputs, opts);
     }
@@ -110,7 +113,7 @@ export interface FleetMemberArgs {
     /**
      * The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
      */
-    clusterResourceId?: pulumi.Input<string>;
+    clusterResourceId: pulumi.Input<string>;
     /**
      * The name of the Fleet member resource.
      */

@@ -149,7 +149,7 @@ export class DomainEventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20220615:DomainEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20220615:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:DomainEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DomainEventSubscription.__pulumiType, name, resourceInputs, opts);
     }

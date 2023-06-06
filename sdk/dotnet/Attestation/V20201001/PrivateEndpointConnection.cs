@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.Attestation.V20201001
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:attestation:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:attestation/v20210601:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:attestation/v20210601preview:PrivateEndpointConnection"},
                 },
             };

@@ -8,6 +8,69 @@ using Pulumi;
 namespace Pulumi.AzureNative.DataFactory.V20180601
 {
     /// <summary>
+    /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+    /// </summary>
+    [EnumType]
+    public readonly struct ActivityOnInactiveMarkAs : IEquatable<ActivityOnInactiveMarkAs>
+    {
+        private readonly string _value;
+
+        private ActivityOnInactiveMarkAs(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActivityOnInactiveMarkAs Succeeded { get; } = new ActivityOnInactiveMarkAs("Succeeded");
+        public static ActivityOnInactiveMarkAs Failed { get; } = new ActivityOnInactiveMarkAs("Failed");
+        public static ActivityOnInactiveMarkAs Skipped { get; } = new ActivityOnInactiveMarkAs("Skipped");
+
+        public static bool operator ==(ActivityOnInactiveMarkAs left, ActivityOnInactiveMarkAs right) => left.Equals(right);
+        public static bool operator !=(ActivityOnInactiveMarkAs left, ActivityOnInactiveMarkAs right) => !left.Equals(right);
+
+        public static explicit operator string(ActivityOnInactiveMarkAs value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActivityOnInactiveMarkAs other && Equals(other);
+        public bool Equals(ActivityOnInactiveMarkAs other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+    /// </summary>
+    [EnumType]
+    public readonly struct ActivityState : IEquatable<ActivityState>
+    {
+        private readonly string _value;
+
+        private ActivityState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActivityState Active { get; } = new ActivityState("Active");
+        public static ActivityState Inactive { get; } = new ActivityState("Inactive");
+
+        public static bool operator ==(ActivityState left, ActivityState right) => left.Equals(right);
+        public static bool operator !=(ActivityState left, ActivityState right) => !left.Equals(right);
+
+        public static explicit operator string(ActivityState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActivityState other && Equals(other);
+        public bool Equals(ActivityState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Rest API method for target endpoint.
     /// </summary>
     [EnumType]
@@ -230,6 +293,36 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConfigurationType other && Equals(other);
         public bool Equals(ConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of connection via linked service or dataset.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionType : IEquatable<ConnectionType>
+    {
+        private readonly string _value;
+
+        private ConnectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionType Linkedservicetype { get; } = new ConnectionType("linkedservicetype");
+
+        public static bool operator ==(ConnectionType left, ConnectionType right) => left.Equals(right);
+        public static bool operator !=(ConnectionType left, ConnectionType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionType other && Equals(other);
+        public bool Equals(ConnectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -544,6 +637,38 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FactoryIdentityType other && Equals(other);
         public bool Equals(FactoryIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Frequency of period in terms of 'Hour', 'Minute' or 'Second'.
+    /// </summary>
+    [EnumType]
+    public readonly struct FrequencyType : IEquatable<FrequencyType>
+    {
+        private readonly string _value;
+
+        private FrequencyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FrequencyType Hour { get; } = new FrequencyType("Hour");
+        public static FrequencyType Minute { get; } = new FrequencyType("Minute");
+        public static FrequencyType Second { get; } = new FrequencyType("Second");
+
+        public static bool operator ==(FrequencyType left, FrequencyType right) => left.Equals(right);
+        public static bool operator !=(FrequencyType left, FrequencyType right) => !left.Equals(right);
+
+        public static explicit operator string(FrequencyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FrequencyType other && Equals(other);
+        public bool Equals(FrequencyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1085,6 +1210,38 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedVirtualNetworkReferenceType other && Equals(other);
         public bool Equals(ManagedVirtualNetworkReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the CDC attribute mapping. Note: 'Advanced' mapping type is also saved as 'Derived'.
+    /// </summary>
+    [EnumType]
+    public readonly struct MappingType : IEquatable<MappingType>
+    {
+        private readonly string _value;
+
+        private MappingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MappingType Direct { get; } = new MappingType("Direct");
+        public static MappingType Derived { get; } = new MappingType("Derived");
+        public static MappingType Aggregate { get; } = new MappingType("Aggregate");
+
+        public static bool operator ==(MappingType left, MappingType right) => left.Equals(right);
+        public static bool operator !=(MappingType left, MappingType right) => !left.Equals(right);
+
+        public static explicit operator string(MappingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MappingType other && Equals(other);
+        public bool Equals(MappingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

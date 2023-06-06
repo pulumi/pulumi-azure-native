@@ -44,13 +44,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         /// </summary>
         [Output("coordinatorStorageQuotaInMb")]
-        public Output<double?> CoordinatorStorageQuotaInMb { get; private set; } = null!;
+        public Output<int?> CoordinatorStorageQuotaInMb { get; private set; } = null!;
 
         /// <summary>
         /// The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         /// </summary>
         [Output("coordinatorVCores")]
-        public Output<double?> CoordinatorVCores { get; private set; } = null!;
+        public Output<int?> CoordinatorVCores { get; private set; } = null!;
 
         /// <summary>
         /// The earliest restore point time (ISO8601 format) for the cluster.
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
         /// </summary>
         [Output("nodeCount")]
-        public Output<double?> NodeCount { get; private set; } = null!;
+        public Output<int?> NodeCount { get; private set; } = null!;
 
         /// <summary>
         /// If public access is enabled on worker nodes.
@@ -110,13 +110,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         /// </summary>
         [Output("nodeStorageQuotaInMb")]
-        public Output<double?> NodeStorageQuotaInMb { get; private set; } = null!;
+        public Output<int?> NodeStorageQuotaInMb { get; private set; } = null!;
 
         /// <summary>
         /// The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         /// </summary>
         [Output("nodeVCores")]
-        public Output<double?> NodeVCores { get; private set; } = null!;
+        public Output<int?> NodeVCores { get; private set; } = null!;
 
         /// <summary>
         /// Date and time in UTC (ISO8601 format) for cluster restore.
@@ -280,13 +280,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         /// </summary>
         [Input("coordinatorStorageQuotaInMb")]
-        public Input<double>? CoordinatorStorageQuotaInMb { get; set; }
+        public Input<int>? CoordinatorStorageQuotaInMb { get; set; }
 
         /// <summary>
         /// The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         /// </summary>
         [Input("coordinatorVCores")]
-        public Input<double>? CoordinatorVCores { get; set; }
+        public Input<int>? CoordinatorVCores { get; set; }
 
         /// <summary>
         /// If high availability (HA) is enabled or not for the cluster.
@@ -316,7 +316,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
         /// </summary>
         [Input("nodeCount")]
-        public Input<double>? NodeCount { get; set; }
+        public Input<int>? NodeCount { get; set; }
 
         /// <summary>
         /// If public access is enabled on worker nodes.
@@ -334,13 +334,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         /// </summary>
         [Input("nodeStorageQuotaInMb")]
-        public Input<double>? NodeStorageQuotaInMb { get; set; }
+        public Input<int>? NodeStorageQuotaInMb { get; set; }
 
         /// <summary>
         /// The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         /// </summary>
         [Input("nodeVCores")]
-        public Input<double>? NodeVCores { get; set; }
+        public Input<int>? NodeVCores { get; set; }
 
         /// <summary>
         /// Date and time in UTC (ISO8601 format) for cluster restore.

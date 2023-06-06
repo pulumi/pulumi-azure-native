@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Resources.V20220801Preview.Inputs
         /// <summary>
         /// denySettings Mode.
         /// </summary>
-        [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNative.Resources.V20220801Preview.DenySettingsMode>? Mode { get; set; }
+        [Input("mode", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.Resources.V20220801Preview.DenySettingsMode> Mode { get; set; } = null!;
 
         public DenySettingsArgs()
         {

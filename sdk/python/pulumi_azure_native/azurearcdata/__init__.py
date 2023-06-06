@@ -13,19 +13,11 @@ from .get_active_directory_connector import *
 from .get_data_controller import *
 from .get_failover_group import *
 from .get_postgres_instance import *
-from .get_sql_availability_group import *
-from .get_sql_availability_group_database import *
-from .get_sql_availability_group_replica import *
 from .get_sql_managed_instance import *
-from .get_sql_server_availability_group import *
 from .get_sql_server_database import *
 from .get_sql_server_instance import *
 from .postgres_instance import *
-from .sql_availability_group import *
-from .sql_availability_group_database import *
-from .sql_availability_group_replica import *
 from .sql_managed_instance import *
-from .sql_server_availability_group import *
 from .sql_server_database import *
 from .sql_server_instance import *
 from ._inputs import *
@@ -41,12 +33,9 @@ if typing.TYPE_CHECKING:
     v20220615preview = __v20220615preview
     import pulumi_azure_native.azurearcdata.v20230115preview as __v20230115preview
     v20230115preview = __v20230115preview
-    import pulumi_azure_native.azurearcdata.v20230315preview as __v20230315preview
-    v20230315preview = __v20230315preview
 else:
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20210601preview')
     v20220301preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20220301preview')
     v20220615preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20220615preview')
     v20230115preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20230115preview')
-    v20230315preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20230315preview')
 

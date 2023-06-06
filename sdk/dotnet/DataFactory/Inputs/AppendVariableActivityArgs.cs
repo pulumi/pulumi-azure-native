@@ -40,6 +40,18 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        [Input("onInactiveMarkAs")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.ActivityOnInactiveMarkAs>? OnInactiveMarkAs { get; set; }
+
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        [Input("state")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.ActivityState>? State { get; set; }
+
+        /// <summary>
         /// Type of activity.
         /// Expected value is 'AppendVariable'.
         /// </summary>

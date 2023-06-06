@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
     public sealed class UserAssignedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'
+        /// the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
         /// </summary>
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.IdentityType> Type { get; set; } = null!;

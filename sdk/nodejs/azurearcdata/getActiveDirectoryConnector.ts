@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves an Active Directory connector resource
- * API Version: 2023-03-15-preview.
+ * API Version: 2023-01-15-preview.
  */
 export function getActiveDirectoryConnector(args: GetActiveDirectoryConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetActiveDirectoryConnectorResult> {
 
@@ -63,7 +63,7 @@ export interface GetActiveDirectoryConnectorResult {
 }
 /**
  * Retrieves an Active Directory connector resource
- * API Version: 2023-03-15-preview.
+ * API Version: 2023-01-15-preview.
  */
 export function getActiveDirectoryConnectorOutput(args: GetActiveDirectoryConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveDirectoryConnectorResult> {
     return pulumi.output(args).apply((a: any) => getActiveDirectoryConnector(a, opts))

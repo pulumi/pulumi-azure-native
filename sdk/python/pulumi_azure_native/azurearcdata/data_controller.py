@@ -130,7 +130,7 @@ class DataController(pulumi.CustomResource):
                  __props__=None):
         """
         Data controller resource
-        API Version: 2023-03-15-preview.
+        API Version: 2023-01-15-preview.
         Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -150,7 +150,7 @@ class DataController(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Data controller resource
-        API Version: 2023-03-15-preview.
+        API Version: 2023-01-15-preview.
         Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -196,7 +196,7 @@ class DataController(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20210601preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20210801:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20211101:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20230315preview:DataController")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20210601preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20210801:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20211101:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:DataController")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataController, __self__).__init__(
             'azure-native:azurearcdata:DataController',

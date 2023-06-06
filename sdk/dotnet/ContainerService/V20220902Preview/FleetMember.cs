@@ -19,13 +19,13 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
         /// The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
         /// </summary>
         [Output("clusterResourceId")]
-        public Output<string?> ClusterResourceId { get; private set; } = null!;
+        public Output<string> ClusterResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Resource Etag.
+        /// If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
-        [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        [Output("eTag")]
+        public Output<string> ETag { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the last accepted operation.
+        /// The status of the last operation.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:FleetMember"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220702preview:FleetMember"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230315preview:FleetMember"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,8 +105,8 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
         /// <summary>
         /// The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
         /// </summary>
-        [Input("clusterResourceId")]
-        public Input<string>? ClusterResourceId { get; set; }
+        [Input("clusterResourceId", required: true)]
+        public Input<string> ClusterResourceId { get; set; } = null!;
 
         /// <summary>
         /// The name of the Fleet member resource.

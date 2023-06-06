@@ -41,9 +41,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// A delay in seconds between validation attempts. If no value is specified, 10 seconds will be used as the default. Type: integer (or Expression with resultType integer).
         /// </summary>
         public readonly object? Sleep;
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
@@ -72,7 +80,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string name,
 
+            string? onInactiveMarkAs,
+
             object? sleep,
+
+            string? state,
 
             object? timeout,
 
@@ -86,7 +98,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Description = description;
             MinimumSize = minimumSize;
             Name = name;
+            OnInactiveMarkAs = onInactiveMarkAs;
             Sleep = sleep;
+            State = state;
             Timeout = timeout;
             Type = type;
             UserProperties = userProperties;

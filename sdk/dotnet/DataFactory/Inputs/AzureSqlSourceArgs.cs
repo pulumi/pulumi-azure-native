@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? DisableMetricsCollection { get; set; }
 
         /// <summary>
+        /// Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("isolationLevel")]
+        public Input<object>? IsolationLevel { get; set; }
+
+        /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         [Input("maxConcurrentConnections")]

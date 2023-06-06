@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
     public static class ListFleetCredentials
     {
         /// <summary>
-        /// The list credential result response.
+        /// Lists the user credentials of a Fleet.
         /// </summary>
         public static Task<ListFleetCredentialsResult> InvokeAsync(ListFleetCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListFleetCredentialsResult>("azure-native:containerservice/v20220902preview:listFleetCredentials", args ?? new ListFleetCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list credential result response.
+        /// Lists the user credentials of a Fleet.
         /// </summary>
         public static Output<ListFleetCredentialsResult> Invoke(ListFleetCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListFleetCredentialsResult>("azure-native:containerservice/v20220902preview:listFleetCredentials", args ?? new ListFleetCredentialsInvokeArgs(), options.WithDefaults());
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
     public sealed class ListFleetCredentialsResult
     {
         /// <summary>
-        /// Base64-encoded Kubernetes configuration file.
+        /// Array of base64-encoded Kubernetes configuration files.
         /// </summary>
         public readonly ImmutableArray<Outputs.FleetCredentialResultResponse> Kubeconfigs;
 

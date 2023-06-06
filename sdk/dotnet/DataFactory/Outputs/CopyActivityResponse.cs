@@ -57,6 +57,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// List of outputs for the activity.
         /// </summary>
         public readonly ImmutableArray<Outputs.DatasetReferenceResponse> Outputs;
@@ -97,6 +101,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.StagingSettingsResponse? StagingSettings;
         /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
+        /// <summary>
         /// Copy activity translator. If not specified, tabular translator is used.
         /// </summary>
         public readonly object? Translator;
@@ -136,6 +144,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string name,
 
+            string? onInactiveMarkAs,
+
             ImmutableArray<Outputs.DatasetReferenceResponse> outputs,
 
             object? parallelCopies,
@@ -156,6 +166,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.StagingSettingsResponse? stagingSettings,
 
+            string? state,
+
             object? translator,
 
             string type,
@@ -174,6 +186,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             LogSettings = logSettings;
             LogStorageSettings = logStorageSettings;
             Name = name;
+            OnInactiveMarkAs = onInactiveMarkAs;
             Outputs = outputs;
             ParallelCopies = parallelCopies;
             Policy = policy;
@@ -184,6 +197,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             SkipErrorFile = skipErrorFile;
             Source = source;
             StagingSettings = stagingSettings;
+            State = state;
             Translator = translator;
             Type = type;
             UserProperties = userProperties;

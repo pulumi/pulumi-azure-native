@@ -37,9 +37,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// Activity policy.
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// Type of activity.
         /// Expected value is 'AzureMLBatchExecution'.
@@ -70,7 +78,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string name,
 
+            string? onInactiveMarkAs,
+
             Outputs.ActivityPolicyResponse? policy,
+
+            string? state,
 
             string type,
 
@@ -85,7 +97,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             GlobalParameters = globalParameters;
             LinkedServiceName = linkedServiceName;
             Name = name;
+            OnInactiveMarkAs = onInactiveMarkAs;
             Policy = policy;
+            State = state;
             Type = type;
             UserProperties = userProperties;
             WebServiceInputs = webServiceInputs;
