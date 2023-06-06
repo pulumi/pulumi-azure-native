@@ -53,6 +53,8 @@ if typing.TYPE_CHECKING:
     v20221108 = __v20221108
     import pulumi_azure_native.dbforpostgresql.v20221201 as __v20221201
     v20221201 = __v20221201
+    import pulumi_azure_native.dbforpostgresql.v20230301preview as __v20230301preview
+    v20230301preview = __v20230301preview
 else:
     v20171201 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20171201')
     v20171201preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20171201preview')
@@ -67,4 +69,5 @@ else:
     v20220501preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20220501preview')
     v20221108 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20221108')
     v20221201 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20221201')
+    v20230301preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20230301preview')
 

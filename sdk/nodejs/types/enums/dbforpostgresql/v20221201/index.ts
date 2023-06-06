@@ -63,7 +63,7 @@ export const IdentityType = {
 } as const;
 
 /**
- * the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'
+ * the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 

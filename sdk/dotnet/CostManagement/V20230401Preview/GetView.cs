@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
         /// <summary>
         /// Date range of the current view.
         /// </summary>
-        public readonly string DateRange;
+        public readonly string? DateRange;
         /// <summary>
         /// User input name of the view. Required.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
         /// <summary>
         /// Date when the user last modified this view.
         /// </summary>
-        public readonly string ModifiedOn;
+        public readonly string? ModifiedOn;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
 
             Outputs.ReportConfigDatasetResponse? dataSet,
 
-            string dateRange,
+            string? dateRange,
 
             string? displayName,
 
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
 
             string? metric,
 
-            string modifiedOn,
+            string? modifiedOn,
 
             string name,
 

@@ -62,7 +62,7 @@ export class View extends pulumi.CustomResource {
     /**
      * Date range of the current view.
      */
-    public /*out*/ readonly dateRange!: pulumi.Output<string>;
+    public readonly dateRange!: pulumi.Output<string | undefined>;
     /**
      * User input name of the view. Required.
      */
@@ -132,6 +132,7 @@ export class View extends pulumi.CustomResource {
             resourceInputs["accumulated"] = args ? args.accumulated : undefined;
             resourceInputs["chart"] = args ? args.chart : undefined;
             resourceInputs["dataSet"] = args ? args.dataSet : undefined;
+            resourceInputs["dateRange"] = args ? args.dateRange : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["eTag"] = args ? args.eTag : undefined;
             resourceInputs["includeMonetaryCommitment"] = args ? args.includeMonetaryCommitment : undefined;
@@ -145,7 +146,6 @@ export class View extends pulumi.CustomResource {
             resourceInputs["viewName"] = args ? args.viewName : undefined;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["currency"] = undefined /*out*/;
-            resourceInputs["dateRange"] = undefined /*out*/;
             resourceInputs["modifiedOn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {
@@ -169,7 +169,7 @@ export class View extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190401preview:View" }, { type: "azure-native:costmanagement/v20191101:View" }, { type: "azure-native:costmanagement/v20200601:View" }, { type: "azure-native:costmanagement/v20211001:View" }, { type: "azure-native:costmanagement/v20220801preview:View" }, { type: "azure-native:costmanagement/v20221001:View" }, { type: "azure-native:costmanagement/v20221001preview:View" }, { type: "azure-native:costmanagement/v20221005preview:View" }, { type: "azure-native:costmanagement/v20230401preview:View" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190401preview:View" }, { type: "azure-native:costmanagement/v20191101:View" }, { type: "azure-native:costmanagement/v20200601:View" }, { type: "azure-native:costmanagement/v20211001:View" }, { type: "azure-native:costmanagement/v20220801preview:View" }, { type: "azure-native:costmanagement/v20221001:View" }, { type: "azure-native:costmanagement/v20221001preview:View" }, { type: "azure-native:costmanagement/v20221005preview:View" }, { type: "azure-native:costmanagement/v20230301:View" }, { type: "azure-native:costmanagement/v20230401preview:View" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(View.__pulumiType, name, resourceInputs, opts);
     }
@@ -191,6 +191,10 @@ export interface ViewArgs {
      * Has definition for data in this report config.
      */
     dataSet?: pulumi.Input<inputs.costmanagement.ReportConfigDatasetArgs>;
+    /**
+     * Date range of the current view.
+     */
+    dateRange?: pulumi.Input<string>;
     /**
      * User input name of the view. Required.
      */

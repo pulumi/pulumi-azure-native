@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// Parameters for U-SQL job request.
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Parameters;
@@ -65,6 +69,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object ScriptPath;
         /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
+        /// <summary>
         /// Type of activity.
         /// Expected value is 'DataLakeAnalyticsU-SQL'.
         /// </summary>
@@ -88,6 +96,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string name,
 
+            string? onInactiveMarkAs,
+
             ImmutableDictionary<string, object>? parameters,
 
             Outputs.ActivityPolicyResponse? policy,
@@ -100,6 +110,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object scriptPath,
 
+            string? state,
+
             string type,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
@@ -110,12 +122,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Description = description;
             LinkedServiceName = linkedServiceName;
             Name = name;
+            OnInactiveMarkAs = onInactiveMarkAs;
             Parameters = parameters;
             Policy = policy;
             Priority = priority;
             RuntimeVersion = runtimeVersion;
             ScriptLinkedService = scriptLinkedService;
             ScriptPath = scriptPath;
+            State = state;
             Type = type;
             UserProperties = userProperties;
         }

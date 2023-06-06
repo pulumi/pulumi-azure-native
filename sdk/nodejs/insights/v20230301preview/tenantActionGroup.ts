@@ -129,6 +129,8 @@ export class TenantActionGroup extends pulumi.CustomResource {
             resourceInputs["webhookReceivers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20230501preview:TenantActionGroup" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TenantActionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

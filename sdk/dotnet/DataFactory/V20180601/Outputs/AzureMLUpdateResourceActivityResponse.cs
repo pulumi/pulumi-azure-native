@@ -33,9 +33,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// Activity policy.
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// The relative file path in trainedModelLinkedService to represent the .ilearner file that will be uploaded by the update operation.  Type: string (or Expression with resultType string).
         /// </summary>
@@ -68,7 +76,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string name,
 
+            string? onInactiveMarkAs,
+
             Outputs.ActivityPolicyResponse? policy,
+
+            string? state,
 
             object trainedModelFilePath,
 
@@ -84,7 +96,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Description = description;
             LinkedServiceName = linkedServiceName;
             Name = name;
+            OnInactiveMarkAs = onInactiveMarkAs;
             Policy = policy;
+            State = state;
             TrainedModelFilePath = trainedModelFilePath;
             TrainedModelLinkedServiceName = trainedModelLinkedServiceName;
             TrainedModelName = trainedModelName;

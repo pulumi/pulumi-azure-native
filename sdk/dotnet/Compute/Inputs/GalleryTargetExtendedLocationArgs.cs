@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// Specifies the storage account type to be used to store the image. This property is not updatable.
         /// </summary>
         [Input("storageAccountType")]
-        public InputUnion<string, Pulumi.AzureNative.Compute.StorageAccountType>? StorageAccountType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.EdgeZoneStorageAccountType>? StorageAccountType { get; set; }
 
         public GalleryTargetExtendedLocationArgs()
         {

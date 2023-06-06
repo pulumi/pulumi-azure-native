@@ -67,7 +67,7 @@ class HighAvailabilityMode(str, Enum):
 
 class IdentityType(str, Enum):
     """
-    the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'
+    the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
     """
     NONE = "None"
     USER_ASSIGNED = "UserAssigned"

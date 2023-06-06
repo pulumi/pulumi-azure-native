@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
         public Input<string>? TaskType { get; set; }
 
         /// <summary>
-        /// The time zone ID (e.g. Pacific Standard time).
+        /// The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection&lt;string&gt; TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         /// </summary>
         [Input("timeZoneId")]
         public Input<string>? TimeZoneId { get; set; }

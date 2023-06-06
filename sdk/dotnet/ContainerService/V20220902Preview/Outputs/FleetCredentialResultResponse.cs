@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview.Outputs
 {
 
     /// <summary>
-    /// The credential result response.
+    /// One credential result item.
     /// </summary>
     [OutputType]
     public sealed class FleetCredentialResultResponse

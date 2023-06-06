@@ -8,6 +8,7 @@ import * as v20200202 from "./v20200202";
 import * as v20210101 from "./v20210101";
 import * as v20210201 from "./v20210201";
 import * as v20230201 from "./v20230201";
+import * as v20230401 from "./v20230401";
 
 export {
     v20160601,
@@ -16,6 +17,7 @@ export {
     v20210101,
     v20210201,
     v20230201,
+    v20230401,
 };
 
 export const AcquireStorageAccountLock = {

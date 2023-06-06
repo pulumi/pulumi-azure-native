@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'EncryptionKeySource',
     'KeySource',
+    'ManagedServiceIdentityType',
     'PrivateLinkServiceConnectionStatus',
     'PublicNetworkAccess',
     'RequiredNsgRules',
@@ -26,6 +27,16 @@ class KeySource(str, Enum):
     """
     DEFAULT = "Default"
     MICROSOFT_KEYVAULT = "Microsoft.Keyvault"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class PrivateLinkServiceConnectionStatus(str, Enum):

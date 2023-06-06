@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20230101Preview
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:ApiPortal"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:ApiPortal"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:ApiPortal"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:ApiPortal"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

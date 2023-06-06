@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class ListFleetCredentialsResult:
     """
-    The list credential result response.
+    The Credential results response.
     """
     def __init__(__self__, kubeconfigs=None):
         if kubeconfigs and not isinstance(kubeconfigs, list):
@@ -31,7 +31,7 @@ class ListFleetCredentialsResult:
     @pulumi.getter
     def kubeconfigs(self) -> Sequence['outputs.FleetCredentialResultResponse']:
         """
-        Base64-encoded Kubernetes configuration file.
+        Array of base64-encoded Kubernetes configuration files.
         """
         return pulumi.get(self, "kubeconfigs")
 
@@ -49,7 +49,7 @@ def list_fleet_credentials(fleet_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFleetCredentialsResult:
     """
-    The list credential result response.
+    Lists the user credentials of a Fleet.
 
 
     :param str fleet_name: The name of the Fleet resource.
@@ -70,7 +70,7 @@ def list_fleet_credentials_output(fleet_name: Optional[pulumi.Input[str]] = None
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFleetCredentialsResult]:
     """
-    The list credential result response.
+    Lists the user credentials of a Fleet.
 
 
     :param str fleet_name: The name of the Fleet resource.

@@ -399,7 +399,7 @@ class MaintenanceWindowResponse(dict):
 @pulumi.output_type
 class NetworkResponse(dict):
     """
-    Network properties of a server
+    Network properties of a server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -427,18 +427,14 @@ class NetworkResponse(dict):
                  delegated_subnet_resource_id: Optional[str] = None,
                  private_dns_zone_arm_resource_id: Optional[str] = None):
         """
-        Network properties of a server
+        Network properties of a server.
         :param str public_network_access: public network access is enabled or not
-        :param str delegated_subnet_resource_id: delegated subnet arm resource id.
-        :param str private_dns_zone_arm_resource_id: private dns zone arm resource id.
+        :param str delegated_subnet_resource_id: Delegated subnet arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
+        :param str private_dns_zone_arm_resource_id: Private dns zone arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
         """
         pulumi.set(__self__, "public_network_access", public_network_access)
-        if delegated_subnet_resource_id is None:
-            delegated_subnet_resource_id = ''
         if delegated_subnet_resource_id is not None:
             pulumi.set(__self__, "delegated_subnet_resource_id", delegated_subnet_resource_id)
-        if private_dns_zone_arm_resource_id is None:
-            private_dns_zone_arm_resource_id = ''
         if private_dns_zone_arm_resource_id is not None:
             pulumi.set(__self__, "private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
 
@@ -454,7 +450,7 @@ class NetworkResponse(dict):
     @pulumi.getter(name="delegatedSubnetResourceId")
     def delegated_subnet_resource_id(self) -> Optional[str]:
         """
-        delegated subnet arm resource id.
+        Delegated subnet arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
         """
         return pulumi.get(self, "delegated_subnet_resource_id")
 
@@ -462,7 +458,7 @@ class NetworkResponse(dict):
     @pulumi.getter(name="privateDnsZoneArmResourceId")
     def private_dns_zone_arm_resource_id(self) -> Optional[str]:
         """
-        private dns zone arm resource id.
+        Private dns zone arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
         """
         return pulumi.get(self, "private_dns_zone_arm_resource_id")
 
@@ -932,7 +928,9 @@ class UserAssignedIdentityResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "userAssignedIdentities":
+        if key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
             suggest = "user_assigned_identities"
 
         if suggest:
@@ -947,22 +945,33 @@ class UserAssignedIdentityResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 tenant_id: str,
                  type: str,
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None):
         """
         Information describing the identities associated with this application.
-        :param str type: the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'
+        :param str tenant_id: Tenant id of the server.
+        :param str type: the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
         :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: represents user assigned identities map.
         """
+        pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
             pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Tenant id of the server.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'
+        the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
         """
         return pulumi.get(self, "type")
 

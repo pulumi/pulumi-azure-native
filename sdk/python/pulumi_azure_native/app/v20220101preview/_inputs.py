@@ -153,8 +153,8 @@ class AppLogsConfigurationArgs:
                  log_analytics_configuration: Optional[pulumi.Input['LogAnalyticsConfigurationArgs']] = None):
         """
         Configuration of application logs
-        :param pulumi.Input[str] destination: Logs destination
-        :param pulumi.Input['LogAnalyticsConfigurationArgs'] log_analytics_configuration: Log Analytics configuration
+        :param pulumi.Input[str] destination: Logs destination, can be 'log-analytics', 'azure-monitor' or 'none'
+        :param pulumi.Input['LogAnalyticsConfigurationArgs'] log_analytics_configuration: Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -165,7 +165,7 @@ class AppLogsConfigurationArgs:
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
         """
-        Logs destination
+        Logs destination, can be 'log-analytics', 'azure-monitor' or 'none'
         """
         return pulumi.get(self, "destination")
 
@@ -177,7 +177,7 @@ class AppLogsConfigurationArgs:
     @pulumi.getter(name="logAnalyticsConfiguration")
     def log_analytics_configuration(self) -> Optional[pulumi.Input['LogAnalyticsConfigurationArgs']]:
         """
-        Log Analytics configuration
+        Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
         """
         return pulumi.get(self, "log_analytics_configuration")
 
@@ -2825,7 +2825,7 @@ class LogAnalyticsConfigurationArgs:
                  customer_id: Optional[pulumi.Input[str]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None):
         """
-        Log analytics configuration
+        Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
         :param pulumi.Input[str] customer_id: Log analytics customer id
         :param pulumi.Input[str] shared_key: Log analytics customer key
         """

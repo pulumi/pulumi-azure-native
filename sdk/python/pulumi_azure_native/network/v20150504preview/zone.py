@@ -170,7 +170,7 @@ class Zone(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:Zone"), pulumi.Alias(type_="azure-native:network/v20160401:Zone"), pulumi.Alias(type_="azure-native:network/v20170901:Zone"), pulumi.Alias(type_="azure-native:network/v20171001:Zone"), pulumi.Alias(type_="azure-native:network/v20180301preview:Zone"), pulumi.Alias(type_="azure-native:network/v20180501:Zone")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:Zone"), pulumi.Alias(type_="azure-native:network/v20160401:Zone"), pulumi.Alias(type_="azure-native:network/v20170901:Zone"), pulumi.Alias(type_="azure-native:network/v20171001:Zone"), pulumi.Alias(type_="azure-native:network/v20180301preview:Zone"), pulumi.Alias(type_="azure-native:network/v20180501:Zone"), pulumi.Alias(type_="azure-native:network/v20230701preview:Zone")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Zone, __self__).__init__(
             'azure-native:network/v20150504preview:Zone',

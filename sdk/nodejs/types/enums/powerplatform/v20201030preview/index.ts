@@ -18,6 +18,7 @@ export type EnterprisePolicyKind = (typeof EnterprisePolicyKind)[keyof typeof En
 export const HealthStatus = {
     Undetermined: "Undetermined",
     Healthy: "Healthy",
+    Warning: "Warning",
     Unhealthy: "Unhealthy",
 } as const;
 

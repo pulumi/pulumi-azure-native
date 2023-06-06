@@ -102,7 +102,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20200601:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20201015preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20211015preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20211201:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20220615:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20200601:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20201015preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20211015preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20211201:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20220615:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20230601preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

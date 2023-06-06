@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SqlManagedInstance.
- * API Version: 2023-03-15-preview.
+ * API Version: 2023-01-15-preview.
  * Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class SqlManagedInstance extends pulumi.CustomResource {
@@ -110,7 +110,7 @@ export class SqlManagedInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20210701preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20210801:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20211101:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20220301preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20220615preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20230115preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20230315preview:SqlManagedInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20210701preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20210801:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20211101:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20220301preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20220615preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20230115preview:SqlManagedInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlManagedInstance.__pulumiType, name, resourceInputs, opts);
     }

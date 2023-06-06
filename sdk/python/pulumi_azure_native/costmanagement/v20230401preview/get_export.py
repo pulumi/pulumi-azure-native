@@ -22,7 +22,7 @@ class GetExportResult:
     """
     An export resource.
     """
-    def __init__(__self__, definition=None, delivery_info=None, e_tag=None, format=None, id=None, name=None, next_run_time_estimate=None, partition_data=None, run_history=None, schedule=None, type=None):
+    def __init__(__self__, definition=None, delivery_info=None, e_tag=None, format=None, id=None, identity=None, location=None, name=None, next_run_time_estimate=None, partition_data=None, run_history=None, schedule=None, type=None):
         if definition and not isinstance(definition, dict):
             raise TypeError("Expected argument 'definition' to be a dict")
         pulumi.set(__self__, "definition", definition)
@@ -38,6 +38,12 @@ class GetExportResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -99,6 +105,22 @@ class GetExportResult:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.SystemAssignedServiceIdentityResponse']:
+        """
+        The managed identity associated with Export
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the Export's managed identity. Only required when utilizing managed identity.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -157,6 +179,8 @@ class AwaitableGetExportResult(GetExportResult):
             e_tag=self.e_tag,
             format=self.format,
             id=self.id,
+            identity=self.identity,
+            location=self.location,
             name=self.name,
             next_run_time_estimate=self.next_run_time_estimate,
             partition_data=self.partition_data,
@@ -190,6 +214,8 @@ def get_export(expand: Optional[str] = None,
         e_tag=__ret__.e_tag,
         format=__ret__.format,
         id=__ret__.id,
+        identity=__ret__.identity,
+        location=__ret__.location,
         name=__ret__.name,
         next_run_time_estimate=__ret__.next_run_time_estimate,
         partition_data=__ret__.partition_data,

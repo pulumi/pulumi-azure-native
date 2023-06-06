@@ -795,6 +795,39 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
+    /// Specifies the storage account type to be used to store the image. This property is not updatable.
+    /// </summary>
+    [EnumType]
+    public readonly struct EdgeZoneStorageAccountType : IEquatable<EdgeZoneStorageAccountType>
+    {
+        private readonly string _value;
+
+        private EdgeZoneStorageAccountType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EdgeZoneStorageAccountType Standard_LRS { get; } = new EdgeZoneStorageAccountType("Standard_LRS");
+        public static EdgeZoneStorageAccountType Standard_ZRS { get; } = new EdgeZoneStorageAccountType("Standard_ZRS");
+        public static EdgeZoneStorageAccountType StandardSSD_LRS { get; } = new EdgeZoneStorageAccountType("StandardSSD_LRS");
+        public static EdgeZoneStorageAccountType Premium_LRS { get; } = new EdgeZoneStorageAccountType("Premium_LRS");
+
+        public static bool operator ==(EdgeZoneStorageAccountType left, EdgeZoneStorageAccountType right) => left.Equals(right);
+        public static bool operator !=(EdgeZoneStorageAccountType left, EdgeZoneStorageAccountType right) => !left.Equals(right);
+
+        public static explicit operator string(EdgeZoneStorageAccountType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EdgeZoneStorageAccountType other && Equals(other);
+        public bool Equals(EdgeZoneStorageAccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of key used to encrypt the data of the disk.
     /// </summary>
     [EnumType]

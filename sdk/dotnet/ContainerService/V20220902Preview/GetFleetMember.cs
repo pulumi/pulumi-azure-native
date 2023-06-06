@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
     public static class GetFleetMember
     {
         /// <summary>
-        /// A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
+        /// Get a FleetMember
         /// </summary>
         public static Task<GetFleetMemberResult> InvokeAsync(GetFleetMemberArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetMemberResult>("azure-native:containerservice/v20220902preview:getFleetMember", args ?? new GetFleetMemberArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
+        /// Get a FleetMember
         /// </summary>
         public static Output<GetFleetMemberResult> Invoke(GetFleetMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetMemberResult>("azure-native:containerservice/v20220902preview:getFleetMember", args ?? new GetFleetMemberInvokeArgs(), options.WithDefaults());
@@ -84,11 +84,11 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
         /// <summary>
         /// The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
         /// </summary>
-        public readonly string? ClusterResourceId;
+        public readonly string ClusterResourceId;
         /// <summary>
-        /// Resource Etag.
+        /// If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
-        public readonly string Etag;
+        public readonly string ETag;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the last accepted operation.
+        /// The status of the last operation.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -112,9 +112,9 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
 
         [OutputConstructor]
         private GetFleetMemberResult(
-            string? clusterResourceId,
+            string clusterResourceId,
 
-            string etag,
+            string eTag,
 
             string id,
 
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
             string type)
         {
             ClusterResourceId = clusterResourceId;
-            Etag = etag;
+            ETag = eTag;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

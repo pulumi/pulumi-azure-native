@@ -278,7 +278,7 @@ class ConfigurationAssignmentParent(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent"), pulumi.Alias(type_="azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent"), pulumi.Alias(type_="azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent"), pulumi.Alias(type_="azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent"), pulumi.Alias(type_="azure-native:maintenance/v20230401:ConfigurationAssignmentParent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent"), pulumi.Alias(type_="azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent"), pulumi.Alias(type_="azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent"), pulumi.Alias(type_="azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationAssignmentParent, __self__).__init__(
             'azure-native:maintenance:ConfigurationAssignmentParent',

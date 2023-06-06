@@ -147,7 +147,7 @@ class PostgresInstance(pulumi.CustomResource):
                  __props__=None):
         """
         A Postgres Instance.
-        API Version: 2023-03-15-preview.
+        API Version: 2023-01-15-preview.
         Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -168,7 +168,7 @@ class PostgresInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Postgres Instance.
-        API Version: 2023-03-15-preview.
+        API Version: 2023-01-15-preview.
         Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -216,7 +216,7 @@ class PostgresInstance(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20210601preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20230315preview:PostgresInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20210601preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:PostgresInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PostgresInstance, __self__).__init__(
             'azure-native:azurearcdata:PostgresInstance',

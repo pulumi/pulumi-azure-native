@@ -60,6 +60,14 @@ export interface GetExportResult {
      */
     readonly id: string;
     /**
+     * The managed identity associated with Export
+     */
+    readonly identity?: outputs.costmanagement.v20230401preview.SystemAssignedServiceIdentityResponse;
+    /**
+     * The location of the Export's managed identity. Only required when utilizing managed identity.
+     */
+    readonly location?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;

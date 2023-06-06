@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App.V20220301.Outputs
 {
 
     /// <summary>
-    /// Log analytics configuration
+    /// Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
     /// </summary>
     [OutputType]
     public sealed class LogAnalyticsConfigurationResponse

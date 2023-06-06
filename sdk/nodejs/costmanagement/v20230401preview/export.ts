@@ -54,6 +54,14 @@ export class Export extends pulumi.CustomResource {
      */
     public readonly format!: pulumi.Output<string | undefined>;
     /**
+     * The managed identity associated with Export
+     */
+    public readonly identity!: pulumi.Output<outputs.costmanagement.v20230401preview.SystemAssignedServiceIdentityResponse | undefined>;
+    /**
+     * The location of the Export's managed identity. Only required when utilizing managed identity.
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -103,6 +111,8 @@ export class Export extends pulumi.CustomResource {
             resourceInputs["eTag"] = args ? args.eTag : undefined;
             resourceInputs["exportName"] = args ? args.exportName : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["partitionData"] = args ? args.partitionData : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
@@ -115,6 +125,8 @@ export class Export extends pulumi.CustomResource {
             resourceInputs["deliveryInfo"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["format"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nextRunTimeEstimate"] = undefined /*out*/;
             resourceInputs["partitionData"] = undefined /*out*/;
@@ -123,7 +135,7 @@ export class Export extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:Export" }, { type: "azure-native:costmanagement/v20190101:Export" }, { type: "azure-native:costmanagement/v20190901:Export" }, { type: "azure-native:costmanagement/v20191001:Export" }, { type: "azure-native:costmanagement/v20191101:Export" }, { type: "azure-native:costmanagement/v20200601:Export" }, { type: "azure-native:costmanagement/v20201201preview:Export" }, { type: "azure-native:costmanagement/v20210101:Export" }, { type: "azure-native:costmanagement/v20211001:Export" }, { type: "azure-native:costmanagement/v20221001:Export" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:Export" }, { type: "azure-native:costmanagement/v20190101:Export" }, { type: "azure-native:costmanagement/v20190901:Export" }, { type: "azure-native:costmanagement/v20191001:Export" }, { type: "azure-native:costmanagement/v20191101:Export" }, { type: "azure-native:costmanagement/v20200601:Export" }, { type: "azure-native:costmanagement/v20201201preview:Export" }, { type: "azure-native:costmanagement/v20210101:Export" }, { type: "azure-native:costmanagement/v20211001:Export" }, { type: "azure-native:costmanagement/v20221001:Export" }, { type: "azure-native:costmanagement/v20230301:Export" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Export.__pulumiType, name, resourceInputs, opts);
     }
@@ -153,6 +165,14 @@ export interface ExportArgs {
      * The format of the export being delivered. Currently only 'Csv' is supported.
      */
     format?: pulumi.Input<string | enums.costmanagement.v20230401preview.FormatType>;
+    /**
+     * The managed identity associated with Export
+     */
+    identity?: pulumi.Input<inputs.costmanagement.v20230401preview.SystemAssignedServiceIdentityArgs>;
+    /**
+     * The location of the Export's managed identity. Only required when utilizing managed identity.
+     */
+    location?: pulumi.Input<string>;
     /**
      * If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
      */

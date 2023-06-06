@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureArcData
     {
         /// <summary>
         /// Retrieves a failover group resource
-        /// API Version: 2023-03-15-preview.
+        /// API Version: 2023-01-15-preview.
         /// </summary>
         public static Task<GetFailoverGroupResult> InvokeAsync(GetFailoverGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFailoverGroupResult>("azure-native:azurearcdata:getFailoverGroup", args ?? new GetFailoverGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a failover group resource
-        /// API Version: 2023-03-15-preview.
+        /// API Version: 2023-01-15-preview.
         /// </summary>
         public static Output<GetFailoverGroupResult> Invoke(GetFailoverGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFailoverGroupResult>("azure-native:azurearcdata:getFailoverGroup", args ?? new GetFailoverGroupInvokeArgs(), options.WithDefaults());

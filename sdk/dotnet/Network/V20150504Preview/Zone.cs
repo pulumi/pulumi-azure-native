@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Network.V20150504Preview
                     new global::Pulumi.Alias { Type = "azure-native:network/v20171001:Zone"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180301preview:Zone"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180501:Zone"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:Zone"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

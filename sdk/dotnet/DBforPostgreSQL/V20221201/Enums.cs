@@ -168,7 +168,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
     }
 
     /// <summary>
-    /// the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'
+    /// the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
     /// </summary>
     [EnumType]
     public readonly struct IdentityType : IEquatable<IdentityType>

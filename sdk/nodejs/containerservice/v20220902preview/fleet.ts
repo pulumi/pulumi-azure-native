@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Fleet resource which contains multiple Kubernetes clusters as its members.
+ * The Fleet resource.
  */
 export class Fleet extends pulumi.CustomResource {
     /**
@@ -38,9 +38,9 @@ export class Fleet extends pulumi.CustomResource {
     }
 
     /**
-     * Resource Etag.
+     * If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly eTag!: pulumi.Output<string>;
     /**
      * The FleetHubProfile configures the Fleet's hub.
      */
@@ -54,7 +54,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the last accepted operation.
+     * The status of the last operation.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -89,13 +89,13 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["hubProfile"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -105,7 +105,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220602preview:Fleet" }, { type: "azure-native:containerservice/v20220702preview:Fleet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220602preview:Fleet" }, { type: "azure-native:containerservice/v20220702preview:Fleet" }, { type: "azure-native:containerservice/v20230315preview:Fleet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }

@@ -35,6 +35,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview.Inputs
 
         public VirtualmachinesPropertiesHardwareProfileArgs()
         {
+            VmSize = "Default";
         }
         public static new VirtualmachinesPropertiesHardwareProfileArgs Empty => new VirtualmachinesPropertiesHardwareProfileArgs();
     }

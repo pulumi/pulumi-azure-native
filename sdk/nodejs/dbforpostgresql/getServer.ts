@@ -88,13 +88,13 @@ export interface GetServerResult {
      */
     readonly name: string;
     /**
-     * Network properties of a server.
+     * Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
      */
     readonly network?: outputs.dbforpostgresql.NetworkResponse;
     /**
      * Replicas allowed for a server.
      */
-    readonly replicaCapacity?: number;
+    readonly replicaCapacity: number;
     /**
      * Replication role of the server
      */
@@ -103,6 +103,10 @@ export interface GetServerResult {
      * The SKU (pricing tier) of the server.
      */
     readonly sku?: outputs.dbforpostgresql.SkuResponse;
+    /**
+     * The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
+     */
+    readonly sourceServerResourceId?: string;
     /**
      * A state of a server that is visible to user.
      */

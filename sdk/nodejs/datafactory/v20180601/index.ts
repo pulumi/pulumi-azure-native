@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { ChangeDataCaptureArgs } from "./changeDataCapture";
+export type ChangeDataCapture = import("./changeDataCapture").ChangeDataCapture;
+export const ChangeDataCapture: typeof import("./changeDataCapture").ChangeDataCapture = null as any;
+utilities.lazyLoad(exports, ["ChangeDataCapture"], () => require("./changeDataCapture"));
+
 export { CredentialOperationArgs } from "./credentialOperation";
 export type CredentialOperation = import("./credentialOperation").CredentialOperation;
 export const CredentialOperation: typeof import("./credentialOperation").CredentialOperation = null as any;
@@ -24,6 +29,11 @@ export { FactoryArgs } from "./factory";
 export type Factory = import("./factory").Factory;
 export const Factory: typeof import("./factory").Factory = null as any;
 utilities.lazyLoad(exports, ["Factory"], () => require("./factory"));
+
+export { GetChangeDataCaptureArgs, GetChangeDataCaptureResult, GetChangeDataCaptureOutputArgs } from "./getChangeDataCapture";
+export const getChangeDataCapture: typeof import("./getChangeDataCapture").getChangeDataCapture = null as any;
+export const getChangeDataCaptureOutput: typeof import("./getChangeDataCapture").getChangeDataCaptureOutput = null as any;
+utilities.lazyLoad(exports, ["getChangeDataCapture","getChangeDataCaptureOutput"], () => require("./getChangeDataCapture"));
 
 export { GetCredentialOperationArgs, GetCredentialOperationResult, GetCredentialOperationOutputArgs } from "./getCredentialOperation";
 export const getCredentialOperation: typeof import("./getCredentialOperation").getCredentialOperation = null as any;
@@ -168,6 +178,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:datafactory/v20180601:ChangeDataCapture":
+                return new ChangeDataCapture(name, <any>undefined, { urn })
             case "azure-native:datafactory/v20180601:CredentialOperation":
                 return new CredentialOperation(name, <any>undefined, { urn })
             case "azure-native:datafactory/v20180601:DataFlow":

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SqlServerInstance.
- * API Version: 2023-03-15-preview.
+ * API Version: 2023-01-15-preview.
  * Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class SqlServerInstance extends pulumi.CustomResource {
@@ -95,7 +95,7 @@ export class SqlServerInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210701preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210801:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20211101:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220301preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220615preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20230115preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20230315preview:SqlServerInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210701preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210801:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20211101:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220301preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220615preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20230115preview:SqlServerInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerInstance.__pulumiType, name, resourceInputs, opts);
     }

@@ -1137,13 +1137,13 @@ class GalleryTargetExtendedLocationArgs:
                  extended_location: Optional[pulumi.Input['GalleryExtendedLocationArgs']] = None,
                  extended_location_replica_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None):
+                 storage_account_type: Optional[pulumi.Input[Union[str, 'EdgeZoneStorageAccountType']]] = None):
         """
         :param pulumi.Input['EncryptionImagesArgs'] encryption: Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
         :param pulumi.Input['GalleryExtendedLocationArgs'] extended_location: The name of the extended location.
         :param pulumi.Input[int] extended_location_replica_count: The number of replicas of the Image Version to be created per extended location. This property is updatable.
         :param pulumi.Input[str] name: The name of the region.
-        :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
+        :param pulumi.Input[Union[str, 'EdgeZoneStorageAccountType']] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
         """
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
@@ -1206,14 +1206,14 @@ class GalleryTargetExtendedLocationArgs:
 
     @property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountType']]]:
+    def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'EdgeZoneStorageAccountType']]]:
         """
         Specifies the storage account type to be used to store the image. This property is not updatable.
         """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountType']]]):
+    def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'EdgeZoneStorageAccountType']]]):
         pulumi.set(self, "storage_account_type", value)
 
 

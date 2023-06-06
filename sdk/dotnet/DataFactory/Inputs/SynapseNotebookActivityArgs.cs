@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("conf")]
         public Input<object>? Conf { get; set; }
 
+        /// <summary>
+        /// The type of the spark config.
+        /// </summary>
+        [Input("configurationType")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.ConfigurationType>? ConfigurationType { get; set; }
+
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -75,6 +81,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("numExecutors")]
         public Input<object>? NumExecutors { get; set; }
 
+        /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        [Input("onInactiveMarkAs")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.ActivityOnInactiveMarkAs>? OnInactiveMarkAs { get; set; }
+
         [Input("parameters")]
         private InputMap<Inputs.NotebookParameterArgs>? _parameters;
 
@@ -93,11 +105,35 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("policy")]
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
+        [Input("sparkConfig")]
+        private InputMap<object>? _sparkConfig;
+
+        /// <summary>
+        /// Spark configuration property.
+        /// </summary>
+        public InputMap<object> SparkConfig
+        {
+            get => _sparkConfig ?? (_sparkConfig = new InputMap<object>());
+            set => _sparkConfig = value;
+        }
+
         /// <summary>
         /// The name of the big data pool which will be used to execute the notebook.
         /// </summary>
         [Input("sparkPool")]
         public Input<Inputs.BigDataPoolParametrizationReferenceArgs>? SparkPool { get; set; }
+
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        [Input("state")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.ActivityState>? State { get; set; }
+
+        /// <summary>
+        /// The spark configuration of the spark job.
+        /// </summary>
+        [Input("targetSparkConfiguration")]
+        public Input<Inputs.SparkConfigurationParametrizationReferenceArgs>? TargetSparkConfiguration { get; set; }
 
         /// <summary>
         /// Type of activity.

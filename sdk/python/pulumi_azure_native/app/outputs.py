@@ -201,8 +201,8 @@ class AppLogsConfigurationResponse(dict):
                  log_analytics_configuration: Optional['outputs.LogAnalyticsConfigurationResponse'] = None):
         """
         Configuration of application logs
-        :param str destination: Logs destination
-        :param 'LogAnalyticsConfigurationResponse' log_analytics_configuration: Log Analytics configuration
+        :param str destination: Logs destination, can be 'log-analytics', 'azure-monitor' or 'none'
+        :param 'LogAnalyticsConfigurationResponse' log_analytics_configuration: Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -213,7 +213,7 @@ class AppLogsConfigurationResponse(dict):
     @pulumi.getter
     def destination(self) -> Optional[str]:
         """
-        Logs destination
+        Logs destination, can be 'log-analytics', 'azure-monitor' or 'none'
         """
         return pulumi.get(self, "destination")
 
@@ -221,7 +221,7 @@ class AppLogsConfigurationResponse(dict):
     @pulumi.getter(name="logAnalyticsConfiguration")
     def log_analytics_configuration(self) -> Optional['outputs.LogAnalyticsConfigurationResponse']:
         """
-        Log Analytics configuration
+        Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
         """
         return pulumi.get(self, "log_analytics_configuration")
 
@@ -3935,7 +3935,7 @@ class JwtClaimChecksResponse(dict):
 @pulumi.output_type
 class LogAnalyticsConfigurationResponse(dict):
     """
-    Log analytics configuration
+    Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3957,7 +3957,7 @@ class LogAnalyticsConfigurationResponse(dict):
     def __init__(__self__, *,
                  customer_id: Optional[str] = None):
         """
-        Log analytics configuration
+        Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
         :param str customer_id: Log analytics customer id
         """
         if customer_id is not None:

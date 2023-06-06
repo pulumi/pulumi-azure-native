@@ -6,12 +6,14 @@ import * as v20180401 from "./v20180401";
 import * as v20220401preview from "./v20220401preview";
 import * as v20221001preview from "./v20221001preview";
 import * as v20230201 from "./v20230201";
+import * as v20230501 from "./v20230501";
 
 export {
     v20180401,
     v20220401preview,
     v20221001preview,
     v20230201,
+    v20230501,
 };
 
 export const EncryptionKeySource = {
@@ -32,6 +34,18 @@ export const KeySource = {
  * The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
  */
 export type KeySource = (typeof KeySource)[keyof typeof KeySource];
+
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const PrivateLinkServiceConnectionStatus = {
     Pending: "Pending",

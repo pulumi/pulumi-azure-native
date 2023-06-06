@@ -52,25 +52,32 @@ class DenySettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 mode: str,
                  apply_to_child_scopes: Optional[bool] = None,
                  excluded_actions: Optional[Sequence[str]] = None,
-                 excluded_principals: Optional[Sequence[str]] = None,
-                 mode: Optional[str] = None):
+                 excluded_principals: Optional[Sequence[str]] = None):
         """
         Defines how resources deployed by the deployment stack are locked.
+        :param str mode: denySettings Mode.
         :param bool apply_to_child_scopes: DenySettings will be applied to child scopes.
         :param Sequence[str] excluded_actions: List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
         :param Sequence[str] excluded_principals: List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
-        :param str mode: denySettings Mode.
         """
+        pulumi.set(__self__, "mode", mode)
         if apply_to_child_scopes is not None:
             pulumi.set(__self__, "apply_to_child_scopes", apply_to_child_scopes)
         if excluded_actions is not None:
             pulumi.set(__self__, "excluded_actions", excluded_actions)
         if excluded_principals is not None:
             pulumi.set(__self__, "excluded_principals", excluded_principals)
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        denySettings Mode.
+        """
+        return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter(name="applyToChildScopes")
@@ -95,14 +102,6 @@ class DenySettingsResponse(dict):
         List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
         """
         return pulumi.get(self, "excluded_principals")
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional[str]:
-        """
-        denySettings Mode.
-        """
-        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type

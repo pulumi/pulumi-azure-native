@@ -20,12 +20,12 @@ __all__ = [
 @pulumi.output_type
 class GetFleetResult:
     """
-    The Fleet resource which contains multiple Kubernetes clusters as its members.
+    The Fleet resource.
     """
-    def __init__(__self__, etag=None, hub_profile=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        pulumi.set(__self__, "etag", etag)
+    def __init__(__self__, e_tag=None, hub_profile=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if e_tag and not isinstance(e_tag, str):
+            raise TypeError("Expected argument 'e_tag' to be a str")
+        pulumi.set(__self__, "e_tag", e_tag)
         if hub_profile and not isinstance(hub_profile, dict):
             raise TypeError("Expected argument 'hub_profile' to be a dict")
         pulumi.set(__self__, "hub_profile", hub_profile)
@@ -52,12 +52,12 @@ class GetFleetResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter
-    def etag(self) -> str:
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> str:
         """
-        Resource Etag.
+        If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
-        return pulumi.get(self, "etag")
+        return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter(name="hubProfile")
@@ -95,7 +95,7 @@ class GetFleetResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The provisioning state of the last accepted operation.
+        The status of the last operation.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -130,7 +130,7 @@ class AwaitableGetFleetResult(GetFleetResult):
         if False:
             yield self
         return GetFleetResult(
-            etag=self.etag,
+            e_tag=self.e_tag,
             hub_profile=self.hub_profile,
             id=self.id,
             location=self.location,
@@ -145,7 +145,7 @@ def get_fleet(fleet_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFleetResult:
     """
-    The Fleet resource which contains multiple Kubernetes clusters as its members.
+    Gets a Fleet.
 
 
     :param str fleet_name: The name of the Fleet resource.
@@ -158,7 +158,7 @@ def get_fleet(fleet_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice/v20220902preview:getFleet', __args__, opts=opts, typ=GetFleetResult).value
 
     return AwaitableGetFleetResult(
-        etag=__ret__.etag,
+        e_tag=__ret__.e_tag,
         hub_profile=__ret__.hub_profile,
         id=__ret__.id,
         location=__ret__.location,
@@ -174,7 +174,7 @@ def get_fleet_output(fleet_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
     """
-    The Fleet resource which contains multiple Kubernetes clusters as its members.
+    Gets a Fleet.
 
 
     :param str fleet_name: The name of the Fleet resource.

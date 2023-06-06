@@ -10,16 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20220902Preview
 {
     /// <summary>
-    /// The Fleet resource which contains multiple Kubernetes clusters as its members.
+    /// The Fleet resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20220902preview:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource Etag.
+        /// If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
-        [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        [Output("eTag")]
+        public Output<string> ETag { get; private set; } = null!;
 
         /// <summary>
         /// The FleetHubProfile configures the Fleet's hub.
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the last accepted operation.
+        /// The status of the last operation.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:Fleet"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220702preview:Fleet"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230315preview:Fleet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

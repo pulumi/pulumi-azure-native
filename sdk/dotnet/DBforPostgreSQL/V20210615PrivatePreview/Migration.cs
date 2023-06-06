@@ -140,6 +140,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220501preview:Migration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230301preview:Migration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

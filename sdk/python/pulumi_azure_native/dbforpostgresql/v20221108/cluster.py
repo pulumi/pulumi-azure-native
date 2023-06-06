@@ -22,17 +22,17 @@ class ClusterArgs:
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  coordinator_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
                  coordinator_server_edition: Optional[pulumi.Input[str]] = None,
-                 coordinator_storage_quota_in_mb: Optional[pulumi.Input[float]] = None,
-                 coordinator_v_cores: Optional[pulumi.Input[float]] = None,
+                 coordinator_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
+                 coordinator_v_cores: Optional[pulumi.Input[int]] = None,
                  enable_ha: Optional[pulumi.Input[bool]] = None,
                  enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
-                 node_count: Optional[pulumi.Input[float]] = None,
+                 node_count: Optional[pulumi.Input[int]] = None,
                  node_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
                  node_server_edition: Optional[pulumi.Input[str]] = None,
-                 node_storage_quota_in_mb: Optional[pulumi.Input[float]] = None,
-                 node_v_cores: Optional[pulumi.Input[float]] = None,
+                 node_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
+                 node_v_cores: Optional[pulumi.Input[int]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
                  postgresql_version: Optional[pulumi.Input[str]] = None,
                  preferred_primary_zone: Optional[pulumi.Input[str]] = None,
@@ -47,17 +47,17 @@ class ClusterArgs:
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[bool] coordinator_enable_public_ip_access: If public access is enabled on coordinator.
         :param pulumi.Input[str] coordinator_server_edition: The edition of a coordinator server (default: GeneralPurpose). Required for creation.
-        :param pulumi.Input[float] coordinator_storage_quota_in_mb: The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
-        :param pulumi.Input[float] coordinator_v_cores: The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
+        :param pulumi.Input[int] coordinator_storage_quota_in_mb: The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
+        :param pulumi.Input[int] coordinator_v_cores: The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         :param pulumi.Input[bool] enable_ha: If high availability (HA) is enabled or not for the cluster.
         :param pulumi.Input[bool] enable_shards_on_coordinator: If shards on coordinator is enabled or not for the cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window of a cluster.
-        :param pulumi.Input[float] node_count: Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
+        :param pulumi.Input[int] node_count: Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
         :param pulumi.Input[bool] node_enable_public_ip_access: If public access is enabled on worker nodes.
         :param pulumi.Input[str] node_server_edition: The edition of a node server (default: MemoryOptimized).
-        :param pulumi.Input[float] node_storage_quota_in_mb: The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
-        :param pulumi.Input[float] node_v_cores: The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
+        :param pulumi.Input[int] node_storage_quota_in_mb: The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
+        :param pulumi.Input[int] node_v_cores: The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         :param pulumi.Input[str] point_in_time_utc: Date and time in UTC (ISO8601 format) for cluster restore.
         :param pulumi.Input[str] postgresql_version: The major PostgreSQL version on all cluster servers.
         :param pulumi.Input[str] preferred_primary_zone: Preferred primary availability zone (AZ) for all cluster servers.
@@ -185,26 +185,26 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="coordinatorStorageQuotaInMb")
-    def coordinator_storage_quota_in_mb(self) -> Optional[pulumi.Input[float]]:
+    def coordinator_storage_quota_in_mb(self) -> Optional[pulumi.Input[int]]:
         """
         The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
         return pulumi.get(self, "coordinator_storage_quota_in_mb")
 
     @coordinator_storage_quota_in_mb.setter
-    def coordinator_storage_quota_in_mb(self, value: Optional[pulumi.Input[float]]):
+    def coordinator_storage_quota_in_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "coordinator_storage_quota_in_mb", value)
 
     @property
     @pulumi.getter(name="coordinatorVCores")
-    def coordinator_v_cores(self) -> Optional[pulumi.Input[float]]:
+    def coordinator_v_cores(self) -> Optional[pulumi.Input[int]]:
         """
         The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
         return pulumi.get(self, "coordinator_v_cores")
 
     @coordinator_v_cores.setter
-    def coordinator_v_cores(self, value: Optional[pulumi.Input[float]]):
+    def coordinator_v_cores(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "coordinator_v_cores", value)
 
     @property
@@ -257,14 +257,14 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[pulumi.Input[float]]:
+    def node_count(self) -> Optional[pulumi.Input[int]]:
         """
         Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
         """
         return pulumi.get(self, "node_count")
 
     @node_count.setter
-    def node_count(self, value: Optional[pulumi.Input[float]]):
+    def node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "node_count", value)
 
     @property
@@ -293,26 +293,26 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="nodeStorageQuotaInMb")
-    def node_storage_quota_in_mb(self) -> Optional[pulumi.Input[float]]:
+    def node_storage_quota_in_mb(self) -> Optional[pulumi.Input[int]]:
         """
         The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
         return pulumi.get(self, "node_storage_quota_in_mb")
 
     @node_storage_quota_in_mb.setter
-    def node_storage_quota_in_mb(self, value: Optional[pulumi.Input[float]]):
+    def node_storage_quota_in_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "node_storage_quota_in_mb", value)
 
     @property
     @pulumi.getter(name="nodeVCores")
-    def node_v_cores(self) -> Optional[pulumi.Input[float]]:
+    def node_v_cores(self) -> Optional[pulumi.Input[int]]:
         """
         The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
         return pulumi.get(self, "node_v_cores")
 
     @node_v_cores.setter
-    def node_v_cores(self, value: Optional[pulumi.Input[float]]):
+    def node_v_cores(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "node_v_cores", value)
 
     @property
@@ -398,17 +398,17 @@ class Cluster(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  coordinator_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
                  coordinator_server_edition: Optional[pulumi.Input[str]] = None,
-                 coordinator_storage_quota_in_mb: Optional[pulumi.Input[float]] = None,
-                 coordinator_v_cores: Optional[pulumi.Input[float]] = None,
+                 coordinator_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
+                 coordinator_v_cores: Optional[pulumi.Input[int]] = None,
                  enable_ha: Optional[pulumi.Input[bool]] = None,
                  enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
-                 node_count: Optional[pulumi.Input[float]] = None,
+                 node_count: Optional[pulumi.Input[int]] = None,
                  node_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
                  node_server_edition: Optional[pulumi.Input[str]] = None,
-                 node_storage_quota_in_mb: Optional[pulumi.Input[float]] = None,
-                 node_v_cores: Optional[pulumi.Input[float]] = None,
+                 node_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
+                 node_v_cores: Optional[pulumi.Input[int]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
                  postgresql_version: Optional[pulumi.Input[str]] = None,
                  preferred_primary_zone: Optional[pulumi.Input[str]] = None,
@@ -427,17 +427,17 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[bool] coordinator_enable_public_ip_access: If public access is enabled on coordinator.
         :param pulumi.Input[str] coordinator_server_edition: The edition of a coordinator server (default: GeneralPurpose). Required for creation.
-        :param pulumi.Input[float] coordinator_storage_quota_in_mb: The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
-        :param pulumi.Input[float] coordinator_v_cores: The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
+        :param pulumi.Input[int] coordinator_storage_quota_in_mb: The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
+        :param pulumi.Input[int] coordinator_v_cores: The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         :param pulumi.Input[bool] enable_ha: If high availability (HA) is enabled or not for the cluster.
         :param pulumi.Input[bool] enable_shards_on_coordinator: If shards on coordinator is enabled or not for the cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window of a cluster.
-        :param pulumi.Input[float] node_count: Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
+        :param pulumi.Input[int] node_count: Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
         :param pulumi.Input[bool] node_enable_public_ip_access: If public access is enabled on worker nodes.
         :param pulumi.Input[str] node_server_edition: The edition of a node server (default: MemoryOptimized).
-        :param pulumi.Input[float] node_storage_quota_in_mb: The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
-        :param pulumi.Input[float] node_v_cores: The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
+        :param pulumi.Input[int] node_storage_quota_in_mb: The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
+        :param pulumi.Input[int] node_v_cores: The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         :param pulumi.Input[str] point_in_time_utc: Date and time in UTC (ISO8601 format) for cluster restore.
         :param pulumi.Input[str] postgresql_version: The major PostgreSQL version on all cluster servers.
         :param pulumi.Input[str] preferred_primary_zone: Preferred primary availability zone (AZ) for all cluster servers.
@@ -475,17 +475,17 @@ class Cluster(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  coordinator_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
                  coordinator_server_edition: Optional[pulumi.Input[str]] = None,
-                 coordinator_storage_quota_in_mb: Optional[pulumi.Input[float]] = None,
-                 coordinator_v_cores: Optional[pulumi.Input[float]] = None,
+                 coordinator_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
+                 coordinator_v_cores: Optional[pulumi.Input[int]] = None,
                  enable_ha: Optional[pulumi.Input[bool]] = None,
                  enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
-                 node_count: Optional[pulumi.Input[float]] = None,
+                 node_count: Optional[pulumi.Input[int]] = None,
                  node_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
                  node_server_edition: Optional[pulumi.Input[str]] = None,
-                 node_storage_quota_in_mb: Optional[pulumi.Input[float]] = None,
-                 node_v_cores: Optional[pulumi.Input[float]] = None,
+                 node_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
+                 node_v_cores: Optional[pulumi.Input[int]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
                  postgresql_version: Optional[pulumi.Input[str]] = None,
                  preferred_primary_zone: Optional[pulumi.Input[str]] = None,
@@ -627,7 +627,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coordinatorStorageQuotaInMb")
-    def coordinator_storage_quota_in_mb(self) -> pulumi.Output[Optional[float]]:
+    def coordinator_storage_quota_in_mb(self) -> pulumi.Output[Optional[int]]:
         """
         The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
@@ -635,7 +635,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coordinatorVCores")
-    def coordinator_v_cores(self) -> pulumi.Output[Optional[float]]:
+    def coordinator_v_cores(self) -> pulumi.Output[Optional[int]]:
         """
         The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
@@ -691,7 +691,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> pulumi.Output[Optional[float]]:
+    def node_count(self) -> pulumi.Output[Optional[int]]:
         """
         Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
         """
@@ -715,7 +715,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeStorageQuotaInMb")
-    def node_storage_quota_in_mb(self) -> pulumi.Output[Optional[float]]:
+    def node_storage_quota_in_mb(self) -> pulumi.Output[Optional[int]]:
         """
         The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
@@ -723,7 +723,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeVCores")
-    def node_v_cores(self) -> pulumi.Output[Optional[float]]:
+    def node_v_cores(self) -> pulumi.Output[Optional[int]]:
         """
         The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """

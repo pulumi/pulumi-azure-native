@@ -45,7 +45,7 @@ class VirtualMachineScheduleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] target_resource_id: The resource ID to which the schedule belongs
         :param pulumi.Input[str] task_type: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-        :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. Pacific Standard time).
+        :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         :param pulumi.Input['WeekDetailsArgs'] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
         pulumi.set(__self__, "lab_name", lab_name)
@@ -224,7 +224,7 @@ class VirtualMachineScheduleArgs:
     @pulumi.getter(name="timeZoneId")
     def time_zone_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The time zone ID (e.g. Pacific Standard time).
+        The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         """
         return pulumi.get(self, "time_zone_id")
 
@@ -281,7 +281,7 @@ class VirtualMachineSchedule(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] target_resource_id: The resource ID to which the schedule belongs
         :param pulumi.Input[str] task_type: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-        :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. Pacific Standard time).
+        :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine.
         :param pulumi.Input[pulumi.InputType['WeekDetailsArgs']] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
@@ -491,7 +491,7 @@ class VirtualMachineSchedule(pulumi.CustomResource):
     @pulumi.getter(name="timeZoneId")
     def time_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The time zone ID (e.g. Pacific Standard time).
+        The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         """
         return pulumi.get(self, "time_zone_id")
 

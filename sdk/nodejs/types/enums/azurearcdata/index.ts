@@ -6,14 +6,12 @@ import * as v20210601preview from "./v20210601preview";
 import * as v20220301preview from "./v20220301preview";
 import * as v20220615preview from "./v20220615preview";
 import * as v20230115preview from "./v20230115preview";
-import * as v20230315preview from "./v20230315preview";
 
 export {
     v20210601preview,
     v20220301preview,
     v20220615preview,
     v20230115preview,
-    v20230315preview,
 };
 
 export const AccountProvisioningMode = {

@@ -18,13 +18,13 @@ __all__ = [
 @pulumi.output_type
 class FleetCredentialResultResponse(dict):
     """
-    The credential result response.
+    One credential result item.
     """
     def __init__(__self__, *,
                  name: str,
                  value: str):
         """
-        The credential result response.
+        One credential result item.
         :param str name: The name of the credential.
         :param str value: Base64-encoded Kubernetes configuration file.
         """

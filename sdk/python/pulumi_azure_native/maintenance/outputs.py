@@ -12,109 +12,13 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ConfigurationAssignmentFilterPropertiesResponse',
     'InputLinuxParametersResponse',
     'InputPatchConfigurationResponse',
     'InputWindowsParametersResponse',
     'MaintenanceOverridePropertiesResponse',
     'SystemDataResponse',
-    'TagSettingsPropertiesResponse',
     'TaskPropertiesResponse',
 ]
-
-@pulumi.output_type
-class ConfigurationAssignmentFilterPropertiesResponse(dict):
-    """
-    Azure query for the update configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "osTypes":
-            suggest = "os_types"
-        elif key == "resourceGroups":
-            suggest = "resource_groups"
-        elif key == "resourceTypes":
-            suggest = "resource_types"
-        elif key == "tagSettings":
-            suggest = "tag_settings"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConfigurationAssignmentFilterPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ConfigurationAssignmentFilterPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ConfigurationAssignmentFilterPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 locations: Optional[Sequence[str]] = None,
-                 os_types: Optional[Sequence[str]] = None,
-                 resource_groups: Optional[Sequence[str]] = None,
-                 resource_types: Optional[Sequence[str]] = None,
-                 tag_settings: Optional['outputs.TagSettingsPropertiesResponse'] = None):
-        """
-        Azure query for the update configuration.
-        :param Sequence[str] locations: List of locations to scope the query to.
-        :param Sequence[str] os_types: List of allowed operating systems.
-        :param Sequence[str] resource_groups: List of allowed resource groups.
-        :param Sequence[str] resource_types: List of allowed resources.
-        :param 'TagSettingsPropertiesResponse' tag_settings: Tag settings for the VM.
-        """
-        if locations is not None:
-            pulumi.set(__self__, "locations", locations)
-        if os_types is not None:
-            pulumi.set(__self__, "os_types", os_types)
-        if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
-        if resource_types is not None:
-            pulumi.set(__self__, "resource_types", resource_types)
-        if tag_settings is not None:
-            pulumi.set(__self__, "tag_settings", tag_settings)
-
-    @property
-    @pulumi.getter
-    def locations(self) -> Optional[Sequence[str]]:
-        """
-        List of locations to scope the query to.
-        """
-        return pulumi.get(self, "locations")
-
-    @property
-    @pulumi.getter(name="osTypes")
-    def os_types(self) -> Optional[Sequence[str]]:
-        """
-        List of allowed operating systems.
-        """
-        return pulumi.get(self, "os_types")
-
-    @property
-    @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[Sequence[str]]:
-        """
-        List of allowed resource groups.
-        """
-        return pulumi.get(self, "resource_groups")
-
-    @property
-    @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[Sequence[str]]:
-        """
-        List of allowed resources.
-        """
-        return pulumi.get(self, "resource_types")
-
-    @property
-    @pulumi.getter(name="tagSettings")
-    def tag_settings(self) -> Optional['outputs.TagSettingsPropertiesResponse']:
-        """
-        Tag settings for the VM.
-        """
-        return pulumi.get(self, "tag_settings")
-
 
 @pulumi.output_type
 class InputLinuxParametersResponse(dict):
@@ -554,58 +458,6 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
-class TagSettingsPropertiesResponse(dict):
-    """
-    Tag filter information for the VM.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "filterOperator":
-            suggest = "filter_operator"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TagSettingsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TagSettingsPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TagSettingsPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 filter_operator: Optional[str] = None,
-                 tags: Optional[Mapping[str, Sequence[str]]] = None):
-        """
-        Tag filter information for the VM.
-        :param str filter_operator: Filter VMs by Any or All specified tags.
-        :param Mapping[str, Sequence[str]] tags: Dictionary of tags with its list of values.
-        """
-        if filter_operator is not None:
-            pulumi.set(__self__, "filter_operator", filter_operator)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="filterOperator")
-    def filter_operator(self) -> Optional[str]:
-        """
-        Filter VMs by Any or All specified tags.
-        """
-        return pulumi.get(self, "filter_operator")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, Sequence[str]]]:
-        """
-        Dictionary of tags with its list of values.
-        """
-        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

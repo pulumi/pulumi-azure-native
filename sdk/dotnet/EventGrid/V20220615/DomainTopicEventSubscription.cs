@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid:DomainTopicEventSubscription"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:DomainTopicEventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:DomainTopicEventSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

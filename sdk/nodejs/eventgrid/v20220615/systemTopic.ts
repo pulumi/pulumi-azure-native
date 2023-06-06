@@ -117,7 +117,7 @@ export class SystemTopic extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:SystemTopic" }, { type: "azure-native:eventgrid/v20200401preview:SystemTopic" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20210601preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211201:SystemTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:SystemTopic" }, { type: "azure-native:eventgrid/v20200401preview:SystemTopic" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20210601preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211201:SystemTopic" }, { type: "azure-native:eventgrid/v20230601preview:SystemTopic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SystemTopic.__pulumiType, name, resourceInputs, opts);
     }

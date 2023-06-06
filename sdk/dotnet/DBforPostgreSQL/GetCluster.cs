@@ -90,11 +90,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         /// </summary>
-        public readonly double? CoordinatorStorageQuotaInMb;
+        public readonly int? CoordinatorStorageQuotaInMb;
         /// <summary>
         /// The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         /// </summary>
-        public readonly double? CoordinatorVCores;
+        public readonly int? CoordinatorVCores;
         /// <summary>
         /// The earliest restore point time (ISO8601 format) for the cluster.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
         /// </summary>
-        public readonly double? NodeCount;
+        public readonly int? NodeCount;
         /// <summary>
         /// If public access is enabled on worker nodes.
         /// </summary>
@@ -138,11 +138,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         /// </summary>
-        public readonly double? NodeStorageQuotaInMb;
+        public readonly int? NodeStorageQuotaInMb;
         /// <summary>
         /// The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         /// </summary>
-        public readonly double? NodeVCores;
+        public readonly int? NodeVCores;
         /// <summary>
         /// Date and time in UTC (ISO8601 format) for cluster restore.
         /// </summary>
@@ -206,9 +206,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string? coordinatorServerEdition,
 
-            double? coordinatorStorageQuotaInMb,
+            int? coordinatorStorageQuotaInMb,
 
-            double? coordinatorVCores,
+            int? coordinatorVCores,
 
             string earliestRestoreTime,
 
@@ -224,15 +224,15 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string name,
 
-            double? nodeCount,
+            int? nodeCount,
 
             bool? nodeEnablePublicIpAccess,
 
             string? nodeServerEdition,
 
-            double? nodeStorageQuotaInMb,
+            int? nodeStorageQuotaInMb,
 
-            double? nodeVCores,
+            int? nodeVCores,
 
             string? pointInTimeUTC,
 

@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .access_connector import *
+from .get_access_connector import *
 from .get_private_endpoint_connection import *
 from .get_v_net_peering import *
 from .get_workspace import *
@@ -25,9 +27,12 @@ if typing.TYPE_CHECKING:
     v20221001preview = __v20221001preview
     import pulumi_azure_native.databricks.v20230201 as __v20230201
     v20230201 = __v20230201
+    import pulumi_azure_native.databricks.v20230501 as __v20230501
+    v20230501 = __v20230501
 else:
     v20180401 = _utilities.lazy_import('pulumi_azure_native.databricks.v20180401')
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.databricks.v20220401preview')
     v20221001preview = _utilities.lazy_import('pulumi_azure_native.databricks.v20221001preview')
     v20230201 = _utilities.lazy_import('pulumi_azure_native.databricks.v20230201')
+    v20230501 = _utilities.lazy_import('pulumi_azure_native.databricks.v20230501')
 

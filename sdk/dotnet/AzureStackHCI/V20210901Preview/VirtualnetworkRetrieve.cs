@@ -106,6 +106,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualnetworkRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:virtualnetworkRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:VirtualnetworkRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:virtualnetworkRetrieve"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -123,7 +123,7 @@ class GetViewResult:
 
     @property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> str:
+    def date_range(self) -> Optional[str]:
         """
         Date range of the current view.
         """
@@ -179,7 +179,7 @@ class GetViewResult:
 
     @property
     @pulumi.getter(name="modifiedOn")
-    def modified_on(self) -> str:
+    def modified_on(self) -> Optional[str]:
         """
         Date when the user last modified this view.
         """

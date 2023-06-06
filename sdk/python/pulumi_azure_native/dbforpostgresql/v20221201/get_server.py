@@ -22,7 +22,7 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, auth_config=None, availability_zone=None, backup=None, data_encryption=None, fully_qualified_domain_name=None, high_availability=None, id=None, identity=None, location=None, maintenance_window=None, minor_version=None, name=None, network=None, replica_capacity=None, replication_role=None, sku=None, state=None, storage=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, auth_config=None, availability_zone=None, backup=None, data_encryption=None, fully_qualified_domain_name=None, high_availability=None, id=None, identity=None, location=None, maintenance_window=None, minor_version=None, name=None, network=None, replica_capacity=None, replication_role=None, sku=None, source_server_resource_id=None, state=None, storage=None, system_data=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -74,6 +74,9 @@ class GetServerResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if source_server_resource_id and not isinstance(source_server_resource_id, str):
+            raise TypeError("Expected argument 'source_server_resource_id' to be a str")
+        pulumi.set(__self__, "source_server_resource_id", source_server_resource_id)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -201,13 +204,13 @@ class GetServerResult:
     @pulumi.getter
     def network(self) -> Optional['outputs.NetworkResponse']:
         """
-        Network properties of a server.
+        Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
         """
         return pulumi.get(self, "network")
 
     @property
     @pulumi.getter(name="replicaCapacity")
-    def replica_capacity(self) -> Optional[int]:
+    def replica_capacity(self) -> int:
         """
         Replicas allowed for a server.
         """
@@ -228,6 +231,14 @@ class GetServerResult:
         The SKU (pricing tier) of the server.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="sourceServerResourceId")
+    def source_server_resource_id(self) -> Optional[str]:
+        """
+        The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
+        """
+        return pulumi.get(self, "source_server_resource_id")
 
     @property
     @pulumi.getter
@@ -301,6 +312,7 @@ class AwaitableGetServerResult(GetServerResult):
             replica_capacity=self.replica_capacity,
             replication_role=self.replication_role,
             sku=self.sku,
+            source_server_resource_id=self.source_server_resource_id,
             state=self.state,
             storage=self.storage,
             system_data=self.system_data,
@@ -343,6 +355,7 @@ def get_server(resource_group_name: Optional[str] = None,
         replica_capacity=__ret__.replica_capacity,
         replication_role=__ret__.replication_role,
         sku=__ret__.sku,
+        source_server_resource_id=__ret__.source_server_resource_id,
         state=__ret__.state,
         storage=__ret__.storage,
         system_data=__ret__.system_data,

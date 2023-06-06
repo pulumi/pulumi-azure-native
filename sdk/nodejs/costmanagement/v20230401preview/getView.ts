@@ -52,7 +52,7 @@ export interface GetViewResult {
     /**
      * Date range of the current view.
      */
-    readonly dateRange: string;
+    readonly dateRange?: string;
     /**
      * User input name of the view. Required.
      */
@@ -80,7 +80,7 @@ export interface GetViewResult {
     /**
      * Date when the user last modified this view.
      */
-    readonly modifiedOn: string;
+    readonly modifiedOn?: string;
     /**
      * The name of the resource
      */

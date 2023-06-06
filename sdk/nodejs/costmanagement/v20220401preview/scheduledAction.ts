@@ -139,7 +139,7 @@ export class ScheduledAction extends pulumi.CustomResource {
             resourceInputs["viewId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:ScheduledAction" }, { type: "azure-native:costmanagement/v20220601preview:ScheduledAction" }, { type: "azure-native:costmanagement/v20221001:ScheduledAction" }, { type: "azure-native:costmanagement/v20230401preview:ScheduledAction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:ScheduledAction" }, { type: "azure-native:costmanagement/v20220601preview:ScheduledAction" }, { type: "azure-native:costmanagement/v20221001:ScheduledAction" }, { type: "azure-native:costmanagement/v20230301:ScheduledAction" }, { type: "azure-native:costmanagement/v20230401preview:ScheduledAction" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledAction.__pulumiType, name, resourceInputs, opts);
     }

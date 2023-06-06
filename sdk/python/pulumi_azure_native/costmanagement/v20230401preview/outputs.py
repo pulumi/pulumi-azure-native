@@ -44,6 +44,7 @@ __all__ = [
     'ReportConfigSortingResponse',
     'ReportConfigTimePeriodResponse',
     'SchedulePropertiesResponse',
+    'SystemAssignedServiceIdentityResponse',
     'SystemDataResponse',
 ]
 
@@ -457,11 +458,11 @@ class ErrorDetailsResponse(dict):
     The details of the error.
     """
     def __init__(__self__, *,
-                 code: int,
+                 code: str,
                  message: str):
         """
         The details of the error.
-        :param int code: Error code.
+        :param str code: Error code.
         :param str message: Error message indicating why the operation failed.
         """
         pulumi.set(__self__, "code", code)
@@ -469,7 +470,7 @@ class ErrorDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def code(self) -> int:
+    def code(self) -> str:
         """
         Error code.
         """
@@ -2057,6 +2058,69 @@ class SchedulePropertiesResponse(dict):
         Weeks in which cost analysis data will be emailed. This property is applicable when frequency is Monthly and used in combination with daysOfWeek.
         """
         return pulumi.get(self, "weeks_of_month")
+
+
+@pulumi.output_type
+class SystemAssignedServiceIdentityResponse(dict):
+    """
+    Managed service identity (either system assigned, or none)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemAssignedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemAssignedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemAssignedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        Managed service identity (either system assigned, or none)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (either system assigned, or none).
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (either system assigned, or none).
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// Activity policy.
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
@@ -64,6 +68,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Staging info for execute data flow activity.
         /// </summary>
         public readonly Outputs.DataFlowStagingInfoResponse? Staging;
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
         /// </summary>
@@ -96,6 +104,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string name,
 
+            string? onInactiveMarkAs,
+
             Outputs.ActivityPolicyResponse? policy,
 
             object? runConcurrently,
@@ -103,6 +113,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             object? sourceStagingConcurrency,
 
             Outputs.DataFlowStagingInfoResponse? staging,
+
+            string? state,
 
             object? traceLevel,
 
@@ -118,10 +130,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             IntegrationRuntime = integrationRuntime;
             LinkedServiceName = linkedServiceName;
             Name = name;
+            OnInactiveMarkAs = onInactiveMarkAs;
             Policy = policy;
             RunConcurrently = runConcurrently;
             SourceStagingConcurrency = sourceStagingConcurrency;
             Staging = staging;
+            State = state;
             TraceLevel = traceLevel;
             Type = type;
             UserProperties = userProperties;

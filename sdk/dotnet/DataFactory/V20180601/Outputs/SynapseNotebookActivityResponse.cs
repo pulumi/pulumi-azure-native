@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? Conf;
         /// <summary>
+        /// The type of the spark config.
+        /// </summary>
+        public readonly string? ConfigurationType;
+        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -53,6 +57,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? NumExecutors;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// Notebook parameters.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.NotebookParameterResponse>? Parameters;
@@ -61,9 +69,21 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
+        /// Spark configuration property.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? SparkConfig;
+        /// <summary>
         /// The name of the big data pool which will be used to execute the notebook.
         /// </summary>
         public readonly Outputs.BigDataPoolParametrizationReferenceResponse? SparkPool;
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
+        /// <summary>
+        /// The spark configuration of the spark job.
+        /// </summary>
+        public readonly Outputs.SparkConfigurationParametrizationReferenceResponse? TargetSparkConfiguration;
         /// <summary>
         /// Type of activity.
         /// Expected value is 'SynapseNotebook'.
@@ -77,6 +97,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         [OutputConstructor]
         private SynapseNotebookActivityResponse(
             object? conf,
+
+            string? configurationType,
 
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
@@ -94,17 +116,26 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? numExecutors,
 
+            string? onInactiveMarkAs,
+
             ImmutableDictionary<string, Outputs.NotebookParameterResponse>? parameters,
 
             Outputs.ActivityPolicyResponse? policy,
 
+            ImmutableDictionary<string, object>? sparkConfig,
+
             Outputs.BigDataPoolParametrizationReferenceResponse? sparkPool,
+
+            string? state,
+
+            Outputs.SparkConfigurationParametrizationReferenceResponse? targetSparkConfiguration,
 
             string type,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
             Conf = conf;
+            ConfigurationType = configurationType;
             DependsOn = dependsOn;
             Description = description;
             DriverSize = driverSize;
@@ -113,9 +144,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Name = name;
             Notebook = notebook;
             NumExecutors = numExecutors;
+            OnInactiveMarkAs = onInactiveMarkAs;
             Parameters = parameters;
             Policy = policy;
+            SparkConfig = sparkConfig;
             SparkPool = sparkPool;
+            State = state;
+            TargetSparkConfiguration = targetSparkConfiguration;
             Type = type;
             UserProperties = userProperties;
         }

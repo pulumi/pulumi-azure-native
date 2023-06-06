@@ -147,7 +147,7 @@ class SqlManagedInstance(pulumi.CustomResource):
                  __props__=None):
         """
         A SqlManagedInstance.
-        API Version: 2023-03-15-preview.
+        API Version: 2023-01-15-preview.
         Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -168,7 +168,7 @@ class SqlManagedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SqlManagedInstance.
-        API Version: 2023-03-15-preview.
+        API Version: 2023-01-15-preview.
         Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -216,7 +216,7 @@ class SqlManagedInstance(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20210601preview:SqlManagedInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:SqlManagedInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210801:SqlManagedInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20211101:SqlManagedInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:SqlManagedInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:SqlManagedInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:SqlManagedInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20230315preview:SqlManagedInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20210601preview:SqlManagedInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:SqlManagedInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210801:SqlManagedInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20211101:SqlManagedInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:SqlManagedInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:SqlManagedInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:SqlManagedInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlManagedInstance, __self__).__init__(
             'azure-native:azurearcdata:SqlManagedInstance',

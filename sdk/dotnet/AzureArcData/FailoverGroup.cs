@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureArcData
 {
     /// <summary>
     /// A failover group resource.
-    /// API Version: 2023-03-15-preview.
+    /// API Version: 2023-01-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:FailoverGroup")]
     public partial class FailoverGroup : global::Pulumi.CustomResource
@@ -66,7 +66,6 @@ namespace Pulumi.AzureNative.AzureArcData
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:FailoverGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230315preview:FailoverGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

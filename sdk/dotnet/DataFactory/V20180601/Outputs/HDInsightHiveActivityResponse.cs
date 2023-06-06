@@ -45,6 +45,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// Activity policy.
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
@@ -60,6 +64,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Script path. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? ScriptPath;
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// Storage linked service references.
         /// </summary>
@@ -94,6 +102,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string name,
 
+            string? onInactiveMarkAs,
+
             Outputs.ActivityPolicyResponse? policy,
 
             int? queryTimeout,
@@ -101,6 +111,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Outputs.LinkedServiceReferenceResponse? scriptLinkedService,
 
             object? scriptPath,
+
+            string? state,
 
             ImmutableArray<Outputs.LinkedServiceReferenceResponse> storageLinkedServices,
 
@@ -117,10 +129,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             GetDebugInfo = getDebugInfo;
             LinkedServiceName = linkedServiceName;
             Name = name;
+            OnInactiveMarkAs = onInactiveMarkAs;
             Policy = policy;
             QueryTimeout = queryTimeout;
             ScriptLinkedService = scriptLinkedService;
             ScriptPath = scriptPath;
+            State = state;
             StorageLinkedServices = storageLinkedServices;
             Type = type;
             UserProperties = userProperties;

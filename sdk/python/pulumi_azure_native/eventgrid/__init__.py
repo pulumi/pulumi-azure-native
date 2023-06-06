@@ -71,6 +71,8 @@ if typing.TYPE_CHECKING:
     v20211015preview = __v20211015preview
     import pulumi_azure_native.eventgrid.v20220615 as __v20220615
     v20220615 = __v20220615
+    import pulumi_azure_native.eventgrid.v20230601preview as __v20230601preview
+    v20230601preview = __v20230601preview
 else:
     v20170615preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20170615preview')
     v20200401preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20200401preview')
@@ -78,4 +80,5 @@ else:
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20210601preview')
     v20211015preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20211015preview')
     v20220615 = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20220615')
+    v20230601preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20230601preview')
 

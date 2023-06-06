@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
     public static class GetFleet
     {
         /// <summary>
-        /// The Fleet resource which contains multiple Kubernetes clusters as its members.
+        /// Gets a Fleet.
         /// </summary>
         public static Task<GetFleetResult> InvokeAsync(GetFleetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("azure-native:containerservice/v20220902preview:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Fleet resource which contains multiple Kubernetes clusters as its members.
+        /// Gets a Fleet.
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("azure-native:containerservice/v20220902preview:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
     public sealed class GetFleetResult
     {
         /// <summary>
-        /// Resource Etag.
+        /// If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
-        public readonly string Etag;
+        public readonly string ETag;
         /// <summary>
         /// The FleetHubProfile configures the Fleet's hub.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the last accepted operation.
+        /// The status of the last operation.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
 
         [OutputConstructor]
         private GetFleetResult(
-            string etag,
+            string eTag,
 
             Outputs.FleetHubProfileResponse? hubProfile,
 
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
 
             string type)
         {
-            Etag = etag;
+            ETag = eTag;
             HubProfile = hubProfile;
             Id = id;
             Location = location;
