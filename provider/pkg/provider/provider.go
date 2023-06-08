@@ -811,6 +811,30 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 			} else {
 				replaces = append(replaces, k)
 			}
+		case rpc.PropertyDiff_ADD:
+			key := resource.PropertyKey(k)
+			_, hasOldInput := oldInputs[key]
+			newInputValue, hasNewInput := newResInputs[key]
+			if !hasOldInput && hasNewInput {
+				// If this is a new property that is merely being initialized with its default
+				// value, we don't need to show a noisy diff.
+
+				// Find the default value, if any.
+				var defaultVal interface{}
+				for _, param := range res.PutParameters {
+					if param.Location == "body" {
+						if prop, ok := param.Body.Properties[k]; ok {
+							defaultVal = prop.Default
+							break
+						}
+					}
+				}
+
+				if ok && defaultVal != nil && reflect.DeepEqual(newInputValue.V, defaultVal) {
+					log.Printf("Should skip noisy diff for %s, default value %v is set", k, newInputValue)
+					// TODO skip
+				}
+			}
 		case rpc.PropertyDiff_DELETE_REPLACE, rpc.PropertyDiff_UPDATE_REPLACE:
 			replaces = append(replaces, k)
 		}

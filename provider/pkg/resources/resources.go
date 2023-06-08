@@ -60,6 +60,8 @@ type AzureAPIProperty struct {
 	AutoName AutoNameKind `json:"autoname,omitempty"`
 	// If the property is represented as a map of string to nothing, the SDK represents it as a list of strings.
 	IsStringSet bool `json:"isStringSet,omitempty"`
+	// Default is the default value for the parameter, if any
+	Default interface{} `json:"default,omitempty"`
 }
 
 // AzureAPIType represents the shape of an object property.
