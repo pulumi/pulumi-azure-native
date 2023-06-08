@@ -22,8 +22,8 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi-java/pkg v0.9.2
 	github.com/pulumi/pulumi-yaml v1.1.1
-	github.com/pulumi/pulumi/pkg/v3 v3.66.0
-	github.com/pulumi/pulumi/sdk/v3 v3.66.0
+	github.com/pulumi/pulumi/pkg/v3 v3.69.0
+	github.com/pulumi/pulumi/sdk/v3 v3.69.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.5
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
@@ -46,6 +46,7 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/storage/azblob v0.4.1 // indirect
 	github.com/Azure/go-autorest/autorest/adal v0.9.21 // indirect
 	github.com/AzureAD/microsoft-authentication-library-for-go v0.4.0 // indirect
+	github.com/BurntSushi/toml v1.2.1 // indirect
 	github.com/armon/go-metrics v0.4.0 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.4.3 // indirect
@@ -57,7 +58,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/internal/checksum v1.1.10 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.13.9 // indirect
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.27.2 // indirect
-	github.com/cloudflare/circl v1.1.0 // indirect
+	github.com/cloudflare/circl v1.3.3 // indirect
 	github.com/fatih/color v1.13.0 // indirect
 	github.com/golang-jwt/jwt v3.2.1+incompatible // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.2.0 // indirect
@@ -181,7 +182,7 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20200410134404-eec4a21b6bb0 // indirect
-	github.com/rivo/uniseg v0.2.0 // indirect
+	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
@@ -203,7 +204,7 @@ require (
 	go.uber.org/atomic v1.9.0 // indirect
 	gocloud.dev v0.27.0 // indirect
 	gocloud.dev/secrets/hashivault v0.27.0 // indirect
-	golang.org/x/crypto v0.3.0 // indirect
+	golang.org/x/crypto v0.5.0 // indirect
 	golang.org/x/mod v0.10.0 // indirect
 	golang.org/x/net v0.8.0 // indirect
 	golang.org/x/oauth2 v0.4.0 // indirect
