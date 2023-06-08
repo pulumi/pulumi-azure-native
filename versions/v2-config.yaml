@@ -37,6 +37,9 @@ AgFoodPlatform:
   # TODO: Why are we missing PrometheusRuleGroup?
 AlertsManagement:
   expectAdditions: true
+  exclusions:
+    # This currently causes unmergeable types
+    TenantActivityLogAlert: "2023-04-01-preview"
   notes: Versions are partial
 AnalysisServices:
 ApiManagement:
@@ -126,6 +129,9 @@ ConnectedVMwarevSphere:
   notes: Only preview versions
 ContainerRegistry:
   expectAdditions: true
+  exclusions:
+    # All these resources only exist in a single preview version and cause type merge conflicts
+    BuildTask: 2018-02-01-preview
   notes: API versions only include updated resources
 ContainerService:
   expectAdditions: true
@@ -508,6 +514,9 @@ StreamAnalytics:
 SubscriptionNetworkManagerConnection:
 Support:
 Synapse:
+  exclusions:
+    # Case corrected in 2021-06-01-preview and now causes type conflicts
+    kustoPool: "2021-04-01-preview"
 Syntex:
   expectTracking: preview
   notes: Only single preview version
