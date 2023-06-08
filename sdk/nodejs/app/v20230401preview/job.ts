@@ -135,7 +135,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["workloadProfileName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20221101preview:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app:Job" }, { type: "azure-native:app/v20221101preview:Job" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Job.__pulumiType, name, resourceInputs, opts);
     }

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.ServiceLinker.Inputs
     public sealed class VNetSolutionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether to clean up previous operation when Linker is updating or deleting
+        /// </summary>
+        [Input("deleteOrUpdateBehavior")]
+        public InputUnion<string, Pulumi.AzureNative.ServiceLinker.DeleteOrUpdateBehavior>? DeleteOrUpdateBehavior { get; set; }
+
+        /// <summary>
         /// Type of VNet solution.
         /// </summary>
         [Input("type")]

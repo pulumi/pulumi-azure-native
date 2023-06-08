@@ -27,6 +27,8 @@ __all__ = [
     'CassandraSchemaResponse',
     'CassandraTableGetPropertiesResponseOptions',
     'CassandraTableGetPropertiesResponseResource',
+    'CassandraViewGetPropertiesResponseOptions',
+    'CassandraViewGetPropertiesResponseResource',
     'CertificateResponse',
     'ClientEncryptionIncludedPathResponse',
     'ClientEncryptionPolicyResponse',
@@ -35,6 +37,7 @@ __all__ = [
     'ColumnResponse',
     'CompositePathResponse',
     'ConflictResolutionPolicyResponse',
+    'ConnectionStringResponse',
     'ConsistencyPolicyResponse',
     'ContainerPartitionKeyResponse',
     'ContinuousModeBackupPolicyResponse',
@@ -50,6 +53,8 @@ __all__ = [
     'FailoverPolicyResponse',
     'GraphAPIComputeRegionalServiceResourceResponse',
     'GraphAPIComputeServiceResourcePropertiesResponse',
+    'GraphResourceGetPropertiesResponseOptions',
+    'GraphResourceGetPropertiesResponseResource',
     'GremlinDatabaseGetPropertiesResponseOptions',
     'GremlinDatabaseGetPropertiesResponseResource',
     'GremlinDatabaseRestoreResourceResponse',
@@ -72,6 +77,7 @@ __all__ = [
     'MongoIndexKeysResponse',
     'MongoIndexOptionsResponse',
     'MongoIndexResponse',
+    'NodeGroupSpecResponse',
     'PeriodicModeBackupPolicyResponse',
     'PeriodicModePropertiesResponse',
     'PermissionResponse',
@@ -930,6 +936,133 @@ class CassandraTableGetPropertiesResponseResource(dict):
 
 
 @pulumi.output_type
+class CassandraViewGetPropertiesResponseOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoscaleSettings":
+            suggest = "autoscale_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CassandraViewGetPropertiesResponseOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CassandraViewGetPropertiesResponseOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CassandraViewGetPropertiesResponseOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+                 throughput: Optional[int] = None):
+        """
+        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
+        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsResponse']:
+        """
+        Specifies the Autoscale settings.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        return pulumi.get(self, "throughput")
+
+
+@pulumi.output_type
+class CassandraViewGetPropertiesResponseResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "viewDefinition":
+            suggest = "view_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CassandraViewGetPropertiesResponseResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CassandraViewGetPropertiesResponseResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CassandraViewGetPropertiesResponseResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: float,
+                 view_definition: str):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB Cassandra view
+        :param str rid: A system generated property. A unique identifier.
+        :param float ts: A system generated property that denotes the last updated timestamp of the resource.
+        :param str view_definition: View Definition of the Cosmos DB Cassandra view
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+        pulumi.set(__self__, "view_definition", view_definition)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB Cassandra view
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> float:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter(name="viewDefinition")
+    def view_definition(self) -> str:
+        """
+        View Definition of the Cosmos DB Cassandra view
+        """
+        return pulumi.get(self, "view_definition")
+
+
+@pulumi.output_type
 class CertificateResponse(dict):
     def __init__(__self__, *,
                  pem: Optional[str] = None):
@@ -1506,6 +1639,39 @@ class ConflictResolutionPolicyResponse(dict):
         Indicates the conflict resolution mode.
         """
         return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class ConnectionStringResponse(dict):
+    """
+    Connection string for the mongo cluster
+    """
+    def __init__(__self__, *,
+                 connection_string: str,
+                 description: str):
+        """
+        Connection string for the mongo cluster
+        :param str connection_string: Value of the connection string
+        :param str description: Description of the connection string
+        """
+        pulumi.set(__self__, "connection_string", connection_string)
+        pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> str:
+        """
+        Value of the connection string
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the connection string
+        """
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type
@@ -2675,6 +2841,72 @@ class GraphAPIComputeServiceResourcePropertiesResponse(dict):
         Instance type for the service.
         """
         return pulumi.get(self, "instance_size")
+
+
+@pulumi.output_type
+class GraphResourceGetPropertiesResponseOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoscaleSettings":
+            suggest = "autoscale_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphResourceGetPropertiesResponseOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphResourceGetPropertiesResponseOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphResourceGetPropertiesResponseOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
+                 throughput: Optional[int] = None):
+        """
+        :param 'AutoscaleSettingsResponse' autoscale_settings: Specifies the Autoscale settings.
+        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsResponse']:
+        """
+        Specifies the Autoscale settings.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        return pulumi.get(self, "throughput")
+
+
+@pulumi.output_type
+class GraphResourceGetPropertiesResponseResource(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: Name of the Cosmos DB Graph
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB Graph
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -4085,6 +4317,98 @@ class MongoIndexResponse(dict):
         Cosmos DB MongoDB collection index key options
         """
         return pulumi.get(self, "options")
+
+
+@pulumi.output_type
+class NodeGroupSpecResponse(dict):
+    """
+    Specification for a node group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskSizeGB":
+            suggest = "disk_size_gb"
+        elif key == "enableHa":
+            suggest = "enable_ha"
+        elif key == "nodeCount":
+            suggest = "node_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodeGroupSpecResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodeGroupSpecResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodeGroupSpecResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disk_size_gb: Optional[float] = None,
+                 enable_ha: Optional[bool] = None,
+                 kind: Optional[str] = None,
+                 node_count: Optional[int] = None,
+                 sku: Optional[str] = None):
+        """
+        Specification for a node group.
+        :param float disk_size_gb: The disk storage size for the node group in GB. Example values: 128, 256, 512, 1024.
+        :param bool enable_ha: Whether high availability is enabled on the node group.
+        :param str kind: The node type deployed in the node group.
+        :param int node_count: The number of nodes in the node group.
+        :param str sku: The resource sku for the node group. This defines the size of CPU and memory that is provisioned for each node. Example values: 'M30', 'M40'.
+        """
+        if disk_size_gb is not None:
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if enable_ha is not None:
+            pulumi.set(__self__, "enable_ha", enable_ha)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if node_count is not None:
+            pulumi.set(__self__, "node_count", node_count)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter(name="diskSizeGB")
+    def disk_size_gb(self) -> Optional[float]:
+        """
+        The disk storage size for the node group in GB. Example values: 128, 256, 512, 1024.
+        """
+        return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter(name="enableHa")
+    def enable_ha(self) -> Optional[bool]:
+        """
+        Whether high availability is enabled on the node group.
+        """
+        return pulumi.get(self, "enable_ha")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The node type deployed in the node group.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> Optional[int]:
+        """
+        The number of nodes in the node group.
+        """
+        return pulumi.get(self, "node_count")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        The resource sku for the node group. This defines the size of CPU and memory that is provisioned for each node. Example values: 'M30', 'M40'.
+        """
+        return pulumi.get(self, "sku")
 
 
 @pulumi.output_type

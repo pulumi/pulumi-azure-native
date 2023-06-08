@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         [Input("hierarchyInformation", required: true)]
         public Input<Inputs.HierarchyInformationArgs> HierarchyInformation { get; set; } = null!;
 
+        [Input("optInAdditionalConfigurations")]
+        private InputList<Inputs.AdditionalConfigurationArgs>? _optInAdditionalConfigurations;
+
+        /// <summary>
+        /// List of additional configurations customer wants in the order item apart from the ones included in the base configuration.
+        /// </summary>
+        public InputList<Inputs.AdditionalConfigurationArgs> OptInAdditionalConfigurations
+        {
+            get => _optInAdditionalConfigurations ?? (_optInAdditionalConfigurations = new InputList<Inputs.AdditionalConfigurationArgs>());
+            set => _optInAdditionalConfigurations = value;
+        }
+
         public ProductDetailsArgs()
         {
         }

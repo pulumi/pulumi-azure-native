@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:HybridIdentityMetadatum"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:HybridIdentityMetadatum"},
                 },
             };

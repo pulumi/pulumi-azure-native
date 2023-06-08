@@ -16,6 +16,7 @@ __all__ = [
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
     'LogAnalyticsQueryPackQueryPropertiesRelatedArgs',
+    'MachineReferenceWithHintsArgs',
     'RestoredLogsArgs',
     'SchemaArgs',
     'SearchResultsArgs',
@@ -319,6 +320,46 @@ class LogAnalyticsQueryPackQueryPropertiesRelatedArgs:
     @solutions.setter
     def solutions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "solutions", value)
+
+
+@pulumi.input_type
+class MachineReferenceWithHintsArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 kind: pulumi.Input[str]):
+        """
+        A machine reference with a hint of the machine's name and operating system.
+        :param pulumi.Input[str] id: Resource URI.
+        :param pulumi.Input[str] kind: Specifies the sub-class of the reference.
+               Expected value is 'ref:machinewithhints'.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "kind", 'ref:machinewithhints')
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Resource URI.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        Specifies the sub-class of the reference.
+        Expected value is 'ref:machinewithhints'.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
 
 
 @pulumi.input_type

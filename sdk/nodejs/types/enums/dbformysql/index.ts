@@ -27,7 +27,7 @@ export const AdministratorType = {
 } as const;
 
 /**
- * Type of the sever administrator.
+ * The type of administrator.
  */
 export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
 
@@ -93,6 +93,17 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
 export const ReplicationRole = {
     None: "None",
     Source: "Source",
@@ -103,6 +114,15 @@ export const ReplicationRole = {
  * The replication role.
  */
 export type ReplicationRole = (typeof ReplicationRole)[keyof typeof ReplicationRole];
+
+export const ServerKeyType = {
+    AzureKeyVault: "AzureKeyVault",
+} as const;
+
+/**
+ * The key type like 'AzureKeyVault'.
+ */
+export type ServerKeyType = (typeof ServerKeyType)[keyof typeof ServerKeyType];
 
 export const ServerVersion = {
     ServerVersion_5_7: "5.7",

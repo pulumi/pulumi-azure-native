@@ -5,7 +5,13 @@
 from enum import Enum
 
 __all__ = [
+    'AccessReviewRecurrencePatternType',
+    'AccessReviewRecurrenceRangeType',
+    'AccessReviewResult',
+    'AssignmentScopeValidation',
+    'DefaultDecisionType',
     'EnforcementMode',
+    'ExemptionCategory',
     'LockLevel',
     'OverrideKind',
     'ParameterType',
@@ -15,6 +21,57 @@ __all__ = [
     'ResourceIdentityType',
     'SelectorKind',
 ]
+
+
+class AccessReviewRecurrencePatternType(str, Enum):
+    """
+    The recurrence type : weekly, monthly, etc.
+    """
+    WEEKLY = "weekly"
+    ABSOLUTE_MONTHLY = "absoluteMonthly"
+
+
+class AccessReviewRecurrenceRangeType(str, Enum):
+    """
+    The recurrence range type. The possible values are: endDate, noEnd, numbered.
+    """
+    END_DATE = "endDate"
+    NO_END = "noEnd"
+    NUMBERED = "numbered"
+
+
+class AccessReviewResult(str, Enum):
+    """
+    Represents a reviewer's decision for a given review
+    """
+    APPROVE = "Approve"
+    DENY = "Deny"
+    NOT_REVIEWED = "NotReviewed"
+    DONT_KNOW = "DontKnow"
+    NOT_NOTIFIED = "NotNotified"
+
+
+class AssignmentScopeValidation(str, Enum):
+    """
+    The option whether validate the exemption is at or under the assignment scope.
+    """
+    DEFAULT = "Default"
+    """
+    This option will validate the exemption is at or under the assignment scope.
+    """
+    DO_NOT_VALIDATE = "DoNotValidate"
+    """
+    This option will bypass the validation the exemption scope is at or under the policy assignment scope.
+    """
+
+
+class DefaultDecisionType(str, Enum):
+    """
+    This specifies the behavior for the autoReview feature when an access review completes.
+    """
+    APPROVE = "Approve"
+    DENY = "Deny"
+    RECOMMENDATION = "Recommendation"
 
 
 class EnforcementMode(str, Enum):
@@ -28,6 +85,20 @@ class EnforcementMode(str, Enum):
     DO_NOT_ENFORCE = "DoNotEnforce"
     """
     The policy effect is not enforced during resource creation or update.
+    """
+
+
+class ExemptionCategory(str, Enum):
+    """
+    The policy exemption category. Possible values are Waiver and Mitigated.
+    """
+    WAIVER = "Waiver"
+    """
+    This category of exemptions usually means the scope is not applicable for the policy.
+    """
+    MITIGATED = "Mitigated"
+    """
+    This category of exemptions usually means the mitigation actions have been applied to the scope.
     """
 
 

@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.CostManagement.V20221005Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement:TagInheritanceSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001preview:TagInheritanceSetting"},
                 },
             };

@@ -95,6 +95,11 @@ export const getModule: typeof import("./getModule").getModule = null as any;
 export const getModuleOutput: typeof import("./getModule").getModuleOutput = null as any;
 utilities.lazyLoad(exports, ["getModule","getModuleOutput"], () => require("./getModule"));
 
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
 export { GetPython2PackageArgs, GetPython2PackageResult, GetPython2PackageOutputArgs } from "./getPython2Package";
 export const getPython2Package: typeof import("./getPython2Package").getPython2Package = null as any;
 export const getPython2PackageOutput: typeof import("./getPython2Package").getPython2PackageOutput = null as any;
@@ -164,6 +169,11 @@ export { ModuleArgs } from "./module";
 export type Module = import("./module").Module;
 export const Module: typeof import("./module").Module = null as any;
 utilities.lazyLoad(exports, ["Module"], () => require("./module"));
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 export { Python2PackageArgs } from "./python2Package";
 export type Python2Package = import("./python2Package").Python2Package;
@@ -257,6 +267,8 @@ const _module = {
                 return new JobSchedule(name, <any>undefined, { urn })
             case "azure-native:automation:Module":
                 return new Module(name, <any>undefined, { urn })
+            case "azure-native:automation:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:automation:Python2Package":
                 return new Python2Package(name, <any>undefined, { urn })
             case "azure-native:automation:Python3Package":

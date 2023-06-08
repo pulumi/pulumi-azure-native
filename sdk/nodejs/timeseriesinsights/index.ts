@@ -50,6 +50,11 @@ export const getIoTHubEventSource: typeof import("./getIoTHubEventSource").getIo
 export const getIoTHubEventSourceOutput: typeof import("./getIoTHubEventSource").getIoTHubEventSourceOutput = null as any;
 utilities.lazyLoad(exports, ["getIoTHubEventSource","getIoTHubEventSourceOutput"], () => require("./getIoTHubEventSource"));
 
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
 export { GetReferenceDataSetArgs, GetReferenceDataSetResult, GetReferenceDataSetOutputArgs } from "./getReferenceDataSet";
 export const getReferenceDataSet: typeof import("./getReferenceDataSet").getReferenceDataSet = null as any;
 export const getReferenceDataSetOutput: typeof import("./getReferenceDataSet").getReferenceDataSetOutput = null as any;
@@ -59,6 +64,11 @@ export { IoTHubEventSourceArgs } from "./ioTHubEventSource";
 export type IoTHubEventSource = import("./ioTHubEventSource").IoTHubEventSource;
 export const IoTHubEventSource: typeof import("./ioTHubEventSource").IoTHubEventSource = null as any;
 utilities.lazyLoad(exports, ["IoTHubEventSource"], () => require("./ioTHubEventSource"));
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 export { ReferenceDataSetArgs } from "./referenceDataSet";
 export type ReferenceDataSet = import("./referenceDataSet").ReferenceDataSet;
@@ -100,6 +110,8 @@ const _module = {
                 return new Gen2Environment(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights:IoTHubEventSource":
                 return new IoTHubEventSource(name, <any>undefined, { urn })
+            case "azure-native:timeseriesinsights:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights:ReferenceDataSet":
                 return new ReferenceDataSet(name, <any>undefined, { urn })
             default:

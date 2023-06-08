@@ -11,12 +11,20 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AcceleratorBasicAuthSettingArgs',
+    'AcceleratorGitRepositoryArgs',
+    'AcceleratorPublicSettingArgs',
+    'AcceleratorSshSettingArgs',
     'ApiPortalCustomDomainPropertiesArgs',
     'ApiPortalPropertiesArgs',
+    'ApmPropertiesArgs',
+    'ApmReferenceArgs',
     'AppResourcePropertiesArgs',
     'AppVNetAddonsArgs',
     'AzureFileVolumeArgs',
     'BindingResourcePropertiesArgs',
+    'BuildPropertiesArgs',
+    'BuildResourceRequestsArgs',
     'BuildResultUserSourceInfoArgs',
     'BuildServiceAgentPoolPropertiesArgs',
     'BuildServiceAgentPoolSizePropertiesArgs',
@@ -25,6 +33,7 @@ __all__ = [
     'BuildpackBindingPropertiesArgs',
     'BuildpackPropertiesArgs',
     'BuildpacksGroupPropertiesArgs',
+    'CertificateReferenceArgs',
     'ClusterResourcePropertiesArgs',
     'ConfigServerGitPropertyArgs',
     'ConfigServerPropertiesArgs',
@@ -34,13 +43,20 @@ __all__ = [
     'ConfigurationServicePropertiesArgs',
     'ConfigurationServiceSettingsArgs',
     'ContainerProbeSettingsArgs',
+    'ContainerRegistryBasicCredentialsArgs',
+    'ContainerRegistryPropertiesArgs',
     'ContentCertificatePropertiesArgs',
     'CustomContainerUserSourceInfoArgs',
     'CustomContainerArgs',
     'CustomDomainPropertiesArgs',
     'CustomPersistentDiskResourceArgs',
+    'CustomizedAcceleratorPropertiesArgs',
     'DeploymentResourcePropertiesArgs',
     'DeploymentSettingsArgs',
+    'DevToolPortalFeatureDetailArgs',
+    'DevToolPortalFeatureSettingsArgs',
+    'DevToolPortalPropertiesArgs',
+    'DevToolPortalSsoPropertiesArgs',
     'ErrorArgs',
     'ExecActionArgs',
     'GatewayApiMetadataPropertiesArgs',
@@ -77,6 +93,293 @@ __all__ = [
     'TemporaryDiskArgs',
     'UploadedUserSourceInfoArgs',
 ]
+
+@pulumi.input_type
+class AcceleratorBasicAuthSettingArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 username: pulumi.Input[str],
+                 ca_cert_resource_id: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None):
+        """
+        Auth setting for basic auth.
+        :param pulumi.Input[str] auth_type: The type of the auth setting.
+               Expected value is 'BasicAuth'.
+        :param pulumi.Input[str] username: Username of git repository basic auth.
+        :param pulumi.Input[str] ca_cert_resource_id: Resource Id of CA certificate for https URL of Git repository.
+        :param pulumi.Input[str] password: Password of git repository basic auth.
+        """
+        pulumi.set(__self__, "auth_type", 'BasicAuth')
+        pulumi.set(__self__, "username", username)
+        if ca_cert_resource_id is not None:
+            pulumi.set(__self__, "ca_cert_resource_id", ca_cert_resource_id)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        The type of the auth setting.
+        Expected value is 'BasicAuth'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        Username of git repository basic auth.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter(name="caCertResourceId")
+    def ca_cert_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id of CA certificate for https URL of Git repository.
+        """
+        return pulumi.get(self, "ca_cert_resource_id")
+
+    @ca_cert_resource_id.setter
+    def ca_cert_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_cert_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password of git repository basic auth.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+
+@pulumi.input_type
+class AcceleratorGitRepositoryArgs:
+    def __init__(__self__, *,
+                 auth_setting: pulumi.Input[Union['AcceleratorBasicAuthSettingArgs', 'AcceleratorPublicSettingArgs', 'AcceleratorSshSettingArgs']],
+                 url: pulumi.Input[str],
+                 branch: Optional[pulumi.Input[str]] = None,
+                 commit: Optional[pulumi.Input[str]] = None,
+                 git_tag: Optional[pulumi.Input[str]] = None,
+                 interval_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Union['AcceleratorBasicAuthSettingArgs', 'AcceleratorPublicSettingArgs', 'AcceleratorSshSettingArgs']] auth_setting: Properties of the auth setting payload.
+        :param pulumi.Input[str] url: Git repository URL for the accelerator.
+        :param pulumi.Input[str] branch: Git repository branch to be used.
+        :param pulumi.Input[str] commit: Git repository commit to be used.
+        :param pulumi.Input[str] git_tag: Git repository tag to be used.
+        :param pulumi.Input[int] interval_in_seconds: Interval for checking for updates to Git or image repository.
+        """
+        pulumi.set(__self__, "auth_setting", auth_setting)
+        pulumi.set(__self__, "url", url)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if commit is not None:
+            pulumi.set(__self__, "commit", commit)
+        if git_tag is not None:
+            pulumi.set(__self__, "git_tag", git_tag)
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+
+    @property
+    @pulumi.getter(name="authSetting")
+    def auth_setting(self) -> pulumi.Input[Union['AcceleratorBasicAuthSettingArgs', 'AcceleratorPublicSettingArgs', 'AcceleratorSshSettingArgs']]:
+        """
+        Properties of the auth setting payload.
+        """
+        return pulumi.get(self, "auth_setting")
+
+    @auth_setting.setter
+    def auth_setting(self, value: pulumi.Input[Union['AcceleratorBasicAuthSettingArgs', 'AcceleratorPublicSettingArgs', 'AcceleratorSshSettingArgs']]):
+        pulumi.set(self, "auth_setting", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        Git repository URL for the accelerator.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        Git repository branch to be used.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter
+    def commit(self) -> Optional[pulumi.Input[str]]:
+        """
+        Git repository commit to be used.
+        """
+        return pulumi.get(self, "commit")
+
+    @commit.setter
+    def commit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "commit", value)
+
+    @property
+    @pulumi.getter(name="gitTag")
+    def git_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Git repository tag to be used.
+        """
+        return pulumi.get(self, "git_tag")
+
+    @git_tag.setter
+    def git_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "git_tag", value)
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Interval for checking for updates to Git or image repository.
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @interval_in_seconds.setter
+    def interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval_in_seconds", value)
+
+
+@pulumi.input_type
+class AcceleratorPublicSettingArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 ca_cert_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Auth setting for public url.
+        :param pulumi.Input[str] auth_type: The type of the auth setting.
+               Expected value is 'Public'.
+        :param pulumi.Input[str] ca_cert_resource_id: Resource Id of CA certificate for https URL of Git repository.
+        """
+        pulumi.set(__self__, "auth_type", 'Public')
+        if ca_cert_resource_id is not None:
+            pulumi.set(__self__, "ca_cert_resource_id", ca_cert_resource_id)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        The type of the auth setting.
+        Expected value is 'Public'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="caCertResourceId")
+    def ca_cert_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id of CA certificate for https URL of Git repository.
+        """
+        return pulumi.get(self, "ca_cert_resource_id")
+
+    @ca_cert_resource_id.setter
+    def ca_cert_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_cert_resource_id", value)
+
+
+@pulumi.input_type
+class AcceleratorSshSettingArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 host_key: Optional[pulumi.Input[str]] = None,
+                 host_key_algorithm: Optional[pulumi.Input[str]] = None,
+                 private_key: Optional[pulumi.Input[str]] = None):
+        """
+        Auth setting for SSH auth.
+        :param pulumi.Input[str] auth_type: The type of the auth setting.
+               Expected value is 'SSH'.
+        :param pulumi.Input[str] host_key: Public SSH Key of git repository.
+        :param pulumi.Input[str] host_key_algorithm: SSH Key algorithm of git repository.
+        :param pulumi.Input[str] private_key: Private SSH Key algorithm of git repository.
+        """
+        pulumi.set(__self__, "auth_type", 'SSH')
+        if host_key is not None:
+            pulumi.set(__self__, "host_key", host_key)
+        if host_key_algorithm is not None:
+            pulumi.set(__self__, "host_key_algorithm", host_key_algorithm)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        The type of the auth setting.
+        Expected value is 'SSH'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="hostKey")
+    def host_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public SSH Key of git repository.
+        """
+        return pulumi.get(self, "host_key")
+
+    @host_key.setter
+    def host_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_key", value)
+
+    @property
+    @pulumi.getter(name="hostKeyAlgorithm")
+    def host_key_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        SSH Key algorithm of git repository.
+        """
+        return pulumi.get(self, "host_key_algorithm")
+
+    @host_key_algorithm.setter
+    def host_key_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_key_algorithm", value)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private SSH Key algorithm of git repository.
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_key", value)
+
 
 @pulumi.input_type
 class ApiPortalCustomDomainPropertiesArgs:
@@ -192,6 +495,84 @@ class ApiPortalPropertiesArgs:
     @sso_properties.setter
     def sso_properties(self, value: Optional[pulumi.Input['SsoPropertiesArgs']]):
         pulumi.set(self, "sso_properties", value)
+
+
+@pulumi.input_type
+class ApmPropertiesArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 secrets: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Properties of an APM
+        :param pulumi.Input[str] type: APM Type
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Non-sensitive properties for the APM
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secrets: Sensitive properties for the APM
+        """
+        pulumi.set(__self__, "type", type)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        APM Type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Non-sensitive properties for the APM
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Sensitive properties for the APM
+        """
+        return pulumi.get(self, "secrets")
+
+    @secrets.setter
+    def secrets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "secrets", value)
+
+
+@pulumi.input_type
+class ApmReferenceArgs:
+    def __init__(__self__, *,
+                 resource_id: pulumi.Input[str]):
+        """
+        A reference to the APM
+        :param pulumi.Input[str] resource_id: Resource Id of the APM
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource Id of the APM
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -536,6 +917,174 @@ class BindingResourcePropertiesArgs:
 
 
 @pulumi.input_type
+class BuildPropertiesArgs:
+    def __init__(__self__, *,
+                 agent_pool: Optional[pulumi.Input[str]] = None,
+                 apms: Optional[pulumi.Input[Sequence[pulumi.Input['ApmReferenceArgs']]]] = None,
+                 builder: Optional[pulumi.Input[str]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateReferenceArgs']]]] = None,
+                 env: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 relative_path: Optional[pulumi.Input[str]] = None,
+                 resource_requests: Optional[pulumi.Input['BuildResourceRequestsArgs']] = None):
+        """
+        Build resource properties payload
+        :param pulumi.Input[str] agent_pool: The resource id of agent pool
+        :param pulumi.Input[Sequence[pulumi.Input['ApmReferenceArgs']]] apms: The APMs for this build
+        :param pulumi.Input[str] builder: The resource id of builder to build the source code
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateReferenceArgs']]] certificates: The CA Certificates for this build
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] env: The environment variables for this build
+        :param pulumi.Input[str] relative_path: The relative path of source code
+        :param pulumi.Input['BuildResourceRequestsArgs'] resource_requests: The customized build resource for this build
+        """
+        if agent_pool is not None:
+            pulumi.set(__self__, "agent_pool", agent_pool)
+        if apms is not None:
+            pulumi.set(__self__, "apms", apms)
+        if builder is not None:
+            pulumi.set(__self__, "builder", builder)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if env is not None:
+            pulumi.set(__self__, "env", env)
+        if relative_path is not None:
+            pulumi.set(__self__, "relative_path", relative_path)
+        if resource_requests is not None:
+            pulumi.set(__self__, "resource_requests", resource_requests)
+
+    @property
+    @pulumi.getter(name="agentPool")
+    def agent_pool(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of agent pool
+        """
+        return pulumi.get(self, "agent_pool")
+
+    @agent_pool.setter
+    def agent_pool(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_pool", value)
+
+    @property
+    @pulumi.getter
+    def apms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApmReferenceArgs']]]]:
+        """
+        The APMs for this build
+        """
+        return pulumi.get(self, "apms")
+
+    @apms.setter
+    def apms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApmReferenceArgs']]]]):
+        pulumi.set(self, "apms", value)
+
+    @property
+    @pulumi.getter
+    def builder(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of builder to build the source code
+        """
+        return pulumi.get(self, "builder")
+
+    @builder.setter
+    def builder(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "builder", value)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateReferenceArgs']]]]:
+        """
+        The CA Certificates for this build
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateReferenceArgs']]]]):
+        pulumi.set(self, "certificates", value)
+
+    @property
+    @pulumi.getter
+    def env(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The environment variables for this build
+        """
+        return pulumi.get(self, "env")
+
+    @env.setter
+    def env(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "env", value)
+
+    @property
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relative path of source code
+        """
+        return pulumi.get(self, "relative_path")
+
+    @relative_path.setter
+    def relative_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "relative_path", value)
+
+    @property
+    @pulumi.getter(name="resourceRequests")
+    def resource_requests(self) -> Optional[pulumi.Input['BuildResourceRequestsArgs']]:
+        """
+        The customized build resource for this build
+        """
+        return pulumi.get(self, "resource_requests")
+
+    @resource_requests.setter
+    def resource_requests(self, value: Optional[pulumi.Input['BuildResourceRequestsArgs']]):
+        pulumi.set(self, "resource_requests", value)
+
+
+@pulumi.input_type
+class BuildResourceRequestsArgs:
+    def __init__(__self__, *,
+                 cpu: Optional[pulumi.Input[str]] = None,
+                 memory: Optional[pulumi.Input[str]] = None):
+        """
+        Resource request payload of Build Resource.
+        :param pulumi.Input[str] cpu: Optional Cpu allocated to the build resource. 1 core can be represented by 1 or 1000m. 
+               The default value is 1, this should not exceed build service agent pool cpu size.
+        :param pulumi.Input[str] memory: Optional Memory allocated to the build resource. 1 GB can be represented by 1Gi or 1024Mi. 
+               The default value is 2Gi, this should not exceed build service agent pool memory size.
+        """
+        if cpu is None:
+            cpu = '1'
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is None:
+            memory = '2Gi'
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional Cpu allocated to the build resource. 1 core can be represented by 1 or 1000m. 
+        The default value is 1, this should not exceed build service agent pool cpu size.
+        """
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional Memory allocated to the build resource. 1 GB can be represented by 1Gi or 1024Mi. 
+        The default value is 2Gi, this should not exceed build service agent pool memory size.
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "memory", value)
+
+
+@pulumi.input_type
 class BuildResultUserSourceInfoArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -822,6 +1371,29 @@ class BuildpacksGroupPropertiesArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class CertificateReferenceArgs:
+    def __init__(__self__, *,
+                 resource_id: pulumi.Input[str]):
+        """
+        A reference to the certificate
+        :param pulumi.Input[str] resource_id: Resource Id of the certificate
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource Id of the certificate
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -1386,6 +1958,99 @@ class ContainerProbeSettingsArgs:
 
 
 @pulumi.input_type
+class ContainerRegistryBasicCredentialsArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 server: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 username: pulumi.Input[str]):
+        """
+        The basic authentication properties for the container registry resource.
+        :param pulumi.Input[str] password: The password of the Container Registry.
+        :param pulumi.Input[str] server: The login server of the Container Registry.
+        :param pulumi.Input[str] type: The credential type of the container registry credentials.
+               Expected value is 'BasicAuth'.
+        :param pulumi.Input[str] username: The username of the Container Registry.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "server", server)
+        pulumi.set(__self__, "type", 'BasicAuth')
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        The password of the Container Registry.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> pulumi.Input[str]:
+        """
+        The login server of the Container Registry.
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The credential type of the container registry credentials.
+        Expected value is 'BasicAuth'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The username of the Container Registry.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class ContainerRegistryPropertiesArgs:
+    def __init__(__self__, *,
+                 credentials: pulumi.Input['ContainerRegistryBasicCredentialsArgs']):
+        """
+        Container registry resource payload.
+        :param pulumi.Input['ContainerRegistryBasicCredentialsArgs'] credentials: The credentials of the container registry resource.
+        """
+        pulumi.set(__self__, "credentials", credentials)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> pulumi.Input['ContainerRegistryBasicCredentialsArgs']:
+        """
+        The credentials of the container registry resource.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: pulumi.Input['ContainerRegistryBasicCredentialsArgs']):
+        pulumi.set(self, "credentials", value)
+
+
+@pulumi.input_type
 class ContentCertificatePropertiesArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -1667,6 +2332,73 @@ class CustomPersistentDiskResourceArgs:
 
 
 @pulumi.input_type
+class CustomizedAcceleratorPropertiesArgs:
+    def __init__(__self__, *,
+                 git_repository: pulumi.Input['AcceleratorGitRepositoryArgs'],
+                 accelerator_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 icon_url: Optional[pulumi.Input[str]] = None):
+        """
+        Customized accelerator properties payload
+        """
+        pulumi.set(__self__, "git_repository", git_repository)
+        if accelerator_tags is not None:
+            pulumi.set(__self__, "accelerator_tags", accelerator_tags)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if icon_url is not None:
+            pulumi.set(__self__, "icon_url", icon_url)
+
+    @property
+    @pulumi.getter(name="gitRepository")
+    def git_repository(self) -> pulumi.Input['AcceleratorGitRepositoryArgs']:
+        return pulumi.get(self, "git_repository")
+
+    @git_repository.setter
+    def git_repository(self, value: pulumi.Input['AcceleratorGitRepositoryArgs']):
+        pulumi.set(self, "git_repository", value)
+
+    @property
+    @pulumi.getter(name="acceleratorTags")
+    def accelerator_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "accelerator_tags")
+
+    @accelerator_tags.setter
+    def accelerator_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "accelerator_tags", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="iconUrl")
+    def icon_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "icon_url")
+
+    @icon_url.setter
+    def icon_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icon_url", value)
+
+
+@pulumi.input_type
 class DeploymentResourcePropertiesArgs:
     def __init__(__self__, *,
                  active: Optional[pulumi.Input[bool]] = None,
@@ -1858,6 +2590,202 @@ class DeploymentSettingsArgs:
     @termination_grace_period_seconds.setter
     def termination_grace_period_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "termination_grace_period_seconds", value)
+
+
+@pulumi.input_type
+class DevToolPortalFeatureDetailArgs:
+    def __init__(__self__, *,
+                 state: Optional[pulumi.Input[Union[str, 'DevToolPortalFeatureState']]] = None):
+        """
+        Detail settings for Dev Tool Portal feature
+        :param pulumi.Input[Union[str, 'DevToolPortalFeatureState']] state: State of the plugin
+        """
+        if state is None:
+            state = 'Enabled'
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'DevToolPortalFeatureState']]]:
+        """
+        State of the plugin
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'DevToolPortalFeatureState']]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class DevToolPortalFeatureSettingsArgs:
+    def __init__(__self__, *,
+                 application_accelerator: Optional[pulumi.Input['DevToolPortalFeatureDetailArgs']] = None,
+                 application_live_view: Optional[pulumi.Input['DevToolPortalFeatureDetailArgs']] = None):
+        """
+        Settings for Dev Tool Portal
+        :param pulumi.Input['DevToolPortalFeatureDetailArgs'] application_accelerator: Detail of Accelerator plugin
+        :param pulumi.Input['DevToolPortalFeatureDetailArgs'] application_live_view: Detail of App Live View plugin
+        """
+        if application_accelerator is not None:
+            pulumi.set(__self__, "application_accelerator", application_accelerator)
+        if application_live_view is not None:
+            pulumi.set(__self__, "application_live_view", application_live_view)
+
+    @property
+    @pulumi.getter(name="applicationAccelerator")
+    def application_accelerator(self) -> Optional[pulumi.Input['DevToolPortalFeatureDetailArgs']]:
+        """
+        Detail of Accelerator plugin
+        """
+        return pulumi.get(self, "application_accelerator")
+
+    @application_accelerator.setter
+    def application_accelerator(self, value: Optional[pulumi.Input['DevToolPortalFeatureDetailArgs']]):
+        pulumi.set(self, "application_accelerator", value)
+
+    @property
+    @pulumi.getter(name="applicationLiveView")
+    def application_live_view(self) -> Optional[pulumi.Input['DevToolPortalFeatureDetailArgs']]:
+        """
+        Detail of App Live View plugin
+        """
+        return pulumi.get(self, "application_live_view")
+
+    @application_live_view.setter
+    def application_live_view(self, value: Optional[pulumi.Input['DevToolPortalFeatureDetailArgs']]):
+        pulumi.set(self, "application_live_view", value)
+
+
+@pulumi.input_type
+class DevToolPortalPropertiesArgs:
+    def __init__(__self__, *,
+                 features: Optional[pulumi.Input['DevToolPortalFeatureSettingsArgs']] = None,
+                 public: Optional[pulumi.Input[bool]] = None,
+                 sso_properties: Optional[pulumi.Input['DevToolPortalSsoPropertiesArgs']] = None):
+        """
+        Dev Tool Portal properties payload
+        :param pulumi.Input['DevToolPortalFeatureSettingsArgs'] features: Settings for Dev Tool Portal
+        :param pulumi.Input[bool] public: Indicates whether the resource exposes public endpoint
+        :param pulumi.Input['DevToolPortalSsoPropertiesArgs'] sso_properties: Single sign-on related configuration
+        """
+        if features is not None:
+            pulumi.set(__self__, "features", features)
+        if public is None:
+            public = False
+        if public is not None:
+            pulumi.set(__self__, "public", public)
+        if sso_properties is not None:
+            pulumi.set(__self__, "sso_properties", sso_properties)
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[pulumi.Input['DevToolPortalFeatureSettingsArgs']]:
+        """
+        Settings for Dev Tool Portal
+        """
+        return pulumi.get(self, "features")
+
+    @features.setter
+    def features(self, value: Optional[pulumi.Input['DevToolPortalFeatureSettingsArgs']]):
+        pulumi.set(self, "features", value)
+
+    @property
+    @pulumi.getter
+    def public(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the resource exposes public endpoint
+        """
+        return pulumi.get(self, "public")
+
+    @public.setter
+    def public(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public", value)
+
+    @property
+    @pulumi.getter(name="ssoProperties")
+    def sso_properties(self) -> Optional[pulumi.Input['DevToolPortalSsoPropertiesArgs']]:
+        """
+        Single sign-on related configuration
+        """
+        return pulumi.get(self, "sso_properties")
+
+    @sso_properties.setter
+    def sso_properties(self, value: Optional[pulumi.Input['DevToolPortalSsoPropertiesArgs']]):
+        pulumi.set(self, "sso_properties", value)
+
+
+@pulumi.input_type
+class DevToolPortalSsoPropertiesArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 metadata_url: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Single sign-on related configuration
+        :param pulumi.Input[str] client_id: The public identifier for the application
+        :param pulumi.Input[str] client_secret: The secret known only to the application and the authorization server
+        :param pulumi.Input[str] metadata_url: The URI of a JSON file with generic OIDC provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: It defines the specific actions applications can be allowed to do on a user's behalf
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if metadata_url is not None:
+            pulumi.set(__self__, "metadata_url", metadata_url)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public identifier for the application
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secret known only to the application and the authorization server
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="metadataUrl")
+    def metadata_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of a JSON file with generic OIDC provider configuration.
+        """
+        return pulumi.get(self, "metadata_url")
+
+    @metadata_url.setter
+    def metadata_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metadata_url", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        It defines the specific actions applications can be allowed to do on a user's behalf
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
 
 
 @pulumi.input_type

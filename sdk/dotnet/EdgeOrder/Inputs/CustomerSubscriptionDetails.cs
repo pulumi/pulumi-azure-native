@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
     /// <summary>
-    /// Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details
+    /// Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details.
     /// </summary>
     public sealed class CustomerSubscriptionDetails : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Location placement Id of a subscription
+        /// Location placement Id of a subscription.
         /// </summary>
         [Input("locationPlacementId")]
         public string? LocationPlacementId { get; set; }
 
         /// <summary>
-        /// Quota ID of a subscription
+        /// Quota ID of a subscription.
         /// </summary>
         [Input("quotaId", required: true)]
         public string QuotaId { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         private List<Inputs.CustomerSubscriptionRegisteredFeatures>? _registeredFeatures;
 
         /// <summary>
-        /// List of registered feature flags for subscription
+        /// List of registered feature flags for subscription.
         /// </summary>
         public List<Inputs.CustomerSubscriptionRegisteredFeatures> RegisteredFeatures
         {

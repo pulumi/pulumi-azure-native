@@ -6,13 +6,16 @@ from enum import Enum
 
 __all__ = [
     'AccessRights',
+    'ApplicationGroupPolicyType',
     'ClusterSkuName',
     'DefaultAction',
     'EncodingCaptureDescription',
     'EndPointProvisioningState',
     'EntityStatus',
+    'IPAction',
     'KeySource',
     'ManagedServiceIdentityType',
+    'MetricId',
     'NetworkRuleIPAction',
     'PrivateLinkConnectionStatus',
     'PublicNetworkAccessFlag',
@@ -27,6 +30,13 @@ class AccessRights(str, Enum):
     MANAGE = "Manage"
     SEND = "Send"
     LISTEN = "Listen"
+
+
+class ApplicationGroupPolicyType(str, Enum):
+    """
+    Application Group Policy types
+    """
+    THROTTLING_POLICY = "ThrottlingPolicy"
 
 
 class ClusterSkuName(str, Enum):
@@ -79,6 +89,14 @@ class EntityStatus(str, Enum):
     UNKNOWN = "Unknown"
 
 
+class IPAction(str, Enum):
+    """
+    The IP Filter Action
+    """
+    ACCEPT = "Accept"
+    REJECT = "Reject"
+
+
 class KeySource(str, Enum):
     """
     Enumerates the possible value of keySource for Encryption
@@ -94,6 +112,16 @@ class ManagedServiceIdentityType(str, Enum):
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
     NONE = "None"
+
+
+class MetricId(str, Enum):
+    """
+    Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+    """
+    INCOMING_BYTES = "IncomingBytes"
+    OUTGOING_BYTES = "OutgoingBytes"
+    INCOMING_MESSAGES = "IncomingMessages"
+    OUTGOING_MESSAGES = "OutgoingMessages"
 
 
 class NetworkRuleIPAction(str, Enum):

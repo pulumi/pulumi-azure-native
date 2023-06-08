@@ -74,6 +74,43 @@ namespace Pulumi.AzureNative.AppPlatform
     }
 
     /// <summary>
+    /// State of the plugin
+    /// </summary>
+    [EnumType]
+    public readonly struct DevToolPortalFeatureState : IEquatable<DevToolPortalFeatureState>
+    {
+        private readonly string _value;
+
+        private DevToolPortalFeatureState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Enable the plugin in Dev Tool Portal.
+        /// </summary>
+        public static DevToolPortalFeatureState Enabled { get; } = new DevToolPortalFeatureState("Enabled");
+        /// <summary>
+        /// Disable the plugin in Dev Tool Portal.
+        /// </summary>
+        public static DevToolPortalFeatureState Disabled { get; } = new DevToolPortalFeatureState("Disabled");
+
+        public static bool operator ==(DevToolPortalFeatureState left, DevToolPortalFeatureState right) => left.Equals(right);
+        public static bool operator !=(DevToolPortalFeatureState left, DevToolPortalFeatureState right) => !left.Equals(right);
+
+        public static explicit operator string(DevToolPortalFeatureState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DevToolPortalFeatureState other && Equals(other);
+        public bool Equals(DevToolPortalFeatureState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Protocol of routed Azure Spring Apps applications.
     /// </summary>
     [EnumType]

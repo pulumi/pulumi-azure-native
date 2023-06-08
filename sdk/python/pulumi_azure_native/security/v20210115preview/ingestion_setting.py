@@ -86,6 +86,8 @@ class IngestionSetting(pulumi.CustomResource):
             __props__.__dict__["ingestion_setting_name"] = ingestion_setting_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security:IngestionSetting")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IngestionSetting, __self__).__init__(
             'azure-native:security/v20210115preview:IngestionSetting',
             resource_name,

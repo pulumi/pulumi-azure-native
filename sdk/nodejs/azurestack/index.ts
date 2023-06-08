@@ -15,6 +15,11 @@ export const getCustomerSubscription: typeof import("./getCustomerSubscription")
 export const getCustomerSubscriptionOutput: typeof import("./getCustomerSubscription").getCustomerSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomerSubscription","getCustomerSubscriptionOutput"], () => require("./getCustomerSubscription"));
 
+export { GetLinkedSubscriptionArgs, GetLinkedSubscriptionResult, GetLinkedSubscriptionOutputArgs } from "./getLinkedSubscription";
+export const getLinkedSubscription: typeof import("./getLinkedSubscription").getLinkedSubscription = null as any;
+export const getLinkedSubscriptionOutput: typeof import("./getLinkedSubscription").getLinkedSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getLinkedSubscription","getLinkedSubscriptionOutput"], () => require("./getLinkedSubscription"));
+
 export { GetProductArgs, GetProductResult, GetProductOutputArgs } from "./getProduct";
 export const getProduct: typeof import("./getProduct").getProduct = null as any;
 export const getProductOutput: typeof import("./getProduct").getProductOutput = null as any;
@@ -34,6 +39,11 @@ export { GetRegistrationActivationKeyArgs, GetRegistrationActivationKeyResult, G
 export const getRegistrationActivationKey: typeof import("./getRegistrationActivationKey").getRegistrationActivationKey = null as any;
 export const getRegistrationActivationKeyOutput: typeof import("./getRegistrationActivationKey").getRegistrationActivationKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getRegistrationActivationKey","getRegistrationActivationKeyOutput"], () => require("./getRegistrationActivationKey"));
+
+export { LinkedSubscriptionArgs } from "./linkedSubscription";
+export type LinkedSubscription = import("./linkedSubscription").LinkedSubscription;
+export const LinkedSubscription: typeof import("./linkedSubscription").LinkedSubscription = null as any;
+utilities.lazyLoad(exports, ["LinkedSubscription"], () => require("./linkedSubscription"));
 
 export { ListProductDetailsArgs, ListProductDetailsResult, ListProductDetailsOutputArgs } from "./listProductDetails";
 export const listProductDetails: typeof import("./listProductDetails").listProductDetails = null as any;
@@ -71,6 +81,8 @@ const _module = {
         switch (type) {
             case "azure-native:azurestack:CustomerSubscription":
                 return new CustomerSubscription(name, <any>undefined, { urn })
+            case "azure-native:azurestack:LinkedSubscription":
+                return new LinkedSubscription(name, <any>undefined, { urn })
             case "azure-native:azurestack:Registration":
                 return new Registration(name, <any>undefined, { urn })
             default:

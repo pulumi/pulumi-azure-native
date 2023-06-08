@@ -122,7 +122,7 @@ export class HuntRelation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230501preview:HuntRelation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:HuntRelation" }, { type: "azure-native:securityinsights/v20230501preview:HuntRelation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HuntRelation.__pulumiType, name, resourceInputs, opts);
     }

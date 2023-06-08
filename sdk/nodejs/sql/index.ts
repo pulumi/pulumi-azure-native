@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { BackupLongTermRetentionPolicyArgs } from "./backupLongTermRetentionPolicy";
+export type BackupLongTermRetentionPolicy = import("./backupLongTermRetentionPolicy").BackupLongTermRetentionPolicy;
+export const BackupLongTermRetentionPolicy: typeof import("./backupLongTermRetentionPolicy").BackupLongTermRetentionPolicy = null as any;
+utilities.lazyLoad(exports, ["BackupLongTermRetentionPolicy"], () => require("./backupLongTermRetentionPolicy"));
+
 export { BackupShortTermRetentionPolicyArgs } from "./backupShortTermRetentionPolicy";
 export type BackupShortTermRetentionPolicy = import("./backupShortTermRetentionPolicy").BackupShortTermRetentionPolicy;
 export const BackupShortTermRetentionPolicy: typeof import("./backupShortTermRetentionPolicy").BackupShortTermRetentionPolicy = null as any;
@@ -34,6 +39,11 @@ export { DatabaseSecurityAlertPolicyArgs } from "./databaseSecurityAlertPolicy";
 export type DatabaseSecurityAlertPolicy = import("./databaseSecurityAlertPolicy").DatabaseSecurityAlertPolicy;
 export const DatabaseSecurityAlertPolicy: typeof import("./databaseSecurityAlertPolicy").DatabaseSecurityAlertPolicy = null as any;
 utilities.lazyLoad(exports, ["DatabaseSecurityAlertPolicy"], () => require("./databaseSecurityAlertPolicy"));
+
+export { DatabaseSqlVulnerabilityAssessmentRuleBaselineArgs } from "./databaseSqlVulnerabilityAssessmentRuleBaseline";
+export type DatabaseSqlVulnerabilityAssessmentRuleBaseline = import("./databaseSqlVulnerabilityAssessmentRuleBaseline").DatabaseSqlVulnerabilityAssessmentRuleBaseline;
+export const DatabaseSqlVulnerabilityAssessmentRuleBaseline: typeof import("./databaseSqlVulnerabilityAssessmentRuleBaseline").DatabaseSqlVulnerabilityAssessmentRuleBaseline = null as any;
+utilities.lazyLoad(exports, ["DatabaseSqlVulnerabilityAssessmentRuleBaseline"], () => require("./databaseSqlVulnerabilityAssessmentRuleBaseline"));
 
 export { DatabaseVulnerabilityAssessmentArgs } from "./databaseVulnerabilityAssessment";
 export type DatabaseVulnerabilityAssessment = import("./databaseVulnerabilityAssessment").DatabaseVulnerabilityAssessment;
@@ -85,6 +95,11 @@ export type GeoBackupPolicy = import("./geoBackupPolicy").GeoBackupPolicy;
 export const GeoBackupPolicy: typeof import("./geoBackupPolicy").GeoBackupPolicy = null as any;
 utilities.lazyLoad(exports, ["GeoBackupPolicy"], () => require("./geoBackupPolicy"));
 
+export { GetBackupLongTermRetentionPolicyArgs, GetBackupLongTermRetentionPolicyResult, GetBackupLongTermRetentionPolicyOutputArgs } from "./getBackupLongTermRetentionPolicy";
+export const getBackupLongTermRetentionPolicy: typeof import("./getBackupLongTermRetentionPolicy").getBackupLongTermRetentionPolicy = null as any;
+export const getBackupLongTermRetentionPolicyOutput: typeof import("./getBackupLongTermRetentionPolicy").getBackupLongTermRetentionPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getBackupLongTermRetentionPolicy","getBackupLongTermRetentionPolicyOutput"], () => require("./getBackupLongTermRetentionPolicy"));
+
 export { GetBackupShortTermRetentionPolicyArgs, GetBackupShortTermRetentionPolicyResult, GetBackupShortTermRetentionPolicyOutputArgs } from "./getBackupShortTermRetentionPolicy";
 export const getBackupShortTermRetentionPolicy: typeof import("./getBackupShortTermRetentionPolicy").getBackupShortTermRetentionPolicy = null as any;
 export const getBackupShortTermRetentionPolicyOutput: typeof import("./getBackupShortTermRetentionPolicy").getBackupShortTermRetentionPolicyOutput = null as any;
@@ -114,6 +129,11 @@ export { GetDatabaseSecurityAlertPolicyArgs, GetDatabaseSecurityAlertPolicyResul
 export const getDatabaseSecurityAlertPolicy: typeof import("./getDatabaseSecurityAlertPolicy").getDatabaseSecurityAlertPolicy = null as any;
 export const getDatabaseSecurityAlertPolicyOutput: typeof import("./getDatabaseSecurityAlertPolicy").getDatabaseSecurityAlertPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabaseSecurityAlertPolicy","getDatabaseSecurityAlertPolicyOutput"], () => require("./getDatabaseSecurityAlertPolicy"));
+
+export { GetDatabaseSqlVulnerabilityAssessmentRuleBaselineArgs, GetDatabaseSqlVulnerabilityAssessmentRuleBaselineResult, GetDatabaseSqlVulnerabilityAssessmentRuleBaselineOutputArgs } from "./getDatabaseSqlVulnerabilityAssessmentRuleBaseline";
+export const getDatabaseSqlVulnerabilityAssessmentRuleBaseline: typeof import("./getDatabaseSqlVulnerabilityAssessmentRuleBaseline").getDatabaseSqlVulnerabilityAssessmentRuleBaseline = null as any;
+export const getDatabaseSqlVulnerabilityAssessmentRuleBaselineOutput: typeof import("./getDatabaseSqlVulnerabilityAssessmentRuleBaseline").getDatabaseSqlVulnerabilityAssessmentRuleBaselineOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseSqlVulnerabilityAssessmentRuleBaseline","getDatabaseSqlVulnerabilityAssessmentRuleBaselineOutput"], () => require("./getDatabaseSqlVulnerabilityAssessmentRuleBaseline"));
 
 export { GetDatabaseVulnerabilityAssessmentArgs, GetDatabaseVulnerabilityAssessmentResult, GetDatabaseVulnerabilityAssessmentOutputArgs } from "./getDatabaseVulnerabilityAssessment";
 export const getDatabaseVulnerabilityAssessment: typeof import("./getDatabaseVulnerabilityAssessment").getDatabaseVulnerabilityAssessment = null as any;
@@ -250,6 +270,11 @@ export const getManagedInstanceKey: typeof import("./getManagedInstanceKey").get
 export const getManagedInstanceKeyOutput: typeof import("./getManagedInstanceKey").getManagedInstanceKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedInstanceKey","getManagedInstanceKeyOutput"], () => require("./getManagedInstanceKey"));
 
+export { GetManagedInstanceLongTermRetentionPolicyArgs, GetManagedInstanceLongTermRetentionPolicyResult, GetManagedInstanceLongTermRetentionPolicyOutputArgs } from "./getManagedInstanceLongTermRetentionPolicy";
+export const getManagedInstanceLongTermRetentionPolicy: typeof import("./getManagedInstanceLongTermRetentionPolicy").getManagedInstanceLongTermRetentionPolicy = null as any;
+export const getManagedInstanceLongTermRetentionPolicyOutput: typeof import("./getManagedInstanceLongTermRetentionPolicy").getManagedInstanceLongTermRetentionPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedInstanceLongTermRetentionPolicy","getManagedInstanceLongTermRetentionPolicyOutput"], () => require("./getManagedInstanceLongTermRetentionPolicy"));
+
 export { GetManagedInstancePrivateEndpointConnectionArgs, GetManagedInstancePrivateEndpointConnectionResult, GetManagedInstancePrivateEndpointConnectionOutputArgs } from "./getManagedInstancePrivateEndpointConnection";
 export const getManagedInstancePrivateEndpointConnection: typeof import("./getManagedInstancePrivateEndpointConnection").getManagedInstancePrivateEndpointConnection = null as any;
 export const getManagedInstancePrivateEndpointConnectionOutput: typeof import("./getManagedInstancePrivateEndpointConnection").getManagedInstancePrivateEndpointConnectionOutput = null as any;
@@ -334,6 +359,21 @@ export { GetServerVulnerabilityAssessmentArgs, GetServerVulnerabilityAssessmentR
 export const getServerVulnerabilityAssessment: typeof import("./getServerVulnerabilityAssessment").getServerVulnerabilityAssessment = null as any;
 export const getServerVulnerabilityAssessmentOutput: typeof import("./getServerVulnerabilityAssessment").getServerVulnerabilityAssessmentOutput = null as any;
 utilities.lazyLoad(exports, ["getServerVulnerabilityAssessment","getServerVulnerabilityAssessmentOutput"], () => require("./getServerVulnerabilityAssessment"));
+
+export { GetSqlVulnerabilityAssessmentRuleBaselineArgs, GetSqlVulnerabilityAssessmentRuleBaselineResult, GetSqlVulnerabilityAssessmentRuleBaselineOutputArgs } from "./getSqlVulnerabilityAssessmentRuleBaseline";
+export const getSqlVulnerabilityAssessmentRuleBaseline: typeof import("./getSqlVulnerabilityAssessmentRuleBaseline").getSqlVulnerabilityAssessmentRuleBaseline = null as any;
+export const getSqlVulnerabilityAssessmentRuleBaselineOutput: typeof import("./getSqlVulnerabilityAssessmentRuleBaseline").getSqlVulnerabilityAssessmentRuleBaselineOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlVulnerabilityAssessmentRuleBaseline","getSqlVulnerabilityAssessmentRuleBaselineOutput"], () => require("./getSqlVulnerabilityAssessmentRuleBaseline"));
+
+export { GetSqlVulnerabilityAssessmentsSettingArgs, GetSqlVulnerabilityAssessmentsSettingResult, GetSqlVulnerabilityAssessmentsSettingOutputArgs } from "./getSqlVulnerabilityAssessmentsSetting";
+export const getSqlVulnerabilityAssessmentsSetting: typeof import("./getSqlVulnerabilityAssessmentsSetting").getSqlVulnerabilityAssessmentsSetting = null as any;
+export const getSqlVulnerabilityAssessmentsSettingOutput: typeof import("./getSqlVulnerabilityAssessmentsSetting").getSqlVulnerabilityAssessmentsSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlVulnerabilityAssessmentsSetting","getSqlVulnerabilityAssessmentsSettingOutput"], () => require("./getSqlVulnerabilityAssessmentsSetting"));
+
+export { GetStartStopManagedInstanceScheduleArgs, GetStartStopManagedInstanceScheduleResult, GetStartStopManagedInstanceScheduleOutputArgs } from "./getStartStopManagedInstanceSchedule";
+export const getStartStopManagedInstanceSchedule: typeof import("./getStartStopManagedInstanceSchedule").getStartStopManagedInstanceSchedule = null as any;
+export const getStartStopManagedInstanceScheduleOutput: typeof import("./getStartStopManagedInstanceSchedule").getStartStopManagedInstanceScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getStartStopManagedInstanceSchedule","getStartStopManagedInstanceScheduleOutput"], () => require("./getStartStopManagedInstanceSchedule"));
 
 export { GetSyncAgentArgs, GetSyncAgentResult, GetSyncAgentOutputArgs } from "./getSyncAgent";
 export const getSyncAgent: typeof import("./getSyncAgent").getSyncAgent = null as any;
@@ -455,6 +495,11 @@ export type ManagedInstanceKey = import("./managedInstanceKey").ManagedInstanceK
 export const ManagedInstanceKey: typeof import("./managedInstanceKey").ManagedInstanceKey = null as any;
 utilities.lazyLoad(exports, ["ManagedInstanceKey"], () => require("./managedInstanceKey"));
 
+export { ManagedInstanceLongTermRetentionPolicyArgs } from "./managedInstanceLongTermRetentionPolicy";
+export type ManagedInstanceLongTermRetentionPolicy = import("./managedInstanceLongTermRetentionPolicy").ManagedInstanceLongTermRetentionPolicy;
+export const ManagedInstanceLongTermRetentionPolicy: typeof import("./managedInstanceLongTermRetentionPolicy").ManagedInstanceLongTermRetentionPolicy = null as any;
+utilities.lazyLoad(exports, ["ManagedInstanceLongTermRetentionPolicy"], () => require("./managedInstanceLongTermRetentionPolicy"));
+
 export { ManagedInstancePrivateEndpointConnectionArgs } from "./managedInstancePrivateEndpointConnection";
 export type ManagedInstancePrivateEndpointConnection = import("./managedInstancePrivateEndpointConnection").ManagedInstancePrivateEndpointConnection;
 export const ManagedInstancePrivateEndpointConnection: typeof import("./managedInstancePrivateEndpointConnection").ManagedInstancePrivateEndpointConnection = null as any;
@@ -540,6 +585,21 @@ export type ServerVulnerabilityAssessment = import("./serverVulnerabilityAssessm
 export const ServerVulnerabilityAssessment: typeof import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment = null as any;
 utilities.lazyLoad(exports, ["ServerVulnerabilityAssessment"], () => require("./serverVulnerabilityAssessment"));
 
+export { SqlVulnerabilityAssessmentRuleBaselineArgs } from "./sqlVulnerabilityAssessmentRuleBaseline";
+export type SqlVulnerabilityAssessmentRuleBaseline = import("./sqlVulnerabilityAssessmentRuleBaseline").SqlVulnerabilityAssessmentRuleBaseline;
+export const SqlVulnerabilityAssessmentRuleBaseline: typeof import("./sqlVulnerabilityAssessmentRuleBaseline").SqlVulnerabilityAssessmentRuleBaseline = null as any;
+utilities.lazyLoad(exports, ["SqlVulnerabilityAssessmentRuleBaseline"], () => require("./sqlVulnerabilityAssessmentRuleBaseline"));
+
+export { SqlVulnerabilityAssessmentsSettingArgs } from "./sqlVulnerabilityAssessmentsSetting";
+export type SqlVulnerabilityAssessmentsSetting = import("./sqlVulnerabilityAssessmentsSetting").SqlVulnerabilityAssessmentsSetting;
+export const SqlVulnerabilityAssessmentsSetting: typeof import("./sqlVulnerabilityAssessmentsSetting").SqlVulnerabilityAssessmentsSetting = null as any;
+utilities.lazyLoad(exports, ["SqlVulnerabilityAssessmentsSetting"], () => require("./sqlVulnerabilityAssessmentsSetting"));
+
+export { StartStopManagedInstanceScheduleArgs } from "./startStopManagedInstanceSchedule";
+export type StartStopManagedInstanceSchedule = import("./startStopManagedInstanceSchedule").StartStopManagedInstanceSchedule;
+export const StartStopManagedInstanceSchedule: typeof import("./startStopManagedInstanceSchedule").StartStopManagedInstanceSchedule = null as any;
+utilities.lazyLoad(exports, ["StartStopManagedInstanceSchedule"], () => require("./startStopManagedInstanceSchedule"));
+
 export { SyncAgentArgs } from "./syncAgent";
 export type SyncAgent = import("./syncAgent").SyncAgent;
 export const SyncAgent: typeof import("./syncAgent").SyncAgent = null as any;
@@ -616,6 +676,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:sql:BackupLongTermRetentionPolicy":
+                return new BackupLongTermRetentionPolicy(name, <any>undefined, { urn })
             case "azure-native:sql:BackupShortTermRetentionPolicy":
                 return new BackupShortTermRetentionPolicy(name, <any>undefined, { urn })
             case "azure-native:sql:DataMaskingPolicy":
@@ -628,6 +690,8 @@ const _module = {
                 return new DatabaseBlobAuditingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql:DatabaseSecurityAlertPolicy":
                 return new DatabaseSecurityAlertPolicy(name, <any>undefined, { urn })
+            case "azure-native:sql:DatabaseSqlVulnerabilityAssessmentRuleBaseline":
+                return new DatabaseSqlVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
             case "azure-native:sql:DatabaseVulnerabilityAssessment":
                 return new DatabaseVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure-native:sql:DatabaseVulnerabilityAssessmentRuleBaseline":
@@ -682,6 +746,8 @@ const _module = {
                 return new ManagedInstanceAzureADOnlyAuthentication(name, <any>undefined, { urn })
             case "azure-native:sql:ManagedInstanceKey":
                 return new ManagedInstanceKey(name, <any>undefined, { urn })
+            case "azure-native:sql:ManagedInstanceLongTermRetentionPolicy":
+                return new ManagedInstanceLongTermRetentionPolicy(name, <any>undefined, { urn })
             case "azure-native:sql:ManagedInstancePrivateEndpointConnection":
                 return new ManagedInstancePrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:sql:ManagedInstanceVulnerabilityAssessment":
@@ -716,6 +782,12 @@ const _module = {
                 return new ServerTrustGroup(name, <any>undefined, { urn })
             case "azure-native:sql:ServerVulnerabilityAssessment":
                 return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
+            case "azure-native:sql:SqlVulnerabilityAssessmentRuleBaseline":
+                return new SqlVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
+            case "azure-native:sql:SqlVulnerabilityAssessmentsSetting":
+                return new SqlVulnerabilityAssessmentsSetting(name, <any>undefined, { urn })
+            case "azure-native:sql:StartStopManagedInstanceSchedule":
+                return new StartStopManagedInstanceSchedule(name, <any>undefined, { urn })
             case "azure-native:sql:SyncAgent":
                 return new SyncAgent(name, <any>undefined, { urn })
             case "azure-native:sql:SyncGroup":

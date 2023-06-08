@@ -48,6 +48,40 @@ namespace Pulumi.AzureNative.EdgeOrder
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ChildConfigurationType : IEquatable<ChildConfigurationType>
+    {
+        private readonly string _value;
+
+        private ChildConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Child configuration is a device configuration.
+        /// </summary>
+        public static ChildConfigurationType DeviceConfiguration { get; } = new ChildConfigurationType("DeviceConfiguration");
+        /// <summary>
+        /// Child configuration is an additional configuration.
+        /// </summary>
+        public static ChildConfigurationType AdditionalConfiguration { get; } = new ChildConfigurationType("AdditionalConfiguration");
+
+        public static bool operator ==(ChildConfigurationType left, ChildConfigurationType right) => left.Equals(right);
+        public static bool operator !=(ChildConfigurationType left, ChildConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(ChildConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChildConfigurationType other && Equals(other);
+        public bool Equals(ChildConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
     /// </summary>
@@ -160,6 +194,43 @@ namespace Pulumi.AzureNative.EdgeOrder
     }
 
     /// <summary>
+    /// Defines the mode of the Order item.
+    /// </summary>
+    [EnumType]
+    public readonly struct OrderMode : IEquatable<OrderMode>
+    {
+        private readonly string _value;
+
+        private OrderMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Default Order mode.
+        /// </summary>
+        public static OrderMode Default { get; } = new OrderMode("Default");
+        /// <summary>
+        /// Mode in which the Order will not be fulfilled.
+        /// </summary>
+        public static OrderMode DoNotFulfill { get; } = new OrderMode("DoNotFulfill");
+
+        public static bool operator ==(OrderMode left, OrderMode right) => left.Equals(right);
+        public static bool operator !=(OrderMode left, OrderMode right) => !left.Equals(right);
+
+        public static explicit operator string(OrderMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrderMode other && Equals(other);
+        public bool Equals(OrderMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of product filter.
     /// </summary>
     [EnumType]
@@ -173,11 +244,11 @@ namespace Pulumi.AzureNative.EdgeOrder
         }
 
         /// <summary>
-        /// Ship to country
+        /// Ship to country.
         /// </summary>
         public static SupportedFilterTypes ShipToCountries { get; } = new SupportedFilterTypes("ShipToCountries");
         /// <summary>
-        /// Double encryption status
+        /// Double encryption status.
         /// </summary>
         public static SupportedFilterTypes DoubleEncryptionStatus { get; } = new SupportedFilterTypes("DoubleEncryptionStatus");
 

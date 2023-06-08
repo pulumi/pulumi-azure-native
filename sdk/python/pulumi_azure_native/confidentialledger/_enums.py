@@ -5,9 +5,18 @@
 from enum import Enum
 
 __all__ = [
+    'LanguageRuntime',
     'LedgerRoleName',
     'LedgerType',
 ]
+
+
+class LanguageRuntime(str, Enum):
+    """
+    Unique name for the Managed CCF.
+    """
+    CPP = "CPP"
+    JS = "JS"
 
 
 class LedgerRoleName(str, Enum):

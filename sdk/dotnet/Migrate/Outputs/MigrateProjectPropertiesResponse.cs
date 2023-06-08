@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
+        /// Provisioning state of the migrate project.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
         /// Gets or sets the state of public network access.
         /// </summary>
         public readonly string? PublicNetworkAccess;
@@ -43,7 +47,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// <summary>
         /// Project summary.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ProjectSummaryResponse> Summary;
+        public readonly ImmutableDictionary<string, object> Summary;
         /// <summary>
         /// Utility storage account id.
         /// </summary>
@@ -55,6 +59,8 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
+            string? provisioningState,
+
             string? publicNetworkAccess,
 
             string refreshSummaryState,
@@ -63,12 +69,13 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             string? serviceEndpoint,
 
-            ImmutableDictionary<string, Outputs.ProjectSummaryResponse> summary,
+            ImmutableDictionary<string, object> summary,
 
             string? utilityStorageAccountId)
         {
             LastSummaryRefreshedTime = lastSummaryRefreshedTime;
             PrivateEndpointConnections = privateEndpointConnections;
+            ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             RefreshSummaryState = refreshSummaryState;
             RegisteredTools = registeredTools;

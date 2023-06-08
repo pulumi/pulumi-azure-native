@@ -169,6 +169,8 @@ export class MachineRunCommand extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:MachineRunCommand" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineRunCommand.__pulumiType, name, resourceInputs, opts);
     }
 }

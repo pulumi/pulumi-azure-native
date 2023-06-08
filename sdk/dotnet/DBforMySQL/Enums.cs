@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
-    /// Type of the sever administrator.
+    /// The type of administrator.
     /// </summary>
     [EnumType]
     public readonly struct AdministratorType : IEquatable<AdministratorType>
@@ -226,6 +226,38 @@ namespace Pulumi.AzureNative.DBforMySQL
     }
 
     /// <summary>
+    /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateEndpointServiceConnectionStatus : IEquatable<PrivateEndpointServiceConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateEndpointServiceConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
+        public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
+        public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
+
+        public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateEndpointServiceConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
+        public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The replication role.
     /// </summary>
     [EnumType]
@@ -250,6 +282,36 @@ namespace Pulumi.AzureNative.DBforMySQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ReplicationRole other && Equals(other);
         public bool Equals(ReplicationRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The key type like 'AzureKeyVault'.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServerKeyType : IEquatable<ServerKeyType>
+    {
+        private readonly string _value;
+
+        private ServerKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerKeyType AzureKeyVault { get; } = new ServerKeyType("AzureKeyVault");
+
+        public static bool operator ==(ServerKeyType left, ServerKeyType right) => left.Equals(right);
+        public static bool operator !=(ServerKeyType left, ServerKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(ServerKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerKeyType other && Equals(other);
+        public bool Equals(ServerKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

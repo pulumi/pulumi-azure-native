@@ -8,13 +8,21 @@ __all__ = [
     'Action',
     'ActionsRequired',
     'Architecture',
+    'AuditLogStatus',
     'BaseImageTriggerType',
+    'ConnectedRegistryMode',
     'ConnectionStatus',
+    'CredentialName',
     'DefaultAction',
     'EncryptionStatus',
     'ExportPolicyStatus',
+    'LogLevel',
     'NetworkRuleBypassOptions',
     'OS',
+    'PipelineOptions',
+    'PipelineRunSourceType',
+    'PipelineRunTargetType',
+    'PipelineSourceType',
     'PolicyStatus',
     'PublicNetworkAccess',
     'ResourceIdentityType',
@@ -59,7 +67,17 @@ class Architecture(str, Enum):
     """
     AMD64 = "amd64"
     X86 = "x86"
+    ARCHITECTURE_386 = "386"
     ARM = "arm"
+    ARM64 = "arm64"
+
+
+class AuditLogStatus(str, Enum):
+    """
+    Indicates whether audit logs are enabled on the connected registry.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class BaseImageTriggerType(str, Enum):
@@ -70,6 +88,16 @@ class BaseImageTriggerType(str, Enum):
     RUNTIME = "Runtime"
 
 
+class ConnectedRegistryMode(str, Enum):
+    """
+    The mode of the connected registry resource that indicates the permissions of the registry.
+    """
+    READ_WRITE = "ReadWrite"
+    READ_ONLY = "ReadOnly"
+    REGISTRY = "Registry"
+    MIRROR = "Mirror"
+
+
 class ConnectionStatus(str, Enum):
     """
     The private link service connection status.
@@ -78,6 +106,13 @@ class ConnectionStatus(str, Enum):
     PENDING = "Pending"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
+
+
+class CredentialName(str, Enum):
+    """
+    The name of the credential.
+    """
+    CREDENTIAL1 = "Credential1"
 
 
 class DefaultAction(str, Enum):
@@ -104,6 +139,17 @@ class ExportPolicyStatus(str, Enum):
     DISABLED = "disabled"
 
 
+class LogLevel(str, Enum):
+    """
+    The verbosity of logs persisted on the connected registry.
+    """
+    DEBUG = "Debug"
+    INFORMATION = "Information"
+    WARNING = "Warning"
+    ERROR = "Error"
+    NONE = "None"
+
+
 class NetworkRuleBypassOptions(str, Enum):
     """
     Whether to allow trusted Azure services to access a network restricted registry.
@@ -118,6 +164,34 @@ class OS(str, Enum):
     """
     WINDOWS = "Windows"
     LINUX = "Linux"
+
+
+class PipelineOptions(str, Enum):
+    OVERWRITE_TAGS = "OverwriteTags"
+    OVERWRITE_BLOBS = "OverwriteBlobs"
+    DELETE_SOURCE_BLOB_ON_SUCCESS = "DeleteSourceBlobOnSuccess"
+    CONTINUE_ON_ERRORS = "ContinueOnErrors"
+
+
+class PipelineRunSourceType(str, Enum):
+    """
+    The type of the source.
+    """
+    AZURE_STORAGE_BLOB = "AzureStorageBlob"
+
+
+class PipelineRunTargetType(str, Enum):
+    """
+    The type of the target.
+    """
+    AZURE_STORAGE_BLOB = "AzureStorageBlob"
+
+
+class PipelineSourceType(str, Enum):
+    """
+    The type of source for the import pipeline.
+    """
+    AZURE_STORAGE_BLOB_CONTAINER = "AzureStorageBlobContainer"
 
 
 class PolicyStatus(str, Enum):

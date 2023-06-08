@@ -24,6 +24,7 @@ from .get_hybrid_runbook_worker import *
 from .get_hybrid_runbook_worker_group import *
 from .get_job_schedule import *
 from .get_module import *
+from .get_private_endpoint_connection import *
 from .get_python2_package import *
 from .get_python3_package import *
 from .get_runbook import *
@@ -38,6 +39,7 @@ from .hybrid_runbook_worker_group import *
 from .job_schedule import *
 from .list_key_by_automation_account import *
 from .module import *
+from .private_endpoint_connection import *
 from .python2_package import *
 from .python3_package import *
 from .runbook import *

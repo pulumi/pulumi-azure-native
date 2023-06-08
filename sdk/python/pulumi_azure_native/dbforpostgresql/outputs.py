@@ -15,13 +15,17 @@ __all__ = [
     'AuthConfigResponse',
     'BackupResponse',
     'DataEncryptionResponse',
+    'DbServerMetadataResponse',
     'HighAvailabilityResponse',
     'MaintenanceWindowResponse',
+    'MigrationStatusResponse',
+    'MigrationSubStateDetailsResponse',
     'NetworkResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ServerNameItemResponse',
+    'ServerSkuResponse',
     'SimplePrivateEndpointConnectionResponse',
     'SkuResponse',
     'StorageResponse',
@@ -240,6 +244,81 @@ class DataEncryptionResponse(dict):
 
 
 @pulumi.output_type
+class DbServerMetadataResponse(dict):
+    """
+    Database server metadata.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageMb":
+            suggest = "storage_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DbServerMetadataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DbServerMetadataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DbServerMetadataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location: str,
+                 sku: Optional['outputs.ServerSkuResponse'] = None,
+                 storage_mb: Optional[int] = None,
+                 version: Optional[str] = None):
+        """
+        Database server metadata.
+        :param str location: Location of database server
+        :param 'ServerSkuResponse' sku: SKU for the database server
+        :param int storage_mb: Storage size in MB for database server
+        :param str version: Version for database engine
+        """
+        pulumi.set(__self__, "location", location)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if storage_mb is not None:
+            pulumi.set(__self__, "storage_mb", storage_mb)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Location of database server
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ServerSkuResponse']:
+        """
+        SKU for the database server
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="storageMb")
+    def storage_mb(self) -> Optional[int]:
+        """
+        Storage size in MB for database server
+        """
+        return pulumi.get(self, "storage_mb")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version for database engine
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
 class HighAvailabilityResponse(dict):
     """
     High availability properties of a server
@@ -394,6 +473,106 @@ class MaintenanceWindowResponse(dict):
         start minute for maintenance window
         """
         return pulumi.get(self, "start_minute")
+
+
+@pulumi.output_type
+class MigrationStatusResponse(dict):
+    """
+    Migration status.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentSubStateDetails":
+            suggest = "current_sub_state_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 current_sub_state_details: 'outputs.MigrationSubStateDetailsResponse',
+                 error: str,
+                 state: str):
+        """
+        Migration status.
+        :param 'MigrationSubStateDetailsResponse' current_sub_state_details: Current Migration sub state details.
+        :param str error: Error message, if any, for the migration state
+        :param str state: State of migration
+        """
+        pulumi.set(__self__, "current_sub_state_details", current_sub_state_details)
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="currentSubStateDetails")
+    def current_sub_state_details(self) -> 'outputs.MigrationSubStateDetailsResponse':
+        """
+        Current Migration sub state details.
+        """
+        return pulumi.get(self, "current_sub_state_details")
+
+    @property
+    @pulumi.getter
+    def error(self) -> str:
+        """
+        Error message, if any, for the migration state
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        State of migration
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class MigrationSubStateDetailsResponse(dict):
+    """
+    Migration sub state details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentSubState":
+            suggest = "current_sub_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationSubStateDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationSubStateDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationSubStateDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 current_sub_state: str):
+        """
+        Migration sub state details.
+        :param str current_sub_state: Migration sub state.
+        """
+        pulumi.set(__self__, "current_sub_state", current_sub_state)
+
+    @property
+    @pulumi.getter(name="currentSubState")
+    def current_sub_state(self) -> str:
+        """
+        Migration sub state.
+        """
+        return pulumi.get(self, "current_sub_state")
 
 
 @pulumi.output_type
@@ -621,6 +800,39 @@ class ServerNameItemResponse(dict):
         The name of a server.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ServerSkuResponse(dict):
+    """
+    Sku information related properties of a server.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str):
+        """
+        Sku information related properties of a server.
+        :param str name: The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
+        :param str tier: The tier of the particular SKU, e.g. Burstable.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        The tier of the particular SKU, e.g. Burstable.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

@@ -32,6 +32,7 @@ __all__ = [
     'PrivateEndpointPropertyArgs',
     'PrivateLinkServiceConnectionStatePropertyArgs',
     'ResourceIdentityArgs',
+    'ScheduleItemArgs',
     'ServerExternalAdministratorArgs',
     'ServerInfoArgs',
     'ServicePrincipalArgs',
@@ -1128,6 +1129,74 @@ class ResourceIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class ScheduleItemArgs:
+    def __init__(__self__, *,
+                 start_day: pulumi.Input[Union[str, 'DayOfWeek']],
+                 start_time: pulumi.Input[str],
+                 stop_day: pulumi.Input[Union[str, 'DayOfWeek']],
+                 stop_time: pulumi.Input[str]):
+        """
+        Schedule info describing when the server should be started or stopped.
+        :param pulumi.Input[Union[str, 'DayOfWeek']] start_day: Start day.
+        :param pulumi.Input[str] start_time: Start time.
+        :param pulumi.Input[Union[str, 'DayOfWeek']] stop_day: Stop day.
+        :param pulumi.Input[str] stop_time: Stop time.
+        """
+        pulumi.set(__self__, "start_day", start_day)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "stop_day", stop_day)
+        pulumi.set(__self__, "stop_time", stop_time)
+
+    @property
+    @pulumi.getter(name="startDay")
+    def start_day(self) -> pulumi.Input[Union[str, 'DayOfWeek']]:
+        """
+        Start day.
+        """
+        return pulumi.get(self, "start_day")
+
+    @start_day.setter
+    def start_day(self, value: pulumi.Input[Union[str, 'DayOfWeek']]):
+        pulumi.set(self, "start_day", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[str]:
+        """
+        Start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="stopDay")
+    def stop_day(self) -> pulumi.Input[Union[str, 'DayOfWeek']]:
+        """
+        Stop day.
+        """
+        return pulumi.get(self, "stop_day")
+
+    @stop_day.setter
+    def stop_day(self, value: pulumi.Input[Union[str, 'DayOfWeek']]):
+        pulumi.set(self, "stop_day", value)
+
+    @property
+    @pulumi.getter(name="stopTime")
+    def stop_time(self) -> pulumi.Input[str]:
+        """
+        Stop time.
+        """
+        return pulumi.get(self, "stop_time")
+
+    @stop_time.setter
+    def stop_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stop_time", value)
 
 
 @pulumi.input_type

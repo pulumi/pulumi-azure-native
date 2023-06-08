@@ -42,13 +42,25 @@ export type ActionsRequired = (typeof ActionsRequired)[keyof typeof ActionsRequi
 export const Architecture = {
     Amd64: "amd64",
     X86: "x86",
+    Architecture_386: "386",
     Arm: "arm",
+    Arm64: "arm64",
 } as const;
 
 /**
  * The OS architecture.
  */
 export type Architecture = (typeof Architecture)[keyof typeof Architecture];
+
+export const AuditLogStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether audit logs are enabled on the connected registry.
+ */
+export type AuditLogStatus = (typeof AuditLogStatus)[keyof typeof AuditLogStatus];
 
 export const BaseImageTriggerType = {
     All: "All",
@@ -59,6 +71,18 @@ export const BaseImageTriggerType = {
  * The type of the auto trigger for base image dependency updates.
  */
 export type BaseImageTriggerType = (typeof BaseImageTriggerType)[keyof typeof BaseImageTriggerType];
+
+export const ConnectedRegistryMode = {
+    ReadWrite: "ReadWrite",
+    ReadOnly: "ReadOnly",
+    Registry: "Registry",
+    Mirror: "Mirror",
+} as const;
+
+/**
+ * The mode of the connected registry resource that indicates the permissions of the registry.
+ */
+export type ConnectedRegistryMode = (typeof ConnectedRegistryMode)[keyof typeof ConnectedRegistryMode];
 
 export const ConnectionStatus = {
     Approved: "Approved",
@@ -71,6 +95,15 @@ export const ConnectionStatus = {
  * The private link service connection status.
  */
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
+
+export const CredentialName = {
+    Credential1: "Credential1",
+} as const;
+
+/**
+ * The name of the credential.
+ */
+export type CredentialName = (typeof CredentialName)[keyof typeof CredentialName];
 
 export const DefaultAction = {
     Allow: "Allow",
@@ -102,6 +135,19 @@ export const ExportPolicyStatus = {
  */
 export type ExportPolicyStatus = (typeof ExportPolicyStatus)[keyof typeof ExportPolicyStatus];
 
+export const LogLevel = {
+    Debug: "Debug",
+    Information: "Information",
+    Warning: "Warning",
+    Error: "Error",
+    None: "None",
+} as const;
+
+/**
+ * The verbosity of logs persisted on the connected registry.
+ */
+export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
+
 export const NetworkRuleBypassOptions = {
     AzureServices: "AzureServices",
     None: "None",
@@ -121,6 +167,42 @@ export const OS = {
  * The operating system type required for the run.
  */
 export type OS = (typeof OS)[keyof typeof OS];
+
+export const PipelineOptions = {
+    OverwriteTags: "OverwriteTags",
+    OverwriteBlobs: "OverwriteBlobs",
+    DeleteSourceBlobOnSuccess: "DeleteSourceBlobOnSuccess",
+    ContinueOnErrors: "ContinueOnErrors",
+} as const;
+
+export type PipelineOptions = (typeof PipelineOptions)[keyof typeof PipelineOptions];
+
+export const PipelineRunSourceType = {
+    AzureStorageBlob: "AzureStorageBlob",
+} as const;
+
+/**
+ * The type of the source.
+ */
+export type PipelineRunSourceType = (typeof PipelineRunSourceType)[keyof typeof PipelineRunSourceType];
+
+export const PipelineRunTargetType = {
+    AzureStorageBlob: "AzureStorageBlob",
+} as const;
+
+/**
+ * The type of the target.
+ */
+export type PipelineRunTargetType = (typeof PipelineRunTargetType)[keyof typeof PipelineRunTargetType];
+
+export const PipelineSourceType = {
+    AzureStorageBlobContainer: "AzureStorageBlobContainer",
+} as const;
+
+/**
+ * The type of source for the import pipeline.
+ */
+export type PipelineSourceType = (typeof PipelineSourceType)[keyof typeof PipelineSourceType];
 
 export const PolicyStatus = {
     Enabled: "enabled",

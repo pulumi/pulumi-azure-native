@@ -87,6 +87,8 @@ export class GuestDiagnosticsSettingsAssociation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:GuestDiagnosticsSettingsAssociation" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestDiagnosticsSettingsAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

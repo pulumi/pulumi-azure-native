@@ -42,6 +42,22 @@ export const BindingType = {
  */
 export type BindingType = (typeof BindingType)[keyof typeof BindingType];
 
+export const DevToolPortalFeatureState = {
+    /**
+     * Enable the plugin in Dev Tool Portal.
+     */
+    Enabled: "Enabled",
+    /**
+     * Disable the plugin in Dev Tool Portal.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * State of the plugin
+ */
+export type DevToolPortalFeatureState = (typeof DevToolPortalFeatureState)[keyof typeof DevToolPortalFeatureState];
+
 export const GatewayRouteConfigProtocol = {
     HTTP: "HTTP",
     HTTPS: "HTTPS",

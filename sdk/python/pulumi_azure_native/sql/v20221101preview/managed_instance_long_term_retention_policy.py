@@ -229,7 +229,7 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
             __props__.__dict__["yearly_retention"] = yearly_retention
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ManagedInstanceLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedInstanceLongTermRetentionPolicy, __self__).__init__(
             'azure-native:sql/v20221101preview:ManagedInstanceLongTermRetentionPolicy',

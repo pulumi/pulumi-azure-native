@@ -53,6 +53,10 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly ImmutableArray<string> NotificationEmailList;
         /// <summary>
+        /// Defines the mode of the Order item.
+        /// </summary>
+        public readonly string? OrderItemMode;
+        /// <summary>
         /// Order item status history
         /// </summary>
         public readonly ImmutableArray<Outputs.StageDetailsResponse> OrderItemStageHistory;
@@ -101,6 +105,8 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
             ImmutableArray<string> notificationEmailList,
 
+            string? orderItemMode,
+
             ImmutableArray<Outputs.StageDetailsResponse> orderItemStageHistory,
 
             string orderItemType,
@@ -124,6 +130,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
             ManagementRpDetails = managementRpDetails;
             ManagementRpDetailsList = managementRpDetailsList;
             NotificationEmailList = notificationEmailList;
+            OrderItemMode = orderItemMode;
             OrderItemStageHistory = orderItemStageHistory;
             OrderItemType = orderItemType;
             Preferences = preferences;

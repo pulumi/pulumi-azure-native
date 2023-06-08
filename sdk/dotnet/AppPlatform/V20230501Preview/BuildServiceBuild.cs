@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20230501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:BuildServiceBuild"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:BuildServiceBuild"},
                 },
             };

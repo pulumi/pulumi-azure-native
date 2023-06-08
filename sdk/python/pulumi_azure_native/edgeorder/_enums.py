@@ -6,9 +6,11 @@ from enum import Enum
 
 __all__ = [
     'AddressType',
+    'ChildConfigurationType',
     'DoubleEncryptionStatus',
     'NotificationStageName',
     'OrderItemType',
+    'OrderMode',
     'SupportedFilterTypes',
     'TransportShipmentTypes',
 ]
@@ -29,6 +31,17 @@ class AddressType(str, Enum):
     COMMERCIAL = "Commercial"
     """
     Commercial Address.
+    """
+
+
+class ChildConfigurationType(str, Enum):
+    DEVICE_CONFIGURATION = "DeviceConfiguration"
+    """
+    Child configuration is a device configuration.
+    """
+    ADDITIONAL_CONFIGURATION = "AdditionalConfiguration"
+    """
+    Child configuration is an additional configuration.
     """
 
 
@@ -74,17 +87,31 @@ class OrderItemType(str, Enum):
     """
 
 
+class OrderMode(str, Enum):
+    """
+    Defines the mode of the Order item.
+    """
+    DEFAULT = "Default"
+    """
+    Default Order mode.
+    """
+    DO_NOT_FULFILL = "DoNotFulfill"
+    """
+    Mode in which the Order will not be fulfilled.
+    """
+
+
 class SupportedFilterTypes(str, Enum):
     """
     Type of product filter.
     """
     SHIP_TO_COUNTRIES = "ShipToCountries"
     """
-    Ship to country
+    Ship to country.
     """
     DOUBLE_ENCRYPTION_STATUS = "DoubleEncryptionStatus"
     """
-    Double encryption status
+    Double encryption status.
     """
 
 

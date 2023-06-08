@@ -12,7 +12,9 @@ __all__ = [
     'EnableStatusEnum',
     'HighAvailabilityMode',
     'ManagedServiceIdentityType',
+    'PrivateEndpointServiceConnectionStatus',
     'ReplicationRole',
+    'ServerKeyType',
     'ServerVersion',
     'SkuTier',
 ]
@@ -20,7 +22,7 @@ __all__ = [
 
 class AdministratorType(str, Enum):
     """
-    Type of the sever administrator.
+    The type of administrator.
     """
     ACTIVE_DIRECTORY = "ActiveDirectory"
 
@@ -75,6 +77,15 @@ class ManagedServiceIdentityType(str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+
+
 class ReplicationRole(str, Enum):
     """
     The replication role.
@@ -82,6 +93,13 @@ class ReplicationRole(str, Enum):
     NONE = "None"
     SOURCE = "Source"
     REPLICA = "Replica"
+
+
+class ServerKeyType(str, Enum):
+    """
+    The key type like 'AzureKeyVault'.
+    """
+    AZURE_KEY_VAULT = "AzureKeyVault"
 
 
 class ServerVersion(str, Enum):

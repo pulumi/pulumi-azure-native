@@ -8,12 +8,16 @@ import typing
 from ._enums import *
 from .get_machine import *
 from .get_machine_extension import *
+from .get_machine_run_command import *
 from .get_private_endpoint_connection import *
 from .get_private_link_scope import *
+from .get_private_link_scoped_resource import *
 from .machine import *
 from .machine_extension import *
+from .machine_run_command import *
 from .private_endpoint_connection import *
 from .private_link_scope import *
+from .private_link_scoped_resource import *
 from ._inputs import *
 from . import outputs
 

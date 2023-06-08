@@ -47,6 +47,16 @@ export const AdvancedFilterOperatorType = {
  */
 export type AdvancedFilterOperatorType = (typeof AdvancedFilterOperatorType)[keyof typeof AdvancedFilterOperatorType];
 
+export const AlternativeAuthenticationNameSource = {
+    ClientCertificateSubject: "ClientCertificateSubject",
+    ClientCertificateDns: "ClientCertificateDns",
+    ClientCertificateUri: "ClientCertificateUri",
+    ClientCertificateIp: "ClientCertificateIp",
+    ClientCertificateEmail: "ClientCertificateEmail",
+} as const;
+
+export type AlternativeAuthenticationNameSource = (typeof AlternativeAuthenticationNameSource)[keyof typeof AlternativeAuthenticationNameSource];
+
 export const ChannelProvisioningState = {
     Creating: "Creating",
     Updating: "Updating",
@@ -70,6 +80,30 @@ export const ChannelType = {
  * The type of the event channel which represents the direction flow of events.
  */
 export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
+
+export const ClientCertificateValidationScheme = {
+    SubjectMatchesAuthenticationName: "SubjectMatchesAuthenticationName",
+    DnsMatchesAuthenticationName: "DnsMatchesAuthenticationName",
+    UriMatchesAuthenticationName: "UriMatchesAuthenticationName",
+    IpMatchesAuthenticationName: "IpMatchesAuthenticationName",
+    EmailMatchesAuthenticationName: "EmailMatchesAuthenticationName",
+    ThumbprintMatch: "ThumbprintMatch",
+} as const;
+
+/**
+ * The validation scheme used to authenticate the client. Default value is SubjectMatchesAuthenticationName.
+ */
+export type ClientCertificateValidationScheme = (typeof ClientCertificateValidationScheme)[keyof typeof ClientCertificateValidationScheme];
+
+export const ClientState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates if the client is enabled or not. Default value is Enabled.
+ */
+export type ClientState = (typeof ClientState)[keyof typeof ClientState];
 
 export const DataResidencyBoundary = {
     WithinGeopair: "WithinGeopair",
@@ -99,6 +133,24 @@ export const DeliveryAttributeMappingType = {
  * Type of the delivery attribute or header name.
  */
 export type DeliveryAttributeMappingType = (typeof DeliveryAttributeMappingType)[keyof typeof DeliveryAttributeMappingType];
+
+export const DeliveryMode = {
+    Queue: "Queue",
+} as const;
+
+/**
+ * Delivery mode of the event subscription.
+ */
+export type DeliveryMode = (typeof DeliveryMode)[keyof typeof DeliveryMode];
+
+export const DeliverySchema = {
+    CloudEventSchemaV1_0: "CloudEventSchemaV1_0",
+} as const;
+
+/**
+ * The event delivery schema for the event subscription.
+ */
+export type DeliverySchema = (typeof DeliverySchema)[keyof typeof DeliverySchema];
 
 export const EndpointType = {
     WebHook: "WebHook",
@@ -135,6 +187,15 @@ export const EventDeliverySchema = {
  */
 export type EventDeliverySchema = (typeof EventDeliverySchema)[keyof typeof EventDeliverySchema];
 
+export const EventInputSchema = {
+    CloudEventSchemaV1_0: "CloudEventSchemaV1_0",
+} as const;
+
+/**
+ * This determines the format that is expected for incoming events published to the topic.
+ */
+export type EventInputSchema = (typeof EventInputSchema)[keyof typeof EventInputSchema];
+
 export const EventSubscriptionIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
@@ -144,6 +205,33 @@ export const EventSubscriptionIdentityType = {
  * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
  */
 export type EventSubscriptionIdentityType = (typeof EventSubscriptionIdentityType)[keyof typeof EventSubscriptionIdentityType];
+
+export const FilterOperatorType = {
+    NumberIn: "NumberIn",
+    NumberNotIn: "NumberNotIn",
+    NumberLessThan: "NumberLessThan",
+    NumberGreaterThan: "NumberGreaterThan",
+    NumberLessThanOrEquals: "NumberLessThanOrEquals",
+    NumberGreaterThanOrEquals: "NumberGreaterThanOrEquals",
+    BoolEquals: "BoolEquals",
+    StringIn: "StringIn",
+    StringNotIn: "StringNotIn",
+    StringBeginsWith: "StringBeginsWith",
+    StringEndsWith: "StringEndsWith",
+    StringContains: "StringContains",
+    NumberInRange: "NumberInRange",
+    NumberNotInRange: "NumberNotInRange",
+    StringNotBeginsWith: "StringNotBeginsWith",
+    StringNotEndsWith: "StringNotEndsWith",
+    StringNotContains: "StringNotContains",
+    IsNullOrUndefined: "IsNullOrUndefined",
+    IsNotNull: "IsNotNull",
+} as const;
+
+/**
+ * The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+ */
+export type FilterOperatorType = (typeof FilterOperatorType)[keyof typeof FilterOperatorType];
 
 export const IdentityType = {
     None: "None",
@@ -200,6 +288,16 @@ export const PartnerConfigurationProvisioningState = {
  */
 export type PartnerConfigurationProvisioningState = (typeof PartnerConfigurationProvisioningState)[keyof typeof PartnerConfigurationProvisioningState];
 
+export const PartnerDestinationActivationState = {
+    NeverActivated: "NeverActivated",
+    Activated: "Activated",
+} as const;
+
+/**
+ * Activation state of the partner destination.
+ */
+export type PartnerDestinationActivationState = (typeof PartnerDestinationActivationState)[keyof typeof PartnerDestinationActivationState];
+
 export const PartnerTopicActivationState = {
     NeverActivated: "NeverActivated",
     Activated: "Activated",
@@ -221,6 +319,16 @@ export const PartnerTopicRoutingMode = {
  * or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
  */
 export type PartnerTopicRoutingMode = (typeof PartnerTopicRoutingMode)[keyof typeof PartnerTopicRoutingMode];
+
+export const PermissionType = {
+    Publisher: "Publisher",
+    Subscriber: "Subscriber",
+} as const;
+
+/**
+ * The allowed permission.
+ */
+export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
 
 export const PersistedConnectionStatus = {
     Pending: "Pending",
@@ -245,6 +353,15 @@ export const PublicNetworkAccess = {
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
+export const PublisherType = {
+    Custom: "Custom",
+} as const;
+
+/**
+ * Publisher type of the namespace topic.
+ */
+export type PublisherType = (typeof PublisherType)[keyof typeof PublisherType];
+
 export const ReadinessState = {
     NeverActivated: "NeverActivated",
     Activated: "Activated",
@@ -268,3 +385,50 @@ export const ResourceProvisioningState = {
  * Provisioning state of the Private Endpoint Connection.
  */
 export type ResourceProvisioningState = (typeof ResourceProvisioningState)[keyof typeof ResourceProvisioningState];
+
+export const RoutingIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+export type RoutingIdentityType = (typeof RoutingIdentityType)[keyof typeof RoutingIdentityType];
+
+export const SkuName = {
+    Standard: "Standard",
+} as const;
+
+/**
+ * The name of the SKU.
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const StaticRoutingEnrichmentType = {
+    String: "String",
+} as const;
+
+/**
+ * Static routing enrichment value type. For e.g. this property value can be 'String'.
+ */
+export type StaticRoutingEnrichmentType = (typeof StaticRoutingEnrichmentType)[keyof typeof StaticRoutingEnrichmentType];
+
+export const TlsVersion = {
+    TlsVersion_1_0: "1.0",
+    TlsVersion_1_1: "1.1",
+    TlsVersion_1_2: "1.2",
+} as const;
+
+/**
+ * Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
+ */
+export type TlsVersion = (typeof TlsVersion)[keyof typeof TlsVersion];
+
+export const TopicSpacesConfigurationState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Indicate if Topic Spaces Configuration is enabled for the namespace. Default is Disabled.
+ */
+export type TopicSpacesConfigurationState = (typeof TopicSpacesConfigurationState)[keyof typeof TopicSpacesConfigurationState];

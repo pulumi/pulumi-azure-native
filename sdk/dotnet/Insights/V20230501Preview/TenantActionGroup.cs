@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.Insights.V20230501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:insights:TenantActionGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20230301preview:TenantActionGroup"},
                 },
             };

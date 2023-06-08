@@ -313,7 +313,7 @@ class Marketplacegalleryimage(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:marketplacegalleryimage"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:Marketplacegalleryimage"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:marketplacegalleryimage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:marketplacegalleryimage"), pulumi.Alias(type_="azure-native:azurestackhci:Marketplacegalleryimage"), pulumi.Alias(type_="azure-native:azurestackhci:marketplacegalleryimage"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:Marketplacegalleryimage"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:marketplacegalleryimage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Marketplacegalleryimage, __self__).__init__(
             'azure-native:azurestackhci/v20210901preview:Marketplacegalleryimage',

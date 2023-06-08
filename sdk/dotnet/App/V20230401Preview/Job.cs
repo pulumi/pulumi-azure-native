@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.App.V20230401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:app:Job"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:Job"},
                 },
             };

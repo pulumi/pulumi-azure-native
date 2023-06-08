@@ -43,6 +43,16 @@ export const AssessmentStage = {
  */
 export type AssessmentStage = (typeof AssessmentStage)[keyof typeof AssessmentStage];
 
+export const AutomationArtifactStatus = {
+    NotGenerated: "NotGenerated",
+    Generated: "Generated",
+} as const;
+
+/**
+ * Gets or sets the status of automation artifacts.
+ */
+export type AutomationArtifactStatus = (typeof AutomationArtifactStatus)[keyof typeof AutomationArtifactStatus];
+
 export const AzureDiskType = {
     Unknown: "Unknown",
     Standard: "Standard",
@@ -213,6 +223,17 @@ export const AzureVmFamily = {
  */
 export type AzureVmFamily = (typeof AzureVmFamily)[keyof typeof AzureVmFamily];
 
+export const ConfigurationType = {
+    IISConnectionString: "IISConnectionString",
+    IISAuthentication: "IISAuthentication",
+    ApacheTomcatContextResource: "ApacheTomcatContextResource",
+} as const;
+
+/**
+ * Gets or sets the configuration type.
+ */
+export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
+
 export const Currency = {
     Unknown: "Unknown",
     USD: "USD",
@@ -247,6 +268,23 @@ export const Currency = {
  */
 export type Currency = (typeof Currency)[keyof typeof Currency];
 
+export const LoadBalancerType = {
+    Private: "Private",
+    Public: "Public",
+} as const;
+
+/**
+ * Gets or sets the load balancer type.
+ */
+export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
+
+export const OperatingSystemType = {
+    Windows: "Windows",
+    Linux: "Linux",
+} as const;
+
+export type OperatingSystemType = (typeof OperatingSystemType)[keyof typeof OperatingSystemType];
+
 export const Percentile = {
     Percentile50: "Percentile50",
     Percentile90: "Percentile90",
@@ -269,6 +307,20 @@ export const ProjectStatus = {
  */
 export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
 
+export const ProvisioningState = {
+    Accepted: "Accepted",
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Failed: "Failed",
+    Moving: "Moving",
+    Succeeded: "Succeeded",
+} as const;
+
+/**
+ * Provisioning state of the migrate project.
+ */
+export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
+
 export const ReservedInstance = {
     None: "None",
     RI1Year: "RI1Year",
@@ -290,6 +342,23 @@ export const ResourceIdentityType = {
  * The type of identity used for the resource mover service.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const ResourceIdentityTypes = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+export type ResourceIdentityTypes = (typeof ResourceIdentityTypes)[keyof typeof ResourceIdentityTypes];
+
+export const SecretStoreType = {
+    None: "None",
+    KubeSecret: "KubeSecret",
+    KeyVaultSecret: "KeyVaultSecret",
+    AppServiceAppSettings: "AppServiceAppSettings",
+} as const;
+
+export type SecretStoreType = (typeof SecretStoreType)[keyof typeof SecretStoreType];
 
 export const Status = {
     Approved: "Approved",
@@ -315,6 +384,36 @@ export const TargetAvailabilityZone = {
  */
 export type TargetAvailabilityZone = (typeof TargetAvailabilityZone)[keyof typeof TargetAvailabilityZone];
 
+export const TargetHydrationStorageProviderType = {
+    AzureFileShare: "AzureFileShare",
+} as const;
+
+/**
+ * Gets or sets the storage provider type on the target.
+ * Applicable when StorageProjectionType is not ContainerFileSystem.
+ */
+export type TargetHydrationStorageProviderType = (typeof TargetHydrationStorageProviderType)[keyof typeof TargetHydrationStorageProviderType];
+
+export const TargetStorageAccessType = {
+    Shared: "Shared",
+    Exclusive: "Exclusive",
+} as const;
+
+/**
+ * Gets or sets the target storage access type.
+ */
+export type TargetStorageAccessType = (typeof TargetStorageAccessType)[keyof typeof TargetStorageAccessType];
+
+export const TargetStorageProjectionType = {
+    ContainerFileSystem: "ContainerFileSystem",
+    PersistentVolume: "PersistentVolume",
+} as const;
+
+/**
+ * Gets or sets the target projection type.
+ */
+export type TargetStorageProjectionType = (typeof TargetStorageProjectionType)[keyof typeof TargetStorageProjectionType];
+
 export const TimeRange = {
     Day: "Day",
     Week: "Week",
@@ -326,6 +425,37 @@ export const TimeRange = {
  * Time range of performance data used to recommend a size.
  */
 export type TimeRange = (typeof TimeRange)[keyof typeof TimeRange];
+
+export const WorkloadDeploymentTarget = {
+    AzureKubernetesService: "AzureKubernetesService",
+    AzureAppServiceContainer: "AzureAppServiceContainer",
+    AzureAppServiceNative: "AzureAppServiceNative",
+} as const;
+
+/**
+ * Gets or sets the deployment target platform.
+ */
+export type WorkloadDeploymentTarget = (typeof WorkloadDeploymentTarget)[keyof typeof WorkloadDeploymentTarget];
+
+export const WorkloadDeploymentType = {
+    IISAKSWorkloadDeployment: "IISAKSWorkloadDeployment",
+    ApacheTomcatAKSWorkloadDeployment: "ApacheTomcatAKSWorkloadDeployment",
+} as const;
+
+/**
+ * Gets or sets the instance type.
+ */
+export type WorkloadDeploymentType = (typeof WorkloadDeploymentType)[keyof typeof WorkloadDeploymentType];
+
+export const WorkloadType = {
+    IISWorkload: "IISWorkload",
+    ApacheTomcatWorkload: "ApacheTomcatWorkload",
+} as const;
+
+/**
+ * Gets or sets the instance type.
+ */
+export type WorkloadType = (typeof WorkloadType)[keyof typeof WorkloadType];
 
 export const ZoneRedundant = {
     Enable: "Enable",

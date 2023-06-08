@@ -39,6 +39,37 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// Direction that specifies whether the access rules is inbound/outbound.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessRuleDirection : IEquatable<AccessRuleDirection>
+    {
+        private readonly string _value;
+
+        private AccessRuleDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessRuleDirection Inbound { get; } = new AccessRuleDirection("Inbound");
+        public static AccessRuleDirection Outbound { get; } = new AccessRuleDirection("Outbound");
+
+        public static bool operator ==(AccessRuleDirection left, AccessRuleDirection right) => left.Equals(right);
+        public static bool operator !=(AccessRuleDirection left, AccessRuleDirection right) => !left.Equals(right);
+
+        public static explicit operator string(AccessRuleDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessRuleDirection other && Equals(other);
+        public bool Equals(AccessRuleDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes the override action to be applied when rule matches.
     /// </summary>
     [EnumType]
@@ -747,6 +778,38 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// Access mode on the association.
+    /// </summary>
+    [EnumType]
+    public readonly struct AssociationAccessMode : IEquatable<AssociationAccessMode>
+    {
+        private readonly string _value;
+
+        private AssociationAccessMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssociationAccessMode Learning { get; } = new AssociationAccessMode("Learning");
+        public static AssociationAccessMode Enforced { get; } = new AssociationAccessMode("Enforced");
+        public static AssociationAccessMode Audit { get; } = new AssociationAccessMode("Audit");
+
+        public static bool operator ==(AssociationAccessMode left, AssociationAccessMode right) => left.Equals(right);
+        public static bool operator !=(AssociationAccessMode left, AssociationAccessMode right) => !left.Equals(right);
+
+        public static explicit operator string(AssociationAccessMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssociationAccessMode other && Equals(other);
+        public bool Equals(AssociationAccessMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The authorization use status.
     /// </summary>
     [EnumType]
@@ -1406,6 +1469,37 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DdosSettingsProtectionMode other && Equals(other);
         public bool Equals(DdosSettingsProtectionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Flag if need to delete existing network security groups.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeleteExistingNSGs : IEquatable<DeleteExistingNSGs>
+    {
+        private readonly string _value;
+
+        private DeleteExistingNSGs(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeleteExistingNSGs False { get; } = new DeleteExistingNSGs("False");
+        public static DeleteExistingNSGs True { get; } = new DeleteExistingNSGs("True");
+
+        public static bool operator ==(DeleteExistingNSGs left, DeleteExistingNSGs right) => left.Equals(right);
+        public static bool operator !=(DeleteExistingNSGs left, DeleteExistingNSGs right) => !left.Equals(right);
+
+        public static explicit operator string(DeleteExistingNSGs value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeleteExistingNSGs other && Equals(other);
+        public bool Equals(DeleteExistingNSGs other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -5661,6 +5755,37 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UseHubGateway other && Equals(other);
         public bool Equals(UseHubGateway other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the rule is custom or default.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserRuleKind : IEquatable<UserRuleKind>
+    {
+        private readonly string _value;
+
+        private UserRuleKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserRuleKind Custom { get; } = new UserRuleKind("Custom");
+        public static UserRuleKind Default { get; } = new UserRuleKind("Default");
+
+        public static bool operator ==(UserRuleKind left, UserRuleKind right) => left.Equals(right);
+        public static bool operator !=(UserRuleKind left, UserRuleKind right) => !left.Equals(right);
+
+        public static explicit operator string(UserRuleKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserRuleKind other && Equals(other);
+        public bool Equals(UserRuleKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

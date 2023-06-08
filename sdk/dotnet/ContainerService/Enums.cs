@@ -545,6 +545,45 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// The upgrade type.
+    /// Full requires the KubernetesVersion property to be set.
+    /// NodeImageOnly requires the KubernetesVersion property not to be set.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedClusterUpgradeType : IEquatable<ManagedClusterUpgradeType>
+    {
+        private readonly string _value;
+
+        private ManagedClusterUpgradeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Full upgrades the control plane and all agent pools of the target ManagedClusters.
+        /// </summary>
+        public static ManagedClusterUpgradeType Full { get; } = new ManagedClusterUpgradeType("Full");
+        /// <summary>
+        /// NodeImageOnly upgrades only the node images of the target ManagedClusters.
+        /// </summary>
+        public static ManagedClusterUpgradeType NodeImageOnly { get; } = new ManagedClusterUpgradeType("NodeImageOnly");
+
+        public static bool operator ==(ManagedClusterUpgradeType left, ManagedClusterUpgradeType right) => left.Equals(right);
+        public static bool operator !=(ManagedClusterUpgradeType left, ManagedClusterUpgradeType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedClusterUpgradeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedClusterUpgradeType other && Equals(other);
+        public bool Equals(ManagedClusterUpgradeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Network dataplane used in the Kubernetes cluster.
     /// </summary>
     [EnumType]

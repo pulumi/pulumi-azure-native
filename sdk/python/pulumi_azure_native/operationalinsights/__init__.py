@@ -14,6 +14,7 @@ from .get_data_export import *
 from .get_data_source import *
 from .get_linked_service import *
 from .get_linked_storage_account import *
+from .get_machine_group import *
 from .get_query import *
 from .get_query_pack import *
 from .get_saved_search import *
@@ -21,8 +22,10 @@ from .get_shared_keys import *
 from .get_storage_insight_config import *
 from .get_table import *
 from .get_workspace import *
+from .get_workspace_shared_keys import *
 from .linked_service import *
 from .linked_storage_account import *
+from .machine_group import *
 from .query import *
 from .query_pack import *
 from .saved_search import *

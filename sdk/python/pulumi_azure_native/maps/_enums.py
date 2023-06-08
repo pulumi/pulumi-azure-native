@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'Kind',
     'Name',
+    'SigningKey',
 ]
 
 
@@ -25,3 +26,11 @@ class Name(str, Enum):
     S0 = "S0"
     S1 = "S1"
     G2 = "G2"
+
+
+class SigningKey(str, Enum):
+    """
+    The Map account key to use for signing.
+    """
+    PRIMARY_KEY = "primaryKey"
+    SECONDARY_KEY = "secondaryKey"

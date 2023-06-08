@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:FeaturestoreEntityContainerEntity"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:FeaturestoreEntityContainerEntity"},
                 },
             };

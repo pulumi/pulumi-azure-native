@@ -11,25 +11,25 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Holds billing meter details for each type of billing
+    /// Holds billing meter details for each type of billing.
     /// </summary>
     [OutputType]
     public sealed class BillingMeterDetailsResponse
     {
         /// <summary>
-        /// Frequency of recurrence
+        /// Frequency of recurrence.
         /// </summary>
         public readonly string Frequency;
         /// <summary>
-        /// Represents MeterDetails
+        /// Represents MeterDetails.
         /// </summary>
         public readonly Union<Outputs.Pav2MeterDetailsResponse, Outputs.PurchaseMeterDetailsResponse> MeterDetails;
         /// <summary>
-        /// Represents Metering type (eg one-time or recurrent)
+        /// Represents Metering type (eg one-time or recurrent).
         /// </summary>
         public readonly string MeteringType;
         /// <summary>
-        /// Represents Billing type name
+        /// Represents Billing type name.
         /// </summary>
         public readonly string Name;
 

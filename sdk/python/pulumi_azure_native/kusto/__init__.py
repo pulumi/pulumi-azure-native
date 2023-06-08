@@ -12,6 +12,7 @@ from .cluster_principal_assignment import *
 from .cosmos_db_data_connection import *
 from .database_principal_assignment import *
 from .event_grid_data_connection import *
+from .event_hub_connection import *
 from .event_hub_data_connection import *
 from .get_attached_database_configuration import *
 from .get_cluster import *
@@ -19,6 +20,7 @@ from .get_cluster_principal_assignment import *
 from .get_cosmos_db_data_connection import *
 from .get_database_principal_assignment import *
 from .get_event_grid_data_connection import *
+from .get_event_hub_connection import *
 from .get_event_hub_data_connection import *
 from .get_iot_hub_data_connection import *
 from .get_managed_private_endpoint import *

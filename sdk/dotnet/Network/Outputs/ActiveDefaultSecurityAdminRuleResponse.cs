@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? ConfigurationDescription;
         /// <summary>
+        /// A display name of the security admin configuration.
+        /// </summary>
+        public readonly string? ConfigurationDisplayName;
+        /// <summary>
         /// A description for this rule. Restricted to 140 chars.
         /// </summary>
         public readonly string Description;
@@ -44,6 +48,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// Indicates if the traffic matched against the rule in inbound or outbound.
         /// </summary>
         public readonly string Direction;
+        /// <summary>
+        /// A friendly name for the rule.
+        /// </summary>
+        public readonly string? DisplayName;
         /// <summary>
         /// Default rule flag.
         /// </summary>
@@ -82,6 +90,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? RuleCollectionDescription;
         /// <summary>
+        /// A display name of the rule collection.
+        /// </summary>
+        public readonly string? RuleCollectionDisplayName;
+        /// <summary>
         /// Effective configuration groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationGroupResponse> RuleGroups;
@@ -102,6 +114,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? configurationDescription,
 
+            string? configurationDisplayName,
+
             string description,
 
             ImmutableArray<string> destinationPortRanges,
@@ -109,6 +123,8 @@ namespace Pulumi.AzureNative.Network.Outputs
             ImmutableArray<Outputs.AddressPrefixItemResponse> destinations,
 
             string direction,
+
+            string? displayName,
 
             string? flag,
 
@@ -128,6 +144,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? ruleCollectionDescription,
 
+            string? ruleCollectionDisplayName,
+
             ImmutableArray<Outputs.ConfigurationGroupResponse> ruleGroups,
 
             ImmutableArray<string> sourcePortRanges,
@@ -137,10 +155,12 @@ namespace Pulumi.AzureNative.Network.Outputs
             Access = access;
             CommitTime = commitTime;
             ConfigurationDescription = configurationDescription;
+            ConfigurationDisplayName = configurationDisplayName;
             Description = description;
             DestinationPortRanges = destinationPortRanges;
             Destinations = destinations;
             Direction = direction;
+            DisplayName = displayName;
             Flag = flag;
             Id = id;
             Kind = kind;
@@ -150,6 +170,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             Region = region;
             RuleCollectionAppliesToGroups = ruleCollectionAppliesToGroups;
             RuleCollectionDescription = ruleCollectionDescription;
+            RuleCollectionDisplayName = ruleCollectionDisplayName;
             RuleGroups = ruleGroups;
             SourcePortRanges = sourcePortRanges;
             Sources = sources;

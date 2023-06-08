@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20221215Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:StorageContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:StorageContainer"},
                 },
             };

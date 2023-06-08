@@ -5,22 +5,59 @@
 from enum import Enum
 
 __all__ = [
+    'BlobStorageEventType',
+    'ClusterPrincipalRole',
+    'Compression',
     'ConfigurationType',
     'CreateMode',
+    'DataConnectionKind',
     'DataFlowComputeType',
+    'DatabasePrincipalRole',
+    'DefaultPrincipalsModificationKind',
+    'EventGridDataFormat',
+    'EventHubDataFormat',
     'IntegrationRuntimeEdition',
     'IntegrationRuntimeEntityReferenceType',
     'IntegrationRuntimeLicenseType',
     'IntegrationRuntimeSsisCatalogPricingTier',
     'IntegrationRuntimeType',
+    'IotHubDataFormat',
+    'Kind',
     'NodeSize',
     'NodeSizeFamily',
+    'PrincipalType',
     'ResourceIdentityType',
     'SensitivityLabelRank',
+    'SkuName',
+    'SkuSize',
     'StorageAccountType',
     'TransparentDataEncryptionStatus',
     'WorkspacePublicNetworkAccess',
 ]
+
+
+class BlobStorageEventType(str, Enum):
+    """
+    The name of blob storage event type to process.
+    """
+    MICROSOFT_STORAGE_BLOB_CREATED = "Microsoft.Storage.BlobCreated"
+    MICROSOFT_STORAGE_BLOB_RENAMED = "Microsoft.Storage.BlobRenamed"
+
+
+class ClusterPrincipalRole(str, Enum):
+    """
+    Cluster principal role.
+    """
+    ALL_DATABASES_ADMIN = "AllDatabasesAdmin"
+    ALL_DATABASES_VIEWER = "AllDatabasesViewer"
+
+
+class Compression(str, Enum):
+    """
+    The event hub messages compression type
+    """
+    NONE = "None"
+    G_ZIP = "GZip"
 
 
 class ConfigurationType(str, Enum):
@@ -49,6 +86,15 @@ class CreateMode(str, Enum):
     RESTORE = "Restore"
 
 
+class DataConnectionKind(str, Enum):
+    """
+    Kind of the endpoint for the data connection
+    """
+    EVENT_HUB = "EventHub"
+    EVENT_GRID = "EventGrid"
+    IOT_HUB = "IotHub"
+
+
 class DataFlowComputeType(str, Enum):
     """
     Compute type of the cluster which will execute data flow job.
@@ -56,6 +102,71 @@ class DataFlowComputeType(str, Enum):
     GENERAL = "General"
     MEMORY_OPTIMIZED = "MemoryOptimized"
     COMPUTE_OPTIMIZED = "ComputeOptimized"
+
+
+class DatabasePrincipalRole(str, Enum):
+    """
+    Database principal role.
+    """
+    ADMIN = "Admin"
+    INGESTOR = "Ingestor"
+    MONITOR = "Monitor"
+    USER = "User"
+    UNRESTRICTED_VIEWER = "UnrestrictedViewer"
+    VIEWER = "Viewer"
+
+
+class DefaultPrincipalsModificationKind(str, Enum):
+    """
+    The default principals modification kind
+    """
+    UNION = "Union"
+    REPLACE = "Replace"
+    NONE = "None"
+
+
+class EventGridDataFormat(str, Enum):
+    """
+    The data format of the message. Optionally the data format can be added to each message.
+    """
+    MULTIJSON = "MULTIJSON"
+    JSON = "JSON"
+    CSV = "CSV"
+    TSV = "TSV"
+    SCSV = "SCSV"
+    SOHSV = "SOHSV"
+    PSV = "PSV"
+    TXT = "TXT"
+    RAW = "RAW"
+    SINGLEJSON = "SINGLEJSON"
+    AVRO = "AVRO"
+    TSVE = "TSVE"
+    PARQUET = "PARQUET"
+    ORC = "ORC"
+    APACHEAVRO = "APACHEAVRO"
+    W3_CLOGFILE = "W3CLOGFILE"
+
+
+class EventHubDataFormat(str, Enum):
+    """
+    The data format of the message. Optionally the data format can be added to each message.
+    """
+    MULTIJSON = "MULTIJSON"
+    JSON = "JSON"
+    CSV = "CSV"
+    TSV = "TSV"
+    SCSV = "SCSV"
+    SOHSV = "SOHSV"
+    PSV = "PSV"
+    TXT = "TXT"
+    RAW = "RAW"
+    SINGLEJSON = "SINGLEJSON"
+    AVRO = "AVRO"
+    TSVE = "TSVE"
+    PARQUET = "PARQUET"
+    ORC = "ORC"
+    APACHEAVRO = "APACHEAVRO"
+    W3_CLOGFILE = "W3CLOGFILE"
 
 
 class IntegrationRuntimeEdition(str, Enum):
@@ -100,6 +211,36 @@ class IntegrationRuntimeType(str, Enum):
     SELF_HOSTED = "SelfHosted"
 
 
+class IotHubDataFormat(str, Enum):
+    """
+    The data format of the message. Optionally the data format can be added to each message.
+    """
+    MULTIJSON = "MULTIJSON"
+    JSON = "JSON"
+    CSV = "CSV"
+    TSV = "TSV"
+    SCSV = "SCSV"
+    SOHSV = "SOHSV"
+    PSV = "PSV"
+    TXT = "TXT"
+    RAW = "RAW"
+    SINGLEJSON = "SINGLEJSON"
+    AVRO = "AVRO"
+    TSVE = "TSVE"
+    PARQUET = "PARQUET"
+    ORC = "ORC"
+    APACHEAVRO = "APACHEAVRO"
+    W3_CLOGFILE = "W3CLOGFILE"
+
+
+class Kind(str, Enum):
+    """
+    Kind of the database
+    """
+    READ_WRITE = "ReadWrite"
+    READ_ONLY_FOLLOWING = "ReadOnlyFollowing"
+
+
 class NodeSize(str, Enum):
     """
     The level of compute power that each node in the Big Data pool has.
@@ -123,6 +264,15 @@ class NodeSizeFamily(str, Enum):
     HARDWARE_ACCELERATED_GPU = "HardwareAcceleratedGPU"
 
 
+class PrincipalType(str, Enum):
+    """
+    Principal type.
+    """
+    APP = "App"
+    GROUP = "Group"
+    USER = "User"
+
+
 class ResourceIdentityType(str, Enum):
     """
     The type of managed identity for the workspace
@@ -138,6 +288,24 @@ class SensitivityLabelRank(str, Enum):
     MEDIUM = "Medium"
     HIGH = "High"
     CRITICAL = "Critical"
+
+
+class SkuName(str, Enum):
+    """
+    SKU name.
+    """
+    COMPUTE_OPTIMIZED = "Compute optimized"
+    STORAGE_OPTIMIZED = "Storage optimized"
+
+
+class SkuSize(str, Enum):
+    """
+    SKU size.
+    """
+    EXTRA_SMALL = "Extra small"
+    SMALL = "Small"
+    MEDIUM = "Medium"
+    LARGE = "Large"
 
 
 class StorageAccountType(str, Enum):

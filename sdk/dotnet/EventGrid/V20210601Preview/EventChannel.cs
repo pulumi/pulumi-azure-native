@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:EventChannel"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:EventChannel"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:EventChannel"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:EventChannel"},

@@ -44,6 +44,67 @@ export {
     v20220701preview,
 };
 
+export const AccessReviewRecurrencePatternType = {
+    Weekly: "weekly",
+    AbsoluteMonthly: "absoluteMonthly",
+} as const;
+
+/**
+ * The recurrence type : weekly, monthly, etc.
+ */
+export type AccessReviewRecurrencePatternType = (typeof AccessReviewRecurrencePatternType)[keyof typeof AccessReviewRecurrencePatternType];
+
+export const AccessReviewRecurrenceRangeType = {
+    EndDate: "endDate",
+    NoEnd: "noEnd",
+    Numbered: "numbered",
+} as const;
+
+/**
+ * The recurrence range type. The possible values are: endDate, noEnd, numbered.
+ */
+export type AccessReviewRecurrenceRangeType = (typeof AccessReviewRecurrenceRangeType)[keyof typeof AccessReviewRecurrenceRangeType];
+
+export const AccessReviewResult = {
+    Approve: "Approve",
+    Deny: "Deny",
+    NotReviewed: "NotReviewed",
+    DontKnow: "DontKnow",
+    NotNotified: "NotNotified",
+} as const;
+
+/**
+ * Represents a reviewer's decision for a given review
+ */
+export type AccessReviewResult = (typeof AccessReviewResult)[keyof typeof AccessReviewResult];
+
+export const AssignmentScopeValidation = {
+    /**
+     * This option will validate the exemption is at or under the assignment scope.
+     */
+    Default: "Default",
+    /**
+     * This option will bypass the validation the exemption scope is at or under the policy assignment scope.
+     */
+    DoNotValidate: "DoNotValidate",
+} as const;
+
+/**
+ * The option whether validate the exemption is at or under the assignment scope.
+ */
+export type AssignmentScopeValidation = (typeof AssignmentScopeValidation)[keyof typeof AssignmentScopeValidation];
+
+export const DefaultDecisionType = {
+    Approve: "Approve",
+    Deny: "Deny",
+    Recommendation: "Recommendation",
+} as const;
+
+/**
+ * This specifies the behavior for the autoReview feature when an access review completes.
+ */
+export type DefaultDecisionType = (typeof DefaultDecisionType)[keyof typeof DefaultDecisionType];
+
 export const EnforcementMode = {
     /**
      * The policy effect is enforced during resource creation or update.
@@ -59,6 +120,22 @@ export const EnforcementMode = {
  * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
  */
 export type EnforcementMode = (typeof EnforcementMode)[keyof typeof EnforcementMode];
+
+export const ExemptionCategory = {
+    /**
+     * This category of exemptions usually means the scope is not applicable for the policy.
+     */
+    Waiver: "Waiver",
+    /**
+     * This category of exemptions usually means the mitigation actions have been applied to the scope.
+     */
+    Mitigated: "Mitigated",
+} as const;
+
+/**
+ * The policy exemption category. Possible values are Waiver and Mitigated.
+ */
+export type ExemptionCategory = (typeof ExemptionCategory)[keyof typeof ExemptionCategory];
 
 export const LockLevel = {
     NotSpecified: "NotSpecified",

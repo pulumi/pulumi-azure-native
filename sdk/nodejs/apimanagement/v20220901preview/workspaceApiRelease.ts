@@ -101,6 +101,8 @@ export class WorkspaceApiRelease extends pulumi.CustomResource {
             resourceInputs["updatedDateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceApiRelease" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceApiRelease.__pulumiType, name, resourceInputs, opts);
     }
 }

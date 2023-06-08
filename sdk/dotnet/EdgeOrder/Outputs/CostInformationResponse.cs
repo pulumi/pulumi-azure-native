@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Cost information for the product system
+    /// Cost information for the product system.
     /// </summary>
     [OutputType]
     public sealed class CostInformationResponse
     {
         /// <summary>
-        /// Default url to display billing information
+        /// Default url to display billing information.
         /// </summary>
         public readonly string BillingInfoUrl;
         /// <summary>

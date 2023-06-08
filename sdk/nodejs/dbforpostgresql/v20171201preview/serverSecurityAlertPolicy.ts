@@ -118,7 +118,7 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20171201:ServerSecurityAlertPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql:ServerSecurityAlertPolicy" }, { type: "azure-native:dbforpostgresql/v20171201:ServerSecurityAlertPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerSecurityAlertPolicy.__pulumiType, name, resourceInputs, opts);
     }

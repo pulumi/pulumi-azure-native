@@ -70,6 +70,11 @@ export const getSlice: typeof import("./getSlice").getSlice = null as any;
 export const getSliceOutput: typeof import("./getSlice").getSliceOutput = null as any;
 utilities.lazyLoad(exports, ["getSlice","getSliceOutput"], () => require("./getSlice"));
 
+export { ListMobileNetworkSimIdsArgs, ListMobileNetworkSimIdsResult, ListMobileNetworkSimIdsOutputArgs } from "./listMobileNetworkSimIds";
+export const listMobileNetworkSimIds: typeof import("./listMobileNetworkSimIds").listMobileNetworkSimIds = null as any;
+export const listMobileNetworkSimIdsOutput: typeof import("./listMobileNetworkSimIds").listMobileNetworkSimIdsOutput = null as any;
+utilities.lazyLoad(exports, ["listMobileNetworkSimIds","listMobileNetworkSimIdsOutput"], () => require("./listMobileNetworkSimIds"));
+
 export { MobileNetworkArgs } from "./mobileNetwork";
 export type MobileNetwork = import("./mobileNetwork").MobileNetwork;
 export const MobileNetwork: typeof import("./mobileNetwork").MobileNetwork = null as any;

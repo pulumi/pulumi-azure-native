@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Returns link related to the product
+    /// Returns link related to the product.
     /// </summary>
     [OutputType]
     public sealed class LinkResponse
     {
         /// <summary>
-        /// Type of link
+        /// Type of link.
         /// </summary>
         public readonly string LinkType;
         /// <summary>
-        /// Url of the link
+        /// Url of the link.
         /// </summary>
         public readonly string LinkUrl;
 

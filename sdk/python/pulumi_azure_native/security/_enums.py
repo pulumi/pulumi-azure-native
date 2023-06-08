@@ -5,29 +5,45 @@
 from enum import Enum
 
 __all__ = [
+    'ActionType',
     'AdditionalWorkspaceDataType',
     'AdditionalWorkspaceType',
     'ApplicationSourceResourceType',
     'AssessmentStatusCode',
     'AssessmentType',
+    'AuthenticationType',
+    'AutoProvision',
     'Categories',
     'CloudName',
     'DataSource',
     'EnvironmentType',
+    'EventSource',
     'ExportData',
+    'GovernanceRuleOwnerSourceType',
+    'GovernanceRuleSourceResourceType',
+    'GovernanceRuleType',
     'ImplementationEffort',
+    'MinimalSeverity',
     'OfferingType',
+    'Operator',
     'OrganizationMembershipType',
+    'PropertyType',
     'Protocol',
     'RecommendationConfigStatus',
     'RecommendationType',
+    'Roles',
+    'RuleState',
     'ScanningMode',
     'SecuritySolutionStatus',
     'Severity',
+    'SeverityEnum',
     'Source',
+    'StandardSupportedClouds',
+    'State',
     'Status',
     'StatusReason',
     'SubPlan',
+    'SupportedCloudEnum',
     'Tactics',
     'Techniques',
     'Threats',
@@ -35,6 +51,15 @@ __all__ = [
     'UnmaskedIpLoggingStatus',
     'UserImpact',
 ]
+
+
+class ActionType(str, Enum):
+    """
+    The type of the action that will be triggered by the Automation
+    """
+    LOGIC_APP = "LogicApp"
+    EVENT_HUB = "EventHub"
+    WORKSPACE = "Workspace"
 
 
 class AdditionalWorkspaceDataType(str, Enum):
@@ -96,9 +121,37 @@ class AssessmentType(str, Enum):
     """
     User assessments pushed directly by the user or other third party to Microsoft Defender for Cloud
     """
-    VERIFIED_PARTNER = "VerifiedPartner"
+
+
+class AuthenticationType(str, Enum):
     """
-    An assessment that was created by a verified 3rd party if the user connected it to ASC
+    Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+    """
+    AWS_CREDS = "awsCreds"
+    """
+    AWS cloud account connector user credentials authentication
+    """
+    AWS_ASSUME_ROLE = "awsAssumeRole"
+    """
+    AWS account connector assume role authentication
+    """
+    GCP_CREDENTIALS = "gcpCredentials"
+    """
+    GCP account connector service to service authentication
+    """
+
+
+class AutoProvision(str, Enum):
+    """
+    Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+    """
+    ON = "On"
+    """
+    Install missing Azure Arc agents on machines automatically
+    """
+    OFF = "Off"
+    """
+    Do not install Azure Arc agent on the machines automatically
     """
 
 
@@ -143,10 +196,65 @@ class EnvironmentType(str, Enum):
     GITLAB_SCOPE = "GitlabScope"
 
 
+class EventSource(str, Enum):
+    """
+    A valid event source type.
+    """
+    ASSESSMENTS = "Assessments"
+    ASSESSMENTS_SNAPSHOT = "AssessmentsSnapshot"
+    SUB_ASSESSMENTS = "SubAssessments"
+    SUB_ASSESSMENTS_SNAPSHOT = "SubAssessmentsSnapshot"
+    ALERTS = "Alerts"
+    SECURE_SCORES = "SecureScores"
+    SECURE_SCORES_SNAPSHOT = "SecureScoresSnapshot"
+    SECURE_SCORE_CONTROLS = "SecureScoreControls"
+    SECURE_SCORE_CONTROLS_SNAPSHOT = "SecureScoreControlsSnapshot"
+    REGULATORY_COMPLIANCE_ASSESSMENT = "RegulatoryComplianceAssessment"
+    REGULATORY_COMPLIANCE_ASSESSMENT_SNAPSHOT = "RegulatoryComplianceAssessmentSnapshot"
+
+
 class ExportData(str, Enum):
     RAW_EVENTS = "RawEvents"
     """
     Agent raw events
+    """
+
+
+class GovernanceRuleOwnerSourceType(str, Enum):
+    """
+    The owner type for the governance rule owner source
+    """
+    BY_TAG = "ByTag"
+    """
+    The rule source type defined using resource tag
+    """
+    MANUALLY = "Manually"
+    """
+    The rule source type defined manually
+    """
+
+
+class GovernanceRuleSourceResourceType(str, Enum):
+    """
+    The governance rule source, what the rule affects, e.g. Assessments
+    """
+    ASSESSMENTS = "Assessments"
+    """
+    The source of the governance rule is assessments
+    """
+
+
+class GovernanceRuleType(str, Enum):
+    """
+    The rule type of the governance rule, defines the source of the rule e.g. Integrated
+    """
+    INTEGRATED = "Integrated"
+    """
+    The source of the rule type definition is integrated
+    """
+    SERVICE_NOW = "ServiceNow"
+    """
+    The source of the rule type definition is ServiceNow
     """
 
 
@@ -157,6 +265,24 @@ class ImplementationEffort(str, Enum):
     LOW = "Low"
     MODERATE = "Moderate"
     HIGH = "High"
+
+
+class MinimalSeverity(str, Enum):
+    """
+    Defines the minimal alert severity which will be sent as email notifications
+    """
+    HIGH = "High"
+    """
+    Get notifications on new alerts with High severity
+    """
+    MEDIUM = "Medium"
+    """
+    Get notifications on new alerts with medium or high severity
+    """
+    LOW = "Low"
+    """
+    Don't get notifications on new alerts with low, medium or high severity
+    """
 
 
 class OfferingType(str, Enum):
@@ -182,12 +308,64 @@ class OfferingType(str, Enum):
     DEFENDER_FOR_DEV_OPS_GIT_LAB = "DefenderForDevOpsGitLab"
 
 
+class Operator(str, Enum):
+    """
+    A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+    """
+    EQUALS = "Equals"
+    """
+    Applies for decimal and non-decimal operands
+    """
+    GREATER_THAN = "GreaterThan"
+    """
+    Applies only for decimal operands
+    """
+    GREATER_THAN_OR_EQUAL_TO = "GreaterThanOrEqualTo"
+    """
+    Applies only for decimal operands
+    """
+    LESSER_THAN = "LesserThan"
+    """
+    Applies only for decimal operands
+    """
+    LESSER_THAN_OR_EQUAL_TO = "LesserThanOrEqualTo"
+    """
+    Applies only for decimal operands
+    """
+    NOT_EQUALS = "NotEquals"
+    """
+    Applies  for decimal and non-decimal operands
+    """
+    CONTAINS = "Contains"
+    """
+    Applies only for non-decimal operands
+    """
+    STARTS_WITH = "StartsWith"
+    """
+    Applies only for non-decimal operands
+    """
+    ENDS_WITH = "EndsWith"
+    """
+    Applies only for non-decimal operands
+    """
+
+
 class OrganizationMembershipType(str, Enum):
     """
     The multi cloud account's membership type in the organization
     """
     MEMBER = "Member"
     ORGANIZATION = "Organization"
+
+
+class PropertyType(str, Enum):
+    """
+    The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+    """
+    STRING = "String"
+    INTEGER = "Integer"
+    NUMBER = "Number"
+    BOOLEAN = "Boolean"
 
 
 class Protocol(str, Enum):
@@ -274,6 +452,37 @@ class RecommendationType(str, Enum):
     """
 
 
+class Roles(str, Enum):
+    """
+    A possible role to configure sending security notification alerts to
+    """
+    ACCOUNT_ADMIN = "AccountAdmin"
+    """
+    If enabled, send notification on new alerts to the account admins
+    """
+    SERVICE_ADMIN = "ServiceAdmin"
+    """
+    If enabled, send notification on new alerts to the service admins
+    """
+    OWNER = "Owner"
+    """
+    If enabled, send notification on new alerts to the subscription owners
+    """
+    CONTRIBUTOR = "Contributor"
+    """
+    If enabled, send notification on new alerts to the subscription contributors
+    """
+
+
+class RuleState(str, Enum):
+    """
+    Possible states of the rule
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    EXPIRED = "Expired"
+
+
 class ScanningMode(str, Enum):
     """
     The scanning mode for the VM scan.
@@ -298,6 +507,15 @@ class Severity(str, Enum):
     HIGH = "High"
 
 
+class SeverityEnum(str, Enum):
+    """
+    The severity to relate to the assessments generated by this assessment automation.
+    """
+    HIGH = "High"
+    MEDIUM = "Medium"
+    LOW = "Low"
+
+
 class Source(str, Enum):
     """
     The platform where the assessed resource resides
@@ -313,6 +531,28 @@ class Source(str, Enum):
     ON_PREMISE_SQL = "OnPremiseSql"
     """
     SQL Resource in an on premise machine connected to Azure cloud
+    """
+
+
+class StandardSupportedClouds(str, Enum):
+    """
+    The cloud that the standard is supported on.
+    """
+    AWS = "AWS"
+    GCP = "GCP"
+
+
+class State(str, Enum):
+    """
+    Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+    """
+    ON = "On"
+    """
+    Send notification on new alerts to the subscription's admins
+    """
+    OFF = "Off"
+    """
+    Don't send notification on new alerts to the subscription's admins
     """
 
 
@@ -339,6 +579,14 @@ class SubPlan(str, Enum):
     """
     P1 = "P1"
     P2 = "P2"
+
+
+class SupportedCloudEnum(str, Enum):
+    """
+    Relevant cloud for the custom assessment automation.
+    """
+    AWS = "AWS"
+    GCP = "GCP"
 
 
 class Tactics(str, Enum):

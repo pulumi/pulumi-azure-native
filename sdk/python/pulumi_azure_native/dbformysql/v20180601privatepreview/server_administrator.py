@@ -193,7 +193,7 @@ class ServerAdministrator(pulumi.CustomResource):
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20171201:ServerAdministrator"), pulumi.Alias(type_="azure-native:dbformysql/v20171201preview:ServerAdministrator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql:ServerAdministrator"), pulumi.Alias(type_="azure-native:dbformysql/v20171201:ServerAdministrator"), pulumi.Alias(type_="azure-native:dbformysql/v20171201preview:ServerAdministrator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerAdministrator, __self__).__init__(
             'azure-native:dbformysql/v20180601privatepreview:ServerAdministrator',

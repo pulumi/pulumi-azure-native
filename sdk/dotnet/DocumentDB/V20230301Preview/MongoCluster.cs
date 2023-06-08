@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20230301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:MongoCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:MongoCluster"},
                 },
             };

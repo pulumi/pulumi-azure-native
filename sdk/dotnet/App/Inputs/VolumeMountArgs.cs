@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<string>? MountPath { get; set; }
 
         /// <summary>
+        /// Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
+        /// </summary>
+        [Input("subPath")]
+        public Input<string>? SubPath { get; set; }
+
+        /// <summary>
         /// This must match the Name of a Volume.
         /// </summary>
         [Input("volumeName")]

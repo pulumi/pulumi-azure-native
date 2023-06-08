@@ -84,7 +84,7 @@ export class SqlMigrationService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20220130preview:SqlMigrationService" }, { type: "azure-native:datamigration/v20220330preview:SqlMigrationService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration:SqlMigrationService" }, { type: "azure-native:datamigration/v20220130preview:SqlMigrationService" }, { type: "azure-native:datamigration/v20220330preview:SqlMigrationService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlMigrationService.__pulumiType, name, resourceInputs, opts);
     }

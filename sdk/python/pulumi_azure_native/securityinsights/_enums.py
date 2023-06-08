@@ -18,27 +18,49 @@ __all__ = [
     'AutomationRulePropertyConditionSupportedOperator',
     'AutomationRulePropertyConditionSupportedProperty',
     'ConditionType',
+    'ContentType',
+    'CustomEntityQueryKind',
     'DataConnectorKind',
     'DataTypeState',
+    'DeploymentFetchStatus',
+    'DeploymentResult',
+    'DeploymentState',
     'EntityMappingType',
+    'EntityProviders',
+    'EntityTimelineKind',
+    'EntityType',
     'EventGroupingAggregationKind',
+    'FileFormat',
+    'FileImportContentType',
+    'Flag',
+    'HypothesisStatus',
     'IncidentClassification',
     'IncidentClassificationReason',
     'IncidentSeverity',
     'IncidentStatus',
+    'IncidentTaskStatus',
+    'IngestionMode',
+    'Kind',
     'MatchingMethod',
     'MicrosoftSecurityProductName',
+    'Mode',
     'Operator',
     'OwnerType',
+    'PackageKind',
+    'RepoType',
     'SecurityMLAnalyticsSettingsKind',
+    'SettingKind',
     'SettingsStatus',
     'Source',
     'SourceKind',
+    'Status',
     'SupportTier',
     'ThreatIntelligenceResourceInnerKind',
     'TriggerOperator',
     'TriggersOn',
     'TriggersWhen',
+    'UebaDataSources',
+    'Version',
 ]
 
 
@@ -498,6 +520,21 @@ class ConditionType(str, Enum):
     """
 
 
+class ContentType(str, Enum):
+    """
+    Content type.
+    """
+    ANALYTIC_RULE = "AnalyticRule"
+    WORKBOOK = "Workbook"
+
+
+class CustomEntityQueryKind(str, Enum):
+    """
+    the entity query kind
+    """
+    ACTIVITY = "Activity"
+
+
 class DataConnectorKind(str, Enum):
     """
     The data connector kind
@@ -518,6 +555,34 @@ class DataTypeState(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class DeploymentFetchStatus(str, Enum):
+    """
+    Status while fetching the last deployment.
+    """
+    SUCCESS = "Success"
+    UNAUTHORIZED = "Unauthorized"
+    NOT_FOUND = "NotFound"
+
+
+class DeploymentResult(str, Enum):
+    """
+    The outcome of the deployment.
+    """
+    SUCCESS = "Success"
+    CANCELED = "Canceled"
+    FAILED = "Failed"
+
+
+class DeploymentState(str, Enum):
+    """
+    Current status of the deployment.
+    """
+    IN_PROGRESS = "In_Progress"
+    COMPLETED = "Completed"
+    QUEUED = "Queued"
+    CANCELING = "Canceling"
 
 
 class EntityMappingType(str, Enum):
@@ -598,12 +663,189 @@ class EntityMappingType(str, Enum):
     """
 
 
+class EntityProviders(str, Enum):
+    """
+    The entity provider that is synced.
+    """
+    ACTIVE_DIRECTORY = "ActiveDirectory"
+    AZURE_ACTIVE_DIRECTORY = "AzureActiveDirectory"
+
+
+class EntityTimelineKind(str, Enum):
+    """
+    The entity query kind
+    """
+    ACTIVITY = "Activity"
+    """
+    activity
+    """
+    BOOKMARK = "Bookmark"
+    """
+    bookmarks
+    """
+    SECURITY_ALERT = "SecurityAlert"
+    """
+    security alerts
+    """
+    ANOMALY = "Anomaly"
+    """
+    anomaly
+    """
+
+
+class EntityType(str, Enum):
+    """
+    The type of the query's source entity
+    """
+    ACCOUNT = "Account"
+    """
+    Entity represents account in the system.
+    """
+    HOST = "Host"
+    """
+    Entity represents host in the system.
+    """
+    FILE = "File"
+    """
+    Entity represents file in the system.
+    """
+    AZURE_RESOURCE = "AzureResource"
+    """
+    Entity represents azure resource in the system.
+    """
+    CLOUD_APPLICATION = "CloudApplication"
+    """
+    Entity represents cloud application in the system.
+    """
+    DNS = "DNS"
+    """
+    Entity represents dns in the system.
+    """
+    FILE_HASH = "FileHash"
+    """
+    Entity represents file hash in the system.
+    """
+    IP = "IP"
+    """
+    Entity represents ip in the system.
+    """
+    MALWARE = "Malware"
+    """
+    Entity represents malware in the system.
+    """
+    PROCESS = "Process"
+    """
+    Entity represents process in the system.
+    """
+    REGISTRY_KEY = "RegistryKey"
+    """
+    Entity represents registry key in the system.
+    """
+    REGISTRY_VALUE = "RegistryValue"
+    """
+    Entity represents registry value in the system.
+    """
+    SECURITY_GROUP = "SecurityGroup"
+    """
+    Entity represents security group in the system.
+    """
+    URL = "URL"
+    """
+    Entity represents url in the system.
+    """
+    IO_T_DEVICE = "IoTDevice"
+    """
+    Entity represents IoT device in the system.
+    """
+    SECURITY_ALERT = "SecurityAlert"
+    """
+    Entity represents security alert in the system.
+    """
+    HUNTING_BOOKMARK = "HuntingBookmark"
+    """
+    Entity represents HuntingBookmark in the system.
+    """
+    MAIL_CLUSTER = "MailCluster"
+    """
+    Entity represents mail cluster in the system.
+    """
+    MAIL_MESSAGE = "MailMessage"
+    """
+    Entity represents mail message in the system.
+    """
+    MAILBOX = "Mailbox"
+    """
+    Entity represents mailbox in the system.
+    """
+    SUBMISSION_MAIL = "SubmissionMail"
+    """
+    Entity represents submission mail in the system.
+    """
+    NIC = "Nic"
+    """
+    Entity represents network interface in the system.
+    """
+
+
 class EventGroupingAggregationKind(str, Enum):
     """
     The event grouping aggregation kinds
     """
     SINGLE_ALERT = "SingleAlert"
     ALERT_PER_RESULT = "AlertPerResult"
+
+
+class FileFormat(str, Enum):
+    """
+    The format of the file
+    """
+    CSV = "CSV"
+    """
+    A CSV file.
+    """
+    JSON = "JSON"
+    """
+    A JSON file.
+    """
+    UNSPECIFIED = "Unspecified"
+    """
+    A file of other format.
+    """
+
+
+class FileImportContentType(str, Enum):
+    """
+    The content type of this file.
+    """
+    BASIC_INDICATOR = "BasicIndicator"
+    """
+    File containing records with the core fields of an indicator, plus the observables to construct the STIX pattern.
+    """
+    STIX_INDICATOR = "StixIndicator"
+    """
+    File containing STIX indicators.
+    """
+    UNSPECIFIED = "Unspecified"
+    """
+    File containing other records.
+    """
+
+
+class Flag(str, Enum):
+    """
+    Flag indicates if this package is in preview.
+    """
+    TRUE = "true"
+    FALSE = "false"
+
+
+class HypothesisStatus(str, Enum):
+    """
+    The hypothesis status of the hunt.
+    """
+    UNKNOWN = "Unknown"
+    INVALIDATED = "Invalidated"
+    VALIDATED = "Validated"
 
 
 class IncidentClassification(str, Enum):
@@ -690,6 +932,58 @@ class IncidentStatus(str, Enum):
     """
 
 
+class IncidentTaskStatus(str, Enum):
+    NEW = "New"
+    """
+    A new task
+    """
+    COMPLETED = "Completed"
+    """
+    A completed task
+    """
+
+
+class IngestionMode(str, Enum):
+    """
+    Describes how to ingest the records in the file.
+    """
+    INGEST_ONLY_IF_ALL_ARE_VALID = "IngestOnlyIfAllAreValid"
+    """
+    No records should be ingested when invalid records are detected.
+    """
+    INGEST_ANY_VALID_RECORDS = "IngestAnyValidRecords"
+    """
+    Valid records should still be ingested when invalid records are detected.
+    """
+    UNSPECIFIED = "Unspecified"
+    """
+    Unspecified
+    """
+
+
+class Kind(str, Enum):
+    """
+    Type of the content item we depend on
+    """
+    DATA_CONNECTOR = "DataConnector"
+    DATA_TYPE = "DataType"
+    WORKBOOK = "Workbook"
+    WORKBOOK_TEMPLATE = "WorkbookTemplate"
+    PLAYBOOK = "Playbook"
+    PLAYBOOK_TEMPLATE = "PlaybookTemplate"
+    ANALYTICS_RULE_TEMPLATE = "AnalyticsRuleTemplate"
+    ANALYTICS_RULE = "AnalyticsRule"
+    HUNTING_QUERY = "HuntingQuery"
+    INVESTIGATION_QUERY = "InvestigationQuery"
+    PARSER = "Parser"
+    WATCHLIST = "Watchlist"
+    WATCHLIST_TEMPLATE = "WatchlistTemplate"
+    SOLUTION = "Solution"
+    AZURE_FUNCTION = "AzureFunction"
+    LOGIC_APPS_CUSTOM_CONNECTOR = "LogicAppsCustomConnector"
+    AUTOMATION_RULE = "AutomationRule"
+
+
 class MatchingMethod(str, Enum):
     """
     Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
@@ -719,6 +1013,20 @@ class MicrosoftSecurityProductName(str, Enum):
     AZURE_SECURITY_CENTER_FOR_IO_T = "Azure Security Center for IoT"
 
 
+class Mode(str, Enum):
+    """
+    The current mode of the workspace manager configuration
+    """
+    ENABLED = "Enabled"
+    """
+    The workspace manager configuration is enabled
+    """
+    DISABLED = "Disabled"
+    """
+    The workspace manager configuration is disabled
+    """
+
+
 class Operator(str, Enum):
     """
     Operator used for list of dependencies in criteria array.
@@ -745,11 +1053,37 @@ class OwnerType(str, Enum):
     """
 
 
+class PackageKind(str, Enum):
+    """
+    the packageKind of the package contains this template
+    """
+    SOLUTION = "Solution"
+    STANDALONE = "Standalone"
+
+
+class RepoType(str, Enum):
+    """
+    The repository type of the source control
+    """
+    GITHUB = "Github"
+    DEV_OPS = "DevOps"
+
+
 class SecurityMLAnalyticsSettingsKind(str, Enum):
     """
     The kind of security ML Analytics Settings
     """
     ANOMALY = "Anomaly"
+
+
+class SettingKind(str, Enum):
+    """
+    The kind of the setting
+    """
+    ANOMALIES = "Anomalies"
+    EYES_ON = "EyesOn"
+    ENTITY_ANALYTICS = "EntityAnalytics"
+    UEBA = "Ueba"
 
 
 class SettingsStatus(str, Enum):
@@ -782,6 +1116,15 @@ class SourceKind(str, Enum):
     COMMUNITY = "Community"
     SOLUTION = "Solution"
     SOURCE_REPOSITORY = "SourceRepository"
+
+
+class Status(str, Enum):
+    """
+    The status of the hunt.
+    """
+    NEW = "New"
+    ACTIVE = "Active"
+    CLOSED = "Closed"
 
 
 class SupportTier(str, Enum):
@@ -833,3 +1176,21 @@ class TriggersWhen(str, Enum):
     """
     Trigger on updated objects
     """
+
+
+class UebaDataSources(str, Enum):
+    """
+    The data source that enriched by ueba.
+    """
+    AUDIT_LOGS = "AuditLogs"
+    AZURE_ACTIVITY = "AzureActivity"
+    SECURITY_EVENT = "SecurityEvent"
+    SIGNIN_LOGS = "SigninLogs"
+
+
+class Version(str, Enum):
+    """
+    The version number associated with the source control
+    """
+    V1 = "V1"
+    V2 = "V2"

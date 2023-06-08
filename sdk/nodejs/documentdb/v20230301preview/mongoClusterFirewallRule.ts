@@ -103,7 +103,7 @@ export class MongoClusterFirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20230315preview:MongoClusterFirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20230315preview:MongoClusterFirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MongoClusterFirewallRule.__pulumiType, name, resourceInputs, opts);
     }

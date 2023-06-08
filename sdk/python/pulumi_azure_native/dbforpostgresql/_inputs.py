@@ -11,11 +11,13 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AdminCredentialsArgs',
     'AuthConfigArgs',
     'BackupArgs',
     'DataEncryptionArgs',
     'HighAvailabilityArgs',
     'MaintenanceWindowArgs',
+    'MigrationSecretParametersArgs',
     'NetworkArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'SkuArgs',
@@ -23,6 +25,44 @@ __all__ = [
     'UserAssignedIdentityArgs',
     'UserIdentityArgs',
 ]
+
+@pulumi.input_type
+class AdminCredentialsArgs:
+    def __init__(__self__, *,
+                 source_server_password: pulumi.Input[str],
+                 target_server_password: pulumi.Input[str]):
+        """
+        Server admin credentials.
+        :param pulumi.Input[str] source_server_password: Password for source server.
+        :param pulumi.Input[str] target_server_password: Password for target server.
+        """
+        pulumi.set(__self__, "source_server_password", source_server_password)
+        pulumi.set(__self__, "target_server_password", target_server_password)
+
+    @property
+    @pulumi.getter(name="sourceServerPassword")
+    def source_server_password(self) -> pulumi.Input[str]:
+        """
+        Password for source server.
+        """
+        return pulumi.get(self, "source_server_password")
+
+    @source_server_password.setter
+    def source_server_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_server_password", value)
+
+    @property
+    @pulumi.getter(name="targetServerPassword")
+    def target_server_password(self) -> pulumi.Input[str]:
+        """
+        Password for target server.
+        """
+        return pulumi.get(self, "target_server_password")
+
+    @target_server_password.setter
+    def target_server_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_server_password", value)
+
 
 @pulumi.input_type
 class AuthConfigArgs:
@@ -306,6 +346,61 @@ class MaintenanceWindowArgs:
     @start_minute.setter
     def start_minute(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_minute", value)
+
+
+@pulumi.input_type
+class MigrationSecretParametersArgs:
+    def __init__(__self__, *,
+                 admin_credentials: pulumi.Input['AdminCredentialsArgs'],
+                 source_server_username: Optional[pulumi.Input[str]] = None,
+                 target_server_username: Optional[pulumi.Input[str]] = None):
+        """
+        Migration secret parameters.
+        :param pulumi.Input['AdminCredentialsArgs'] admin_credentials: Admin credentials for source and target servers
+        :param pulumi.Input[str] source_server_username: Gets or sets the username for the source server. This user need not be an admin.
+        :param pulumi.Input[str] target_server_username: Gets or sets the username for the target server. This user need not be an admin.
+        """
+        pulumi.set(__self__, "admin_credentials", admin_credentials)
+        if source_server_username is not None:
+            pulumi.set(__self__, "source_server_username", source_server_username)
+        if target_server_username is not None:
+            pulumi.set(__self__, "target_server_username", target_server_username)
+
+    @property
+    @pulumi.getter(name="adminCredentials")
+    def admin_credentials(self) -> pulumi.Input['AdminCredentialsArgs']:
+        """
+        Admin credentials for source and target servers
+        """
+        return pulumi.get(self, "admin_credentials")
+
+    @admin_credentials.setter
+    def admin_credentials(self, value: pulumi.Input['AdminCredentialsArgs']):
+        pulumi.set(self, "admin_credentials", value)
+
+    @property
+    @pulumi.getter(name="sourceServerUsername")
+    def source_server_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the username for the source server. This user need not be an admin.
+        """
+        return pulumi.get(self, "source_server_username")
+
+    @source_server_username.setter
+    def source_server_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_server_username", value)
+
+    @property
+    @pulumi.getter(name="targetServerUsername")
+    def target_server_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the username for the target server. This user need not be an admin.
+        """
+        return pulumi.get(self, "target_server_username")
+
+    @target_server_username.setter
+    def target_server_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_server_username", value)
 
 
 @pulumi.input_type

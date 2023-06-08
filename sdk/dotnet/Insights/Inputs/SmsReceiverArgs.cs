@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public Input<string> CountryCode { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SMS receiver. Names must be unique across all receivers within an action group.
+        /// The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

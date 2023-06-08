@@ -141,6 +141,17 @@ export const LogLevel = {
  */
 export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
 
+export const ManagedCertificateDomainControlValidation = {
+    CNAME: "CNAME",
+    HTTP: "HTTP",
+    TXT: "TXT",
+} as const;
+
+/**
+ * Selected type of domain control validation for managed certificates.
+ */
+export type ManagedCertificateDomainControlValidation = (typeof ManagedCertificateDomainControlValidation)[keyof typeof ManagedCertificateDomainControlValidation];
+
 export const ManagedEnvironmentOutBoundType = {
     LoadBalancer: "LoadBalancer",
     UserDefinedRouting: "UserDefinedRouting",
@@ -192,12 +203,24 @@ export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 export const StorageType = {
     AzureFile: "AzureFile",
     EmptyDir: "EmptyDir",
+    Secret: "Secret",
 } as const;
 
 /**
  * Storage type for the volume. If not provided, use EmptyDir.
  */
 export type StorageType = (typeof StorageType)[keyof typeof StorageType];
+
+export const TriggerType = {
+    Scheduled: "Scheduled",
+    Event: "Event",
+    Manual: "Manual",
+} as const;
+
+/**
+ * Trigger type of the job
+ */
+export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
 
 export const Type = {
     Liveness: "Liveness",

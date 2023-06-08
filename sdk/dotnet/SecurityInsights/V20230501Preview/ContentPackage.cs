@@ -190,6 +190,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:ContentPackage"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:ContentPackage"},
                 },
             };

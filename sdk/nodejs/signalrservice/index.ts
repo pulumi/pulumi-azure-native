@@ -25,6 +25,11 @@ export const getSignalRPrivateEndpointConnection: typeof import("./getSignalRPri
 export const getSignalRPrivateEndpointConnectionOutput: typeof import("./getSignalRPrivateEndpointConnection").getSignalRPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getSignalRPrivateEndpointConnection","getSignalRPrivateEndpointConnectionOutput"], () => require("./getSignalRPrivateEndpointConnection"));
 
+export { GetSignalRReplicaArgs, GetSignalRReplicaResult, GetSignalRReplicaOutputArgs } from "./getSignalRReplica";
+export const getSignalRReplica: typeof import("./getSignalRReplica").getSignalRReplica = null as any;
+export const getSignalRReplicaOutput: typeof import("./getSignalRReplica").getSignalRReplicaOutput = null as any;
+utilities.lazyLoad(exports, ["getSignalRReplica","getSignalRReplicaOutput"], () => require("./getSignalRReplica"));
+
 export { GetSignalRSharedPrivateLinkResourceArgs, GetSignalRSharedPrivateLinkResourceResult, GetSignalRSharedPrivateLinkResourceOutputArgs } from "./getSignalRSharedPrivateLinkResource";
 export const getSignalRSharedPrivateLinkResource: typeof import("./getSignalRSharedPrivateLinkResource").getSignalRSharedPrivateLinkResource = null as any;
 export const getSignalRSharedPrivateLinkResourceOutput: typeof import("./getSignalRSharedPrivateLinkResource").getSignalRSharedPrivateLinkResourceOutput = null as any;
@@ -54,6 +59,11 @@ export { SignalRPrivateEndpointConnectionArgs } from "./signalRPrivateEndpointCo
 export type SignalRPrivateEndpointConnection = import("./signalRPrivateEndpointConnection").SignalRPrivateEndpointConnection;
 export const SignalRPrivateEndpointConnection: typeof import("./signalRPrivateEndpointConnection").SignalRPrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["SignalRPrivateEndpointConnection"], () => require("./signalRPrivateEndpointConnection"));
+
+export { SignalRReplicaArgs } from "./signalRReplica";
+export type SignalRReplica = import("./signalRReplica").SignalRReplica;
+export const SignalRReplica: typeof import("./signalRReplica").SignalRReplica = null as any;
+utilities.lazyLoad(exports, ["SignalRReplica"], () => require("./signalRReplica"));
 
 export { SignalRSharedPrivateLinkResourceArgs } from "./signalRSharedPrivateLinkResource";
 export type SignalRSharedPrivateLinkResource = import("./signalRSharedPrivateLinkResource").SignalRSharedPrivateLinkResource;
@@ -93,6 +103,8 @@ const _module = {
                 return new SignalRCustomDomain(name, <any>undefined, { urn })
             case "azure-native:signalrservice:SignalRPrivateEndpointConnection":
                 return new SignalRPrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:signalrservice:SignalRReplica":
+                return new SignalRReplica(name, <any>undefined, { urn })
             case "azure-native:signalrservice:SignalRSharedPrivateLinkResource":
                 return new SignalRSharedPrivateLinkResource(name, <any>undefined, { urn })
             default:

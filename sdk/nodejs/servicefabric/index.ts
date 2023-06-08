@@ -55,6 +55,11 @@ export const getmanagedAzResiliencyStatus: typeof import("./getmanagedAzResilien
 export const getmanagedAzResiliencyStatusOutput: typeof import("./getmanagedAzResiliencyStatus").getmanagedAzResiliencyStatusOutput = null as any;
 utilities.lazyLoad(exports, ["getmanagedAzResiliencyStatus","getmanagedAzResiliencyStatusOutput"], () => require("./getmanagedAzResiliencyStatus"));
 
+export { ListListUpgradableVersionPostArgs, ListListUpgradableVersionPostResult, ListListUpgradableVersionPostOutputArgs } from "./listListUpgradableVersionPost";
+export const listListUpgradableVersionPost: typeof import("./listListUpgradableVersionPost").listListUpgradableVersionPost = null as any;
+export const listListUpgradableVersionPostOutput: typeof import("./listListUpgradableVersionPost").listListUpgradableVersionPostOutput = null as any;
+utilities.lazyLoad(exports, ["listListUpgradableVersionPost","listListUpgradableVersionPostOutput"], () => require("./listListUpgradableVersionPost"));
+
 export { ManagedClusterArgs } from "./managedCluster";
 export type ManagedCluster = import("./managedCluster").ManagedCluster;
 export const ManagedCluster: typeof import("./managedCluster").ManagedCluster = null as any;

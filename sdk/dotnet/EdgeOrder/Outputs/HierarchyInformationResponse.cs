@@ -11,25 +11,25 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Holds details about product hierarchy information
+    /// Holds details about product hierarchy information.
     /// </summary>
     [OutputType]
     public sealed class HierarchyInformationResponse
     {
         /// <summary>
-        /// Represents configuration name that uniquely identifies configuration
+        /// Represents configuration name that uniquely identifies configuration.
         /// </summary>
         public readonly string? ConfigurationName;
         /// <summary>
-        /// Represents product family name that uniquely identifies product family
+        /// Represents product family name that uniquely identifies product family.
         /// </summary>
         public readonly string? ProductFamilyName;
         /// <summary>
-        /// Represents product line name that uniquely identifies product line
+        /// Represents product line name that uniquely identifies product line.
         /// </summary>
         public readonly string? ProductLineName;
         /// <summary>
-        /// Represents product name that uniquely identifies product
+        /// Represents product name that uniquely identifies product.
         /// </summary>
         public readonly string? ProductName;
 

@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql:ServerAdministrator"},
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:ServerAdministrator"},
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:ServerAdministrator"},
                 },

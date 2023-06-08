@@ -136,7 +136,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190301preview:Connector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:Connector" }, { type: "azure-native:costmanagement/v20190301preview:Connector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Connector.__pulumiType, name, resourceInputs, opts);
     }

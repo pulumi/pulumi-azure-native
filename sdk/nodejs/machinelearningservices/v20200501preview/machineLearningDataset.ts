@@ -117,6 +117,8 @@ export class MachineLearningDataset extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:MachineLearningDataset" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineLearningDataset.__pulumiType, name, resourceInputs, opts);
     }
 }

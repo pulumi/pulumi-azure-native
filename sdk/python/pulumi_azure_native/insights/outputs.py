@@ -12,6 +12,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AccessModeSettingsExclusionResponse',
+    'AccessModeSettingsResponse',
     'ActionGroupResponse',
     'ActionListResponse',
     'ActionsResponse',
@@ -47,6 +49,8 @@ __all__ = [
     'DataCollectionRuleResponseMetadata',
     'DataFlowResponse',
     'DataImportSourcesResponseEventHub',
+    'DataSourceConfigurationResponse',
+    'DataSourceResponse',
     'DataSourcesSpecResponseDataImports',
     'DestinationsSpecResponseAzureMonitorMetrics',
     'DimensionResponse',
@@ -54,9 +58,12 @@ __all__ = [
     'DynamicThresholdFailingPeriodsResponse',
     'EmailNotificationResponse',
     'EmailReceiverResponse',
+    'EtwEventConfigurationResponse',
+    'EtwProviderConfigurationResponse',
     'EventHubDestinationResponse',
     'EventHubDirectDestinationResponse',
     'EventHubReceiverResponse',
+    'EventLogConfigurationResponse',
     'ExtensionDataSourceResponse',
     'HeaderFieldResponse',
     'IisLogsDataSourceResponse',
@@ -67,22 +74,29 @@ __all__ = [
     'LogFileSettingsResponseText',
     'LogFilesDataSourceResponse',
     'LogFilesDataSourceResponseSettings',
+    'LogSettingsResponse',
     'LogicAppReceiverResponse',
     'ManagementEventAggregationConditionResponse',
     'ManagementEventRuleConditionResponse',
+    'ManagementGroupLogSettingsResponse',
     'MetricAlertActionResponse',
     'MetricAlertMultipleResourceMultipleMetricCriteriaResponse',
     'MetricAlertSingleResourceMultipleMetricCriteriaResponse',
     'MetricCriteriaResponse',
     'MetricDimensionResponse',
+    'MetricSettingsResponse',
     'MetricTriggerResponse',
     'MonitoringAccountDestinationResponse',
     'MyWorkbookManagedIdentityResponse',
     'MyWorkbookUserAssignedIdentitiesResponse',
     'PerfCounterDataSourceResponse',
+    'PerformanceCounterConfigurationResponse',
     'PlatformTelemetryDataSourceResponse',
     'PredictiveAutoscalePolicyResponse',
+    'PrivateEndpointConnectionResponse',
+    'PrivateEndpointResponse',
     'PrivateLinkScopedResourceResponse',
+    'PrivateLinkServiceConnectionStateResponse',
     'PrometheusForwarderDataSourceResponse',
     'RecurrenceResponse',
     'RecurrentScheduleResponse',
@@ -97,10 +111,12 @@ __all__ = [
     'ScaleRuleMetricDimensionResponse',
     'ScaleRuleResponse',
     'ScheduledQueryRuleCriteriaResponse',
+    'SinkConfigurationResponse',
     'SmsReceiverResponse',
     'StorageBlobDestinationResponse',
     'StorageTableDestinationResponse',
     'StreamDeclarationResponse',
+    'SubscriptionLogSettingsResponse',
     'SyslogDataSourceResponse',
     'SystemDataResponse',
     'ThresholdRuleConditionResponse',
@@ -121,6 +137,138 @@ __all__ = [
     'WorkbookTemplateGalleryResponse',
     'WorkbookTemplateLocalizedGalleryResponse',
 ]
+
+@pulumi.output_type
+class AccessModeSettingsExclusionResponse(dict):
+    """
+    Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ingestionAccessMode":
+            suggest = "ingestion_access_mode"
+        elif key == "privateEndpointConnectionName":
+            suggest = "private_endpoint_connection_name"
+        elif key == "queryAccessMode":
+            suggest = "query_access_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessModeSettingsExclusionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessModeSettingsExclusionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessModeSettingsExclusionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ingestion_access_mode: Optional[str] = None,
+                 private_endpoint_connection_name: Optional[str] = None,
+                 query_access_mode: Optional[str] = None):
+        """
+        Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
+        :param str ingestion_access_mode: Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
+        :param str private_endpoint_connection_name: The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+        :param str query_access_mode: Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
+        """
+        if ingestion_access_mode is not None:
+            pulumi.set(__self__, "ingestion_access_mode", ingestion_access_mode)
+        if private_endpoint_connection_name is not None:
+            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
+        if query_access_mode is not None:
+            pulumi.set(__self__, "query_access_mode", query_access_mode)
+
+    @property
+    @pulumi.getter(name="ingestionAccessMode")
+    def ingestion_access_mode(self) -> Optional[str]:
+        """
+        Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
+        """
+        return pulumi.get(self, "ingestion_access_mode")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnectionName")
+    def private_endpoint_connection_name(self) -> Optional[str]:
+        """
+        The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+        """
+        return pulumi.get(self, "private_endpoint_connection_name")
+
+    @property
+    @pulumi.getter(name="queryAccessMode")
+    def query_access_mode(self) -> Optional[str]:
+        """
+        Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
+        """
+        return pulumi.get(self, "query_access_mode")
+
+
+@pulumi.output_type
+class AccessModeSettingsResponse(dict):
+    """
+    Properties that define the scope private link mode settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ingestionAccessMode":
+            suggest = "ingestion_access_mode"
+        elif key == "queryAccessMode":
+            suggest = "query_access_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessModeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessModeSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessModeSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ingestion_access_mode: str,
+                 query_access_mode: str,
+                 exclusions: Optional[Sequence['outputs.AccessModeSettingsExclusionResponse']] = None):
+        """
+        Properties that define the scope private link mode settings.
+        :param str ingestion_access_mode: Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        :param str query_access_mode: Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        :param Sequence['AccessModeSettingsExclusionResponse'] exclusions: List of exclusions that override the default access mode settings for specific private endpoint connections.
+        """
+        pulumi.set(__self__, "ingestion_access_mode", ingestion_access_mode)
+        pulumi.set(__self__, "query_access_mode", query_access_mode)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter(name="ingestionAccessMode")
+    def ingestion_access_mode(self) -> str:
+        """
+        Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        """
+        return pulumi.get(self, "ingestion_access_mode")
+
+    @property
+    @pulumi.getter(name="queryAccessMode")
+    def query_access_mode(self) -> str:
+        """
+        Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        """
+        return pulumi.get(self, "query_access_mode")
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence['outputs.AccessModeSettingsExclusionResponse']]:
+        """
+        List of exclusions that override the default access mode settings for specific private endpoint connections.
+        """
+        return pulumi.get(self, "exclusions")
+
 
 @pulumi.output_type
 class ActionGroupResponse(dict):
@@ -1094,7 +1242,7 @@ class AzureAppPushReceiverResponse(dict):
         """
         The Azure mobile App push notification receiver.
         :param str email_address: The email address registered for the Azure mobile app.
-        :param str name: The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
+        :param str name: The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
         """
         pulumi.set(__self__, "email_address", email_address)
         pulumi.set(__self__, "name", name)
@@ -1111,7 +1259,7 @@ class AzureAppPushReceiverResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
+        The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
         """
         return pulumi.get(self, "name")
 
@@ -2704,6 +2852,104 @@ class DataImportSourcesResponseEventHub(dict):
 
 
 @pulumi.output_type
+class DataSourceConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventLogs":
+            suggest = "event_logs"
+        elif key == "perfCounters":
+            suggest = "perf_counters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_logs: Optional[Sequence['outputs.EventLogConfigurationResponse']] = None,
+                 perf_counters: Optional[Sequence['outputs.PerformanceCounterConfigurationResponse']] = None,
+                 providers: Optional[Sequence['outputs.EtwProviderConfigurationResponse']] = None):
+        """
+        :param Sequence['EventLogConfigurationResponse'] event_logs: Windows event logs configuration.
+        :param Sequence['PerformanceCounterConfigurationResponse'] perf_counters: Performance counter configuration
+        :param Sequence['EtwProviderConfigurationResponse'] providers: ETW providers configuration
+        """
+        if event_logs is not None:
+            pulumi.set(__self__, "event_logs", event_logs)
+        if perf_counters is not None:
+            pulumi.set(__self__, "perf_counters", perf_counters)
+        if providers is not None:
+            pulumi.set(__self__, "providers", providers)
+
+    @property
+    @pulumi.getter(name="eventLogs")
+    def event_logs(self) -> Optional[Sequence['outputs.EventLogConfigurationResponse']]:
+        """
+        Windows event logs configuration.
+        """
+        return pulumi.get(self, "event_logs")
+
+    @property
+    @pulumi.getter(name="perfCounters")
+    def perf_counters(self) -> Optional[Sequence['outputs.PerformanceCounterConfigurationResponse']]:
+        """
+        Performance counter configuration
+        """
+        return pulumi.get(self, "perf_counters")
+
+    @property
+    @pulumi.getter
+    def providers(self) -> Optional[Sequence['outputs.EtwProviderConfigurationResponse']]:
+        """
+        ETW providers configuration
+        """
+        return pulumi.get(self, "providers")
+
+
+@pulumi.output_type
+class DataSourceResponse(dict):
+    """
+    Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
+    """
+    def __init__(__self__, *,
+                 configuration: 'outputs.DataSourceConfigurationResponse',
+                 kind: str,
+                 sinks: Sequence['outputs.SinkConfigurationResponse']):
+        """
+        Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
+        :param str kind: Datasource kind
+        """
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "sinks", sinks)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> 'outputs.DataSourceConfigurationResponse':
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Datasource kind
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def sinks(self) -> Sequence['outputs.SinkConfigurationResponse']:
+        return pulumi.get(self, "sinks")
+
+
+@pulumi.output_type
 class DataSourcesSpecResponseDataImports(dict):
     """
     Specifications of pull based data sources
@@ -3137,7 +3383,7 @@ class EmailReceiverResponse(dict):
         """
         An email receiver.
         :param str email_address: The email address of this receiver.
-        :param str name: The name of the email receiver. Names must be unique across all receivers within an action group.
+        :param str name: The name of the email receiver. Names must be unique across all receivers within a tenant action group.
         :param str status: The receiver status of the e-mail.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
@@ -3161,7 +3407,7 @@ class EmailReceiverResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the email receiver. Names must be unique across all receivers within an action group.
+        The name of the email receiver. Names must be unique across all receivers within a tenant action group.
         """
         return pulumi.get(self, "name")
 
@@ -3180,6 +3426,52 @@ class EmailReceiverResponse(dict):
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
+class EtwEventConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 id: int,
+                 name: str,
+                 filter: Optional[str] = None):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def id(self) -> int:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[str]:
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class EtwProviderConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 events: Sequence['outputs.EtwEventConfigurationResponse'],
+                 id: str):
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def events(self) -> Sequence['outputs.EtwEventConfigurationResponse']:
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -3386,6 +3678,43 @@ class EventHubReceiverResponse(dict):
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
+class EventLogConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logName":
+            suggest = "log_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventLogConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventLogConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventLogConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_name: str,
+                 filter: Optional[str] = None):
+        pulumi.set(__self__, "log_name", log_name)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter(name="logName")
+    def log_name(self) -> str:
+        return pulumi.get(self, "log_name")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[str]:
+        return pulumi.get(self, "filter")
 
 
 @pulumi.output_type
@@ -4040,6 +4369,83 @@ class LogFilesDataSourceResponseSettings(dict):
 
 
 @pulumi.output_type
+class LogSettingsResponse(dict):
+    """
+    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "categoryGroup":
+            suggest = "category_group"
+        elif key == "retentionPolicy":
+            suggest = "retention_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 category: Optional[str] = None,
+                 category_group: Optional[str] = None,
+                 retention_policy: Optional['outputs.RetentionPolicyResponse'] = None):
+        """
+        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+        :param bool enabled: a value indicating whether this log is enabled.
+        :param str category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        :param str category_group: Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        :param 'RetentionPolicyResponse' retention_policy: the retention policy for this log.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if category_group is not None:
+            pulumi.set(__self__, "category_group", category_group)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        a value indicating whether this log is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="categoryGroup")
+    def category_group(self) -> Optional[str]:
+        """
+        Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category_group")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyResponse']:
+        """
+        the retention policy for this log.
+        """
+        return pulumi.get(self, "retention_policy")
+
+
+@pulumi.output_type
 class LogicAppReceiverResponse(dict):
     """
     A logic app receiver.
@@ -4247,6 +4653,69 @@ class ManagementEventRuleConditionResponse(dict):
         the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         """
         return pulumi.get(self, "data_source")
+
+
+@pulumi.output_type
+class ManagementGroupLogSettingsResponse(dict):
+    """
+    Part of Management Group diagnostic setting. Specifies the settings for a particular log.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "categoryGroup":
+            suggest = "category_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementGroupLogSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementGroupLogSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementGroupLogSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 category: Optional[str] = None,
+                 category_group: Optional[str] = None):
+        """
+        Part of Management Group diagnostic setting. Specifies the settings for a particular log.
+        :param bool enabled: a value indicating whether this log is enabled.
+        :param str category: Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
+        :param str category_group: Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if category_group is not None:
+            pulumi.set(__self__, "category_group", category_group)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        a value indicating whether this log is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="categoryGroup")
+    def category_group(self) -> Optional[str]:
+        """
+        Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
+        """
+        return pulumi.get(self, "category_group")
 
 
 @pulumi.output_type
@@ -4595,6 +5064,83 @@ class MetricDimensionResponse(dict):
         list of dimension values.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MetricSettingsResponse(dict):
+    """
+    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPolicy":
+            suggest = "retention_policy"
+        elif key == "timeGrain":
+            suggest = "time_grain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 category: Optional[str] = None,
+                 retention_policy: Optional['outputs.RetentionPolicyResponse'] = None,
+                 time_grain: Optional[str] = None):
+        """
+        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+        :param bool enabled: a value indicating whether this category is enabled.
+        :param str category: Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+        :param 'RetentionPolicyResponse' retention_policy: the retention policy for this category.
+        :param str time_grain: the timegrain of the metric in ISO8601 format.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if time_grain is not None:
+            pulumi.set(__self__, "time_grain", time_grain)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        a value indicating whether this category is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyResponse']:
+        """
+        the retention policy for this category.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="timeGrain")
+    def time_grain(self) -> Optional[str]:
+        """
+        the timegrain of the metric in ISO8601 format.
+        """
+        return pulumi.get(self, "time_grain")
 
 
 @pulumi.output_type
@@ -5035,6 +5581,50 @@ class PerfCounterDataSourceResponse(dict):
 
 
 @pulumi.output_type
+class PerformanceCounterConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "samplingPeriod":
+            suggest = "sampling_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PerformanceCounterConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PerformanceCounterConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PerformanceCounterConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 sampling_period: str,
+                 instance: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sampling_period", sampling_period)
+        if instance is not None:
+            pulumi.set(__self__, "instance", instance)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="samplingPeriod")
+    def sampling_period(self) -> str:
+        return pulumi.get(self, "sampling_period")
+
+    @property
+    @pulumi.getter
+    def instance(self) -> Optional[str]:
+        return pulumi.get(self, "instance")
+
+
+@pulumi.output_type
 class PlatformTelemetryDataSourceResponse(dict):
     """
     Definition of platform telemetry data source configuration
@@ -5124,6 +5714,127 @@ class PredictiveAutoscalePolicyResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The Private Endpoint Connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        The Private Endpoint Connection resource.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The resource of private end point.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class PrivateEndpointResponse(dict):
+    """
+    The Private Endpoint resource.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        The Private Endpoint resource.
+        :param str id: The ARM identifier for Private Endpoint
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ARM identifier for Private Endpoint
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class PrivateLinkScopedResourceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5171,6 +5882,70 @@ class PrivateLinkScopedResourceResponse(dict):
         The immutableId of the Azure Monitor Private Link Scope Resource to which the association is.
         """
         return pulumi.get(self, "scope_id")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateResponse(dict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions_required: Optional[str] = None,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param str description: The reason for approval/rejection of the connection.
+        :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -6141,6 +6916,18 @@ class ScheduledQueryRuleCriteriaResponse(dict):
 
 
 @pulumi.output_type
+class SinkConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 kind: str):
+        pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        return pulumi.get(self, "kind")
+
+
+@pulumi.output_type
 class SmsReceiverResponse(dict):
     """
     An SMS receiver.
@@ -6172,7 +6959,7 @@ class SmsReceiverResponse(dict):
         """
         An SMS receiver.
         :param str country_code: The country code of the SMS receiver.
-        :param str name: The name of the SMS receiver. Names must be unique across all receivers within an action group.
+        :param str name: The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
         :param str phone_number: The phone number of the SMS receiver.
         :param str status: The status of the receiver.
         """
@@ -6193,7 +6980,7 @@ class SmsReceiverResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the SMS receiver. Names must be unique across all receivers within an action group.
+        The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
         """
         return pulumi.get(self, "name")
 
@@ -6363,6 +7150,69 @@ class StreamDeclarationResponse(dict):
         List of columns used by data in this stream.
         """
         return pulumi.get(self, "columns")
+
+
+@pulumi.output_type
+class SubscriptionLogSettingsResponse(dict):
+    """
+    Part of Subscription diagnostic setting. Specifies the settings for a particular log.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "categoryGroup":
+            suggest = "category_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubscriptionLogSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubscriptionLogSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubscriptionLogSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 category: Optional[str] = None,
+                 category_group: Optional[str] = None):
+        """
+        Part of Subscription diagnostic setting. Specifies the settings for a particular log.
+        :param bool enabled: a value indicating whether this log is enabled.
+        :param str category: Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
+        :param str category_group: Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if category_group is not None:
+            pulumi.set(__self__, "category_group", category_group)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        a value indicating whether this log is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="categoryGroup")
+    def category_group(self) -> Optional[str]:
+        """
+        Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
+        """
+        return pulumi.get(self, "category_group")
 
 
 @pulumi.output_type
@@ -6809,7 +7659,7 @@ class VoiceReceiverResponse(dict):
         """
         A voice receiver.
         :param str country_code: The country code of the voice receiver.
-        :param str name: The name of the voice receiver. Names must be unique across all receivers within an action group.
+        :param str name: The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
         :param str phone_number: The phone number of the voice receiver.
         """
         pulumi.set(__self__, "country_code", country_code)
@@ -6828,7 +7678,7 @@ class VoiceReceiverResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the voice receiver. Names must be unique across all receivers within an action group.
+        The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
         """
         return pulumi.get(self, "name")
 
@@ -7270,7 +8120,7 @@ class WebhookReceiverResponse(dict):
                  use_common_alert_schema: Optional[bool] = None):
         """
         A webhook receiver.
-        :param str name: The name of the webhook receiver. Names must be unique across all receivers within an action group.
+        :param str name: The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
         :param str service_uri: The URI where webhooks should be sent.
         :param str identifier_uri: Indicates the identifier uri for aad auth.
         :param str object_id: Indicates the webhook app object Id for aad auth.
@@ -7299,7 +8149,7 @@ class WebhookReceiverResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the webhook receiver. Names must be unique across all receivers within an action group.
+        The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
         """
         return pulumi.get(self, "name")
 

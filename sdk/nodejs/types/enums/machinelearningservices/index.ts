@@ -44,6 +44,16 @@ export const ApplicationSharingPolicy = {
  */
 export type ApplicationSharingPolicy = (typeof ApplicationSharingPolicy)[keyof typeof ApplicationSharingPolicy];
 
+export const AutoDeleteCondition = {
+    CreatedGreaterThan: "CreatedGreaterThan",
+    LastAccessedGreaterThan: "LastAccessedGreaterThan",
+} as const;
+
+/**
+ * When to check if an asset is expired
+ */
+export type AutoDeleteCondition = (typeof AutoDeleteCondition)[keyof typeof AutoDeleteCondition];
+
 export const AutoRebuildSetting = {
     Disabled: "Disabled",
     OnBaseImageUpdate: "OnBaseImageUpdate",
@@ -369,6 +379,16 @@ export const DataType = {
  */
 export type DataType = (typeof DataType)[keyof typeof DataType];
 
+export const DatasetType = {
+    Tabular: "tabular",
+    File: "file",
+} as const;
+
+/**
+ * Specifies dataset type.
+ */
+export type DatasetType = (typeof DatasetType)[keyof typeof DatasetType];
+
 export const DatastoreType = {
     AzureBlob: "AzureBlob",
     AzureDataLakeGen1: "AzureDataLakeGen1",
@@ -381,6 +401,22 @@ export const DatastoreType = {
  */
 export type DatastoreType = (typeof DatastoreType)[keyof typeof DatastoreType];
 
+export const DatastoreTypeArm = {
+    Blob: "blob",
+    Adls: "adls",
+    Adls_gen2: "adls-gen2",
+    Dbfs: "dbfs",
+    File: "file",
+    Mysqldb: "mysqldb",
+    Sqldb: "sqldb",
+    Psqldb: "psqldb",
+} as const;
+
+/**
+ * Specifies datastore type.
+ */
+export type DatastoreTypeArm = (typeof DatastoreTypeArm)[keyof typeof DatastoreTypeArm];
+
 export const DistributionType = {
     PyTorch: "PyTorch",
     TensorFlow: "TensorFlow",
@@ -391,6 +427,16 @@ export const DistributionType = {
  * [Required] Specifies the type of distribution framework.
  */
 export type DistributionType = (typeof DistributionType)[keyof typeof DistributionType];
+
+export const DockerSpecificationType = {
+    Build: "Build",
+    Image: "Image",
+} as const;
+
+/**
+ * [Required] Docker specification must be either Build or Image
+ */
+export type DockerSpecificationType = (typeof DockerSpecificationType)[keyof typeof DockerSpecificationType];
 
 export const EarlyTerminationPolicyType = {
     Bandit: "Bandit",
@@ -412,6 +458,17 @@ export const EgressPublicNetworkAccessType = {
  * If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
  */
 export type EgressPublicNetworkAccessType = (typeof EgressPublicNetworkAccessType)[keyof typeof EgressPublicNetworkAccessType];
+
+export const EmailNotificationEnableType = {
+    JobCompleted: "JobCompleted",
+    JobFailed: "JobFailed",
+    JobCancelled: "JobCancelled",
+} as const;
+
+/**
+ * Enum to determine the email notification type.
+ */
+export type EmailNotificationEnableType = (typeof EmailNotificationEnableType)[keyof typeof EmailNotificationEnableType];
 
 export const EncryptionStatus = {
     Enabled: "Enabled",
@@ -465,6 +522,22 @@ export const EnvironmentVariableType = {
  * Type of the Environment Variable. Possible values are: local - For local variable
  */
 export type EnvironmentVariableType = (typeof EnvironmentVariableType)[keyof typeof EnvironmentVariableType];
+
+export const FeatureDataType = {
+    String: "String",
+    Integer: "Integer",
+    Long: "Long",
+    Float: "Float",
+    Double: "Double",
+    Binary: "Binary",
+    Datetime: "Datetime",
+    Boolean: "Boolean",
+} as const;
+
+/**
+ * Specifies the data type
+ */
+export type FeatureDataType = (typeof FeatureDataType)[keyof typeof FeatureDataType];
 
 export const FeatureLags = {
     /**
@@ -647,6 +720,18 @@ export const Goal = {
  */
 export type Goal = (typeof Goal)[keyof typeof Goal];
 
+export const Header = {
+    All_files_have_same_headers: "all_files_have_same_headers",
+    Only_first_file_has_headers: "only_first_file_has_headers",
+    No_headers: "no_headers",
+    Combine_all_files_headers: "combine_all_files_headers",
+} as const;
+
+/**
+ * Header type.
+ */
+export type Header = (typeof Header)[keyof typeof Header];
+
 export const IdentityConfigurationType = {
     Managed: "Managed",
     AMLToken: "AMLToken",
@@ -658,6 +743,17 @@ export const IdentityConfigurationType = {
  */
 export type IdentityConfigurationType = (typeof IdentityConfigurationType)[keyof typeof IdentityConfigurationType];
 
+export const ImageAnnotationType = {
+    Classification: "Classification",
+    BoundingBox: "BoundingBox",
+    InstanceSegmentation: "InstanceSegmentation",
+} as const;
+
+/**
+ * Annotation type of image labeling job.
+ */
+export type ImageAnnotationType = (typeof ImageAnnotationType)[keyof typeof ImageAnnotationType];
+
 export const ImageType = {
     Docker: "docker",
     Azureml: "azureml",
@@ -667,6 +763,16 @@ export const ImageType = {
  * Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
  */
 export type ImageType = (typeof ImageType)[keyof typeof ImageType];
+
+export const IncrementalDataRefresh = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether to enable incremental data refresh.
+ */
+export type IncrementalDataRefresh = (typeof IncrementalDataRefresh)[keyof typeof IncrementalDataRefresh];
 
 export const InputDeliveryMode = {
     ReadOnlyMount: "ReadOnlyMount",
@@ -766,6 +872,15 @@ export const LearningRateScheduler = {
  */
 export type LearningRateScheduler = (typeof LearningRateScheduler)[keyof typeof LearningRateScheduler];
 
+export const LinkedServiceLinkType = {
+    Synapse: "Synapse",
+} as const;
+
+/**
+ * Type of the link target.
+ */
+export type LinkedServiceLinkType = (typeof LinkedServiceLinkType)[keyof typeof LinkedServiceLinkType];
+
 export const LoadBalancerType = {
     PublicIp: "PublicIp",
     InternalLoadBalancer: "InternalLoadBalancer",
@@ -808,6 +923,16 @@ export const LogVerbosity = {
  */
 export type LogVerbosity = (typeof LogVerbosity)[keyof typeof LogVerbosity];
 
+export const MLAssistConfigurationType = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * [Required] Indicates whether MLAssist feature is enabled.
+ */
+export type MLAssistConfigurationType = (typeof MLAssistConfigurationType)[keyof typeof MLAssistConfigurationType];
+
 export const ManagedServiceIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
@@ -819,6 +944,28 @@ export const ManagedServiceIdentityType = {
  * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
+export const MaterializationStoreType = {
+    None: "None",
+    Online: "Online",
+    Offline: "Offline",
+    OnlineAndOffline: "OnlineAndOffline",
+} as const;
+
+/**
+ * Specifies the stores to which materialization should happen
+ */
+export type MaterializationStoreType = (typeof MaterializationStoreType)[keyof typeof MaterializationStoreType];
+
+export const MediaType = {
+    Image: "Image",
+    Text: "Text",
+} as const;
+
+/**
+ * [Required] Media type of the job.
+ */
+export type MediaType = (typeof MediaType)[keyof typeof MediaType];
 
 export const ModelSize = {
     /**
@@ -849,6 +996,16 @@ export const ModelSize = {
  * Note: This settings is only supported for the 'yolov5' algorithm.
  */
 export type ModelSize = (typeof ModelSize)[keyof typeof ModelSize];
+
+export const MultiSelect = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether it is allowed to select multiple classes in this category.
+ */
+export type MultiSelect = (typeof MultiSelect)[keyof typeof MultiSelect];
 
 export const NCrossValidationsMode = {
     /**
@@ -1100,6 +1257,50 @@ export const RemoteLoginPortPublicAccess = {
  */
 export type RemoteLoginPortPublicAccess = (typeof RemoteLoginPortPublicAccess)[keyof typeof RemoteLoginPortPublicAccess];
 
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+    UserAssigned: "UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const RuleCategory = {
+    Required: "Required",
+    Recommended: "Recommended",
+    UserDefined: "UserDefined",
+} as const;
+
+/**
+ * Category of a managed network Outbound Rule of a machine learning workspace.
+ */
+export type RuleCategory = (typeof RuleCategory)[keyof typeof RuleCategory];
+
+export const RuleStatus = {
+    Inactive: "Inactive",
+    Active: "Active",
+} as const;
+
+/**
+ * Status of a managed network Outbound Rule of a machine learning workspace.
+ */
+export type RuleStatus = (typeof RuleStatus)[keyof typeof RuleStatus];
+
+export const RuleType = {
+    FQDN: "FQDN",
+    PrivateEndpoint: "PrivateEndpoint",
+    ServiceTag: "ServiceTag",
+} as const;
+
+/**
+ * Type of a managed network Outbound Rule of a machine learning workspace.
+ */
+export type RuleType = (typeof RuleType)[keyof typeof RuleType];
+
 export const SamplingAlgorithmType = {
     Grid: "Grid",
     Random: "Random",
@@ -1235,6 +1436,17 @@ export const SkuTier = {
  * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+
+export const SourceType = {
+    Delimited_files: "delimited_files",
+    Json_lines_files: "json_lines_files",
+    Parquet_files: "parquet_files",
+} as const;
+
+/**
+ * Data source type.
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 export const SshPublicAccess = {
     Enabled: "Enabled",
@@ -1414,6 +1626,16 @@ export const TaskType = {
  */
 export type TaskType = (typeof TaskType)[keyof typeof TaskType];
 
+export const TextAnnotationType = {
+    Classification: "Classification",
+    NamedEntityRecognition: "NamedEntityRecognition",
+} as const;
+
+/**
+ * Annotation type of text labeling job.
+ */
+export type TextAnnotationType = (typeof TextAnnotationType)[keyof typeof TextAnnotationType];
+
 export const TriggerType = {
     Recurrence: "Recurrence",
     Cron: "Cron",
@@ -1492,6 +1714,15 @@ export const VolumeDefinitionType = {
  * Type of Volume Definition. Possible Values: bind,volume,tmpfs,npipe
  */
 export type VolumeDefinitionType = (typeof VolumeDefinitionType)[keyof typeof VolumeDefinitionType];
+
+export const WebhookType = {
+    AzureDevOps: "AzureDevOps",
+} as const;
+
+/**
+ * [Required] Specifies the type of service to send a callback
+ */
+export type WebhookType = (typeof WebhookType)[keyof typeof WebhookType];
 
 export const WeekDay = {
     /**

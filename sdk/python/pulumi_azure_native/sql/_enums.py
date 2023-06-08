@@ -15,6 +15,7 @@ __all__ = [
     'DatabaseIdentityType',
     'DatabaseLicenseType',
     'DatabaseReadScale',
+    'DayOfWeek',
     'ElasticPoolLicenseType',
     'GeoBackupPolicyState',
     'IdentityType',
@@ -42,6 +43,7 @@ __all__ = [
     'ServerKeyType',
     'ServerNetworkAccessFlag',
     'ServicePrincipalType',
+    'SqlVulnerabilityAssessmentState',
     'SyncConflictResolutionPolicy',
     'SyncDirection',
     'SyncMemberDbType',
@@ -153,6 +155,19 @@ class DatabaseReadScale(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class DayOfWeek(str, Enum):
+    """
+    Stop day.
+    """
+    SUNDAY = "Sunday"
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
 
 
 class ElasticPoolLicenseType(str, Enum):
@@ -382,6 +397,14 @@ class ServicePrincipalType(str, Enum):
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class SqlVulnerabilityAssessmentState(str, Enum):
+    """
+    Specifies the state of the SQL Vulnerability Assessment, whether it is enabled or disabled or a state has not been applied yet on the specific database or server.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SyncConflictResolutionPolicy(str, Enum):

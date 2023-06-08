@@ -6,17 +6,25 @@ from enum import Enum
 
 __all__ = [
     'ActiveDirectoryAuthEnum',
+    'AdministratorType',
     'ArmServerKeyType',
+    'CancelEnum',
     'CreateMode',
     'GeoRedundantBackupEnum',
     'HighAvailabilityMode',
     'IdentityType',
+    'LogicalReplicationOnSourceDbEnum',
+    'MigrationMode',
+    'OverwriteDbsInTargetEnum',
     'PasswordAuthEnum',
     'PrincipalType',
     'PrivateEndpointServiceConnectionStatus',
     'ReplicationRole',
+    'ServerSecurityAlertPolicyState',
     'ServerVersion',
     'SkuTier',
+    'StartDataMigrationEnum',
+    'TriggerCutoverEnum',
 ]
 
 
@@ -28,12 +36,27 @@ class ActiveDirectoryAuthEnum(str, Enum):
     DISABLED = "Disabled"
 
 
+class AdministratorType(str, Enum):
+    """
+    The type of administrator.
+    """
+    ACTIVE_DIRECTORY = "ActiveDirectory"
+
+
 class ArmServerKeyType(str, Enum):
     """
     Data encryption type to depict if it is System Managed vs Azure Key vault.
     """
     SYSTEM_MANAGED = "SystemManaged"
     AZURE_KEY_VAULT = "AzureKeyVault"
+
+
+class CancelEnum(str, Enum):
+    """
+    To trigger cancel for entire migration we need to send this flag as True
+    """
+    TRUE = "True"
+    FALSE = "False"
 
 
 class CreateMode(str, Enum):
@@ -73,6 +96,30 @@ class IdentityType(str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+class LogicalReplicationOnSourceDbEnum(str, Enum):
+    """
+    Indicates whether to setup LogicalReplicationOnSourceDb, if needed
+    """
+    TRUE = "True"
+    FALSE = "False"
+
+
+class MigrationMode(str, Enum):
+    """
+    There are two types of migration modes Online and Offline
+    """
+    OFFLINE = "Offline"
+    ONLINE = "Online"
+
+
+class OverwriteDbsInTargetEnum(str, Enum):
+    """
+    Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.
+    """
+    TRUE = "True"
+    FALSE = "False"
+
+
 class PasswordAuthEnum(str, Enum):
     """
     If Enabled, Password authentication is enabled.
@@ -110,6 +157,14 @@ class ReplicationRole(str, Enum):
     GEO_ASYNC_REPLICA = "GeoAsyncReplica"
 
 
+class ServerSecurityAlertPolicyState(str, Enum):
+    """
+    Specifies the state of the policy, whether it is enabled or disabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class ServerVersion(str, Enum):
     """
     PostgreSQL Server version.
@@ -127,3 +182,19 @@ class SkuTier(str, Enum):
     BURSTABLE = "Burstable"
     GENERAL_PURPOSE = "GeneralPurpose"
     MEMORY_OPTIMIZED = "MemoryOptimized"
+
+
+class StartDataMigrationEnum(str, Enum):
+    """
+    Indicates whether the data migration should start right away
+    """
+    TRUE = "True"
+    FALSE = "False"
+
+
+class TriggerCutoverEnum(str, Enum):
+    """
+    To trigger cutover for entire migration we need to send this flag as True
+    """
+    TRUE = "True"
+    FALSE = "False"

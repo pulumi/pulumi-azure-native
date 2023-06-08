@@ -24,6 +24,7 @@ __all__ = [
     'AmlTokenResponse',
     'ArmResourceIdResponse',
     'AssignedUserResponse',
+    'AutoDeleteSettingResponse',
     'AutoForecastHorizonResponse',
     'AutoMLJobResponse',
     'AutoNCrossValidationsResponse',
@@ -35,7 +36,13 @@ __all__ = [
     'AzureBlobDatastoreResponse',
     'AzureDataLakeGen1DatastoreResponse',
     'AzureDataLakeGen2DatastoreResponse',
+    'AzureDataLakeSectionResponse',
+    'AzureDevOpsWebhookResponse',
     'AzureFileDatastoreResponse',
+    'AzureMySqlSectionResponse',
+    'AzurePostgreSqlSectionResponse',
+    'AzureSqlDatabaseSectionResponse',
+    'AzureStorageSectionResponse',
     'BanditPolicyResponse',
     'BatchDeploymentResponse',
     'BatchEndpointDefaultsResponse',
@@ -47,6 +54,7 @@ __all__ = [
     'CertificateDatastoreCredentialsResponse',
     'ClassificationResponse',
     'ClassificationTrainingSettingsResponse',
+    'ClientCredentialsResponse',
     'CodeConfigurationResponse',
     'CodeContainerResponse',
     'CodeVersionResponse',
@@ -89,28 +97,50 @@ __all__ = [
     'DataPathAssetReferenceResponse',
     'DatabricksPropertiesResponse',
     'DatabricksResponse',
+    'DatasetResponse',
+    'DatasetResponseDataPath',
+    'DatasetResponseLatest',
+    'DatasetResponseSqlDataPath',
+    'DatasetStateResponse',
+    'DatasetStateResponseDeprecatedBy',
+    'DatastoreResponse',
     'DefaultScaleSettingsResponse',
     'DeploymentResourceConfigurationResponse',
+    'DockerBuildResponse',
+    'DockerImagePlatformResponse',
+    'DockerImageResponse',
     'DockerResponse',
     'EncryptionKeyVaultPropertiesResponse',
     'EncryptionPropertyResponse',
     'EndpointResponse',
     'EndpointScheduleActionResponse',
     'EnvironmentContainerResponse',
+    'EnvironmentSpecificationVersionResponse',
     'EnvironmentVariableResponse',
     'EnvironmentVersionResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
     'ErrorResponseResponse',
+    'FeatureResponse',
+    'FeatureWindowResponse',
+    'FeaturesetContainerResponse',
+    'FeaturesetJobResponse',
+    'FeaturesetSpecificationResponse',
+    'FeaturesetVersionResponse',
+    'FeaturestoreEntityContainerResponse',
+    'FeaturestoreEntityVersionResponse',
     'FlavorDataResponse',
     'ForecastingResponse',
     'ForecastingSettingsResponse',
     'ForecastingTrainingSettingsResponse',
+    'FqdnOutboundRuleResponse',
+    'GlusterFsSectionResponse',
     'GridSamplingAlgorithmResponse',
     'HDInsightPropertiesResponse',
     'HDInsightResponse',
     'IdAssetReferenceResponse',
     'IdentityForCmkResponse',
+    'IdentityResponse',
     'ImageClassificationMultilabelResponse',
     'ImageClassificationResponse',
     'ImageInstanceSegmentationResponse',
@@ -123,6 +153,7 @@ __all__ = [
     'ImageObjectDetectionResponse',
     'ImageResponse',
     'ImageSweepSettingsResponse',
+    'IndexColumnResponse',
     'InferenceContainerPropertiesResponse',
     'InstanceTypeSchemaResponse',
     'InstanceTypeSchemaResponseResources',
@@ -132,8 +163,20 @@ __all__ = [
     'KubernetesOnlineDeploymentResponse',
     'KubernetesPropertiesResponse',
     'KubernetesResponse',
+    'LabelCategoryResponse',
+    'LabelClassResponse',
+    'LabelingDataConfigurationResponse',
+    'LabelingJobImagePropertiesResponse',
+    'LabelingJobInstructionsResponse',
+    'LabelingJobResponse',
+    'LabelingJobTextPropertiesResponse',
+    'LinkedInfoResponse',
+    'LinkedServicePropsResponse',
+    'LinkedWorkspacePropsResponse',
     'ListNotebookKeysResultResponse',
     'LiteralJobInputResponse',
+    'MLAssistConfigurationDisabledResponse',
+    'MLAssistConfigurationEnabledResponse',
     'MLFlowModelJobInputResponse',
     'MLFlowModelJobOutputResponse',
     'MLTableDataResponse',
@@ -143,6 +186,8 @@ __all__ = [
     'ManagedIdentityResponse',
     'ManagedOnlineDeploymentResponse',
     'ManagedServiceIdentityResponse',
+    'MaterializationComputeResourceResponse',
+    'MaterializationSettingsResponse',
     'MedianStoppingPolicyResponse',
     'ModelContainerResponse',
     'ModelVersionResponse',
@@ -154,6 +199,7 @@ __all__ = [
     'NoneDatastoreCredentialsResponse',
     'NotebookPreparationErrorResponse',
     'NotebookResourceInfoResponse',
+    'NotificationSettingResponse',
     'ObjectiveResponse',
     'OnlineEndpointResponse',
     'OnlineRequestSettingsResponse',
@@ -163,10 +209,13 @@ __all__ = [
     'PersonalComputeInstanceSettingsResponse',
     'PipelineJobResponse',
     'PrivateEndpointConnectionResponse',
+    'PrivateEndpointDestinationResponse',
+    'PrivateEndpointOutboundRuleResponse',
     'PrivateEndpointResourceResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ProbeSettingsResponse',
+    'ProgressMetricsResponse',
     'PyTorchResponse',
     'RandomSamplingAlgorithmResponse',
     'RecurrenceResponse',
@@ -189,13 +238,17 @@ __all__ = [
     'ScheduleResponse',
     'ScriptReferenceResponse',
     'ScriptsToExecuteResponse',
+    'SecretConfigurationResponse',
     'ServiceManagedResourcesSettingsResponse',
     'ServicePrincipalDatastoreCredentialsResponse',
+    'ServiceTagDestinationResponse',
+    'ServiceTagOutboundRuleResponse',
     'SetupScriptsResponse',
     'SharedPrivateLinkResourceResponse',
     'SkuResponse',
     'SslConfigurationResponse',
     'StackEnsembleSettingsResponse',
+    'StatusMessageResponse',
     'StorageAccountDetailsResponse',
     'SweepJobLimitsResponse',
     'SweepJobResponse',
@@ -228,6 +281,7 @@ __all__ = [
     'UserCreatedAcrAccountResponse',
     'UserCreatedStorageAccountResponse',
     'UserIdentityResponse',
+    'UserInfoResponse',
     'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse',
     'VirtualMachineImageResponse',
     'VirtualMachineResponse',
@@ -1431,6 +1485,39 @@ class AssignedUserResponse(dict):
 
 
 @pulumi.output_type
+class AutoDeleteSettingResponse(dict):
+    def __init__(__self__, *,
+                 condition: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str condition: When to check if an asset is expired
+        :param str value: Expiration condition value.
+        """
+        if condition is None:
+            condition = 'CreatedGreaterThan'
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[str]:
+        """
+        When to check if an asset is expired
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Expiration condition value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class AutoForecastHorizonResponse(dict):
     """
     Forecast horizon determined automatically by system.
@@ -2366,6 +2453,261 @@ class AzureDataLakeGen2DatastoreResponse(dict):
 
 
 @pulumi.output_type
+class AzureDataLakeSectionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorityUrl":
+            suggest = "authority_url"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "credentialType":
+            suggest = "credential_type"
+        elif key == "isCertAuth":
+            suggest = "is_cert_auth"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "resourceUri":
+            suggest = "resource_uri"
+        elif key == "serviceDataAccessAuthIdentity":
+            suggest = "service_data_access_auth_identity"
+        elif key == "storeName":
+            suggest = "store_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureDataLakeSectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureDataLakeSectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureDataLakeSectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authority_url: Optional[str] = None,
+                 certificate: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 credential_type: Optional[str] = None,
+                 is_cert_auth: Optional[bool] = None,
+                 resource_group: Optional[str] = None,
+                 resource_uri: Optional[str] = None,
+                 service_data_access_auth_identity: Optional[str] = None,
+                 store_name: Optional[str] = None,
+                 subscription_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
+        """
+        :param str authority_url: The authority URL used for authentication.
+        :param str certificate: The content of the certificate used for authentication.
+        :param str client_id: The Client ID/Application ID
+        :param str client_secret: The client secret.
+        :param str credential_type: The Azure Data Lake credential type.
+        :param bool is_cert_auth:  Is it using certificate to authenticate. If false then use client secret.
+        :param str resource_group: Resource Group.
+        :param str resource_uri: The resource the service principal/app has access to.
+        :param str service_data_access_auth_identity: Indicates which identity to use to authenticate service data access to customer's storage.
+        :param str store_name: The Azure Data Lake store name.
+        :param str subscription_id: Subscription ID.
+        :param str tenant_id: The ID of the tenant the service principal/app belongs to.
+        :param str thumbprint: The thumbprint of the certificate above.
+        """
+        if authority_url is not None:
+            pulumi.set(__self__, "authority_url", authority_url)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if credential_type is not None:
+            pulumi.set(__self__, "credential_type", credential_type)
+        if is_cert_auth is not None:
+            pulumi.set(__self__, "is_cert_auth", is_cert_auth)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if resource_uri is not None:
+            pulumi.set(__self__, "resource_uri", resource_uri)
+        if service_data_access_auth_identity is not None:
+            pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+        if store_name is not None:
+            pulumi.set(__self__, "store_name", store_name)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="authorityUrl")
+    def authority_url(self) -> Optional[str]:
+        """
+        The authority URL used for authentication.
+        """
+        return pulumi.get(self, "authority_url")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[str]:
+        """
+        The content of the certificate used for authentication.
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The Client ID/Application ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        """
+        The client secret.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="credentialType")
+    def credential_type(self) -> Optional[str]:
+        """
+        The Azure Data Lake credential type.
+        """
+        return pulumi.get(self, "credential_type")
+
+    @property
+    @pulumi.getter(name="isCertAuth")
+    def is_cert_auth(self) -> Optional[bool]:
+        """
+         Is it using certificate to authenticate. If false then use client secret.
+        """
+        return pulumi.get(self, "is_cert_auth")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Resource Group.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="resourceUri")
+    def resource_uri(self) -> Optional[str]:
+        """
+        The resource the service principal/app has access to.
+        """
+        return pulumi.get(self, "resource_uri")
+
+    @property
+    @pulumi.getter(name="serviceDataAccessAuthIdentity")
+    def service_data_access_auth_identity(self) -> Optional[str]:
+        """
+        Indicates which identity to use to authenticate service data access to customer's storage.
+        """
+        return pulumi.get(self, "service_data_access_auth_identity")
+
+    @property
+    @pulumi.getter(name="storeName")
+    def store_name(self) -> Optional[str]:
+        """
+        The Azure Data Lake store name.
+        """
+        return pulumi.get(self, "store_name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        Subscription ID.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The ID of the tenant the service principal/app belongs to.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate above.
+        """
+        return pulumi.get(self, "thumbprint")
+
+
+@pulumi.output_type
+class AzureDevOpsWebhookResponse(dict):
+    """
+    Webhook details specific for Azure DevOps
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "webhookType":
+            suggest = "webhook_type"
+        elif key == "eventType":
+            suggest = "event_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureDevOpsWebhookResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureDevOpsWebhookResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureDevOpsWebhookResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 webhook_type: str,
+                 event_type: Optional[str] = None):
+        """
+        Webhook details specific for Azure DevOps
+        :param str webhook_type: Enum to determine the webhook callback service type.
+               Expected value is 'AzureDevOps'.
+        :param str event_type: Send callback on a specified notification event
+        """
+        pulumi.set(__self__, "webhook_type", 'AzureDevOps')
+        if event_type is not None:
+            pulumi.set(__self__, "event_type", event_type)
+
+    @property
+    @pulumi.getter(name="webhookType")
+    def webhook_type(self) -> str:
+        """
+        Enum to determine the webhook callback service type.
+        Expected value is 'AzureDevOps'.
+        """
+        return pulumi.get(self, "webhook_type")
+
+    @property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> Optional[str]:
+        """
+        Send callback on a specified notification event
+        """
+        return pulumi.get(self, "event_type")
+
+
+@pulumi.output_type
 class AzureFileDatastoreResponse(dict):
     """
     Azure File datastore configuration.
@@ -2530,6 +2872,1046 @@ class AzureFileDatastoreResponse(dict):
         Tag dictionary. Tags can be added, removed, and updated.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AzureMySqlSectionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorityUrl":
+            suggest = "authority_url"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "credentialType":
+            suggest = "credential_type"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "isCertAuth":
+            suggest = "is_cert_auth"
+        elif key == "portNumber":
+            suggest = "port_number"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "resourceUri":
+            suggest = "resource_uri"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "serviceDataAccessAuthIdentity":
+            suggest = "service_data_access_auth_identity"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userId":
+            suggest = "user_id"
+        elif key == "userPassword":
+            suggest = "user_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMySqlSectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMySqlSectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMySqlSectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authority_url: Optional[str] = None,
+                 certificate: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 credential_type: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 endpoint: Optional[str] = None,
+                 is_cert_auth: Optional[bool] = None,
+                 port_number: Optional[str] = None,
+                 resource_group: Optional[str] = None,
+                 resource_uri: Optional[str] = None,
+                 server_name: Optional[str] = None,
+                 service_data_access_auth_identity: Optional[str] = None,
+                 subscription_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 thumbprint: Optional[str] = None,
+                 user_id: Optional[str] = None,
+                 user_password: Optional[str] = None):
+        """
+        :param str authority_url: The authority URL used for authentication.
+        :param str certificate: The content of the certificate used for authentication.
+        :param str client_id: The Client ID/Application ID
+        :param str client_secret: The client secret.
+        :param str credential_type: Sql Authentication type.
+        :param str database_name: The Azure SQL database name.
+        :param str endpoint: The server host endpoint.
+        :param bool is_cert_auth:  Is it using certificate to authenticate. If false then use client secret.
+        :param str port_number: / The Azure SQL port number.
+        :param str resource_group: Resource Group.
+        :param str resource_uri: The resource the service principal/app has access to.
+        :param str server_name: The Azure SQL server name.
+        :param str service_data_access_auth_identity: Indicates which identity to use to authenticate service data access to customer's storage.
+        :param str subscription_id: Subscription ID.
+        :param str tenant_id: The ID of the tenant the service principal/app belongs to.
+        :param str thumbprint: The thumbprint of the certificate above.
+        :param str user_id: The Azure SQL user id.
+        :param str user_password: The Azure SQL user password.
+        """
+        if authority_url is not None:
+            pulumi.set(__self__, "authority_url", authority_url)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if credential_type is not None:
+            pulumi.set(__self__, "credential_type", credential_type)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if is_cert_auth is not None:
+            pulumi.set(__self__, "is_cert_auth", is_cert_auth)
+        if port_number is not None:
+            pulumi.set(__self__, "port_number", port_number)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if resource_uri is not None:
+            pulumi.set(__self__, "resource_uri", resource_uri)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if service_data_access_auth_identity is not None:
+            pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+        if user_password is not None:
+            pulumi.set(__self__, "user_password", user_password)
+
+    @property
+    @pulumi.getter(name="authorityUrl")
+    def authority_url(self) -> Optional[str]:
+        """
+        The authority URL used for authentication.
+        """
+        return pulumi.get(self, "authority_url")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[str]:
+        """
+        The content of the certificate used for authentication.
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The Client ID/Application ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        """
+        The client secret.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="credentialType")
+    def credential_type(self) -> Optional[str]:
+        """
+        Sql Authentication type.
+        """
+        return pulumi.get(self, "credential_type")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        The Azure SQL database name.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[str]:
+        """
+        The server host endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="isCertAuth")
+    def is_cert_auth(self) -> Optional[bool]:
+        """
+         Is it using certificate to authenticate. If false then use client secret.
+        """
+        return pulumi.get(self, "is_cert_auth")
+
+    @property
+    @pulumi.getter(name="portNumber")
+    def port_number(self) -> Optional[str]:
+        """
+        / The Azure SQL port number.
+        """
+        return pulumi.get(self, "port_number")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Resource Group.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="resourceUri")
+    def resource_uri(self) -> Optional[str]:
+        """
+        The resource the service principal/app has access to.
+        """
+        return pulumi.get(self, "resource_uri")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[str]:
+        """
+        The Azure SQL server name.
+        """
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="serviceDataAccessAuthIdentity")
+    def service_data_access_auth_identity(self) -> Optional[str]:
+        """
+        Indicates which identity to use to authenticate service data access to customer's storage.
+        """
+        return pulumi.get(self, "service_data_access_auth_identity")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        Subscription ID.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The ID of the tenant the service principal/app belongs to.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate above.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[str]:
+        """
+        The Azure SQL user id.
+        """
+        return pulumi.get(self, "user_id")
+
+    @property
+    @pulumi.getter(name="userPassword")
+    def user_password(self) -> Optional[str]:
+        """
+        The Azure SQL user password.
+        """
+        return pulumi.get(self, "user_password")
+
+
+@pulumi.output_type
+class AzurePostgreSqlSectionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorityUrl":
+            suggest = "authority_url"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "credentialType":
+            suggest = "credential_type"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "enableSsl":
+            suggest = "enable_ssl"
+        elif key == "isCertAuth":
+            suggest = "is_cert_auth"
+        elif key == "portNumber":
+            suggest = "port_number"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "resourceUri":
+            suggest = "resource_uri"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "serviceDataAccessAuthIdentity":
+            suggest = "service_data_access_auth_identity"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userId":
+            suggest = "user_id"
+        elif key == "userPassword":
+            suggest = "user_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzurePostgreSqlSectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzurePostgreSqlSectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzurePostgreSqlSectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authority_url: Optional[str] = None,
+                 certificate: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 credential_type: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 enable_ssl: Optional[bool] = None,
+                 endpoint: Optional[str] = None,
+                 is_cert_auth: Optional[bool] = None,
+                 port_number: Optional[str] = None,
+                 resource_group: Optional[str] = None,
+                 resource_uri: Optional[str] = None,
+                 server_name: Optional[str] = None,
+                 service_data_access_auth_identity: Optional[str] = None,
+                 subscription_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 thumbprint: Optional[str] = None,
+                 user_id: Optional[str] = None,
+                 user_password: Optional[str] = None):
+        """
+        :param str authority_url: The authority URL used for authentication.
+        :param str certificate: The content of the certificate used for authentication.
+        :param str client_id: The Client ID/Application ID
+        :param str client_secret: The client secret.
+        :param str credential_type: Sql Authentication type.
+        :param str database_name: The Azure SQL database name.
+        :param bool enable_ssl: Indicates SSL requirement of Azure Postgresql server.
+        :param str endpoint: The server host endpoint.
+        :param bool is_cert_auth:  Is it using certificate to authenticate. If false then use client secret.
+        :param str port_number: / The Azure SQL port number.
+        :param str resource_group: Resource Group.
+        :param str resource_uri: The resource the service principal/app has access to.
+        :param str server_name: The Azure SQL server name.
+        :param str service_data_access_auth_identity: Indicates which identity to use to authenticate service data access to customer's storage.
+        :param str subscription_id: Subscription ID.
+        :param str tenant_id: The ID of the tenant the service principal/app belongs to.
+        :param str thumbprint: The thumbprint of the certificate above.
+        :param str user_id: The Azure SQL user id.
+        :param str user_password: The Azure SQL user password.
+        """
+        if authority_url is not None:
+            pulumi.set(__self__, "authority_url", authority_url)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if credential_type is not None:
+            pulumi.set(__self__, "credential_type", credential_type)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if enable_ssl is not None:
+            pulumi.set(__self__, "enable_ssl", enable_ssl)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if is_cert_auth is not None:
+            pulumi.set(__self__, "is_cert_auth", is_cert_auth)
+        if port_number is not None:
+            pulumi.set(__self__, "port_number", port_number)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if resource_uri is not None:
+            pulumi.set(__self__, "resource_uri", resource_uri)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if service_data_access_auth_identity is not None:
+            pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+        if user_password is not None:
+            pulumi.set(__self__, "user_password", user_password)
+
+    @property
+    @pulumi.getter(name="authorityUrl")
+    def authority_url(self) -> Optional[str]:
+        """
+        The authority URL used for authentication.
+        """
+        return pulumi.get(self, "authority_url")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[str]:
+        """
+        The content of the certificate used for authentication.
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The Client ID/Application ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        """
+        The client secret.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="credentialType")
+    def credential_type(self) -> Optional[str]:
+        """
+        Sql Authentication type.
+        """
+        return pulumi.get(self, "credential_type")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        The Azure SQL database name.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="enableSsl")
+    def enable_ssl(self) -> Optional[bool]:
+        """
+        Indicates SSL requirement of Azure Postgresql server.
+        """
+        return pulumi.get(self, "enable_ssl")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[str]:
+        """
+        The server host endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="isCertAuth")
+    def is_cert_auth(self) -> Optional[bool]:
+        """
+         Is it using certificate to authenticate. If false then use client secret.
+        """
+        return pulumi.get(self, "is_cert_auth")
+
+    @property
+    @pulumi.getter(name="portNumber")
+    def port_number(self) -> Optional[str]:
+        """
+        / The Azure SQL port number.
+        """
+        return pulumi.get(self, "port_number")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Resource Group.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="resourceUri")
+    def resource_uri(self) -> Optional[str]:
+        """
+        The resource the service principal/app has access to.
+        """
+        return pulumi.get(self, "resource_uri")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[str]:
+        """
+        The Azure SQL server name.
+        """
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="serviceDataAccessAuthIdentity")
+    def service_data_access_auth_identity(self) -> Optional[str]:
+        """
+        Indicates which identity to use to authenticate service data access to customer's storage.
+        """
+        return pulumi.get(self, "service_data_access_auth_identity")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        Subscription ID.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The ID of the tenant the service principal/app belongs to.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate above.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[str]:
+        """
+        The Azure SQL user id.
+        """
+        return pulumi.get(self, "user_id")
+
+    @property
+    @pulumi.getter(name="userPassword")
+    def user_password(self) -> Optional[str]:
+        """
+        The Azure SQL user password.
+        """
+        return pulumi.get(self, "user_password")
+
+
+@pulumi.output_type
+class AzureSqlDatabaseSectionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorityUrl":
+            suggest = "authority_url"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "credentialType":
+            suggest = "credential_type"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "isCertAuth":
+            suggest = "is_cert_auth"
+        elif key == "portNumber":
+            suggest = "port_number"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "resourceUri":
+            suggest = "resource_uri"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "serviceDataAccessAuthIdentity":
+            suggest = "service_data_access_auth_identity"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userId":
+            suggest = "user_id"
+        elif key == "userPassword":
+            suggest = "user_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSqlDatabaseSectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSqlDatabaseSectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSqlDatabaseSectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authority_url: Optional[str] = None,
+                 certificate: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 credential_type: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 endpoint: Optional[str] = None,
+                 is_cert_auth: Optional[bool] = None,
+                 port_number: Optional[str] = None,
+                 resource_group: Optional[str] = None,
+                 resource_uri: Optional[str] = None,
+                 server_name: Optional[str] = None,
+                 service_data_access_auth_identity: Optional[str] = None,
+                 subscription_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 thumbprint: Optional[str] = None,
+                 user_id: Optional[str] = None,
+                 user_password: Optional[str] = None):
+        """
+        :param str authority_url: The authority URL used for authentication.
+        :param str certificate: The content of the certificate used for authentication.
+        :param str client_id: The Client ID/Application ID
+        :param str client_secret: The client secret.
+        :param str credential_type: Sql Authentication type.
+        :param str database_name: The Azure SQL database name.
+        :param str endpoint: The server host endpoint.
+        :param bool is_cert_auth:  Is it using certificate to authenticate. If false then use client secret.
+        :param str port_number: / The Azure SQL port number.
+        :param str resource_group: Resource Group.
+        :param str resource_uri: The resource the service principal/app has access to.
+        :param str server_name: The Azure SQL server name.
+        :param str service_data_access_auth_identity: Indicates which identity to use to authenticate service data access to customer's storage.
+        :param str subscription_id: Subscription ID.
+        :param str tenant_id: The ID of the tenant the service principal/app belongs to.
+        :param str thumbprint: The thumbprint of the certificate above.
+        :param str user_id: The Azure SQL user id.
+        :param str user_password: The Azure SQL user password.
+        """
+        if authority_url is not None:
+            pulumi.set(__self__, "authority_url", authority_url)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if credential_type is not None:
+            pulumi.set(__self__, "credential_type", credential_type)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if is_cert_auth is not None:
+            pulumi.set(__self__, "is_cert_auth", is_cert_auth)
+        if port_number is not None:
+            pulumi.set(__self__, "port_number", port_number)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if resource_uri is not None:
+            pulumi.set(__self__, "resource_uri", resource_uri)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if service_data_access_auth_identity is not None:
+            pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+        if user_password is not None:
+            pulumi.set(__self__, "user_password", user_password)
+
+    @property
+    @pulumi.getter(name="authorityUrl")
+    def authority_url(self) -> Optional[str]:
+        """
+        The authority URL used for authentication.
+        """
+        return pulumi.get(self, "authority_url")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[str]:
+        """
+        The content of the certificate used for authentication.
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The Client ID/Application ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        """
+        The client secret.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="credentialType")
+    def credential_type(self) -> Optional[str]:
+        """
+        Sql Authentication type.
+        """
+        return pulumi.get(self, "credential_type")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        The Azure SQL database name.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[str]:
+        """
+        The server host endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="isCertAuth")
+    def is_cert_auth(self) -> Optional[bool]:
+        """
+         Is it using certificate to authenticate. If false then use client secret.
+        """
+        return pulumi.get(self, "is_cert_auth")
+
+    @property
+    @pulumi.getter(name="portNumber")
+    def port_number(self) -> Optional[str]:
+        """
+        / The Azure SQL port number.
+        """
+        return pulumi.get(self, "port_number")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Resource Group.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="resourceUri")
+    def resource_uri(self) -> Optional[str]:
+        """
+        The resource the service principal/app has access to.
+        """
+        return pulumi.get(self, "resource_uri")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[str]:
+        """
+        The Azure SQL server name.
+        """
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="serviceDataAccessAuthIdentity")
+    def service_data_access_auth_identity(self) -> Optional[str]:
+        """
+        Indicates which identity to use to authenticate service data access to customer's storage.
+        """
+        return pulumi.get(self, "service_data_access_auth_identity")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        Subscription ID.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The ID of the tenant the service principal/app belongs to.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate above.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[str]:
+        """
+        The Azure SQL user id.
+        """
+        return pulumi.get(self, "user_id")
+
+    @property
+    @pulumi.getter(name="userPassword")
+    def user_password(self) -> Optional[str]:
+        """
+        The Azure SQL user password.
+        """
+        return pulumi.get(self, "user_password")
+
+
+@pulumi.output_type
+class AzureStorageSectionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountKey":
+            suggest = "account_key"
+        elif key == "accountName":
+            suggest = "account_name"
+        elif key == "areWorkspaceManagedIdentitiesAllowed":
+            suggest = "are_workspace_managed_identities_allowed"
+        elif key == "blobCacheTimeout":
+            suggest = "blob_cache_timeout"
+        elif key == "clientCredentials":
+            suggest = "client_credentials"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "credentialType":
+            suggest = "credential_type"
+        elif key == "isSas":
+            suggest = "is_sas"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "sasToken":
+            suggest = "sas_token"
+        elif key == "serviceDataAccessAuthIdentity":
+            suggest = "service_data_access_auth_identity"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureStorageSectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureStorageSectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureStorageSectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_key: Optional[str] = None,
+                 account_name: Optional[str] = None,
+                 are_workspace_managed_identities_allowed: Optional[bool] = None,
+                 blob_cache_timeout: Optional[int] = None,
+                 client_credentials: Optional['outputs.ClientCredentialsResponse'] = None,
+                 container_name: Optional[str] = None,
+                 credential: Optional[str] = None,
+                 credential_type: Optional[str] = None,
+                 endpoint: Optional[str] = None,
+                 is_sas: Optional[bool] = None,
+                 protocol: Optional[str] = None,
+                 resource_group: Optional[str] = None,
+                 sas_token: Optional[str] = None,
+                 service_data_access_auth_identity: Optional[str] = None,
+                 subscription_id: Optional[str] = None):
+        """
+        :param str account_key:  Storage Account Key (Deprecated).
+        :param str account_name: Storage Account Name.
+        :param bool are_workspace_managed_identities_allowed: Indicate if we are using Workspace ManagedIdentities/MSI token (Deprecated).
+        :param int blob_cache_timeout:  If this is an "DataStoreType.AzureBlob", the length of time (in seconds) to cache files locally after they are accessed (downloaded).
+        :param str container_name: The storage container name.
+        :param str credential: The credential.
+        :param str credential_type:  The credential type.
+        :param str endpoint: The host of the container.
+        :param bool is_sas: Indicate if we are using SAS token or Account Key (Deprecated).
+        :param str protocol: The protocol to use. Defaults to https.
+        :param str resource_group: Resource Group.
+        :param str sas_token:  SAS Token for the container (Deprecated).
+        :param str service_data_access_auth_identity: Indicates which identity to use to authenticate service data access to customer's storage.
+        :param str subscription_id: Subscription ID.
+        """
+        if account_key is not None:
+            pulumi.set(__self__, "account_key", account_key)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if are_workspace_managed_identities_allowed is not None:
+            pulumi.set(__self__, "are_workspace_managed_identities_allowed", are_workspace_managed_identities_allowed)
+        if blob_cache_timeout is not None:
+            pulumi.set(__self__, "blob_cache_timeout", blob_cache_timeout)
+        if client_credentials is not None:
+            pulumi.set(__self__, "client_credentials", client_credentials)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
+        if credential_type is not None:
+            pulumi.set(__self__, "credential_type", credential_type)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if is_sas is not None:
+            pulumi.set(__self__, "is_sas", is_sas)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if sas_token is not None:
+            pulumi.set(__self__, "sas_token", sas_token)
+        if service_data_access_auth_identity is not None:
+            pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional[str]:
+        """
+         Storage Account Key (Deprecated).
+        """
+        return pulumi.get(self, "account_key")
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[str]:
+        """
+        Storage Account Name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="areWorkspaceManagedIdentitiesAllowed")
+    def are_workspace_managed_identities_allowed(self) -> Optional[bool]:
+        """
+        Indicate if we are using Workspace ManagedIdentities/MSI token (Deprecated).
+        """
+        return pulumi.get(self, "are_workspace_managed_identities_allowed")
+
+    @property
+    @pulumi.getter(name="blobCacheTimeout")
+    def blob_cache_timeout(self) -> Optional[int]:
+        """
+         If this is an "DataStoreType.AzureBlob", the length of time (in seconds) to cache files locally after they are accessed (downloaded).
+        """
+        return pulumi.get(self, "blob_cache_timeout")
+
+    @property
+    @pulumi.getter(name="clientCredentials")
+    def client_credentials(self) -> Optional['outputs.ClientCredentialsResponse']:
+        return pulumi.get(self, "client_credentials")
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[str]:
+        """
+        The storage container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[str]:
+        """
+        The credential.
+        """
+        return pulumi.get(self, "credential")
+
+    @property
+    @pulumi.getter(name="credentialType")
+    def credential_type(self) -> Optional[str]:
+        """
+         The credential type.
+        """
+        return pulumi.get(self, "credential_type")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[str]:
+        """
+        The host of the container.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="isSas")
+    def is_sas(self) -> Optional[bool]:
+        """
+        Indicate if we are using SAS token or Account Key (Deprecated).
+        """
+        return pulumi.get(self, "is_sas")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The protocol to use. Defaults to https.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Resource Group.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="sasToken")
+    def sas_token(self) -> Optional[str]:
+        """
+         SAS Token for the container (Deprecated).
+        """
+        return pulumi.get(self, "sas_token")
+
+    @property
+    @pulumi.getter(name="serviceDataAccessAuthIdentity")
+    def service_data_access_auth_identity(self) -> Optional[str]:
+        """
+        Indicates which identity to use to authenticate service data access to customer's storage.
+        """
+        return pulumi.get(self, "service_data_access_auth_identity")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        Subscription ID.
+        """
+        return pulumi.get(self, "subscription_id")
 
 
 @pulumi.output_type
@@ -3816,6 +5198,178 @@ class ClassificationTrainingSettingsResponse(dict):
         Stack ensemble settings for stack ensemble run.
         """
         return pulumi.get(self, "stack_ensemble_settings")
+
+
+@pulumi.output_type
+class ClientCredentialsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorityUrl":
+            suggest = "authority_url"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "isCertAuth":
+            suggest = "is_cert_auth"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "resourceUri":
+            suggest = "resource_uri"
+        elif key == "serviceDataAccessAuthIdentity":
+            suggest = "service_data_access_auth_identity"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientCredentialsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientCredentialsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authority_url: Optional[str] = None,
+                 certificate: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 is_cert_auth: Optional[bool] = None,
+                 resource_group: Optional[str] = None,
+                 resource_uri: Optional[str] = None,
+                 service_data_access_auth_identity: Optional[str] = None,
+                 subscription_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
+        """
+        :param str authority_url: The authority URL used for authentication.
+        :param str certificate: The content of the certificate used for authentication.
+        :param str client_id: The Client ID/Application ID
+        :param str client_secret: The client secret.
+        :param bool is_cert_auth:  Is it using certificate to authenticate. If false then use client secret.
+        :param str resource_group: Resource Group.
+        :param str resource_uri: The resource the service principal/app has access to.
+        :param str service_data_access_auth_identity: Indicates which identity to use to authenticate service data access to customer's storage.
+        :param str subscription_id: Subscription ID.
+        :param str tenant_id: The ID of the tenant the service principal/app belongs to.
+        :param str thumbprint: The thumbprint of the certificate above.
+        """
+        if authority_url is not None:
+            pulumi.set(__self__, "authority_url", authority_url)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if is_cert_auth is not None:
+            pulumi.set(__self__, "is_cert_auth", is_cert_auth)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if resource_uri is not None:
+            pulumi.set(__self__, "resource_uri", resource_uri)
+        if service_data_access_auth_identity is not None:
+            pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="authorityUrl")
+    def authority_url(self) -> Optional[str]:
+        """
+        The authority URL used for authentication.
+        """
+        return pulumi.get(self, "authority_url")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[str]:
+        """
+        The content of the certificate used for authentication.
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The Client ID/Application ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        """
+        The client secret.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="isCertAuth")
+    def is_cert_auth(self) -> Optional[bool]:
+        """
+         Is it using certificate to authenticate. If false then use client secret.
+        """
+        return pulumi.get(self, "is_cert_auth")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Resource Group.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="resourceUri")
+    def resource_uri(self) -> Optional[str]:
+        """
+        The resource the service principal/app has access to.
+        """
+        return pulumi.get(self, "resource_uri")
+
+    @property
+    @pulumi.getter(name="serviceDataAccessAuthIdentity")
+    def service_data_access_auth_identity(self) -> Optional[str]:
+        """
+        Indicates which identity to use to authenticate service data access to customer's storage.
+        """
+        return pulumi.get(self, "service_data_access_auth_identity")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        Subscription ID.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The ID of the tenant the service principal/app belongs to.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate above.
+        """
+        return pulumi.get(self, "thumbprint")
 
 
 @pulumi.output_type
@@ -7590,6 +9144,990 @@ class DatabricksResponse(dict):
 
 
 @pulumi.output_type
+class DatasetResponse(dict):
+    """
+    Machine Learning dataset object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTime":
+            suggest = "created_time"
+        elif key == "datasetId":
+            suggest = "dataset_id"
+        elif key == "datasetType":
+            suggest = "dataset_type"
+        elif key == "defaultCompute":
+            suggest = "default_compute"
+        elif key == "isVisible":
+            suggest = "is_visible"
+        elif key == "modifiedTime":
+            suggest = "modified_time"
+        elif key == "datasetState":
+            suggest = "dataset_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_time: str,
+                 dataset_id: str,
+                 dataset_type: str,
+                 default_compute: str,
+                 description: str,
+                 etag: str,
+                 is_visible: bool,
+                 modified_time: str,
+                 name: str,
+                 tags: Mapping[str, str],
+                 dataset_state: Optional['outputs.DatasetStateResponse'] = None,
+                 latest: Optional['outputs.DatasetResponseLatest'] = None):
+        """
+        Machine Learning dataset object.
+        :param str created_time: The dataset creation time (UTC).
+        :param str dataset_id: Unique Dataset identifier.
+        :param str dataset_type: Dataset Type.
+        :param str default_compute: Name of the default compute to be used for any Dataset actions (such as Profile, Write).
+        :param str description: Description about this dataset version.
+        :param str etag: eTag description
+        :param bool is_visible: Flag to hide Dataset in UI
+        :param str modified_time: The dataset last modified time (UTC).
+        :param str name: Unique dataset name
+        :param Mapping[str, str] tags: Tags for this dataset version.
+        :param 'DatasetStateResponse' dataset_state: Dataset state
+        :param 'DatasetResponseLatest' latest: Last created Dataset definition.
+        """
+        pulumi.set(__self__, "created_time", created_time)
+        pulumi.set(__self__, "dataset_id", dataset_id)
+        pulumi.set(__self__, "dataset_type", dataset_type)
+        pulumi.set(__self__, "default_compute", default_compute)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "is_visible", is_visible)
+        pulumi.set(__self__, "modified_time", modified_time)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tags", tags)
+        if dataset_state is not None:
+            pulumi.set(__self__, "dataset_state", dataset_state)
+        if latest is not None:
+            pulumi.set(__self__, "latest", latest)
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The dataset creation time (UTC).
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="datasetId")
+    def dataset_id(self) -> str:
+        """
+        Unique Dataset identifier.
+        """
+        return pulumi.get(self, "dataset_id")
+
+    @property
+    @pulumi.getter(name="datasetType")
+    def dataset_type(self) -> str:
+        """
+        Dataset Type.
+        """
+        return pulumi.get(self, "dataset_type")
+
+    @property
+    @pulumi.getter(name="defaultCompute")
+    def default_compute(self) -> str:
+        """
+        Name of the default compute to be used for any Dataset actions (such as Profile, Write).
+        """
+        return pulumi.get(self, "default_compute")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description about this dataset version.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        eTag description
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="isVisible")
+    def is_visible(self) -> bool:
+        """
+        Flag to hide Dataset in UI
+        """
+        return pulumi.get(self, "is_visible")
+
+    @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> str:
+        """
+        The dataset last modified time (UTC).
+        """
+        return pulumi.get(self, "modified_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Unique dataset name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Tags for this dataset version.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="datasetState")
+    def dataset_state(self) -> Optional['outputs.DatasetStateResponse']:
+        """
+        Dataset state
+        """
+        return pulumi.get(self, "dataset_state")
+
+    @property
+    @pulumi.getter
+    def latest(self) -> Optional['outputs.DatasetResponseLatest']:
+        """
+        Last created Dataset definition.
+        """
+        return pulumi.get(self, "latest")
+
+
+@pulumi.output_type
+class DatasetResponseDataPath(dict):
+    """
+     Datastore and reference to location of data such as relativePath, Sql Query and etc.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureFilePath":
+            suggest = "azure_file_path"
+        elif key == "datastoreName":
+            suggest = "datastore_name"
+        elif key == "httpUrl":
+            suggest = "http_url"
+        elif key == "partitionFormat":
+            suggest = "partition_format"
+        elif key == "partitionFormatIgnoreError":
+            suggest = "partition_format_ignore_error"
+        elif key == "relativePath":
+            suggest = "relative_path"
+        elif key == "additionalProperties":
+            suggest = "additional_properties"
+        elif key == "sqlDataPath":
+            suggest = "sql_data_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetResponseDataPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetResponseDataPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetResponseDataPath.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_file_path: str,
+                 datastore_name: str,
+                 http_url: str,
+                 partition_format: str,
+                 partition_format_ignore_error: bool,
+                 paths: Sequence[str],
+                 relative_path: str,
+                 additional_properties: Optional[Mapping[str, Any]] = None,
+                 sql_data_path: Optional['outputs.DatasetResponseSqlDataPath'] = None):
+        """
+         Datastore and reference to location of data such as relativePath, Sql Query and etc.
+        :param str azure_file_path: Azure path for Azure Blob or File
+        :param str datastore_name: Data store Name
+        :param str http_url: HTTP URL.
+        :param str partition_format: Specify the partition format of path. Defaults to None.
+        :param bool partition_format_ignore_error: Whether or not to ignore unmatched path.
+        :param Sequence[str] paths: List of files expanded from a file GLOB specified
+        :param str relative_path: Relative path in the data store
+        :param Mapping[str, Any] additional_properties: Additional Properties.
+        :param 'DatasetResponseSqlDataPath' sql_data_path: Sql Query/Table/Stored Procedure details.
+        """
+        pulumi.set(__self__, "azure_file_path", azure_file_path)
+        pulumi.set(__self__, "datastore_name", datastore_name)
+        pulumi.set(__self__, "http_url", http_url)
+        pulumi.set(__self__, "partition_format", partition_format)
+        pulumi.set(__self__, "partition_format_ignore_error", partition_format_ignore_error)
+        pulumi.set(__self__, "paths", paths)
+        pulumi.set(__self__, "relative_path", relative_path)
+        if additional_properties is not None:
+            pulumi.set(__self__, "additional_properties", additional_properties)
+        if sql_data_path is not None:
+            pulumi.set(__self__, "sql_data_path", sql_data_path)
+
+    @property
+    @pulumi.getter(name="azureFilePath")
+    def azure_file_path(self) -> str:
+        """
+        Azure path for Azure Blob or File
+        """
+        return pulumi.get(self, "azure_file_path")
+
+    @property
+    @pulumi.getter(name="datastoreName")
+    def datastore_name(self) -> str:
+        """
+        Data store Name
+        """
+        return pulumi.get(self, "datastore_name")
+
+    @property
+    @pulumi.getter(name="httpUrl")
+    def http_url(self) -> str:
+        """
+        HTTP URL.
+        """
+        return pulumi.get(self, "http_url")
+
+    @property
+    @pulumi.getter(name="partitionFormat")
+    def partition_format(self) -> str:
+        """
+        Specify the partition format of path. Defaults to None.
+        """
+        return pulumi.get(self, "partition_format")
+
+    @property
+    @pulumi.getter(name="partitionFormatIgnoreError")
+    def partition_format_ignore_error(self) -> bool:
+        """
+        Whether or not to ignore unmatched path.
+        """
+        return pulumi.get(self, "partition_format_ignore_error")
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Sequence[str]:
+        """
+        List of files expanded from a file GLOB specified
+        """
+        return pulumi.get(self, "paths")
+
+    @property
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> str:
+        """
+        Relative path in the data store
+        """
+        return pulumi.get(self, "relative_path")
+
+    @property
+    @pulumi.getter(name="additionalProperties")
+    def additional_properties(self) -> Optional[Mapping[str, Any]]:
+        """
+        Additional Properties.
+        """
+        return pulumi.get(self, "additional_properties")
+
+    @property
+    @pulumi.getter(name="sqlDataPath")
+    def sql_data_path(self) -> Optional['outputs.DatasetResponseSqlDataPath']:
+        """
+        Sql Query/Table/Stored Procedure details.
+        """
+        return pulumi.get(self, "sql_data_path")
+
+
+@pulumi.output_type
+class DatasetResponseLatest(dict):
+    """
+    Last created Dataset definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTime":
+            suggest = "created_time"
+        elif key == "datasetId":
+            suggest = "dataset_id"
+        elif key == "fileType":
+            suggest = "file_type"
+        elif key == "modifiedTime":
+            suggest = "modified_time"
+        elif key == "partitionFormatInPath":
+            suggest = "partition_format_in_path"
+        elif key == "savedDatasetId":
+            suggest = "saved_dataset_id"
+        elif key == "telemetryInfo":
+            suggest = "telemetry_info"
+        elif key == "useDescriptionTagsFromDefinition":
+            suggest = "use_description_tags_from_definition"
+        elif key == "versionId":
+            suggest = "version_id"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "dataPath":
+            suggest = "data_path"
+        elif key == "datasetDefinitionState":
+            suggest = "dataset_definition_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetResponseLatest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetResponseLatest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetResponseLatest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_time: str,
+                 dataflow: str,
+                 dataset_id: str,
+                 description: str,
+                 etag: str,
+                 file_type: str,
+                 modified_time: str,
+                 notes: str,
+                 partition_format_in_path: bool,
+                 saved_dataset_id: str,
+                 tags: Mapping[str, str],
+                 telemetry_info: Mapping[str, str],
+                 use_description_tags_from_definition: bool,
+                 version_id: str,
+                 created_by: Optional['outputs.UserInfoResponse'] = None,
+                 data_path: Optional['outputs.DatasetResponseDataPath'] = None,
+                 dataset_definition_state: Optional['outputs.DatasetStateResponse'] = None,
+                 properties: Optional[Mapping[str, Any]] = None):
+        """
+        Last created Dataset definition.
+        :param str created_time: The dataset creation time (UTC).
+        :param str dataflow: Dataflow Json
+        :param str dataset_id: Unique Dataset identifier.
+        :param str description: Description about the dataset.
+        :param str etag: eTag description
+        :param str file_type: Dataset FileType, specified by user.
+        :param str modified_time: The dataset last modified time (UTC).
+        :param str notes: Summary of Definition changes.
+        :param bool partition_format_in_path: Indicates how the source data is partitioned. This is defined to filter on a range of partitioned data before performing actions or materialization.
+        :param str saved_dataset_id: Indicates the saved dataset this definition is mapping to, populated on Get.
+        :param Mapping[str, str] tags: Tags associated with the dataset.
+        :param Mapping[str, str] telemetry_info:  Telemetry information about the dataset including information like which service the dataset was created from.
+        :param bool use_description_tags_from_definition:  Whether to use description and tags from the definition level as opposed to dataset level (old behavior).
+        :param str version_id: An identifier uniquely identifies a definition change.
+        :param 'UserInfoResponse' created_by: User who created.
+        :param 'DatasetResponseDataPath' data_path:  Datastore and reference to location of data such as relativePath, Sql Query and etc.
+        :param 'DatasetStateResponse' dataset_definition_state: Dataset state
+        :param Mapping[str, Any] properties: Properties stores information like name of time series column for time series dataset.
+        """
+        pulumi.set(__self__, "created_time", created_time)
+        pulumi.set(__self__, "dataflow", dataflow)
+        pulumi.set(__self__, "dataset_id", dataset_id)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "file_type", file_type)
+        pulumi.set(__self__, "modified_time", modified_time)
+        pulumi.set(__self__, "notes", notes)
+        pulumi.set(__self__, "partition_format_in_path", partition_format_in_path)
+        pulumi.set(__self__, "saved_dataset_id", saved_dataset_id)
+        pulumi.set(__self__, "tags", tags)
+        pulumi.set(__self__, "telemetry_info", telemetry_info)
+        pulumi.set(__self__, "use_description_tags_from_definition", use_description_tags_from_definition)
+        pulumi.set(__self__, "version_id", version_id)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if data_path is not None:
+            pulumi.set(__self__, "data_path", data_path)
+        if dataset_definition_state is not None:
+            pulumi.set(__self__, "dataset_definition_state", dataset_definition_state)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The dataset creation time (UTC).
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def dataflow(self) -> str:
+        """
+        Dataflow Json
+        """
+        return pulumi.get(self, "dataflow")
+
+    @property
+    @pulumi.getter(name="datasetId")
+    def dataset_id(self) -> str:
+        """
+        Unique Dataset identifier.
+        """
+        return pulumi.get(self, "dataset_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description about the dataset.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        eTag description
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="fileType")
+    def file_type(self) -> str:
+        """
+        Dataset FileType, specified by user.
+        """
+        return pulumi.get(self, "file_type")
+
+    @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> str:
+        """
+        The dataset last modified time (UTC).
+        """
+        return pulumi.get(self, "modified_time")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> str:
+        """
+        Summary of Definition changes.
+        """
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter(name="partitionFormatInPath")
+    def partition_format_in_path(self) -> bool:
+        """
+        Indicates how the source data is partitioned. This is defined to filter on a range of partitioned data before performing actions or materialization.
+        """
+        return pulumi.get(self, "partition_format_in_path")
+
+    @property
+    @pulumi.getter(name="savedDatasetId")
+    def saved_dataset_id(self) -> str:
+        """
+        Indicates the saved dataset this definition is mapping to, populated on Get.
+        """
+        return pulumi.get(self, "saved_dataset_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Tags associated with the dataset.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="telemetryInfo")
+    def telemetry_info(self) -> Mapping[str, str]:
+        """
+         Telemetry information about the dataset including information like which service the dataset was created from.
+        """
+        return pulumi.get(self, "telemetry_info")
+
+    @property
+    @pulumi.getter(name="useDescriptionTagsFromDefinition")
+    def use_description_tags_from_definition(self) -> bool:
+        """
+         Whether to use description and tags from the definition level as opposed to dataset level (old behavior).
+        """
+        return pulumi.get(self, "use_description_tags_from_definition")
+
+    @property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> str:
+        """
+        An identifier uniquely identifies a definition change.
+        """
+        return pulumi.get(self, "version_id")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional['outputs.UserInfoResponse']:
+        """
+        User who created.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="dataPath")
+    def data_path(self) -> Optional['outputs.DatasetResponseDataPath']:
+        """
+         Datastore and reference to location of data such as relativePath, Sql Query and etc.
+        """
+        return pulumi.get(self, "data_path")
+
+    @property
+    @pulumi.getter(name="datasetDefinitionState")
+    def dataset_definition_state(self) -> Optional['outputs.DatasetStateResponse']:
+        """
+        Dataset state
+        """
+        return pulumi.get(self, "dataset_definition_state")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, Any]]:
+        """
+        Properties stores information like name of time series column for time series dataset.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class DatasetResponseSqlDataPath(dict):
+    """
+    Sql Query/Table/Stored Procedure details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryTimeout":
+            suggest = "query_timeout"
+        elif key == "sqlQuery":
+            suggest = "sql_query"
+        elif key == "sqlStoredProcedureName":
+            suggest = "sql_stored_procedure_name"
+        elif key == "sqlTableName":
+            suggest = "sql_table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetResponseSqlDataPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetResponseSqlDataPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetResponseSqlDataPath.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 query_timeout: float,
+                 sql_query: str,
+                 sql_stored_procedure_name: str,
+                 sql_table_name: str):
+        """
+        Sql Query/Table/Stored Procedure details.
+        :param float query_timeout: SQL query timeout. Unit in seconds.
+        :param str sql_query: SQL query
+        :param str sql_stored_procedure_name: SQL storedProcedure name
+        :param str sql_table_name: SQL table name
+        """
+        pulumi.set(__self__, "query_timeout", query_timeout)
+        pulumi.set(__self__, "sql_query", sql_query)
+        pulumi.set(__self__, "sql_stored_procedure_name", sql_stored_procedure_name)
+        pulumi.set(__self__, "sql_table_name", sql_table_name)
+
+    @property
+    @pulumi.getter(name="queryTimeout")
+    def query_timeout(self) -> float:
+        """
+        SQL query timeout. Unit in seconds.
+        """
+        return pulumi.get(self, "query_timeout")
+
+    @property
+    @pulumi.getter(name="sqlQuery")
+    def sql_query(self) -> str:
+        """
+        SQL query
+        """
+        return pulumi.get(self, "sql_query")
+
+    @property
+    @pulumi.getter(name="sqlStoredProcedureName")
+    def sql_stored_procedure_name(self) -> str:
+        """
+        SQL storedProcedure name
+        """
+        return pulumi.get(self, "sql_stored_procedure_name")
+
+    @property
+    @pulumi.getter(name="sqlTableName")
+    def sql_table_name(self) -> str:
+        """
+        SQL table name
+        """
+        return pulumi.get(self, "sql_table_name")
+
+
+@pulumi.output_type
+class DatasetStateResponse(dict):
+    """
+    Dataset state
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deprecatedBy":
+            suggest = "deprecated_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 deprecated_by: Optional['outputs.DatasetStateResponseDeprecatedBy'] = None,
+                 state: Optional[str] = None):
+        """
+        Dataset state
+        :param str etag: eTag description
+        :param 'DatasetStateResponseDeprecatedBy' deprecated_by: Reference to better Dataset or a Definition
+        :param str state: Dataset state
+        """
+        pulumi.set(__self__, "etag", etag)
+        if deprecated_by is not None:
+            pulumi.set(__self__, "deprecated_by", deprecated_by)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        eTag description
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="deprecatedBy")
+    def deprecated_by(self) -> Optional['outputs.DatasetStateResponseDeprecatedBy']:
+        """
+        Reference to better Dataset or a Definition
+        """
+        return pulumi.get(self, "deprecated_by")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Dataset state
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class DatasetStateResponseDeprecatedBy(dict):
+    """
+    Reference to better Dataset or a Definition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datasetId":
+            suggest = "dataset_id"
+        elif key == "definitionVersion":
+            suggest = "definition_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetStateResponseDeprecatedBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetStateResponseDeprecatedBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetStateResponseDeprecatedBy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dataset_id: str,
+                 definition_version: Optional[str] = None):
+        """
+        Reference to better Dataset or a Definition
+        :param str dataset_id: Unique Dataset identifier.
+        :param str definition_version: Definition Version
+        """
+        pulumi.set(__self__, "dataset_id", dataset_id)
+        if definition_version is not None:
+            pulumi.set(__self__, "definition_version", definition_version)
+
+    @property
+    @pulumi.getter(name="datasetId")
+    def dataset_id(self) -> str:
+        """
+        Unique Dataset identifier.
+        """
+        return pulumi.get(self, "dataset_id")
+
+    @property
+    @pulumi.getter(name="definitionVersion")
+    def definition_version(self) -> Optional[str]:
+        """
+        Definition Version
+        """
+        return pulumi.get(self, "definition_version")
+
+
+@pulumi.output_type
+class DatastoreResponse(dict):
+    """
+    Machine Learning datastore object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "modifiedBy":
+            suggest = "modified_by"
+        elif key == "modifiedTime":
+            suggest = "modified_time"
+        elif key == "azureDataLakeSection":
+            suggest = "azure_data_lake_section"
+        elif key == "azureMySqlSection":
+            suggest = "azure_my_sql_section"
+        elif key == "azurePostgreSqlSection":
+            suggest = "azure_postgre_sql_section"
+        elif key == "azureSqlDatabaseSection":
+            suggest = "azure_sql_database_section"
+        elif key == "azureStorageSection":
+            suggest = "azure_storage_section"
+        elif key == "dataStoreType":
+            suggest = "data_store_type"
+        elif key == "glusterFsSection":
+            suggest = "gluster_fs_section"
+        elif key == "hasBeenValidated":
+            suggest = "has_been_validated"
+        elif key == "linkedInfo":
+            suggest = "linked_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatastoreResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatastoreResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatastoreResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_by: 'outputs.UserInfoResponse',
+                 created_time: str,
+                 modified_by: 'outputs.UserInfoResponse',
+                 modified_time: str,
+                 tags: Mapping[str, str],
+                 azure_data_lake_section: Optional['outputs.AzureDataLakeSectionResponse'] = None,
+                 azure_my_sql_section: Optional['outputs.AzureMySqlSectionResponse'] = None,
+                 azure_postgre_sql_section: Optional['outputs.AzurePostgreSqlSectionResponse'] = None,
+                 azure_sql_database_section: Optional['outputs.AzureSqlDatabaseSectionResponse'] = None,
+                 azure_storage_section: Optional['outputs.AzureStorageSectionResponse'] = None,
+                 data_store_type: Optional[str] = None,
+                 description: Optional[str] = None,
+                 gluster_fs_section: Optional['outputs.GlusterFsSectionResponse'] = None,
+                 has_been_validated: Optional[bool] = None,
+                 linked_info: Optional['outputs.LinkedInfoResponse'] = None,
+                 name: Optional[str] = None):
+        """
+        Machine Learning datastore object.
+        :param 'UserInfoResponse' created_by: The User who created the datastore.
+        :param str created_time: The date and time when the datastore was created.
+        :param 'UserInfoResponse' modified_by: The User who modified the datastore.
+        :param str modified_time: The date and time when the datastore was last modified.
+        :param Mapping[str, str] tags: Tags for this datastore.
+        :param str data_store_type: The datastore type.
+        :param str description: Description of the datastore.
+        :param 'GlusterFsSectionResponse' gluster_fs_section: Data specific to GlusterFS.
+        :param bool has_been_validated: A read only property that denotes whether the service datastore has been validated with credentials.
+        :param 'LinkedInfoResponse' linked_info: Info about origin if it is linked.
+        :param str name: Name of the datastore.
+        """
+        pulumi.set(__self__, "created_by", created_by)
+        pulumi.set(__self__, "created_time", created_time)
+        pulumi.set(__self__, "modified_by", modified_by)
+        pulumi.set(__self__, "modified_time", modified_time)
+        pulumi.set(__self__, "tags", tags)
+        if azure_data_lake_section is not None:
+            pulumi.set(__self__, "azure_data_lake_section", azure_data_lake_section)
+        if azure_my_sql_section is not None:
+            pulumi.set(__self__, "azure_my_sql_section", azure_my_sql_section)
+        if azure_postgre_sql_section is not None:
+            pulumi.set(__self__, "azure_postgre_sql_section", azure_postgre_sql_section)
+        if azure_sql_database_section is not None:
+            pulumi.set(__self__, "azure_sql_database_section", azure_sql_database_section)
+        if azure_storage_section is not None:
+            pulumi.set(__self__, "azure_storage_section", azure_storage_section)
+        if data_store_type is not None:
+            pulumi.set(__self__, "data_store_type", data_store_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if gluster_fs_section is not None:
+            pulumi.set(__self__, "gluster_fs_section", gluster_fs_section)
+        if has_been_validated is None:
+            has_been_validated = False
+        if has_been_validated is not None:
+            pulumi.set(__self__, "has_been_validated", has_been_validated)
+        if linked_info is not None:
+            pulumi.set(__self__, "linked_info", linked_info)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> 'outputs.UserInfoResponse':
+        """
+        The User who created the datastore.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The date and time when the datastore was created.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="modifiedBy")
+    def modified_by(self) -> 'outputs.UserInfoResponse':
+        """
+        The User who modified the datastore.
+        """
+        return pulumi.get(self, "modified_by")
+
+    @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> str:
+        """
+        The date and time when the datastore was last modified.
+        """
+        return pulumi.get(self, "modified_time")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Tags for this datastore.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="azureDataLakeSection")
+    def azure_data_lake_section(self) -> Optional['outputs.AzureDataLakeSectionResponse']:
+        return pulumi.get(self, "azure_data_lake_section")
+
+    @property
+    @pulumi.getter(name="azureMySqlSection")
+    def azure_my_sql_section(self) -> Optional['outputs.AzureMySqlSectionResponse']:
+        return pulumi.get(self, "azure_my_sql_section")
+
+    @property
+    @pulumi.getter(name="azurePostgreSqlSection")
+    def azure_postgre_sql_section(self) -> Optional['outputs.AzurePostgreSqlSectionResponse']:
+        return pulumi.get(self, "azure_postgre_sql_section")
+
+    @property
+    @pulumi.getter(name="azureSqlDatabaseSection")
+    def azure_sql_database_section(self) -> Optional['outputs.AzureSqlDatabaseSectionResponse']:
+        return pulumi.get(self, "azure_sql_database_section")
+
+    @property
+    @pulumi.getter(name="azureStorageSection")
+    def azure_storage_section(self) -> Optional['outputs.AzureStorageSectionResponse']:
+        return pulumi.get(self, "azure_storage_section")
+
+    @property
+    @pulumi.getter(name="dataStoreType")
+    def data_store_type(self) -> Optional[str]:
+        """
+        The datastore type.
+        """
+        return pulumi.get(self, "data_store_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the datastore.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="glusterFsSection")
+    def gluster_fs_section(self) -> Optional['outputs.GlusterFsSectionResponse']:
+        """
+        Data specific to GlusterFS.
+        """
+        return pulumi.get(self, "gluster_fs_section")
+
+    @property
+    @pulumi.getter(name="hasBeenValidated")
+    def has_been_validated(self) -> Optional[bool]:
+        """
+        A read only property that denotes whether the service datastore has been validated with credentials.
+        """
+        return pulumi.get(self, "has_been_validated")
+
+    @property
+    @pulumi.getter(name="linkedInfo")
+    def linked_info(self) -> Optional['outputs.LinkedInfoResponse']:
+        """
+        Info about origin if it is linked.
+        """
+        return pulumi.get(self, "linked_info")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the datastore.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class DefaultScaleSettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -7688,6 +10226,192 @@ class DeploymentResourceConfigurationResponse(dict):
         Additional properties bag.
         """
         return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class DockerBuildResponse(dict):
+    """
+    Class to represent configuration settings for Docker Build
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dockerSpecificationType":
+            suggest = "docker_specification_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DockerBuildResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DockerBuildResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DockerBuildResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 docker_specification_type: str,
+                 dockerfile: str,
+                 context: Optional[str] = None,
+                 platform: Optional['outputs.DockerImagePlatformResponse'] = None):
+        """
+        Class to represent configuration settings for Docker Build
+        :param str docker_specification_type: Enum to determine docker specification type. Must be either Build or Image.
+               Expected value is 'Build'.
+        :param str dockerfile: [Required] Docker command line instructions to assemble an image.
+               <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
+        :param str context: Path to a snapshot of the Docker Context. This property is only valid if Dockerfile is specified.
+               The path is relative to the asset path which must contain a single Blob URI value.
+               <seealso href="https://docs.docker.com/engine/context/working-with-contexts/" />
+        :param 'DockerImagePlatformResponse' platform: The platform information of the docker image.
+        """
+        pulumi.set(__self__, "docker_specification_type", 'Build')
+        pulumi.set(__self__, "dockerfile", dockerfile)
+        if context is not None:
+            pulumi.set(__self__, "context", context)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+
+    @property
+    @pulumi.getter(name="dockerSpecificationType")
+    def docker_specification_type(self) -> str:
+        """
+        Enum to determine docker specification type. Must be either Build or Image.
+        Expected value is 'Build'.
+        """
+        return pulumi.get(self, "docker_specification_type")
+
+    @property
+    @pulumi.getter
+    def dockerfile(self) -> str:
+        """
+        [Required] Docker command line instructions to assemble an image.
+        <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
+        """
+        return pulumi.get(self, "dockerfile")
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[str]:
+        """
+        Path to a snapshot of the Docker Context. This property is only valid if Dockerfile is specified.
+        The path is relative to the asset path which must contain a single Blob URI value.
+        <seealso href="https://docs.docker.com/engine/context/working-with-contexts/" />
+        """
+        return pulumi.get(self, "context")
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional['outputs.DockerImagePlatformResponse']:
+        """
+        The platform information of the docker image.
+        """
+        return pulumi.get(self, "platform")
+
+
+@pulumi.output_type
+class DockerImagePlatformResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operatingSystemType":
+            suggest = "operating_system_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DockerImagePlatformResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DockerImagePlatformResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DockerImagePlatformResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operating_system_type: Optional[str] = None):
+        """
+        :param str operating_system_type: The OS type the Environment.
+        """
+        if operating_system_type is not None:
+            pulumi.set(__self__, "operating_system_type", operating_system_type)
+
+    @property
+    @pulumi.getter(name="operatingSystemType")
+    def operating_system_type(self) -> Optional[str]:
+        """
+        The OS type the Environment.
+        """
+        return pulumi.get(self, "operating_system_type")
+
+
+@pulumi.output_type
+class DockerImageResponse(dict):
+    """
+    Class to represent configuration settings for Docker Build
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dockerImageUri":
+            suggest = "docker_image_uri"
+        elif key == "dockerSpecificationType":
+            suggest = "docker_specification_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DockerImageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DockerImageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DockerImageResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 docker_image_uri: str,
+                 docker_specification_type: str,
+                 platform: Optional['outputs.DockerImagePlatformResponse'] = None):
+        """
+        Class to represent configuration settings for Docker Build
+        :param str docker_image_uri: [Required] Image name of a custom base image.
+               <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+        :param str docker_specification_type: Enum to determine docker specification type. Must be either Build or Image.
+               Expected value is 'Image'.
+        :param 'DockerImagePlatformResponse' platform: The platform information of the docker image.
+        """
+        pulumi.set(__self__, "docker_image_uri", docker_image_uri)
+        pulumi.set(__self__, "docker_specification_type", 'Image')
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+
+    @property
+    @pulumi.getter(name="dockerImageUri")
+    def docker_image_uri(self) -> str:
+        """
+        [Required] Image name of a custom base image.
+        <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+        """
+        return pulumi.get(self, "docker_image_uri")
+
+    @property
+    @pulumi.getter(name="dockerSpecificationType")
+    def docker_specification_type(self) -> str:
+        """
+        Enum to determine docker specification type. Must be either Build or Image.
+        Expected value is 'Image'.
+        """
+        return pulumi.get(self, "docker_specification_type")
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional['outputs.DockerImagePlatformResponse']:
+        """
+        The platform information of the docker image.
+        """
+        return pulumi.get(self, "platform")
 
 
 @pulumi.output_type
@@ -8074,6 +10798,141 @@ class EnvironmentContainerResponse(dict):
         Is the asset archived?
         """
         return pulumi.get(self, "is_archived")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class EnvironmentSpecificationVersionResponse(dict):
+    """
+    Environment specification version details.
+    <see href="https://repo2docker.readthedocs.io/en/latest/specification.html" />
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentSpecificationType":
+            suggest = "environment_specification_type"
+        elif key == "condaFile":
+            suggest = "conda_file"
+        elif key == "inferenceContainerProperties":
+            suggest = "inference_container_properties"
+        elif key == "isAnonymous":
+            suggest = "is_anonymous"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentSpecificationVersionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentSpecificationVersionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentSpecificationVersionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 environment_specification_type: str,
+                 conda_file: Optional[str] = None,
+                 description: Optional[str] = None,
+                 docker: Optional[Any] = None,
+                 inference_container_properties: Optional['outputs.InferenceContainerPropertiesResponse'] = None,
+                 is_anonymous: Optional[bool] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Environment specification version details.
+        <see href="https://repo2docker.readthedocs.io/en/latest/specification.html" />
+        :param str environment_specification_type: Environment specification is either user managed or curated by the Azure ML service
+               <see href="https://docs.microsoft.com/en-us/azure/machine-learning/resource-curated-environments" />
+        :param str conda_file: Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
+               <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
+        :param str description: The asset description text.
+        :param Union['DockerBuildResponse', 'DockerImageResponse'] docker: Configuration settings for Docker.
+        :param 'InferenceContainerPropertiesResponse' inference_container_properties: Defines configuration specific to inference.
+        :param bool is_anonymous: If the name version are system generated (anonymous registration).
+        :param Mapping[str, str] properties: The asset property dictionary.
+        :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "environment_specification_type", environment_specification_type)
+        if conda_file is not None:
+            pulumi.set(__self__, "conda_file", conda_file)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if docker is not None:
+            pulumi.set(__self__, "docker", docker)
+        if inference_container_properties is not None:
+            pulumi.set(__self__, "inference_container_properties", inference_container_properties)
+        if is_anonymous is not None:
+            pulumi.set(__self__, "is_anonymous", is_anonymous)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="environmentSpecificationType")
+    def environment_specification_type(self) -> str:
+        """
+        Environment specification is either user managed or curated by the Azure ML service
+        <see href="https://docs.microsoft.com/en-us/azure/machine-learning/resource-curated-environments" />
+        """
+        return pulumi.get(self, "environment_specification_type")
+
+    @property
+    @pulumi.getter(name="condaFile")
+    def conda_file(self) -> Optional[str]:
+        """
+        Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
+        <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
+        """
+        return pulumi.get(self, "conda_file")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def docker(self) -> Optional[Any]:
+        """
+        Configuration settings for Docker.
+        """
+        return pulumi.get(self, "docker")
+
+    @property
+    @pulumi.getter(name="inferenceContainerProperties")
+    def inference_container_properties(self) -> Optional['outputs.InferenceContainerPropertiesResponse']:
+        """
+        Defines configuration specific to inference.
+        """
+        return pulumi.get(self, "inference_container_properties")
+
+    @property
+    @pulumi.getter(name="isAnonymous")
+    def is_anonymous(self) -> Optional[bool]:
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        return pulumi.get(self, "is_anonymous")
 
     @property
     @pulumi.getter
@@ -8488,6 +11347,800 @@ class ErrorResponseResponse(dict):
         The error object.
         """
         return pulumi.get(self, "error")
+
+
+@pulumi.output_type
+class FeatureResponse(dict):
+    """
+    Dto object representing feature
+    """
+    def __init__(__self__, *,
+                 data_type: Optional[str] = None,
+                 description: Optional[str] = None,
+                 feature_name: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Dto object representing feature
+        :param str data_type: Specifies type
+        :param str description: Specifies description
+        :param str feature_name: Specifies name
+        :param Mapping[str, str] tags: Specifies tags
+        """
+        if data_type is None:
+            data_type = 'String'
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if feature_name is not None:
+            pulumi.set(__self__, "feature_name", feature_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[str]:
+        """
+        Specifies type
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Specifies description
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="featureName")
+    def feature_name(self) -> Optional[str]:
+        """
+        Specifies name
+        """
+        return pulumi.get(self, "feature_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies tags
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class FeatureWindowResponse(dict):
+    """
+    Specifies the feature window
+    """
+    def __init__(__self__, *,
+                 feature_window_end: Optional[str] = None,
+                 feature_window_start: Optional[str] = None):
+        """
+        Specifies the feature window
+        :param str feature_window_end: Specifies the feature window end time
+        :param str feature_window_start: Specifies the feature window start time
+        """
+        if feature_window_end is not None:
+            pulumi.set(__self__, "feature_window_end", feature_window_end)
+        if feature_window_start is not None:
+            pulumi.set(__self__, "feature_window_start", feature_window_start)
+
+    @property
+    @pulumi.getter(name="featureWindowEnd")
+    def feature_window_end(self) -> Optional[str]:
+        """
+        Specifies the feature window end time
+        """
+        return pulumi.get(self, "feature_window_end")
+
+    @property
+    @pulumi.getter(name="featureWindowStart")
+    def feature_window_start(self) -> Optional[str]:
+        """
+        Specifies the feature window start time
+        """
+        return pulumi.get(self, "feature_window_start")
+
+
+@pulumi.output_type
+class FeaturesetContainerResponse(dict):
+    """
+    Dto object representing feature set
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "latestVersion":
+            suggest = "latest_version"
+        elif key == "nextVersion":
+            suggest = "next_version"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "isArchived":
+            suggest = "is_archived"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeaturesetContainerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeaturesetContainerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeaturesetContainerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 latest_version: str,
+                 next_version: str,
+                 provisioning_state: str,
+                 description: Optional[str] = None,
+                 is_archived: Optional[bool] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Dto object representing feature set
+        :param str latest_version: The latest version inside this container.
+        :param str next_version: The next auto incremental version
+        :param str provisioning_state: Provisioning state for the featureset container.
+        :param str description: The asset description text.
+        :param bool is_archived: Is the asset archived?
+        :param Mapping[str, str] properties: The asset property dictionary.
+        :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "latest_version", latest_version)
+        pulumi.set(__self__, "next_version", next_version)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_archived is None:
+            is_archived = False
+        if is_archived is not None:
+            pulumi.set(__self__, "is_archived", is_archived)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> str:
+        """
+        The latest version inside this container.
+        """
+        return pulumi.get(self, "latest_version")
+
+    @property
+    @pulumi.getter(name="nextVersion")
+    def next_version(self) -> str:
+        """
+        The next auto incremental version
+        """
+        return pulumi.get(self, "next_version")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state for the featureset container.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isArchived")
+    def is_archived(self) -> Optional[bool]:
+        """
+        Is the asset archived?
+        """
+        return pulumi.get(self, "is_archived")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class FeaturesetJobResponse(dict):
+    """
+    Dto object representing the feature set job
+    """
+    def __init__(__self__, *,
+                 created_date: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 duration: Optional[str] = None,
+                 experiment_id: Optional[str] = None,
+                 feature_window: Optional['outputs.FeatureWindowResponse'] = None,
+                 job_id: Optional[str] = None,
+                 status: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 type: Optional[str] = None):
+        """
+        Dto object representing the feature set job
+        :param str created_date: Specifies the created date
+        :param str display_name: Specifies the display name
+        :param str duration: Specifies the duration
+        :param str experiment_id: Specifies the experiment id
+        :param 'FeatureWindowResponse' feature_window: Specifies the backfill feature window to be materialized
+        :param str job_id: Specifies the job id
+        :param str status: Specifies the job status
+        :param Mapping[str, str] tags: Specifies the tags if any
+        :param str type: Specifies the feature store job type
+        """
+        if created_date is not None:
+            pulumi.set(__self__, "created_date", created_date)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if experiment_id is not None:
+            pulumi.set(__self__, "experiment_id", experiment_id)
+        if feature_window is not None:
+            pulumi.set(__self__, "feature_window", feature_window)
+        if job_id is not None:
+            pulumi.set(__self__, "job_id", job_id)
+        if status is None:
+            status = 'Unknown'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is None:
+            type = 'RecurrentMaterialization'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> Optional[str]:
+        """
+        Specifies the created date
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Specifies the display name
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[str]:
+        """
+        Specifies the duration
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="experimentId")
+    def experiment_id(self) -> Optional[str]:
+        """
+        Specifies the experiment id
+        """
+        return pulumi.get(self, "experiment_id")
+
+    @property
+    @pulumi.getter(name="featureWindow")
+    def feature_window(self) -> Optional['outputs.FeatureWindowResponse']:
+        """
+        Specifies the backfill feature window to be materialized
+        """
+        return pulumi.get(self, "feature_window")
+
+    @property
+    @pulumi.getter(name="jobId")
+    def job_id(self) -> Optional[str]:
+        """
+        Specifies the job id
+        """
+        return pulumi.get(self, "job_id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Specifies the job status
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies the tags if any
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Specifies the feature store job type
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FeaturesetSpecificationResponse(dict):
+    """
+    Dto object representing specification
+    """
+    def __init__(__self__, *,
+                 path: Optional[str] = None):
+        """
+        Dto object representing specification
+        :param str path: Specifies the spec path
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        Specifies the spec path
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class FeaturesetVersionResponse(dict):
+    """
+    Dto object representing feature set version
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "autoDeleteSetting":
+            suggest = "auto_delete_setting"
+        elif key == "isAnonymous":
+            suggest = "is_anonymous"
+        elif key == "isArchived":
+            suggest = "is_archived"
+        elif key == "materializationSettings":
+            suggest = "materialization_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeaturesetVersionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeaturesetVersionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeaturesetVersionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 auto_delete_setting: Optional['outputs.AutoDeleteSettingResponse'] = None,
+                 description: Optional[str] = None,
+                 entities: Optional[Sequence[str]] = None,
+                 is_anonymous: Optional[bool] = None,
+                 is_archived: Optional[bool] = None,
+                 materialization_settings: Optional['outputs.MaterializationSettingsResponse'] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 specification: Optional['outputs.FeaturesetSpecificationResponse'] = None,
+                 stage: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Dto object representing feature set version
+        :param str provisioning_state: Provisioning state for the featureset version container.
+        :param 'AutoDeleteSettingResponse' auto_delete_setting: Specifies the lifecycle setting of managed data asset.
+        :param str description: The asset description text.
+        :param Sequence[str] entities: Specifies list of entities
+        :param bool is_anonymous: If the name version are system generated (anonymous registration). For types where Stage is defined, when Stage is provided it will be used to populate IsAnonymous
+        :param bool is_archived: Is the asset archived? For types where Stage is defined, when Stage is provided it will be used to populate IsArchived
+        :param 'MaterializationSettingsResponse' materialization_settings: Specifies the materialization settings
+        :param Mapping[str, str] properties: The asset property dictionary.
+        :param 'FeaturesetSpecificationResponse' specification: Specifies the feature spec details
+        :param str stage: Specifies the asset stage
+        :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if auto_delete_setting is not None:
+            pulumi.set(__self__, "auto_delete_setting", auto_delete_setting)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if entities is not None:
+            pulumi.set(__self__, "entities", entities)
+        if is_anonymous is None:
+            is_anonymous = False
+        if is_anonymous is not None:
+            pulumi.set(__self__, "is_anonymous", is_anonymous)
+        if is_archived is None:
+            is_archived = False
+        if is_archived is not None:
+            pulumi.set(__self__, "is_archived", is_archived)
+        if materialization_settings is not None:
+            pulumi.set(__self__, "materialization_settings", materialization_settings)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if specification is not None:
+            pulumi.set(__self__, "specification", specification)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state for the featureset version container.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="autoDeleteSetting")
+    def auto_delete_setting(self) -> Optional['outputs.AutoDeleteSettingResponse']:
+        """
+        Specifies the lifecycle setting of managed data asset.
+        """
+        return pulumi.get(self, "auto_delete_setting")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def entities(self) -> Optional[Sequence[str]]:
+        """
+        Specifies list of entities
+        """
+        return pulumi.get(self, "entities")
+
+    @property
+    @pulumi.getter(name="isAnonymous")
+    def is_anonymous(self) -> Optional[bool]:
+        """
+        If the name version are system generated (anonymous registration). For types where Stage is defined, when Stage is provided it will be used to populate IsAnonymous
+        """
+        return pulumi.get(self, "is_anonymous")
+
+    @property
+    @pulumi.getter(name="isArchived")
+    def is_archived(self) -> Optional[bool]:
+        """
+        Is the asset archived? For types where Stage is defined, when Stage is provided it will be used to populate IsArchived
+        """
+        return pulumi.get(self, "is_archived")
+
+    @property
+    @pulumi.getter(name="materializationSettings")
+    def materialization_settings(self) -> Optional['outputs.MaterializationSettingsResponse']:
+        """
+        Specifies the materialization settings
+        """
+        return pulumi.get(self, "materialization_settings")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def specification(self) -> Optional['outputs.FeaturesetSpecificationResponse']:
+        """
+        Specifies the feature spec details
+        """
+        return pulumi.get(self, "specification")
+
+    @property
+    @pulumi.getter
+    def stage(self) -> Optional[str]:
+        """
+        Specifies the asset stage
+        """
+        return pulumi.get(self, "stage")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class FeaturestoreEntityContainerResponse(dict):
+    """
+    Dto object representing feature entity
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "latestVersion":
+            suggest = "latest_version"
+        elif key == "nextVersion":
+            suggest = "next_version"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "isArchived":
+            suggest = "is_archived"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeaturestoreEntityContainerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeaturestoreEntityContainerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeaturestoreEntityContainerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 latest_version: str,
+                 next_version: str,
+                 provisioning_state: str,
+                 description: Optional[str] = None,
+                 is_archived: Optional[bool] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Dto object representing feature entity
+        :param str latest_version: The latest version inside this container.
+        :param str next_version: The next auto incremental version
+        :param str provisioning_state: Provisioning state for the featurestore entity container.
+        :param str description: The asset description text.
+        :param bool is_archived: Is the asset archived?
+        :param Mapping[str, str] properties: The asset property dictionary.
+        :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "latest_version", latest_version)
+        pulumi.set(__self__, "next_version", next_version)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_archived is None:
+            is_archived = False
+        if is_archived is not None:
+            pulumi.set(__self__, "is_archived", is_archived)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> str:
+        """
+        The latest version inside this container.
+        """
+        return pulumi.get(self, "latest_version")
+
+    @property
+    @pulumi.getter(name="nextVersion")
+    def next_version(self) -> str:
+        """
+        The next auto incremental version
+        """
+        return pulumi.get(self, "next_version")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state for the featurestore entity container.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isArchived")
+    def is_archived(self) -> Optional[bool]:
+        """
+        Is the asset archived?
+        """
+        return pulumi.get(self, "is_archived")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class FeaturestoreEntityVersionResponse(dict):
+    """
+    Dto object representing feature entity version
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "autoDeleteSetting":
+            suggest = "auto_delete_setting"
+        elif key == "indexColumns":
+            suggest = "index_columns"
+        elif key == "isAnonymous":
+            suggest = "is_anonymous"
+        elif key == "isArchived":
+            suggest = "is_archived"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeaturestoreEntityVersionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeaturestoreEntityVersionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeaturestoreEntityVersionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 auto_delete_setting: Optional['outputs.AutoDeleteSettingResponse'] = None,
+                 description: Optional[str] = None,
+                 index_columns: Optional[Sequence['outputs.IndexColumnResponse']] = None,
+                 is_anonymous: Optional[bool] = None,
+                 is_archived: Optional[bool] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 stage: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Dto object representing feature entity version
+        :param str provisioning_state: Provisioning state for the featurestore entity version.
+        :param 'AutoDeleteSettingResponse' auto_delete_setting: Specifies the lifecycle setting of managed data asset.
+        :param str description: The asset description text.
+        :param Sequence['IndexColumnResponse'] index_columns: Specifies index columns
+        :param bool is_anonymous: If the name version are system generated (anonymous registration). For types where Stage is defined, when Stage is provided it will be used to populate IsAnonymous
+        :param bool is_archived: Is the asset archived? For types where Stage is defined, when Stage is provided it will be used to populate IsArchived
+        :param Mapping[str, str] properties: The asset property dictionary.
+        :param str stage: Specifies the asset stage
+        :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if auto_delete_setting is not None:
+            pulumi.set(__self__, "auto_delete_setting", auto_delete_setting)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if index_columns is not None:
+            pulumi.set(__self__, "index_columns", index_columns)
+        if is_anonymous is None:
+            is_anonymous = False
+        if is_anonymous is not None:
+            pulumi.set(__self__, "is_anonymous", is_anonymous)
+        if is_archived is None:
+            is_archived = False
+        if is_archived is not None:
+            pulumi.set(__self__, "is_archived", is_archived)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state for the featurestore entity version.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="autoDeleteSetting")
+    def auto_delete_setting(self) -> Optional['outputs.AutoDeleteSettingResponse']:
+        """
+        Specifies the lifecycle setting of managed data asset.
+        """
+        return pulumi.get(self, "auto_delete_setting")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="indexColumns")
+    def index_columns(self) -> Optional[Sequence['outputs.IndexColumnResponse']]:
+        """
+        Specifies index columns
+        """
+        return pulumi.get(self, "index_columns")
+
+    @property
+    @pulumi.getter(name="isAnonymous")
+    def is_anonymous(self) -> Optional[bool]:
+        """
+        If the name version are system generated (anonymous registration). For types where Stage is defined, when Stage is provided it will be used to populate IsAnonymous
+        """
+        return pulumi.get(self, "is_anonymous")
+
+    @property
+    @pulumi.getter(name="isArchived")
+    def is_archived(self) -> Optional[bool]:
+        """
+        Is the asset archived? For types where Stage is defined, when Stage is provided it will be used to populate IsArchived
+        """
+        return pulumi.get(self, "is_archived")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def stage(self) -> Optional[str]:
+        """
+        Specifies the asset stage
+        """
+        return pulumi.get(self, "stage")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -9166,6 +12819,114 @@ class ForecastingTrainingSettingsResponse(dict):
 
 
 @pulumi.output_type
+class FqdnOutboundRuleResponse(dict):
+    """
+    FQDN Outbound Rule for the managed network of a machine learning workspace.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 category: Optional[str] = None,
+                 destination: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        FQDN Outbound Rule for the managed network of a machine learning workspace.
+        :param str type: Type of a managed network Outbound Rule of a machine learning workspace.
+               Expected value is 'FQDN'.
+        :param str category: Category of a managed network Outbound Rule of a machine learning workspace.
+        :param str status: Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        pulumi.set(__self__, "type", 'FQDN')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of a managed network Outbound Rule of a machine learning workspace.
+        Expected value is 'FQDN'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Category of a managed network Outbound Rule of a machine learning workspace.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[str]:
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GlusterFsSectionResponse(dict):
+    """
+    Data specific to GlusterFS.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverAddress":
+            suggest = "server_address"
+        elif key == "volumeName":
+            suggest = "volume_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlusterFsSectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlusterFsSectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlusterFsSectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 server_address: str,
+                 volume_name: str):
+        """
+        Data specific to GlusterFS.
+        :param str server_address: The server address of one of the servers that hosts the GlusterFS. Can be either the IP address or server name.
+        :param str volume_name: The name of the created GlusterFS volume.
+        """
+        pulumi.set(__self__, "server_address", server_address)
+        pulumi.set(__self__, "volume_name", volume_name)
+
+    @property
+    @pulumi.getter(name="serverAddress")
+    def server_address(self) -> str:
+        """
+        The server address of one of the servers that hosts the GlusterFS. Can be either the IP address or server name.
+        """
+        return pulumi.get(self, "server_address")
+
+    @property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> str:
+        """
+        The name of the created GlusterFS volume.
+        """
+        return pulumi.get(self, "volume_name")
+
+
+@pulumi.output_type
 class GridSamplingAlgorithmResponse(dict):
     """
     Defines a Sampling Algorithm that exhaustively generates every value combination in the space
@@ -9536,6 +13297,84 @@ class IdentityForCmkResponse(dict):
         The ArmId of the user assigned identity that will be used to access the customer managed key vault
         """
         return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The user assigned identities associated with the resource.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The user assigned identities associated with the resource.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -12947,6 +16786,62 @@ class ImageSweepSettingsResponse(dict):
 
 
 @pulumi.output_type
+class IndexColumnResponse(dict):
+    """
+    Dto object representing index column
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexColumnResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexColumnResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexColumnResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: Optional[str] = None,
+                 data_type: Optional[str] = None):
+        """
+        Dto object representing index column
+        :param str column_name: Specifies the column name
+        :param str data_type: Specifies the data type
+        """
+        if column_name is not None:
+            pulumi.set(__self__, "column_name", column_name)
+        if data_type is None:
+            data_type = 'String'
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> Optional[str]:
+        """
+        Specifies the column name
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[str]:
+        """
+        Specifies the data type
+        """
+        return pulumi.get(self, "data_type")
+
+
+@pulumi.output_type
 class InferenceContainerPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -13934,6 +17829,873 @@ class KubernetesResponse(dict):
 
 
 @pulumi.output_type
+class LabelCategoryResponse(dict):
+    """
+    Label category definition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "multiSelect":
+            suggest = "multi_select"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelCategoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelCategoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelCategoryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 classes: Optional[Mapping[str, 'outputs.LabelClassResponse']] = None,
+                 display_name: Optional[str] = None,
+                 multi_select: Optional[str] = None):
+        """
+        Label category definition
+        :param Mapping[str, 'LabelClassResponse'] classes: Dictionary of label classes in this category.
+        :param str display_name: Display name of the label category.
+        :param str multi_select: Indicates whether it is allowed to select multiple classes in this category.
+        """
+        if classes is not None:
+            pulumi.set(__self__, "classes", classes)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if multi_select is None:
+            multi_select = 'Disabled'
+        if multi_select is not None:
+            pulumi.set(__self__, "multi_select", multi_select)
+
+    @property
+    @pulumi.getter
+    def classes(self) -> Optional[Mapping[str, 'outputs.LabelClassResponse']]:
+        """
+        Dictionary of label classes in this category.
+        """
+        return pulumi.get(self, "classes")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name of the label category.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="multiSelect")
+    def multi_select(self) -> Optional[str]:
+        """
+        Indicates whether it is allowed to select multiple classes in this category.
+        """
+        return pulumi.get(self, "multi_select")
+
+
+@pulumi.output_type
+class LabelClassResponse(dict):
+    """
+    Label class definition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelClassResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelClassResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelClassResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_name: Optional[str] = None,
+                 subclasses: Optional[Mapping[str, 'outputs.LabelClassResponse']] = None):
+        """
+        Label class definition
+        :param str display_name: Display name of the label class.
+        :param Mapping[str, 'LabelClassResponse'] subclasses: Dictionary of subclasses of the label class.
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if subclasses is not None:
+            pulumi.set(__self__, "subclasses", subclasses)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name of the label class.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def subclasses(self) -> Optional[Mapping[str, 'outputs.LabelClassResponse']]:
+        """
+        Dictionary of subclasses of the label class.
+        """
+        return pulumi.get(self, "subclasses")
+
+
+@pulumi.output_type
+class LabelingDataConfigurationResponse(dict):
+    """
+    Labeling data configuration definition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataId":
+            suggest = "data_id"
+        elif key == "incrementalDataRefresh":
+            suggest = "incremental_data_refresh"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingDataConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingDataConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingDataConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_id: Optional[str] = None,
+                 incremental_data_refresh: Optional[str] = None):
+        """
+        Labeling data configuration definition
+        :param str data_id: Resource Id of the data asset to perform labeling.
+        :param str incremental_data_refresh: Indicates whether to enable incremental data refresh.
+        """
+        if data_id is not None:
+            pulumi.set(__self__, "data_id", data_id)
+        if incremental_data_refresh is None:
+            incremental_data_refresh = 'Disabled'
+        if incremental_data_refresh is not None:
+            pulumi.set(__self__, "incremental_data_refresh", incremental_data_refresh)
+
+    @property
+    @pulumi.getter(name="dataId")
+    def data_id(self) -> Optional[str]:
+        """
+        Resource Id of the data asset to perform labeling.
+        """
+        return pulumi.get(self, "data_id")
+
+    @property
+    @pulumi.getter(name="incrementalDataRefresh")
+    def incremental_data_refresh(self) -> Optional[str]:
+        """
+        Indicates whether to enable incremental data refresh.
+        """
+        return pulumi.get(self, "incremental_data_refresh")
+
+
+@pulumi.output_type
+class LabelingJobImagePropertiesResponse(dict):
+    """
+    Properties of a labeling job for image data
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mediaType":
+            suggest = "media_type"
+        elif key == "annotationType":
+            suggest = "annotation_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobImagePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobImagePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobImagePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 media_type: str,
+                 annotation_type: Optional[str] = None):
+        """
+        Properties of a labeling job for image data
+        :param str media_type: Media type of data asset.
+               Expected value is 'Image'.
+        :param str annotation_type: Annotation type of image labeling job.
+        """
+        pulumi.set(__self__, "media_type", 'Image')
+        if annotation_type is None:
+            annotation_type = 'Classification'
+        if annotation_type is not None:
+            pulumi.set(__self__, "annotation_type", annotation_type)
+
+    @property
+    @pulumi.getter(name="mediaType")
+    def media_type(self) -> str:
+        """
+        Media type of data asset.
+        Expected value is 'Image'.
+        """
+        return pulumi.get(self, "media_type")
+
+    @property
+    @pulumi.getter(name="annotationType")
+    def annotation_type(self) -> Optional[str]:
+        """
+        Annotation type of image labeling job.
+        """
+        return pulumi.get(self, "annotation_type")
+
+
+@pulumi.output_type
+class LabelingJobInstructionsResponse(dict):
+    """
+    Instructions for labeling job
+    """
+    def __init__(__self__, *,
+                 uri: Optional[str] = None):
+        """
+        Instructions for labeling job
+        :param str uri: The link to a page with detailed labeling instructions for labelers.
+        """
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        The link to a page with detailed labeling instructions for labelers.
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class LabelingJobResponse(dict):
+    """
+    Labeling job definition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdDateTime":
+            suggest = "created_date_time"
+        elif key == "jobType":
+            suggest = "job_type"
+        elif key == "progressMetrics":
+            suggest = "progress_metrics"
+        elif key == "projectId":
+            suggest = "project_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "statusMessages":
+            suggest = "status_messages"
+        elif key == "componentId":
+            suggest = "component_id"
+        elif key == "computeId":
+            suggest = "compute_id"
+        elif key == "dataConfiguration":
+            suggest = "data_configuration"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "experimentName":
+            suggest = "experiment_name"
+        elif key == "isArchived":
+            suggest = "is_archived"
+        elif key == "jobInstructions":
+            suggest = "job_instructions"
+        elif key == "labelCategories":
+            suggest = "label_categories"
+        elif key == "labelingJobMediaProperties":
+            suggest = "labeling_job_media_properties"
+        elif key == "mlAssistConfiguration":
+            suggest = "ml_assist_configuration"
+        elif key == "notificationSetting":
+            suggest = "notification_setting"
+        elif key == "secretsConfiguration":
+            suggest = "secrets_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_date_time: str,
+                 job_type: str,
+                 progress_metrics: 'outputs.ProgressMetricsResponse',
+                 project_id: str,
+                 provisioning_state: str,
+                 status: str,
+                 status_messages: Sequence['outputs.StatusMessageResponse'],
+                 component_id: Optional[str] = None,
+                 compute_id: Optional[str] = None,
+                 data_configuration: Optional['outputs.LabelingDataConfigurationResponse'] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 experiment_name: Optional[str] = None,
+                 identity: Optional[Any] = None,
+                 is_archived: Optional[bool] = None,
+                 job_instructions: Optional['outputs.LabelingJobInstructionsResponse'] = None,
+                 label_categories: Optional[Mapping[str, 'outputs.LabelCategoryResponse']] = None,
+                 labeling_job_media_properties: Optional[Any] = None,
+                 ml_assist_configuration: Optional[Any] = None,
+                 notification_setting: Optional['outputs.NotificationSettingResponse'] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 secrets_configuration: Optional[Mapping[str, 'outputs.SecretConfigurationResponse']] = None,
+                 services: Optional[Mapping[str, 'outputs.JobServiceResponse']] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Labeling job definition
+        :param str created_date_time: Created time of the job in UTC timezone.
+        :param str job_type: Enum to determine the type of job.
+               Expected value is 'Labeling'.
+        :param 'ProgressMetricsResponse' progress_metrics: Progress metrics of the job.
+        :param str project_id: Internal id of the job(Previously called project).
+        :param str provisioning_state: Specifies the labeling job provisioning state.
+        :param str status: Status of the job.
+        :param Sequence['StatusMessageResponse'] status_messages: Status messages of the job.
+        :param str component_id: ARM resource ID of the component resource.
+        :param str compute_id: ARM resource ID of the compute resource.
+        :param 'LabelingDataConfigurationResponse' data_configuration: Configuration of data used in the job.
+        :param str description: The asset description text.
+        :param str display_name: Display name of job.
+        :param str experiment_name: The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        :param Union['AmlTokenResponse', 'ManagedIdentityResponse', 'UserIdentityResponse'] identity: Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
+               Defaults to AmlToken if null.
+        :param bool is_archived: Is the asset archived?
+        :param 'LabelingJobInstructionsResponse' job_instructions: Labeling instructions of the job.
+        :param Mapping[str, 'LabelCategoryResponse'] label_categories: Label categories of the job.
+        :param Union['LabelingJobImagePropertiesResponse', 'LabelingJobTextPropertiesResponse'] labeling_job_media_properties: Media type specific properties in the job.
+        :param Union['MLAssistConfigurationDisabledResponse', 'MLAssistConfigurationEnabledResponse'] ml_assist_configuration: Configuration of MLAssist feature in the job.
+        :param 'NotificationSettingResponse' notification_setting: Notification setting for the job
+        :param Mapping[str, str] properties: The asset property dictionary.
+        :param Mapping[str, 'SecretConfigurationResponse'] secrets_configuration: Configuration for secrets to be made available during runtime.
+        :param Mapping[str, 'JobServiceResponse'] services: List of JobEndpoints.
+               For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "created_date_time", created_date_time)
+        pulumi.set(__self__, "job_type", 'Labeling')
+        pulumi.set(__self__, "progress_metrics", progress_metrics)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_messages", status_messages)
+        if component_id is not None:
+            pulumi.set(__self__, "component_id", component_id)
+        if compute_id is not None:
+            pulumi.set(__self__, "compute_id", compute_id)
+        if data_configuration is not None:
+            pulumi.set(__self__, "data_configuration", data_configuration)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if experiment_name is None:
+            experiment_name = 'Default'
+        if experiment_name is not None:
+            pulumi.set(__self__, "experiment_name", experiment_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if is_archived is None:
+            is_archived = False
+        if is_archived is not None:
+            pulumi.set(__self__, "is_archived", is_archived)
+        if job_instructions is not None:
+            pulumi.set(__self__, "job_instructions", job_instructions)
+        if label_categories is not None:
+            pulumi.set(__self__, "label_categories", label_categories)
+        if labeling_job_media_properties is not None:
+            pulumi.set(__self__, "labeling_job_media_properties", labeling_job_media_properties)
+        if ml_assist_configuration is not None:
+            pulumi.set(__self__, "ml_assist_configuration", ml_assist_configuration)
+        if notification_setting is not None:
+            pulumi.set(__self__, "notification_setting", notification_setting)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if secrets_configuration is not None:
+            pulumi.set(__self__, "secrets_configuration", secrets_configuration)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="createdDateTime")
+    def created_date_time(self) -> str:
+        """
+        Created time of the job in UTC timezone.
+        """
+        return pulumi.get(self, "created_date_time")
+
+    @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> str:
+        """
+        Enum to determine the type of job.
+        Expected value is 'Labeling'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @property
+    @pulumi.getter(name="progressMetrics")
+    def progress_metrics(self) -> 'outputs.ProgressMetricsResponse':
+        """
+        Progress metrics of the job.
+        """
+        return pulumi.get(self, "progress_metrics")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> str:
+        """
+        Internal id of the job(Previously called project).
+        """
+        return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Specifies the labeling job provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the job.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusMessages")
+    def status_messages(self) -> Sequence['outputs.StatusMessageResponse']:
+        """
+        Status messages of the job.
+        """
+        return pulumi.get(self, "status_messages")
+
+    @property
+    @pulumi.getter(name="componentId")
+    def component_id(self) -> Optional[str]:
+        """
+        ARM resource ID of the component resource.
+        """
+        return pulumi.get(self, "component_id")
+
+    @property
+    @pulumi.getter(name="computeId")
+    def compute_id(self) -> Optional[str]:
+        """
+        ARM resource ID of the compute resource.
+        """
+        return pulumi.get(self, "compute_id")
+
+    @property
+    @pulumi.getter(name="dataConfiguration")
+    def data_configuration(self) -> Optional['outputs.LabelingDataConfigurationResponse']:
+        """
+        Configuration of data used in the job.
+        """
+        return pulumi.get(self, "data_configuration")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name of job.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="experimentName")
+    def experiment_name(self) -> Optional[str]:
+        """
+        The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        """
+        return pulumi.get(self, "experiment_name")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[Any]:
+        """
+        Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
+        Defaults to AmlToken if null.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="isArchived")
+    def is_archived(self) -> Optional[bool]:
+        """
+        Is the asset archived?
+        """
+        return pulumi.get(self, "is_archived")
+
+    @property
+    @pulumi.getter(name="jobInstructions")
+    def job_instructions(self) -> Optional['outputs.LabelingJobInstructionsResponse']:
+        """
+        Labeling instructions of the job.
+        """
+        return pulumi.get(self, "job_instructions")
+
+    @property
+    @pulumi.getter(name="labelCategories")
+    def label_categories(self) -> Optional[Mapping[str, 'outputs.LabelCategoryResponse']]:
+        """
+        Label categories of the job.
+        """
+        return pulumi.get(self, "label_categories")
+
+    @property
+    @pulumi.getter(name="labelingJobMediaProperties")
+    def labeling_job_media_properties(self) -> Optional[Any]:
+        """
+        Media type specific properties in the job.
+        """
+        return pulumi.get(self, "labeling_job_media_properties")
+
+    @property
+    @pulumi.getter(name="mlAssistConfiguration")
+    def ml_assist_configuration(self) -> Optional[Any]:
+        """
+        Configuration of MLAssist feature in the job.
+        """
+        return pulumi.get(self, "ml_assist_configuration")
+
+    @property
+    @pulumi.getter(name="notificationSetting")
+    def notification_setting(self) -> Optional['outputs.NotificationSettingResponse']:
+        """
+        Notification setting for the job
+        """
+        return pulumi.get(self, "notification_setting")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="secretsConfiguration")
+    def secrets_configuration(self) -> Optional[Mapping[str, 'outputs.SecretConfigurationResponse']]:
+        """
+        Configuration for secrets to be made available during runtime.
+        """
+        return pulumi.get(self, "secrets_configuration")
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[Mapping[str, 'outputs.JobServiceResponse']]:
+        """
+        List of JobEndpoints.
+        For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        """
+        return pulumi.get(self, "services")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class LabelingJobTextPropertiesResponse(dict):
+    """
+    Properties of a labeling job for text data
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mediaType":
+            suggest = "media_type"
+        elif key == "annotationType":
+            suggest = "annotation_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobTextPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobTextPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobTextPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 media_type: str,
+                 annotation_type: Optional[str] = None):
+        """
+        Properties of a labeling job for text data
+        :param str media_type: Media type of data asset.
+               Expected value is 'Text'.
+        :param str annotation_type: Annotation type of text labeling job.
+        """
+        pulumi.set(__self__, "media_type", 'Text')
+        if annotation_type is None:
+            annotation_type = 'Classification'
+        if annotation_type is not None:
+            pulumi.set(__self__, "annotation_type", annotation_type)
+
+    @property
+    @pulumi.getter(name="mediaType")
+    def media_type(self) -> str:
+        """
+        Media type of data asset.
+        Expected value is 'Text'.
+        """
+        return pulumi.get(self, "media_type")
+
+    @property
+    @pulumi.getter(name="annotationType")
+    def annotation_type(self) -> Optional[str]:
+        """
+        Annotation type of text labeling job.
+        """
+        return pulumi.get(self, "annotation_type")
+
+
+@pulumi.output_type
+class LinkedInfoResponse(dict):
+    """
+    Info about origin if it is linked.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedId":
+            suggest = "linked_id"
+        elif key == "linkedResourceName":
+            suggest = "linked_resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_id: Optional[str] = None,
+                 linked_resource_name: Optional[str] = None,
+                 origin: Optional[str] = None):
+        """
+        Info about origin if it is linked.
+        :param str linked_id: LinkedId id.
+        :param str linked_resource_name: Linked resource name.
+        :param str origin: Datastore origin
+        """
+        if linked_id is not None:
+            pulumi.set(__self__, "linked_id", linked_id)
+        if linked_resource_name is not None:
+            pulumi.set(__self__, "linked_resource_name", linked_resource_name)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+
+    @property
+    @pulumi.getter(name="linkedId")
+    def linked_id(self) -> Optional[str]:
+        """
+        LinkedId id.
+        """
+        return pulumi.get(self, "linked_id")
+
+    @property
+    @pulumi.getter(name="linkedResourceName")
+    def linked_resource_name(self) -> Optional[str]:
+        """
+        Linked resource name.
+        """
+        return pulumi.get(self, "linked_resource_name")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> Optional[str]:
+        """
+        Datastore origin
+        """
+        return pulumi.get(self, "origin")
+
+
+@pulumi.output_type
+class LinkedServicePropsResponse(dict):
+    """
+    LinkedService specific properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceResourceId":
+            suggest = "linked_service_resource_id"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "linkType":
+            suggest = "link_type"
+        elif key == "modifiedTime":
+            suggest = "modified_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServicePropsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServicePropsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServicePropsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_resource_id: str,
+                 created_time: Optional[str] = None,
+                 link_type: Optional[str] = None,
+                 modified_time: Optional[str] = None):
+        """
+        LinkedService specific properties.
+        :param str linked_service_resource_id: ResourceId of the link target of the linked service.
+        :param str created_time: The creation time of the linked service.
+        :param str link_type: Type of the link target.
+        :param str modified_time: The last modified time of the linked service.
+        """
+        pulumi.set(__self__, "linked_service_resource_id", linked_service_resource_id)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if link_type is not None:
+            pulumi.set(__self__, "link_type", link_type)
+        if modified_time is not None:
+            pulumi.set(__self__, "modified_time", modified_time)
+
+    @property
+    @pulumi.getter(name="linkedServiceResourceId")
+    def linked_service_resource_id(self) -> str:
+        """
+        ResourceId of the link target of the linked service.
+        """
+        return pulumi.get(self, "linked_service_resource_id")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[str]:
+        """
+        The creation time of the linked service.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="linkType")
+    def link_type(self) -> Optional[str]:
+        """
+        Type of the link target.
+        """
+        return pulumi.get(self, "link_type")
+
+    @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> Optional[str]:
+        """
+        The last modified time of the linked service.
+        """
+        return pulumi.get(self, "modified_time")
+
+
+@pulumi.output_type
+class LinkedWorkspacePropsResponse(dict):
+    """
+    LinkedWorkspace specific properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedWorkspaceResourceId":
+            suggest = "linked_workspace_resource_id"
+        elif key == "userAssignedIdentityResourceId":
+            suggest = "user_assigned_identity_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedWorkspacePropsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedWorkspacePropsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedWorkspacePropsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_workspace_resource_id: Optional[str] = None,
+                 user_assigned_identity_resource_id: Optional[str] = None):
+        """
+        LinkedWorkspace specific properties.
+        :param str linked_workspace_resource_id: ResourceId of the link target of the linked workspace.
+        :param str user_assigned_identity_resource_id: ResourceId of the user assigned identity for the linked workspace.
+        """
+        if linked_workspace_resource_id is not None:
+            pulumi.set(__self__, "linked_workspace_resource_id", linked_workspace_resource_id)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @property
+    @pulumi.getter(name="linkedWorkspaceResourceId")
+    def linked_workspace_resource_id(self) -> Optional[str]:
+        """
+        ResourceId of the link target of the linked workspace.
+        """
+        return pulumi.get(self, "linked_workspace_resource_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[str]:
+        """
+        ResourceId of the user assigned identity for the linked workspace.
+        """
+        return pulumi.get(self, "user_assigned_identity_resource_id")
+
+
+@pulumi.output_type
 class ListNotebookKeysResultResponse(dict):
     def __init__(__self__, *,
                  primary_access_key: str,
@@ -14014,6 +18776,114 @@ class LiteralJobInputResponse(dict):
         Description for the input.
         """
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class MLAssistConfigurationDisabledResponse(dict):
+    """
+    Labeling MLAssist configuration definition when MLAssist is disabled
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mlAssist":
+            suggest = "ml_assist"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MLAssistConfigurationDisabledResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MLAssistConfigurationDisabledResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MLAssistConfigurationDisabledResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ml_assist: str):
+        """
+        Labeling MLAssist configuration definition when MLAssist is disabled
+        :param str ml_assist: 
+               Expected value is 'Disabled'.
+        """
+        pulumi.set(__self__, "ml_assist", 'Disabled')
+
+    @property
+    @pulumi.getter(name="mlAssist")
+    def ml_assist(self) -> str:
+        """
+
+        Expected value is 'Disabled'.
+        """
+        return pulumi.get(self, "ml_assist")
+
+
+@pulumi.output_type
+class MLAssistConfigurationEnabledResponse(dict):
+    """
+    Labeling MLAssist configuration definition when MLAssist is enabled
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inferencingComputeBinding":
+            suggest = "inferencing_compute_binding"
+        elif key == "mlAssist":
+            suggest = "ml_assist"
+        elif key == "trainingComputeBinding":
+            suggest = "training_compute_binding"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MLAssistConfigurationEnabledResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MLAssistConfigurationEnabledResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MLAssistConfigurationEnabledResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inferencing_compute_binding: str,
+                 ml_assist: str,
+                 training_compute_binding: str):
+        """
+        Labeling MLAssist configuration definition when MLAssist is enabled
+        :param str inferencing_compute_binding: [Required] AML compute binding used in inferencing.
+        :param str ml_assist: 
+               Expected value is 'Enabled'.
+        :param str training_compute_binding: [Required] AML compute binding used in training.
+        """
+        pulumi.set(__self__, "inferencing_compute_binding", inferencing_compute_binding)
+        pulumi.set(__self__, "ml_assist", 'Enabled')
+        pulumi.set(__self__, "training_compute_binding", training_compute_binding)
+
+    @property
+    @pulumi.getter(name="inferencingComputeBinding")
+    def inferencing_compute_binding(self) -> str:
+        """
+        [Required] AML compute binding used in inferencing.
+        """
+        return pulumi.get(self, "inferencing_compute_binding")
+
+    @property
+    @pulumi.getter(name="mlAssist")
+    def ml_assist(self) -> str:
+        """
+
+        Expected value is 'Enabled'.
+        """
+        return pulumi.get(self, "ml_assist")
+
+    @property
+    @pulumi.getter(name="trainingComputeBinding")
+    def training_compute_binding(self) -> str:
+        """
+        [Required] AML compute binding used in training.
+        """
+        return pulumi.get(self, "training_compute_binding")
 
 
 @pulumi.output_type
@@ -14956,6 +19826,134 @@ class ManagedServiceIdentityResponse(dict):
 
 
 @pulumi.output_type
+class MaterializationComputeResourceResponse(dict):
+    """
+    Dto object representing compute resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaterializationComputeResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaterializationComputeResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaterializationComputeResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: Optional[str] = None):
+        """
+        Dto object representing compute resource
+        :param str instance_type: Specifies the instance type
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[str]:
+        """
+        Specifies the instance type
+        """
+        return pulumi.get(self, "instance_type")
+
+
+@pulumi.output_type
+class MaterializationSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sparkConfiguration":
+            suggest = "spark_configuration"
+        elif key == "storeType":
+            suggest = "store_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaterializationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaterializationSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaterializationSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 notification: Optional['outputs.NotificationSettingResponse'] = None,
+                 resource: Optional['outputs.MaterializationComputeResourceResponse'] = None,
+                 schedule: Optional['outputs.RecurrenceTriggerResponse'] = None,
+                 spark_configuration: Optional[Mapping[str, str]] = None,
+                 store_type: Optional[str] = None):
+        """
+        :param 'NotificationSettingResponse' notification: Specifies the notification details
+        :param 'MaterializationComputeResourceResponse' resource: Specifies the compute resource settings
+        :param 'RecurrenceTriggerResponse' schedule: Specifies the schedule details
+        :param Mapping[str, str] spark_configuration: Specifies the spark compute settings
+        :param str store_type: Specifies the stores to which materialization should happen
+        """
+        if notification is not None:
+            pulumi.set(__self__, "notification", notification)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if spark_configuration is not None:
+            pulumi.set(__self__, "spark_configuration", spark_configuration)
+        if store_type is None:
+            store_type = 'None'
+        if store_type is not None:
+            pulumi.set(__self__, "store_type", store_type)
+
+    @property
+    @pulumi.getter
+    def notification(self) -> Optional['outputs.NotificationSettingResponse']:
+        """
+        Specifies the notification details
+        """
+        return pulumi.get(self, "notification")
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional['outputs.MaterializationComputeResourceResponse']:
+        """
+        Specifies the compute resource settings
+        """
+        return pulumi.get(self, "resource")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.RecurrenceTriggerResponse']:
+        """
+        Specifies the schedule details
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="sparkConfiguration")
+    def spark_configuration(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies the spark compute settings
+        """
+        return pulumi.get(self, "spark_configuration")
+
+    @property
+    @pulumi.getter(name="storeType")
+    def store_type(self) -> Optional[str]:
+        """
+        Specifies the stores to which materialization should happen
+        """
+        return pulumi.get(self, "store_type")
+
+
+@pulumi.output_type
 class MedianStoppingPolicyResponse(dict):
     """
     Defines an early termination policy based on running averages of the primary metric of all runs
@@ -15801,6 +20799,70 @@ class NotebookResourceInfoResponse(dict):
         the data plane resourceId that used to initialize notebook component
         """
         return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class NotificationSettingResponse(dict):
+    """
+    Configuration for notification.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailOn":
+            suggest = "email_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationSettingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationSettingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationSettingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_on: Optional[Sequence[str]] = None,
+                 emails: Optional[Sequence[str]] = None,
+                 webhooks: Optional[Mapping[str, 'outputs.AzureDevOpsWebhookResponse']] = None):
+        """
+        Configuration for notification.
+        :param Sequence[str] email_on: Send email notification to user on specified notification type
+        :param Sequence[str] emails: This is the email recipient list which has a limitation of 499 characters in total concat with comma separator
+        :param Mapping[str, 'AzureDevOpsWebhookResponse'] webhooks: Send webhook callback to a service. Key is a user-provided name for the webhook.
+        """
+        if email_on is not None:
+            pulumi.set(__self__, "email_on", email_on)
+        if emails is not None:
+            pulumi.set(__self__, "emails", emails)
+        if webhooks is not None:
+            pulumi.set(__self__, "webhooks", webhooks)
+
+    @property
+    @pulumi.getter(name="emailOn")
+    def email_on(self) -> Optional[Sequence[str]]:
+        """
+        Send email notification to user on specified notification type
+        """
+        return pulumi.get(self, "email_on")
+
+    @property
+    @pulumi.getter
+    def emails(self) -> Optional[Sequence[str]]:
+        """
+        This is the email recipient list which has a limitation of 499 characters in total concat with comma separator
+        """
+        return pulumi.get(self, "emails")
+
+    @property
+    @pulumi.getter
+    def webhooks(self) -> Optional[Mapping[str, 'outputs.AzureDevOpsWebhookResponse']]:
+        """
+        Send webhook callback to a service. Key is a user-provided name for the webhook.
+        """
+        return pulumi.get(self, "webhooks")
 
 
 @pulumi.output_type
@@ -16719,6 +21781,136 @@ class PrivateEndpointConnectionResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointDestinationResponse(dict):
+    """
+    Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceResourceId":
+            suggest = "service_resource_id"
+        elif key == "sparkEnabled":
+            suggest = "spark_enabled"
+        elif key == "sparkStatus":
+            suggest = "spark_status"
+        elif key == "subresourceTarget":
+            suggest = "subresource_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_resource_id: Optional[str] = None,
+                 spark_enabled: Optional[bool] = None,
+                 spark_status: Optional[str] = None,
+                 subresource_target: Optional[str] = None):
+        """
+        Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
+        :param str spark_status: Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        if service_resource_id is not None:
+            pulumi.set(__self__, "service_resource_id", service_resource_id)
+        if spark_enabled is not None:
+            pulumi.set(__self__, "spark_enabled", spark_enabled)
+        if spark_status is not None:
+            pulumi.set(__self__, "spark_status", spark_status)
+        if subresource_target is not None:
+            pulumi.set(__self__, "subresource_target", subresource_target)
+
+    @property
+    @pulumi.getter(name="serviceResourceId")
+    def service_resource_id(self) -> Optional[str]:
+        return pulumi.get(self, "service_resource_id")
+
+    @property
+    @pulumi.getter(name="sparkEnabled")
+    def spark_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "spark_enabled")
+
+    @property
+    @pulumi.getter(name="sparkStatus")
+    def spark_status(self) -> Optional[str]:
+        """
+        Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        return pulumi.get(self, "spark_status")
+
+    @property
+    @pulumi.getter(name="subresourceTarget")
+    def subresource_target(self) -> Optional[str]:
+        return pulumi.get(self, "subresource_target")
+
+
+@pulumi.output_type
+class PrivateEndpointOutboundRuleResponse(dict):
+    """
+    Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 category: Optional[str] = None,
+                 destination: Optional['outputs.PrivateEndpointDestinationResponse'] = None,
+                 status: Optional[str] = None):
+        """
+        Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
+        :param str type: Type of a managed network Outbound Rule of a machine learning workspace.
+               Expected value is 'PrivateEndpoint'.
+        :param str category: Category of a managed network Outbound Rule of a machine learning workspace.
+        :param 'PrivateEndpointDestinationResponse' destination: Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
+        :param str status: Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        pulumi.set(__self__, "type", 'PrivateEndpoint')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of a managed network Outbound Rule of a machine learning workspace.
+        Expected value is 'PrivateEndpoint'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Category of a managed network Outbound Rule of a machine learning workspace.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.PrivateEndpointDestinationResponse']:
+        """
+        Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class PrivateEndpointResourceResponse(dict):
     """
     The PE network resource that is linked to this PE connection.
@@ -16953,6 +22145,84 @@ class ProbeSettingsResponse(dict):
         The probe timeout in ISO 8601 format.
         """
         return pulumi.get(self, "timeout")
+
+
+@pulumi.output_type
+class ProgressMetricsResponse(dict):
+    """
+    Progress metrics definition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "completedDatapointCount":
+            suggest = "completed_datapoint_count"
+        elif key == "incrementalDataLastRefreshDateTime":
+            suggest = "incremental_data_last_refresh_date_time"
+        elif key == "skippedDatapointCount":
+            suggest = "skipped_datapoint_count"
+        elif key == "totalDatapointCount":
+            suggest = "total_datapoint_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProgressMetricsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProgressMetricsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProgressMetricsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 completed_datapoint_count: float,
+                 incremental_data_last_refresh_date_time: str,
+                 skipped_datapoint_count: float,
+                 total_datapoint_count: float):
+        """
+        Progress metrics definition
+        :param float completed_datapoint_count: The completed datapoint count.
+        :param str incremental_data_last_refresh_date_time: The time of last successful incremental data refresh in UTC.
+        :param float skipped_datapoint_count: The skipped datapoint count.
+        :param float total_datapoint_count: The total datapoint count.
+        """
+        pulumi.set(__self__, "completed_datapoint_count", completed_datapoint_count)
+        pulumi.set(__self__, "incremental_data_last_refresh_date_time", incremental_data_last_refresh_date_time)
+        pulumi.set(__self__, "skipped_datapoint_count", skipped_datapoint_count)
+        pulumi.set(__self__, "total_datapoint_count", total_datapoint_count)
+
+    @property
+    @pulumi.getter(name="completedDatapointCount")
+    def completed_datapoint_count(self) -> float:
+        """
+        The completed datapoint count.
+        """
+        return pulumi.get(self, "completed_datapoint_count")
+
+    @property
+    @pulumi.getter(name="incrementalDataLastRefreshDateTime")
+    def incremental_data_last_refresh_date_time(self) -> str:
+        """
+        The time of last successful incremental data refresh in UTC.
+        """
+        return pulumi.get(self, "incremental_data_last_refresh_date_time")
+
+    @property
+    @pulumi.getter(name="skippedDatapointCount")
+    def skipped_datapoint_count(self) -> float:
+        """
+        The skipped datapoint count.
+        """
+        return pulumi.get(self, "skipped_datapoint_count")
+
+    @property
+    @pulumi.getter(name="totalDatapointCount")
+    def total_datapoint_count(self) -> float:
+        """
+        The total datapoint count.
+        """
+        return pulumi.get(self, "total_datapoint_count")
 
 
 @pulumi.output_type
@@ -18770,6 +24040,60 @@ class ScriptsToExecuteResponse(dict):
 
 
 @pulumi.output_type
+class SecretConfigurationResponse(dict):
+    """
+    Secret Configuration definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workspaceSecretName":
+            suggest = "workspace_secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uri: Optional[str] = None,
+                 workspace_secret_name: Optional[str] = None):
+        """
+        Secret Configuration definition.
+        :param str uri: Secret Uri.
+               Sample Uri : https://myvault.vault.azure.net/secrets/mysecretname/secretversion
+        :param str workspace_secret_name: Name of secret in workspace key vault.
+        """
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+        if workspace_secret_name is not None:
+            pulumi.set(__self__, "workspace_secret_name", workspace_secret_name)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        Secret Uri.
+        Sample Uri : https://myvault.vault.azure.net/secrets/mysecretname/secretversion
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="workspaceSecretName")
+    def workspace_secret_name(self) -> Optional[str]:
+        """
+        Name of secret in workspace key vault.
+        """
+        return pulumi.get(self, "workspace_secret_name")
+
+
+@pulumi.output_type
 class ServiceManagedResourcesSettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -18898,6 +24222,120 @@ class ServicePrincipalDatastoreCredentialsResponse(dict):
         Resource the service principal has access to.
         """
         return pulumi.get(self, "resource_url")
+
+
+@pulumi.output_type
+class ServiceTagDestinationResponse(dict):
+    """
+    Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portRanges":
+            suggest = "port_ranges"
+        elif key == "serviceTag":
+            suggest = "service_tag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceTagDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceTagDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceTagDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port_ranges: Optional[str] = None,
+                 protocol: Optional[str] = None,
+                 service_tag: Optional[str] = None):
+        """
+        Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
+        """
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[str]:
+        return pulumi.get(self, "port_ranges")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[str]:
+        return pulumi.get(self, "service_tag")
+
+
+@pulumi.output_type
+class ServiceTagOutboundRuleResponse(dict):
+    """
+    Service Tag Outbound Rule for the managed network of a machine learning workspace.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 category: Optional[str] = None,
+                 destination: Optional['outputs.ServiceTagDestinationResponse'] = None,
+                 status: Optional[str] = None):
+        """
+        Service Tag Outbound Rule for the managed network of a machine learning workspace.
+        :param str type: Type of a managed network Outbound Rule of a machine learning workspace.
+               Expected value is 'ServiceTag'.
+        :param str category: Category of a managed network Outbound Rule of a machine learning workspace.
+        :param 'ServiceTagDestinationResponse' destination: Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
+        :param str status: Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        pulumi.set(__self__, "type", 'ServiceTag')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of a managed network Outbound Rule of a machine learning workspace.
+        Expected value is 'ServiceTag'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Category of a managed network Outbound Rule of a machine learning workspace.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.ServiceTagDestinationResponse']:
+        """
+        Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -19253,6 +24691,78 @@ class StackEnsembleSettingsResponse(dict):
         The meta-learner is a model trained on the output of the individual heterogeneous models.
         """
         return pulumi.get(self, "stack_meta_learner_type")
+
+
+@pulumi.output_type
+class StatusMessageResponse(dict):
+    """
+    Active message associated with project
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdDateTime":
+            suggest = "created_date_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StatusMessageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StatusMessageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StatusMessageResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: str,
+                 created_date_time: str,
+                 level: str,
+                 message: str):
+        """
+        Active message associated with project
+        :param str code: Service-defined message code.
+        :param str created_date_time: Time in UTC at which the message was created.
+        :param str level: Severity level of message.
+        :param str message: A human-readable representation of the message code.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "created_date_time", created_date_time)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Service-defined message code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="createdDateTime")
+    def created_date_time(self) -> str:
+        """
+        Time in UTC at which the message was created.
+        """
+        return pulumi.get(self, "created_date_time")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        """
+        Severity level of message.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        A human-readable representation of the message code.
+        """
+        return pulumi.get(self, "message")
 
 
 @pulumi.output_type
@@ -22211,6 +27721,8 @@ class UserAssignedIdentityResponse(dict):
             suggest = "client_id"
         elif key == "principalId":
             suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -22225,14 +27737,18 @@ class UserAssignedIdentityResponse(dict):
 
     def __init__(__self__, *,
                  client_id: str,
-                 principal_id: str):
+                 principal_id: str,
+                 tenant_id: Optional[str] = None):
         """
         User assigned identity properties
         :param str client_id: The client ID of the assigned identity.
         :param str principal_id: The principal ID of the assigned identity.
+        :param str tenant_id: The tenant ID of the user assigned identity.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -22249,6 +27765,14 @@ class UserAssignedIdentityResponse(dict):
         The principal ID of the assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant ID of the user assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -22362,6 +27886,130 @@ class UserIdentityResponse(dict):
         Expected value is 'UserIdentity'.
         """
         return pulumi.get(self, "identity_type")
+
+
+@pulumi.output_type
+class UserInfoResponse(dict):
+    """
+    User who created.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAltSecId":
+            suggest = "user_alt_sec_id"
+        elif key == "userIdp":
+            suggest = "user_idp"
+        elif key == "userIss":
+            suggest = "user_iss"
+        elif key == "userName":
+            suggest = "user_name"
+        elif key == "userObjectId":
+            suggest = "user_object_id"
+        elif key == "userPuId":
+            suggest = "user_pu_id"
+        elif key == "userTenantId":
+            suggest = "user_tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_alt_sec_id: Optional[str] = None,
+                 user_idp: Optional[str] = None,
+                 user_iss: Optional[str] = None,
+                 user_name: Optional[str] = None,
+                 user_object_id: Optional[str] = None,
+                 user_pu_id: Optional[str] = None,
+                 user_tenant_id: Optional[str] = None):
+        """
+        User who created.
+        :param str user_alt_sec_id: A user alternate sec id. This represents the user in a different identity provider system Eg.1:live.com:puid
+        :param str user_idp: A user identity provider. Eg live.com
+        :param str user_iss: The issuer which issued the token for this user.
+        :param str user_name:  A user's full name or a service principal's app ID.
+        :param str user_object_id: A user or service principal's object ID..
+        :param str user_pu_id: A user or service principal's PuID.
+        :param str user_tenant_id: A user or service principal's tenant ID.
+        """
+        if user_alt_sec_id is not None:
+            pulumi.set(__self__, "user_alt_sec_id", user_alt_sec_id)
+        if user_idp is not None:
+            pulumi.set(__self__, "user_idp", user_idp)
+        if user_iss is not None:
+            pulumi.set(__self__, "user_iss", user_iss)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+        if user_object_id is not None:
+            pulumi.set(__self__, "user_object_id", user_object_id)
+        if user_pu_id is not None:
+            pulumi.set(__self__, "user_pu_id", user_pu_id)
+        if user_tenant_id is not None:
+            pulumi.set(__self__, "user_tenant_id", user_tenant_id)
+
+    @property
+    @pulumi.getter(name="userAltSecId")
+    def user_alt_sec_id(self) -> Optional[str]:
+        """
+        A user alternate sec id. This represents the user in a different identity provider system Eg.1:live.com:puid
+        """
+        return pulumi.get(self, "user_alt_sec_id")
+
+    @property
+    @pulumi.getter(name="userIdp")
+    def user_idp(self) -> Optional[str]:
+        """
+        A user identity provider. Eg live.com
+        """
+        return pulumi.get(self, "user_idp")
+
+    @property
+    @pulumi.getter(name="userIss")
+    def user_iss(self) -> Optional[str]:
+        """
+        The issuer which issued the token for this user.
+        """
+        return pulumi.get(self, "user_iss")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        """
+         A user's full name or a service principal's app ID.
+        """
+        return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter(name="userObjectId")
+    def user_object_id(self) -> Optional[str]:
+        """
+        A user or service principal's object ID..
+        """
+        return pulumi.get(self, "user_object_id")
+
+    @property
+    @pulumi.getter(name="userPuId")
+    def user_pu_id(self) -> Optional[str]:
+        """
+        A user or service principal's PuID.
+        """
+        return pulumi.get(self, "user_pu_id")
+
+    @property
+    @pulumi.getter(name="userTenantId")
+    def user_tenant_id(self) -> Optional[str]:
+        """
+        A user or service principal's tenant ID.
+        """
+        return pulumi.get(self, "user_tenant_id")
 
 
 @pulumi.output_type

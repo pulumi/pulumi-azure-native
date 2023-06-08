@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:EyesOn"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:EyesOn"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:EyesOn"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:EyesOn"},

@@ -122,6 +122,8 @@ export class WorkspaceProduct extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceProduct" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceProduct.__pulumiType, name, resourceInputs, opts);
     }
 }

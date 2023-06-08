@@ -1373,6 +1373,43 @@ namespace Pulumi.AzureNative.Media
     }
 
     /// <summary>
+    /// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
+    /// </summary>
+    [EnumType]
+    public readonly struct MediaGraphRtspTransport : IEquatable<MediaGraphRtspTransport>
+    {
+        private readonly string _value;
+
+        private MediaGraphRtspTransport(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// HTTP/HTTPS transport. This should be used when HTTP tunneling is desired.
+        /// </summary>
+        public static MediaGraphRtspTransport Http { get; } = new MediaGraphRtspTransport("Http");
+        /// <summary>
+        /// TCP transport. This should be used when HTTP tunneling is not desired.
+        /// </summary>
+        public static MediaGraphRtspTransport Tcp { get; } = new MediaGraphRtspTransport("Tcp");
+
+        public static bool operator ==(MediaGraphRtspTransport left, MediaGraphRtspTransport right) => left.Equals(right);
+        public static bool operator !=(MediaGraphRtspTransport left, MediaGraphRtspTransport right) => !left.Equals(right);
+
+        public static explicit operator string(MediaGraphRtspTransport value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MediaGraphRtspTransport other && Equals(other);
+        public bool Equals(MediaGraphRtspTransport other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
     /// </summary>
     [EnumType]

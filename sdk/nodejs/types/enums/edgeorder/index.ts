@@ -30,6 +30,19 @@ export const AddressType = {
  */
 export type AddressType = (typeof AddressType)[keyof typeof AddressType];
 
+export const ChildConfigurationType = {
+    /**
+     * Child configuration is a device configuration.
+     */
+    DeviceConfiguration: "DeviceConfiguration",
+    /**
+     * Child configuration is an additional configuration.
+     */
+    AdditionalConfiguration: "AdditionalConfiguration",
+} as const;
+
+export type ChildConfigurationType = (typeof ChildConfigurationType)[keyof typeof ChildConfigurationType];
+
 export const DoubleEncryptionStatus = {
     /**
      * Double encryption is disabled
@@ -78,13 +91,29 @@ export const OrderItemType = {
  */
 export type OrderItemType = (typeof OrderItemType)[keyof typeof OrderItemType];
 
+export const OrderMode = {
+    /**
+     * Default Order mode.
+     */
+    Default: "Default",
+    /**
+     * Mode in which the Order will not be fulfilled.
+     */
+    DoNotFulfill: "DoNotFulfill",
+} as const;
+
+/**
+ * Defines the mode of the Order item.
+ */
+export type OrderMode = (typeof OrderMode)[keyof typeof OrderMode];
+
 export const SupportedFilterTypes = {
     /**
-     * Ship to country
+     * Ship to country.
      */
     ShipToCountries: "ShipToCountries",
     /**
-     * Double encryption status
+     * Double encryption status.
      */
     DoubleEncryptionStatus: "DoubleEncryptionStatus",
 } as const;

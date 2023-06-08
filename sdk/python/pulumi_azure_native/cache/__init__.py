@@ -6,9 +6,13 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .access_policy import *
+from .access_policy_assignment import *
 from .database import *
 from .enterprise_private_endpoint_connection import *
 from .firewall_rule import *
+from .get_access_policy import *
+from .get_access_policy_assignment import *
 from .get_database import *
 from .get_enterprise_private_endpoint_connection import *
 from .get_firewall_rule import *

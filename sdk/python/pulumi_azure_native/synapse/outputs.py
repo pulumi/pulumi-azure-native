@@ -14,15 +14,18 @@ from ._enums import *
 __all__ = [
     'AutoPausePropertiesResponse',
     'AutoScalePropertiesResponse',
+    'AzureSkuResponse',
     'CmdkeySetupResponse',
     'ComponentSetupResponse',
     'CspWorkspaceAdminPropertiesResponse',
     'CustomerManagedKeyDetailsResponse',
     'DataLakeStorageAccountDetailsResponse',
+    'DatabaseStatisticsResponse',
     'DynamicExecutorAllocationResponse',
     'EncryptionDetailsResponse',
     'EntityReferenceResponse',
     'EnvironmentVariableSetupResponse',
+    'FollowerDatabaseDefinitionResponse',
     'IntegrationRuntimeComputePropertiesResponse',
     'IntegrationRuntimeCustomSetupScriptPropertiesResponse',
     'IntegrationRuntimeCustomerVirtualNetworkResponse',
@@ -32,6 +35,8 @@ __all__ = [
     'IntegrationRuntimeSsisPropertiesResponse',
     'IntegrationRuntimeVNetPropertiesResponse',
     'KekIdentityPropertiesResponse',
+    'LanguageExtensionResponse',
+    'LanguageExtensionsListResponse',
     'LibraryInfoResponse',
     'LibraryRequirementsResponse',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
@@ -44,6 +49,7 @@ __all__ = [
     'ManagedIntegrationRuntimeResponse',
     'ManagedIntegrationRuntimeStatusResponse',
     'ManagedVirtualNetworkSettingsResponse',
+    'OptimizedAutoscaleResponse',
     'PrivateEndpointConnectionForPrivateLinkHubBasicResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -63,6 +69,8 @@ __all__ = [
     'SsisParameterResponse',
     'SsisProjectResponse',
     'SsisVariableResponse',
+    'SystemDataResponse',
+    'TableLevelSharingPropertiesResponse',
     'UserAssignedManagedIdentityResponse',
     'VirtualNetworkProfileResponse',
     'VulnerabilityAssessmentRecurringScansPropertiesResponse',
@@ -186,6 +194,51 @@ class AutoScalePropertiesResponse(dict):
         The minimum number of nodes the Big Data pool can support.
         """
         return pulumi.get(self, "min_node_count")
+
+
+@pulumi.output_type
+class AzureSkuResponse(dict):
+    """
+    Azure SKU definition.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 size: str,
+                 capacity: Optional[int] = None):
+        """
+        Azure SKU definition.
+        :param str name: SKU name.
+        :param str size: SKU size.
+        :param int capacity: The number of instances of the cluster.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "size", size)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        SKU name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def size(self) -> str:
+        """
+        SKU size.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The number of instances of the cluster.
+        """
+        return pulumi.get(self, "capacity")
 
 
 @pulumi.output_type
@@ -514,6 +567,29 @@ class DataLakeStorageAccountDetailsResponse(dict):
 
 
 @pulumi.output_type
+class DatabaseStatisticsResponse(dict):
+    """
+    A class that contains database statistics information.
+    """
+    def __init__(__self__, *,
+                 size: Optional[float] = None):
+        """
+        A class that contains database statistics information.
+        :param float size: The database size - the total size of compressed data and index in bytes.
+        """
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[float]:
+        """
+        The database size - the total size of compressed data and index in bytes.
+        """
+        return pulumi.get(self, "size")
+
+
+@pulumi.output_type
 class DynamicExecutorAllocationResponse(dict):
     """
     Dynamic Executor Allocation Properties
@@ -745,6 +821,50 @@ class EnvironmentVariableSetupResponse(dict):
         The value of the environment variable.
         """
         return pulumi.get(self, "variable_value")
+
+
+@pulumi.output_type
+class FollowerDatabaseDefinitionResponse(dict):
+    """
+    A class representing follower database request.
+    """
+    def __init__(__self__, *,
+                 attached_database_configuration_name: str,
+                 database_name: str,
+                 kusto_pool_resource_id: str):
+        """
+        A class representing follower database request.
+        :param str attached_database_configuration_name: Resource name of the attached database configuration in the follower cluster.
+        :param str database_name: The database name owned by this cluster that was followed. * in case following all databases.
+        :param str kusto_pool_resource_id: Resource id of the cluster that follows a database owned by this cluster.
+        """
+        pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "kusto_pool_resource_id", kusto_pool_resource_id)
+
+    @property
+    @pulumi.getter(name="attachedDatabaseConfigurationName")
+    def attached_database_configuration_name(self) -> str:
+        """
+        Resource name of the attached database configuration in the follower cluster.
+        """
+        return pulumi.get(self, "attached_database_configuration_name")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        The database name owned by this cluster that was followed. * in case following all databases.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="kustoPoolResourceId")
+    def kusto_pool_resource_id(self) -> str:
+        """
+        Resource id of the cluster that follows a database owned by this cluster.
+        """
+        return pulumi.get(self, "kusto_pool_resource_id")
 
 
 @pulumi.output_type
@@ -1405,6 +1525,69 @@ class KekIdentityPropertiesResponse(dict):
         User assigned identity resource Id
         """
         return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
+class LanguageExtensionResponse(dict):
+    """
+    The language extension object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "languageExtensionName":
+            suggest = "language_extension_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LanguageExtensionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LanguageExtensionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LanguageExtensionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 language_extension_name: Optional[str] = None):
+        """
+        The language extension object.
+        :param str language_extension_name: The language extension name.
+        """
+        if language_extension_name is not None:
+            pulumi.set(__self__, "language_extension_name", language_extension_name)
+
+    @property
+    @pulumi.getter(name="languageExtensionName")
+    def language_extension_name(self) -> Optional[str]:
+        """
+        The language extension name.
+        """
+        return pulumi.get(self, "language_extension_name")
+
+
+@pulumi.output_type
+class LanguageExtensionsListResponse(dict):
+    """
+    The list of language extension objects.
+    """
+    def __init__(__self__, *,
+                 value: Optional[Sequence['outputs.LanguageExtensionResponse']] = None):
+        """
+        The list of language extension objects.
+        :param Sequence['LanguageExtensionResponse'] value: The list of language extensions.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Sequence['outputs.LanguageExtensionResponse']]:
+        """
+        The list of language extensions.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2283,6 +2466,78 @@ class ManagedVirtualNetworkSettingsResponse(dict):
         Prevent Data Exfiltration
         """
         return pulumi.get(self, "prevent_data_exfiltration")
+
+
+@pulumi.output_type
+class OptimizedAutoscaleResponse(dict):
+    """
+    A class that contains the optimized auto scale definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OptimizedAutoscaleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OptimizedAutoscaleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OptimizedAutoscaleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_enabled: bool,
+                 maximum: int,
+                 minimum: int,
+                 version: int):
+        """
+        A class that contains the optimized auto scale definition.
+        :param bool is_enabled: A boolean value that indicate if the optimized autoscale feature is enabled or not.
+        :param int maximum: Maximum allowed instances count.
+        :param int minimum: Minimum allowed instances count.
+        :param int version: The version of the template defined, for instance 1.
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "minimum", minimum)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        A boolean value that indicate if the optimized autoscale feature is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> int:
+        """
+        Maximum allowed instances count.
+        """
+        return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> int:
+        """
+        Minimum allowed instances count.
+        """
+        return pulumi.get(self, "minimum")
+
+    @property
+    @pulumi.getter
+    def version(self) -> int:
+        """
+        The version of the template defined, for instance 1.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -3943,6 +4198,226 @@ class SsisVariableResponse(dict):
         Variable value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TableLevelSharingPropertiesResponse(dict):
+    """
+    Tables that will be included and excluded in the follower database
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalTablesToExclude":
+            suggest = "external_tables_to_exclude"
+        elif key == "externalTablesToInclude":
+            suggest = "external_tables_to_include"
+        elif key == "materializedViewsToExclude":
+            suggest = "materialized_views_to_exclude"
+        elif key == "materializedViewsToInclude":
+            suggest = "materialized_views_to_include"
+        elif key == "tablesToExclude":
+            suggest = "tables_to_exclude"
+        elif key == "tablesToInclude":
+            suggest = "tables_to_include"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableLevelSharingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableLevelSharingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableLevelSharingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_tables_to_exclude: Optional[Sequence[str]] = None,
+                 external_tables_to_include: Optional[Sequence[str]] = None,
+                 materialized_views_to_exclude: Optional[Sequence[str]] = None,
+                 materialized_views_to_include: Optional[Sequence[str]] = None,
+                 tables_to_exclude: Optional[Sequence[str]] = None,
+                 tables_to_include: Optional[Sequence[str]] = None):
+        """
+        Tables that will be included and excluded in the follower database
+        :param Sequence[str] external_tables_to_exclude: List of external tables exclude from the follower database
+        :param Sequence[str] external_tables_to_include: List of external tables to include in the follower database
+        :param Sequence[str] materialized_views_to_exclude: List of materialized views exclude from the follower database
+        :param Sequence[str] materialized_views_to_include: List of materialized views to include in the follower database
+        :param Sequence[str] tables_to_exclude: List of tables to exclude from the follower database
+        :param Sequence[str] tables_to_include: List of tables to include in the follower database
+        """
+        if external_tables_to_exclude is not None:
+            pulumi.set(__self__, "external_tables_to_exclude", external_tables_to_exclude)
+        if external_tables_to_include is not None:
+            pulumi.set(__self__, "external_tables_to_include", external_tables_to_include)
+        if materialized_views_to_exclude is not None:
+            pulumi.set(__self__, "materialized_views_to_exclude", materialized_views_to_exclude)
+        if materialized_views_to_include is not None:
+            pulumi.set(__self__, "materialized_views_to_include", materialized_views_to_include)
+        if tables_to_exclude is not None:
+            pulumi.set(__self__, "tables_to_exclude", tables_to_exclude)
+        if tables_to_include is not None:
+            pulumi.set(__self__, "tables_to_include", tables_to_include)
+
+    @property
+    @pulumi.getter(name="externalTablesToExclude")
+    def external_tables_to_exclude(self) -> Optional[Sequence[str]]:
+        """
+        List of external tables exclude from the follower database
+        """
+        return pulumi.get(self, "external_tables_to_exclude")
+
+    @property
+    @pulumi.getter(name="externalTablesToInclude")
+    def external_tables_to_include(self) -> Optional[Sequence[str]]:
+        """
+        List of external tables to include in the follower database
+        """
+        return pulumi.get(self, "external_tables_to_include")
+
+    @property
+    @pulumi.getter(name="materializedViewsToExclude")
+    def materialized_views_to_exclude(self) -> Optional[Sequence[str]]:
+        """
+        List of materialized views exclude from the follower database
+        """
+        return pulumi.get(self, "materialized_views_to_exclude")
+
+    @property
+    @pulumi.getter(name="materializedViewsToInclude")
+    def materialized_views_to_include(self) -> Optional[Sequence[str]]:
+        """
+        List of materialized views to include in the follower database
+        """
+        return pulumi.get(self, "materialized_views_to_include")
+
+    @property
+    @pulumi.getter(name="tablesToExclude")
+    def tables_to_exclude(self) -> Optional[Sequence[str]]:
+        """
+        List of tables to exclude from the follower database
+        """
+        return pulumi.get(self, "tables_to_exclude")
+
+    @property
+    @pulumi.getter(name="tablesToInclude")
+    def tables_to_include(self) -> Optional[Sequence[str]]:
+        """
+        List of tables to include in the follower database
+        """
+        return pulumi.get(self, "tables_to_include")
 
 
 @pulumi.output_type

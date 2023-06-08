@@ -536,6 +536,25 @@ export const ConditionType = {
 
 export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
 
+export const ContentType = {
+    AnalyticRule: "AnalyticRule",
+    Workbook: "Workbook",
+} as const;
+
+/**
+ * Content type.
+ */
+export type ContentType = (typeof ContentType)[keyof typeof ContentType];
+
+export const CustomEntityQueryKind = {
+    Activity: "Activity",
+} as const;
+
+/**
+ * the entity query kind
+ */
+export type CustomEntityQueryKind = (typeof CustomEntityQueryKind)[keyof typeof CustomEntityQueryKind];
+
 export const DataConnectorKind = {
     AzureActiveDirectory: "AzureActiveDirectory",
     AzureSecurityCenter: "AzureSecurityCenter",
@@ -561,6 +580,40 @@ export const DataTypeState = {
  * Describe whether this data type connection is enabled or not.
  */
 export type DataTypeState = (typeof DataTypeState)[keyof typeof DataTypeState];
+
+export const DeploymentFetchStatus = {
+    Success: "Success",
+    Unauthorized: "Unauthorized",
+    NotFound: "NotFound",
+} as const;
+
+/**
+ * Status while fetching the last deployment.
+ */
+export type DeploymentFetchStatus = (typeof DeploymentFetchStatus)[keyof typeof DeploymentFetchStatus];
+
+export const DeploymentResult = {
+    Success: "Success",
+    Canceled: "Canceled",
+    Failed: "Failed",
+} as const;
+
+/**
+ * The outcome of the deployment.
+ */
+export type DeploymentResult = (typeof DeploymentResult)[keyof typeof DeploymentResult];
+
+export const DeploymentState = {
+    In_Progress: "In_Progress",
+    Completed: "Completed",
+    Queued: "Queued",
+    Canceling: "Canceling",
+} as const;
+
+/**
+ * Current status of the deployment.
+ */
+export type DeploymentState = (typeof DeploymentState)[keyof typeof DeploymentState];
 
 export const EntityMappingType = {
     /**
@@ -642,6 +695,136 @@ export const EntityMappingType = {
  */
 export type EntityMappingType = (typeof EntityMappingType)[keyof typeof EntityMappingType];
 
+export const EntityProviders = {
+    ActiveDirectory: "ActiveDirectory",
+    AzureActiveDirectory: "AzureActiveDirectory",
+} as const;
+
+/**
+ * The entity provider that is synced.
+ */
+export type EntityProviders = (typeof EntityProviders)[keyof typeof EntityProviders];
+
+export const EntityTimelineKind = {
+    /**
+     * activity
+     */
+    Activity: "Activity",
+    /**
+     * bookmarks
+     */
+    Bookmark: "Bookmark",
+    /**
+     * security alerts
+     */
+    SecurityAlert: "SecurityAlert",
+    /**
+     * anomaly
+     */
+    Anomaly: "Anomaly",
+} as const;
+
+/**
+ * The entity query kind
+ */
+export type EntityTimelineKind = (typeof EntityTimelineKind)[keyof typeof EntityTimelineKind];
+
+export const EntityType = {
+    /**
+     * Entity represents account in the system.
+     */
+    Account: "Account",
+    /**
+     * Entity represents host in the system.
+     */
+    Host: "Host",
+    /**
+     * Entity represents file in the system.
+     */
+    File: "File",
+    /**
+     * Entity represents azure resource in the system.
+     */
+    AzureResource: "AzureResource",
+    /**
+     * Entity represents cloud application in the system.
+     */
+    CloudApplication: "CloudApplication",
+    /**
+     * Entity represents dns in the system.
+     */
+    DNS: "DNS",
+    /**
+     * Entity represents file hash in the system.
+     */
+    FileHash: "FileHash",
+    /**
+     * Entity represents ip in the system.
+     */
+    IP: "IP",
+    /**
+     * Entity represents malware in the system.
+     */
+    Malware: "Malware",
+    /**
+     * Entity represents process in the system.
+     */
+    Process: "Process",
+    /**
+     * Entity represents registry key in the system.
+     */
+    RegistryKey: "RegistryKey",
+    /**
+     * Entity represents registry value in the system.
+     */
+    RegistryValue: "RegistryValue",
+    /**
+     * Entity represents security group in the system.
+     */
+    SecurityGroup: "SecurityGroup",
+    /**
+     * Entity represents url in the system.
+     */
+    URL: "URL",
+    /**
+     * Entity represents IoT device in the system.
+     */
+    IoTDevice: "IoTDevice",
+    /**
+     * Entity represents security alert in the system.
+     */
+    SecurityAlert: "SecurityAlert",
+    /**
+     * Entity represents HuntingBookmark in the system.
+     */
+    HuntingBookmark: "HuntingBookmark",
+    /**
+     * Entity represents mail cluster in the system.
+     */
+    MailCluster: "MailCluster",
+    /**
+     * Entity represents mail message in the system.
+     */
+    MailMessage: "MailMessage",
+    /**
+     * Entity represents mailbox in the system.
+     */
+    Mailbox: "Mailbox",
+    /**
+     * Entity represents submission mail in the system.
+     */
+    SubmissionMail: "SubmissionMail",
+    /**
+     * Entity represents network interface in the system.
+     */
+    Nic: "Nic",
+} as const;
+
+/**
+ * The type of the query's source entity
+ */
+export type EntityType = (typeof EntityType)[keyof typeof EntityType];
+
 export const EventGroupingAggregationKind = {
     SingleAlert: "SingleAlert",
     AlertPerResult: "AlertPerResult",
@@ -651,6 +834,67 @@ export const EventGroupingAggregationKind = {
  * The event grouping aggregation kinds
  */
 export type EventGroupingAggregationKind = (typeof EventGroupingAggregationKind)[keyof typeof EventGroupingAggregationKind];
+
+export const FileFormat = {
+    /**
+     * A CSV file.
+     */
+    CSV: "CSV",
+    /**
+     * A JSON file.
+     */
+    JSON: "JSON",
+    /**
+     * A file of other format.
+     */
+    Unspecified: "Unspecified",
+} as const;
+
+/**
+ * The format of the file
+ */
+export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
+
+export const FileImportContentType = {
+    /**
+     * File containing records with the core fields of an indicator, plus the observables to construct the STIX pattern.
+     */
+    BasicIndicator: "BasicIndicator",
+    /**
+     * File containing STIX indicators.
+     */
+    StixIndicator: "StixIndicator",
+    /**
+     * File containing other records.
+     */
+    Unspecified: "Unspecified",
+} as const;
+
+/**
+ * The content type of this file.
+ */
+export type FileImportContentType = (typeof FileImportContentType)[keyof typeof FileImportContentType];
+
+export const Flag = {
+    True: "true",
+    False: "false",
+} as const;
+
+/**
+ * Flag indicates if this package is in preview.
+ */
+export type Flag = (typeof Flag)[keyof typeof Flag];
+
+export const HypothesisStatus = {
+    Unknown: "Unknown",
+    Invalidated: "Invalidated",
+    Validated: "Validated",
+} as const;
+
+/**
+ * The hypothesis status of the hunt.
+ */
+export type HypothesisStatus = (typeof HypothesisStatus)[keyof typeof HypothesisStatus];
 
 export const IncidentClassification = {
     /**
@@ -744,6 +988,64 @@ export const IncidentStatus = {
  */
 export type IncidentStatus = (typeof IncidentStatus)[keyof typeof IncidentStatus];
 
+export const IncidentTaskStatus = {
+    /**
+     * A new task
+     */
+    New: "New",
+    /**
+     * A completed task
+     */
+    Completed: "Completed",
+} as const;
+
+export type IncidentTaskStatus = (typeof IncidentTaskStatus)[keyof typeof IncidentTaskStatus];
+
+export const IngestionMode = {
+    /**
+     * No records should be ingested when invalid records are detected.
+     */
+    IngestOnlyIfAllAreValid: "IngestOnlyIfAllAreValid",
+    /**
+     * Valid records should still be ingested when invalid records are detected.
+     */
+    IngestAnyValidRecords: "IngestAnyValidRecords",
+    /**
+     * Unspecified
+     */
+    Unspecified: "Unspecified",
+} as const;
+
+/**
+ * Describes how to ingest the records in the file.
+ */
+export type IngestionMode = (typeof IngestionMode)[keyof typeof IngestionMode];
+
+export const Kind = {
+    DataConnector: "DataConnector",
+    DataType: "DataType",
+    Workbook: "Workbook",
+    WorkbookTemplate: "WorkbookTemplate",
+    Playbook: "Playbook",
+    PlaybookTemplate: "PlaybookTemplate",
+    AnalyticsRuleTemplate: "AnalyticsRuleTemplate",
+    AnalyticsRule: "AnalyticsRule",
+    HuntingQuery: "HuntingQuery",
+    InvestigationQuery: "InvestigationQuery",
+    Parser: "Parser",
+    Watchlist: "Watchlist",
+    WatchlistTemplate: "WatchlistTemplate",
+    Solution: "Solution",
+    AzureFunction: "AzureFunction",
+    LogicAppsCustomConnector: "LogicAppsCustomConnector",
+    AutomationRule: "AutomationRule",
+} as const;
+
+/**
+ * Type of the content item we depend on
+ */
+export type Kind = (typeof Kind)[keyof typeof Kind];
+
 export const MatchingMethod = {
     /**
      * Grouping alerts into a single incident if all the entities match
@@ -777,6 +1079,22 @@ export const MicrosoftSecurityProductName = {
  */
 export type MicrosoftSecurityProductName = (typeof MicrosoftSecurityProductName)[keyof typeof MicrosoftSecurityProductName];
 
+export const Mode = {
+    /**
+     * The workspace manager configuration is enabled
+     */
+    Enabled: "Enabled",
+    /**
+     * The workspace manager configuration is disabled
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The current mode of the workspace manager configuration
+ */
+export type Mode = (typeof Mode)[keyof typeof Mode];
+
 export const Operator = {
     AND: "AND",
     OR: "OR",
@@ -807,6 +1125,26 @@ export const OwnerType = {
  */
 export type OwnerType = (typeof OwnerType)[keyof typeof OwnerType];
 
+export const PackageKind = {
+    Solution: "Solution",
+    Standalone: "Standalone",
+} as const;
+
+/**
+ * the packageKind of the package contains this template
+ */
+export type PackageKind = (typeof PackageKind)[keyof typeof PackageKind];
+
+export const RepoType = {
+    Github: "Github",
+    DevOps: "DevOps",
+} as const;
+
+/**
+ * The repository type of the source control
+ */
+export type RepoType = (typeof RepoType)[keyof typeof RepoType];
+
 export const SecurityMLAnalyticsSettingsKind = {
     Anomaly: "Anomaly",
 } as const;
@@ -815,6 +1153,18 @@ export const SecurityMLAnalyticsSettingsKind = {
  * The kind of security ML Analytics Settings
  */
 export type SecurityMLAnalyticsSettingsKind = (typeof SecurityMLAnalyticsSettingsKind)[keyof typeof SecurityMLAnalyticsSettingsKind];
+
+export const SettingKind = {
+    Anomalies: "Anomalies",
+    EyesOn: "EyesOn",
+    EntityAnalytics: "EntityAnalytics",
+    Ueba: "Ueba",
+} as const;
+
+/**
+ * The kind of the setting
+ */
+export type SettingKind = (typeof SettingKind)[keyof typeof SettingKind];
 
 export const SettingsStatus = {
     /**
@@ -853,6 +1203,17 @@ export const SourceKind = {
  * Source type of the content
  */
 export type SourceKind = (typeof SourceKind)[keyof typeof SourceKind];
+
+export const Status = {
+    New: "New",
+    Active: "Active",
+    Closed: "Closed",
+} as const;
+
+/**
+ * The status of the hunt.
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 export const SupportTier = {
     Microsoft: "Microsoft",
@@ -914,3 +1275,25 @@ export const TriggersWhen = {
 } as const;
 
 export type TriggersWhen = (typeof TriggersWhen)[keyof typeof TriggersWhen];
+
+export const UebaDataSources = {
+    AuditLogs: "AuditLogs",
+    AzureActivity: "AzureActivity",
+    SecurityEvent: "SecurityEvent",
+    SigninLogs: "SigninLogs",
+} as const;
+
+/**
+ * The data source that enriched by ueba.
+ */
+export type UebaDataSources = (typeof UebaDataSources)[keyof typeof UebaDataSources];
+
+export const Version = {
+    V1: "V1",
+    V2: "V2",
+} as const;
+
+/**
+ * The version number associated with the source control
+ */
+export type Version = (typeof Version)[keyof typeof Version];

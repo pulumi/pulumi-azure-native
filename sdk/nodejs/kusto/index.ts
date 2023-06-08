@@ -35,6 +35,11 @@ export type EventGridDataConnection = import("./eventGridDataConnection").EventG
 export const EventGridDataConnection: typeof import("./eventGridDataConnection").EventGridDataConnection = null as any;
 utilities.lazyLoad(exports, ["EventGridDataConnection"], () => require("./eventGridDataConnection"));
 
+export { EventHubConnectionArgs } from "./eventHubConnection";
+export type EventHubConnection = import("./eventHubConnection").EventHubConnection;
+export const EventHubConnection: typeof import("./eventHubConnection").EventHubConnection = null as any;
+utilities.lazyLoad(exports, ["EventHubConnection"], () => require("./eventHubConnection"));
+
 export { EventHubDataConnectionArgs } from "./eventHubDataConnection";
 export type EventHubDataConnection = import("./eventHubDataConnection").EventHubDataConnection;
 export const EventHubDataConnection: typeof import("./eventHubDataConnection").EventHubDataConnection = null as any;
@@ -69,6 +74,11 @@ export { GetEventGridDataConnectionArgs, GetEventGridDataConnectionResult, GetEv
 export const getEventGridDataConnection: typeof import("./getEventGridDataConnection").getEventGridDataConnection = null as any;
 export const getEventGridDataConnectionOutput: typeof import("./getEventGridDataConnection").getEventGridDataConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getEventGridDataConnection","getEventGridDataConnectionOutput"], () => require("./getEventGridDataConnection"));
+
+export { GetEventHubConnectionArgs, GetEventHubConnectionResult, GetEventHubConnectionOutputArgs } from "./getEventHubConnection";
+export const getEventHubConnection: typeof import("./getEventHubConnection").getEventHubConnection = null as any;
+export const getEventHubConnectionOutput: typeof import("./getEventHubConnection").getEventHubConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getEventHubConnection","getEventHubConnectionOutput"], () => require("./getEventHubConnection"));
 
 export { GetEventHubDataConnectionArgs, GetEventHubDataConnectionResult, GetEventHubDataConnectionOutputArgs } from "./getEventHubDataConnection";
 export const getEventHubDataConnection: typeof import("./getEventHubDataConnection").getEventHubDataConnection = null as any;
@@ -203,6 +213,8 @@ const _module = {
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:kusto:EventGridDataConnection":
                 return new EventGridDataConnection(name, <any>undefined, { urn })
+            case "azure-native:kusto:EventHubConnection":
+                return new EventHubConnection(name, <any>undefined, { urn })
             case "azure-native:kusto:EventHubDataConnection":
                 return new EventHubDataConnection(name, <any>undefined, { urn })
             case "azure-native:kusto:IotHubDataConnection":

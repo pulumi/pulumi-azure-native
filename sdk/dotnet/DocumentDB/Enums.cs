@@ -290,7 +290,7 @@ namespace Pulumi.AzureNative.DocumentDB
     }
 
     /// <summary>
-    /// Enum to indicate the mode of account creation.
+    /// The mode to create a mongo cluster.
     /// </summary>
     [EnumType]
     public readonly struct CreateMode : IEquatable<CreateMode>
@@ -303,7 +303,7 @@ namespace Pulumi.AzureNative.DocumentDB
         }
 
         public static CreateMode Default { get; } = new CreateMode("Default");
-        public static CreateMode Restore { get; } = new CreateMode("Restore");
+        public static CreateMode PointInTimeRestore { get; } = new CreateMode("PointInTimeRestore");
 
         public static bool operator ==(CreateMode left, CreateMode right) => left.Equals(right);
         public static bool operator !=(CreateMode left, CreateMode right) => !left.Equals(right);
@@ -668,6 +668,36 @@ namespace Pulumi.AzureNative.DocumentDB
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NetworkAclBypass other && Equals(other);
         public bool Equals(NetworkAclBypass other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The node type deployed in the node group.
+    /// </summary>
+    [EnumType]
+    public readonly struct NodeKind : IEquatable<NodeKind>
+    {
+        private readonly string _value;
+
+        private NodeKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NodeKind Shard { get; } = new NodeKind("Shard");
+
+        public static bool operator ==(NodeKind left, NodeKind right) => left.Equals(right);
+        public static bool operator !=(NodeKind left, NodeKind right) => !left.Equals(right);
+
+        public static explicit operator string(NodeKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NodeKind other && Equals(other);
+        public bool Equals(NodeKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

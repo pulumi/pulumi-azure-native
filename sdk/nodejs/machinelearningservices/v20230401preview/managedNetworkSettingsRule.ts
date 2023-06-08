@@ -88,6 +88,8 @@ export class ManagedNetworkSettingsRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ManagedNetworkSettingsRule" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedNetworkSettingsRule.__pulumiType, name, resourceInputs, opts);
     }
 }

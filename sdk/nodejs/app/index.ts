@@ -100,6 +100,16 @@ export const getDaprComponent: typeof import("./getDaprComponent").getDaprCompon
 export const getDaprComponentOutput: typeof import("./getDaprComponent").getDaprComponentOutput = null as any;
 utilities.lazyLoad(exports, ["getDaprComponent","getDaprComponentOutput"], () => require("./getDaprComponent"));
 
+export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
+export const getJob: typeof import("./getJob").getJob = null as any;
+export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
+utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
+
+export { GetManagedCertificateArgs, GetManagedCertificateResult, GetManagedCertificateOutputArgs } from "./getManagedCertificate";
+export const getManagedCertificate: typeof import("./getManagedCertificate").getManagedCertificate = null as any;
+export const getManagedCertificateOutput: typeof import("./getManagedCertificate").getManagedCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedCertificate","getManagedCertificateOutput"], () => require("./getManagedCertificate"));
+
 export { GetManagedEnvironmentArgs, GetManagedEnvironmentResult, GetManagedEnvironmentOutputArgs } from "./getManagedEnvironment";
 export const getManagedEnvironment: typeof import("./getManagedEnvironment").getManagedEnvironment = null as any;
 export const getManagedEnvironmentOutput: typeof import("./getManagedEnvironment").getManagedEnvironmentOutput = null as any;
@@ -114,6 +124,11 @@ export { GetManagedEnvironmentsStorageArgs, GetManagedEnvironmentsStorageResult,
 export const getManagedEnvironmentsStorage: typeof import("./getManagedEnvironmentsStorage").getManagedEnvironmentsStorage = null as any;
 export const getManagedEnvironmentsStorageOutput: typeof import("./getManagedEnvironmentsStorage").getManagedEnvironmentsStorageOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedEnvironmentsStorage","getManagedEnvironmentsStorageOutput"], () => require("./getManagedEnvironmentsStorage"));
+
+export { JobArgs } from "./job";
+export type Job = import("./job").Job;
+export const Job: typeof import("./job").Job = null as any;
+utilities.lazyLoad(exports, ["Job"], () => require("./job"));
 
 export { ListConnectedEnvironmentsDaprComponentSecretsArgs, ListConnectedEnvironmentsDaprComponentSecretsResult, ListConnectedEnvironmentsDaprComponentSecretsOutputArgs } from "./listConnectedEnvironmentsDaprComponentSecrets";
 export const listConnectedEnvironmentsDaprComponentSecrets: typeof import("./listConnectedEnvironmentsDaprComponentSecrets").listConnectedEnvironmentsDaprComponentSecrets = null as any;
@@ -134,6 +149,16 @@ export { ListDaprComponentSecretsArgs, ListDaprComponentSecretsResult, ListDaprC
 export const listDaprComponentSecrets: typeof import("./listDaprComponentSecrets").listDaprComponentSecrets = null as any;
 export const listDaprComponentSecretsOutput: typeof import("./listDaprComponentSecrets").listDaprComponentSecretsOutput = null as any;
 utilities.lazyLoad(exports, ["listDaprComponentSecrets","listDaprComponentSecretsOutput"], () => require("./listDaprComponentSecrets"));
+
+export { ListJobSecretsArgs, ListJobSecretsResult, ListJobSecretsOutputArgs } from "./listJobSecrets";
+export const listJobSecrets: typeof import("./listJobSecrets").listJobSecrets = null as any;
+export const listJobSecretsOutput: typeof import("./listJobSecrets").listJobSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["listJobSecrets","listJobSecretsOutput"], () => require("./listJobSecrets"));
+
+export { ManagedCertificateArgs } from "./managedCertificate";
+export type ManagedCertificate = import("./managedCertificate").ManagedCertificate;
+export const ManagedCertificate: typeof import("./managedCertificate").ManagedCertificate = null as any;
+utilities.lazyLoad(exports, ["ManagedCertificate"], () => require("./managedCertificate"));
 
 export { ManagedEnvironmentArgs } from "./managedEnvironment";
 export type ManagedEnvironment = import("./managedEnvironment").ManagedEnvironment;
@@ -186,6 +211,10 @@ const _module = {
                 return new ContainerAppsSourceControl(name, <any>undefined, { urn })
             case "azure-native:app:DaprComponent":
                 return new DaprComponent(name, <any>undefined, { urn })
+            case "azure-native:app:Job":
+                return new Job(name, <any>undefined, { urn })
+            case "azure-native:app:ManagedCertificate":
+                return new ManagedCertificate(name, <any>undefined, { urn })
             case "azure-native:app:ManagedEnvironment":
                 return new ManagedEnvironment(name, <any>undefined, { urn })
             case "azure-native:app:ManagedEnvironmentsStorage":

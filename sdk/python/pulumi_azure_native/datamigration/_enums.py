@@ -12,6 +12,7 @@ __all__ = [
     'MySqlTargetPlatformType',
     'ProjectSourcePlatform',
     'ProjectTargetPlatform',
+    'ResourceType',
     'ServerLevelPermissionsGroup',
     'SqlSourcePlatform',
     'SsisMigrationOverwriteOption',
@@ -85,6 +86,12 @@ class ProjectTargetPlatform(str, Enum):
     AZURE_DB_FOR_POSTGRE_SQL = "AzureDbForPostgreSql"
     MONGO_DB = "MongoDb"
     UNKNOWN = "Unknown"
+
+
+class ResourceType(str, Enum):
+    SQL_MI = "SqlMi"
+    SQL_VM = "SqlVm"
+    SQL_DB = "SqlDb"
 
 
 class ServerLevelPermissionsGroup(str, Enum):

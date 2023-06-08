@@ -5,8 +5,12 @@
 from enum import Enum
 
 __all__ = [
+    'AnalyticsConnectorDataDestinationType',
+    'AnalyticsConnectorDataSourceType',
+    'AnalyticsConnectorMappingType',
     'FhirResourceVersionPolicy',
     'FhirServiceKind',
+    'FhirServiceVersion',
     'IotIdentityResolutionType',
     'Kind',
     'ManagedServiceIdentityType',
@@ -14,6 +18,27 @@ __all__ = [
     'PublicNetworkAccess',
     'ServiceManagedIdentityType',
 ]
+
+
+class AnalyticsConnectorDataDestinationType(str, Enum):
+    """
+    Type of data destination.
+    """
+    DATALAKE = "datalake"
+
+
+class AnalyticsConnectorDataSourceType(str, Enum):
+    """
+    Type of data source.
+    """
+    FHIRSERVICE = "fhirservice"
+
+
+class AnalyticsConnectorMappingType(str, Enum):
+    """
+    Type of data mapping.
+    """
+    FHIR_TO_PARQUET = "fhirToParquet"
 
 
 class FhirResourceVersionPolicy(str, Enum):
@@ -31,6 +56,14 @@ class FhirServiceKind(str, Enum):
     """
     FHIR_STU3 = "fhir-Stu3"
     FHIR_R4 = "fhir-R4"
+
+
+class FhirServiceVersion(str, Enum):
+    """
+    The kind of FHIR Service.
+    """
+    STU3 = "STU3"
+    R4 = "R4"
 
 
 class IotIdentityResolutionType(str, Enum):

@@ -39,6 +39,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// When to check if an asset is expired
+    /// </summary>
+    [EnumType]
+    public readonly struct AutoDeleteCondition : IEquatable<AutoDeleteCondition>
+    {
+        private readonly string _value;
+
+        private AutoDeleteCondition(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutoDeleteCondition CreatedGreaterThan { get; } = new AutoDeleteCondition("CreatedGreaterThan");
+        public static AutoDeleteCondition LastAccessedGreaterThan { get; } = new AutoDeleteCondition("LastAccessedGreaterThan");
+
+        public static bool operator ==(AutoDeleteCondition left, AutoDeleteCondition right) => left.Equals(right);
+        public static bool operator !=(AutoDeleteCondition left, AutoDeleteCondition right) => !left.Equals(right);
+
+        public static explicit operator string(AutoDeleteCondition value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoDeleteCondition other && Equals(other);
+        public bool Equals(AutoDeleteCondition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Defines if image needs to be rebuilt based on base image changes.
     /// </summary>
     [EnumType]
@@ -700,6 +731,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// Specifies dataset type.
+    /// </summary>
+    [EnumType]
+    public readonly struct DatasetType : IEquatable<DatasetType>
+    {
+        private readonly string _value;
+
+        private DatasetType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DatasetType Tabular { get; } = new DatasetType("tabular");
+        public static DatasetType File { get; } = new DatasetType("file");
+
+        public static bool operator ==(DatasetType left, DatasetType right) => left.Equals(right);
+        public static bool operator !=(DatasetType left, DatasetType right) => !left.Equals(right);
+
+        public static explicit operator string(DatasetType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatasetType other && Equals(other);
+        public bool Equals(DatasetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// [Required] Storage type backing the datastore.
     /// </summary>
     [EnumType]
@@ -733,6 +795,43 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// Specifies datastore type.
+    /// </summary>
+    [EnumType]
+    public readonly struct DatastoreTypeArm : IEquatable<DatastoreTypeArm>
+    {
+        private readonly string _value;
+
+        private DatastoreTypeArm(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DatastoreTypeArm Blob { get; } = new DatastoreTypeArm("blob");
+        public static DatastoreTypeArm Adls { get; } = new DatastoreTypeArm("adls");
+        public static DatastoreTypeArm Adls_gen2 { get; } = new DatastoreTypeArm("adls-gen2");
+        public static DatastoreTypeArm Dbfs { get; } = new DatastoreTypeArm("dbfs");
+        public static DatastoreTypeArm File { get; } = new DatastoreTypeArm("file");
+        public static DatastoreTypeArm Mysqldb { get; } = new DatastoreTypeArm("mysqldb");
+        public static DatastoreTypeArm Sqldb { get; } = new DatastoreTypeArm("sqldb");
+        public static DatastoreTypeArm Psqldb { get; } = new DatastoreTypeArm("psqldb");
+
+        public static bool operator ==(DatastoreTypeArm left, DatastoreTypeArm right) => left.Equals(right);
+        public static bool operator !=(DatastoreTypeArm left, DatastoreTypeArm right) => !left.Equals(right);
+
+        public static explicit operator string(DatastoreTypeArm value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatastoreTypeArm other && Equals(other);
+        public bool Equals(DatastoreTypeArm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// [Required] Specifies the type of distribution framework.
     /// </summary>
     [EnumType]
@@ -757,6 +856,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DistributionType other && Equals(other);
         public bool Equals(DistributionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] Docker specification must be either Build or Image
+    /// </summary>
+    [EnumType]
+    public readonly struct DockerSpecificationType : IEquatable<DockerSpecificationType>
+    {
+        private readonly string _value;
+
+        private DockerSpecificationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DockerSpecificationType Build { get; } = new DockerSpecificationType("Build");
+        public static DockerSpecificationType Image { get; } = new DockerSpecificationType("Image");
+
+        public static bool operator ==(DockerSpecificationType left, DockerSpecificationType right) => left.Equals(right);
+        public static bool operator !=(DockerSpecificationType left, DockerSpecificationType right) => !left.Equals(right);
+
+        public static explicit operator string(DockerSpecificationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DockerSpecificationType other && Equals(other);
+        public bool Equals(DockerSpecificationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -820,6 +950,38 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EgressPublicNetworkAccessType other && Equals(other);
         public bool Equals(EgressPublicNetworkAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enum to determine the email notification type.
+    /// </summary>
+    [EnumType]
+    public readonly struct EmailNotificationEnableType : IEquatable<EmailNotificationEnableType>
+    {
+        private readonly string _value;
+
+        private EmailNotificationEnableType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EmailNotificationEnableType JobCompleted { get; } = new EmailNotificationEnableType("JobCompleted");
+        public static EmailNotificationEnableType JobFailed { get; } = new EmailNotificationEnableType("JobFailed");
+        public static EmailNotificationEnableType JobCancelled { get; } = new EmailNotificationEnableType("JobCancelled");
+
+        public static bool operator ==(EmailNotificationEnableType left, EmailNotificationEnableType right) => left.Equals(right);
+        public static bool operator !=(EmailNotificationEnableType left, EmailNotificationEnableType right) => !left.Equals(right);
+
+        public static explicit operator string(EmailNotificationEnableType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EmailNotificationEnableType other && Equals(other);
+        public bool Equals(EmailNotificationEnableType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -978,6 +1140,43 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EnvironmentVariableType other && Equals(other);
         public bool Equals(EnvironmentVariableType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the data type
+    /// </summary>
+    [EnumType]
+    public readonly struct FeatureDataType : IEquatable<FeatureDataType>
+    {
+        private readonly string _value;
+
+        private FeatureDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FeatureDataType String { get; } = new FeatureDataType("String");
+        public static FeatureDataType Integer { get; } = new FeatureDataType("Integer");
+        public static FeatureDataType Long { get; } = new FeatureDataType("Long");
+        public static FeatureDataType Float { get; } = new FeatureDataType("Float");
+        public static FeatureDataType Double { get; } = new FeatureDataType("Double");
+        public static FeatureDataType Binary { get; } = new FeatureDataType("Binary");
+        public static FeatureDataType Datetime { get; } = new FeatureDataType("Datetime");
+        public static FeatureDataType Boolean { get; } = new FeatureDataType("Boolean");
+
+        public static bool operator ==(FeatureDataType left, FeatureDataType right) => left.Equals(right);
+        public static bool operator !=(FeatureDataType left, FeatureDataType right) => !left.Equals(right);
+
+        public static explicit operator string(FeatureDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FeatureDataType other && Equals(other);
+        public bool Equals(FeatureDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1293,6 +1492,39 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// Header type.
+    /// </summary>
+    [EnumType]
+    public readonly struct Header : IEquatable<Header>
+    {
+        private readonly string _value;
+
+        private Header(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Header All_files_have_same_headers { get; } = new Header("all_files_have_same_headers");
+        public static Header Only_first_file_has_headers { get; } = new Header("only_first_file_has_headers");
+        public static Header No_headers { get; } = new Header("no_headers");
+        public static Header Combine_all_files_headers { get; } = new Header("combine_all_files_headers");
+
+        public static bool operator ==(Header left, Header right) => left.Equals(right);
+        public static bool operator !=(Header left, Header right) => !left.Equals(right);
+
+        public static explicit operator string(Header value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Header other && Equals(other);
+        public bool Equals(Header other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// [Required] Specifies the type of identity framework.
     /// </summary>
     [EnumType]
@@ -1325,6 +1557,38 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// Annotation type of image labeling job.
+    /// </summary>
+    [EnumType]
+    public readonly struct ImageAnnotationType : IEquatable<ImageAnnotationType>
+    {
+        private readonly string _value;
+
+        private ImageAnnotationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImageAnnotationType Classification { get; } = new ImageAnnotationType("Classification");
+        public static ImageAnnotationType BoundingBox { get; } = new ImageAnnotationType("BoundingBox");
+        public static ImageAnnotationType InstanceSegmentation { get; } = new ImageAnnotationType("InstanceSegmentation");
+
+        public static bool operator ==(ImageAnnotationType left, ImageAnnotationType right) => left.Equals(right);
+        public static bool operator !=(ImageAnnotationType left, ImageAnnotationType right) => !left.Equals(right);
+
+        public static explicit operator string(ImageAnnotationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImageAnnotationType other && Equals(other);
+        public bool Equals(ImageAnnotationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
     /// </summary>
     [EnumType]
@@ -1348,6 +1612,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ImageType other && Equals(other);
         public bool Equals(ImageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether to enable incremental data refresh.
+    /// </summary>
+    [EnumType]
+    public readonly struct IncrementalDataRefresh : IEquatable<IncrementalDataRefresh>
+    {
+        private readonly string _value;
+
+        private IncrementalDataRefresh(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IncrementalDataRefresh Enabled { get; } = new IncrementalDataRefresh("Enabled");
+        public static IncrementalDataRefresh Disabled { get; } = new IncrementalDataRefresh("Disabled");
+
+        public static bool operator ==(IncrementalDataRefresh left, IncrementalDataRefresh right) => left.Equals(right);
+        public static bool operator !=(IncrementalDataRefresh left, IncrementalDataRefresh right) => !left.Equals(right);
+
+        public static explicit operator string(IncrementalDataRefresh value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IncrementalDataRefresh other && Equals(other);
+        public bool Equals(IncrementalDataRefresh other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1601,6 +1896,36 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// Type of the link target.
+    /// </summary>
+    [EnumType]
+    public readonly struct LinkedServiceLinkType : IEquatable<LinkedServiceLinkType>
+    {
+        private readonly string _value;
+
+        private LinkedServiceLinkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinkedServiceLinkType Synapse { get; } = new LinkedServiceLinkType("Synapse");
+
+        public static bool operator ==(LinkedServiceLinkType left, LinkedServiceLinkType right) => left.Equals(right);
+        public static bool operator !=(LinkedServiceLinkType left, LinkedServiceLinkType right) => !left.Equals(right);
+
+        public static explicit operator string(LinkedServiceLinkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinkedServiceLinkType other && Equals(other);
+        public bool Equals(LinkedServiceLinkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Load Balancer Type
     /// </summary>
     [EnumType]
@@ -1685,6 +2010,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// [Required] Indicates whether MLAssist feature is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct MLAssistConfigurationType : IEquatable<MLAssistConfigurationType>
+    {
+        private readonly string _value;
+
+        private MLAssistConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MLAssistConfigurationType Enabled { get; } = new MLAssistConfigurationType("Enabled");
+        public static MLAssistConfigurationType Disabled { get; } = new MLAssistConfigurationType("Disabled");
+
+        public static bool operator ==(MLAssistConfigurationType left, MLAssistConfigurationType right) => left.Equals(right);
+        public static bool operator !=(MLAssistConfigurationType left, MLAssistConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(MLAssistConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MLAssistConfigurationType other && Equals(other);
+        public bool Equals(MLAssistConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     /// </summary>
     [EnumType]
@@ -1710,6 +2066,70 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
         public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the stores to which materialization should happen
+    /// </summary>
+    [EnumType]
+    public readonly struct MaterializationStoreType : IEquatable<MaterializationStoreType>
+    {
+        private readonly string _value;
+
+        private MaterializationStoreType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MaterializationStoreType None { get; } = new MaterializationStoreType("None");
+        public static MaterializationStoreType Online { get; } = new MaterializationStoreType("Online");
+        public static MaterializationStoreType Offline { get; } = new MaterializationStoreType("Offline");
+        public static MaterializationStoreType OnlineAndOffline { get; } = new MaterializationStoreType("OnlineAndOffline");
+
+        public static bool operator ==(MaterializationStoreType left, MaterializationStoreType right) => left.Equals(right);
+        public static bool operator !=(MaterializationStoreType left, MaterializationStoreType right) => !left.Equals(right);
+
+        public static explicit operator string(MaterializationStoreType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MaterializationStoreType other && Equals(other);
+        public bool Equals(MaterializationStoreType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] Media type of the job.
+    /// </summary>
+    [EnumType]
+    public readonly struct MediaType : IEquatable<MediaType>
+    {
+        private readonly string _value;
+
+        private MediaType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MediaType Image { get; } = new MediaType("Image");
+        public static MediaType Text { get; } = new MediaType("Text");
+
+        public static bool operator ==(MediaType left, MediaType right) => left.Equals(right);
+        public static bool operator !=(MediaType left, MediaType right) => !left.Equals(right);
+
+        public static explicit operator string(MediaType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MediaType other && Equals(other);
+        public bool Equals(MediaType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1761,6 +2181,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ModelSize other && Equals(other);
         public bool Equals(ModelSize other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether it is allowed to select multiple classes in this category.
+    /// </summary>
+    [EnumType]
+    public readonly struct MultiSelect : IEquatable<MultiSelect>
+    {
+        private readonly string _value;
+
+        private MultiSelect(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MultiSelect Enabled { get; } = new MultiSelect("Enabled");
+        public static MultiSelect Disabled { get; } = new MultiSelect("Disabled");
+
+        public static bool operator ==(MultiSelect left, MultiSelect right) => left.Equals(right);
+        public static bool operator !=(MultiSelect left, MultiSelect right) => !left.Equals(right);
+
+        public static explicit operator string(MultiSelect value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MultiSelect other && Equals(other);
+        public bool Equals(MultiSelect other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2355,6 +2806,134 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// The identity type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType SystemAssigned_UserAssigned { get; } = new ResourceIdentityType("SystemAssigned,UserAssigned");
+        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
+        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
+
+        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
+        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Category of a managed network Outbound Rule of a machine learning workspace.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleCategory : IEquatable<RuleCategory>
+    {
+        private readonly string _value;
+
+        private RuleCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleCategory Required { get; } = new RuleCategory("Required");
+        public static RuleCategory Recommended { get; } = new RuleCategory("Recommended");
+        public static RuleCategory UserDefined { get; } = new RuleCategory("UserDefined");
+
+        public static bool operator ==(RuleCategory left, RuleCategory right) => left.Equals(right);
+        public static bool operator !=(RuleCategory left, RuleCategory right) => !left.Equals(right);
+
+        public static explicit operator string(RuleCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleCategory other && Equals(other);
+        public bool Equals(RuleCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of a managed network Outbound Rule of a machine learning workspace.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleStatus : IEquatable<RuleStatus>
+    {
+        private readonly string _value;
+
+        private RuleStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleStatus Inactive { get; } = new RuleStatus("Inactive");
+        public static RuleStatus Active { get; } = new RuleStatus("Active");
+
+        public static bool operator ==(RuleStatus left, RuleStatus right) => left.Equals(right);
+        public static bool operator !=(RuleStatus left, RuleStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RuleStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleStatus other && Equals(other);
+        public bool Equals(RuleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of a managed network Outbound Rule of a machine learning workspace.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleType : IEquatable<RuleType>
+    {
+        private readonly string _value;
+
+        private RuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleType FQDN { get; } = new RuleType("FQDN");
+        public static RuleType PrivateEndpoint { get; } = new RuleType("PrivateEndpoint");
+        public static RuleType ServiceTag { get; } = new RuleType("ServiceTag");
+
+        public static bool operator ==(RuleType left, RuleType right) => left.Equals(right);
+        public static bool operator !=(RuleType left, RuleType right) => !left.Equals(right);
+
+        public static explicit operator string(RuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleType other && Equals(other);
+        public bool Equals(RuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// [Required] The algorithm used for generating hyperparameter values, along with configuration properties
     /// </summary>
     [EnumType]
@@ -2693,6 +3272,38 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
         public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Data source type.
+    /// </summary>
+    [EnumType]
+    public readonly struct SourceType : IEquatable<SourceType>
+    {
+        private readonly string _value;
+
+        private SourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceType Delimited_files { get; } = new SourceType("delimited_files");
+        public static SourceType Json_lines_files { get; } = new SourceType("json_lines_files");
+        public static SourceType Parquet_files { get; } = new SourceType("parquet_files");
+
+        public static bool operator ==(SourceType left, SourceType right) => left.Equals(right);
+        public static bool operator !=(SourceType left, SourceType right) => !left.Equals(right);
+
+        public static explicit operator string(SourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceType other && Equals(other);
+        public bool Equals(SourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3047,6 +3658,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// Annotation type of text labeling job.
+    /// </summary>
+    [EnumType]
+    public readonly struct TextAnnotationType : IEquatable<TextAnnotationType>
+    {
+        private readonly string _value;
+
+        private TextAnnotationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TextAnnotationType Classification { get; } = new TextAnnotationType("Classification");
+        public static TextAnnotationType NamedEntityRecognition { get; } = new TextAnnotationType("NamedEntityRecognition");
+
+        public static bool operator ==(TextAnnotationType left, TextAnnotationType right) => left.Equals(right);
+        public static bool operator !=(TextAnnotationType left, TextAnnotationType right) => !left.Equals(right);
+
+        public static explicit operator string(TextAnnotationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TextAnnotationType other && Equals(other);
+        public bool Equals(TextAnnotationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// [Required] 
     /// </summary>
     [EnumType]
@@ -3244,6 +3886,36 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VolumeDefinitionType other && Equals(other);
         public bool Equals(VolumeDefinitionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] Specifies the type of service to send a callback
+    /// </summary>
+    [EnumType]
+    public readonly struct WebhookType : IEquatable<WebhookType>
+    {
+        private readonly string _value;
+
+        private WebhookType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebhookType AzureDevOps { get; } = new WebhookType("AzureDevOps");
+
+        public static bool operator ==(WebhookType left, WebhookType right) => left.Equals(right);
+        public static bool operator !=(WebhookType left, WebhookType right) => !left.Equals(right);
+
+        public static explicit operator string(WebhookType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebhookType other && Equals(other);
+        public bool Equals(WebhookType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

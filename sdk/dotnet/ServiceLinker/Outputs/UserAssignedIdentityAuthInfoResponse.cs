@@ -26,9 +26,21 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
         /// </summary>
         public readonly string? ClientId;
         /// <summary>
+        /// Indicates whether to clean up previous operation when Linker is updating or deleting
+        /// </summary>
+        public readonly string? DeleteOrUpdateBehavior;
+        /// <summary>
+        /// Optional, this value specifies the Azure role to be assigned
+        /// </summary>
+        public readonly ImmutableArray<string> Roles;
+        /// <summary>
         /// Subscription id for userAssignedIdentity.
         /// </summary>
         public readonly string? SubscriptionId;
+        /// <summary>
+        /// Username created in the database which is mapped to a user in AAD.
+        /// </summary>
+        public readonly string? UserName;
 
         [OutputConstructor]
         private UserAssignedIdentityAuthInfoResponse(
@@ -36,11 +48,20 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
 
             string? clientId,
 
-            string? subscriptionId)
+            string? deleteOrUpdateBehavior,
+
+            ImmutableArray<string> roles,
+
+            string? subscriptionId,
+
+            string? userName)
         {
             AuthType = authType;
             ClientId = clientId;
+            DeleteOrUpdateBehavior = deleteOrUpdateBehavior;
+            Roles = roles;
             SubscriptionId = subscriptionId;
+            UserName = userName;
         }
     }
 }

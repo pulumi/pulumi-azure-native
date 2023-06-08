@@ -15,6 +15,11 @@ export const getMachineExtension: typeof import("./getMachineExtension").getMach
 export const getMachineExtensionOutput: typeof import("./getMachineExtension").getMachineExtensionOutput = null as any;
 utilities.lazyLoad(exports, ["getMachineExtension","getMachineExtensionOutput"], () => require("./getMachineExtension"));
 
+export { GetMachineRunCommandArgs, GetMachineRunCommandResult, GetMachineRunCommandOutputArgs } from "./getMachineRunCommand";
+export const getMachineRunCommand: typeof import("./getMachineRunCommand").getMachineRunCommand = null as any;
+export const getMachineRunCommandOutput: typeof import("./getMachineRunCommand").getMachineRunCommandOutput = null as any;
+utilities.lazyLoad(exports, ["getMachineRunCommand","getMachineRunCommandOutput"], () => require("./getMachineRunCommand"));
+
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -24,6 +29,11 @@ export { GetPrivateLinkScopeArgs, GetPrivateLinkScopeResult, GetPrivateLinkScope
 export const getPrivateLinkScope: typeof import("./getPrivateLinkScope").getPrivateLinkScope = null as any;
 export const getPrivateLinkScopeOutput: typeof import("./getPrivateLinkScope").getPrivateLinkScopeOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateLinkScope","getPrivateLinkScopeOutput"], () => require("./getPrivateLinkScope"));
+
+export { GetPrivateLinkScopedResourceArgs, GetPrivateLinkScopedResourceResult, GetPrivateLinkScopedResourceOutputArgs } from "./getPrivateLinkScopedResource";
+export const getPrivateLinkScopedResource: typeof import("./getPrivateLinkScopedResource").getPrivateLinkScopedResource = null as any;
+export const getPrivateLinkScopedResourceOutput: typeof import("./getPrivateLinkScopedResource").getPrivateLinkScopedResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLinkScopedResource","getPrivateLinkScopedResourceOutput"], () => require("./getPrivateLinkScopedResource"));
 
 export { MachineArgs } from "./machine";
 export type Machine = import("./machine").Machine;
@@ -35,6 +45,11 @@ export type MachineExtension = import("./machineExtension").MachineExtension;
 export const MachineExtension: typeof import("./machineExtension").MachineExtension = null as any;
 utilities.lazyLoad(exports, ["MachineExtension"], () => require("./machineExtension"));
 
+export { MachineRunCommandArgs } from "./machineRunCommand";
+export type MachineRunCommand = import("./machineRunCommand").MachineRunCommand;
+export const MachineRunCommand: typeof import("./machineRunCommand").MachineRunCommand = null as any;
+utilities.lazyLoad(exports, ["MachineRunCommand"], () => require("./machineRunCommand"));
+
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
@@ -44,6 +59,11 @@ export { PrivateLinkScopeArgs } from "./privateLinkScope";
 export type PrivateLinkScope = import("./privateLinkScope").PrivateLinkScope;
 export const PrivateLinkScope: typeof import("./privateLinkScope").PrivateLinkScope = null as any;
 utilities.lazyLoad(exports, ["PrivateLinkScope"], () => require("./privateLinkScope"));
+
+export { PrivateLinkScopedResourceArgs } from "./privateLinkScopedResource";
+export type PrivateLinkScopedResource = import("./privateLinkScopedResource").PrivateLinkScopedResource;
+export const PrivateLinkScopedResource: typeof import("./privateLinkScopedResource").PrivateLinkScopedResource = null as any;
+utilities.lazyLoad(exports, ["PrivateLinkScopedResource"], () => require("./privateLinkScopedResource"));
 
 
 // Export enums:
@@ -82,10 +102,14 @@ const _module = {
                 return new Machine(name, <any>undefined, { urn })
             case "azure-native:hybridcompute:MachineExtension":
                 return new MachineExtension(name, <any>undefined, { urn })
+            case "azure-native:hybridcompute:MachineRunCommand":
+                return new MachineRunCommand(name, <any>undefined, { urn })
             case "azure-native:hybridcompute:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:hybridcompute:PrivateLinkScope":
                 return new PrivateLinkScope(name, <any>undefined, { urn })
+            case "azure-native:hybridcompute:PrivateLinkScopedResource":
+                return new PrivateLinkScopedResource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
