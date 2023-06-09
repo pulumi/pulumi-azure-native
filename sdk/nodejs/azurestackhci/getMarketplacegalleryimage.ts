@@ -8,23 +8,23 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets a marketplace gallery image
- * API Version: 2022-12-15-preview.
+ * Gets marketplacegalleryimages by resource name
+ * API Version: 2021-09-01-preview.
  */
-export function getMarketplaceGalleryImage(args: GetMarketplaceGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetMarketplaceGalleryImageResult> {
+export function getMarketplacegalleryimage(args: GetMarketplacegalleryimageArgs, opts?: pulumi.InvokeOptions): Promise<GetMarketplacegalleryimageResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:azurestackhci:getMarketplaceGalleryImage", {
-        "marketplaceGalleryImageName": args.marketplaceGalleryImageName,
+    return pulumi.runtime.invoke("azure-native:azurestackhci:getMarketplacegalleryimage", {
+        "marketplacegalleryimagesName": args.marketplacegalleryimagesName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetMarketplaceGalleryImageArgs {
+export interface GetMarketplacegalleryimageArgs {
     /**
      * Name of the marketplace gallery image
      */
-    marketplaceGalleryImageName: string;
+    marketplacegalleryimagesName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -34,9 +34,9 @@ export interface GetMarketplaceGalleryImageArgs {
 /**
  * The marketplace gallery image resource definition.
  */
-export interface GetMarketplaceGalleryImageResult {
+export interface GetMarketplacegalleryimageResult {
     /**
-     * Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
+     * Datasource for the gallery image when provisioning with cloud-init [Azure, NoCloud]
      */
     readonly cloudInitDataSource?: string;
     /**
@@ -68,19 +68,23 @@ export interface GetMarketplaceGalleryImageResult {
      */
     readonly name: string;
     /**
-     * Operating system type that the gallery image uses [Windows, Linux]
+     * operating system type that the gallery image uses. Expected to be linux or windows
      */
     readonly osType?: string;
     /**
-     * Provisioning state of the marketplace gallery image.
+     * Provisioning state of the gallery image.
      */
     readonly provisioningState: string;
     /**
-     * The observed state of marketplace gallery images
+     * name of the object to be used in moc
+     */
+    readonly resourceName?: string;
+    /**
+     * MarketplaceGalleryImageStatus defines the observed state of marketplacegalleryimages
      */
     readonly status: outputs.azurestackhci.MarketplaceGalleryImageStatusResponse;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     * Metadata pertaining to creation and last modification of the resource.
      */
     readonly systemData: outputs.azurestackhci.SystemDataResponse;
     /**
@@ -97,18 +101,18 @@ export interface GetMarketplaceGalleryImageResult {
     readonly version?: outputs.azurestackhci.GalleryImageVersionResponse;
 }
 /**
- * Gets a marketplace gallery image
- * API Version: 2022-12-15-preview.
+ * Gets marketplacegalleryimages by resource name
+ * API Version: 2021-09-01-preview.
  */
-export function getMarketplaceGalleryImageOutput(args: GetMarketplaceGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarketplaceGalleryImageResult> {
-    return pulumi.output(args).apply((a: any) => getMarketplaceGalleryImage(a, opts))
+export function getMarketplacegalleryimageOutput(args: GetMarketplacegalleryimageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarketplacegalleryimageResult> {
+    return pulumi.output(args).apply((a: any) => getMarketplacegalleryimage(a, opts))
 }
 
-export interface GetMarketplaceGalleryImageOutputArgs {
+export interface GetMarketplacegalleryimageOutputArgs {
     /**
      * Name of the marketplace gallery image
      */
-    marketplaceGalleryImageName: pulumi.Input<string>;
+    marketplacegalleryimagesName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

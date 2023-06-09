@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
     /// InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
     /// </summary>
     [OutputType]
-    public sealed class IPConfigurationResponseProperties
+    public sealed class IpConfigurationResponseProperties
     {
         /// <summary>
         /// prefixLength for network interface
@@ -31,17 +31,17 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// Subnet - Name of Subnet bound to the IP configuration.
         /// </summary>
-        public readonly Outputs.IPConfigurationResponseSubnet? Subnet;
+        public readonly Outputs.IpConfigurationResponseSubnet? Subnet;
 
         [OutputConstructor]
-        private IPConfigurationResponseProperties(
+        private IpConfigurationResponseProperties(
             string? prefixLength,
 
             string? privateIPAddress,
 
             string? privateIPAllocationMethod,
 
-            Outputs.IPConfigurationResponseSubnet? subnet)
+            Outputs.IpConfigurationResponseSubnet? subnet)
         {
             PrefixLength = prefixLength;
             PrivateIPAddress = privateIPAddress;

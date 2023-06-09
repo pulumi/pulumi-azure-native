@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
     /// <summary>
     /// InterfaceIPConfiguration iPConfiguration in a network interface.
     /// </summary>
-    public sealed class IPConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class IpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -25,11 +25,11 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         /// InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.IPConfigurationPropertiesArgs>? Properties { get; set; }
+        public Input<Inputs.IpConfigurationPropertiesArgs>? Properties { get; set; }
 
-        public IPConfigurationArgs()
+        public IpConfigurationArgs()
         {
         }
-        public static new IPConfigurationArgs Empty => new IPConfigurationArgs();
+        public static new IpConfigurationArgs Empty => new IpConfigurationArgs();
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
     /// <summary>
     /// InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
     /// </summary>
-    public sealed class IPConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class IpConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// prefixLength for network interface
@@ -37,11 +37,11 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         /// Subnet - Name of Subnet bound to the IP configuration.
         /// </summary>
         [Input("subnet")]
-        public Input<Inputs.IPConfigurationSubnetArgs>? Subnet { get; set; }
+        public Input<Inputs.IpConfigurationSubnetArgs>? Subnet { get; set; }
 
-        public IPConfigurationPropertiesArgs()
+        public IpConfigurationPropertiesArgs()
         {
         }
-        public static new IPConfigurationPropertiesArgs Empty => new IPConfigurationPropertiesArgs();
+        public static new IpConfigurationPropertiesArgs Empty => new IpConfigurationPropertiesArgs();
     }
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
     /// Subnet - Name of Subnet bound to the IP configuration.
     /// </summary>
     [OutputType]
-    public sealed class IPConfigurationResponseSubnet
+    public sealed class IpConfigurationResponseSubnet
     {
         /// <summary>
         /// ID - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         public readonly string? Id;
 
         [OutputConstructor]
-        private IPConfigurationResponseSubnet(string? id)
+        private IpConfigurationResponseSubnet(string? id)
         {
             Id = id;
         }

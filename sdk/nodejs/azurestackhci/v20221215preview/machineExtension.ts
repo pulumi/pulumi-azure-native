@@ -138,7 +138,7 @@ export class MachineExtension extends pulumi.CustomResource {
             resourceInputs["typeHandlerVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:MachineExtension" }, { type: "azure-native:azurestackhci/v20210901preview:MachineExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:MachineExtension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineExtension.__pulumiType, name, resourceInputs, opts);
     }

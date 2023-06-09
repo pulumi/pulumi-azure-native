@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// The marketplace gallery image resource definition.
-    /// API Version: 2022-12-15-preview.
+    /// API Version: 2021-09-01-preview.
     /// </summary>
-    [AzureNativeResourceType("azure-native:azurestackhci:MarketplaceGalleryImage")]
-    public partial class MarketplaceGalleryImage : global::Pulumi.CustomResource
+    [AzureNativeResourceType("azure-native:azurestackhci:Marketplacegalleryimage")]
+    public partial class Marketplacegalleryimage : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
+        /// Datasource for the gallery image when provisioning with cloud-init [Azure, NoCloud]
         /// </summary>
         [Output("cloudInitDataSource")]
         public Output<string?> CloudInitDataSource { get; private set; } = null!;
@@ -59,25 +59,31 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Operating system type that the gallery image uses [Windows, Linux]
+        /// operating system type that the gallery image uses. Expected to be linux or windows
         /// </summary>
         [Output("osType")]
         public Output<string?> OsType { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the marketplace gallery image.
+        /// Provisioning state of the gallery image.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The observed state of marketplace gallery images
+        /// name of the object to be used in moc
+        /// </summary>
+        [Output("resourceName")]
+        public Output<string?> ResourceName { get; private set; } = null!;
+
+        /// <summary>
+        /// MarketplaceGalleryImageStatus defines the observed state of marketplacegalleryimages
         /// </summary>
         [Output("status")]
         public Output<Outputs.MarketplaceGalleryImageStatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -102,19 +108,19 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
 
         /// <summary>
-        /// Create a MarketplaceGalleryImage resource with the given unique name, arguments, and options.
+        /// Create a Marketplacegalleryimage resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public MarketplaceGalleryImage(string name, MarketplaceGalleryImageArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci:MarketplaceGalleryImage", name, args ?? new MarketplaceGalleryImageArgs(), MakeResourceOptions(options, ""))
+        public Marketplacegalleryimage(string name, MarketplacegalleryimageArgs args, CustomResourceOptions? options = null)
+            : base("azure-native:azurestackhci:Marketplacegalleryimage", name, args ?? new MarketplacegalleryimageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private MarketplaceGalleryImage(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci:MarketplaceGalleryImage", name, null, MakeResourceOptions(options, id))
+        private Marketplacegalleryimage(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azure-native:azurestackhci:Marketplacegalleryimage", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -125,8 +131,11 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:MarketplaceGalleryImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:MarketplaceGalleryImage"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:marketplacegalleryimage"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:Marketplacegalleryimage"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:marketplacegalleryimage"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:Marketplacegalleryimage"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:marketplacegalleryimage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,23 +144,23 @@ namespace Pulumi.AzureNative.AzureStackHCI
             return merged;
         }
         /// <summary>
-        /// Get an existing MarketplaceGalleryImage resource's state with the given name, ID, and optional extra
+        /// Get an existing Marketplacegalleryimage resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static MarketplaceGalleryImage Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static Marketplacegalleryimage Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new MarketplaceGalleryImage(name, id, options);
+            return new Marketplacegalleryimage(name, id, options);
         }
     }
 
-    public sealed class MarketplaceGalleryImageArgs : global::Pulumi.ResourceArgs
+    public sealed class MarketplacegalleryimageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
+        /// Datasource for the gallery image when provisioning with cloud-init [Azure, NoCloud]
         /// </summary>
         [Input("cloudInitDataSource")]
         public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.CloudInitDataSource>? CloudInitDataSource { get; set; }
@@ -189,11 +198,11 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the marketplace gallery image
         /// </summary>
-        [Input("marketplaceGalleryImageName")]
-        public Input<string>? MarketplaceGalleryImageName { get; set; }
+        [Input("marketplacegalleryimagesName")]
+        public Input<string>? MarketplacegalleryimagesName { get; set; }
 
         /// <summary>
-        /// Operating system type that the gallery image uses [Windows, Linux]
+        /// operating system type that the gallery image uses. Expected to be linux or windows
         /// </summary>
         [Input("osType")]
         public Input<Pulumi.AzureNative.AzureStackHCI.OperatingSystemTypes>? OsType { get; set; }
@@ -203,6 +212,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// name of the object to be used in moc
+        /// </summary>
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -222,9 +237,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [Input("version")]
         public Input<Inputs.GalleryImageVersionArgs>? Version { get; set; }
 
-        public MarketplaceGalleryImageArgs()
+        public MarketplacegalleryimageArgs()
         {
         }
-        public static new MarketplaceGalleryImageArgs Empty => new MarketplaceGalleryImageArgs();
+        public static new MarketplacegalleryimageArgs Empty => new MarketplacegalleryimageArgs();
     }
 }

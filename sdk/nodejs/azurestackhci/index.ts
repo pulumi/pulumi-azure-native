@@ -20,11 +20,6 @@ export type Extension = import("./extension").Extension;
 export const Extension: typeof import("./extension").Extension = null as any;
 utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
 
-export { GalleryImageArgs } from "./galleryImage";
-export type GalleryImage = import("./galleryImage").GalleryImage;
-export const GalleryImage: typeof import("./galleryImage").GalleryImage = null as any;
-utilities.lazyLoad(exports, ["GalleryImage"], () => require("./galleryImage"));
-
 export { GalleryimageRetrieveArgs } from "./galleryimageRetrieve";
 export type GalleryimageRetrieve = import("./galleryimageRetrieve").GalleryimageRetrieve;
 export const GalleryimageRetrieve: typeof import("./galleryimageRetrieve").GalleryimageRetrieve = null as any;
@@ -45,55 +40,20 @@ export const getExtension: typeof import("./getExtension").getExtension = null a
 export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
 utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
 
-export { GetGalleryImageArgs, GetGalleryImageResult, GetGalleryImageOutputArgs } from "./getGalleryImage";
-export const getGalleryImage: typeof import("./getGalleryImage").getGalleryImage = null as any;
-export const getGalleryImageOutput: typeof import("./getGalleryImage").getGalleryImageOutput = null as any;
-utilities.lazyLoad(exports, ["getGalleryImage","getGalleryImageOutput"], () => require("./getGalleryImage"));
-
 export { GetGalleryimageRetrieveArgs, GetGalleryimageRetrieveResult, GetGalleryimageRetrieveOutputArgs } from "./getGalleryimageRetrieve";
 export const getGalleryimageRetrieve: typeof import("./getGalleryimageRetrieve").getGalleryimageRetrieve = null as any;
 export const getGalleryimageRetrieveOutput: typeof import("./getGalleryimageRetrieve").getGalleryimageRetrieveOutput = null as any;
 utilities.lazyLoad(exports, ["getGalleryimageRetrieve","getGalleryimageRetrieveOutput"], () => require("./getGalleryimageRetrieve"));
-
-export { GetGuestAgentArgs, GetGuestAgentResult, GetGuestAgentOutputArgs } from "./getGuestAgent";
-export const getGuestAgent: typeof import("./getGuestAgent").getGuestAgent = null as any;
-export const getGuestAgentOutput: typeof import("./getGuestAgent").getGuestAgentOutput = null as any;
-utilities.lazyLoad(exports, ["getGuestAgent","getGuestAgentOutput"], () => require("./getGuestAgent"));
-
-export { GetHybridIdentityMetadatumArgs, GetHybridIdentityMetadatumResult, GetHybridIdentityMetadatumOutputArgs } from "./getHybridIdentityMetadatum";
-export const getHybridIdentityMetadatum: typeof import("./getHybridIdentityMetadatum").getHybridIdentityMetadatum = null as any;
-export const getHybridIdentityMetadatumOutput: typeof import("./getHybridIdentityMetadatum").getHybridIdentityMetadatumOutput = null as any;
-utilities.lazyLoad(exports, ["getHybridIdentityMetadatum","getHybridIdentityMetadatumOutput"], () => require("./getHybridIdentityMetadatum"));
-
-export { GetMachineExtensionArgs, GetMachineExtensionResult, GetMachineExtensionOutputArgs } from "./getMachineExtension";
-export const getMachineExtension: typeof import("./getMachineExtension").getMachineExtension = null as any;
-export const getMachineExtensionOutput: typeof import("./getMachineExtension").getMachineExtensionOutput = null as any;
-utilities.lazyLoad(exports, ["getMachineExtension","getMachineExtensionOutput"], () => require("./getMachineExtension"));
-
-export { GetMarketplaceGalleryImageArgs, GetMarketplaceGalleryImageResult, GetMarketplaceGalleryImageOutputArgs } from "./getMarketplaceGalleryImage";
-export const getMarketplaceGalleryImage: typeof import("./getMarketplaceGalleryImage").getMarketplaceGalleryImage = null as any;
-export const getMarketplaceGalleryImageOutput: typeof import("./getMarketplaceGalleryImage").getMarketplaceGalleryImageOutput = null as any;
-utilities.lazyLoad(exports, ["getMarketplaceGalleryImage","getMarketplaceGalleryImageOutput"], () => require("./getMarketplaceGalleryImage"));
 
 export { GetMarketplacegalleryimageArgs, GetMarketplacegalleryimageResult, GetMarketplacegalleryimageOutputArgs } from "./getMarketplacegalleryimage";
 export const getMarketplacegalleryimage: typeof import("./getMarketplacegalleryimage").getMarketplacegalleryimage = null as any;
 export const getMarketplacegalleryimageOutput: typeof import("./getMarketplacegalleryimage").getMarketplacegalleryimageOutput = null as any;
 utilities.lazyLoad(exports, ["getMarketplacegalleryimage","getMarketplacegalleryimageOutput"], () => require("./getMarketplacegalleryimage"));
 
-export { GetNetworkInterfaceArgs, GetNetworkInterfaceResult, GetNetworkInterfaceOutputArgs } from "./getNetworkInterface";
-export const getNetworkInterface: typeof import("./getNetworkInterface").getNetworkInterface = null as any;
-export const getNetworkInterfaceOutput: typeof import("./getNetworkInterface").getNetworkInterfaceOutput = null as any;
-utilities.lazyLoad(exports, ["getNetworkInterface","getNetworkInterfaceOutput"], () => require("./getNetworkInterface"));
-
 export { GetNetworkinterfaceRetrieveArgs, GetNetworkinterfaceRetrieveResult, GetNetworkinterfaceRetrieveOutputArgs } from "./getNetworkinterfaceRetrieve";
 export const getNetworkinterfaceRetrieve: typeof import("./getNetworkinterfaceRetrieve").getNetworkinterfaceRetrieve = null as any;
 export const getNetworkinterfaceRetrieveOutput: typeof import("./getNetworkinterfaceRetrieve").getNetworkinterfaceRetrieveOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkinterfaceRetrieve","getNetworkinterfaceRetrieveOutput"], () => require("./getNetworkinterfaceRetrieve"));
-
-export { GetStorageContainerArgs, GetStorageContainerResult, GetStorageContainerOutputArgs } from "./getStorageContainer";
-export const getStorageContainer: typeof import("./getStorageContainer").getStorageContainer = null as any;
-export const getStorageContainerOutput: typeof import("./getStorageContainer").getStorageContainerOutput = null as any;
-utilities.lazyLoad(exports, ["getStorageContainer","getStorageContainerOutput"], () => require("./getStorageContainer"));
 
 export { GetStoragecontainerRetrieveArgs, GetStoragecontainerRetrieveResult, GetStoragecontainerRetrieveOutputArgs } from "./getStoragecontainerRetrieve";
 export const getStoragecontainerRetrieve: typeof import("./getStoragecontainerRetrieve").getStoragecontainerRetrieve = null as any;
@@ -115,21 +75,6 @@ export const getUpdateSummary: typeof import("./getUpdateSummary").getUpdateSumm
 export const getUpdateSummaryOutput: typeof import("./getUpdateSummary").getUpdateSummaryOutput = null as any;
 utilities.lazyLoad(exports, ["getUpdateSummary","getUpdateSummaryOutput"], () => require("./getUpdateSummary"));
 
-export { GetVirtualHardDiskArgs, GetVirtualHardDiskResult, GetVirtualHardDiskOutputArgs } from "./getVirtualHardDisk";
-export const getVirtualHardDisk: typeof import("./getVirtualHardDisk").getVirtualHardDisk = null as any;
-export const getVirtualHardDiskOutput: typeof import("./getVirtualHardDisk").getVirtualHardDiskOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualHardDisk","getVirtualHardDiskOutput"], () => require("./getVirtualHardDisk"));
-
-export { GetVirtualMachineArgs, GetVirtualMachineResult, GetVirtualMachineOutputArgs } from "./getVirtualMachine";
-export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualMachine = null as any;
-export const getVirtualMachineOutput: typeof import("./getVirtualMachine").getVirtualMachineOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
-
-export { GetVirtualNetworkArgs, GetVirtualNetworkResult, GetVirtualNetworkOutputArgs } from "./getVirtualNetwork";
-export const getVirtualNetwork: typeof import("./getVirtualNetwork").getVirtualNetwork = null as any;
-export const getVirtualNetworkOutput: typeof import("./getVirtualNetwork").getVirtualNetworkOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetwork","getVirtualNetworkOutput"], () => require("./getVirtualNetwork"));
-
 export { GetVirtualharddiskRetrieveArgs, GetVirtualharddiskRetrieveResult, GetVirtualharddiskRetrieveOutputArgs } from "./getVirtualharddiskRetrieve";
 export const getVirtualharddiskRetrieve: typeof import("./getVirtualharddiskRetrieve").getVirtualharddiskRetrieve = null as any;
 export const getVirtualharddiskRetrieveOutput: typeof import("./getVirtualharddiskRetrieve").getVirtualharddiskRetrieveOutput = null as any;
@@ -145,45 +90,15 @@ export const getVirtualnetworkRetrieve: typeof import("./getVirtualnetworkRetrie
 export const getVirtualnetworkRetrieveOutput: typeof import("./getVirtualnetworkRetrieve").getVirtualnetworkRetrieveOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualnetworkRetrieve","getVirtualnetworkRetrieveOutput"], () => require("./getVirtualnetworkRetrieve"));
 
-export { GuestAgentArgs } from "./guestAgent";
-export type GuestAgent = import("./guestAgent").GuestAgent;
-export const GuestAgent: typeof import("./guestAgent").GuestAgent = null as any;
-utilities.lazyLoad(exports, ["GuestAgent"], () => require("./guestAgent"));
-
-export { HybridIdentityMetadatumArgs } from "./hybridIdentityMetadatum";
-export type HybridIdentityMetadatum = import("./hybridIdentityMetadatum").HybridIdentityMetadatum;
-export const HybridIdentityMetadatum: typeof import("./hybridIdentityMetadatum").HybridIdentityMetadatum = null as any;
-utilities.lazyLoad(exports, ["HybridIdentityMetadatum"], () => require("./hybridIdentityMetadatum"));
-
-export { MachineExtensionArgs } from "./machineExtension";
-export type MachineExtension = import("./machineExtension").MachineExtension;
-export const MachineExtension: typeof import("./machineExtension").MachineExtension = null as any;
-utilities.lazyLoad(exports, ["MachineExtension"], () => require("./machineExtension"));
-
-export { MarketplaceGalleryImageArgs } from "./marketplaceGalleryImage";
-export type MarketplaceGalleryImage = import("./marketplaceGalleryImage").MarketplaceGalleryImage;
-export const MarketplaceGalleryImage: typeof import("./marketplaceGalleryImage").MarketplaceGalleryImage = null as any;
-utilities.lazyLoad(exports, ["MarketplaceGalleryImage"], () => require("./marketplaceGalleryImage"));
-
 export { MarketplacegalleryimageArgs } from "./marketplacegalleryimage";
 export type Marketplacegalleryimage = import("./marketplacegalleryimage").Marketplacegalleryimage;
 export const Marketplacegalleryimage: typeof import("./marketplacegalleryimage").Marketplacegalleryimage = null as any;
 utilities.lazyLoad(exports, ["Marketplacegalleryimage"], () => require("./marketplacegalleryimage"));
 
-export { NetworkInterfaceArgs } from "./networkInterface";
-export type NetworkInterface = import("./networkInterface").NetworkInterface;
-export const NetworkInterface: typeof import("./networkInterface").NetworkInterface = null as any;
-utilities.lazyLoad(exports, ["NetworkInterface"], () => require("./networkInterface"));
-
 export { NetworkinterfaceRetrieveArgs } from "./networkinterfaceRetrieve";
 export type NetworkinterfaceRetrieve = import("./networkinterfaceRetrieve").NetworkinterfaceRetrieve;
 export const NetworkinterfaceRetrieve: typeof import("./networkinterfaceRetrieve").NetworkinterfaceRetrieve = null as any;
 utilities.lazyLoad(exports, ["NetworkinterfaceRetrieve"], () => require("./networkinterfaceRetrieve"));
-
-export { StorageContainerArgs } from "./storageContainer";
-export type StorageContainer = import("./storageContainer").StorageContainer;
-export const StorageContainer: typeof import("./storageContainer").StorageContainer = null as any;
-utilities.lazyLoad(exports, ["StorageContainer"], () => require("./storageContainer"));
 
 export { StoragecontainerRetrieveArgs } from "./storagecontainerRetrieve";
 export type StoragecontainerRetrieve = import("./storagecontainerRetrieve").StoragecontainerRetrieve;
@@ -204,21 +119,6 @@ export { UpdateSummaryArgs } from "./updateSummary";
 export type UpdateSummary = import("./updateSummary").UpdateSummary;
 export const UpdateSummary: typeof import("./updateSummary").UpdateSummary = null as any;
 utilities.lazyLoad(exports, ["UpdateSummary"], () => require("./updateSummary"));
-
-export { VirtualHardDiskArgs } from "./virtualHardDisk";
-export type VirtualHardDisk = import("./virtualHardDisk").VirtualHardDisk;
-export const VirtualHardDisk: typeof import("./virtualHardDisk").VirtualHardDisk = null as any;
-utilities.lazyLoad(exports, ["VirtualHardDisk"], () => require("./virtualHardDisk"));
-
-export { VirtualMachineArgs } from "./virtualMachine";
-export type VirtualMachine = import("./virtualMachine").VirtualMachine;
-export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
-utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
-
-export { VirtualNetworkArgs } from "./virtualNetwork";
-export type VirtualNetwork = import("./virtualNetwork").VirtualNetwork;
-export const VirtualNetwork: typeof import("./virtualNetwork").VirtualNetwork = null as any;
-utilities.lazyLoad(exports, ["VirtualNetwork"], () => require("./virtualNetwork"));
 
 export { VirtualharddiskRetrieveArgs } from "./virtualharddiskRetrieve";
 export type VirtualharddiskRetrieve = import("./virtualharddiskRetrieve").VirtualharddiskRetrieve;
@@ -272,26 +172,12 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:Extension":
                 return new Extension(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci:GalleryImage":
-                return new GalleryImage(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:GalleryimageRetrieve":
                 return new GalleryimageRetrieve(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci:GuestAgent":
-                return new GuestAgent(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci:HybridIdentityMetadatum":
-                return new HybridIdentityMetadatum(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci:MachineExtension":
-                return new MachineExtension(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci:MarketplaceGalleryImage":
-                return new MarketplaceGalleryImage(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:Marketplacegalleryimage":
                 return new Marketplacegalleryimage(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci:NetworkInterface":
-                return new NetworkInterface(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:NetworkinterfaceRetrieve":
                 return new NetworkinterfaceRetrieve(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci:StorageContainer":
-                return new StorageContainer(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:StoragecontainerRetrieve":
                 return new StoragecontainerRetrieve(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:Update":
@@ -300,12 +186,6 @@ const _module = {
                 return new UpdateRun(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:UpdateSummary":
                 return new UpdateSummary(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci:VirtualHardDisk":
-                return new VirtualHardDisk(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci:VirtualMachine":
-                return new VirtualMachine(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci:VirtualNetwork":
-                return new VirtualNetwork(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:VirtualharddiskRetrieve":
                 return new VirtualharddiskRetrieve(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:VirtualmachineRetrieve":

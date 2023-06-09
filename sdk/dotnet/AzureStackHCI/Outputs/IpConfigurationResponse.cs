@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
     /// InterfaceIPConfiguration iPConfiguration in a network interface.
     /// </summary>
     [OutputType]
-    public sealed class IPConfigurationResponse
+    public sealed class IpConfigurationResponse
     {
         /// <summary>
         /// Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
         /// </summary>
-        public readonly Outputs.IPConfigurationResponseProperties? Properties;
+        public readonly Outputs.IpConfigurationResponseProperties? Properties;
 
         [OutputConstructor]
-        private IPConfigurationResponse(
+        private IpConfigurationResponse(
             string? name,
 
-            Outputs.IPConfigurationResponseProperties? properties)
+            Outputs.IpConfigurationResponseProperties? properties)
         {
             Name = name;
             Properties = properties;

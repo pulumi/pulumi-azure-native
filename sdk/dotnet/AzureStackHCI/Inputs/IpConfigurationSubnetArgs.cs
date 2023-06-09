@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
     /// <summary>
     /// Subnet - Name of Subnet bound to the IP configuration.
     /// </summary>
-    public sealed class IPConfigurationSubnetArgs : global::Pulumi.ResourceArgs
+    public sealed class IpConfigurationSubnetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
@@ -21,9 +21,9 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        public IPConfigurationSubnetArgs()
+        public IpConfigurationSubnetArgs()
         {
         }
-        public static new IPConfigurationSubnetArgs Empty => new IPConfigurationSubnetArgs();
+        public static new IpConfigurationSubnetArgs Empty => new IpConfigurationSubnetArgs();
     }
 }
