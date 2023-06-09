@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// Gets information about a RedisEnterprise cluster
-        /// API Version: 2022-01-01.
+        /// API Version: 2023-03-01-preview.
         /// </summary>
         public static Task<GetRedisEnterpriseResult> InvokeAsync(GetRedisEnterpriseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRedisEnterpriseResult>("azure-native:cache:getRedisEnterprise", args ?? new GetRedisEnterpriseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a RedisEnterprise cluster
-        /// API Version: 2022-01-01.
+        /// API Version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetRedisEnterpriseResult> Invoke(GetRedisEnterpriseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRedisEnterpriseResult>("azure-native:cache:getRedisEnterprise", args ?? new GetRedisEnterpriseInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.Cache
     public sealed class GetRedisEnterpriseResult
     {
         /// <summary>
+        /// Encryption-at-rest configuration for the cluster.
+        /// </summary>
+        public readonly Outputs.ClusterPropertiesResponseEncryption? Encryption;
+        /// <summary>
         /// DNS name of the cluster endpoint
         /// </summary>
         public readonly string HostName;
@@ -79,6 +83,10 @@ namespace Pulumi.AzureNative.Cache
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -112,6 +120,10 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly Outputs.EnterpriseSkuResponse Sku;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -126,9 +138,13 @@ namespace Pulumi.AzureNative.Cache
 
         [OutputConstructor]
         private GetRedisEnterpriseResult(
+            Outputs.ClusterPropertiesResponseEncryption? encryption,
+
             string hostName,
 
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -146,14 +162,18 @@ namespace Pulumi.AzureNative.Cache
 
             Outputs.EnterpriseSkuResponse sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
             ImmutableArray<string> zones)
         {
+            Encryption = encryption;
             HostName = hostName;
             Id = id;
+            Identity = identity;
             Location = location;
             MinimumTlsVersion = minimumTlsVersion;
             Name = name;
@@ -162,6 +182,7 @@ namespace Pulumi.AzureNative.Cache
             RedisVersion = redisVersion;
             ResourceState = resourceState;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             Zones = zones;

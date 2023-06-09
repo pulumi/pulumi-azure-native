@@ -290,12 +290,16 @@ class BaseImageTriggerArgs:
     def __init__(__self__, *,
                  base_image_trigger_type: pulumi.Input[Union[str, 'BaseImageTriggerType']],
                  name: pulumi.Input[str],
-                 status: Optional[pulumi.Input[Union[str, 'TriggerStatus']]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'TriggerStatus']]] = None,
+                 update_trigger_endpoint: Optional[pulumi.Input[str]] = None,
+                 update_trigger_payload_type: Optional[pulumi.Input[Union[str, 'UpdateTriggerPayloadType']]] = None):
         """
         The trigger based on base image dependency.
         :param pulumi.Input[Union[str, 'BaseImageTriggerType']] base_image_trigger_type: The type of the auto trigger for base image dependency updates.
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input[Union[str, 'TriggerStatus']] status: The current status of trigger.
+        :param pulumi.Input[str] update_trigger_endpoint: The endpoint URL for receiving update triggers.
+        :param pulumi.Input[Union[str, 'UpdateTriggerPayloadType']] update_trigger_payload_type: Type of Payload body for Base image update triggers.
         """
         pulumi.set(__self__, "base_image_trigger_type", base_image_trigger_type)
         pulumi.set(__self__, "name", name)
@@ -303,6 +307,10 @@ class BaseImageTriggerArgs:
             status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if update_trigger_endpoint is not None:
+            pulumi.set(__self__, "update_trigger_endpoint", update_trigger_endpoint)
+        if update_trigger_payload_type is not None:
+            pulumi.set(__self__, "update_trigger_payload_type", update_trigger_payload_type)
 
     @property
     @pulumi.getter(name="baseImageTriggerType")
@@ -339,6 +347,30 @@ class BaseImageTriggerArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'TriggerStatus']]]):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="updateTriggerEndpoint")
+    def update_trigger_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint URL for receiving update triggers.
+        """
+        return pulumi.get(self, "update_trigger_endpoint")
+
+    @update_trigger_endpoint.setter
+    def update_trigger_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update_trigger_endpoint", value)
+
+    @property
+    @pulumi.getter(name="updateTriggerPayloadType")
+    def update_trigger_payload_type(self) -> Optional[pulumi.Input[Union[str, 'UpdateTriggerPayloadType']]]:
+        """
+        Type of Payload body for Base image update triggers.
+        """
+        return pulumi.get(self, "update_trigger_payload_type")
+
+    @update_trigger_payload_type.setter
+    def update_trigger_payload_type(self, value: Optional[pulumi.Input[Union[str, 'UpdateTriggerPayloadType']]]):
+        pulumi.set(self, "update_trigger_payload_type", value)
 
 
 @pulumi.input_type

@@ -39,6 +39,7 @@ __all__ = [
     'TokenType',
     'TriggerStatus',
     'TrustPolicyType',
+    'UpdateTriggerPayloadType',
     'Variant',
     'WebhookAction',
     'WebhookStatus',
@@ -321,6 +322,14 @@ class TrustPolicyType(str, Enum):
     The type of trust policy.
     """
     NOTARY = "Notary"
+
+
+class UpdateTriggerPayloadType(str, Enum):
+    """
+    Type of Payload body for Base image update triggers.
+    """
+    DEFAULT = "Default"
+    TOKEN = "Token"
 
 
 class Variant(str, Enum):

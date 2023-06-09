@@ -11,6 +11,9 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ClusterPropertiesCustomerManagedKeyEncryptionArgs',
+    'ClusterPropertiesEncryptionArgs',
+    'ClusterPropertiesKeyEncryptionKeyIdentityArgs',
     'DatabasePropertiesGeoReplicationArgs',
     'EnterpriseSkuArgs',
     'LinkedDatabaseArgs',
@@ -22,6 +25,110 @@ __all__ = [
     'ScheduleEntryArgs',
     'SkuArgs',
 ]
+
+@pulumi.input_type
+class ClusterPropertiesCustomerManagedKeyEncryptionArgs:
+    def __init__(__self__, *,
+                 key_encryption_key_identity: Optional[pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgs']] = None,
+                 key_encryption_key_url: Optional[pulumi.Input[str]] = None):
+        """
+        All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+        :param pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgs'] key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param pulumi.Input[str] key_encryption_key_url: Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
+        """
+        if key_encryption_key_identity is not None:
+            pulumi.set(__self__, "key_encryption_key_identity", key_encryption_key_identity)
+        if key_encryption_key_url is not None:
+            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
+
+    @property
+    @pulumi.getter(name="keyEncryptionKeyIdentity")
+    def key_encryption_key_identity(self) -> Optional[pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgs']]:
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        """
+        return pulumi.get(self, "key_encryption_key_identity")
+
+    @key_encryption_key_identity.setter
+    def key_encryption_key_identity(self, value: Optional[pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgs']]):
+        pulumi.set(self, "key_encryption_key_identity", value)
+
+    @property
+    @pulumi.getter(name="keyEncryptionKeyUrl")
+    def key_encryption_key_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
+        """
+        return pulumi.get(self, "key_encryption_key_url")
+
+    @key_encryption_key_url.setter
+    def key_encryption_key_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_encryption_key_url", value)
+
+
+@pulumi.input_type
+class ClusterPropertiesEncryptionArgs:
+    def __init__(__self__, *,
+                 customer_managed_key_encryption: Optional[pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgs']] = None):
+        """
+        Encryption-at-rest configuration for the cluster.
+        :param pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgs'] customer_managed_key_encryption: All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+        """
+        if customer_managed_key_encryption is not None:
+            pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEncryption")
+    def customer_managed_key_encryption(self) -> Optional[pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgs']]:
+        """
+        All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+        """
+        return pulumi.get(self, "customer_managed_key_encryption")
+
+    @customer_managed_key_encryption.setter
+    def customer_managed_key_encryption(self, value: Optional[pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgs']]):
+        pulumi.set(self, "customer_managed_key_encryption", value)
+
+
+@pulumi.input_type
+class ClusterPropertiesKeyEncryptionKeyIdentityArgs:
+    def __init__(__self__, *,
+                 identity_type: Optional[pulumi.Input[Union[str, 'CmkIdentityType']]] = None,
+                 user_assigned_identity_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param pulumi.Input[Union[str, 'CmkIdentityType']] identity_type: Only userAssignedIdentity is supported in this API version; other types may be supported in the future
+        :param pulumi.Input[str] user_assigned_identity_resource_id: User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/<sub uuid>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+        """
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[pulumi.Input[Union[str, 'CmkIdentityType']]]:
+        """
+        Only userAssignedIdentity is supported in this API version; other types may be supported in the future
+        """
+        return pulumi.get(self, "identity_type")
+
+    @identity_type.setter
+    def identity_type(self, value: Optional[pulumi.Input[Union[str, 'CmkIdentityType']]]):
+        pulumi.set(self, "identity_type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/<sub uuid>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+        """
+        return pulumi.get(self, "user_assigned_identity_resource_id")
+
+    @user_assigned_identity_resource_id.setter
+    def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_resource_id", value)
+
 
 @pulumi.input_type
 class DatabasePropertiesGeoReplicationArgs:

@@ -1067,6 +1067,37 @@ namespace Pulumi.AzureNative.ContainerRegistry
     }
 
     /// <summary>
+    /// Type of Payload body for Base image update triggers.
+    /// </summary>
+    [EnumType]
+    public readonly struct UpdateTriggerPayloadType : IEquatable<UpdateTriggerPayloadType>
+    {
+        private readonly string _value;
+
+        private UpdateTriggerPayloadType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UpdateTriggerPayloadType Default { get; } = new UpdateTriggerPayloadType("Default");
+        public static UpdateTriggerPayloadType Token { get; } = new UpdateTriggerPayloadType("Token");
+
+        public static bool operator ==(UpdateTriggerPayloadType left, UpdateTriggerPayloadType right) => left.Equals(right);
+        public static bool operator !=(UpdateTriggerPayloadType left, UpdateTriggerPayloadType right) => !left.Equals(right);
+
+        public static explicit operator string(UpdateTriggerPayloadType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UpdateTriggerPayloadType other && Equals(other);
+        public bool Equals(UpdateTriggerPayloadType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Variant of the CPU.
     /// </summary>
     [EnumType]

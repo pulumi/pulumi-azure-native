@@ -476,6 +476,10 @@ class BaseImageTriggerResponse(dict):
         suggest = None
         if key == "baseImageTriggerType":
             suggest = "base_image_trigger_type"
+        elif key == "updateTriggerEndpoint":
+            suggest = "update_trigger_endpoint"
+        elif key == "updateTriggerPayloadType":
+            suggest = "update_trigger_payload_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BaseImageTriggerResponse. Access the value via the '{suggest}' property getter instead.")
@@ -491,12 +495,16 @@ class BaseImageTriggerResponse(dict):
     def __init__(__self__, *,
                  base_image_trigger_type: str,
                  name: str,
-                 status: Optional[str] = None):
+                 status: Optional[str] = None,
+                 update_trigger_endpoint: Optional[str] = None,
+                 update_trigger_payload_type: Optional[str] = None):
         """
         The trigger based on base image dependency.
         :param str base_image_trigger_type: The type of the auto trigger for base image dependency updates.
         :param str name: The name of the trigger.
         :param str status: The current status of trigger.
+        :param str update_trigger_endpoint: The endpoint URL for receiving update triggers.
+        :param str update_trigger_payload_type: Type of Payload body for Base image update triggers.
         """
         pulumi.set(__self__, "base_image_trigger_type", base_image_trigger_type)
         pulumi.set(__self__, "name", name)
@@ -504,6 +512,10 @@ class BaseImageTriggerResponse(dict):
             status = 'Enabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if update_trigger_endpoint is not None:
+            pulumi.set(__self__, "update_trigger_endpoint", update_trigger_endpoint)
+        if update_trigger_payload_type is not None:
+            pulumi.set(__self__, "update_trigger_payload_type", update_trigger_payload_type)
 
     @property
     @pulumi.getter(name="baseImageTriggerType")
@@ -528,6 +540,22 @@ class BaseImageTriggerResponse(dict):
         The current status of trigger.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="updateTriggerEndpoint")
+    def update_trigger_endpoint(self) -> Optional[str]:
+        """
+        The endpoint URL for receiving update triggers.
+        """
+        return pulumi.get(self, "update_trigger_endpoint")
+
+    @property
+    @pulumi.getter(name="updateTriggerPayloadType")
+    def update_trigger_payload_type(self) -> Optional[str]:
+        """
+        Type of Payload body for Base image update triggers.
+        """
+        return pulumi.get(self, "update_trigger_payload_type")
 
 
 @pulumi.output_type

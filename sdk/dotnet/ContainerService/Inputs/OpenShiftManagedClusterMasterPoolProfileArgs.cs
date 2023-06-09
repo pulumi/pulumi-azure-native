@@ -16,22 +16,16 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     public sealed class OpenShiftManagedClusterMasterPoolProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Defines further properties on the API.
+        /// </summary>
+        [Input("apiProperties")]
+        public Input<Inputs.OpenShiftAPIPropertiesArgs>? ApiProperties { get; set; }
+
+        /// <summary>
         /// Number of masters (VMs) to host docker containers. The default value is 3.
         /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
-
-        /// <summary>
-        /// Unique name of the master pool profile in the context of the subscription and resource group.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        /// </summary>
-        [Input("osType")]
-        public InputUnion<string, Pulumi.AzureNative.ContainerService.OSType>? OsType { get; set; }
 
         /// <summary>
         /// Subnet CIDR for the peering.

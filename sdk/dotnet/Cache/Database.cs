@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// Describes a database on the RedisEnterprise cluster
-    /// API Version: 2022-01-01.
+    /// API Version: 2023-03-01-preview.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:Database")]
@@ -76,6 +76,12 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Output("resourceState")]
         public Output<string> ResourceState { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

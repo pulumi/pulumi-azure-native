@@ -70,6 +70,37 @@ namespace Pulumi.AzureNative.Cache
     }
 
     /// <summary>
+    /// Only userAssignedIdentity is supported in this API version; other types may be supported in the future
+    /// </summary>
+    [EnumType]
+    public readonly struct CmkIdentityType : IEquatable<CmkIdentityType>
+    {
+        private readonly string _value;
+
+        private CmkIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CmkIdentityType SystemAssignedIdentity { get; } = new CmkIdentityType("systemAssignedIdentity");
+        public static CmkIdentityType UserAssignedIdentity { get; } = new CmkIdentityType("userAssignedIdentity");
+
+        public static bool operator ==(CmkIdentityType left, CmkIdentityType right) => left.Equals(right);
+        public static bool operator !=(CmkIdentityType left, CmkIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(CmkIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CmkIdentityType other && Equals(other);
+        public bool Equals(CmkIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Day of the week when a cache can be patched.
     /// </summary>
     [EnumType]

@@ -198,7 +198,7 @@ class Database(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a database on the RedisEnterprise cluster
-        API Version: 2022-01-01.
+        API Version: 2023-03-01-preview.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -222,7 +222,7 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a database on the RedisEnterprise cluster
-        API Version: 2022-01-01.
+        API Version: 2023-03-01-preview.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -276,6 +276,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20201001preview:Database"), pulumi.Alias(type_="azure-native:cache/v20210201preview:Database"), pulumi.Alias(type_="azure-native:cache/v20210301:Database"), pulumi.Alias(type_="azure-native:cache/v20210801:Database"), pulumi.Alias(type_="azure-native:cache/v20220101:Database"), pulumi.Alias(type_="azure-native:cache/v20221101preview:Database"), pulumi.Alias(type_="azure-native:cache/v20230301preview:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -311,6 +312,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["port"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["resource_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Database(resource_name, opts=opts, __props__=__props__)
 
@@ -393,6 +395,14 @@ class Database(pulumi.CustomResource):
         Current resource status of the database
         """
         return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

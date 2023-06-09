@@ -12,6 +12,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ClusterPropertiesResponseCustomerManagedKeyEncryption',
+    'ClusterPropertiesResponseEncryption',
+    'ClusterPropertiesResponseKeyEncryptionKeyIdentity',
     'DatabasePropertiesResponseGeoReplication',
     'EnterpriseSkuResponse',
     'LinkedDatabaseResponse',
@@ -27,8 +30,157 @@ __all__ = [
     'RedisLinkedServerResponse',
     'ScheduleEntryResponse',
     'SkuResponse',
+    'SystemDataResponse',
     'UserAssignedIdentityResponse',
 ]
+
+@pulumi.output_type
+class ClusterPropertiesResponseCustomerManagedKeyEncryption(dict):
+    """
+    All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyEncryptionKeyIdentity":
+            suggest = "key_encryption_key_identity"
+        elif key == "keyEncryptionKeyUrl":
+            suggest = "key_encryption_key_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPropertiesResponseCustomerManagedKeyEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPropertiesResponseCustomerManagedKeyEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPropertiesResponseCustomerManagedKeyEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_encryption_key_identity: Optional['outputs.ClusterPropertiesResponseKeyEncryptionKeyIdentity'] = None,
+                 key_encryption_key_url: Optional[str] = None):
+        """
+        All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+        :param 'ClusterPropertiesResponseKeyEncryptionKeyIdentity' key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param str key_encryption_key_url: Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
+        """
+        if key_encryption_key_identity is not None:
+            pulumi.set(__self__, "key_encryption_key_identity", key_encryption_key_identity)
+        if key_encryption_key_url is not None:
+            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
+
+    @property
+    @pulumi.getter(name="keyEncryptionKeyIdentity")
+    def key_encryption_key_identity(self) -> Optional['outputs.ClusterPropertiesResponseKeyEncryptionKeyIdentity']:
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        """
+        return pulumi.get(self, "key_encryption_key_identity")
+
+    @property
+    @pulumi.getter(name="keyEncryptionKeyUrl")
+    def key_encryption_key_url(self) -> Optional[str]:
+        """
+        Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
+        """
+        return pulumi.get(self, "key_encryption_key_url")
+
+
+@pulumi.output_type
+class ClusterPropertiesResponseEncryption(dict):
+    """
+    Encryption-at-rest configuration for the cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerManagedKeyEncryption":
+            suggest = "customer_managed_key_encryption"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPropertiesResponseEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPropertiesResponseEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPropertiesResponseEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_managed_key_encryption: Optional['outputs.ClusterPropertiesResponseCustomerManagedKeyEncryption'] = None):
+        """
+        Encryption-at-rest configuration for the cluster.
+        :param 'ClusterPropertiesResponseCustomerManagedKeyEncryption' customer_managed_key_encryption: All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+        """
+        if customer_managed_key_encryption is not None:
+            pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEncryption")
+    def customer_managed_key_encryption(self) -> Optional['outputs.ClusterPropertiesResponseCustomerManagedKeyEncryption']:
+        """
+        All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+        """
+        return pulumi.get(self, "customer_managed_key_encryption")
+
+
+@pulumi.output_type
+class ClusterPropertiesResponseKeyEncryptionKeyIdentity(dict):
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityType":
+            suggest = "identity_type"
+        elif key == "userAssignedIdentityResourceId":
+            suggest = "user_assigned_identity_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPropertiesResponseKeyEncryptionKeyIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPropertiesResponseKeyEncryptionKeyIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPropertiesResponseKeyEncryptionKeyIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_type: Optional[str] = None,
+                 user_assigned_identity_resource_id: Optional[str] = None):
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param str identity_type: Only userAssignedIdentity is supported in this API version; other types may be supported in the future
+        :param str user_assigned_identity_resource_id: User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/<sub uuid>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+        """
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[str]:
+        """
+        Only userAssignedIdentity is supported in this API version; other types may be supported in the future
+        """
+        return pulumi.get(self, "identity_type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[str]:
+        """
+        User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/<sub uuid>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+        """
+        return pulumi.get(self, "user_assigned_identity_resource_id")
+
 
 @pulumi.output_type
 class DatabasePropertiesResponseGeoReplication(dict):
@@ -368,6 +520,8 @@ class PrivateEndpointConnectionResponse(dict):
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
 
@@ -387,6 +541,7 @@ class PrivateEndpointConnectionResponse(dict):
                  name: str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
@@ -395,6 +550,7 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
@@ -402,6 +558,7 @@ class PrivateEndpointConnectionResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -437,6 +594,14 @@ class PrivateEndpointConnectionResponse(dict):
         The provisioning state of the private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -1082,6 +1247,116 @@ class SkuResponse(dict):
         The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

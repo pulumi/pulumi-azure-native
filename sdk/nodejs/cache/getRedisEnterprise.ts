@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a RedisEnterprise cluster
- * API Version: 2022-01-01.
+ * API Version: 2023-03-01-preview.
  */
 export function getRedisEnterprise(args: GetRedisEnterpriseArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisEnterpriseResult> {
 
@@ -36,6 +36,10 @@ export interface GetRedisEnterpriseArgs {
  */
 export interface GetRedisEnterpriseResult {
     /**
+     * Encryption-at-rest configuration for the cluster.
+     */
+    readonly encryption?: outputs.cache.ClusterPropertiesResponseEncryption;
+    /**
      * DNS name of the cluster endpoint
      */
     readonly hostName: string;
@@ -43,6 +47,10 @@ export interface GetRedisEnterpriseResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * The identity of the resource.
+     */
+    readonly identity?: outputs.cache.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -76,6 +84,10 @@ export interface GetRedisEnterpriseResult {
      */
     readonly sku: outputs.cache.EnterpriseSkuResponse;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.cache.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -90,7 +102,7 @@ export interface GetRedisEnterpriseResult {
 }
 /**
  * Gets information about a RedisEnterprise cluster
- * API Version: 2022-01-01.
+ * API Version: 2023-03-01-preview.
  */
 export function getRedisEnterpriseOutput(args: GetRedisEnterpriseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisEnterpriseResult> {
     return pulumi.output(args).apply((a: any) => getRedisEnterprise(a, opts))

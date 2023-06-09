@@ -61,11 +61,13 @@ __all__ = [
     'ManagedClusterWorkloadAutoScalerProfileKedaArgs',
     'ManagedClusterWorkloadAutoScalerProfileArgs',
     'NetworkProfileArgs',
+    'OpenShiftAPIPropertiesArgs',
     'OpenShiftManagedClusterAADIdentityProviderArgs',
     'OpenShiftManagedClusterAgentPoolProfileArgs',
     'OpenShiftManagedClusterAuthProfileArgs',
     'OpenShiftManagedClusterIdentityProviderArgs',
     'OpenShiftManagedClusterMasterPoolProfileArgs',
+    'OpenShiftManagedClusterMonitorProfileArgs',
     'OpenShiftRouterProfileArgs',
     'PowerStateArgs',
     'PrivateEndpointArgs',
@@ -3432,17 +3434,17 @@ class ManagedClusterWorkloadAutoScalerProfileArgs:
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
-                 peer_vnet_id: Optional[pulumi.Input[str]] = None,
+                 management_subnet_cidr: Optional[pulumi.Input[str]] = None,
                  vnet_cidr: Optional[pulumi.Input[str]] = None,
                  vnet_id: Optional[pulumi.Input[str]] = None):
         """
         Represents the OpenShift networking configuration
-        :param pulumi.Input[str] peer_vnet_id: CIDR of the Vnet to peer.
+        :param pulumi.Input[str] management_subnet_cidr: CIDR of subnet used to create PLS needed for management of the cluster
         :param pulumi.Input[str] vnet_cidr: CIDR for the OpenShift Vnet.
         :param pulumi.Input[str] vnet_id: ID of the Vnet created for OSA cluster.
         """
-        if peer_vnet_id is not None:
-            pulumi.set(__self__, "peer_vnet_id", peer_vnet_id)
+        if management_subnet_cidr is not None:
+            pulumi.set(__self__, "management_subnet_cidr", management_subnet_cidr)
         if vnet_cidr is None:
             vnet_cidr = '10.0.0.0/8'
         if vnet_cidr is not None:
@@ -3451,16 +3453,16 @@ class NetworkProfileArgs:
             pulumi.set(__self__, "vnet_id", vnet_id)
 
     @property
-    @pulumi.getter(name="peerVnetId")
-    def peer_vnet_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="managementSubnetCidr")
+    def management_subnet_cidr(self) -> Optional[pulumi.Input[str]]:
         """
-        CIDR of the Vnet to peer.
+        CIDR of subnet used to create PLS needed for management of the cluster
         """
-        return pulumi.get(self, "peer_vnet_id")
+        return pulumi.get(self, "management_subnet_cidr")
 
-    @peer_vnet_id.setter
-    def peer_vnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "peer_vnet_id", value)
+    @management_subnet_cidr.setter
+    def management_subnet_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "management_subnet_cidr", value)
 
     @property
     @pulumi.getter(name="vnetCidr")
@@ -3485,6 +3487,30 @@ class NetworkProfileArgs:
     @vnet_id.setter
     def vnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vnet_id", value)
+
+
+@pulumi.input_type
+class OpenShiftAPIPropertiesArgs:
+    def __init__(__self__, *,
+                 private_api_server: Optional[pulumi.Input[bool]] = None):
+        """
+        Defines further properties on the API.
+        :param pulumi.Input[bool] private_api_server: Specifies if API server is public or private.
+        """
+        if private_api_server is not None:
+            pulumi.set(__self__, "private_api_server", private_api_server)
+
+    @property
+    @pulumi.getter(name="privateApiServer")
+    def private_api_server(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if API server is public or private.
+        """
+        return pulumi.get(self, "private_api_server")
+
+    @private_api_server.setter
+    def private_api_server(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_api_server", value)
 
 
 @pulumi.input_type
@@ -3748,23 +3774,19 @@ class OpenShiftManagedClusterMasterPoolProfileArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  vm_size: pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']],
-                 name: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
+                 api_properties: Optional[pulumi.Input['OpenShiftAPIPropertiesArgs']] = None,
                  subnet_cidr: Optional[pulumi.Input[str]] = None):
         """
         OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
         :param pulumi.Input[int] count: Number of masters (VMs) to host docker containers. The default value is 3.
         :param pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']] vm_size: Size of agent VMs.
-        :param pulumi.Input[str] name: Unique name of the master pool profile in the context of the subscription and resource group.
-        :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        :param pulumi.Input['OpenShiftAPIPropertiesArgs'] api_properties: Defines further properties on the API.
         :param pulumi.Input[str] subnet_cidr: Subnet CIDR for the peering.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "vm_size", vm_size)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+        if api_properties is not None:
+            pulumi.set(__self__, "api_properties", api_properties)
         if subnet_cidr is not None:
             pulumi.set(__self__, "subnet_cidr", subnet_cidr)
 
@@ -3793,28 +3815,16 @@ class OpenShiftManagedClusterMasterPoolProfileArgs:
         pulumi.set(self, "vm_size", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="apiProperties")
+    def api_properties(self) -> Optional[pulumi.Input['OpenShiftAPIPropertiesArgs']]:
         """
-        Unique name of the master pool profile in the context of the subscription and resource group.
+        Defines further properties on the API.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "api_properties")
 
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OSType']]]:
-        """
-        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        """
-        return pulumi.get(self, "os_type")
-
-    @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OSType']]]):
-        pulumi.set(self, "os_type", value)
+    @api_properties.setter
+    def api_properties(self, value: Optional[pulumi.Input['OpenShiftAPIPropertiesArgs']]):
+        pulumi.set(self, "api_properties", value)
 
     @property
     @pulumi.getter(name="subnetCidr")
@@ -3827,6 +3837,46 @@ class OpenShiftManagedClusterMasterPoolProfileArgs:
     @subnet_cidr.setter
     def subnet_cidr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_cidr", value)
+
+
+@pulumi.input_type
+class OpenShiftManagedClusterMonitorProfileArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 workspace_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the configuration for Log Analytics integration.
+        :param pulumi.Input[bool] enabled: If the Log analytics integration should be turned on or off
+        :param pulumi.Input[str] workspace_resource_id: Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the Log analytics integration should be turned on or off
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="workspaceResourceID")
+    def workspace_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+        """
+        return pulumi.get(self, "workspace_resource_id")
+
+    @workspace_resource_id.setter
+    def workspace_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspace_resource_id", value)
 
 
 @pulumi.input_type

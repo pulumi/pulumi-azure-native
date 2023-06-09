@@ -365,6 +365,16 @@ export const TrustPolicyType = {
  */
 export type TrustPolicyType = (typeof TrustPolicyType)[keyof typeof TrustPolicyType];
 
+export const UpdateTriggerPayloadType = {
+    Default: "Default",
+    Token: "Token",
+} as const;
+
+/**
+ * Type of Payload body for Base image update triggers.
+ */
+export type UpdateTriggerPayloadType = (typeof UpdateTriggerPayloadType)[keyof typeof UpdateTriggerPayloadType];
+
 export const Variant = {
     V6: "v6",
     V7: "v7",

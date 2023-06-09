@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the watcher identified by watcher name.
- * API Version: 2019-06-01.
+ * API Version: 2020-01-13-preview.
  */
 export function getWatcher(args: GetWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetWatcherResult> {
 
@@ -100,7 +100,7 @@ export interface GetWatcherResult {
 }
 /**
  * Retrieve the watcher identified by watcher name.
- * API Version: 2019-06-01.
+ * API Version: 2020-01-13-preview.
  */
 export function getWatcherOutput(args: GetWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatcherResult> {
     return pulumi.output(args).apply((a: any) => getWatcher(a, opts))
