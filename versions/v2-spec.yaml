@@ -124,7 +124,7 @@ Automation:
     additions:
         PrivateEndpointConnection: 2020-01-13-preview
         SoftwareUpdateConfigurationByName: "2019-06-01"
-        Watcher: "2019-06-01"
+        Watcher: 2020-01-13-preview
         Webhook: "2015-10-31"
 AutonomousDevelopmentPlatform:
     tracking: 2021-11-01-preview
@@ -180,10 +180,10 @@ Cache:
     additions:
         AccessPolicy: 2023-05-01-preview
         AccessPolicyAssignment: 2023-05-01-preview
-        Database: "2022-01-01"
-        EnterprisePrivateEndpointConnection: "2022-01-01"
-        RedisEnterprise: "2022-01-01"
-        listDatabaseKeys: "2022-01-01"
+        Database: 2023-03-01-preview
+        EnterprisePrivateEndpointConnection: 2023-03-01-preview
+        RedisEnterprise: 2023-03-01-preview
+        listDatabaseKeys: 2023-03-01-preview
 Capacity: {}
 Cdn:
     tracking: "2023-05-01"
@@ -254,7 +254,7 @@ ContainerRegistry:
         ExportPipeline: 2023-01-01-preview
         ImportPipeline: 2023-01-01-preview
         PipelineRun: 2023-01-01-preview
-        Task: "2019-04-01"
+        Task: 2019-06-01-preview
         TaskRun: 2019-06-01-preview
         getBuildLogLink: 2018-02-01-preview
         getRegistryBuildSourceUploadUrl: 2018-02-01-preview
@@ -262,9 +262,9 @@ ContainerRegistry:
         listAgentPoolQueueStatus: 2019-06-01-preview
         listBuildStepBuildArguments: 2018-02-01-preview
         listBuildTaskSourceRepositoryProperties: 2018-02-01-preview
-        listRegistryBuildSourceUploadUrl: "2019-04-01"
-        listRunLogSasUrl: "2019-04-01"
-        listTaskDetails: "2019-04-01"
+        listRegistryBuildSourceUploadUrl: 2019-06-01-preview
+        listRunLogSasUrl: 2019-06-01-preview
+        listTaskDetails: 2019-06-01-preview
         listTaskRunDetails: 2019-06-01-preview
 ContainerService:
     tracking: "2023-04-01"
@@ -272,7 +272,7 @@ ContainerService:
         Fleet: 2023-03-15-preview
         FleetMember: 2023-03-15-preview
         ManagedClusterSnapshot: 2023-04-02-preview
-        OpenShiftManagedCluster: "2019-04-30"
+        OpenShiftManagedCluster: 2019-10-27-preview
         TrustedAccessRoleBinding: 2023-04-02-preview
         UpdateRun: 2023-03-15-preview
         listFleetCredentials: 2023-03-15-preview
@@ -434,7 +434,7 @@ EventGrid:
 EventHub:
     tracking: "2021-11-01"
     additions:
-        ApplicationGroup: 2022-01-01-preview
+        ApplicationGroup: 2022-10-01-preview
         NamespaceIpFilterRule: 2018-01-01-preview
         NamespaceVirtualNetworkRule: 2018-01-01-preview
 ExtendedLocation:
