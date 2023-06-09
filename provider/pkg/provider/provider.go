@@ -788,14 +788,13 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 
 	// Calculate the detailed diff object containing information about replacements.
 	detailedDiff := calculateDetailedDiff(&res, &k.resourceMap.Types, diff)
+	for _, diff := range detailedDiff {
+		diff.InputDiff = true
+	}
 
 	// Based on the detailed diff above, calculate the list of changes and replacements.
 	var changes, replaces []string
 	for k, v := range detailedDiff {
-		parts := strings.Split(k, ".")
-		changes = append(changes, parts[0])
-		v.InputDiff = true
-
 		switch v.Kind {
 		case rpc.PropertyDiff_ADD_REPLACE:
 			// Special case: previously, the property input had no value but is now set to X.
@@ -831,13 +830,16 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 				}
 
 				if ok && defaultVal != nil && reflect.DeepEqual(newInputValue.V, defaultVal) {
-					log.Printf("Should skip noisy diff for %s, default value %v is set", k, newInputValue)
-					// TODO skip
+					log.Printf("Skipping diff for %s, property with default value %v is added", k, newInputValue)
+					continue
 				}
 			}
 		case rpc.PropertyDiff_DELETE_REPLACE, rpc.PropertyDiff_UPDATE_REPLACE:
 			replaces = append(replaces, k)
 		}
+
+		parts := strings.Split(k, ".")
+		changes = append(changes, parts[0])
 	}
 
 	// TODO: implement create-before-delete for children of randomly auto-named resources.
@@ -846,7 +848,7 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 		deleteBeforeReplace = !v.BoolValue()
 	}
 	changeType := rpc.DiffResponse_DIFF_NONE
-	if len(detailedDiff) > 0 {
+	if len(changes) > 0 {
 		changeType = rpc.DiffResponse_DIFF_SOME
 	}
 
