@@ -185,7 +185,7 @@ func buildSpec(providerName string, versions VersionResources, curations Curatio
 	for version := range versions {
 		sortedVersions = append(sortedVersions, version)
 	}
-	sort.Strings(sortedVersions)
+	openapi.SortApiVersions(sortedVersions)
 	additions := map[openapi.ResourceName]openapi.ApiVersion{}
 	// Loop through every version in order, skipping excluded and private versions
 	// and overwriting additions from previous versions.
@@ -243,11 +243,11 @@ func findLatestResourceVersions(versions VersionResources, curations providerCur
 		orderedVersions = append(orderedVersions, apiVersion)
 	}
 
-	// Descending order - newest first
-	sort.Sort(sort.Reverse(sort.StringSlice(orderedVersions)))
+	openapi.SortApiVersions(orderedVersions)
 
 	latestResourceVersions := map[openapi.ResourceName]openapi.ApiVersion{}
-	for _, version := range orderedVersions {
+	for i := len(orderedVersions) - 1; i >= 0; i-- {
+		version := orderedVersions[i]
 		resources := minimalVersions[version]
 		for _, resourceName := range resources {
 			// Only add if not already exists

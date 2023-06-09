@@ -8,6 +8,7 @@ import (
 	"regexp"
 	"sort"
 	"strings"
+	"time"
 
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
@@ -216,9 +217,57 @@ func IsPreview(apiVersion string) bool {
 	return strings.Contains(lower, "preview") || strings.Contains(lower, "beta")
 }
 
+func ApiVersionToDate(apiVersion string) (time.Time, error) {
+	if len(apiVersion) < 10 {
+		return time.Time{}, fmt.Errorf("invalid API version %q", apiVersion)
+	}
+	// The API version is in the format YYYY-MM-DD - ignore suffixes like "-preview".
+	return time.Parse("2006-01-02", apiVersion[:10])
+}
+
 func IsPrivate(apiVersion string) bool {
 	lower := strings.ToLower(apiVersion)
 	return strings.Contains(lower, "private")
+}
+
+func CompareApiVersions(a, b string) int {
+	timeA, err := ApiVersionToDate(a)
+	if err != nil {
+		return strings.Compare(a, b)
+	}
+	timeB, err := ApiVersionToDate(b)
+	if err != nil {
+		return strings.Compare(a, b)
+	}
+	timeDiff := timeA.Compare(timeB)
+	if timeDiff != 0 {
+		return timeDiff
+	}
+
+	// Sort private first, preview second, stable last.
+	aPrivate := IsPrivate(a)
+	bPrivate := IsPrivate(b)
+	if aPrivate != bPrivate {
+		if aPrivate {
+			return -1
+		}
+		return 1
+	}
+	aPreview := IsPreview(a)
+	bPreview := IsPreview(b)
+	if aPreview != bPreview {
+		if aPreview {
+			return -1
+		}
+		return 1
+	}
+	return 0
+}
+
+func SortApiVersions(versions []string) {
+	sort.SliceStable(versions, func(i, j int) bool {
+		return CompareApiVersions(versions[i], versions[j]) < 0
+	})
 }
 
 // swaggerLocations returns a slice of URLs of all known Azure Resource Manager swagger files.
