@@ -1043,17 +1043,6 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			// Top-level location is never required: it can be derived from a config value or the parent resource group.
 			props.requiredSpecs.Delete("location")
 
-			// Copy default values from spec to property so we can use them later for diffing.
-			for name, spec := range props.specs {
-				if spec.Default != nil {
-					if prop, ok := props.properties[name]; ok {
-						prop.Default = spec.Default
-						// would be nicer if props were a map of pointers
-						props.properties[name] = prop
-					}
-				}
-			}
-
 			result.merge(props)
 			apiParameter.Body = &resources.AzureAPIType{
 				Properties:         props.properties,

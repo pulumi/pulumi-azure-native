@@ -270,12 +270,17 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		AdditionalProperties: m.itemTypeToProperty(typeSpec.AdditionalProperties),
 		ForceNew:             forceNew,
 		IsStringSet:          isStringSet,
+		Default:              defaultValue,
 	}
 
 	// Input types only get extra information attached
 	if !isOutput {
 		if m.isEnum(&schemaProperty.TypeSpec) {
-			metadataProperty = resources.AzureAPIProperty{Type: "string", ForceNew: forceNew}
+			metadataProperty = resources.AzureAPIProperty{
+				Type:     "string",
+				Default:  defaultValue,
+				ForceNew: forceNew,
+			}
 		} else {
 			// Set additional properties when it's an input
 			metadataProperty.Type = typeSpec.Type
