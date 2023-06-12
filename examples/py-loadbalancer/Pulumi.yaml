@@ -1,0 +1,3 @@
+name: py-loadbalancer
+runtime: python
+description: A Python Pulumi program that creates a Load Balancer with relative resource IDs
