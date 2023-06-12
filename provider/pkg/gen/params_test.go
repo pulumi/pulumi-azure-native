@@ -668,7 +668,7 @@ func TestFlattenParams(t *testing.T) {
     }
   }
 }`),
-			resourceName: "azure-native:web/v20150801:Site",
+			resourceName: "azure-native:web/v20220901:WebApp",
 			expected: map[string]interface{}{
 				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
 				"siteConfig":   "[variables('configReference')[parameters('language')]]",
@@ -706,28 +706,26 @@ func TestFlattenParams(t *testing.T) {
     }
   }
 }`),
-			resourceName: "azure-native:documentdb/v20200601preview:DatabaseAccount",
+			resourceName: "azure-native:documentdb/v20230415:DatabaseAccount",
 			expected: map[string]interface{}{
-				"properties": map[string]interface{}{
-					"backupPolicy": map[string]interface{}{
-						"periodicModeProperties": map[string]interface{}{
-							"backupIntervalInMinutes":        240,
-							"backupRetentionIntervalInHours": 8,
-						},
-						"type": "Periodic",
+				"backupPolicy": map[string]interface{}{
+					"periodicModeProperties": map[string]interface{}{
+						"backupIntervalInMinutes":        240,
+						"backupRetentionIntervalInHours": 8,
 					},
-					"capabilities": []interface{}{
-						map[string]interface{}{
-							"name": "EnableServerless",
-						},
+					"type": "Periodic",
+				},
+				"capabilities": []interface{}{
+					map[string]interface{}{
+						"name": "EnableServerless",
 					},
-					"databaseAccountOfferType": "Standard",
-					"enableFreeTier":           false,
-					"locations": []interface{}{
-						map[string]interface{}{
-							"failoverPriority": 0,
-							"locationName":     "[parameters('location')]",
-						},
+				},
+				"databaseAccountOfferType": "Standard",
+				"enableFreeTier":           false,
+				"locations": []interface{}{
+					map[string]interface{}{
+						"failoverPriority": 0,
+						"locationName":     "[parameters('location')]",
 					},
 				},
 			},
